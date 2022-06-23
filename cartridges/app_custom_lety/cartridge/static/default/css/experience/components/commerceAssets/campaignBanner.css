@@ -1,17 +1,19 @@
 .campaign-banner {
-  background-color: #061c3f;
+  background-color: var(--color-lety3);
   color: #fff;
-  height: 3.57em;
+  height: 2.5em;
 }
 .campaign-banner .campaign-banner-container {
-  height: 3.57em;
+  height: 2.5em;
 }
 .campaign-banner .campaign-banner-message {
   margin-left: 2em;
   margin-right: 1em;
-  padding-top: 0.25em;
+  padding-top: 0.6em !important;
   padding-bottom: 1em;
-  font-family: Helvetica Neue;
+  font-family: var(--font-family-gotham);
+  font-size: 18px;
+  font-weight: 400;
   line-height: 1.75em;
 }
 .campaign-banner .campaign-banner-message h1,

@@ -1,0 +1,8 @@
+<div class="site-location">
+<form>
+    <input type="" name="" value="" class="form-control-location location-field">
+    <button type="reset" name="reset-button" class="fa fa-times reset-button d-none" aria-label="${Resource.msg('label.header.search.clear', 'common', null)}"></button>
+    <button type="submit" name="search-button" class="fa fa-map-marker" aria-label="${Resource.msg('label.header.search.go', 'common', null)}"></button>
+</form>
+    
+</div>

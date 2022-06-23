@@ -1,5 +1,25 @@
 @import url(https://fonts.googleapis.com/css?family=Dosis&subset=latin-ext);
+@import url(http://fonts.cdnfonts.com/css/gotham);
 :root {
+  /*Colores Lety*/
+  --color-lety1: #6C4D23;
+  --color-lety2: #D7612B;
+  --color-lety3: #F6A738;
+  --color-lety4: #9F7C4D;
+  --color-lety5: #C2AA8A;
+  --color-lety6: #D42A34;
+  --color-lety7: #FD56B1;
+  --color-lety8: #69C5EC;
+  --color-lety9: #F6C95E;
+  --color-lety10: #9035AF;
+  --color-lety11: #539C39;
+  --color-lety-white: #FFFFFF;
+  --color-lety-black: #1C1C1C;
+  --color-lety-grey: #4E4E4E;
+  --color-lety12-footer: #3E2B11;
+  --color-lety-link: #0074FC;
+  --color-lety-checkout-grey: #F3F3F3;
+  /*Colores Lety*/
   --color-white: #fff;
   --color-black: #000;
   --color-blue: #0070d2;
@@ -78,11 +98,14 @@
   --breakpoint-md: 769px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
+  /*Font famili Lety*/
+  --font-family-gotham: 'Gotham', sans-serif !important;
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
+  
 }
 *,
 :after,
@@ -90,7 +113,7 @@
   box-sizing: border-box;
 }
 html {
-  font-family: sans-serif;
+  font-family: var(--font-family-gotham);
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -109,8 +132,7 @@ section {
 }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Helvetica Neue, Arial, Noto Sans, sans-serif;
+  font-family: var(--font-family-gotham);
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -220,8 +242,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono,
-    Courier New, monospace;
+  font-family: var(--font-family-gotham);
   font-size: 1em;
 }
 pre {
@@ -567,9 +588,9 @@ pre code {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  
+  margin-right: -20 px;
+  
 }
 .no-gutters {
   margin-right: 0;
@@ -702,6 +723,7 @@ pre code {
   -ms-flex: 0 0 58.33333%;
   flex: 0 0 58.33333%;
   max-width: 58.33333%;
+  padding-right: 0 !important;
 }
 .col-8 {
   -ms-flex: 0 0 66.66667%;
@@ -1769,8 +1791,8 @@ pre code {
 }
 .form-control {
   display: block;
-  width: 100%;
-  height: calc(1.5em + 0.75rem + 2px);
+  width: 17em;
+  height: 37px;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   font-weight: 400;
@@ -1782,6 +1804,7 @@ pre code {
   border-radius: 0.1875rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
 @media (prefers-reduced-motion: reduce) {
   .form-control {
     transition: none;
@@ -5337,8 +5360,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Helvetica Neue, Arial, Noto Sans, sans-serif;
+  font-family: var(--font-family-gotham);
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5444,8 +5466,7 @@ a.close.disabled {
   left: 0;
   z-index: 1060;
   max-width: 276px;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Helvetica Neue, Arial, Noto Sans, sans-serif;
+  font-family: var(--font-family-gotham);
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -7231,7 +7252,7 @@ button.bg-dark:hover {
 }
 .pt-3,
 .py-3 {
-  padding-top: 1rem !important;
+  padding-top: 0 !important;
 }
 .pr-3,
 .px-3 {
@@ -8774,8 +8795,7 @@ button.bg-dark:hover {
   }
 }
 .text-monospace {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono,
-    Courier New, monospace !important;
+  font-family: var(--font-family-gotham);
 }
 .text-justify {
   text-align: justify !important;
@@ -9263,11 +9283,15 @@ dt {
 .fa.fa-pull-right {
   margin-left: 0.3em;
 }
+
 .pull-right {
   float: right;
 }
 .pull-left {
   float: left;
+  margin-top: 2em;
+  padding-left: 4.5em;
+
 }
 .fa.pull-left {
   margin-right: 0.3em;
@@ -13195,6 +13219,7 @@ a.skip:hover {
 .navbar.bg-inverse {
   background-color: transparent !important;
   padding: 0;
+  padding-top: 1em;
 }
 @media (min-width: 769px) {
   .navbar.bg-inverse .navbar-nav .nav-item + .nav-item {
@@ -13356,8 +13381,14 @@ a.skip:hover {
 .multilevel-dropdown .dropdown-item.top-category > .nav-link {
   padding-left: 0;
 }
+.navigation-header{
+  background-color: var(--color-lety2);
+  
+}
+
 .header {
   position: relative;
+  height: 6.13em;
 }
 .navbar-header {
   height: 4.375em;
@@ -13382,6 +13413,7 @@ a.skip:hover {
 }
 .navbar-header .user {
   position: relative;
+  
 }
 .navbar-header .user .popover {
   position: absolute;
@@ -13398,17 +13430,19 @@ a.skip:hover {
 .navbar-header .user .popover:before {
   left: 1.5rem;
 }
+
 .brand,
 .navbar-header .user .popover.show {
   display: block;
 }
+
 .brand {
   position: absolute;
-  left: 50%;
+  left: 2.125em;
   text-align: center;
 }
 .brand img {
-  width: 100%;
+  width: 60%;
 }
 @media (min-width: 992px) {
   .brand {
@@ -13424,8 +13458,11 @@ a.skip:hover {
     padding-top: 0.8em;
   }
 }
-.main-menu {
-  background-color: #444;
+.main-menu{
+  background-color: var(--color-lety2) !important;
+  width: auto;
+  height: 6.13em;
+  margin-left: -15px;
 }
 .main-menu .navbar .close-button button,
 .main-menu .navbar .close-menu button {
@@ -13456,6 +13493,8 @@ a.skip:hover {
 .minicart {
   margin-top: 0.1875em;
   vertical-align: top;
+  padding-top: 1.9em;
+  margin-left: 1.3em;
 }
 .minicart .minicart-icon {
   font-size: 1.5em;
@@ -13711,7 +13750,7 @@ footer .social {
   margin-top: 1.25em;
 }
 footer .footer-container .footer-item.collapsible-xs button {
-  font-family: Dosis, sans-serif;
+  font-family: var(--font-family-gotham);
   padding: 0;
 }
 footer .social-links {
@@ -13916,7 +13955,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Dosis, sans-serif;
+  font-family: var(--font-family-gotham);
 }
 .notify {
   position: fixed;
@@ -15100,6 +15139,7 @@ div.availability {
 .site-search {
   position: relative;
   height: 2.5em;
+  width: 15.5em;
 }
 @media (min-width: 544px) {
   .site-search {
@@ -15108,7 +15148,7 @@ div.availability {
 }
 @media (min-width: 1200px) {
   .site-search {
-    width: 20em;
+    width: 15.5em;
   }
 }
 @media (min-width: 769px) and (max-width: 991.98px) {
@@ -15123,24 +15163,60 @@ div.availability {
 }
 .site-search .fa-close,
 .site-search .fa-search {
-  right: 0.5625em;
+  right: 0.8625em;
 }
+
 .site-search .fa-close,
 .site-search .fa-search,
+.site-location .fa-map-marker,
 .site-search .reset-button {
   position: absolute;
   border: none;
   top: 0.5625em;
   padding: 0;
   background-color: transparent;
+  color: #0A0A0A;
+}
+
+.site-location .fa-map-marker{
+  top: 2.5em !important;
+  right: 17em !important;
+  
 }
 .site-search .reset-button {
   right: 2em;
 }
 .site-search input {
   padding-right: 2rem;
-  height: 100%;
+  margin-top: .8em;
+  height: 37px !important;
+  width: 15em;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.1875rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
+.site-location input{
+  margin-left: 2em;
+  height: 37px !important;
+  width: 12em !important;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.1875rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
 @media (max-width: 543.98px) {
   .header-search .site-search {
     display: none;
