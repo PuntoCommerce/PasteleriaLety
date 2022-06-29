@@ -1,0 +1,28 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceLayouts/custCarousel.css');
+    assets.addJs('/js/customScriptsJquery.js');
+    assets.addJs('/js/slick.js');
+</isscript>
+
+<div class="slider-container">
+    <img class="background-cust-component-desktop ${pdict.heading ? 'common-image-filter' : ''}"
+        src="${pdict.backgroundImageDesktop.src.mobile}"
+        style="--focal-point-x:${pdict.backgroundImageDesktop.focalPointX}; --focal-point-y:${pdict.backgroundImageDesktop.focalPointY}"
+        alt="${pdict.backgroundImageDesktop ? pdict.backgroundImageDesktop : imageName}"
+        title="${pdict.backgroundImageDesktop ? pdict.backgroundImageDesktop : imageName}" />
+    <img class="background-cust-component-mobile ${pdict.heading ? 'common-image-filter' : ''}"
+        src="${pdict.backgroundImageMobile.src.mobile}"
+        style="--focal-point-x:${pdict.backgroundImageDesktop.focalPointX}; --focal-point-y:${pdict.backgroundImageDesktop.focalPointY}"
+        alt="${pdict.backgroundImageDesktop ? pdict.backgroundImageDesktop : imageName}"
+        title="${pdict.backgroundImageDesktop ? pdict.backgroundImageDesktop : imageName}" />
+    <isprint value="${pdict.regions.slides.setClassName(" slider-desk").render()}" encoding="off" />
+    <div class="carousel-btns-container">
+        <a class="btn-cust-carousel" href="${pdict.link}">
+            <isprint value="${pdict.richTextLink}" encoding="off" />
+        </a>
+        <a class="btn-cust-carousel-buy" href="${" #"}">
+            <isprint value="${pdict.richTextBuy}" encoding="off" />
+        </a>
+    </div>
+</div>

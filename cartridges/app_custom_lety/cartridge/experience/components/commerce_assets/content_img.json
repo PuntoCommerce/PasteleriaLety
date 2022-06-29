@@ -1,0 +1,47 @@
+{
+  "name": "Image and Text Align",
+  "description": "This is a component combined image with text",
+  "group": "commerce_assets",
+  "attribute_definition_groups": [
+    {
+      "id": "Image",
+      "attribute_definitions": [
+        {
+          "id": "imageContent",
+          "name": "imageContent",
+          "type": "image",
+          "required": true
+        },
+        {
+          "id": "text",
+          "name": "Text",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "align",
+          "name": "Text align",
+          "description": "Vertical position of the text",
+          "type": "enum",
+          "values": ["top", "center", "bottom"],
+          "required": false
+        },
+        {
+            "id": "justify",
+            "name": "Text justify",
+            "description": "Horizontal position of the text",
+            "type": "enum",
+            "values": ["left", "center", "rigth"],
+            "required": false
+          },
+        {
+          "id": "textButtom",
+          "name": "textButtom",
+          "type": "string",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "region_definitions": []
+}

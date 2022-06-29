@@ -1,0 +1,10 @@
+<isscript>
+    let assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss("/css/experience/components/commerceAssets/text_align.css");
+</isscript>
+
+<div class="text_align ">
+     <span class="text align-${pdict.align}">
+      <isprint id="text_align" value="${pdict.text_align}" encoding="off"/>
+    </span>
+</div>

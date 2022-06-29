@@ -1,0 +1,30 @@
+{
+    "name": "Text align",
+    "description": "Text align component",
+    "group": "commerce_assets",
+    "attribute_definition_groups": [
+      {
+        "id": "text_align",
+        "name": "Text align attributes",
+        "attribute_definitions": [
+          {
+            "id": "text_align",
+            "name": "Text",
+            "description": "Message to be displayed component",
+            "type": "string",
+            "required": true
+          },
+          {
+            "id": "align",
+            "name": "Text align",
+            "description": "Horizontal position of the text",
+            "type": "enum",
+            "values": ["left", "center", "rigth"],
+            "required": false
+          }
+        ]
+      }
+    ],
+    "region_definitions": []
+  }
+  

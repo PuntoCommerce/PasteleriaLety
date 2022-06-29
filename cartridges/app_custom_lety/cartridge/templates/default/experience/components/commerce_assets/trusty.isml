@@ -1,0 +1,19 @@
+<isscript>
+    let assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss("/css/experience/components/commerceAssets/trusty.css");
+</isscript>
+
+<div class="trusty">
+  <div class="icon">
+    <img src="${pdict.image.src.desktop}" height="42px" width="42px" alt="${pdict.image.alt}">
+  </div>
+  <div class="text">
+    <span class="trusty-text">
+      <isprint id="trusty-text" value="${pdict.message}" encoding="off" />
+    </span>
+    <span class="trusty-text2">
+      <isprint id="trusty-text2" value="${pdict.message2}" encoding="off" />
+    </span>
+    
+  </div>
+</div>

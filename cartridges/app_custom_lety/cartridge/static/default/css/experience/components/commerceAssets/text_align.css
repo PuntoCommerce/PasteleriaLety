@@ -1,0 +1,16 @@
+.text_align{
+    text-align: center;
+    margin-top: .3em;
+}
+
+.text_align-center{
+    text-align: center;
+}
+
+.text_align-left{
+    text-align: left;
+}
+
+.text_align-rigth{
+    text-align: right;
+}

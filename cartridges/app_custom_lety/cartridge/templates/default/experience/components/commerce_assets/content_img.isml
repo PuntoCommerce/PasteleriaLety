@@ -1,0 +1,12 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceAssets/content_img.css');
+</isscript>
+
+<div class="content_img">
+    <img src="${pdict.imageContent.src.desktop}" class="img" alt="" />
+    <div class="content_TB align-${pdict.align} justify-${pdict.justify}">
+        <p class="text1">${pdict.text}</p>
+        <button class="text2">${pdict.textButtom}</button>
+    </div>
+</div>

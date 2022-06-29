@@ -46,3 +46,23 @@
 .campaign-banner .close-button .close img {
   width: 0.7em;
 }
+
+@media (max-width: 992px) {
+  .campaign-banner {
+    height: 1.86em;
+  }
+
+  .campaign-banner .campaign-banner-container {
+    height: 1.86em;
+  }
+
+  .campaign-banner .campaign-banner-message {
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 13px;
+  }
+
+  .campaign-banner .close-button .close{
+    display: none;
+  }
+}
