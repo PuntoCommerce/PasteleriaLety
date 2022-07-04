@@ -38,10 +38,10 @@
   font-size: 18px;
   line-height: 24px;
   /* identical to box height, or 150%*/
-
+  box-shadow: 2px 2px 5px ghostwhite;
   text-align: center;
   letter-spacing: -0.011em;
-
+  line-height: 0 !important;
   color: #ffffff;
   flex: none;
   order: 0;

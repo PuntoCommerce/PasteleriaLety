@@ -2,9 +2,11 @@
   background-color: var(--color-lety3);
   color: #fff;
   height: 2.5em;
+  
 }
 .campaign-banner .campaign-banner-container {
   height: 2.5em;
+  overflow-y: hidden;
 }
 .campaign-banner .campaign-banner-message {
   margin-left: 2em;
@@ -36,6 +38,7 @@
   margin-bottom: 0;
 }
 .campaign-banner .close-button {
+  
   margin-right: 1em;
 }
 .campaign-banner .close-button .close {
@@ -45,6 +48,7 @@
 }
 .campaign-banner .close-button .close img {
   width: 0.7em;
+  display: none;
 }
 
 @media (max-width: 992px) {

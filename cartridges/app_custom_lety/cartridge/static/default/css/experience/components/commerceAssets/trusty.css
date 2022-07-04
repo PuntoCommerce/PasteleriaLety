@@ -48,3 +48,17 @@
     height: 49px;
   }
 }
+
+@media (min-width: 544px) and (max-width: 768.98px){
+  .trusty{
+    flex-direction: column;
+  }
+  .trusty .text{
+    font-size: 12px;
+  }
+
+  .icon img{
+    width: 80px;
+    height: 79px;
+  }
+}
