@@ -34,10 +34,7 @@
                 </div>
             </div>
 
-            <div class="footer-item col-sm-3 store">
-                <iscomment>
-                    <iscontentasset aid="footer-locate-store" />
-                </iscomment>
+            <div class="footer-item col-sm-3 collapsible-xs">
                 <iscontentasset aid="footer-contact" />
             </div>
 
@@ -88,15 +85,29 @@
 
 
                         </ul>
+                        <div class="footer-img col-lg-12 col-sm-5 push-sm-7 push-lg-8 brand-footer">
+                        <a style="width: 109px;" class="logo-footer" href="${URLUtils.url('Home-Show')}"
+                            title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
+                                   'global.home', 'common', null))}">
+                            <img class="hidden-md-down" src="${URLUtils.staticURL('/images/lety-logo.svg')}"
+                                alt="${Resource.msg('global.storename', 'common', null)}" style="width: 109px; margin-left:71px;"/>
+                            <img class="d-lg-none" src="${URLUtils.staticURL('/images/lety-logo.svg')}"
+                                alt="${Resource.msg('global.storename', 'common', null)}" style="width: 109px;"/>
+                        </a>
+                    </div>
                         <ul class="social-links">
-                            
+                        
+                        <li>
+                         <img src="${URLUtils.staticURL('/images/icons/shield-check.svg')}" alt="${Resource.msg('global.storename', 'common', null)}" />
                             <span style="margin-top: 7px">Pagos seguros</span>
+                        </li>
+                           
                             <li><a class="fa fa-cc-paypal fa-3x" aria-label="MasterCard" href="" target="_blank"></a>
                             </li>
                             <li><a class="fa fa-cc-visa fa-3x" aria-label="YouTube" href="" target="_blank"></a></li>
                             <li><a class="fa fa-cc-mastercard fa-3x" aria-label="YouTube" href="" target="_blank"></a>
                             </li>
-
+                            
                         </ul>
                         <isslot id="footer-column-m" description="Content in column 1 of the Footer" context="global" />
                         <button class="back-to-top" title="${Resource.msg('button.back_to_top', 'common', null)}"
@@ -107,17 +118,17 @@
                             </span>
                         </button>
                     </div>
-                    <div class="footer-img col-lg-12 col-sm-5 push-sm-7 push-lg-8 brand-footer">
-                        <a class="logo-home" href="${URLUtils.url('Home-Show')}"
+                    
+<div class="footer-img col-lg-12 col-sm-5 push-sm-7 push-lg-8 brand-footer store-mobile">
+                        <a style="width: 109px;" class="logo-footer" href="${URLUtils.url('Home-Show')}"
                             title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
                                    'global.home', 'common', null))}">
                             <img class="hidden-md-down" src="${URLUtils.staticURL('/images/lety-logo.svg')}"
-                                alt="${Resource.msg('global.storename', 'common', null)}" />
+                                alt="${Resource.msg('global.storename', 'common', null)}" style="width: 109px; margin-left:71px;"/>
                             <img class="d-lg-none" src="${URLUtils.staticURL('/images/lety-logo.svg')}"
-                                alt="${Resource.msg('global.storename', 'common', null)}" />
+                                alt="${Resource.msg('global.storename', 'common', null)}" style="width: 109px;"/>
                         </a>
                     </div>
-
                 </div>
 
             </div>
