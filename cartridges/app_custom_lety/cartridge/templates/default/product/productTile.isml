@@ -12,6 +12,10 @@
 
         <isinclude template="product/components/productTileName" />
 
+        <isif condition="${product.shortDescription}">
+            <span class="plp-description">${product.shortDescription}</span>
+        </isif>
+
         <isset name="price" value="${product.price}" scope="page" />
         <isif condition="${product.productType === 'set'}">
             <isinclude template="product/components/pricing/setPrice" />
@@ -20,9 +24,15 @@
         </isif>
         <isinclude template="product/components/productRating" sf-toolkit="on" />
 
+        <isinclude template="product/components/highlight" />
+        <div class="summary__footer">
+            <button class="btn-product btn--gray btn__small" href="${pdict.urls.product}">${Resource.msg('productTile.button.buy', 'pdComponents_es', null)}</button>
+        </div>
+
         <isif condition="${pdict.display.ratings !== false}">
             <isinclude template="product/productTileFooter" />
         </isif>
+        
     </div>
     <!-- END_dwmarker -->
 </div>
