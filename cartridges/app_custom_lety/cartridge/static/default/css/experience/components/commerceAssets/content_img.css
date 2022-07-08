@@ -78,10 +78,6 @@
   .content_img{
     min-height: 170px;
   }
-  .content_TB{
-    justify-content: center;
-    top: 60%;
-  }
   .text1{
     justify-content: center;
     height: auto;
@@ -92,30 +88,5 @@
     width: 150px;
     height: 25px;
     font-size: 11px;
-  }
-
-  .content_TB.align-top {
-    top: 50%;
-  }
-  
-  .content_TB.align-center {
-    top: 50%;
-    
-  }
-  
-  .content_TB.align-buttom {
-    top: 50%;
-  }
-  
-  .content_TB.justify-left {
-    left: 50%;
-  }
-  
-  .content_TB.justify-center {
-    justify-content: center;
-  }
-  
-  .content_TB.justify-rigth {
-    left: 50%;
   }
 }

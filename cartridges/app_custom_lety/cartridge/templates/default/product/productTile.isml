@@ -13,7 +13,9 @@
         <isinclude template="product/components/productTileName" />
 
         <isif condition="${product.shortDescription}">
-            <span class="plp-description">${product.shortDescription}</span>
+        <div class="truncate">
+                <p class="plp-description d-none">${product.shortDescription}</p>
+        </div>
         </isif>
 
         <isset name="price" value="${product.price}" scope="page" />
@@ -26,13 +28,14 @@
 
         <isinclude template="product/components/highlight" />
         <div class="summary__footer">
-            <button class="btn-product btn--gray btn__small" href="${pdict.urls.product}">${Resource.msg('productTile.button.buy', 'pdComponents_es', null)}</button>
+            <button class="btn-product btn--gray btn__small"
+                href="${pdict.urls.product}">${Resource.msg('productTile.button.buy', 'pdComponents_es', null)}</button>
         </div>
 
         <isif condition="${pdict.display.ratings !== false}">
             <isinclude template="product/productTileFooter" />
         </isif>
-        
+
     </div>
     <!-- END_dwmarker -->
 </div>
