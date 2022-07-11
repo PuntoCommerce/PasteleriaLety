@@ -13932,11 +13932,10 @@ div.availability {
   margin-bottom: 0.5rem;
 }
 .product-tile {
-  border: 0;
   margin-bottom: 0;
   text-align: center;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 8px;
+padding-right: 10px;
 }
 
 .product-tile .image-container, .color-swatches, 
@@ -13983,18 +13982,16 @@ div.availability {
 
 @media (max-width: 991.98px) {
   .product-tile {
-    max-width: 160px;
-    padding-left: 5px;
+    max-width: 100%;
   }
   .btn-product{
-    width: 100%;
+    width: 90%;
     height: 37px;
     background-color: var(--color-lety1);
     border: none;
     color: var(--color-lety-white);
     font-size: 16px;
     font-family: var(--font-family-gotham);
-    margin-left: 5px;
   }
   .product-tile .tile-body .pdp-link{
     height: 3rem;
@@ -14008,11 +14005,6 @@ div.availability {
     height: 6rem !important;
     display: block;
     padding-top: 8px;
-  }
-
-  .product-tile .tile-body{
-    padding: 0 !important;
-    padding-left: 8px !important;
   }
 }
 
@@ -14071,6 +14063,7 @@ div.availability {
 
 .product-tile .tile-body .price{
   font-size: 20px !important;
+  height: 70px;
 }
 @media (max-width: 991.98px) {
   .product-tile .tile-body .pdp-link a {
