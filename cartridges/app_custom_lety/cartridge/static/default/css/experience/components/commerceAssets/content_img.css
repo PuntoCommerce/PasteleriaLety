@@ -89,4 +89,8 @@
     height: 25px;
     font-size: 11px;
   }
+
+  .content_TB.justify-rigth {
+    left: 50%;
+  }
 }

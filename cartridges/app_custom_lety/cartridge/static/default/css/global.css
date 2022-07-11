@@ -13166,6 +13166,7 @@ footer h2 {
 footer.social-links span{
   font-family: var(--font-family-gotham);
 }
+
 footer ul {
   list-style: none;
   padding-left: 0;
@@ -13932,11 +13933,8 @@ div.availability {
   margin-bottom: 0.5rem;
 }
 .product-tile {
-  border: 0;
   margin-bottom: 0;
   text-align: center;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .product-tile .image-container, .color-swatches, 
@@ -13983,8 +13981,10 @@ div.availability {
 
 @media (max-width: 991.98px) {
   .product-tile {
-    max-width: 160px;
-    padding-left: 5px;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    
   }
   .btn-product{
     width: 100%;
@@ -13994,11 +13994,16 @@ div.availability {
     color: var(--color-lety-white);
     font-size: 16px;
     font-family: var(--font-family-gotham);
-    margin-left: 5px;
   }
+  
+  .product-tile .tile-body{
+    width: 100%;
+  }
+
   .product-tile .tile-body .pdp-link{
-    height: 3rem;
+    min-height: 44px;
   }
+
   .product-tile .tile-body .pdp-link a{
     font-size: 14px !important;
   }
@@ -14012,7 +14017,6 @@ div.availability {
 
   .product-tile .tile-body{
     padding: 0 !important;
-    padding-left: 8px !important;
   }
 }
 
