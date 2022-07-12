@@ -73,10 +73,9 @@
                     <div class="minicart col-2" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
                         <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
                     </div>
-                    <button class="navbar-toggler d-md-none col-2" type="button" aria-controls="sg-navbar-collapse"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        &#9776; <span class="hidden-xs-down">Menu</span>
-                    </button>
+                  <button type="button" id="openCustomMenu" onclick="openCustomMenu()">
+                                      x  <iscomment> <img src="${URLUtils.staticURL('/images/menu.svg')}"/> </iscomment>
+                                    </button>
                 </div>
             </div>
             <div class="main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"
