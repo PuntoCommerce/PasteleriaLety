@@ -1,4 +1,4 @@
-<iscomment> <div class="dropdown-menu ">
+<div class="dropdown-menu ">
    <div class="d-flex">
       <div class="dropdown-menu-content" role="menu" aria-hidden="true" aria-label="${category.id}">
          <isset name="categoryImage" value="${category.thumbnail}" scope="page" />
@@ -30,4 +30,4 @@
          <img id="imageMenu" src="${categoryImage}" alt="${category.name}" height="300px" >
       </div>
    </div>
-</div> </iscomment>
+</div>
