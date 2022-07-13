@@ -89,4 +89,29 @@
     height: 25px;
     font-size: 11px;
   }
+
+  .content_TB.align-top {
+    top: 80%;
+  }
+  
+  .content_TB.align-center {
+    top: 50%;
+    
+  }
+  
+  .content_TB.align-buttom {
+    top: 80%;
+  }
+  
+  .content_TB.justify-left {
+    left: 50%;
+  }
+  
+  .content_TB.justify-center {
+    justify-content: center;
+  }
+  
+  .content_TB.justify-rigth {
+    left: 50%;
+  }
 }

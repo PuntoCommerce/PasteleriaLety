@@ -19,9 +19,6 @@ window.addEventListener("scroll", () => {
       sub.style.top = rectMenu.y + menuHeight + "px";
     });
   };
-  const $C = (el) => document.querySelector(el);
-  const $$C = (el) => document.querySelectorAll(el);
-
   
   const toggleSubCategories = $$C(".toggle-subcategories");
 

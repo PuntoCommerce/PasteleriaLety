@@ -5,9 +5,6 @@
         <isprint value="${pdict.regions.headerbanner.render()}" encoding="off" />
     </isif>
     <nav role="navigation">
-        <iscomment>
-            Navigation Desktop
-        </iscomment>
         <div class="navigation-desktop d-none d-md-block">
             <div class="header d-flex justify-content-center align-items-center">
                 <div class="row header-container">
@@ -74,18 +71,18 @@
                         <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
                     </div>
                   <button type="button" id="openCustomMenu" onclick="openCustomMenu()">
-                                      x  <iscomment> <img src="${URLUtils.staticURL('/images/menu.svg')}"/> </iscomment>
+                                           <img src="${URLUtils.staticURL('/images/menu.svg')}"/>
                                     </button>
                 </div>
             </div>
-            <div class="main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"
+           <iscomment>  <div class="main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"
                 id="sg-navbar-collapse">
                 <div class="container">
                     <div class="row">
                         <isinclude url="${URLUtils.url('Page-IncludeHeaderMenu')}" />
                     </div>
                 </div>
-            </div>
+            </div> </iscomment>
         </div>
     </nav>
     <div class="location d-block d-md-none">
