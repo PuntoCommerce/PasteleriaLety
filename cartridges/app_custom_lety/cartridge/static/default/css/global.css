@@ -586,6 +586,10 @@ pre code {
     padding-top: 11px;
   }
 
+  .navigation-desktop{
+    display: none;
+  }
+
   .search-icon {
     margin-top: 24px;
     color: var(--color-lety-white);
@@ -595,6 +599,7 @@ pre code {
 
   .search-icon i{
     padding-left: 35px;
+    margin-top: 4px;
   }
 
   .minicart {
@@ -669,6 +674,10 @@ pre code {
     font-size: 14px !important;
   } 
 
+}
+
+.button-menu{
+  color: var(--color-lety-white);
 }
 .container-1450 {
   max-width: 1450px;
@@ -12847,6 +12856,8 @@ a.skip:hover {
   .brand img {
     width: 85.38px;
     height: 51.52px;
+    margin-left:  -60px;
+    margin-top: -7px;
   }
   .header {
     background-color: var(--color-lety2);
@@ -12895,6 +12906,7 @@ a.skip:hover {
 
 .minicart-total{
   margin-left: 10px;
+  margin-top: 2px;
 }
 .minicart {
   margin-top: 0.1875em;
@@ -13318,10 +13330,10 @@ footer .newsletter::placeholder {
 footer .newsletter {
   font-size: 14px;
   background-color: var(--color-lety-white);
-  border: 1px solid #ffffff;
-  border-radius: 0px;
+  border: 1px solid #ffffff !important;
+  border-radius: 0px !important;
   height: 32px;
-  width: 268px;
+  width: 268px !important;
 }
 
 footer .newsletter:focus {
@@ -14853,7 +14865,7 @@ padding-right: 10px;
 
 .input-location{
   height: 37px;
-  margin-top: 0.2em;
+  margin-top: -0.1em !important;
 }
 
 /* @media (min-width: 544px) {
@@ -14898,7 +14910,7 @@ padding-right: 10px;
 } */
 .site-search .fa-close,
 .site-search .fa-search {
-  right: 15px;
+  right: 29px;
 }
 .site-search .fa-close,
 .site-search .fa-search,

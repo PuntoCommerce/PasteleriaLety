@@ -102,15 +102,6 @@
   content: url(../images/search.svg);
 }
 
-.search-field-responsive,
-.search-field {
-  color: #000000 !important;
-  border: 1px solid #000000 !important;
-  border-radius: 0 !important;
-  width: 308px;
-  height: 23px !important;
-}
-
 .site-search .reset-button {
   top: auto;
   padding-bottom: 4px;
@@ -332,8 +323,8 @@ ul {
 
   #customMenuResponsive a {
     color: #000000 !important;
-    font-family: "Avenir-LT-Std";
-    font-size: 14px;
+    font-family: var(--font-family-gotham);
+    font-size: 15px;
   }
 
   .subCategory-item .toggle-subcategories {
@@ -396,6 +387,7 @@ ul {
   }
   #customMenuResponsive .nav-link.parent {
     font-weight: 800;
+    font-size: 14px;
   }
   #customMenuResponsive #actions-icons {
     margin-top: 30px;
@@ -406,7 +398,7 @@ ul {
   
   #customMenuResponsive .category-title {
     font-family: var(--font-family-gotham);
-    font-size: 20px;
+    font-size: 15px;
     line-height: 27px;
     text-transform: uppercase;
     text-align: left;
