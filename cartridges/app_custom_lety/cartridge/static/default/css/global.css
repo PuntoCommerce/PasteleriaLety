@@ -586,6 +586,10 @@ pre code {
     padding-top: 11px;
   }
 
+  .navigation-desktop{
+    display: none;
+  }
+
   .search-icon {
     margin-top: 24px;
     color: var(--color-lety-white);
@@ -1162,17 +1166,17 @@ pre code {
 }
 .form-control {
   display: block;
-  width: 100%;
+  width: 100% !important;
   height: calc(1.5em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #495057;
+  color: #495057 !important;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.1875rem;
+  border: 1px solid #ced4da !important;
+  border-radius: 0.1875rem !important;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -12848,6 +12852,8 @@ a.skip:hover {
   .brand img {
     width: 85.38px;
     height: 51.52px;
+    margin-left:  -60px;
+    margin-top: -7px;
   }
   .header {
     background-color: var(--color-lety2);
@@ -13319,10 +13325,10 @@ footer .newsletter::placeholder {
 footer .newsletter {
   font-size: 14px;
   background-color: var(--color-lety-white);
-  border: 1px solid #ffffff;
-  border-radius: 0px;
+  border: 1px solid #ffffff !important;
+  border-radius: 0px !important;
   height: 32px;
-  width: 268px;
+  width: 268px !important;
 }
 
 footer .newsletter:focus {
@@ -14854,7 +14860,7 @@ padding-right: 10px;
 
 .input-location{
   height: 37px;
-  margin-top: 0.2em;
+  margin-top: -0.1em !important;
 }
 
 /* @media (min-width: 544px) {
@@ -14899,7 +14905,7 @@ padding-right: 10px;
 } */
 .site-search .fa-close,
 .site-search .fa-search {
-  right: 15px;
+  right: 29px;
 }
 .site-search .fa-close,
 .site-search .fa-search,

@@ -8,7 +8,7 @@
         <iscomment>
             Navigation Desktop
         </iscomment>
-        <div class="navigation-desktop d-none d-md-block">
+        <div class="navigation-desktop">
             <div class="header d-flex justify-content-center align-items-center">
                 <div class="row header-container">
                     <div class="pull-left d-flex align-items-center col-4">
@@ -30,14 +30,14 @@
                         <div class="search">
                             <isinclude template="components/header/search" />
                         </div>
-                        <div class="main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"
+                       <iscomment>  <div class="main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"
                             id="sg-navbar-collapse">
                             <div class="container">
                                 <div class="row">
                                     <isinclude url="${URLUtils.url('Page-IncludeHeaderMenu')}" />
                                 </div>
                             </div>
-                        </div>
+                        </div> </iscomment>
                         <div class="hidden-md-down">
                             <isinclude url="${URLUtils.url('Account-Header')}" />
                             <isinclude url="${URLUtils.url('Page-Locale')}" />
@@ -73,7 +73,7 @@
                     <div class="minicart col-2" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
                         <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
                     </div>
-                  <button type="button" id="openCustomMenu" onclick="openCustomMenu()">
+                  <button class="button-menu col-2" type="button" id="openCustomMenu" onclick="openCustomMenu()">
                                       x  <iscomment> <img src="${URLUtils.staticURL('/images/menu.svg')}"/> </iscomment>
                                     </button>
                 </div>

@@ -102,15 +102,6 @@
   content: url(../images/search.svg);
 }
 
-.search-field-responsive,
-.search-field {
-  color: #000000 !important;
-  border: 1px solid #000000 !important;
-  border-radius: 0 !important;
-  width: 308px;
-  height: 23px !important;
-}
-
 .site-search .reset-button {
   top: auto;
   padding-bottom: 4px;

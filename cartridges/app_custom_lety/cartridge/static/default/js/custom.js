@@ -2,28 +2,25 @@ const $C = (el) => document.querySelector(el);
 const $$C = (el) => document.querySelectorAll(el);
 
 window.addEventListener("scroll", () => {
-    changeSubMenuItem();
-  });
-  
-  window.addEventListener("load", () => {
-    changeSubMenuItem();
-  });
-  
-  const changeSubMenuItem = () => {
-    const menu = $C(".menu-group");
-    const subMenu = $$C(".dropdown-menu");
-    const menuHeight = 45;
-    let rectMenu = menu.getBoundingClientRect();
-  
-    subMenu.forEach((sub) => {
-      sub.style.top = rectMenu.y + menuHeight + "px";
-    });
-  };
-  const $C = (el) => document.querySelector(el);
-  const $$C = (el) => document.querySelectorAll(el);
+  changeSubMenuItem();
+});
 
-  
-  const toggleSubCategories = $$C(".toggle-subcategories");
+window.addEventListener("load", () => {
+  changeSubMenuItem();
+});
+
+const changeSubMenuItem = () => {
+  const menu = $C(".menu-group");
+  const subMenu = $$C(".dropdown-menu");
+  const menuHeight = 45;
+  let rectMenu = menu.getBoundingClientRect();
+
+  subMenu.forEach((sub) => {
+    sub.style.top = rectMenu.y + menuHeight + "px";
+  });
+};
+
+const toggleSubCategories = $$C(".toggle-subcategories");
 
 toggleSubCategories.forEach((toggle) => {
   toggle.addEventListener("click", () => {
