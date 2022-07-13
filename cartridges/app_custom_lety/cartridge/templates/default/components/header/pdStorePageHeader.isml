@@ -52,7 +52,7 @@
         <iscomment>
             Navigation Mobile
         </iscomment>
-        <div class="navigation-mobile">
+        <div class="navigation-mobile d-md-none">
             <div class="header d-flex justify-content-center align-items-center">
                 <div class="row header-container">
                     <div class="navbar-header brand col-6">
@@ -78,14 +78,14 @@
                                     </button>
                 </div>
             </div>
-           <iscomment>  <div class="main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"
+            <div class="main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"
                 id="sg-navbar-collapse">
                 <div class="container">
                     <div class="row">
                         <isinclude url="${URLUtils.url('Page-IncludeHeaderMenu')}" />
                     </div>
                 </div>
-            </div> </iscomment>
+            </div>
         </div>
     </nav>
     <div class="location d-block d-md-none">
