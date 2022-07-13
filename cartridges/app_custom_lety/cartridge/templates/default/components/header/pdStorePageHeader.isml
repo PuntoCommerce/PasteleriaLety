@@ -74,7 +74,7 @@
                         <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
                     </div>
                   <button class="button-menu col-2" type="button" id="openCustomMenu" onclick="openCustomMenu()">
-                                      x  <iscomment> <img src="${URLUtils.staticURL('/images/menu.svg')}"/> </iscomment>
+                                      <img src="${URLUtils.staticURL('/images/icons/menu.svg')}" alt="${Resource.msg('global.storename', 'common', null)}" />
                                     </button>
                 </div>
             </div>

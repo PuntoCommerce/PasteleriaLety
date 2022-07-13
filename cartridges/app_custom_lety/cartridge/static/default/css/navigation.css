@@ -323,8 +323,8 @@ ul {
 
   #customMenuResponsive a {
     color: #000000 !important;
-    font-family: "Avenir-LT-Std";
-    font-size: 14px;
+    font-family: var(--font-family-gotham);
+    font-size: 15px;
   }
 
   .subCategory-item .toggle-subcategories {
@@ -387,6 +387,7 @@ ul {
   }
   #customMenuResponsive .nav-link.parent {
     font-weight: 800;
+    font-size: 14px;
   }
   #customMenuResponsive #actions-icons {
     margin-top: 30px;
@@ -397,7 +398,7 @@ ul {
   
   #customMenuResponsive .category-title {
     font-family: var(--font-family-gotham);
-    font-size: 20px;
+    font-size: 15px;
     line-height: 27px;
     text-transform: uppercase;
     text-align: left;

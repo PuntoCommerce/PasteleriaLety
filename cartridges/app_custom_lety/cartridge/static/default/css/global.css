@@ -599,6 +599,7 @@ pre code {
 
   .search-icon i{
     padding-left: 35px;
+    margin-top: 4px;
   }
 
   .minicart {
@@ -673,6 +674,10 @@ pre code {
     font-size: 14px !important;
   } 
 
+}
+
+.button-menu{
+  color: var(--color-lety-white);
 }
 .container-1450 {
   max-width: 1450px;
@@ -12902,6 +12907,7 @@ a.skip:hover {
 
 .minicart-total{
   margin-left: 10px;
+  margin-top: 2px;
 }
 .minicart {
   margin-top: 0.1875em;
