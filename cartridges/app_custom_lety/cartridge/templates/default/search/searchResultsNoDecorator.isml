@@ -4,12 +4,11 @@
 
 <!--- Search Results Banner --->
 <isif condition="${pdict.productSearch.isCategorySearch}">
-    <div class="hero slant-down search-banner"
+    <div class="hero slant-down search-banner d-none"
         <!--- If no image, default is specified in search.scss > .search-banner --->
         <isif condition="${pdict.productSearch.bannerImageUrl}">
             style="background-image: url(${pdict.productSearch.bannerImageUrl})"
         </isif>
-    >
         <h1 class="header page-title">
             ${pdict.productSearch.category.name}
         </h1>
@@ -45,7 +44,7 @@
 
                     <isif condition="${pdict.productSearch.productIds.length > 0}">
                         <div class="row grid-header">
-                            <div class="result-count text-center col-12 col-md-9 col-sm-6 order-sm-2">
+                            <div class="result-count text-center col-12 col-md-9 col-sm-6 order-sm-1">
                     <iselse>
                         <div class="row grid-header justify-content-center">
                             <div class="result-count col">
@@ -53,7 +52,7 @@
                         <isinclude template="search/resultsCount" />
                     </div>
                     <isif condition="${pdict.productSearch.productIds.length > 0}">
-                        <div class="col-6 col-sm-3 order-sm-1">
+                        <div class="col-6 col-sm-3 order-sm-2">
                             <isinclude template="search/sortOrderMenu" />
                         </div>
 

@@ -2,13 +2,6 @@
 
 <isinclude template="/components/modules" sf-toolkit="off" />
 
-<!-- Include Page Designer Campaign Banner JavaScript and Styles only once here rather than at component level. -->
-<!-- There should only be one Campagin Banner added on a PD page. Multiple Banners is unsupported at the moment. -->
-
-<isif condition="${pdict.resetEditPDMode}">
-    <script> var resetCampaignBannerSessionToken = true; </script>
-</isif>
-
 <isscript>
     var assets = require('*/cartridge/scripts/assets.js');
     assets.addCss('/css/experience/components/commerceAssets/campaignBanner.css');
@@ -36,10 +29,9 @@
 
         <div class="page" data-action="${pdict.action}" data-querystring="${pdict.queryString}" >
             <isinclude template="/components/header/pdStorePageHeader" />
-            <div role="main" id="maincontent">
+            <div role="main" id="maincontent" class="main">
                 <isreplace/>
             </div>
-            
             <isinclude template="/components/footer/pageFooter" />
         </div>
         <div class="error-messaging"></div>
@@ -54,7 +46,7 @@
             IMPORTANT: Note that this hook will be called to cached as well as uncached pages
                         which means you need to put privacy information into another remote include
         </iscomment>
-        ${dw.system.HookMgr.callHook('app.template.afterFooter', 'afterFooter', pdict) || ''}
+        ${dw.system.HookMgr.callHook('app.template.afterFooter', 'afterFooter', pdict) || ''}
         <isinclude url="${URLUtils.url('ConsentTracking-Check')}"/>
     </body>
 </html>

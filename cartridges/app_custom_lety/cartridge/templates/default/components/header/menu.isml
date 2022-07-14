@@ -1,37 +1,84 @@
-<nav class="navbar navbar-expand-md bg-inverse col-12">
-    <div class="close-menu clearfix d-lg-none">
-        <div class="back pull-left">
-            <button role="button" aria-label="${Resource.msg('label.header.menu.back', 'common', null)}">
-                <span class="caret-left"></span>
-                ${Resource.msg('link.header.menu.back', 'common', null)}
-            </button>
-        </div>
-        <div class="close-button pull-right">
-            <button role="button" aria-label="${Resource.msg('label.header.menu.close', 'common', null)}">
-                ${Resource.msg('link.header.menu.close', 'common', null)}
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    </div>
-    <div class="menu-group" role="navigation">
+<nav class="navbar navbar-expand-md bg-inverse col-12" id="customMenu">
+
+    <div id="menuDesk" class="menu-group" role="navigation">
         <ul class="nav navbar-nav" role="menu">
             <isif condition="${pdict.categories}">
-                <isloop items="${pdict.categories}" var="category">
+                <isloop items="${pdict.categories}" var="category" status="status_item">
                     <isif condition="${category.subCategories}">
-                        <li class="nav-item dropdown" role="presentation">
-                            <a href="<isprint value="${category.url}" encoding="htmldoublequote"/>" id="${category.id}" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0">${category.name}</a>
+                        <li class="nav-item dropdown ${status_item.last ? 'last_category_item' : '' }" role="presentation">
+                            <a style="color: var(--color-lety-white)" href="<isprint value="${category.url}" encoding="htmldoublequote"/>" id="${category.id}" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0">
+                                ${category.name}
+                                <div class="hover-underline"></div>
+                            </a>
+                            
+                            
                             <isset name="menuItem" value="${category}" scope="page" />
                             <isinclude template="components/header/menuItem" />
                         </li>
                     <iselse/>
-                        <li class="nav-item" role="presentation">
-                            <a href="<isprint value="${category.url}" encoding="htmldoublequote"/>" id="${category.id}" class="nav-link" role="link" tabindex="0">${category.name}</a>
+                        <li class="nav-item ${status_item.last ? 'last_category_item' : '' }" role="presentation">
+                            <a style="color: var(--color-lety-white)" href="<isprint value="${category.url}" encoding="htmldoublequote"/>" id="${category.id}" class="nav-link" role="link" tabindex="0">
+                                ${category.name}
+                                <div class="hover-underline"></div>
+                            </a>
                         </li>
                     </isif>
                 </isloop>
             </isif>
-            <isinclude url="${URLUtils.url('Account-Header', 'mobile', true)}" />
-            <isinclude url="${URLUtils.url('Page-Locale', 'mobile', true)}" />
         </ul>
+    </div>
+</nav>
+
+<nav id="customMenuResponsive" class="navbar hidden">
+    <div class="col-12">
+        <div class="close-button pull-right">
+            <button role="button" onclick="closeCustomMenu()" aria-label="${Resource.msg('label.header.menu.close', 'common', null)}">
+                <img src="${URLUtils.staticURL('/images/icons/close.svg')}"/>
+            </button>
+        </div>
+
+        <div id="menu-container" class="d-flex flex-column justify-content-between col-12">
+            <div>
+                <isloop items="${pdict.categories}" var="category" status="itemStatus">
+                    <div style="height: 100%;width: 100%;" class="d-flex justify-content-between">
+                        <a href="<isprint value="${category.url}" encoding="htmldoublequote"/>" class="nav-link ${category.subCategories ? 'parent' : ''}" role="link" tabindex="0">${category.name}</a>
+                        <isif condition="${category.subCategories}">
+                            <iscomment> <button item-target="${category.id}" role="button" class="toggle-subcategories"> </iscomment>
+                            <button item-target="${category.id}" onclick="toggleSubMenu('${category.id}')" role="button" class="toggle-category-button">
+                                    <img style="transform: rotate(0deg);" src="${URLUtils.staticURL('/images/icons/arrow.svg')}"/>
+                            </button>
+                        </isif>
+                    </div>
+                    <isif condition="${category.subCategories}">
+                    <isset name="backName" value="${'Todo'}" scope="page" />
+                        <isset name="parent" value="${category.name}" scope="page" />
+                        <isset name="menuItem" value="${category}" scope="page" />
+                        <isinclude template="components/header/responsiveMenuItem" />
+                    </isif>
+                </isloop>
+                
+            </div>
+            <div id="actions-icons" class="d-flex justify-content-start">
+                <ul class="items">
+                 <li>
+                        <isinclude url="${URLUtils.url('Account-Header', 'mobile', true)}" />
+                    </li>
+                    <li>
+                        <a href="${URLUtils.url("StoreLocator-Start")}" class="d-flex justify-content-start align-items-center">
+                            <img style="width:16px; height: 19px;" src="${URLUtils.staticURL('/images/icons/location-marker.svg')}" alt="Localizar sucursal"/>
+                            <span>Localizar sucursal<iscomment> ${Resource.msg('location.label.mobile.menu', 'menu', null)} </iscomment></span>
+                        </a>
+                    </li>
+                   
+                   <li>
+                        <a href="" class="d-flex justify-content-start align-items-center">
+                            <img style="width:18px; height: 16px;" class="chat-boot" src="${URLUtils.staticURL('/images/icons/help.svg')}" alt=""/>
+                            <span>Necesitas ayuda<iscomment> ${Resource.msg('needhelp.label.mobile.menu', 'menu', null)} </iscomment></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
     </div>
 </nav>

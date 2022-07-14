@@ -8,11 +8,11 @@
         <iscomment>
             Navigation Desktop
         </iscomment>
-        <div class="navigation-desktop d-none d-md-block">
+        <div class="navigation-desktop">
             <div class="header d-flex justify-content-center align-items-center">
                 <div class="row header-container">
                     <div class="pull-left d-flex align-items-center col-4">
-                        <div class="navbar-header brand">
+                        <div class="navbar-header brand brand-desk">
                             <a class="logo-home" href="${URLUtils.url('Home-Show')}"
                                 title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
                                        'global.home', 'common', null))}">
@@ -22,12 +22,12 @@
                                     alt="${Resource.msg('global.storename', 'common', null)}" />
                             </a>
                         </div>
-                        <div class="location">
+                        <div class="location location-desk">
                             <isinclude template="components/header/location" />
                         </div>
                     </div>
                     <div class="pull-right d-flex align-items-center col-8">
-                        <div class="search">
+                        <div class="search search-desk">
                             <isinclude template="components/header/search" />
                         </div>
                         <div class="main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"
@@ -42,7 +42,7 @@
                             <isinclude url="${URLUtils.url('Account-Header')}" />
                             <isinclude url="${URLUtils.url('Page-Locale')}" />
                         </div>
-                        <div class="minicart" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
+                        <div class="minicart minicart-desk" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
                             <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
                         </div>
                     </div>
@@ -73,10 +73,9 @@
                     <div class="minicart col-2" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
                         <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
                     </div>
-                    <button class="navbar-toggler d-md-none col-2" type="button" aria-controls="sg-navbar-collapse"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        &#9776; <span class="hidden-xs-down">Menu</span>
-                    </button>
+                  <button class="button-menu col-2" type="button" id="openCustomMenu" onclick="openCustomMenu()">
+                                      <img src="${URLUtils.staticURL('/images/icons/menu.svg')}" alt="${Resource.msg('global.storename', 'common', null)}" />
+                                    </button>
                 </div>
             </div>
             <div class="main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"

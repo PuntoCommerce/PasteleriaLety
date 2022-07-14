@@ -74,6 +74,7 @@
 
                     <div class="col-lg-12 col-sm-5 push-sm-7 push-lg-8 social">
                         <ul class="social-links">
+<<<<<<< HEAD
                             <li style="margin: 0; margin-top: -6px"><a class="facabook" aria-label="Facebook"
                                     href="" target="_blank"></a><img src="${URLUtils.staticURL('/images/icons/Facebook.svg')}" alt="" /></li>
                             <li style="margin: 0; "><a class="intagram" aria-label="Instagram"
@@ -85,6 +86,23 @@
                                     
                             <li style="margin: 0; margin-left:5px;"><a class="youtube" aria-label="YouTube"
                                     href="" target="_blank"><img src="${URLUtils.staticURL('/images/icons/youtube.svg')}" alt="" /></a></li>
+=======
+                            <li style="margin: 0;"><a class="" aria-label="Facebook"
+                                    href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/Facebook.svg')}"
+                                /></a></li>
+                            <li style="margin: 0;"><a class="" aria-label="Instagram"
+                                    href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/Instagram.svg')}"
+                                /></a></li>
+                            <li style="margin: 0;"><a class="" aria-label="LinkedIn"
+                                    href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/LinkedIn.svg')}"
+                                /></a></li>
+                                     <li style="margin: 0;"><a class="" aria-label="Tiktok"
+                                    href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/tiktok.svg')}"
+                                /></a></li>
+                            <li style="margin: 0; margin-left: 5px;"><a class="" aria-label="YouTube"
+                                    href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/youtube.svg')}"
+                                /></a></li>
+>>>>>>> main
 
 
                         </ul>
