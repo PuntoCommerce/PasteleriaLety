@@ -1,6 +1,6 @@
  <div style="height: 100%;width: 100%;" class="hidden sub-items viewMenuOut" id="submenu-${category.id}">
     <button item-target="${category.id}" onclick="toggleSubMenu('${category.id}',${true})" role="button" class="toggle-category-button back">
-        <img src="${URLUtils.staticURL('/images/icons/arrow.svg')}"/>
+        <img style="transform: rotate(-180deg);" src="${URLUtils.staticURL('/images/icons/arrow.svg')}"/>
         <span>${backName}</span>
     </button>
     <h3 class="category-title" style="font-size: 13px">${parent}</h3>
@@ -10,7 +10,7 @@
             <isif condition="${category.subCategories}">
                 <iscomment> <button item-target="${category.id}" role="button" class="toggle-subcategories"> </iscomment>
                 <button item-target="${category.id}" onclick="toggleSubMenu('${category.id}')" role="button" class="toggle-category-button">
-                        <img src="${URLUtils.staticURL('/images/icons/arrow.svg')}"/>
+                        <img style="transform: rotate(0deg);" src="${URLUtils.staticURL('/images/icons/arrow.svg')}"/>
                 </button>
             </isif>
         </div>

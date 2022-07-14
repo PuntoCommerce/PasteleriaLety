@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-md bg-inverse col-12" id="customMenu">
 
-    <div id="menuDesk" class="menu-group row" role="navigation">
-        <ul class="nav navbar-nav col-10" role="menu">
+    <div id="menuDesk" class="menu-group" role="navigation">
+        <ul class="nav navbar-nav" role="menu">
             <isif condition="${pdict.categories}">
                 <isloop items="${pdict.categories}" var="category" status="status_item">
                     <isif condition="${category.subCategories}">
                         <li class="nav-item dropdown ${status_item.last ? 'last_category_item' : '' }" role="presentation">
-                            <a href="<isprint value="${category.url}" encoding="htmldoublequote"/>" id="${category.id}" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0">
+                            <a style="color: var(--color-lety-white)" href="<isprint value="${category.url}" encoding="htmldoublequote"/>" id="${category.id}" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0">
                                 ${category.name}
                                 <div class="hover-underline"></div>
                             </a>
@@ -17,7 +17,7 @@
                         </li>
                     <iselse/>
                         <li class="nav-item ${status_item.last ? 'last_category_item' : '' }" role="presentation">
-                            <a href="<isprint value="${category.url}" encoding="htmldoublequote"/>" id="${category.id}" class="nav-link" role="link" tabindex="0">
+                            <a style="color: var(--color-lety-white)" href="<isprint value="${category.url}" encoding="htmldoublequote"/>" id="${category.id}" class="nav-link" role="link" tabindex="0">
                                 ${category.name}
                                 <div class="hover-underline"></div>
                             </a>
@@ -45,7 +45,7 @@
                         <isif condition="${category.subCategories}">
                             <iscomment> <button item-target="${category.id}" role="button" class="toggle-subcategories"> </iscomment>
                             <button item-target="${category.id}" onclick="toggleSubMenu('${category.id}')" role="button" class="toggle-category-button">
-                                    <img src="${URLUtils.staticURL('/images/icons/arrow.svg')}"/>
+                                    <img style="transform: rotate(0deg);" src="${URLUtils.staticURL('/images/icons/arrow.svg')}"/>
                             </button>
                         </isif>
                     </div>
@@ -60,19 +60,20 @@
             </div>
             <div id="actions-icons" class="d-flex justify-content-start">
                 <ul class="items">
-                    <li>
-                        <a href="${URLUtils.url("StoreLocator-Start")}" class="d-flex justify-content-start align-items-center">
-                            <img src="${URLUtils.staticURL('/images/icons/location-marker.svg')}" alt="Localizar sucursal"/>
-                            <span>${Resource.msg('location.label.mobile.menu', 'menu', null)}</span>
-                        </a>
-                    </li>
-                    <li>
+                 <li>
                         <isinclude url="${URLUtils.url('Account-Header', 'mobile', true)}" />
                     </li>
                     <li>
+                        <a href="${URLUtils.url("StoreLocator-Start")}" class="d-flex justify-content-start align-items-center">
+                            <img style="width:16px; height: 19px;" src="${URLUtils.staticURL('/images/icons/location-marker.svg')}" alt="Localizar sucursal"/>
+                            <span>Localizar sucursal<iscomment> ${Resource.msg('location.label.mobile.menu', 'menu', null)} </iscomment></span>
+                        </a>
+                    </li>
+                   
+                   <li>
                         <a href="" class="d-flex justify-content-start align-items-center">
-                            <img class="chat-boot" src="${URLUtils.staticURL('/images/chat.svg')}" alt="NECESITAS AYUDA"/>
-                            <span>${Resource.msg('needhelp.label.mobile.menu', 'menu', null)}</span>
+                            <img style="width:18px; height: 16px;" class="chat-boot" src="${URLUtils.staticURL('/images/icons/help.svg')}" alt=""/>
+                            <span>Necesitas ayuda<iscomment> ${Resource.msg('needhelp.label.mobile.menu', 'menu', null)} </iscomment></span>
                         </a>
                     </li>
                 </ul>

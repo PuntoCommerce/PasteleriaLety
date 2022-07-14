@@ -1,6 +1,6 @@
 <div class="dropdown-menu ">
    <div class="d-flex">
-      <div class="dropdown-menu-content" role="menu" aria-hidden="true" aria-label="${category.id}">
+      <div class="dropdown-menu-content col-6" role="menu" aria-hidden="true" aria-label="${category.id}">
          <isset name="categoryImage" value="${category.thumbnail}" scope="page" />
          <div class="d-flex justify-content-center row">
             <div class="col-12 d-flex justify-content-around">
@@ -26,8 +26,9 @@
             </div>
          </div>
       </div>
-      <div class="d-flex justify-content-start align-self-start">
-         <img id="imageMenu" src="${categoryImage}" alt="${category.name}" height="300px" >
+      <div class="d-flex justify-content-center col-6">
+         <img class="" style="width: 600px; margin-right: 40px; margin-top:50px" src="${URLUtils.staticURL('/images/cachitoCarlosV.svg')}"
+                                    alt="${Resource.msg('global.storename', 'common', null)}" />
       </div>
    </div>
 </div>

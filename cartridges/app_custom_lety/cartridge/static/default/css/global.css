@@ -580,15 +580,36 @@ pre code {
     height: 70px !important;
     margin: 0px;
     width: 100%;
+    height: 100%;
+  }
+
+  .dropdown-menu{
+    top: 153px !important;
   }
 
   .navbar-header {
     padding-top: 11px;
   }
 
-  .navigation-desktop{
+  .navigation-desktop .header{
+    height: 0px !important;
+  }
+  .brand-desk{
+    display: none !important;
+  }
+
+  .location-desk{
     display: none;
   }
+
+  .search-desk{
+    display: none !important;
+  }
+
+  .minicart-desk{
+    display: none;
+  }
+
 
   .search-icon {
     margin-top: 24px;
@@ -673,6 +694,10 @@ pre code {
   footer .content li a{
     font-size: 14px !important;
   } 
+
+  .main-menu-desk .navbar-toggleable-sm .menu-toggleable-left .multilevel-dropdown{
+    display: none;
+  }
 
 }
 
@@ -3389,6 +3414,8 @@ input[type="submit"].btn-block {
   }
   .navbar-expand-md .navbar-nav .dropdown-menu {
     position: absolute;
+    top: 130px !important;
+    height: 330px;
   }
   .navbar-expand-md .navbar-nav .nav-link {
     padding-right: 0.5rem;
@@ -14865,7 +14892,7 @@ padding-right: 10px;
 
 .input-location{
   height: 37px;
-  margin-top: -0.1em !important;
+  margin-top: 4px;
 }
 
 /* @media (min-width: 544px) {
@@ -14910,7 +14937,7 @@ padding-right: 10px;
 } */
 .site-search .fa-close,
 .site-search .fa-search {
-  right: 29px;
+  right: 16px;
 }
 .site-search .fa-close,
 .site-search .fa-search,
