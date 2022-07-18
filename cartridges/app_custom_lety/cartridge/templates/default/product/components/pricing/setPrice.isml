@@ -1,9 +1,15 @@
 <div class="price">
-    <span class="starting">
+    <span class="starting row">
         ${Resource.msg('label.starting_from', 'pricing', null)}
         <isif condition="${product.price.min}">
             ${product.price.min.sales.formatted}
-        <iselse>
+       
+        </isif>
+    </span>
+    <span class="starting2 row">
+        ${Resource.msg('label.starting_from', 'pricing', null)}
+        <isif condition="${product.price.min}">
+           
             ${product.price.sales.formatted}
         </isif>
     </span>

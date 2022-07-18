@@ -3,7 +3,7 @@
           action="${URLUtils.url('Search-Show')}"
           method="get"
           name="simpleSearch">
-        <input class="form-control search-field search-field-responsive"
+        <input class="form-control search-field"
                type="text"
                name="q"
                value=""

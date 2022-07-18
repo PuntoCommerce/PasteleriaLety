@@ -4,9 +4,9 @@
 </isscript>
 
 <footer id="footercontent">
-    <div class="container-1450">
+    <div class="container-1450 footer-container">
         <div class="row">
-            <div class="footer-item col-sm-2 store-mobile">
+            <div class="footer-item col-sm-2 store-mobile " style="margin-top:15px;">
                 <div class="footer-email-signup footer-email-signup-mobile" style="padding-left: 1.5em;">
                     <form role="form">
                         <div class="row">
@@ -34,23 +34,23 @@
                 </div>
             </div>
 
-            <div class="footer-item col-sm-3 collapsible-xs">
+            <div class="footer-item col-sm-3 collapsible-xs" style="margin-top:15px;">
                 <iscontentasset aid="footer-contact" />
             </div>
 
-            <div class="footer-item col-sm-2 collapsible-xs">
+            <div class="footer-item col-sm-2 collapsible-xs" style="margin-top:15px;">
                 <iscontentasset aid="footer-legal" />
             </div>
-            <div class="footer-item col-sm-3 collapsible-xs">
+            <div class="footer-item col-sm-3 collapsible-xs" style="margin-top:15px;">
                 <iscontentasset aid="footer-nosotros" />
             </div>
-            <div class="footer-item footer-item-img col-sm-4" style="margin-left: -3em;">
+            <div class="footer-item footer-item-img col-sm-4" style="margin-left: -3em; margin-top:15px;">
                 <div class="footer-email-signup footer-news-desk" style="padding-left: 1.5em;">
                     <form role="form">
                         <div class="row">
                             <div class="input-group">
                                 <div class="suscribe-label d-flex justify-content-start">
-                                    <span>${Resource.msg('description.form.emailsignup', 'homePage', null)}</span>
+                                    <span style="font-weight: bold;">${Resource.msg('description.form.emailsignup', 'homePage', null)}</span>
                                 </div>
                                 <div class="d-flex justify-content-start align-items-center input-button">
 
@@ -69,40 +69,26 @@
                 </div>
                 <div class="row" style="padding-left: 1.5em;">
                     <div class="col-lg-12 col-sm-5 push-sm-7 push-lg-8 social-h2" style="text-align: left;">
-                        <h2>Comparte tus dulces recuerdos</h2>
+                        <h2 style="font-weight: bold;">Comparte tus dulces recuerdos</h2>
                     </div>
 
                     <div class="col-lg-12 col-sm-5 push-sm-7 push-lg-8 social">
                         <ul class="social-links">
-<<<<<<< HEAD
-                            <li style="margin: 0; margin-top: -6px"><a class="facabook" aria-label="Facebook"
-                                    href="" target="_blank"></a><img src="${URLUtils.staticURL('/images/icons/Facebook.svg')}" alt="" /></li>
-                            <li style="margin: 0; "><a class="intagram" aria-label="Instagram"
-                                    href="" target="_blank"><img src="${URLUtils.staticURL('/images/icons/Instagram.svg')}" alt="" /></a></li>
-                            <li  style="margin: 0;"><a class=" linkedin" aria-label=""
-                                    href="" target="_blank"><img src="${URLUtils.staticURL('/images/icons/LinkedIn.svg')}" alt="" /></a></li>
-                            <li style="margin: 0; "><a class="tiktok" aria-label="Tiktok"
-                                    href="" target="_blank"><img src="${URLUtils.staticURL('/images/icons/tiktok.svg')}" alt="" /></a></li>
-                                    
-                            <li style="margin: 0; margin-left:5px;"><a class="youtube" aria-label="YouTube"
-                                    href="" target="_blank"><img src="${URLUtils.staticURL('/images/icons/youtube.svg')}" alt="" /></a></li>
-=======
                             <li style="margin: 0;"><a class="" aria-label="Facebook"
-                                    href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/Facebook.svg')}"
+                                    href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/fb.svg')}"
                                 /></a></li>
-                            <li style="margin: 0;"><a class="" aria-label="Instagram"
-                                    href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/Instagram.svg')}"
+                            <li style="margin: 0; margin-left: 5px;"><a class="" aria-label="Instagram"
+                                    href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/ig.svg')}"
                                 /></a></li>
-                            <li style="margin: 0;"><a class="" aria-label="LinkedIn"
-                                    href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/LinkedIn.svg')}"
+                            <li style="margin: 0; margin-left: 5px;"><a class="" aria-label="LinkedIn"
+                                    href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/linkedin.svg')}"
                                 /></a></li>
-                                     <li style="margin: 0;"><a class="" aria-label="Tiktok"
+                                     <li style="margin: 0; margin-left: 5px;"><a class="" aria-label="Tiktok"
                                     href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/tiktok.svg')}"
                                 /></a></li>
                             <li style="margin: 0; margin-left: 5px;"><a class="" aria-label="YouTube"
                                     href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/youtube.svg')}"
                                 /></a></li>
->>>>>>> main
 
 
                         </ul>
@@ -116,11 +102,11 @@
                                 alt="${Resource.msg('global.storename', 'common', null)}" style="width: 109px;"/>
                         </a>
                     </div>
-                        <ul class="social-links">
-                        
+                        <ul class="social-links" style="margin-top: 15px; ">
+                    
                         <li>
                          <img src="${URLUtils.staticURL('/images/icons/shield-check.svg')}" alt="${Resource.msg('global.storename', 'common', null)}" />
-                            <span style="margin-top: 7px">Pagos seguros</span>
+                            <span style="margin-top: 7px; font-weight: bold; font-size: 17px;">Pagos seguros</span>
                         </li>
                            
                             <li><a class="fa fa-cc-paypal fa-3x" aria-label="MasterCard" href="" target="_blank"></a>
@@ -133,9 +119,9 @@
                         <isslot id="footer-column-m" description="Content in column 1 of the Footer" context="global" />
                         <button class="back-to-top" title="${Resource.msg('button.back_to_top', 'common', null)}"
                             aria-label="${Resource.msg('button.back_to_top', 'common', null)}">
-                            <span class="fa-stack fa-lg" aria-hidden="true">
-                                <i class="fa fa-circle fa-inverse fa-stack-2x"></i>
-                                <i class="fa fa-arrow-up fa-stack-1x"></i>
+                            <span class="fa-stack fa-lg d-flex" aria-hidden="true" >
+                                
+                                <i class="fa fa-arrow-up "></i>
                             </span>
                         </button>
                     </div>

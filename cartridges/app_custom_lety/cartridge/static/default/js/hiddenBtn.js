@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 const showChar = 37;
-=======
-const showChar = 38;
->>>>>>> main
 const ellipsestext = "...";
 
 window.onload = () => {
@@ -16,17 +12,10 @@ window.onload = () => {
         '<div class="truncate-text">' +
         formattedText +
         '<span class="moreellipses">' +
-<<<<<<< HEAD
-        ellipsestext +
-        '&nbsp;&nbsp;<a href="" class="moreless more">más</a></span></span></div><div class="truncate-text d-none">' +
-        originalText +
-        ' <a href="" class="moreless less">menos</a></span></div>';
-=======
-        ellipsestext + 
-        '&nbsp;&nbsp;<a href="" class="moreless more">más</a></span></span></div><div class="truncate-text d-none">' +
+        /* ellipsestext + */ 
+        '&nbsp;&nbsp;<a href="" class="moreless more" style="color: var(--color-lety2)">...</a></span></span></div><div class="truncate-text d-none">' +
         originalText + " " +
-        '<a href="" class="moreless less">menos</a></span></div>';
->>>>>>> main
+        '<a href="" class="moreless less" style="color: var(--color-lety2);">menos</a></span></div>';
       el.insertAdjacentHTML("afterend", newHtml);
     }
   });

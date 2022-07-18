@@ -44,7 +44,7 @@
 }
 
 #menuDesk .dropdown-menu-content a:hover {
-  color: #ff0000 !important;
+  color: var(--color-lety2) !important;
 }
 
 #menuDesk .nav-item {
@@ -108,7 +108,7 @@
 } */
 .form-control:focus {
   box-shadow: none !important;
-  color: #ffffff;
+  color: var(--color-lety-black);
 }
 
 .hidden {
@@ -147,7 +147,7 @@
 
 .suggestions .header {
   border: none !important;
-  color: #979797 !important;
+  color: var(--color-lety-white) !important;
 }
 
 .borderTopHeader:not(:first-child) {
