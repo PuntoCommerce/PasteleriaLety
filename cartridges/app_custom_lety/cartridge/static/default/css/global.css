@@ -5,6 +5,7 @@
   --color-lety1: #6c4d23;
   --color-lety2: #d7612b;
   --color-lety3: #f6a738;
+  --color-lety-btnProduct: #FFD5B5;
   --color-lety4: #9f7c4d;
   --color-lety5: #c2aa8a;
   --color-lety6: #d42a34;
@@ -589,9 +590,28 @@ pre code {
   color: var(--color-lety-black) !important;
 }
 
-.filtros-toogle{
-  padding-left: 35px !important;
+.plp-tools__item--breadcrums{
+  height: 30px;
+  margin-bottom: 0 !important;
+  margin-top: 14px;
 }
+
+.refinement-bar{
+  margin-top: 150px !important;
+  margin-left: 40px !important;
+}
+
+.btn-default{
+  margin-left: 40px;
+}
+
+.btn-default:hover, .btn-default-img:hover{
+  color: var(--color-lety2) !important;
+}
+
+/* .filtros-toogle{
+  padding-left: 35px !important;
+} */
 
 /*responsive 992*/
 @media (max-width: 992px) {
@@ -2354,7 +2374,7 @@ input[type="submit"].btn-block {
   white-space: nowrap;
 }
 .dropdown-toggle:after {
-  display: inline-block;
+  display: none;
   margin-left: 0.255em;
   vertical-align: 0.255em;
   content: "";
@@ -14062,11 +14082,12 @@ a .moreless .less{
 .btn-product{
   width: 280px;
   height: 37px;
-  background-color: var(--color-lety1);
+  background-color: var(--color-lety-btnProduct);
   border: none;
   color: var(--color-lety-white);
   font-size: 18px;
   font-family: var(--font-family-gotham);
+  border-radius: 20px;
 }
 
 .btn-product:hover{
