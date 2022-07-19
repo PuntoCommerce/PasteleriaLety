@@ -81,7 +81,7 @@
                                     href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/ig.svg')}"
                                 /></a></li>
                             <li style="margin: 0; margin-left: 5px;"><a class="" aria-label="LinkedIn"
-                                    href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/linkedin.svg')}"
+                                    href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/LinkedIn.svg')}"
                                 /></a></li>
                                      <li style="margin: 0; margin-left: 5px;"><a class="" aria-label="Tiktok"
                                     href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/tiktok.svg')}"
@@ -109,10 +109,10 @@
                             <span style="margin-top: 7px; font-weight: bold; font-size: 17px;">Pagos seguros</span>
                         </li>
                            
-                            <li><a class="fa fa-cc-paypal fa-3x" aria-label="MasterCard" href="" target="_blank"></a>
+                            <li><a class="fa fa-cc-paypal fa-3x" aria-label="PayPal" href="" target="_blank"></a>
                             </li>
-                            <li><a class="fa fa-cc-visa fa-3x" aria-label="YouTube" href="" target="_blank"></a></li>
-                            <li><a class="fa fa-cc-mastercard fa-3x" aria-label="YouTube" href="" target="_blank"></a>
+                            <li><a class="fa fa-cc-visa fa-3x" aria-label="Visa" href="" target="_blank"></a></li>
+                            <li><a class="fa fa-cc-mastercard fa-3x" aria-label="MasterCard" href="" target="_blank"></a>
                             </li>
                             
                         </ul>

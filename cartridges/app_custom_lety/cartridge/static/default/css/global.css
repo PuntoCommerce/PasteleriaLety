@@ -609,6 +609,10 @@ pre code {
   color: var(--color-lety2) !important;
 }
 
+.text-mobile{
+  display: none !important;
+}
+
 /* .filtros-toogle{
   padding-left: 35px !important;
 } */
@@ -711,6 +715,9 @@ pre code {
   .product-tile .tile-body .color-swatches{
     display: none;
   }
+  .image-container a{
+    height: 100% !important;
+  }
   .fa-star {
     color: var(--color-lety3);
   }
@@ -719,6 +726,57 @@ pre code {
   }
   .fa-star-o{
     color: var(--color-lety3);
+  }
+
+  /*PLP*/
+
+  .search-banner{
+    display: none;
+  }
+  .row-bread{
+    display: none !important;
+  }
+
+  .row.search-nav{
+    display: none;
+  }
+  .result-count{
+    display: none;
+  }
+
+  .row-content-filter{
+    margin-top: 15px !important;
+  }
+
+  .text-mobile{
+    padding-right: 0 !important;
+    display: flex !important;
+  }
+  .text-mobile h2{
+    text-align: center;
+    
+    font-family: var(--font-family-gotham) !important;
+    font-weight: 300;
+    font-size: 22px;
+    padding-top: 10px !important;
+  }
+  .btn.btn-primary.filter-results{
+    display: none;
+  }
+
+  .refinement-bar{
+    margin-left: 5px !important;
+    width: 80% !important;
+  }
+
+  .btn-default{
+    border: 1px solid #ced4da !important;
+    border-radius: 0.1875rem !important;
+    margin-left: 0 !important;
+  }
+
+  .container div.collapsible-sm button.title{
+    color: var(--color-lety-black) !important;
   }
 
   /*Footer*/
@@ -2060,8 +2118,8 @@ fieldset:disabled a.btn {
 }
 .btn-outline-primary:hover {
   color: #fff;
-  background-color: #00a1e0;
-  border-color: #00a1e0;
+  background-color: var(--color-lety2);
+  border-color: var(--color-lety2);
 }
 .btn-outline-primary.focus,
 .btn-outline-primary:focus {
@@ -14051,6 +14109,7 @@ padding-right: 10px;
 
 .product-tile .image-container a .tile-image{
   object-fit: cover;
+  max-height: 204.15px;
 }
 
 .truncate{
@@ -14096,19 +14155,11 @@ a .moreless .less{
 
 @media (max-width: 991.98px) {
   .product-tile {
-<<<<<<< HEAD
-    width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
-    
-=======
     max-width: 100%;
->>>>>>> main
   }
   .btn-product{
     width: 90%;
     height: 37px;
-    background-color: var(--color-lety1);
     border: none;
     color: var(--color-lety-white);
     font-size: 16px;
@@ -14119,8 +14170,12 @@ a .moreless .less{
     width: 100%;
   }
 
+  .product-tile .image-container a .tile-image{
+    max-height: 93.5167px;
+  }
+
   .product-tile .tile-body .pdp-link{
-    min-height: 44px;
+    height: 44px;
   }
 
   .product-tile .tile-body .pdp-link a{

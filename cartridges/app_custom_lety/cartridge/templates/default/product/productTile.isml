@@ -25,7 +25,7 @@
                 <isinclude template="product/components/pricing/main" />
         </isif>
         <isinclude template="product/components/productRating" sf-toolkit="on" />
-
+       
         <isinclude template="product/components/highlight" />
         <div class="summary__footer">
             <button class="btn-product btn--gray btn__small"

@@ -19,7 +19,7 @@
 
 <div class="container search-results">
 
-    <div class="row">
+    <div class="row row-bread">
         <div class="col  plp-tools__item plp-tools__item--no-responsive">
             <ol class="plp-tools__item--breadcrums">
                 <li class="breadcumbs-item">
@@ -60,12 +60,14 @@
             </div>
         </isif>
     </div>
-    <div class="row">
+    <div class="row row-content-filter">
         <div class="tab-content col-12">
-
+        <div class="row text-mobile col-12">
+                    <h2>PASTELES</h2>
+                </div>
             <div class="tab-pane container active" id="product-search-results" role="tabpanel"
                 aria-labelledby="product-tab">
-
+                
                 <isif condition="${pdict.productSearch.productIds.length > 0}">
                     <div class="row grid-header">
                         <div class="filtros-toogle dropdown col-6 col-md-3 col-sm-6 order-sm-1">
@@ -88,7 +90,7 @@
                 <isinclude template="search/resultsCount" />
             </div>
             <isif condition="${pdict.productSearch.productIds.length > 0}">
-                <div class="col-6 col-sm-3 order-sm-2">
+                <div class="col-6 col-sm-3 order-sm-3">
                     <isinclude template="search/sortOrderMenu" />
                 </div>
 
@@ -127,3 +129,7 @@
 </div>
 </div>
 </div>
+
+<isinclude template="search/searchRefineBar" />
+<isinclude template="search/filterBar" />
+
