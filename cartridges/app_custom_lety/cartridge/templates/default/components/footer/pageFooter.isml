@@ -81,7 +81,7 @@
                                     href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/ig.svg')}"
                                 /></a></li>
                             <li style="margin: 0; margin-left: 5px;"><a class="" aria-label="LinkedIn"
-                                    href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/linkedin.svg')}"
+                                    href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/LinkedIn.svg')}"
                                 /></a></li>
                                      <li style="margin: 0; margin-left: 5px;"><a class="" aria-label="Tiktok"
                                     href="" target="_blank"><img class="" src="${URLUtils.staticURL('/images/icons/tiktok.svg')}"

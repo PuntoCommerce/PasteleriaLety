@@ -23,7 +23,7 @@
 </isif> </iscomment>
 
 <div>
-    <div class="refinements dropdown-item ">
+    <div class="refinements">
         <isloop items="${pdict.productSearch.refinements}" var="refinement">
             <div class="card collapsible-sm refinement refinement-${refinement.displayName.toLowerCase().replace(/ /g, '-')}">
                 <div class="card-header col-sm-12">

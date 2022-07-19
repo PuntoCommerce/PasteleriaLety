@@ -596,11 +596,6 @@ pre code {
   margin-top: 14px;
 }
 
-.refinement-bar{
-  margin-top: 150px !important;
-  margin-left: 40px !important;
-}
-
 .btn-default{
   margin-left: 40px;
 }
@@ -14051,6 +14046,8 @@ padding-right: 10px;
 
 .product-tile .image-container a .tile-image{
   object-fit: cover;
+
+  max-height: 260.15px;
 }
 
 .truncate{
