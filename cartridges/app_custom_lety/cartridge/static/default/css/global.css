@@ -596,11 +596,6 @@ pre code {
   margin-top: 14px;
 }
 
-.refinement-bar{
-  margin-top: 150px !important;
-  margin-left: 40px !important;
-}
-
 .btn-default{
   margin-left: 40px;
 }
@@ -727,6 +722,9 @@ pre code {
   .fa-star-o{
     color: var(--color-lety3);
   }
+  .price{
+    padding-top: 0!important;
+  }
 
   /*PLP*/
 
@@ -760,19 +758,36 @@ pre code {
     font-size: 22px;
     padding-top: 10px !important;
   }
-  .btn.btn-primary.filter-results{
+
+  .row-bread{
+    display: none !important;
+  }
+
+ .header-bar {
+  background-color: var(--color-lety-white) !important;
+ }
+
+ .header-bar span{
+  display: none;
+ }
+ .refinement.card{
+  border: 1px solid rgba(0, 0, 0, 0.125) !important;
+
+}
+
+  .filtros-toogle{
     display: none;
   }
 
-  .refinement-bar{
-    margin-left: 5px !important;
-    width: 80% !important;
-  }
-
-  .btn-default{
+  .filter-results{
+    background-color: transparent !important;
     border: 1px solid #ced4da !important;
-    border-radius: 0.1875rem !important;
-    margin-left: 0 !important;
+border-radius: 0.1875rem !important;
+color: var(--color-lety-black) !important;
+  }
+  .filter-results:hover{
+    background-color: var(--color-lety-btnProduct) !important;
+    color: var(--color-lety-white) !important;
   }
 
   .container div.collapsible-sm button.title{
@@ -784,9 +799,9 @@ pre code {
     border-bottom: none !important;
   }
 
-  /* .carousel img{
-    object-fit: none;
-  } */
+  .li-pagos{
+    margin-left: 24px !important;
+  }
 
   footer .copyright, footer .postscript{
     font-size: 14px !important;
@@ -12639,7 +12654,7 @@ dt {
 }
 .modal-background {
   background-color: #000;
-  display: none;
+  display: none !important;
   height: 100%;
   position: fixed;
   opacity: 0.5;
@@ -14109,7 +14124,8 @@ padding-right: 10px;
 
 .product-tile .image-container a .tile-image{
   object-fit: cover;
-  max-height: 204.15px;
+
+  max-height: 260.15px;
 }
 
 .truncate{
@@ -14171,7 +14187,7 @@ a .moreless .less{
   }
 
   .product-tile .image-container a .tile-image{
-    max-height: 93.5167px;
+    max-height: 116.517px;
   }
 
   .product-tile .tile-body .pdp-link{
@@ -14188,13 +14204,6 @@ a .moreless .less{
     display: block;
     padding-top: 8px;
   }
-<<<<<<< HEAD
-
-  .product-tile .tile-body{
-    padding: 0 !important;
-  }
-=======
->>>>>>> main
 }
 
 .product-tile .tile-body {
@@ -14243,7 +14252,7 @@ a .moreless .less{
   font-size: 18px;
   text-decoration: none;
   font-weight: 700;
-  color: var(--color-lety-black);
+  color: var(--color-lety-black) !important;
 }
 
 .plp-description{

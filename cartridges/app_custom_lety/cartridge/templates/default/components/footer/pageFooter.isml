@@ -104,9 +104,9 @@
                     </div>
                         <ul class="social-links" style="margin-top: 15px; ">
                     
-                        <li>
+                        <li class="li-pagos" style="display: ruby;">
                          <img src="${URLUtils.staticURL('/images/icons/shield-check.svg')}" alt="${Resource.msg('global.storename', 'common', null)}" />
-                            <span style="margin-top: 7px; font-weight: bold; font-size: 17px;">Pagos seguros</span>
+                            <span style="margin-top: 7px; font-weight: bold; font-size: 15px;">Pagos seguros</span>
                         </li>
                            
                             <li><a class="fa fa-cc-paypal fa-3x" aria-label="PayPal" href="" target="_blank"></a>
