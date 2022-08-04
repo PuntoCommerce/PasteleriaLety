@@ -1,9 +1,14 @@
 <isset name="product" value="${pdict.product}" scope="page" />
 <div class="product-tile summary">
     <!-- dwMarker="product" dwContentID="${product.uuid}" -->
-    <div>
+   <div class="row">
+     <div class="col-6">
+        <isinclude template="product/components/promotions" />
+    </div>
+    <div class="col-6">
         <i class="fa fa-heart swit-list-icon" aria-hidden="true"></i>
     </div>
+   </div>
     <isinclude template="product/components/productTileImage" />
     <div class="tile-body">
         <isif condition="${pdict.display.swatches !== false}">
@@ -31,6 +36,7 @@
             <button class="btn-product btn--gray btn__small"
                 href="${pdict.urls.product}">${Resource.msg('productTile.button.buy', 'pdComponents_es', null)}</button>
         </div>
+
 
         <isif condition="${pdict.display.ratings !== false}">
             <isinclude template="product/productTileFooter" />

@@ -608,6 +608,57 @@ pre code {
   display: none !important;
 }
 
+/*Design PDP*/
+.img-fluid{
+  float: right !important;
+}
+
+.product-name{
+  font-size: 35px;
+  font-weight: 400;
+  padding-left: 15px;
+}
+
+.row-desc{
+  justify-content: left !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+.promotions {
+  text-align: center;
+  display: flex !important;
+  padding-left: 32px !important;
+}
+.product-number-rating{
+  border-top: none !important;
+  border-bottom: none !important;
+  padding-bottom: 20px;
+}
+
+.product-number-rating .ratings{
+ margin-top: 0 !important;
+}
+
+.promotions div.collapsible-xl button.callout{
+  padding-bottom: 0 !important;
+  padding-top: 0 !important; 
+}
+
+/*Design btn wishlist*/
+.add-to-wish-list{
+  border-radius: 25px !important;
+}
+
+
+.promotions div.collapsible-xl button.callout::after{
+  display: none;
+}
+.title.callout.btn.text-left{
+  background-color: var(--color-lety6);
+  color: var(--color-lety-white);
+  width: 72px;
+  height: 38px;
+}
 /* .filtros-toogle{
   padding-left: 35px !important;
 } */
@@ -724,6 +775,10 @@ pre code {
   }
   .price{
     padding-top: 0!important;
+  }
+
+  .btn-product{
+    background-color: var(--color-lety2) !important;
   }
 
   /*PLP*/
@@ -3547,7 +3602,7 @@ input[type="submit"].btn-block {
   }
   .navbar-expand-md .navbar-nav .dropdown-menu {
     position: absolute;
-    top: 130px !important;
+    top: 120px !important;
     height: 330px;
   }
   .navbar-expand-md .navbar-nav .nav-link {
@@ -8868,9 +8923,12 @@ dt {
   float: right;
   flex-direction: row;
   justify-content: space-between;
+  padding-right: 0 !important;
 }
 .pull-left {
   float: left;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 .fa-spin {
   animation: fa-spin 2s infinite linear;
@@ -12804,7 +12862,7 @@ a.skip:hover {
     margin-left: 0;
   }
   .navbar.bg-inverse .navbar-nav .nav-link {
-    padding: 0.8rem;
+    padding: 6px;
     white-space: nowrap;
   }
 }
@@ -13032,7 +13090,7 @@ a.skip:hover {
     display: none;
   }
   .input-location {
-    width: 100%;
+    width: 160%;
     background-color: var(--color-lety1);
     border: none;
     color: var(--color-lety-white);
@@ -13107,7 +13165,8 @@ a.skip:hover {
 .user img{
   width: 14px;
   height: 18px;
-  margin-top: 4px;
+  margin-top: 6px;
+  margin-left: 10px;
 }
 
 @media (max-width: 992px) {
@@ -13619,6 +13678,7 @@ footer .store-mobile {
     display: flex;
     justify-content: center;
     text-align: center;
+   
   }
 
   footer .footer-email-signup-mobile {
@@ -13775,7 +13835,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-family-gotham);
+  font-family: var(--font-family-gotham) !important;
 }
 .notify {
   position: fixed;
@@ -15047,7 +15107,8 @@ a .moreless .less{
 }
 
 .location{
-  margin-left: 25px;
+  margin-left: 10px;
+  width: 200px;
 }
 
 .input-location{
@@ -15062,7 +15123,7 @@ a .moreless .less{
 } */
 @media (min-width: 1200px) {
   .site-search {
-    width: 289px;
+    width: 232px;
   }
   .fa-star {
     color: var(--color-lety3);
@@ -15097,7 +15158,7 @@ a .moreless .less{
 } */
 .site-search .fa-close,
 .site-search .fa-search {
-  right: 16px;
+  right: 12px;
 }
 .site-search .fa-close,
 .site-search .fa-search,
@@ -15126,7 +15187,7 @@ a .moreless .less{
 .site-search input {
   padding-right: 2rem;
   height: 37px;
-  width: 279px;
+  width: 232px;
   margin-top: 0.2em;
 }
 @media (max-width: 543.98px) {

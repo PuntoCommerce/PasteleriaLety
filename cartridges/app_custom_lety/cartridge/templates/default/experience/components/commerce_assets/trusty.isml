@@ -5,7 +5,7 @@
 
 <div class="trusty">
   <div class="icon">
-    <img src="${pdict.image.src.desktop}" height="42px" width="42px" alt="${pdict.image.alt}">
+    <img src="${pdict.image.src.desktop}" alt="${pdict.image.alt}">
   </div>
   <div class="text">
     <span class="trusty-text">

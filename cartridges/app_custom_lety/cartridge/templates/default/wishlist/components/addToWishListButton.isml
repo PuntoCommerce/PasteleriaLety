@@ -1,0 +1,3 @@
+<button type="submit" class="btn btn-block btn-outline-primary add-to-wish-list" data-href="${URLUtils.url('Wishlist-AddProduct')}">
+ <span>Agregar a lista de deseos</span>
+</button>

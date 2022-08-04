@@ -11,7 +11,7 @@
         <div class="navigation-desktop">
             <div class="header d-flex justify-content-center align-items-center">
                 <div class="row header-container">
-                    <div class="pull-left d-flex align-items-center col-4">
+                    <div class="pull-left d-flex align-items-center col-3" style="width: 370px">
                         <div class="navbar-header brand brand-desk">
                             <a class="logo-home" href="${URLUtils.url('Home-Show')}"
                                 title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
@@ -26,7 +26,7 @@
                             <isinclude template="components/header/location" />
                         </div>
                     </div>
-                    <div class="pull-right d-flex align-items-center col-8">
+                    <div class="pull-right d-flex align-items-center col-9">
                         <div class="search search-desk">
                             <isinclude template="components/header/search" />
                         </div>
