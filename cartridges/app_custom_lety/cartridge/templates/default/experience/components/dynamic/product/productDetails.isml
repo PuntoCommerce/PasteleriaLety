@@ -109,7 +109,7 @@
                     </isif>
 
                     <!-- Product Availability -->
-                    <isinclude template="product/components/productAvailability" />
+                    <isinclude template="plugin_wishlists/productAvailability" />
 
                    
 
