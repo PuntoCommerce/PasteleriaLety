@@ -9,6 +9,8 @@
     assets.addJs('/js/hiddenBtn.js');
     assets.addJs('/js/custom.js');
     assets.addCss('/css/navigation.css');
+
+    assets.addJs("/js/session/store.js");
 </isscript>
 
 <!DOCTYPE html>
