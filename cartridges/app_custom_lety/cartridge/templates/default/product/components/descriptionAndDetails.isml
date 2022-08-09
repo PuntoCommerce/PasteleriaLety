@@ -7,7 +7,7 @@
         <hr class="d-sm-none">
     </isif>
 
-    <div class="row description collapsible-xs <isif condition="${!product.shortDescription}">hidden-xl-down</isif>">
+    <iscomment> <div class="row description collapsible-xs <isif condition="${!product.shortDescription}">hidden-xl-down</isif>">
         <div class="col-sm-12 col-md-4 col-lg-3">
             <button class="title btn text-left btn-block d-sm-none"
                     aria-expanded="false" aria-controls="collapsible-description-${loopState && loopState.count ? loopState.count : '1' }"
@@ -18,13 +18,13 @@
         </div>
 
         <isinclude template="product/components/description" />
-    </div>
+    </div> </iscomment>
 
-    <isif condition="${product.longDescription}">
+    <iscomment> <isif condition="${product.longDescription}">
         <hr class="d-sm-none">
-    </isif>
+    </isif> </iscomment>
 
-    <div class="row details collapsible-xs <isif condition="${!product.longDescription}">hidden-xl-down</isif>">
+   <iscomment>  <div class="row details collapsible-xs <isif condition="${!product.longDescription}">hidden-xl-down</isif>">
         <div class="col-sm-12 col-md-4 col-lg-3">
             <button class="title btn text-left btn-block d-sm-none"
                     aria-expanded="false" aria-controls="collapsible-details-${loopState && loopState.count ? loopState.count : '1' }"
@@ -37,5 +37,5 @@
         </div>
 
         <isinclude template="product/components/details" />
-    </div>
+    </div> </iscomment>
 </div>

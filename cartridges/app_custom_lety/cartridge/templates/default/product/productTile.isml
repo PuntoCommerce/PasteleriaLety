@@ -32,9 +32,9 @@
         <isinclude template="product/components/productRating" sf-toolkit="on" />
        
         <isinclude template="product/components/highlight" />
-        <div class="summary__footer">
-            <button class="btn-product btn--gray btn__small"
-                href="${pdict.urls.product}">${Resource.msg('productTile.button.buy', 'pdComponents_es', null)}</button>
+        <div class="summary__footer" style="widht: 270px">
+            <isinclude template="product/components/btnProduct" sf-toolkit="on" />
+            
         </div>
 
 

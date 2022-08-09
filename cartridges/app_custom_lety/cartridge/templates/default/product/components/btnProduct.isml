@@ -1,0 +1,6 @@
+<div class="row cart-and-ipay">
+    <div class="col-sm-12" style="padding-left: 7px !important; padding-right: 7px !important; padding-top: 20px">
+        <button class="btn-product btn-detail btn btn--gray btn__small"
+                href="${pdict.urls.product}">${Resource.msg('productTile.button.buy', 'pdComponents_es', null)}</button>
+    </div>
+</div>
