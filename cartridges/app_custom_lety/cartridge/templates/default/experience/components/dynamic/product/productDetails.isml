@@ -125,6 +125,24 @@
                         </div>
 
                         <!-- Cart and [Optionally] Apple Pay -->
+
+                        <iscomment> <isloop items="${Object.keys(pdict)}" var="p" status="loopstatus">
+                            <p>${p} -> ${pdict[p]}</p>
+                        </isloop>
+
+                        <isif condition="${pdict.hasStoreAssigned}">
+                            <isif condition="${pdict.hasInventoryOn}">
+                                <div class="product" data-pid="${pdict.product.id}">
+                                    <isinclude template="product/components/addToCartProduct" />
+                                </div>
+                            <iselse/>
+                                <span>No disponible en esta sucursal</span>
+                            </isif>
+                        <iselse/>
+                            <div class="product" data-pid="${pdict.product.id}">
+                                <isinclude template="product/components/addToCartProduct" />
+                            </div>
+                        </isif> </iscomment>
                         <isinclude template="product/components/addToCartProduct" />
                     </div>
 
