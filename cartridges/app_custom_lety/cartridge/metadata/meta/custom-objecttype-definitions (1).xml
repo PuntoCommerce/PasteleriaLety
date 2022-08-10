@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <custom-type type-id="reviews_and_ratings">
+        <display-name xml:lang="x-default">Reviews and Ratings</display-name>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <key-definition attribute-id="id">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="customer_id">
+                <display-name xml:lang="x-default">Customer ID</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="is_visible">
+                <display-name xml:lang="x-default">Is Visible</display-name>
+                <description xml:lang="x-default">Defines if the comment and rate is visible into the store front.</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="product_id">
+                <display-name xml:lang="x-default">Product Id</display-name>
+                <description xml:lang="x-default">Product id to match with the comment.</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="rate">
+                <display-name xml:lang="x-default">Rate</display-name>
+                <description xml:lang="x-default">Number of the rate</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>0.0</min-value>
+                <max-value>5.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="review">
+                <display-name xml:lang="x-default">Review</display-name>
+                <description xml:lang="x-default">Comment of the product</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="user_name">
+                <display-name xml:lang="x-default">User Name</display-name>
+                <description xml:lang="x-default">Name of the user.</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="reviews_and_ratings_group">
+                <display-name xml:lang="x-default">RnR Group</display-name>
+                <attribute attribute-id="review"/>
+                <attribute attribute-id="id"/>
+                <attribute attribute-id="is_visible"/>
+                <attribute attribute-id="rate"/>
+                <attribute attribute-id="user_name"/>
+                <attribute attribute-id="creationDate" system="true"/>
+                <attribute attribute-id="product_id"/>
+                <attribute attribute-id="customer_id"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+</metadata>

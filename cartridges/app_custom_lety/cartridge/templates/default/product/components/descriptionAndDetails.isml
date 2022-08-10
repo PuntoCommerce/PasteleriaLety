@@ -1,5 +1,5 @@
 <div class="description-and-detail">
-    <div class="row product-attributes collapsible-xs">
+    <div class="row product-attributes collapsible-xs" style="padding-left: 6rem !important;padding-right: 6rem !important;">
         <isinclude template="product/components/attributes" />
     </div>
 
