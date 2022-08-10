@@ -1,4 +1,20 @@
 <isset name="showQuickView" value="${true}" scope="page" />
-<div class="product" data-pid="${pdict.product.id}">
-    <isinclude template="product/productTile" />
-</div>
+<isif condition="${pdict.hasStoreAssigned}">
+    <isif condition="${pdict.hasInventoryOn}">
+        <div class="col-6 col-sm-4">
+            <isobject object="${product.productSearchHit}" view="searchhit">
+                <div class="product" data-pid="${pdict.product.id}">
+                    <isinclude template="product/productTile" />
+                </div>
+            </isobject>
+        </div>
+    </isif>
+<iselse/>    
+    <div class="col-6 col-sm-4">
+        <isobject object="${product.productSearchHit}" view="searchhit">
+            <div class="product" data-pid="${pdict.product.id}">
+                <isinclude template="product/productTile" />
+            </div>
+        </isobject>
+    </div>
+</isif>
