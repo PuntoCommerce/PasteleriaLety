@@ -8,7 +8,7 @@
 <isset name="isQuickView" value="${false}" scope="page" />
 <isset name="isProductSet" value="${pdict.product.productType === 'set'}" scope="page" />
 <isobject object="${product.raw}" view="detail" />
-<div class="container product-detail product-wrapper" data-pid="${product.id}">
+<div class="container product-detail product-wrapper pr-xl-5 pl-xl-5" data-pid="${product.id}">
     <div class="row">
         <div class="col-12">
             <!--Breadcrumbs-->
@@ -36,7 +36,7 @@
         <div class="row mobile-promo-heart">
             <!--Promo mobile-->
             <div class="col-6 promotions-mobile">
-                <isinclude template="product/components/promotions" />
+                <isinclude template="product/components/pdpHighlight" />
             </div>
             <!--Wishlist heart mobile-->
             <div class="col-6 wishlist-mobile">
@@ -47,10 +47,16 @@
 
 
         <!-- Product Images Carousel -->
-        <isinclude template="product/components/imageCarousel" />
+        <div class="col-12 col-xl-7">
+            <div class="d-xl-none">
+                <isinclude template="product/components/imageCarousel" />
+            </div>
+            <div class="d-none d-xl-block">
+                <isinclude template="product/components/ImageProductDetail" />
+            </div>
+        </div>
 
-
-        <div class="col-12 col-sm-4">
+        <div class="col-12 col-xl-5">
             <!-- Product Name -->
             <div class="row row-desc">
                 <h1 class="product-name hidden-sm-down">${product.productName}</h1>

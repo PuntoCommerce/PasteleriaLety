@@ -733,10 +733,6 @@ header ~ #maincontent .container a:not(.btn-primary, .btn-outline-primary),
   justify-content: right;
 }
 
-.product-detail .carousel-control-next {
-  left: 47rem;
-}
-
 .prices-add-to-cart-actions .cart-and-ipay button {
   color: #b37e5b;
   font-size: 18px;
@@ -1161,13 +1157,6 @@ textarea {
     display: none !important;
   }
 
-  .product-detail .carousel-control-prev {
-    margin-left: -10px !important;
-  }
-  .product-detail .carousel-control-next {
-    left: 85% !important;
-  }
-
   .desc-rating {
     display: none !important;
   }
@@ -1176,6 +1165,7 @@ textarea {
     display: flex !important;
     font-size: 14px;
     text-align: center;
+    justify-content: center;
   }
 
   .mobile-promo {
@@ -5687,9 +5677,6 @@ a.close.disabled {
   overflow: hidden;
 }
 .carousel-item {
-  padding: 0 !important;
-}
-.carousel-item {
   position: relative;
   display: none;
   -webkit-box-align: center;
@@ -5703,6 +5690,12 @@ a.close.disabled {
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
   perspective: 1000px;
+}
+
+.carousel-item.active {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
 }
 
 .carousel-item-next,
@@ -5784,6 +5777,12 @@ a.close.disabled {
   text-align: center;
   opacity: 0.5;
   background-color: transparent !important;
+}
+.carousel-control-prev {
+  left: 0;
+}
+.carousel-control-next {
+  right: 0;
 }
 
 .carousel-control-next:focus,

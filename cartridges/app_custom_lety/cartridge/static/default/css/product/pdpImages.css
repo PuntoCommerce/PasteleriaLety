@@ -1,0 +1,14 @@
+.pdp-image-list {
+  display: flex;
+  flex-direction: column;
+}
+.pdp-image {
+  margin: 0 10px 10px 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+.pdp-main-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

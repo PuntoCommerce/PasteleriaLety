@@ -84,8 +84,8 @@ window.addEventListener("load", () => {
 
 /* ########################################## Sticky Nav Bar ####################################################### */
 // Listen on scroll event to show/hide btn back to top
-const navBar = document.querySelectorAll('.experience-headerbanner')[0];
-const header = document.querySelector('header');
+const navBar = document.querySelectorAll('.experience-headerbanner')[0] ? document.querySelectorAll('.experience-headerbanner')[0] : false;
+const header = document.querySelector('header') ? document.querySelector('header') : false;
 
 setTimeout(function () {
   const navBarOffSet = navBar.offsetTop;

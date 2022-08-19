@@ -1,0 +1,16 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets');
+    assets.addJs('/js/pdpImages.js');
+    assets.addCss('/css/product/pdpImages.css');
+</isscript>
+
+<div class="pdp-image-container row">
+    <div class="pdp-image-list col-3">
+        <isloop items="${product.images.large}" var="image" status="loopStatus">
+            <img class="pdp-image" src="${image.url}" alt="${image.alt}" />
+        </isloop>
+    </div>
+    <div class="pdp-main-image col-9">
+        <img id="pdpMainImage" class="pdp-main-image" src="" alt="" />
+    </div>
+</div>
