@@ -1,5 +1,19 @@
+@font-face{
+  font-family: "gotham-light";
+  src: url("../fonts/Gotham-Light.otf") format("opentype");
+}
+
+@font-face{
+  font-family: "gotham-medium";
+  src: url("../fonts/GothamMedium.ttf") format("opentype");
+}
+
+@font-face{
+  font-family: "gotham-book";
+  src: url("../fonts/GothamBook.ttf") format("opentype");
+}
+
 @import url(https://fonts.googleapis.com/css?family=Dosis&subset=latin-ext);
-@import url(http://fonts.cdnfonts.com/css/gotham);
 :root {
   /*Colores Lety*/
   --color-lety1: #6c4d23;
@@ -100,7 +114,7 @@
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
   /*Font famili Lety*/
-  --font-family-gotham: "Gotham", sans-serif !important;
+  --font-family-gotham: "gotham-book", sans-serif !important;
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
