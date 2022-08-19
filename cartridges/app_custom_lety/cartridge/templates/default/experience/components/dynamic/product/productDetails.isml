@@ -17,8 +17,8 @@
             </div>
 
             <!-- Product Name -->
-            <div class="row">
-                <div class="d-md-none col-sm-12">
+            <div class="row row-name">
+                <div class="d-md-none col-sm-12 col-name">
                     <h1 class="product-name">${product.productName}</h1>
                 </div>
             </div>
@@ -33,18 +33,41 @@
                 <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
             </div>
         </div>
+        <div class="row mobile-promo-heart">
+            <!--Promo mobile-->
+            <div class="col-6 promotions-mobile">
+                <isinclude template="product/components/promotions" />
+            </div>
+            <!--Wishlist heart mobile-->
+            <div class="col-6 wishlist-mobile">
+                <isinclude template="wishlist/components/addToWishListButtonHeart" />
+            </div>
+        </div>
+
+
+
         <!-- Product Images Carousel -->
         <isinclude template="product/components/imageCarousel" />
+
 
         <div class="col-12 col-sm-4">
             <!-- Product Name -->
             <div class="row row-desc">
                 <h1 class="product-name hidden-sm-down">${product.productName}</h1>
             </div>
+            <div class="availability-mobile">
+                <isinclude template="plugin_wishlists/productAvailability" />
+            </div>
+            <div class="row row-desc desc-rating" style="font-size:15px">
+                <div class="col-7" style="padding-bottom: 20px; padding-right: 0 !important;">
+                    <div class="row justify-content-left" style="justify-content: left !important;padding-left: 15px;">
+                        <isinclude url="${URLUtils.url('RnR-Average', 'product_id', pdict.product.id)}" />
+                        <span>Opiniones</span>
+                    </div>
 
-            <div class="row row-desc">
-                <div class="col">
-                    <isinclude template="product/components/pidRating" />
+                </div>
+                <div class="col-5" id="resena-rnr" style="padding-left: 0 !important;">
+                    <a href="#resena-comentarios" style="color: blue;color: blue !important;">Escribir una reseña</a>
                 </div>
             </div>
             <!-- Applicable Promotions -->
@@ -52,11 +75,12 @@
                 <div class="col-3 promotions">
                     <isinclude template="product/components/promotions" />
                 </div>
+
                 <div class="col-9 wishlist">
                     <isinclude template="wishlist/components/addToWishListButton" />
                 </div>
             </div>
-            <div class="row">
+            <div class="row row-desc">
                 <div class="col-12">
                     <!-- Prices -->
                     <div class="prices prices-pdp">
@@ -66,8 +90,11 @@
                 </div>
             </div>
             <!-- Product Availability -->
-            <isinclude template="plugin_wishlists/productAvailability" />
-            <div class="attributes">
+            <div class="availability-desk">
+                <isinclude template="plugin_wishlists/productAvailability" />
+            </div>
+
+            <div class="attributes row-desc">
                 <!-- Attributes and Quantity -->
                 <isinclude template="product/components/mainAttributes" />
 
@@ -103,23 +130,37 @@
                     </div>
                 </isif>
 
+
+                <div class="prices-add-to-cart-actions">
+                    <isinclude template="product/components/btnProduct" sf-toolkit="on" />
+                </div>
                 <div class="prices-add-to-cart-actions">
                     <!-- Cart and [Optionally] Apple Pay -->
                     <isinclude template="product/components/addToCartProduct" />
 
                 </div>
-                <div class="prices-add-to-cart-actions">
-                    <isinclude template="product/components/btnProduct" sf-toolkit="on" />
-                </div>
+                <div class="row row-desc row-rating-mobile">
+                    <div class="row row-rating"
+                        style="padding-bottom: 20px; padding-right: 0 !important; padding-top:15px;">
+                        <div class="col-6 justify-content-left" style="justify-content: left !important;">
+                            <isinclude url="${URLUtils.url('RnR-Average', 'product_id', pdict.product.id)}" />
 
+                        </div>
+                        <div class="col-6" id="resena-rnr" style="padding-left: 0 !important;">
+                            <a href="#resena-comentarios" style="color: blue;color: blue !important;">Escribir una
+                                reseña</a>
+                        </div>
+                    </div>
+
+                </div>
                 <!-- Social Sharing Icons -->
-                <div class="row">
+                <div class="row row-desc">
                     <isinclude template="product/components/socialIcons" />
                 </div>
             </div>
         </div>
     </div>
-    <hr style="width: 92%; border-top: .5px solid var(--color-lety-black)">
+    <hr class="hr-pdp" style="width: 92%; border-top: .5px solid var(--color-lety-black)">
 
     <div>
         <isslot id="cts-recommendations-m" description="Complete the set products" context="global"

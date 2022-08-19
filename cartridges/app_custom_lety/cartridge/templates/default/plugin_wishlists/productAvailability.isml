@@ -1,6 +1,9 @@
 <!-- Availability -->
 <div class="availability row product-availability row-desc" data-ready-to-order="${product.readyToOrder}" data-available="${product.available}">
-    <isinclude template="product/components/availability" />
+    <div class="col">
+        <isinclude template="product/components/availability" />
+    </div>
+    
 </div>
 
 <iscomment> <div class="row">

@@ -70,7 +70,7 @@ const toggleSubMenu = (category, back = false) => {
 const backToTopBtn = $C(".goToUp");
 
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 500) {
+  if (window.scrollY > 700) {
     backToTopBtn.classList.remove("hidden");
   } else {
     backToTopBtn.classList.add("hidden");
@@ -81,3 +81,4 @@ window.addEventListener("scroll", () => {
 window.addEventListener("load", () => {
   changeSubMenuItem();
 });
+

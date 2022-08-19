@@ -1,7 +1,7 @@
 <isset name="escapedProductName" value="${encodeURIComponent(product.productName)}" scope="page"/>
 <isset name="productImageLarge" value="${encodeURIComponent(product.images['large'][0].absURL)}" scope="page"/>
 <isset name="productUrlencode" value="${encodeURIComponent(URLUtils.https('Product-Show', 'pid', product.id))}" scope="page"/>
-<div class="col-12 social-container hidden-sm-down">
+<div class="col-12 social-container">
     <ul class="social-icons social-icons-detail d-flex justify-content-left">
     <li>
     <span class="text-icons-details">Comparte en redes</span>

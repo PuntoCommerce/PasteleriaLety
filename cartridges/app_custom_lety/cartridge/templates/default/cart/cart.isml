@@ -30,28 +30,44 @@
     <div class="container">
        <iscomment>  <h1 class="page-title">${Resource.msg('title.cart','cart',null)}</h1> </iscomment>
         <div class="row cart-header">
+        
             <div class="col-sm-12 hidden-xs-down d-flex justify-content-center">
                 <button type="" class="continue-shopping-link d-flex">
                 <a class="continue-shopping-link" style="color: var(--color-lety-white) !important; padding-top: 5px" href="${URLUtils.url('Home-Show')}" title="${Resource.msg('link.continue.shopping','cart',null)}">
                     ${Resource.msg('link.continue.shopping','cart',null)}
                 </a></button>
             </div>
-           <iscomment>  <div class="col-sm-3 text-center">
-                <h2 class="number-of-items">${Resource.msgf('label.number.items.in.cart','cart', null, pdict.numItems)}</h2>
-            </div> </iscomment>
-           <iscomment>  <div class="col-sm-5 text-right hidden-xs-down">
-                <div>
-                    <span>${Resource.msg('info.need.help','cart',null)}</span>
-                    <span><a class="help-phone-number" href="tel:${Resource.msg('info.phone.number','common',null)}">${Resource.msg('info.phone.number','common',null)}</a></span>
-                </div>
-            </div> </iscomment>
+            
         </div>
     </div>
 
     
     <iselse/>
         <div class="container cart cart-page">
-            <div class="row">
+        <div class="row" style="padding-top: 15px;padding-bottom: 20px;">
+            <div class="col-sm-7 text-right title-cart hidden-xs-down">
+                <span>${Resource.msg('label.title.cart', 'cart', null)}</span>
+            </div>
+            <div class="col-sm-5 text-right hidden-xs-down">
+                <div style="padding-top: 15px;">
+                    <span>${Resource.msg('info.need.help','cart',null)}</span>
+                    
+                    <span><a class="help-phone-number" href="tel:${Resource.msg('info.phone.number','common',null)}">${Resource.msg('info.phone.number','common',null)}</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+         <div class="col-sm-5 hidden-xs-down d-flex justify-content-left">
+                
+                <a class="continue-shopping-link" style=" background-color: transparent;" href="${URLUtils.url('Home-Show')}" title="${Resource.msg('link.continue.shopping','cart',null)}">
+                    ${Resource.msg('link.continue.shopping','cart',null)}
+                </a>
+            </div>
+            <div class="col-sm-7 text-left">
+                <h2 class="number-of-items" style="font-size: 16px">${Resource.msgf('label.number.items.in.cart','cart', null, pdict.numItems)}</h2>
+            </div>
+        </div>
+            <div class="row" style="padding-right: 70px; padding-bottom: 20px">
                 <!---product cards--->
                 <div class="col-sm-7 col-md-8">
                     <isloop items="${pdict.items}" var="lineItem">
@@ -69,7 +85,8 @@
                 </div>
                 <!---totals, and checkout actions--->
                 <div class="col-sm-5 col-md-4 totals">
-                    <isinclude template="cart/cartPromoCode" />
+                   <div class="totals-cart">
+                     <isinclude template="cart/cartPromoCode" />
                     <div class="coupons-and-promos">
                         <isinclude template="cart/cartCouponDisplay" />
                     </div>
@@ -77,9 +94,10 @@
                         <isinclude template="cart/cartShippingMethodSelection" />
                     </div>
                     <isinclude template="cart/cartTotals" />
+                   </div>
                     <div class="row">
-                        <div class="col-12 checkout-continue">
-                            <isinclude template="cart/checkoutButtons" />
+                        <div class="col-12 checkout-continue" style="padding-top: 15px">
+                            <isinclude template="cart/checkoutButtonsAuth" />
                         </div>
                     </div>
                 </div>

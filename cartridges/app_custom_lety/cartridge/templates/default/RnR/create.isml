@@ -1,0 +1,63 @@
+<div>
+
+    <div class="alert alert-success alert-dismissible fade d-none" id="rnr-comment-sucess" role="alert">
+        ${Resource.msg('comment.success', 'rnr', null)}
+        <button type="button" class="close" data-bs-dismiss="alert" id="rnr-close-sucess" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="alert alert-danger alert-dismissible fade d-none" id="rnr-comment-danger" role="alert">
+        ${Resource.msg('comment.danger', 'rnr', null)}
+        <button type="button" class="close" data-bs-dismiss="alert" id="rnr-close-danger" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <form id="rnr_form" name="formRnR">
+        <div class="grid-name-rating">
+
+            <div>
+                <input id="customer_id_rnr" type="hidden" value="${pdict.customer_id}" />
+            </div>
+
+            <div class="form-group form-coments grid-form">
+                <label for="user_name_rnr">${Resource.msg('label.name', 'rnr', null)}</label>
+                <input type="text" class="form-control form-resena" id="user_name_rnr" value="${pdict.user_name}"
+                    placeholder="${Resource.msg('placeholder.name', 'rnr', null)}">
+            </div>
+            <div class="form-group rating-star grid-star">
+                <div class="d-none">
+                    <label for="rate_rnr">${Resource.msg('label.rate', 'rnr', null)}</label>
+                    <input type="number" class="form-control" id="rate_rnr"
+                        placeholder="${Resource.msg('placeholder.name', 'rnr', null)}">
+                </div>
+                <div class="rating">
+                    <input type="radio" name="rating" id="rating-5" value="5">
+                    <label for="rating-5"></label>
+                    <input type="radio" name="rating" id="rating-4" value="4">
+                    <label for="rating-4"></label>
+                    <input type="radio" name="rating" id="rating-3" value="3">
+                    <label for="rating-3"></label>
+                    <input type="radio" name="rating" id="rating-2" value="2">
+                    <label for="rating-2"></label>
+                    <input type="radio" name="rating" id="rating-1" value="1">
+                    <label for="rating-1"></label>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-12">
+                <label for="review_rnr">${Resource.msg('label.review', 'rnr', null)}</label>
+                <textarea type="text" class="form-control form-resena" id="review_rnr"
+                    placeholder="${Resource.msg('placeholder.review', 'rnr', null)}" rows="4" cols="50"></textarea>
+            </div>  
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-end">
+                <button type="button" action-url="${URLUtils.url("RnR-Create").toString()}" id="rnr-submit" class="btn btn-product btn-enviar-reseña" style="width: 232px;">${Resource.msg('btn.submit', 'rnr', null)}</button>
+            </div>
+        </div>
+    </form>
+</div>

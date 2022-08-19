@@ -15,7 +15,9 @@
     assets.addJs('/js/campaignBanner.js');
     assets.addJs('/js/hiddenBtn.js');
     assets.addJs('/js/custom.js');
+    assets.addJs('/js/checkoutCustom.js');
     assets.addCss('/css/navigation.css');
+    assets.addCss('/css/style-lety.css');
 
     assets.addJs("/js/session/store.js");
 </isscript>

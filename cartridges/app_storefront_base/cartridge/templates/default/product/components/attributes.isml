@@ -5,7 +5,7 @@
         >
             ${Resource.msg('label.attributes', 'product', null)}
         </button>
-        <h2 class="title d-none d-sm-block" style="font-size:22px !important;">
+        <h2 class="title d-none d-sm-block h2-detail">
             ${Resource.msg('label.attributes', 'product', null)}
         </h2>
     </div>
