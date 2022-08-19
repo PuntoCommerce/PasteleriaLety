@@ -588,6 +588,9 @@ pre code {
 }
 
 /*Header*/
+header {
+  width: 100vw;
+}
 .location-desk {
   width: 100%;
 }
@@ -818,17 +821,17 @@ textarea {
   padding-right: 6rem;
 }
 
-.grid-name-rating{
+.grid-name-rating {
   display: grid;
   grid-row: 1 !important;
   grid-column: 2 !important;
 }
 
-.grid-form{
+.grid-form {
   grid-column: 1;
 }
 
-.grid-star{
+.grid-star {
   grid-column: 2 !important;
 }
 
@@ -890,7 +893,7 @@ textarea {
 
 /*Design checkout*/
 
-.div-btn-check{
+.div-btn-check {
   width: 100%;
   padding-bottom: 10px;
 }
@@ -1163,7 +1166,7 @@ textarea {
     padding-top: 1rem;
   }
 
-  .promotions-mobile .title{
+  .promotions-mobile .title {
     padding: 0 15px 0 14px !important;
     font-size: 19px !important;
   }
@@ -1172,7 +1175,7 @@ textarea {
     display: none !important;
   }
 
-  .product-detail .carousel-control-prev{
+  .product-detail .carousel-control-prev {
     margin-left: -10px !important;
   }
   .product-detail .carousel-control-next {
@@ -1290,19 +1293,18 @@ textarea {
     max-height: 90px;
   }
 
-  .grid-name-rating{
+  .grid-name-rating {
     display: grid;
     grid-row: 2 !important;
   }
-  .rating{
+  .rating {
     justify-content: left !important;
   }
 
-  .grid-star{
+  .grid-star {
     grid-row: 1 !important;
     grid-column: 1 !important;
   }
-  
 
   /*Footer*/
   .footer-item-img {
@@ -4061,7 +4063,6 @@ input[type="submit"].btn-block {
   }
   .navbar-expand-md .navbar-nav .dropdown-menu {
     position: absolute;
-    top: 120px !important;
     height: 330px;
   }
   .navbar-expand-md .navbar-nav .nav-link {
@@ -16278,4 +16279,10 @@ a .moreless .less {
   .table-responsive-sm > .table-bordered {
     border: 0;
   }
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }

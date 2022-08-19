@@ -82,3 +82,21 @@ window.addEventListener("load", () => {
   changeSubMenuItem();
 });
 
+/* ########################################## Sticky Nav Bar ####################################################### */
+// Listen on scroll event to show/hide btn back to top
+const navBar = document.querySelectorAll('.experience-headerbanner')[0];
+const header = document.querySelector('header');
+
+setTimeout(function () {
+  const navBarOffSet = navBar.offsetTop;
+  const navBarHeight = navBar.offsetHeight;
+  header.style.minHeight = navBarHeight + "px";
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > navBarOffSet) {
+      header.classList.add('sticky');
+    } else {
+      header.classList.remove('sticky');
+    }
+  });
+}, 100);

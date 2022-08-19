@@ -284,10 +284,7 @@ header .container {
 /* Menu */
 
 .dropdown-menu {
-  position: fixed !important;
   width: 100vw;
-  top: 177px;
-
   box-shadow: none !important;
 }
 
