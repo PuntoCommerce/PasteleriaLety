@@ -1,19 +1,19 @@
-@font-face{
+@font-face {
   font-family: "gotham-light";
   src: url("../fonts/Gotham-Light.otf") format("opentype");
 }
 
-@font-face{
+@font-face {
   font-family: "gotham-medium";
   src: url("../fonts/GothamMedium.ttf") format("opentype");
 }
 
-@font-face{
+@font-face {
   font-family: "gotham-book";
   src: url("../fonts/GothamBook.ttf") format("opentype");
 }
 
-@font-face{
+@font-face {
   font-family: "gotham-bold";
   src: url("../fonts/Gotham-Bold.otf") format("opentype");
 }
@@ -13610,10 +13610,6 @@ a.skip:hover {
   font-size: 1.5em;
 }
 
-.minicart img {
-  height: 18px;
-  width: 16px;
-}
 .minicart a.minicart-link:hover {
   text-decoration: none;
 }
@@ -13634,8 +13630,6 @@ a.skip:hover {
 }
 
 .user img {
-  width: 14px;
-  height: 18px;
   margin-top: 6px;
   margin-left: 10px;
 }
@@ -14031,10 +14025,12 @@ footer .newsletter {
 }
 
 footer .newsletter:focus {
-  background-color: #231f20;
   border: 1px solid #ffffff;
-  color: #ffffff !important;
   box-shadow: none;
+}
+
+footer .newsletter::placeholder {
+  color: #000;
 }
 
 footer .input-group {
@@ -16290,4 +16286,7 @@ a .moreless .less {
   top: 0;
   left: 0;
   z-index: 1;
+}
+.form-control.newsletter {
+
 }

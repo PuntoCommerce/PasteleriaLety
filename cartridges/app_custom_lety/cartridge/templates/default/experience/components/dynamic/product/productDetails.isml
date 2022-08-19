@@ -137,13 +137,13 @@
                 </isif>
 
 
-                <div class="prices-add-to-cart-actions">
-                    <isinclude template="product/components/btnProduct" sf-toolkit="on" />
+                <div class="prices-add-to-cart-actions mb-2">
+                    <!-- Cart and Checkout -->
+                    <isinclude template="product/components/buyNowProduct" />
                 </div>
                 <div class="prices-add-to-cart-actions">
                     <!-- Cart and [Optionally] Apple Pay -->
                     <isinclude template="product/components/addToCartProduct" />
-
                 </div>
                 <div class="row row-desc row-rating-mobile">
                     <div class="row row-rating"
