@@ -70,7 +70,7 @@
 #menuDesk .nav-item a {
   color: var(--color-lety-black);
   font-family: var(--font-family-gotham);
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .nav.navbar-nav {
