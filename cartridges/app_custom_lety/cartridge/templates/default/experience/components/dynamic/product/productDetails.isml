@@ -65,24 +65,20 @@
                 <isinclude template="plugin_wishlists/productAvailability" />
             </div>
             <div class="row row-desc desc-rating" style="font-size:15px">
-                <div class="col-7" style="padding-bottom: 20px; padding-right: 0 !important;">
+                <div class="col-12" style="padding-bottom: 20px; padding-right: 0 !important;">
                     <div class="row justify-content-left" style="justify-content: left !important;padding-left: 15px;">
-                        <isinclude url="${URLUtils.url('RnR-Average', 'product_id', pdict.product.id)}" />
-                        <span>Opiniones</span>
+                        <isinclude url="${URLUtils.url('RnR-AverageV2', 'product_id', pdict.product.id)}" />
                     </div>
 
                 </div>
-                <div class="col-5" id="resena-rnr" style="padding-left: 0 !important;">
-                    <a href="#resena-comentarios" style="color: blue;color: blue !important;">Escribir una reseña</a>
-                </div>
             </div>
             <!-- Applicable Promotions -->
-            <div class="row row-desc">
-                <div class="col-3 promotions">
+            <div class="row row-desc promotions-wish-row">
+                <div class="promotions mr-3">
                     <isinclude template="product/components/promotions" />
                 </div>
 
-                <div class="col-9 wishlist">
+                <div class="wishlist w-100">
                     <isinclude template="wishlist/components/addToWishListButton" />
                 </div>
             </div>
@@ -145,16 +141,10 @@
                     <!-- Cart and [Optionally] Apple Pay -->
                     <isinclude template="product/components/addToCartProduct" />
                 </div>
-                <div class="row row-desc row-rating-mobile">
-                    <div class="row row-rating"
-                        style="padding-bottom: 20px; padding-right: 0 !important; padding-top:15px;">
-                        <div class="col-6 justify-content-left" style="justify-content: left !important;">
-                            <isinclude url="${URLUtils.url('RnR-Average', 'product_id', pdict.product.id)}" />
-
-                        </div>
-                        <div class="col-6" id="resena-rnr" style="padding-left: 0 !important;">
-                            <a href="#resena-comentarios" style="color: blue;color: blue !important;">Escribir una
-                                reseña</a>
+                <div class="row row-desc row-rating-mobile mt-3">
+                    <div class="col-12 row-rating">
+                        <div class="row justify-content-center">
+                            <isinclude url="${URLUtils.url('RnR-AverageV2', 'product_id', pdict.product.id)}" />
                         </div>
                     </div>
 

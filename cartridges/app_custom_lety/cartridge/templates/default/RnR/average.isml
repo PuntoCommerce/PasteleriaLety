@@ -1,4 +1,6 @@
 <div class="rnr-average-container d-flex align-items-center">
   <div class="rnr-comment-rate d-flex align-items-center" data-rate="${pdict.average}"></div>
-  <div class="rnr-comment-count">(${pdict.total})</div>
+  <iscomment>
+    <div class="rnr-comment-count">(${pdict.total})</div>
+  </iscomment>
 </div>

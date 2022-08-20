@@ -643,3 +643,8 @@ label.availability {
     margin-right: 10px;
   }
 }
+.promotions-wish-row {
+  display: grid;
+  grid-template-columns: 15% 85%;
+  margin: 0;
+}

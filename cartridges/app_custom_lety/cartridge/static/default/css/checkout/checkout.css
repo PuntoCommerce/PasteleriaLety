@@ -216,7 +216,6 @@
   font-size: 0.875em;
 }
 .customer-information-block .btn-link {
-  color: var(--skin-link-color-2);
   padding: 0;
   vertical-align: baseline;
 }

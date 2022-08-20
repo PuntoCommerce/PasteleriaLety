@@ -1,0 +1,13 @@
+<div class="rnr-average-container d-flex align-items-center">
+  <div class="rnr-comment-rate d-flex align-items-center" data-rate="${pdict.average}"></div>
+  <div class="rnr-comment-count ml-2">${pdict.total}
+    <isif condition="${pdict.total > 1}">
+      <span class="rnr-label-comment">${Resource.msg('label.opiniones', 'rnr', null)}</span>
+  <iselse/>
+      <span class="rnr-label-comment">${Resource.msg('label.opinion', 'rnr', null)}</span>
+    </isif>
+  </div>
+</div>
+<div class="rnr-link ml-1" id="resena-rnr">
+  <a href="#resena-comentarios" class="link">${Resource.msg('label.go.to.rnr', 'rnr', null)}</a>
+</div>
