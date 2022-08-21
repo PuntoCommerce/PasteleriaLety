@@ -1,0 +1,220 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" />
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- utf-8 works for most cases -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <style type="text/css">
+
+        footer {
+            background-color: #000000;
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        .email-container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .banner-email-body{
+            width: 100%
+        }
+
+        .email-main {
+            margin: 0;
+        }
+
+        .email-title {
+            background-color: #000;
+            padding: 10px 50px;
+            text-align: center;
+        }
+
+        .email-title span {
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .logo-body {
+            text-align: center;
+        }
+
+        .divider-footer {
+            width: 100%;
+        }
+
+        .logo-footer {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .logo-footer-img {
+            width: 90px;
+        }
+
+        .pay-footer-text,
+        .legal-footer-text {
+            color: #ffffff;
+            font-size: 14px;
+            margin: 10px;
+            padding: 0 5rem;
+            text-align: center;
+        }
+
+        .pay-methods {
+            margin: 0 auto;
+            width: fit-content;
+
+        }
+
+        .pay-methods img {
+            width: 30px;
+            height: auto;
+        }
+
+        .email-main p,
+        .email-main h1 {
+            margin: 0 auto;
+            max-width: 90%;
+            text-align: center;
+            width: fit-content;
+        }
+
+        .email-main h1 {
+            font-size: 18px;
+            color: #000000;
+        }
+
+        .email-main p {
+            font-size: 14px;
+            color: #000000;
+        }
+
+        .email-main p a{
+            font-size: 14px;
+            color: #000000;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        table {
+            margin: 10px auto 10px auto;
+            width: 100%;
+        }
+
+        .btn-email{
+            background-color: #000000;
+            padding: 10px;
+            border-radius: 3px;
+        }
+
+        .text-container{
+            margin: 59px 0 99px 0;
+        }
+
+        @media only screen and (max-width:480px) {
+            .email-container {
+                max-width: 100%;
+                padding: 0px;
+            }
+
+            .email-main p,
+            .email-main h1 {
+                max-width: 100%;
+            }
+
+
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="email-container">
+        <div class="email-main">
+            <table>
+                <tr>
+                    <td>
+                        <div class="logo-body">
+                            <img class="logo-email-body"  src="${URLUtils.httpsStatic('/images/mens_logo.png')}"
+                                alt="logo Mens Fashion" />
+                        </div>
+                    </td>
+                </tr>
+                <tr class="email-title">
+                    <td>
+                        <span>¡Tus datos fueron modificados!</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="banner-body">
+                            <img class="banner-email-body" src="${URLUtils.httpsStatic('/images/bannerMail.png')}"
+                                alt="Banner Mens Fashion" />
+                        </div>
+                    </td>
+                </tr>                
+                <tr>
+                    <td style="padding-bottom: 50px;">
+                        <h1 style="color:#000; font-size: 16px;">
+                            ${Resource.msg('email.msg.edited.dear', 'account', null)}&nbsp;${pdict.firstName}&nbsp;${pdict.lastName}
+                        </h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-bottom: 25px;">
+                        <p style="color:#000;">${Resource.msg('email.msg.edited.body1', 'account', null)}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-bottom: 60px;">
+                        <p>
+                            <a href="${pdict.url}" class="btn-email"
+                                style="color:#fff;">${Resource.msg('link.account.redirect', 'account', null)}</a>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-bottom: 15px;">
+                        <p style="color:#A3A3A3;">${Resource.msg('email.msg.edited.body2', 'account', null)}</p>
+                    </td>
+                </tr>
+            </table>    
+        </div>      
+        <footer>
+            <div class="pay-footer">
+                <p class="pay-footer-text">Pagos seguros</p>
+            </div>
+            <div class="pay-methods">
+                <img class="pay-icon" src="${URLUtils.httpsStatic('/images/visa.png')}" alt="Visa" />
+
+                <img class="pay-icon" src="${URLUtils.httpsStatic('/images/mc.png')}" alt="Mastercard" />
+
+                <img class="pay-icon" src="${URLUtils.httpsStatic('/images/pp.png')}" alt="Paypal" />
+
+                <img class="pay-icon" src="${URLUtils.httpsStatic('/images/mercado.png')}" alt="Mercado Pago" />
+            </div>
+            <div class="legal-footer">
+                <p class="legal-footer-text">${Resource.msg('msg.footeremailtemplates.copyright', 'common', null)}</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
