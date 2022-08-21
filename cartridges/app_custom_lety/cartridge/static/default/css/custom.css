@@ -101,7 +101,7 @@ header .container {
 .hover-underline {
   height: 1px;
   width: 0%;
-  background-color: #000000;
+  background-color: #fff;
   transition: width 0.5s;
 }
 
@@ -110,17 +110,6 @@ header .container {
   width: 50%;
 }
 
-#menuDesk .nav-item.last_category_item .hover-underline {
-  background-color: #ff0000;
-}
-
-#menuDesk .nav-item.last_category_item a:hover {
-  color: #ff0000 !important;
-}
-
-#menuDesk .nav-item.last_category_item a {
-  color: #ff0000;
-}
 #menuDesk .dropdown-menu .category-item.item a,
 #menuDesk .nav-item a {
   color: #000000;

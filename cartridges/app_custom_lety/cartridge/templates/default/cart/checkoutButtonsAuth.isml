@@ -4,4 +4,3 @@
         ${Resource.msg('button.checkout', 'cart', null)}
     </a>
 </div>
-

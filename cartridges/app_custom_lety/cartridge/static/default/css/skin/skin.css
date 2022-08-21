@@ -18,7 +18,6 @@ body {
   color: var(--skin-banner-text-color-1);
 }
 .header-banner .close-button .close {
-  background-color: var(--skin-primary-color-1);
 }
 h1.header.page-title,
 h1.header.page-title:before {
@@ -70,14 +69,7 @@ h1.header.page-title:before {
 .navbar .nav-item.dropdown .dropdown-menu.show a {
   color: var(--skin-selectbox-text-color-1);
 }
-.nav-item .nav-link:focus,
-.nav-item .nav-link:hover,
-.nav-item.show .nav-link {
-  background-color: var(--skin-menu-color-1-invert);
-  color: var(--skin-menu-color-1) !important;
-}
 .btn-primary {
-  background-color: var(--skin-primary-color-1);
   color: var(--skin-primary-color-invert-1);
 }
 .btn-primary,
@@ -90,19 +82,9 @@ h1.header.page-title:before {
 }
 .btn-primary.disabled,
 .btn-primary:disabled {
-  background-color: var(--skin-primary-color-1);
   border-color: var(--skin-primary-color);
   color: var(--skin-primary-color-invert-1);
   opacity: 0.5;
-}
-.btn-outline-primary {
-  color: var(--skin-primary-color-1);
-  border-color: var(--skin-primary-color-1);
-}
-.btn-outline-primary:hover {
-  color: var(--skin-primary-color-invert-1);
-  background-color: var(--skin-primary-color-1);
-  border-color: var(--skin-primary-color-1);
 }
 h1,
 h2,
