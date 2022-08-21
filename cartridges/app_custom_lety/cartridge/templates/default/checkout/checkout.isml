@@ -7,7 +7,6 @@
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addJs('/js/checkout.js');
         assets.addCss('/css/checkout/checkout.css');
-        assets.addJs('/js/checkoutCustom.js');
     </isscript>
 
     <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
@@ -44,14 +43,16 @@
                 data-checkout-stage="${pdict.currentStage}"
                 data-checkout-get-url="${URLUtils.https('CheckoutServices-Get')}">
 
-                <div class="row d-sm-none">
-                    <div class="col-12">
-                        <span class="grand-total-label">${Resource.msgf('label.number.items.in.cart', 'cart', null, pdict.order.items.totalQuantity)}</span>
-                        <span class="grand-total-price">${pdict.order.totals.subTotal}</span>
+                <iscomment>
+                    <div class="row d-sm-none">
+                        <div class="col-12">
+                            <span class="grand-total-label">${Resource.msgf('label.number.items.in.cart', 'cart', null, pdict.order.items.totalQuantity)}</span>
+                            <span class="grand-total-price">${pdict.order.totals.subTotal}</span>
+                        </div>
                     </div>
-                </div>
+                </iscomment>
                 <div class="row">
-                    <div class="col-sm-7">
+                    <div class="col-12 col-lg-7">
 
                         <!----------------------------------------------------------------------------------->
                         <!-- Checkout Forms: Shipping, Payment, Coupons, Billing, etc -->
@@ -86,14 +87,21 @@
                         <!-- Step 3: Payment and Billing-->
                         <isinclude template="checkout/billing/billing" />
                         <div class="card payment-summary">
-                            <div class="card-header clearfix">
-                                <h2 class="pull-left card-header-custom">${Resource.msg('heading.payment', 'checkout', null)}</h2>
-                                <button class="edit-button pull-right"
-                                    aria-label="${Resource.msg('action.edit.step.msg.payment', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</button>
+                            <div class="card-header">
+                                <h2 class="card-header-custom">${Resource.msg('heading.payment.review', 'checkout', null)}</h2>
                             </div>
 
-                            <div class="card-body">
-                                <isinclude template="checkout/billing/billingSummary" />
+                            <div class="card-body row">
+                                <div class="col-12 col-lg-6 mb-5 checkout-summary-container">
+                                    <isinclude template="checkout/shipping/shippingSummaryCheckout" />
+                                    <button class="custom_edit-button"
+                                        aria-label="${Resource.msg('action.edit.step.msg.shipping', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</button>
+                                </div>
+                                <div class="col-12 col-lg-6 mb-5 checkout-summary-container">
+                                    <isinclude template="checkout/billing/billingSummaryCheckout" />
+                                    <button class="custom_edit-button"
+                                        aria-label="${Resource.msg('action.edit.step.msg.payment', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</button>
+                                </div>
                             </div>
                         </div>
 
@@ -107,19 +115,21 @@
                                     <div class="next-step-button col-12">
                                         <div class="mb-sm-5">
                                             <button
-                                                class="btn text-uppercase btn-block submit-shipping col-sm-12 col-lg-10"
+                                                class="btn btn--gray btn__small text-uppercase btn-block submit-shipping col-sm-12 col-lg-10"
                                                 type="submit" name="submit" value="submit-shipping" <isif
                                                 condition="${pdict.order.usingMultiShipping && !pdict.order.shippable}">disabled
                                                 </isif>>
                                                 ${Resource.msg('button.next.payment', 'checkout', null)}
                                             </button>
 
-                                            <button class="btn text-uppercase btn-block submit-payment" type="submit"
-                                                name="submit" value="submit-payment">
+                                            <button
+                                                class="btn btn--gray btn__small text-uppercase btn-block submit-payment"
+                                                type="submit" name="submit" value="submit-payment">
                                                 ${Resource.msg('button.next.place.order', 'checkout', null)}
                                             </button>
 
-                                            <button class="btn text-uppercase btn-block place-order"
+                                            <button
+                                                class="btn btn--gray btn__small text-uppercase btn-block place-order"
                                                 data-action="${URLUtils.url('CheckoutServices-PlaceOrder')}"
                                                 type="submit" name="submit"
                                                 value="place-order">${Resource.msg('button.place.order', 'checkout', null)}
@@ -134,10 +144,11 @@
                     <!----------------------------------------------------------------------------------->
                     <!-- Order Totals, Details and Summary -->
                     <!----------------------------------------------------------------------------------->
-                    <div class="col-sm-5">
-                        <div class="card checkout__order d-none d-lg-block">
+                    <div class="col-12 col-lg-5">
+                        <div class="card checkout__order d-none d-lg-block mt-lg-4">
                             <div class="card-header d-flex justify-content-center align-items-center">
-                                <h2 class="card-header-custom">${Resource.msg('heading.order.summary', 'checkout', null)}</h2>
+                                <h2 class="card-header-custom">${Resource.msg('heading.order.summary', 'checkout', null)}
+                                </h2>
                             </div>
                             <div class="d-flex justify-content-center pb-3 pl-3 pr-3">
                                 <div class="checkout__order--divider"></div>
@@ -151,6 +162,7 @@
                                     <div class="card-body">
                                         <isinclude template="checkout/shipping/shippingSummary" />
                                     </div>
+                                    <div class="checkout__order--divider"></div>
                                 </div>
                                 <isinclude template="checkout/orderTotalSummary" />
                             </div>
