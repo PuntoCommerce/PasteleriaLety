@@ -105,7 +105,7 @@
 
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
 
-    <button type="submit" class="btn btn-block btn-primary">
+    <button type="submit" class="btn btn-product">
         ${Resource.msg('button.createaccount.registration', 'registration', null)}
     </button>
     <div class="privacy-policy">

@@ -4,17 +4,21 @@
         assets.addCss('/css/account/profile.css');
         assets.addJs('/js/profile.js');
     </isscript>
-    <div class="hero slant-down account-image">
-        <h1 class="page-title">${Resource.msg('label.profile','account',null)}</h1>
-    </div>
-    <div class="container">
+    
+    <div class="container container-editProfile">
+         <div class="title-edit-profile">
+                        <h2 >${Resource.msg('label.profile.edit','account',null)}</h2>
+                    </div>
         <!---Breadcrumbs--->
-        <isinclude template="components/breadcrumbs/pageBreadcrumbs"/>
+        <div class=" col-md-4 d-flex justify-content-center">
+            <isinclude template="components/breadcrumbs/pageBreadcrumbs"/>
+        </div>
+        
         <div class="row justify-content-center">
-            <div class="col-sm-8 col-md-6">
+            <div class="col-sm-8 col-md-10">
                 <div class="card">
                     <div class="card-header">
-                        <h2>${Resource.msg('label.profile.edit','account',null)}</h2>
+                        <h2 class="title-edit-prof-form">${Resource.msg('label.profile.edit','account',null)}</h2>
                     </div>
                     <div class="card-body">
                         <isinclude template="account/editProfileForm"/>

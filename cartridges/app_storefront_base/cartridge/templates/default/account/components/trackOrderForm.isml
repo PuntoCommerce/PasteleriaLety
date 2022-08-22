@@ -8,7 +8,7 @@
                 </div>
             </div>
         </isif>
-        <p class="track-order-header-text">${Resource.msg('header.form.trackorder.text', 'login', null)}</p>
+       
 
         <div class="form-group required">
             <label class="form-control-label" for="trackorder-form-number">
@@ -40,12 +40,12 @@
             <div class="invalid-feedback" id="form-email-error"></div>
         </div>
         <!-- Billing Zip Code -->
-        <isinclude template="account/components/trackOrderFormBillingZipCode"/>
+       <iscomment>  <isinclude template="account/components/trackOrderFormBillingZipCode"/> </iscomment>
 
         <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
 
         <div class="form-group">
-            <button class="btn btn-block btn-primary" type="submit" name="submit" value="submit">
+            <button class="btn btn-product btn-primary btn-track" type="submit" name="submit" value="submit">
                 ${Resource.msg('button.text.trackorderform', 'login', null)}
             </button>
         </div>

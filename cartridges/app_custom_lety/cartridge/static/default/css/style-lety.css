@@ -39,3 +39,164 @@
   .checkout__stepper--divider-done {
     background-color: #000000;
   }
+
+  
+  /*Designer Login*/
+  .login-page{
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+  }
+
+  .login-page .breadcrumb{
+    border-bottom: none !important;
+  }
+
+.form-login{
+  padding-right: 4rem;
+}
+.form-register{
+  padding-left: 4rem;
+
+}
+
+.form-register {
+  height: auto !important;
+  max-height: 330px !important;
+}
+
+.track-order-header{
+  height: 44px;
+  padding-top: 11px !important;
+  font-size: 18px !important;
+}
+
+.nav-tabs .nav-link.active{
+  border-bottom: 0.188em solid var(--color-lety5) !important;
+}
+
+.btn-login-FG{
+  width: 100%;
+  height: 37px;
+  border-radius: 25px;
+}
+
+.btn-login-FG:hover{
+  background-color: var(--color-lety3);
+  color: var(--color-lety-white);
+  border-color: var(--color-lety-black);
+}
+
+.login-oauth .form-group img{
+  width: 25px;
+}
+
+.modal-content-password{
+  padding: 23px 30px 23px 30px !important;
+}
+
+.modal-content-password .modal-header{
+  border-bottom: none !important;
+}
+
+.title-cont-myaccount, .title-edit-profile{
+  display: flex;
+  justify-content: center;
+}
+.title-cont-myaccount .h1-tile-account{
+  background-color: transparent !important;
+  color: var(--color-lety-black) !important;
+}
+
+.content-myaccount{
+  padding-left: 5rem !important;
+  padding-right: 5rem !important;
+}
+
+.myAccount .breadcrumb{
+  padding-left: 5rem !important;
+}
+
+.content-myaccount .card-link{
+  color: var(--color-lety-black) !important;
+}
+
+.container-newPass, .container-no-saved-payment{
+  padding-top: 25px;
+  padding-bottom: 40px;
+}
+
+.container-newPass .breadcrumb, .container-payments .breadcrumb, .myAccount .breadcrumb{
+  border-bottom: none !important;
+}
+
+.container-newPass .card-header, .container-payments .card-header,
+.container-editProfile .card-header{
+  background: #f3f3f3;
+}
+
+.btn-cancelar{
+  border-radius: 25px;
+  width: 100%;
+  border-color: var(--color-lety-black) !important;
+}
+
+.btn-cancelar:hover{
+  border-color: var(--color-lety2) !important;
+  color: var(--color-lety2) !important;
+}
+
+.title-payment, .title-edit-profile{
+  padding-top: 30px;
+}
+
+.label-newPayment, .title-edit-prof-form{
+  font-size: 18px !important;
+}
+
+.container-editProfile .btn-save{
+  width: 100% !important;
+}
+
+.container-editProfile .profile-back-to-account-link{
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+
+/*responsive 992*/
+@media (max-width: 992px) {
+  .form-login{
+    padding-right: 1rem;
+  }
+  .form-register{
+    padding-left: 1rem;
+  
+  }
+  .login button{
+    width: 100%;
+  }
+  .trackorder .btn-track{
+    width: 100%;
+    font-size: 14px !important;
+  }
+  .login .btn-product, .trackorder .btn-track{
+    color: var(--color-lety-white) !important;
+  }
+
+  .content-myaccount{
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .div-btn-cancel{
+    padding-bottom: 10px !important;
+  }
+
+  .div-btn-save .btn-save{
+    width: 100% !important;
+  }
+
+  .div-btn-save{
+    padding-top: 10px;
+  }
+
+}

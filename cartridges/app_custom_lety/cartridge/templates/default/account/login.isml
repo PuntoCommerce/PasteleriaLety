@@ -6,10 +6,13 @@
     </isscript>
 
     <div class="container login-page">
+    <div class="title-login row">
+        <h2>${Resource.msg('hader.form.login', 'login', null)}</h2>
+    </div>
         <!---Breadcrumbs--->
         <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
         <div class="row justify-content-center equal-height">
-            <div class="col-sm-8 col-md-6">
+            <div class="col-sm-8 col-md-6 form-login">
                 <div class="card">
                     <div class="card-header">
                         <div class="login-form-nav">
@@ -33,7 +36,7 @@
 
                 </div>
             </div>
-            <div class="col-sm-8 col-md-6">
+            <div class="col-sm-8 col-md-6 form-register">
                 <div class="card">
                     <isinclude template="account/components/trackOrderForm" />
                 </div>
