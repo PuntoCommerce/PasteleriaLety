@@ -14,7 +14,7 @@
         <div class="row justify-content-center equal-height">
             <div class="col-sm-8 col-md-6 form-login">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header card-header-login">
                         <div class="login-form-nav">
                             <isinclude template="account/components/navTabs" />
                         </div>

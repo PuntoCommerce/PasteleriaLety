@@ -1,3 +1,20 @@
+.btn-save-login{
+  width: 100%;
+  height: 37px;
+  border: none;
+  background-color: var(--color-lety2) !important;
+  color: var(--color-lety-white);
+  font-size: 18px;
+  font-family: var(--font-family-gotham);
+  border-radius: 20px;
+  font-weight: 700;
+}
+
+.btn-save-login:hover{
+  background-color: var(--color-lety-btnProduct) !important;
+  color: #b37e5b !important;
+}
+
 .checkout__stepper {
     display: flex;
     justify-content: center;
@@ -51,6 +68,14 @@
     border-bottom: none !important;
   }
 
+  .login-page .card, .myAccount .card{
+    border: none !important;
+  }
+
+  .login-page .card-body, .myAccount .card-body, .myAccount .card-footer{
+    border: 1px solid rgba(0, 0, 0, 0.125) !important;
+  }
+
 .form-login{
   padding-right: 4rem;
 }
@@ -61,7 +86,6 @@
 
 .form-register {
   height: auto !important;
-  max-height: 330px !important;
 }
 
 .track-order-header{
@@ -90,15 +114,32 @@
   width: 25px;
 }
 
+.remember-me{
+  padding-left: 1.5rem !important;
+}
+
 .modal-content-password{
   padding: 23px 30px 23px 30px !important;
 }
 
-.modal-content-password .modal-header{
-  border-bottom: none !important;
+.modal-content-password .modal-title.request-password-title{
+  font-size: 18px !important;
+  font-family: var(--font-family-gotham-bold) !important;
 }
 
-.title-cont-myaccount, .title-edit-profile{
+.modal-content-password .modal-header{
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+}
+
+.modal-content-password .request-password-body p{
+  font-size: 14px !important;
+}
+.request-password-body .form-control-label{
+  font-family: var(--font-family-gotham-bold) !important;
+}
+
+.title-cont-myaccount, .title-edit-profile, .title-edit-addres, .title-addres{
   display: flex;
   justify-content: center;
 }
@@ -120,17 +161,28 @@
   color: var(--color-lety-black) !important;
 }
 
-.container-newPass, .container-no-saved-payment{
+.login-page .nav-tabs, .login-page .card-header{
+  border-bottom: none !important;
+}
+
+.login-page .card-header-login{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.container-newPass, .container-no-saved-payment, .container-addres{
   padding-top: 25px;
   padding-bottom: 40px;
 }
 
-.container-newPass .breadcrumb, .container-payments .breadcrumb, .myAccount .breadcrumb{
+.container-newPass .breadcrumb, .container-payments .breadcrumb, 
+.myAccount .breadcrumb, .container-addres .breadcrumb, .container-edit-addres .breadcrumb{
   border-bottom: none !important;
 }
 
 .container-newPass .card-header, .container-payments .card-header,
-.container-editProfile .card-header{
+.container-editProfile .card-header, .container-edit-addres .card-header, .container-addres .card-header, .content-myaccount .card-header{
   background: #f3f3f3;
 }
 
@@ -149,8 +201,13 @@
   padding-top: 30px;
 }
 
-.label-newPayment, .title-edit-prof-form{
+.label-newPayment, .title-edit-prof-form, .title-add-addres, .address-heading, .profile-header, .content-myaccount .card-header h2{
   font-size: 18px !important;
+}
+
+.content-myaccount .card-body dt, .content-myaccount .card-body .dashboard-info{
+  font-family: var(--font-family-gotham-bold) !important;
+  color: var(--color-lety-black);
 }
 
 .container-editProfile .btn-save{
@@ -160,6 +217,11 @@
 .container-editProfile .profile-back-to-account-link{
   padding-top: 40px;
   padding-bottom: 50px;
+}
+
+.container-addres .remove-btn{
+  right: 5rem;
+  background-color: var(--color-lety-white) !important;
 }
 
 /*responsive 992*/

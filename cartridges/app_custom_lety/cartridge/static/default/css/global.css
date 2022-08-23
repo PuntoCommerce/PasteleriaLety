@@ -1,4 +1,9 @@
 @font-face {
+  font-family: "gotham-book";
+  src: url("../fonts/GothamBook.ttf") format("opentype");
+}
+
+@font-face {
   font-family: "gotham-light";
   src: url("../fonts/Gotham-Light.otf") format("opentype");
 }
@@ -9,13 +14,63 @@
 }
 
 @font-face {
-  font-family: "gotham-book";
-  src: url("../fonts/GothamBook.ttf") format("opentype");
+  font-family: "gotham-bold";
+  src: url("../fonts/Gotham-Bold.otf") format("opentype");
 }
 
 @font-face {
-  font-family: "gotham-bold";
-  src: url("../fonts/Gotham-Bold.otf") format("opentype");
+  font-family: "gotham-black-regular";
+  src: url("../Gotham Black Regular.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: "gotham-black";
+  src: url("../Gotham-Black.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "gotham-bookItalic";
+  src: url("../Gotham-BookItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "gotham-thin";
+  src: url("../Gotham-Thin.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "gotham-thinItalic";
+  src: url("../Gotham-ThinItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "gotham-ultraItalic";
+  src: url("../Gotham-UltraItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "gotham-xlight";
+  src: url("../Gotham-XLight.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "gotham-xlightItalic";
+  src: url("../Gotham-XLightItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "gotham-boldItalic";
+  src: url("../Gotham-boldItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "gotham-book";
+  src: url("../GothamBook.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: "gotham-mediumItalic";
+  src: url("../GothamMediumItalic.ttf") format("opentype");
 }
 
 @import url(https://fonts.googleapis.com/css?family=Dosis&subset=latin-ext);
@@ -120,7 +175,19 @@
   --breakpoint-xl: 1200px;
   /*Font famili Lety*/
   --font-family-gotham: "gotham-book", sans-serif !important;
+  --font-family-gotham-bookItal: "gotham-bookItalic", sans-serif !important;
   --font-family-gotham-bold: "gotham-bold", sans-serif !important;
+  --font-family-gotham-boldItal: "gotham-boldItalic", sans-serif !important;
+  --font-family-gotham-medium: "gotham-medium", sans-serif !important;
+  --font-family-gotham-mediumItal: "gotham-mediumItalic", sans-serif !important;
+  --font-family-gotham-light: "gotham-light", sans-serif !important;
+  --font-family-gotham-black-regular: "gotham-black-regular", sans-serif !important;
+  --font-family-gotham-black: "gotham-black", sans-serif !important;
+  --font-family-gotham-thin: "gotham-thin", sans-serif !important;
+  --font-family-gotham-thinItal: "gotham-thinItalic", sans-serif !important;
+  --font-family-gotham-ultraItal: "gotham-ultraItalic", sans-serif !important;
+  --font-family-gotham-xlight: "gotham-xlight", sans-serif !important;
+  --font-family-gotham-xlightItal: "gotham-xlightItalic", sans-serif !important;
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
