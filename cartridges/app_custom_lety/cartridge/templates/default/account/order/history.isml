@@ -5,12 +5,15 @@
         assets.addCss('/css/account/profile.css');
     </isscript>
 
-    <div class="title-container-account">
+    <div class="title-container-account d-flex justify-content-center">
         <h1 class="page-title">${Resource.msg('label.orderhistory','account',null)}</h1>
     </div>
-    <div class="container ">
+    <div class="container container-history">
         <!---Breadcrumbs--->
-        <isinclude template="components/breadcrumbs/pageBreadcrumbs"/>
+        <div class="col d-flex" style="padding-left: 6rem">
+            <isinclude template="components/breadcrumbs/pageBreadcrumbs"/>
+        </div>
+        
         <div class="row justify-content-end order-top">
             <div class="col-12 col-sm-4 col-md-3">
                 <div class="form-group">
@@ -35,7 +38,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-sm-8 col-md-6 text-center">
-                <a href="${URLUtils.url('Account-Show')}" class="normal">
+                <a href="${URLUtils.url('Account-Show')}" class="profile-back-to-account-link">
                     ${Resource.msg('link.profile.backtomyaccount','account',null)}
                 </a>
             </div>

@@ -143,7 +143,7 @@
   display: flex;
   justify-content: center;
 }
-.title-cont-myaccount .h1-tile-account{
+.title-cont-myaccount .h1-tile-account, .title-container-account h1{
   background-color: transparent !important;
   color: var(--color-lety-black) !important;
 }
@@ -177,12 +177,15 @@
 }
 
 .container-newPass .breadcrumb, .container-payments .breadcrumb, 
-.myAccount .breadcrumb, .container-addres .breadcrumb, .container-edit-addres .breadcrumb{
+.myAccount .breadcrumb, .container-addres .breadcrumb, 
+.container-edit-addres .breadcrumb, .container-changePassword .breadcrumb,
+.container-editProfile .breadcrumb, .container-history .breadcrumb{
   border-bottom: none !important;
 }
 
 .container-newPass .card-header, .container-payments .card-header,
-.container-editProfile .card-header, .container-edit-addres .card-header, .container-addres .card-header, .content-myaccount .card-header{
+.container-editProfile .card-header, .container-edit-addres .card-header, 
+.container-addres .card-header, .content-myaccount .card-header, .container-changePassword .card-header{
   background: #f3f3f3;
 }
 
@@ -197,11 +200,12 @@
   color: var(--color-lety2) !important;
 }
 
-.title-payment, .title-edit-profile{
+.title-payment, .title-edit-profile, .title-password{
   padding-top: 30px;
 }
 
-.label-newPayment, .title-edit-prof-form, .title-add-addres, .address-heading, .profile-header, .content-myaccount .card-header h2{
+.label-newPayment, .title-edit-prof-form, .title-add-addres, .address-heading, 
+.profile-header, .content-myaccount .card-header h2, .container-changePassword .card-header h2{
   font-size: 18px !important;
 }
 
@@ -214,14 +218,21 @@
   width: 100% !important;
 }
 
-.container-editProfile .profile-back-to-account-link{
-  padding-top: 40px;
-  padding-bottom: 50px;
+.container-editProfile .profile-back-to-account-link, 
+.container-changePassword .profile-back-to-account-link,
+.container-history .profile-back-to-account-link{
+  margin-top: 40px;
+  margin-bottom: 50px;
 }
 
 .container-addres .remove-btn{
   right: 5rem;
   background-color: var(--color-lety-white) !important;
+}
+
+.container-changePassword label{
+  font-family: var(--font-family-gotham-bold);
+  font-size: 15px !important;
 }
 
 /*responsive 992*/
