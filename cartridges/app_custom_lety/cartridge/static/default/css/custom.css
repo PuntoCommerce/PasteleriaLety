@@ -1,17 +1,3 @@
-@font-face {
-  font-family: "Avenir-LT-Std";
-  src: url("../fonts/AvenirLTStd-Light.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Avenir-Next";
-  src: url("../fonts/AvenirNextLTPro-Regular.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Avenir-LT-Std-BlackOblique";
-  src: url(../fonts/AvenirLTStd-BlackOblique_0.otf) format("opentype");
-}
 
 /*  */
 
@@ -101,7 +87,7 @@ header .container {
 .hover-underline {
   height: 1px;
   width: 0%;
-  background-color: #000000;
+  background-color: #fff;
   transition: width 0.5s;
 }
 
@@ -110,21 +96,9 @@ header .container {
   width: 50%;
 }
 
-#menuDesk .nav-item.last_category_item .hover-underline {
-  background-color: #ff0000;
-}
-
-#menuDesk .nav-item.last_category_item a:hover {
-  color: #ff0000 !important;
-}
-
-#menuDesk .nav-item.last_category_item a {
-  color: #ff0000;
-}
 #menuDesk .dropdown-menu .category-item.item a,
 #menuDesk .nav-item a {
   color: #000000;
-  font-family: "Avenir-LT-Std";
   font-size: 14px;
 }
 /* #menuDesk .dropdown-menu .category-item.item a .hover-underline {
@@ -234,7 +208,7 @@ header .container {
 .suggestions .children div,
 .suggestions span.name,
 .search input::placeholder {
-  font-family: "Avenir-LT-Std";
+  font-family: var(--font-family-gotham);
 }
 
 /* MOBILE */
@@ -284,10 +258,7 @@ header .container {
 /* Menu */
 
 .dropdown-menu {
-  position: fixed !important;
   width: 100vw;
-  top: 177px;
-
   box-shadow: none !important;
 }
 
@@ -356,7 +327,6 @@ ul {
 
   #customMenuResponsive a {
     color: #000000 !important;
-    font-family: "Avenir-LT-Std";
     font-size: 14px;
   }
 

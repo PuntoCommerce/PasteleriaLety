@@ -1,8 +1,8 @@
 <isif condition="${pdict.name === null}">
-    <li class="nav-item d-lg-none" role="menuitem">
+    <li class="nav-item nav-item-mobile d-lg-none" role="menuitem">
         <a href="${URLUtils.https('Login-Show')}" class="nav-link">
-           <img style="width:16px; height: 19px;" src="${URLUtils.staticURL('/images/icons/user.svg')}" alt="Login"/>
-            <span class="user-message">Login<iscomment> ${Resource.msg('link.header.login', 'account', null)} </iscomment></span>
+           <img style="width:16px; height: 19px;" src="${URLUtils.staticURL('/images/icons/user-black.svg')}" alt="Login"/>
+            <span class="user-message">${Resource.msg('link.header.login', 'menu', null)}</span>
         </a>
     </li>
 <iselse/>

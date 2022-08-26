@@ -12,7 +12,7 @@ window.addEventListener("load", () => {
 const changeSubMenuItem = () => {
   const menu = $C(".menu-group");
   const subMenu = $$C(".dropdown-menu");
-  const menuHeight = 45;
+  const menuHeight = 97;
   let rectMenu = menu.getBoundingClientRect();
 
   subMenu.forEach((sub) => {
@@ -63,3 +63,40 @@ const toggleSubMenu = (category, back = false) => {
     $C(`#submenu-${category}`).classList.toggle("hidden");
   }
 };
+
+
+/* ########################################## ⬆️ Btn Back to top & Sticky Nav Bar⬆️ ####################################################### */
+// Listen on scroll event to show/hide btn back to top & add sticky nav
+const backToTopBtn = $C(".goToUp");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 700) {
+    backToTopBtn.classList.remove("hidden");
+  } else {
+    backToTopBtn.classList.add("hidden");
+  }
+  changeSubMenuItem();
+});
+
+window.addEventListener("load", () => {
+  changeSubMenuItem();
+});
+
+/* ########################################## Sticky Nav Bar ####################################################### */
+// Listen on scroll event to show/hide btn back to top
+const navBar = document.querySelectorAll('.experience-headerbanner')[0] ? document.querySelectorAll('.experience-headerbanner')[0] : false;
+const header = document.querySelector('header') ? document.querySelector('header') : false;
+
+setTimeout(function () {
+  const navBarOffSet = navBar.offsetTop;
+  const navBarHeight = navBar.offsetHeight;
+  header.style.minHeight = navBarHeight + "px";
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > navBarOffSet) {
+      header.classList.add('sticky');
+    } else {
+      header.classList.remove('sticky');
+    }
+  });
+}, 100);

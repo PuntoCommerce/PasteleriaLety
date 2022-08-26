@@ -1,5 +1,5 @@
 <div class="description-and-detail">
-    <div class="row product-attributes collapsible-xs">
+    <div class="row product-attributes collapsible-xs" style="padding-bottom: 2rem;">
         <isinclude template="product/components/attributes" />
     </div>
 
@@ -7,35 +7,51 @@
         <hr class="d-sm-none">
     </isif>
 
-    <iscomment> <div class="row description collapsible-xs <isif condition="${!product.shortDescription}">hidden-xl-down</isif>">
+    <div class="row description collapsible-xs <isif condition="${!product.shortDescription}">hidden-xl-down</isif>" style="padding-bottom: 1rem;">
         <div class="col-sm-12 col-md-4 col-lg-3">
             <button class="title btn text-left btn-block d-sm-none"
                     aria-expanded="false" aria-controls="collapsible-description-${loopState && loopState.count ? loopState.count : '1' }"
             >
                 ${Resource.msg('label.description', 'product', null)}
             </button>
-            <h2 class="title d-none d-sm-block">${Resource.msg('label.description', 'product', null)}</h2>
+            <h2 class="title d-none d-sm-block h2-detail">${Resource.msg('label.description', 'product', null)}</h2>
         </div>
 
         <isinclude template="product/components/description" />
-    </div> </iscomment>
+    </div>
 
-    <iscomment> <isif condition="${product.longDescription}">
+    <isif condition="${product.longDescription}">
         <hr class="d-sm-none">
-    </isif> </iscomment>
+    </isif> 
 
-   <iscomment>  <div class="row details collapsible-xs <isif condition="${!product.longDescription}">hidden-xl-down</isif>">
-        <div class="col-sm-12 col-md-4 col-lg-3">
+    <div class="row details collapsible-xs <isif condition="${!product.longDescription}">hidden-xl-down</isif>" style="padding-bottom: 4rem;">
+        <div class="col-sm-12 col-md-4 col-lg-3" >
             <button class="title btn text-left btn-block d-sm-none"
                     aria-expanded="false" aria-controls="collapsible-details-${loopState && loopState.count ? loopState.count : '1' }"
             >
                 ${Resource.msg('label.details', 'product', null)}
             </button>
-            <h2 class="title d-none d-sm-block">
+            <h2 class="title d-none d-sm-block h2-detail">
                 ${Resource.msg('label.details', 'product', null)}
             </h2>
         </div>
 
         <isinclude template="product/components/details" />
-    </div> </iscomment>
+    </div>
+    <isif condition="${product.longDescription}">
+        <hr class="d-sm-none">
+    </isif>
+     <div id="pdp-reviews-view" class="row reviews-raitngs-container collapsible-xs "
+        style="padding-bottom: 4rem;">
+             <div class="col-sm-12 col-md-4 col-lg-12" id="resena-comentarios">
+            <button class="title btn text-left btn-block d-sm-none" aria-expanded="false">
+                ${Resource.msg('label.comentarios', 'product', null)}
+            </button>
+            <h2 class="title d-none d-sm-block h2-detail">
+                ${Resource.msg('label.comentarios', 'rnr', null)}
+            </h2>
+            
+        </div>
+       <isinclude template="RnR/reviewsandratings" />
+    </div>
 </div>

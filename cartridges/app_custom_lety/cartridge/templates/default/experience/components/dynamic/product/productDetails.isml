@@ -8,7 +8,7 @@
 <isset name="isQuickView" value="${false}" scope="page" />
 <isset name="isProductSet" value="${pdict.product.productType === 'set'}" scope="page" />
 <isobject object="${product.raw}" view="detail" />
-<div class="container product-detail product-wrapper" data-pid="${product.id}">
+<div class="container product-detail product-wrapper pr-xl-5 pl-xl-5" data-pid="${product.id}">
     <div class="row">
         <div class="col-12">
             <!--Breadcrumbs-->
@@ -17,8 +17,8 @@
             </div>
 
             <!-- Product Name -->
-            <div class="row">
-                <div class="d-md-none col-sm-12">
+            <div class="row row-name">
+                <div class="d-md-none col-sm-12 col-name">
                     <h1 class="product-name">${product.productName}</h1>
                 </div>
             </div>
@@ -33,30 +33,56 @@
                 <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
             </div>
         </div>
-        <!-- Product Images Carousel -->
-        <isinclude template="product/components/imageCarousel" />
+        <div class="row mobile-promo-heart">
+            <!--Promo mobile-->
+            <div class="col-6 promotions-mobile">
+                <isinclude template="product/components/pdpHighlight" />
+            </div>
+            <!--Wishlist heart mobile-->
+            <div class="col-6 wishlist-mobile">
+                <isinclude template="wishlist/components/addToWishListButtonHeart" />
+            </div>
+        </div>
 
-        <div class="col-12 col-sm-4">
+
+
+        <!-- Product Images Carousel -->
+        <div class="col-12 col-xl-7">
+            <div class="d-xl-none">
+                <isinclude template="product/components/imageCarousel" />
+            </div>
+            <div class="d-none d-xl-block">
+                <isinclude template="product/components/ImageProductDetail" />
+            </div>
+        </div>
+
+        <div class="col-12 col-xl-5 detail-left">
             <!-- Product Name -->
             <div class="row row-desc">
                 <h1 class="product-name hidden-sm-down">${product.productName}</h1>
             </div>
+            <div class="availability-mobile">
+                <isinclude template="plugin_wishlists/productAvailability" />
+            </div>
+            <div class="row row-desc desc-rating" style="font-size:15px">
+                <div class="col-12" style="padding-bottom: 20px; padding-right: 0 !important;">
+                    <div class="row justify-content-left" style="justify-content: left !important;padding-left: 15px;">
+                        <isinclude url="${URLUtils.url('RnR-AverageV2', 'product_id', pdict.product.id)}" />
+                    </div>
 
-            <div class="row row-desc">
-                <div class="col">
-                    <isinclude template="product/components/pidRating" />
                 </div>
             </div>
             <!-- Applicable Promotions -->
-            <div class="row row-desc">
-                <div class="col-3 promotions">
+            <div class="row row-desc promotions-wish-row">
+                <div class="promotions mr-3">
                     <isinclude template="product/components/promotions" />
                 </div>
-                <div class="col-9 wishlist">
+
+                <div class="wishlist w-100">
                     <isinclude template="wishlist/components/addToWishListButton" />
                 </div>
             </div>
-            <div class="row">
+            <div class="row row-desc">
                 <div class="col-12">
                     <!-- Prices -->
                     <div class="prices prices-pdp">
@@ -66,8 +92,11 @@
                 </div>
             </div>
             <!-- Product Availability -->
-            <isinclude template="plugin_wishlists/productAvailability" />
-            <div class="attributes">
+            <div class="availability-desk">
+                <isinclude template="plugin_wishlists/productAvailability" />
+            </div>
+
+            <div class="attributes row-desc">
                 <!-- Attributes and Quantity -->
                 <isinclude template="product/components/mainAttributes" />
 
@@ -103,23 +132,31 @@
                     </div>
                 </isif>
 
+
+                <div class="prices-add-to-cart-actions mb-2">
+                    <!-- Cart and Checkout -->
+                    <isinclude template="product/components/buyNowProduct" />
+                </div>
                 <div class="prices-add-to-cart-actions">
                     <!-- Cart and [Optionally] Apple Pay -->
                     <isinclude template="product/components/addToCartProduct" />
+                </div>
+                <div class="row row-desc row-rating-mobile mt-3">
+                    <div class="col-12 row-rating">
+                        <div class="row justify-content-center">
+                            <isinclude url="${URLUtils.url('RnR-AverageV2', 'product_id', pdict.product.id)}" />
+                        </div>
+                    </div>
 
                 </div>
-                <div class="prices-add-to-cart-actions">
-                    <isinclude template="product/components/btnProduct" sf-toolkit="on" />
-                </div>
-
                 <!-- Social Sharing Icons -->
-                <div class="row">
+                <div class="row row-desc">
                     <isinclude template="product/components/socialIcons" />
                 </div>
             </div>
         </div>
     </div>
-    <hr style="width: 92%; border-top: .5px solid var(--color-lety-black)">
+    <hr class="hr-pdp" style="width: 92%; border-top: .5px solid var(--color-lety-black)">
 
     <div>
         <isslot id="cts-recommendations-m" description="Complete the set products" context="global"

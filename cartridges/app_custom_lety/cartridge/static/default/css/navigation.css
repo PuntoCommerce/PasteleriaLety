@@ -22,7 +22,6 @@
 } */
 .main-menu,
 .navbar-nav {
-  
   display: flex;
   justify-content: center;
 }
@@ -30,17 +29,13 @@
 .hover-underline {
   height: 1px;
   width: 0%;
-  background-color: #000000;
+  background-color: #fff;
   transition: width 0.5s;
 }
 
 #menuDesk .nav-item:hover .hover-underline,
 #menuDesk .nav-item a:hover .hover-underline {
   width: 50%;
-}
-
-#menuDesk .nav-item.last_category_item .hover-underline {
-  background-color: #ff0000;
 }
 
 #menuDesk .dropdown-menu-content a:hover {
@@ -71,12 +66,13 @@
 #menuDesk .nav-item a {
   color: var(--color-lety-black);
   font-family: var(--font-family-gotham);
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .nav.navbar-nav {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 35px;
 }
 
 /* #menuDesk .dropdown-menu .category-item.item a .hover-underline {
@@ -229,10 +225,8 @@
 
 /* Menu */
 .dropdown-menu {
-  
   position: fixed !important;
   width: 100vw;
-  top: 177px;
 
   box-shadow: none !important;
 }
@@ -302,7 +296,7 @@ ul {
     flex-direction: column;
     background-color: #ffffff !important;
     width: 80vw;
-    
+    height: 100vh;
   }
 
   #customMenuResponsive ul {
@@ -337,10 +331,6 @@ ul {
     padding-bottom: 10px;
   }
 
-  #actions-icons .items .nav-item {
-    text-transform: uppercase;
-  }
-
   #customMenuResponsive #image-container img {
     width: 100%;
     object-fit: cover;
@@ -350,7 +340,7 @@ ul {
   #customMenuResponsive .close-button {
     padding: 10px;
   }
-  
+
   #customMenuResponsive .sub-items {
     height: 100%;
     width: 100%;
@@ -388,7 +378,7 @@ ul {
   #customMenuResponsive #actions-icons img {
     margin-right: 10px;
   }
-  
+
   #customMenuResponsive .category-title {
     font-family: var(--font-family-gotham);
     font-size: 15px;
@@ -398,12 +388,11 @@ ul {
   }
 }
 
-
 /***** View menu responsive with animation  *****/
 .viewMenu {
   transform: translateX(0);
   animation-name: moveInRight;
-  animation-duration: .2s;
+  animation-duration: 0.2s;
   animation-timing-function: ease-out;
 }
 
@@ -411,13 +400,13 @@ ul {
 .viewMenuOut {
   transform: translateX(0);
   animation-name: moveInLeft;
-  animation-duration: .2s;
+  animation-duration: 0.2s;
   animation-timing-function: ease-out;
 }
 
 /***** View menu responsive with animation  *****/
 .closeMenu {
   animation-name: moveInLeftOut;
-  animation-duration: .2s;
+  animation-duration: 0.2s;
   animation-timing-function: ease-out;
 }

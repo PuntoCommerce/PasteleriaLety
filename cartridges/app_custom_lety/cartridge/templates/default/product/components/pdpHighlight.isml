@@ -1,0 +1,9 @@
+<isset name="product" value="${typeof product === 'undefined' || empty(product) ? pdict.product : product}"
+    scope="page" />
+<isif condition="${product.promotions}">
+    <isloop items="${product.promotions}" var="promotion" status="promdet">
+        <div class="highlight-promo">
+            <isprint value="${promotion.calloutMsg}" encoding="off" />
+        </div>
+    </isloop>
+</isif>
