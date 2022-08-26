@@ -31,9 +31,20 @@
         </isif>
         <isinclude template="product/components/productRating" sf-toolkit="on" />
        
-        <isinclude template="product/components/highlight" />
+        <isinclude template="product/components/highlight" />   
+
         <div class="summary__footer" style="widht: 270px">
-            <isinclude template="product/components/btnProduct" sf-toolkit="on" />
+
+            <isif condition="${pdict.hasStoreAssigned}">
+                <isif condition="${pdict.hasInventoryOn}">
+                    <isinclude template="product/components/btnProduct" sf-toolkit="on" />
+                <iselse/>
+                    <span>No disponible en esta sucursal</span>
+                </isif>
+            <iselse/>
+                <isinclude template="product/components/btnProduct" sf-toolkit="on" />
+            </isif>
+            <iscomment> <isinclude template="product/components/btnProduct" sf-toolkit="on" /> </iscomment>
             
         </div>
 

@@ -11,6 +11,7 @@
     assets.addCss('/css/navigation.css');
 
     assets.addJs("/js/session/store.js");
+    assets.addCss("/css/storesession.css");
 </isscript>
 
 <!DOCTYPE html>

@@ -1,3 +1,0 @@
-<isloop items="${pdict.productSearch.productIds}" var="product">
-    <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.productID, 'swatches', true, 'ratings', true)}" />
-</isloop>
