@@ -63,7 +63,7 @@
         <div class="row justify-content-center">
             <div class="col-8 col-lg-10">
                 <div class="row">
-                    <div class="col-12 col-lg-6 text-left">
+                    <div class="col-12 col-lg-6 text-left div-mobile-back-profile">
                         <a href="${URLUtils.url('Account-Show')}" class="normal" aria-label="${Resource.msg('label.addressbook.myaccount','account',null)}">
                             ${Resource.msg('link.profile.backtomyaccount','account',null)}
                         </a>

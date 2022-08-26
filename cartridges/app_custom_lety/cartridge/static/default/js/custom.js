@@ -12,7 +12,7 @@ window.addEventListener("load", () => {
 const changeSubMenuItem = () => {
   const menu = $C(".menu-group");
   const subMenu = $$C(".dropdown-menu");
-  const menuHeight = 45;
+  const menuHeight = 97;
   let rectMenu = menu.getBoundingClientRect();
 
   subMenu.forEach((sub) => {

@@ -84,7 +84,7 @@
             
         </div>
         <div class="col-12 col-lg-5 div-btn-save">
-            <button type="submit" name="save" class="btn btn-save btn-product">${Resource.msg('button.save','account',null)}</button>
+            <button type="submit" name="save" class="btn btn-save btn-save-login">${Resource.msg('button.save','account',null)}</button>
         </div>
     </div>
 </form>

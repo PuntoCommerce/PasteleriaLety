@@ -65,9 +65,9 @@
                             </button>
                         </div>
                         <div class="filtros-toogle dropdown col-6 col-md-3 col-sm-6 order-sm-1">
-                             <button type="button" class="btn btn-default">
-                                <span>Filtros</span>
-                                <img style="padding-left: 10px;" class="btn-default-img" src="${URLUtils.staticURL('/images/icons/filtro.svg')}"
+                             <button type="button" class="btn btn-default" onclick="toggleFilters()">
+                                ${Resource.msg('label.filters.pdp', 'search', null)}
+                                <img style="padding-left: 10px;" class="btn-default-img-filters" src="${URLUtils.staticURL('/images/icons/filtro.svg')}"
                                     alt="" />
                             </button>
                         </div>

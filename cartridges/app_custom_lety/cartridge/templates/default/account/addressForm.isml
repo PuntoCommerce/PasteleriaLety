@@ -155,7 +155,7 @@
 
     <!-- Cancel and Save Buttons -->
     <div class="row">
-        <div class="col-6">
+        <div class="col-6 div-btn-cancel">
             <a href="${URLUtils.url('Address-List')}" class="btn btn-cancelar">${Resource.msg('button.cancel','account',null)}</a>
         </div>
         <div class="col-6">

@@ -72,6 +72,7 @@
 .nav.navbar-nav {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 35px;
 }
 
 /* #menuDesk .dropdown-menu .category-item.item a .hover-underline {
@@ -295,6 +296,7 @@ ul {
     flex-direction: column;
     background-color: #ffffff !important;
     width: 80vw;
+    height: 100vh;
   }
 
   #customMenuResponsive ul {
@@ -327,10 +329,6 @@ ul {
   #actions-icons .items .nav-item {
     padding-top: 10px;
     padding-bottom: 10px;
-  }
-
-  #actions-icons .items .nav-item {
-    text-transform: uppercase;
   }
 
   #customMenuResponsive #image-container img {
