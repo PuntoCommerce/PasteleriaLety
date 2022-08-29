@@ -107,6 +107,9 @@ setTimeout(function () {
 const filter_container = document.getElementById('filter-categories')
 const button_filter = document.getElementById('filter-button')
 
-button_filter.addEventListener('click', () => {
-  filter_container.classList.toggle('filtershow')
-})
+if (button_filter) {
+  button_filter.addEventListener('click', () => {
+    filter_container.classList.toggle('filtershow')
+  })
+}
+
