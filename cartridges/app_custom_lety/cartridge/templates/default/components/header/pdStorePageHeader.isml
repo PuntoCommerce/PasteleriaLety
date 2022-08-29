@@ -56,7 +56,7 @@
         <iscomment>
             Navigation Mobile
         </iscomment>
-        <div class="navigation-mobile d-md-none">
+        <div class="navigation-mobile d-lg-none">
             <div class="header d-flex justify-content-center align-items-center">
                 <div class="row header-container">
                     <div class="navbar-header brand col-6">

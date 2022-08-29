@@ -1,0 +1,28 @@
+<ul class="values content">
+    <isloop items="${categories}" var="category">
+        <li>
+            <button data-href="${category.url}" class="button-checkCategory">
+                <!--- Radio button --->
+                <isif condition="${category.selected}">
+                    <i class="fa fa-check"></i>
+                <iselse>
+                    <div class="check-disable"></div>
+                </isif>
+
+                <!--- Label --->
+                <span title="${category.title}" class="${category.selected ? 'selected' : ''}" aria-hidden="true">
+                    ${category.displayValue}
+                </span>
+                <span class="sr-only selected-assistive-text">
+                    ${category.selected ? Resource.msg('msg.assistive.selected.text', 'common', null) : ''}
+                    ${category.title}
+                </span>
+            </button>
+            <!--- Process subcategories --->
+            <isset name="categories" value="${category.subCategories}" scope="page" />
+            <div class="sub-categories"> 
+                <isinclude template="search/refinements/subcategories" />
+            </div>
+        </li>
+    </isloop>
+</ul>

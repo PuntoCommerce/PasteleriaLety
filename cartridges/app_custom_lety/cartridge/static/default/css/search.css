@@ -418,6 +418,8 @@
     display: inline-block;
   }
 }
+
+
 .refinements .header {
   font-size: 1.125em;
   color: #444;
@@ -447,6 +449,89 @@
 .refinements li.disabled {
   opacity: 0.5;
 }
+
+.refinement-bar{
+  position: absolute;
+  left: 0;
+  z-index: 3;
+  display: none;
+}
+
+.filter-container{
+  background: white;
+}
+
+.filtershow{
+  display: block;
+}
+
+/* filter card styles */
+
+.card.refinements__card.collapsible-sm.refinement{
+  border: 1px solid #000;
+}
+
+.card-header.refinements__card-header{
+  font-size: 18px;
+  font-weight: bolder;
+
+  border-bottom: 1px solid #000;
+}
+
+.refinements ul li button{
+  color: #000;
+}
+
+.button-checkCategory{
+  display: flex;
+}
+
+.button-checkCategory > span{
+  margin: 0 18px;
+}
+
+.sub-categories{
+  margin: 0 40px;
+  display: inline-flex;
+}
+
+.sub-categories .button-checkSubCategory{
+  margin-bottom: 11px;
+  display: flex;
+}
+
+.button-checkSubCategory, .button-checkPrice, span{
+  margin: 0 8px;
+}
+
+.button-checkPrice{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 4px;
+  margin: 11px 0;
+}
+
+.fa.fa-check{
+  border: 1px solid #696969;
+  border-radius: 3px;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.check-disable{
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+  border: 1px solid #696969;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 543.98px) {
   .refinements {
     padding: 0;
@@ -489,6 +574,8 @@
 .grid-header {
   margin-top: 1em;
   margin-bottom: 1em;
+  display: flex;
+  justify-content: center;
 }
 @media (max-width: 543.98px) {
   .content-grid-header .result-count,
@@ -676,4 +763,9 @@
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+.category-header{
+  font-size: 22px;
+  margin-top: 12px;
 }

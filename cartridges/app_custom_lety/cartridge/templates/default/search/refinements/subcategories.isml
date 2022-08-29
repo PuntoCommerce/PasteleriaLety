@@ -1,0 +1,19 @@
+<ul class="values content">
+    <isloop items="${categories}" var="category">
+        <li>
+            <button data-href="${category.url}" class="button-checkSubCategory">
+                <!--- Radio button --->
+                <isif condition="${category.selected}">
+                    <i class="fa fa-check"></i>
+                <iselse>
+                    <div class="check-disable"></div>
+                </isif>
+
+                <!--- Label --->
+                <span title="${category.title}" class="${category.selected ? 'selected' : ''}" aria-hidden="true">
+                    ${category.displayValue}
+                </span>
+            </button>
+        </li>
+    </isloop>
+</ul>

@@ -28,9 +28,6 @@ h1.header.page-title:before {
   background-color: var(--skin-background-color-1);
   border: 10px solid var(--skin-border-color-1);
 }
-.refinements ul li button {
-  color: var(--skin-primary-color-1);
-}
 .custom-select {
   background-color: var(--skin-selectbox-background-color-1);
   color: var(--skin-selectbox-text-color-1);
