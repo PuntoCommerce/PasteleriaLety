@@ -480,6 +480,8 @@
 
 .refinements ul li button{
   color: #000;
+  display: flex;
+  margin: 11px 0;
 }
 
 .button-checkCategory{

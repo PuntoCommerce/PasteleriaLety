@@ -104,9 +104,15 @@ setTimeout(function () {
 
 /* ########################################## ⬆️ Show Filter Categories ⬆️ ####################################################### */
 
-const filter_container = document.getElementById('filter-categories')
-const button_filter = document.getElementById('filter-button')
+const filter_container = document.querySelector('#filter-categories')
+const button_filter = document.querySelector('#filter-button')
 
 button_filter.addEventListener('click', () => {
-  filter_container.classList.toggle('filtershow')
-})
+  // filter_container.classList.toggle('filtershow')
+
+  if (filter_container.style.display === 'none') {
+    filter_container.style.display = 'block';
+  }else{
+    filter_container.style.display = 'none';
+  }
+});
