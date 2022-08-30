@@ -455,6 +455,9 @@
   left: 0;
   z-index: 3;
   display: none;
+  width: 326px;
+  margin: 0 101px;
+  border: 1px solid #000;
 }
 
 .filter-container{
@@ -532,6 +535,33 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+}
+
+@media(max-width: 991px){
+  .filter-button{
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .filter-button button{
+    width: 100%;
+  }
+  
+  .refinement-bar{
+    border: 1px solid #000;
+    width: 100%;
+    margin: 0;
+    position: inherit;
+  }
+}
+
+@media(max-width: 768px){
+  .values.content{
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 543.98px) {
