@@ -64,7 +64,6 @@ const toggleSubMenu = (category, back = false) => {
   }
 };
 
-
 /* ########################################## ⬆️ Btn Back to top & Sticky Nav Bar⬆️ ####################################################### */
 // Listen on scroll event to show/hide btn back to top & add sticky nav
 const backToTopBtn = $C(".goToUp");
@@ -84,32 +83,76 @@ window.addEventListener("load", () => {
 
 /* ########################################## Sticky Nav Bar ####################################################### */
 // Listen on scroll event to show/hide btn back to top
-const navBar = document.querySelectorAll('.experience-headerbanner')[0] ? document.querySelectorAll('.experience-headerbanner')[0] : false;
-const header = document.querySelector('header') ? document.querySelector('header') : false;
+const navBar = document.querySelectorAll(".experience-headerbanner")[0]
+  ? document.querySelectorAll(".experience-headerbanner")[0]
+  : false;
+const header = document.querySelector("header")
+  ? document.querySelector("header")
+  : false;
 
 setTimeout(function () {
   const navBarOffSet = navBar.offsetTop;
   const navBarHeight = navBar.offsetHeight;
   header.style.minHeight = navBarHeight + "px";
 
-  window.addEventListener('scroll', () => {
+  window.addEventListener("scroll", () => {
     if (window.scrollY > navBarOffSet) {
-      header.classList.add('sticky');
+      header.classList.add("sticky");
     } else {
-      header.classList.remove('sticky');
+      header.classList.remove("sticky");
     }
   });
 }, 100);
 
-
 /* ########################################## ⬆️ Show Filter Categories ⬆️ ####################################################### */
 
-const filter_container = document.getElementById('filter-categories')
-const button_filter = document.getElementById('filter-button')
+let filter_container = document.querySelector("#filter-categories");
+let button_filter = document.querySelector("#filter-button");
+let checkbox = document.querySelectorAll(".values.content li button");
 
-if (button_filter) {
-  button_filter.addEventListener('click', () => {
-    filter_container.classList.toggle('filtershow')
-  })
-}
+// checkbox.forEach((item) => {
+//   item.addEventListener("click", (e) => {
 
+//     setTimeout(() => {
+//       filter_container = document.querySelector("#filter-categories");
+//       button_filter = document.querySelector("#filter-button");
+
+//       button_filter.addEventListener("click", () => {
+//         // filter_container.classList.toggle('filtershow')
+
+//         if (filter_container.style.display === "none") {
+//           filter_container.style.display = "block";
+//         } else {
+//           filter_container.style.display = "none";
+//         }
+//       });
+//     }, 1000);
+//   });
+// });
+
+filter_container.addEventListener('click', (e) => {
+  console.log(e);
+  setTimeout(() => {
+    filter_container = document.querySelector("#filter-categories");
+      button_filter = document.querySelector("#filter-button");
+
+      button_filter.addEventListener("click", () => {
+        if (filter_container.style.display === "none") {
+          filter_container.style.display = "block";
+        } else {
+          filter_container.style.display = "none";
+        }
+      });
+  }, 1000);
+})
+
+button_filter.addEventListener("click", () => {
+  // filter_container.classList.toggle('filtershow')
+  console.log("funciona");
+
+  if (filter_container.style.display === "none") {
+    filter_container.style.display = "block";
+  } else {
+    filter_container.style.display = "none";
+  }
+});

@@ -78,16 +78,15 @@
 
                 <isif condition="${pdict.productSearch.productIds.length > 0}">
                     <div class="grid-header">
-                        <div class="col-6 col-sm-5 text-right d-lg-none order-sm-1">
+                        <iscomment> <div class="col-6 col-sm-5 text-right d-lg-none order-sm-1">
                             <button type="button" class="btn btn-primary filter-results col-12">
                                 ${Resource.msg('button.filter', 'search', null)}
                             </button>
-                        </div>
+                        </div> </iscomment>
 
                         <!--Filter Button-->
-                        <div class="filtros-toogle dropdown col-6 col-md-3 col-sm-6 order-sm-1">
-                            <iscomment> <button type="button" class="btn btn-default" onclick="toggleFilters()" id="filter-button"> </iscomment>
-                            <button type="button" class="btn btn-default" id="filter-button">
+                        <div class="col-6 col-lg-3 col-sm-6 order-sm-1 filter-button">
+                            <button type="button" class="btn" id="filter-button">
                                 ${Resource.msg('label.filters.pdp', 'search', null)}
                                 <img style="padding-left: 10px;" class="btn-default-img-filters"
                                     src="${URLUtils.staticURL('/images/icons/filtro.svg')}" alt="" />
@@ -101,7 +100,7 @@
                 <isinclude template="search/resultsCount" />
             </div>
             <isif condition="${pdict.productSearch.productIds.length > 0}">
-                <div class="col-lg-2 col-sm-5 order-sm-3">
+                <div class="col-lg-2 col-sm-6 order-sm-3">
                     <isinclude template="search/sortOrderMenu" />
                 </div>
 
@@ -112,7 +111,7 @@
         <isif condition="${pdict.productSearch.productIds.length > 0}">
             <!--- Refinement bar --->
             <div class="row">
-                <div class="refinement-bar col-md-3" id="filter-categories">
+                <div class="refinement-bar" id="filter-categories">
                     <isinclude url="${pdict.refineurl}" />
                 </div>
 
