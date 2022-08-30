@@ -86,7 +86,7 @@
 
                         <!--Filter Button-->
                         <div class="filtros-toogle dropdown col-6 col-md-3 col-sm-6 order-sm-1">
-                            <button type="button" class="btn btn-default" onclick="toggleFilters()" id="filter-button">
+                            <button type="button" class="btn btn-default" id="filter-button">
                                 ${Resource.msg('label.filters.pdp', 'search', null)}
                                 <img style="padding-left: 10px;" class="btn-default-img-filters"
                                     src="${URLUtils.staticURL('/images/icons/filtro.svg')}" alt="" />

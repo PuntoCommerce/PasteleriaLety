@@ -51,7 +51,7 @@
             <div class="d-xl-none">
                 <isinclude template="product/components/imageCarousel" />
             </div>
-            <div class="d-none d-xl-block">
+            <div class="d-none d-xl-block h-100">
                 <isinclude template="product/components/ImageProductDetail" />
             </div>
         </div>

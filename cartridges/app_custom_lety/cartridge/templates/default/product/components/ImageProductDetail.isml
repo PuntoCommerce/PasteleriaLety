@@ -4,7 +4,7 @@
     assets.addCss('/css/product/pdpImages.css');
 </isscript>
 
-<div class="pdp-image-container row">
+<div class="pdp-image-container row h-100">
     <div class="pdp-image-list col-3">
         <isloop items="${product.images.large}" var="image" status="loopStatus">
             <img class="pdp-image" src="${image.url}" alt="${image.alt}" />
