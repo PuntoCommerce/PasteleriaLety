@@ -1,0 +1,3106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://localhost/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">eCommerce...</wsdl:documentation>
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/">
+            <s:element name="ProductoDetalle">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="IdSku" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ProductoDetalleResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="ProductoDetalleResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ProductoExistencia">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="vCentro" type="s:int" />
+                        <s:element minOccurs="1" maxOccurs="1" name="vSKU" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ProductoExistenciaResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="ProductoExistenciaResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CatalogoDeSucursales">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CatalogoDeSucursalesResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="CatalogoDeSucursalesResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CatalogoEstados">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CatalogoEstadosResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="CatalogoEstadosResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CatalogoCiudades">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEstado" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CatalogoCiudadesResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="CatalogoCiudadesResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CatalogoDeZonas">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CatalogoDeZonasResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="CatalogoDeZonasResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_DT_Categorias">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="Tipo" type="s:int" />
+                        <s:element minOccurs="1" maxOccurs="1" name="iIdCiudad" type="s:int" />
+                        <s:element minOccurs="1" maxOccurs="1" name="iTipoCatVirt" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_DT_CategoriasResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Func_DT_CategoriasResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_DT_SubCategorias">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="iIdCategoria" type="s:int" />
+                        <s:element minOccurs="1" maxOccurs="1" name="iIdCiudad" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_DT_SubCategoriasResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Func_DT_SubCategoriasResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_DT_ProductosXSubCategoria">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="iIdSubCategoria" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="Tipo" type="s:int" />
+                        <s:element minOccurs="1" maxOccurs="1" name="iIdCiudad" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_DT_ProductosXSubCategoriaResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Func_DT_ProductosXSubCategoriaResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_DT_ProductosXSubCategoriaCentro">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="iIdSubCategoria" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="Tipo" type="s:int" />
+                        <s:element minOccurs="1" maxOccurs="1" name="iIdCiudad" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="iIdCentro" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_DT_ProductosXSubCategoriaCentroResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Func_DT_ProductosXSubCategoriaCentroResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_DT_ProductosXNPersonas">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="iIdSubCategoria" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="dPersonasMinimo" type="s:decimal" />
+                        <s:element minOccurs="1" maxOccurs="1" name="dPersonasMaximo" type="s:decimal" />
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="iIdCiudad" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_DT_ProductosXNPersonasResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Func_DT_ProductosXNPersonasResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_DT_ProductosXRangoPrecios">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="iIdSubCategoria" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="dPminimo" type="s:decimal" />
+                        <s:element minOccurs="1" maxOccurs="1" name="dPmaximo" type="s:decimal" />
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="iIdCiudad" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_DT_ProductosXRangoPreciosResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Func_DT_ProductosXRangoPreciosResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ExistenciaPorProductoYSucursal">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="1" maxOccurs="1" name="vSKU" type="s:int" />
+                        <s:element minOccurs="1" maxOccurs="1" name="vIdSucursal" type="s:short" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ExistenciaPorProductoYSucursalResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="ExistenciaPorProductoYSucursalResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ExistenciaProductoSucursalTodas">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="vSKU" type="s:int" />
+                        <s:element minOccurs="1" maxOccurs="1" name="vZona" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ExistenciaProductoSucursalTodasResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="ExistenciaProductoSucursalTodasResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_DT_ProductosTopping">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="idSucursal" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_DT_ProductosToppingResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Func_DT_ProductosToppingResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_ExisteMembrecia">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="s_IdMembresia" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_ExisteMembreciaResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Func_ExisteMembreciaResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_DatosMembresia">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="s_IdMembresia" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_DatosMembresiaResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Func_DatosMembresiaResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_MovimientosMembresia">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="s_IdMembresia" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_MovimientosMembresiaResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Func_MovimientosMembresiaResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_ActualizaDatosMembresia">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_IdMembresia" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="i_IdFolio" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_Nombre" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_Appaterno" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_Apmaterno" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_FechaNacimiento" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_Sexo" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="i_IdCiudad" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_EdoCivil" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_PastelFavorito" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_Direccion" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_Colonia" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_Telefono" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_Mail" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_ActualizaDatosMembresiaResponse">
+                <s:complexType />
+            </s:element>
+            <s:element name="Func_AsignaNuevaMembresia">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_Nombre" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_Appaterno" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_Apmaterno" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_FechaNacimiento" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_Sexo" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="i_IdCiudad" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_EdoCivil" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_PastelFavorito" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_Direccion" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_Colonia" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_Telefono" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_Mail" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Func_AsignaNuevaMembresiaResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Func_AsignaNuevaMembresiaResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getLetyClub">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_IdMembresia" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getLetyClubResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getLetyClubResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getLetyClubQuitarPuntos">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_IdMembresia" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="dMonto" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="dSaldoAnterior" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="sFolioWeb" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getLetyClubQuitarPuntosResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getLetyClubQuitarPuntosResult" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getLetyClubAcumulaPuntos">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="s_IdMembresia" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="dMonto" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="dSaldoAnterior" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="sFolioWeb" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getLetyClubAcumulaPuntosResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getLetyClubAcumulaPuntosResult" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ColocarVenta">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="1" maxOccurs="1" name="vIdSucursal" type="s:short" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vFolio" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vFolioBanco" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vFolioTj" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vFVence" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="RowsCount" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="sku" type="tns:ArrayOfString" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Cantidad" type="tns:ArrayOfString" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Precio" type="tns:ArrayOfString" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfString">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="ColocarVentaResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="ColocarVentaResult" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ColocarVentaUpdate">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="vIdSucursal" type="s:short" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vFolio" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vFolioBanco" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vFolioTj" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ColocarVentaUpdateResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="ColocarVentaUpdateResult" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ConfirmacionDeVenta">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vFolio" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vFolioBanco" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="vIdSucursal" type="s:short" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ConfirmacionDeVentaResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="ConfirmacionDeVentaResult" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ReversaDeVenta">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="vIdSucursal" type="s:short" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vFolio" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ReversaDeVentaResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="ReversaDeVentaResult" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetDetalleCompra">
+                <s:complexType />
+            </s:element>
+            <s:element name="GetDetalleCompraResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetDetalleCompraResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getMinimoCompra">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getMinimoCompraResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getMinimoCompraResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getAparador">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="vIdSucursal" type="s:short" />
+                        <s:element minOccurs="1" maxOccurs="1" name="NumReg" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getAparadorResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getAparadorResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getSugerenciaCompra">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getSugerenciaCompraResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getSugerenciaCompraResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getCuponEstatus">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vFolio" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getCuponEstatusResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getCuponEstatusResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="putCuponCanje">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vFolioWEB" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vFolio" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="putCuponCanjeResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="putCuponCanjeResult" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ColocarVentaEvo2">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="vIdSucursal" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vh" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vp" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ColocarVentaEvo2Response">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="ColocarVentaEvo2Result" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="AprobarVentaEvo2">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="sFolio" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="aprobado" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="AprobarVentaEvo2Response">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="AprobarVentaEvo2Result" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="InsertaEncabezadoVentaH">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pEncabezado" type="tns:cVentaWebH" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="cVentaWebH">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="sFolio" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sFolioBanco" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sFolioTarjeta" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCentro" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dtFechaColocacion" type="s:dateTime" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dtFechaAsignacion" type="s:dateTime" />
+                    <s:element minOccurs="1" maxOccurs="1" name="bindImpreso" type="s:boolean" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="InsertaEncabezadoVentaHResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="InsertaEncabezadoVentaHResult" type="tns:cRespuesta" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="cRespuesta">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="iCode" type="s:int" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sMensaje" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="oRequest" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="InsertaDetalleVentaD">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pDetalle" type="tns:ArrayOfCVentaWebD" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfCVentaWebD">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="cVentaWebD" nillable="true" type="tns:cVentaWebD" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="cVentaWebD">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="sFolio" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdMaterial" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dPrecio" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iCantidad" type="s:int" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="InsertaDetalleVentaDResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="InsertaDetalleVentaDResult" type="tns:cRespuesta" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="InsertaPagoVentaWeb">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pPago" type="tns:cVentaWebPago" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="cVentaWebPago">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="sFolio" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdFormaDePago" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMonto" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoExtranjero" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdMembresia" type="s:decimal" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sReferencia" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoLetyPesos" type="s:decimal" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="InsertaPagoVentaWebResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="InsertaPagoVentaWebResult" type="tns:cRespuesta" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="InsertaDatosVentaWeb">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pEncabezado" type="tns:cVentaWebH" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pDetalle" type="tns:ArrayOfCVentaWebD" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pPago" type="tns:cVentaWebPago" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="InsertaDatosVentaWebResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="InsertaDatosVentaWebResult" type="tns:cRespuesta" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="InsertaPedidoCliente">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pEncabezado" type="tns:cPedidoClienteWeb" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="cPedidoClienteWeb">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCentro" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdPedidoCliente" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdFolioPersona" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dtFechaAlta" type="s:dateTime" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdUsuarioAlta" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dtFechaEntrega" type="s:dateTime" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdEstatusPedido" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="bindEnvio" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCentroEntrega" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoProducto" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoDescuento" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dPorcDescuento" type="s:decimal" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sObservacionesDesc" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoServicios" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoDeposito" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoIVA" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoIEPS" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoIVAServicios" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iTipoPedido" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdDocumento" type="s:int" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sObservacionesPedido" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="bIndRecalDecuento" type="s:boolean" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoAgregados" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoProntaEntrega" type="s:decimal" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sIdFolioTarjeta" type="s:string" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="InsertaPedidoClienteResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="InsertaPedidoClienteResult" type="tns:cRespuesta" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="InsertaPedidoClienteProducto">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pPCProducto" type="tns:cPedidoClienteProductoWeb" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="cPedidoClienteProductoWeb">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCentro" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdPedidoCliente" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iPartida" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdMaterial" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dCantidad" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdUnidad" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dPrecio" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoAgregados" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoServicios" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoDeposito" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoDescuento" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dPorcDescuento" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoIVA" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoIEPS" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dCantidadEntrega" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoTotalEntrega" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIndComodato" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dCantidadDevuelto" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoTotalDevuelto" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoProntaentrega" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdPromocion" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dPorcPuntosProm" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dPuntosMontoProm" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dPorcDescuentoProm" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dDescuentoMontoProm" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dDescuentoTotalProm" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="bIndLetyClub" type="s:boolean" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iEstatusAplica" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdImpuesto" type="s:int" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="InsertaPedidoClienteProductoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="InsertaPedidoClienteProductoResult" type="tns:cRespuesta" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="InsertaPedidoClienteProductoAtributo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pPCPAtributo" type="tns:cPedidoClienteProductoAtributoWeb" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="cPedidoClienteProductoAtributoWeb">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCentro" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdPedidoCliente" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iPartida" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdTipoAtributoH" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdTipoAtributoD" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdTipoCosteo" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dCosto" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoSubtotal" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoIVA" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoIEPS" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMonto" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dCantidad" type="s:decimal" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sTexto" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdTipoAtributoH_ExtraDe" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdTipoAtributoD_ExtraDe" type="s:int" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="InsertaPedidoClienteProductoAtributoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="InsertaPedidoClienteProductoAtributoResult" type="tns:cRespuesta" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="InsertaPedidoClienteSubProducto">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pPCSubproducto" type="tns:cPedidoClienteSubProductoWeb" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="cPedidoClienteSubProductoWeb">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCentro" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdPedidoCliente" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iPartida" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdMaterial" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dCantidad" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdImpuesto" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dRenta" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dDeposito" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="bIndExtra" type="s:boolean" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdUnidad" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dPrecio" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoAgregados" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoServicios" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoDeposito" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoDescuento" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dPorcDescuento" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoIVA" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoIEPS" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dCantidadEntrega" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoTotalEntrega" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIndComodato" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dCantidadDevuelto" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoTotalDevuelto" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="bIndDefault" type="s:boolean" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdGpoSubProducto" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdMaterialPadre" type="s:int" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="InsertaPedidoClienteSubProductoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="InsertaPedidoClienteSubProductoResult" type="tns:cRespuesta" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="InsertaPedidoClienteSubProductoAtributo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pPCSAtributo" type="tns:cPedidoClienteSubProductoAtributoWeb" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="cPedidoClienteSubProductoAtributoWeb">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCentro" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdPedidoCliente" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iPartida" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdMaterial" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdTipoAtributoH" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdTipoAtributoD" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdTipoCosteo" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dCosto" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoSubtotal" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoIVA" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoIEPS" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMonto" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dCantidad" type="s:decimal" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sTexto" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdTipoAtributoH_ExtraDe" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdTipoAtributoD_ExtraDe" type="s:int" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="InsertaPedidoClienteSubProductoAtributoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="InsertaPedidoClienteSubProductoAtributoResult" type="tns:cRespuesta" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="InsertaPedidoClienteMovimiento">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pPCMovimiento" type="tns:cPedidoClienteMovimientoWeb" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="cPedidoClienteMovimientoWeb">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCentroMov" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdMov" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCentroPedido" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdPedidoCliente" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdTipoMovPedido" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMonto" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dtFechaMovimiento" type="s:dateTime" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdUsuario" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCaja" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCorteTurno" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCorteCaja" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCorteTienda" type="s:int" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="InsertaPedidoClienteMovimientoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="InsertaPedidoClienteMovimientoResult" type="tns:cRespuesta" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="InsertaPedidoClienteMovimientoDet">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pPCMovimientoDet" type="tns:cPedidoClienteMovimientoDetWeb" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="cPedidoClienteMovimientoDetWeb">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCentroMov" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdMov" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdFormaDePago" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMonto" type="s:decimal" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sReferencia" type="s:string" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="InsertaPedidoClienteMovimientoDetResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="InsertaPedidoClienteMovimientoDetResult" type="tns:cRespuesta" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ExistenciaPorCentroFecha">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="iIdCentro" type="s:int" />
+                        <s:element minOccurs="1" maxOccurs="1" name="iIdMaterial" type="s:int" />
+                        <s:element minOccurs="1" maxOccurs="1" name="dtFecha" type="s:dateTime" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ExistenciaPorCentroFechaResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="ExistenciaPorCentroFechaResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="InsertaServicioDomicilioH">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pServicioDomicilioH" type="tns:cServicioDomicilioHWeb" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="cServicioDomicilioHWeb">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCentroAlta" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdServDom" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCentroAfecta" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdFolioPersona" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdFolioDireccion" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dtFechaAlta" type="s:dateTime" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dtFechaEntrega" type="s:dateTime" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdUsuarioAlta" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="bIndFactura" type="s:boolean" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sObservaciones" type="s:string" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="InsertaServicioDomicilioHResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="InsertaServicioDomicilioHResult" type="tns:cRespuesta" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="InsertaServicioDomicilioD">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="sFolioServicio" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pServicioDomicilioD" type="tns:cServicioDomicilioDWeb" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="cServicioDomicilioDWeb">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCentroAlta" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdServDom" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdMaterial" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dPrecio" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dPrecioBase" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dCantidad" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dCantidadBase" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdUnidad" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdUnidadBase" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dPorcDescuento" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoDescuento" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dPorcIVA" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoIVA" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dPorcIEPS" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoIEPS" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCombo" type="s:int" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="InsertaServicioDomicilioDResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="InsertaServicioDomicilioDResult" type="tns:cRespuesta" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="InsertaServicioDomicilioPago">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="sFolioServicio" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pServicioDomicilioPago" type="tns:cServicioDomicilioPagoWeb" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="cServicioDomicilioPagoWeb">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCentroAlta" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdServDom" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdFormaDePago" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMonto" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="TipoDeCambio" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dImporte" type="s:decimal" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sFolioTarjeta" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dMontoLetyPesos" type="s:decimal" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="InsertaServicioDomicilioPagoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="InsertaServicioDomicilioPagoResult" type="tns:cRespuesta" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="RegistraServDom">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pServicioDomicilioH" type="tns:cServicioDomicilioHWeb" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pServicioDomicilioD" type="tns:ArrayOfCServicioDomicilioDWeb" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pServicioDomicilioPago" type="tns:cServicioDomicilioPagoWeb" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfCServicioDomicilioDWeb">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="cServicioDomicilioDWeb" nillable="true" type="tns:cServicioDomicilioDWeb" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="RegistraServDomResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="RegistraServDomResult" type="tns:cRespuesta" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="InsertaPersonaDireccion">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pPersonaDireccion" type="tns:cPersonaDireccionDWeb" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="cPersonaDireccionDWeb">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdFolioPersona" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCentro" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdDireccion" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdFolioDireccion" type="s:int" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sDireccion" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sColonia" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sCP" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sTelefono1" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sTelefono2" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sEntreCalles" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sObservaciones" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCiudad" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dLatitud" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dLongitud" type="s:decimal" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sNoInterior" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sNoExterior" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdUsuario" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dtFecha" type="s:dateTime" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iTipoDireccion" type="s:int" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="InsertaPersonaDireccionResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="InsertaPersonaDireccionResult" type="tns:cRespuesta" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="DesactivaPersonaDireccion">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pPersonaDireccion" type="tns:cPersonaDireccionInactiva" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="cPersonaDireccionInactiva">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdFolioPersona" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdCentro" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdDireccion" type="s:int" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="DesactivaPersonaDireccionResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="DesactivaPersonaDireccionResult" type="tns:cRespuesta" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="RegresaClienteServicioDomicilio">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pClienteServicioDomicilio" type="tns:cClienteServicioDomicilio" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="cClienteServicioDomicilio">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdFolioPersona" type="s:int" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sTelefono" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sNombre" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sDireccion" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sCorreo" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sCp" type="s:string" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="RegresaClienteServicioDomicilioResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="RegresaClienteServicioDomicilioResult">
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="WebAutenticar">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="WebAutenticarResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="WebAutenticarResult" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="RegresaCalculoServicioDomicilio">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pCalculoServicio" type="tns:cCalculoServicio" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="cCalculoServicio">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="iIdSucursal" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dDeclaredValue" type="s:decimal" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sAddres" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sCiudad" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sAddres2" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sCiudad2" type="s:string" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="cResponseCalculoServicio">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="bAplica" type="s:boolean" />
+                    <s:element minOccurs="1" maxOccurs="1" name="iCode" type="s:int" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sMensaje" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="dCosto" type="s:decimal" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="RegresaCalculoServicioDomicilioResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="RegresaCalculoServicioDomicilioResult" type="tns:cResponseCalculoServicio" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="RegresaTicketValido">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pTicket" type="tns:cConsultaTicket" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="cConsultaTicket">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="dtFecha" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sFolioTicket" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="TotalAPagar" type="s:decimal" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="RegresaTicketValidoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="RegresaTicketValidoResult" type="s:boolean" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="RegresaPedidoValido">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vUsr" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="vPwd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="pPedido" type="tns:cConsultaPedido" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="cConsultaPedido">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="dtFecha" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="sFolioPedido" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="TotalAPagar" type="s:decimal" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="RegresaPedidoValidoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="RegresaPedidoValidoResult" type="s:boolean" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="ProductoDetalleSoapIn">
+        <wsdl:part name="parameters" element="tns:ProductoDetalle" />
+    </wsdl:message>
+    <wsdl:message name="ProductoDetalleSoapOut">
+        <wsdl:part name="parameters" element="tns:ProductoDetalleResponse" />
+    </wsdl:message>
+    <wsdl:message name="ProductoExistenciaSoapIn">
+        <wsdl:part name="parameters" element="tns:ProductoExistencia" />
+    </wsdl:message>
+    <wsdl:message name="ProductoExistenciaSoapOut">
+        <wsdl:part name="parameters" element="tns:ProductoExistenciaResponse" />
+    </wsdl:message>
+    <wsdl:message name="CatalogoDeSucursalesSoapIn">
+        <wsdl:part name="parameters" element="tns:CatalogoDeSucursales" />
+    </wsdl:message>
+    <wsdl:message name="CatalogoDeSucursalesSoapOut">
+        <wsdl:part name="parameters" element="tns:CatalogoDeSucursalesResponse" />
+    </wsdl:message>
+    <wsdl:message name="CatalogoEstadosSoapIn">
+        <wsdl:part name="parameters" element="tns:CatalogoEstados" />
+    </wsdl:message>
+    <wsdl:message name="CatalogoEstadosSoapOut">
+        <wsdl:part name="parameters" element="tns:CatalogoEstadosResponse" />
+    </wsdl:message>
+    <wsdl:message name="CatalogoCiudadesSoapIn">
+        <wsdl:part name="parameters" element="tns:CatalogoCiudades" />
+    </wsdl:message>
+    <wsdl:message name="CatalogoCiudadesSoapOut">
+        <wsdl:part name="parameters" element="tns:CatalogoCiudadesResponse" />
+    </wsdl:message>
+    <wsdl:message name="CatalogoDeZonasSoapIn">
+        <wsdl:part name="parameters" element="tns:CatalogoDeZonas" />
+    </wsdl:message>
+    <wsdl:message name="CatalogoDeZonasSoapOut">
+        <wsdl:part name="parameters" element="tns:CatalogoDeZonasResponse" />
+    </wsdl:message>
+    <wsdl:message name="Func_DT_CategoriasSoapIn">
+        <wsdl:part name="parameters" element="tns:Func_DT_Categorias" />
+    </wsdl:message>
+    <wsdl:message name="Func_DT_CategoriasSoapOut">
+        <wsdl:part name="parameters" element="tns:Func_DT_CategoriasResponse" />
+    </wsdl:message>
+    <wsdl:message name="Func_DT_SubCategoriasSoapIn">
+        <wsdl:part name="parameters" element="tns:Func_DT_SubCategorias" />
+    </wsdl:message>
+    <wsdl:message name="Func_DT_SubCategoriasSoapOut">
+        <wsdl:part name="parameters" element="tns:Func_DT_SubCategoriasResponse" />
+    </wsdl:message>
+    <wsdl:message name="Func_DT_ProductosXSubCategoriaSoapIn">
+        <wsdl:part name="parameters" element="tns:Func_DT_ProductosXSubCategoria" />
+    </wsdl:message>
+    <wsdl:message name="Func_DT_ProductosXSubCategoriaSoapOut">
+        <wsdl:part name="parameters" element="tns:Func_DT_ProductosXSubCategoriaResponse" />
+    </wsdl:message>
+    <wsdl:message name="Func_DT_ProductosXSubCategoriaCentroSoapIn">
+        <wsdl:part name="parameters" element="tns:Func_DT_ProductosXSubCategoriaCentro" />
+    </wsdl:message>
+    <wsdl:message name="Func_DT_ProductosXSubCategoriaCentroSoapOut">
+        <wsdl:part name="parameters" element="tns:Func_DT_ProductosXSubCategoriaCentroResponse" />
+    </wsdl:message>
+    <wsdl:message name="Func_DT_ProductosXNPersonasSoapIn">
+        <wsdl:part name="parameters" element="tns:Func_DT_ProductosXNPersonas" />
+    </wsdl:message>
+    <wsdl:message name="Func_DT_ProductosXNPersonasSoapOut">
+        <wsdl:part name="parameters" element="tns:Func_DT_ProductosXNPersonasResponse" />
+    </wsdl:message>
+    <wsdl:message name="Func_DT_ProductosXRangoPreciosSoapIn">
+        <wsdl:part name="parameters" element="tns:Func_DT_ProductosXRangoPrecios" />
+    </wsdl:message>
+    <wsdl:message name="Func_DT_ProductosXRangoPreciosSoapOut">
+        <wsdl:part name="parameters" element="tns:Func_DT_ProductosXRangoPreciosResponse" />
+    </wsdl:message>
+    <wsdl:message name="ExistenciaPorProductoYSucursalSoapIn">
+        <wsdl:part name="parameters" element="tns:ExistenciaPorProductoYSucursal" />
+    </wsdl:message>
+    <wsdl:message name="ExistenciaPorProductoYSucursalSoapOut">
+        <wsdl:part name="parameters" element="tns:ExistenciaPorProductoYSucursalResponse" />
+    </wsdl:message>
+    <wsdl:message name="ExistenciaProductoSucursalTodasSoapIn">
+        <wsdl:part name="parameters" element="tns:ExistenciaProductoSucursalTodas" />
+    </wsdl:message>
+    <wsdl:message name="ExistenciaProductoSucursalTodasSoapOut">
+        <wsdl:part name="parameters" element="tns:ExistenciaProductoSucursalTodasResponse" />
+    </wsdl:message>
+    <wsdl:message name="Func_DT_ProductosToppingSoapIn">
+        <wsdl:part name="parameters" element="tns:Func_DT_ProductosTopping" />
+    </wsdl:message>
+    <wsdl:message name="Func_DT_ProductosToppingSoapOut">
+        <wsdl:part name="parameters" element="tns:Func_DT_ProductosToppingResponse" />
+    </wsdl:message>
+    <wsdl:message name="Func_ExisteMembreciaSoapIn">
+        <wsdl:part name="parameters" element="tns:Func_ExisteMembrecia" />
+    </wsdl:message>
+    <wsdl:message name="Func_ExisteMembreciaSoapOut">
+        <wsdl:part name="parameters" element="tns:Func_ExisteMembreciaResponse" />
+    </wsdl:message>
+    <wsdl:message name="Func_DatosMembresiaSoapIn">
+        <wsdl:part name="parameters" element="tns:Func_DatosMembresia" />
+    </wsdl:message>
+    <wsdl:message name="Func_DatosMembresiaSoapOut">
+        <wsdl:part name="parameters" element="tns:Func_DatosMembresiaResponse" />
+    </wsdl:message>
+    <wsdl:message name="Func_MovimientosMembresiaSoapIn">
+        <wsdl:part name="parameters" element="tns:Func_MovimientosMembresia" />
+    </wsdl:message>
+    <wsdl:message name="Func_MovimientosMembresiaSoapOut">
+        <wsdl:part name="parameters" element="tns:Func_MovimientosMembresiaResponse" />
+    </wsdl:message>
+    <wsdl:message name="Func_ActualizaDatosMembresiaSoapIn">
+        <wsdl:part name="parameters" element="tns:Func_ActualizaDatosMembresia" />
+    </wsdl:message>
+    <wsdl:message name="Func_ActualizaDatosMembresiaSoapOut">
+        <wsdl:part name="parameters" element="tns:Func_ActualizaDatosMembresiaResponse" />
+    </wsdl:message>
+    <wsdl:message name="Func_AsignaNuevaMembresiaSoapIn">
+        <wsdl:part name="parameters" element="tns:Func_AsignaNuevaMembresia" />
+    </wsdl:message>
+    <wsdl:message name="Func_AsignaNuevaMembresiaSoapOut">
+        <wsdl:part name="parameters" element="tns:Func_AsignaNuevaMembresiaResponse" />
+    </wsdl:message>
+    <wsdl:message name="getLetyClubSoapIn">
+        <wsdl:part name="parameters" element="tns:getLetyClub" />
+    </wsdl:message>
+    <wsdl:message name="getLetyClubSoapOut">
+        <wsdl:part name="parameters" element="tns:getLetyClubResponse" />
+    </wsdl:message>
+    <wsdl:message name="getLetyClubQuitarPuntosSoapIn">
+        <wsdl:part name="parameters" element="tns:getLetyClubQuitarPuntos" />
+    </wsdl:message>
+    <wsdl:message name="getLetyClubQuitarPuntosSoapOut">
+        <wsdl:part name="parameters" element="tns:getLetyClubQuitarPuntosResponse" />
+    </wsdl:message>
+    <wsdl:message name="getLetyClubAcumulaPuntosSoapIn">
+        <wsdl:part name="parameters" element="tns:getLetyClubAcumulaPuntos" />
+    </wsdl:message>
+    <wsdl:message name="getLetyClubAcumulaPuntosSoapOut">
+        <wsdl:part name="parameters" element="tns:getLetyClubAcumulaPuntosResponse" />
+    </wsdl:message>
+    <wsdl:message name="ColocarVentaSoapIn">
+        <wsdl:part name="parameters" element="tns:ColocarVenta" />
+    </wsdl:message>
+    <wsdl:message name="ColocarVentaSoapOut">
+        <wsdl:part name="parameters" element="tns:ColocarVentaResponse" />
+    </wsdl:message>
+    <wsdl:message name="ColocarVentaUpdateSoapIn">
+        <wsdl:part name="parameters" element="tns:ColocarVentaUpdate" />
+    </wsdl:message>
+    <wsdl:message name="ColocarVentaUpdateSoapOut">
+        <wsdl:part name="parameters" element="tns:ColocarVentaUpdateResponse" />
+    </wsdl:message>
+    <wsdl:message name="ConfirmacionDeVentaSoapIn">
+        <wsdl:part name="parameters" element="tns:ConfirmacionDeVenta" />
+    </wsdl:message>
+    <wsdl:message name="ConfirmacionDeVentaSoapOut">
+        <wsdl:part name="parameters" element="tns:ConfirmacionDeVentaResponse" />
+    </wsdl:message>
+    <wsdl:message name="ReversaDeVentaSoapIn">
+        <wsdl:part name="parameters" element="tns:ReversaDeVenta" />
+    </wsdl:message>
+    <wsdl:message name="ReversaDeVentaSoapOut">
+        <wsdl:part name="parameters" element="tns:ReversaDeVentaResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetDetalleCompraSoapIn">
+        <wsdl:part name="parameters" element="tns:GetDetalleCompra" />
+    </wsdl:message>
+    <wsdl:message name="GetDetalleCompraSoapOut">
+        <wsdl:part name="parameters" element="tns:GetDetalleCompraResponse" />
+    </wsdl:message>
+    <wsdl:message name="getMinimoCompraSoapIn">
+        <wsdl:part name="parameters" element="tns:getMinimoCompra" />
+    </wsdl:message>
+    <wsdl:message name="getMinimoCompraSoapOut">
+        <wsdl:part name="parameters" element="tns:getMinimoCompraResponse" />
+    </wsdl:message>
+    <wsdl:message name="getAparadorSoapIn">
+        <wsdl:part name="parameters" element="tns:getAparador" />
+    </wsdl:message>
+    <wsdl:message name="getAparadorSoapOut">
+        <wsdl:part name="parameters" element="tns:getAparadorResponse" />
+    </wsdl:message>
+    <wsdl:message name="getSugerenciaCompraSoapIn">
+        <wsdl:part name="parameters" element="tns:getSugerenciaCompra" />
+    </wsdl:message>
+    <wsdl:message name="getSugerenciaCompraSoapOut">
+        <wsdl:part name="parameters" element="tns:getSugerenciaCompraResponse" />
+    </wsdl:message>
+    <wsdl:message name="getCuponEstatusSoapIn">
+        <wsdl:part name="parameters" element="tns:getCuponEstatus" />
+    </wsdl:message>
+    <wsdl:message name="getCuponEstatusSoapOut">
+        <wsdl:part name="parameters" element="tns:getCuponEstatusResponse" />
+    </wsdl:message>
+    <wsdl:message name="putCuponCanjeSoapIn">
+        <wsdl:part name="parameters" element="tns:putCuponCanje" />
+    </wsdl:message>
+    <wsdl:message name="putCuponCanjeSoapOut">
+        <wsdl:part name="parameters" element="tns:putCuponCanjeResponse" />
+    </wsdl:message>
+    <wsdl:message name="ColocarVentaEvo2SoapIn">
+        <wsdl:part name="parameters" element="tns:ColocarVentaEvo2" />
+    </wsdl:message>
+    <wsdl:message name="ColocarVentaEvo2SoapOut">
+        <wsdl:part name="parameters" element="tns:ColocarVentaEvo2Response" />
+    </wsdl:message>
+    <wsdl:message name="AprobarVentaEvo2SoapIn">
+        <wsdl:part name="parameters" element="tns:AprobarVentaEvo2" />
+    </wsdl:message>
+    <wsdl:message name="AprobarVentaEvo2SoapOut">
+        <wsdl:part name="parameters" element="tns:AprobarVentaEvo2Response" />
+    </wsdl:message>
+    <wsdl:message name="InsertaEncabezadoVentaHSoapIn">
+        <wsdl:part name="parameters" element="tns:InsertaEncabezadoVentaH" />
+    </wsdl:message>
+    <wsdl:message name="InsertaEncabezadoVentaHSoapOut">
+        <wsdl:part name="parameters" element="tns:InsertaEncabezadoVentaHResponse" />
+    </wsdl:message>
+    <wsdl:message name="InsertaDetalleVentaDSoapIn">
+        <wsdl:part name="parameters" element="tns:InsertaDetalleVentaD" />
+    </wsdl:message>
+    <wsdl:message name="InsertaDetalleVentaDSoapOut">
+        <wsdl:part name="parameters" element="tns:InsertaDetalleVentaDResponse" />
+    </wsdl:message>
+    <wsdl:message name="InsertaPagoVentaWebSoapIn">
+        <wsdl:part name="parameters" element="tns:InsertaPagoVentaWeb" />
+    </wsdl:message>
+    <wsdl:message name="InsertaPagoVentaWebSoapOut">
+        <wsdl:part name="parameters" element="tns:InsertaPagoVentaWebResponse" />
+    </wsdl:message>
+    <wsdl:message name="InsertaDatosVentaWebSoapIn">
+        <wsdl:part name="parameters" element="tns:InsertaDatosVentaWeb" />
+    </wsdl:message>
+    <wsdl:message name="InsertaDatosVentaWebSoapOut">
+        <wsdl:part name="parameters" element="tns:InsertaDatosVentaWebResponse" />
+    </wsdl:message>
+    <wsdl:message name="InsertaPedidoClienteSoapIn">
+        <wsdl:part name="parameters" element="tns:InsertaPedidoCliente" />
+    </wsdl:message>
+    <wsdl:message name="InsertaPedidoClienteSoapOut">
+        <wsdl:part name="parameters" element="tns:InsertaPedidoClienteResponse" />
+    </wsdl:message>
+    <wsdl:message name="InsertaPedidoClienteProductoSoapIn">
+        <wsdl:part name="parameters" element="tns:InsertaPedidoClienteProducto" />
+    </wsdl:message>
+    <wsdl:message name="InsertaPedidoClienteProductoSoapOut">
+        <wsdl:part name="parameters" element="tns:InsertaPedidoClienteProductoResponse" />
+    </wsdl:message>
+    <wsdl:message name="InsertaPedidoClienteProductoAtributoSoapIn">
+        <wsdl:part name="parameters" element="tns:InsertaPedidoClienteProductoAtributo" />
+    </wsdl:message>
+    <wsdl:message name="InsertaPedidoClienteProductoAtributoSoapOut">
+        <wsdl:part name="parameters" element="tns:InsertaPedidoClienteProductoAtributoResponse" />
+    </wsdl:message>
+    <wsdl:message name="InsertaPedidoClienteSubProductoSoapIn">
+        <wsdl:part name="parameters" element="tns:InsertaPedidoClienteSubProducto" />
+    </wsdl:message>
+    <wsdl:message name="InsertaPedidoClienteSubProductoSoapOut">
+        <wsdl:part name="parameters" element="tns:InsertaPedidoClienteSubProductoResponse" />
+    </wsdl:message>
+    <wsdl:message name="InsertaPedidoClienteSubProductoAtributoSoapIn">
+        <wsdl:part name="parameters" element="tns:InsertaPedidoClienteSubProductoAtributo" />
+    </wsdl:message>
+    <wsdl:message name="InsertaPedidoClienteSubProductoAtributoSoapOut">
+        <wsdl:part name="parameters" element="tns:InsertaPedidoClienteSubProductoAtributoResponse" />
+    </wsdl:message>
+    <wsdl:message name="InsertaPedidoClienteMovimientoSoapIn">
+        <wsdl:part name="parameters" element="tns:InsertaPedidoClienteMovimiento" />
+    </wsdl:message>
+    <wsdl:message name="InsertaPedidoClienteMovimientoSoapOut">
+        <wsdl:part name="parameters" element="tns:InsertaPedidoClienteMovimientoResponse" />
+    </wsdl:message>
+    <wsdl:message name="InsertaPedidoClienteMovimientoDetSoapIn">
+        <wsdl:part name="parameters" element="tns:InsertaPedidoClienteMovimientoDet" />
+    </wsdl:message>
+    <wsdl:message name="InsertaPedidoClienteMovimientoDetSoapOut">
+        <wsdl:part name="parameters" element="tns:InsertaPedidoClienteMovimientoDetResponse" />
+    </wsdl:message>
+    <wsdl:message name="ExistenciaPorCentroFechaSoapIn">
+        <wsdl:part name="parameters" element="tns:ExistenciaPorCentroFecha" />
+    </wsdl:message>
+    <wsdl:message name="ExistenciaPorCentroFechaSoapOut">
+        <wsdl:part name="parameters" element="tns:ExistenciaPorCentroFechaResponse" />
+    </wsdl:message>
+    <wsdl:message name="InsertaServicioDomicilioHSoapIn">
+        <wsdl:part name="parameters" element="tns:InsertaServicioDomicilioH" />
+    </wsdl:message>
+    <wsdl:message name="InsertaServicioDomicilioHSoapOut">
+        <wsdl:part name="parameters" element="tns:InsertaServicioDomicilioHResponse" />
+    </wsdl:message>
+    <wsdl:message name="InsertaServicioDomicilioDSoapIn">
+        <wsdl:part name="parameters" element="tns:InsertaServicioDomicilioD" />
+    </wsdl:message>
+    <wsdl:message name="InsertaServicioDomicilioDSoapOut">
+        <wsdl:part name="parameters" element="tns:InsertaServicioDomicilioDResponse" />
+    </wsdl:message>
+    <wsdl:message name="InsertaServicioDomicilioPagoSoapIn">
+        <wsdl:part name="parameters" element="tns:InsertaServicioDomicilioPago" />
+    </wsdl:message>
+    <wsdl:message name="InsertaServicioDomicilioPagoSoapOut">
+        <wsdl:part name="parameters" element="tns:InsertaServicioDomicilioPagoResponse" />
+    </wsdl:message>
+    <wsdl:message name="RegistraServDomSoapIn">
+        <wsdl:part name="parameters" element="tns:RegistraServDom" />
+    </wsdl:message>
+    <wsdl:message name="RegistraServDomSoapOut">
+        <wsdl:part name="parameters" element="tns:RegistraServDomResponse" />
+    </wsdl:message>
+    <wsdl:message name="InsertaPersonaDireccionSoapIn">
+        <wsdl:part name="parameters" element="tns:InsertaPersonaDireccion" />
+    </wsdl:message>
+    <wsdl:message name="InsertaPersonaDireccionSoapOut">
+        <wsdl:part name="parameters" element="tns:InsertaPersonaDireccionResponse" />
+    </wsdl:message>
+    <wsdl:message name="DesactivaPersonaDireccionSoapIn">
+        <wsdl:part name="parameters" element="tns:DesactivaPersonaDireccion" />
+    </wsdl:message>
+    <wsdl:message name="DesactivaPersonaDireccionSoapOut">
+        <wsdl:part name="parameters" element="tns:DesactivaPersonaDireccionResponse" />
+    </wsdl:message>
+    <wsdl:message name="RegresaClienteServicioDomicilioSoapIn">
+        <wsdl:part name="parameters" element="tns:RegresaClienteServicioDomicilio" />
+    </wsdl:message>
+    <wsdl:message name="RegresaClienteServicioDomicilioSoapOut">
+        <wsdl:part name="parameters" element="tns:RegresaClienteServicioDomicilioResponse" />
+    </wsdl:message>
+    <wsdl:message name="WebAutenticarSoapIn">
+        <wsdl:part name="parameters" element="tns:WebAutenticar" />
+    </wsdl:message>
+    <wsdl:message name="WebAutenticarSoapOut">
+        <wsdl:part name="parameters" element="tns:WebAutenticarResponse" />
+    </wsdl:message>
+    <wsdl:message name="RegresaCalculoServicioDomicilioSoapIn">
+        <wsdl:part name="parameters" element="tns:RegresaCalculoServicioDomicilio" />
+    </wsdl:message>
+    <wsdl:message name="RegresaCalculoServicioDomicilioSoapOut">
+        <wsdl:part name="parameters" element="tns:RegresaCalculoServicioDomicilioResponse" />
+    </wsdl:message>
+    <wsdl:message name="RegresaTicketValidoSoapIn">
+        <wsdl:part name="parameters" element="tns:RegresaTicketValido" />
+    </wsdl:message>
+    <wsdl:message name="RegresaTicketValidoSoapOut">
+        <wsdl:part name="parameters" element="tns:RegresaTicketValidoResponse" />
+    </wsdl:message>
+    <wsdl:message name="RegresaPedidoValidoSoapIn">
+        <wsdl:part name="parameters" element="tns:RegresaPedidoValido" />
+    </wsdl:message>
+    <wsdl:message name="RegresaPedidoValidoSoapOut">
+        <wsdl:part name="parameters" element="tns:RegresaPedidoValidoResponse" />
+    </wsdl:message>
+    <wsdl:portType name="WEBeCommerceSoap">
+        <wsdl:operation name="ProductoDetalle">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Detalle de Producto</wsdl:documentation>
+            <wsdl:input message="tns:ProductoDetalleSoapIn" />
+            <wsdl:output message="tns:ProductoDetalleSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="ProductoExistencia">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Existencia de Producto en centro indicado</wsdl:documentation>
+            <wsdl:input message="tns:ProductoExistenciaSoapIn" />
+            <wsdl:output message="tns:ProductoExistenciaSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="CatalogoDeSucursales">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Catalogo de Sucursales</wsdl:documentation>
+            <wsdl:input message="tns:CatalogoDeSucursalesSoapIn" />
+            <wsdl:output message="tns:CatalogoDeSucursalesSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="CatalogoEstados">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Catalogo de Estados</wsdl:documentation>
+            <wsdl:input message="tns:CatalogoEstadosSoapIn" />
+            <wsdl:output message="tns:CatalogoEstadosSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="CatalogoCiudades">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Catalogo de Ciudades por Estado</wsdl:documentation>
+            <wsdl:input message="tns:CatalogoCiudadesSoapIn" />
+            <wsdl:output message="tns:CatalogoCiudadesSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="CatalogoDeZonas">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Catalogo de Zonas</wsdl:documentation>
+            <wsdl:input message="tns:CatalogoDeZonasSoapIn" />
+            <wsdl:output message="tns:CatalogoDeZonasSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_Categorias">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Catalogo de Categorias (Pasteles,Reposteria,Bodas)... Tipo=1 VtaWeb Tipo=2 CatVirtual</wsdl:documentation>
+            <wsdl:input message="tns:Func_DT_CategoriasSoapIn" />
+            <wsdl:output message="tns:Func_DT_CategoriasSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_SubCategorias">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Catalogo de Subcategorias ...</wsdl:documentation>
+            <wsdl:input message="tns:Func_DT_SubCategoriasSoapIn" />
+            <wsdl:output message="tns:Func_DT_SubCategoriasSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_ProductosXSubCategoria">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Materiales por Familia se cambio por Func_DT_ProductosXSubCategoria recibe iIdSubCategoria...Tipo=1 VtaWeb Tipo=2 CatVirtual </wsdl:documentation>
+            <wsdl:input message="tns:Func_DT_ProductosXSubCategoriaSoapIn" />
+            <wsdl:output message="tns:Func_DT_ProductosXSubCategoriaSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_ProductosXSubCategoriaCentro">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Materiales por Familia con existencia en Sucursal indicada</wsdl:documentation>
+            <wsdl:input message="tns:Func_DT_ProductosXSubCategoriaCentroSoapIn" />
+            <wsdl:output message="tns:Func_DT_ProductosXSubCategoriaCentroSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_ProductosXNPersonas">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Materiales por Rango de Numero de Personas</wsdl:documentation>
+            <wsdl:input message="tns:Func_DT_ProductosXNPersonasSoapIn" />
+            <wsdl:output message="tns:Func_DT_ProductosXNPersonasSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_ProductosXRangoPrecios">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Materiales por Rango de Precios se cambio por Func_DT_ProductosXRangoPrecios </wsdl:documentation>
+            <wsdl:input message="tns:Func_DT_ProductosXRangoPreciosSoapIn" />
+            <wsdl:output message="tns:Func_DT_ProductosXRangoPreciosSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="ExistenciaPorProductoYSucursal">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Existencia Por Producto Y Sucursal</wsdl:documentation>
+            <wsdl:input message="tns:ExistenciaPorProductoYSucursalSoapIn" />
+            <wsdl:output message="tns:ExistenciaPorProductoYSucursalSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="ExistenciaProductoSucursalTodas">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Existencia de un Producto en Todas las Sucursales</wsdl:documentation>
+            <wsdl:input message="tns:ExistenciaProductoSucursalTodasSoapIn" />
+            <wsdl:output message="tns:ExistenciaProductoSucursalTodasSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_ProductosTopping">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo para Obtener los Productos Topping</wsdl:documentation>
+            <wsdl:input message="tns:Func_DT_ProductosToppingSoapIn" />
+            <wsdl:output message="tns:Func_DT_ProductosToppingSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Func_ExisteMembrecia">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Existencia de Membresia</wsdl:documentation>
+            <wsdl:input message="tns:Func_ExisteMembreciaSoapIn" />
+            <wsdl:output message="tns:Func_ExisteMembreciaSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Func_DatosMembresia">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Datos Membresia</wsdl:documentation>
+            <wsdl:input message="tns:Func_DatosMembresiaSoapIn" />
+            <wsdl:output message="tns:Func_DatosMembresiaSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Func_MovimientosMembresia">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Movimientos Membresia</wsdl:documentation>
+            <wsdl:input message="tns:Func_MovimientosMembresiaSoapIn" />
+            <wsdl:output message="tns:Func_MovimientosMembresiaSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Func_ActualizaDatosMembresia">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Actualizar Datos Membresia</wsdl:documentation>
+            <wsdl:input message="tns:Func_ActualizaDatosMembresiaSoapIn" />
+            <wsdl:output message="tns:Func_ActualizaDatosMembresiaSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Func_AsignaNuevaMembresia">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Asigna Nueva Membresia</wsdl:documentation>
+            <wsdl:input message="tns:Func_AsignaNuevaMembresiaSoapIn" />
+            <wsdl:output message="tns:Func_AsignaNuevaMembresiaSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getLetyClub">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene Saldo, Estatus</wsdl:documentation>
+            <wsdl:input message="tns:getLetyClubSoapIn" />
+            <wsdl:output message="tns:getLetyClubSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getLetyClubQuitarPuntos">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">LetyClub Quita puntos</wsdl:documentation>
+            <wsdl:input message="tns:getLetyClubQuitarPuntosSoapIn" />
+            <wsdl:output message="tns:getLetyClubQuitarPuntosSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getLetyClubAcumulaPuntos">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">LetyClub Acumula puntos</wsdl:documentation>
+            <wsdl:input message="tns:getLetyClubAcumulaPuntosSoapIn" />
+            <wsdl:output message="tns:getLetyClubAcumulaPuntosSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="ColocarVenta">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Colocar venta</wsdl:documentation>
+            <wsdl:input message="tns:ColocarVentaSoapIn" />
+            <wsdl:output message="tns:ColocarVentaSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="ColocarVentaUpdate">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Colocar venta Update</wsdl:documentation>
+            <wsdl:input message="tns:ColocarVentaUpdateSoapIn" />
+            <wsdl:output message="tns:ColocarVentaUpdateSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="ConfirmacionDeVenta">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Confirmacion de venta</wsdl:documentation>
+            <wsdl:input message="tns:ConfirmacionDeVentaSoapIn" />
+            <wsdl:output message="tns:ConfirmacionDeVentaSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="ReversaDeVenta">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Reversa de venta</wsdl:documentation>
+            <wsdl:input message="tns:ReversaDeVentaSoapIn" />
+            <wsdl:output message="tns:ReversaDeVentaSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetDetalleCompra">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Crea Estructura de Tabla Detalle Compra</wsdl:documentation>
+            <wsdl:input message="tns:GetDetalleCompraSoapIn" />
+            <wsdl:output message="tns:GetDetalleCompraSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getMinimoCompra">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el Minimo de compra en WEB</wsdl:documentation>
+            <wsdl:input message="tns:getMinimoCompraSoapIn" />
+            <wsdl:output message="tns:getMinimoCompraSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getAparador">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Se obtiene productos para sugerencia de compra</wsdl:documentation>
+            <wsdl:input message="tns:getAparadorSoapIn" />
+            <wsdl:output message="tns:getAparadorSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getSugerenciaCompra">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sugerencia Compra</wsdl:documentation>
+            <wsdl:input message="tns:getSugerenciaCompraSoapIn" />
+            <wsdl:output message="tns:getSugerenciaCompraSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getCuponEstatus">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Se obtiene estatus del cupon</wsdl:documentation>
+            <wsdl:input message="tns:getCuponEstatusSoapIn" />
+            <wsdl:output message="tns:getCuponEstatusSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="putCuponCanje">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Se obtiene estatus del cupon/ se canjea cupon usado</wsdl:documentation>
+            <wsdl:input message="tns:putCuponCanjeSoapIn" />
+            <wsdl:output message="tns:putCuponCanjeSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="ColocarVentaEvo2">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Colocar venta Evo2</wsdl:documentation>
+            <wsdl:input message="tns:ColocarVentaEvo2SoapIn" />
+            <wsdl:output message="tns:ColocarVentaEvo2SoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="AprobarVentaEvo2">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Aprobar venta Evo2</wsdl:documentation>
+            <wsdl:input message="tns:AprobarVentaEvo2SoapIn" />
+            <wsdl:output message="tns:AprobarVentaEvo2SoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="InsertaEncabezadoVentaH">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insertar Ecabezado Venta Evo</wsdl:documentation>
+            <wsdl:input message="tns:InsertaEncabezadoVentaHSoapIn" />
+            <wsdl:output message="tns:InsertaEncabezadoVentaHSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="InsertaDetalleVentaD">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insertar Detalle Venta Evo</wsdl:documentation>
+            <wsdl:input message="tns:InsertaDetalleVentaDSoapIn" />
+            <wsdl:output message="tns:InsertaDetalleVentaDSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPagoVentaWeb">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insertar Pago Venta Web Evo</wsdl:documentation>
+            <wsdl:input message="tns:InsertaPagoVentaWebSoapIn" />
+            <wsdl:output message="tns:InsertaPagoVentaWebSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="InsertaDatosVentaWeb">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insertar Datos Venta Web A Evo</wsdl:documentation>
+            <wsdl:input message="tns:InsertaDatosVentaWebSoapIn" />
+            <wsdl:output message="tns:InsertaDatosVentaWebSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoCliente">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insertar PedidoCliente Pedido Evo</wsdl:documentation>
+            <wsdl:input message="tns:InsertaPedidoClienteSoapIn" />
+            <wsdl:output message="tns:InsertaPedidoClienteSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoClienteProducto">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insertar PedidoClienteProducto</wsdl:documentation>
+            <wsdl:input message="tns:InsertaPedidoClienteProductoSoapIn" />
+            <wsdl:output message="tns:InsertaPedidoClienteProductoSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoClienteProductoAtributo">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insertar PedidoClienteProductoAtributo</wsdl:documentation>
+            <wsdl:input message="tns:InsertaPedidoClienteProductoAtributoSoapIn" />
+            <wsdl:output message="tns:InsertaPedidoClienteProductoAtributoSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoClienteSubProducto">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insertar PedidoClienteSubProducto</wsdl:documentation>
+            <wsdl:input message="tns:InsertaPedidoClienteSubProductoSoapIn" />
+            <wsdl:output message="tns:InsertaPedidoClienteSubProductoSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoClienteSubProductoAtributo">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insertar PedidoClienteSubProductoAtributo</wsdl:documentation>
+            <wsdl:input message="tns:InsertaPedidoClienteSubProductoAtributoSoapIn" />
+            <wsdl:output message="tns:InsertaPedidoClienteSubProductoAtributoSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoClienteMovimiento">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insertar PedidoClienteMovimiento</wsdl:documentation>
+            <wsdl:input message="tns:InsertaPedidoClienteMovimientoSoapIn" />
+            <wsdl:output message="tns:InsertaPedidoClienteMovimientoSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoClienteMovimientoDet">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insertar PedidoClienteMovimientoDet</wsdl:documentation>
+            <wsdl:input message="tns:InsertaPedidoClienteMovimientoDetSoapIn" />
+            <wsdl:output message="tns:InsertaPedidoClienteMovimientoDetSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="ExistenciaPorCentroFecha">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Existencia por Centro Fecha</wsdl:documentation>
+            <wsdl:input message="tns:ExistenciaPorCentroFechaSoapIn" />
+            <wsdl:output message="tns:ExistenciaPorCentroFechaSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="InsertaServicioDomicilioH">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insertar ServicioDomicilioH</wsdl:documentation>
+            <wsdl:input message="tns:InsertaServicioDomicilioHSoapIn" />
+            <wsdl:output message="tns:InsertaServicioDomicilioHSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="InsertaServicioDomicilioD">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insertar ServicioDomicilioD</wsdl:documentation>
+            <wsdl:input message="tns:InsertaServicioDomicilioDSoapIn" />
+            <wsdl:output message="tns:InsertaServicioDomicilioDSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="InsertaServicioDomicilioPago">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insertar ServicioDomicilioPago</wsdl:documentation>
+            <wsdl:input message="tns:InsertaServicioDomicilioPagoSoapIn" />
+            <wsdl:output message="tns:InsertaServicioDomicilioPagoSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="RegistraServDom">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insertar ServDom</wsdl:documentation>
+            <wsdl:input message="tns:RegistraServDomSoapIn" />
+            <wsdl:output message="tns:RegistraServDomSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPersonaDireccion">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insertar PersonaDireccion</wsdl:documentation>
+            <wsdl:input message="tns:InsertaPersonaDireccionSoapIn" />
+            <wsdl:output message="tns:InsertaPersonaDireccionSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="DesactivaPersonaDireccion">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Desactiva PersonaDireccion</wsdl:documentation>
+            <wsdl:input message="tns:DesactivaPersonaDireccionSoapIn" />
+            <wsdl:output message="tns:DesactivaPersonaDireccionSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="RegresaClienteServicioDomicilio">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Regresa ClienteServicioDomicilio</wsdl:documentation>
+            <wsdl:input message="tns:RegresaClienteServicioDomicilioSoapIn" />
+            <wsdl:output message="tns:RegresaClienteServicioDomicilioSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="WebAutenticar">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Regresa WebAutenticar</wsdl:documentation>
+            <wsdl:input message="tns:WebAutenticarSoapIn" />
+            <wsdl:output message="tns:WebAutenticarSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="RegresaCalculoServicioDomicilio">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Regresa Calculo Costo ServicioDomicilio</wsdl:documentation>
+            <wsdl:input message="tns:RegresaCalculoServicioDomicilioSoapIn" />
+            <wsdl:output message="tns:RegresaCalculoServicioDomicilioSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="RegresaTicketValido">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Regresa TicketVenta</wsdl:documentation>
+            <wsdl:input message="tns:RegresaTicketValidoSoapIn" />
+            <wsdl:output message="tns:RegresaTicketValidoSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="RegresaPedidoValido">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Regresa Pedido</wsdl:documentation>
+            <wsdl:input message="tns:RegresaPedidoValidoSoapIn" />
+            <wsdl:output message="tns:RegresaPedidoValidoSoapOut" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="WEBeCommerceSoap" type="tns:WEBeCommerceSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="ProductoDetalle">
+            <soap:operation soapAction="http://localhost/ProductoDetalle" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ProductoExistencia">
+            <soap:operation soapAction="http://localhost/ProductoExistencia" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CatalogoDeSucursales">
+            <soap:operation soapAction="http://localhost/CatalogoDeSucursales" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CatalogoEstados">
+            <soap:operation soapAction="http://localhost/CatalogoEstados" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CatalogoCiudades">
+            <soap:operation soapAction="http://localhost/CatalogoCiudades" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CatalogoDeZonas">
+            <soap:operation soapAction="http://localhost/CatalogoDeZonas" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_Categorias">
+            <soap:operation soapAction="http://localhost/Func_DT_Categorias" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_SubCategorias">
+            <soap:operation soapAction="http://localhost/Func_DT_SubCategorias" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_ProductosXSubCategoria">
+            <soap:operation soapAction="http://localhost/Func_DT_ProductosXSubCategoria" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_ProductosXSubCategoriaCentro">
+            <soap:operation soapAction="http://localhost/Func_DT_ProductosXSubCategoriaCentro" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_ProductosXNPersonas">
+            <soap:operation soapAction="http://localhost/Func_DT_ProductosXNPersonas" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_ProductosXRangoPrecios">
+            <soap:operation soapAction="http://localhost/Func_DT_ProductosXRangoPrecios" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ExistenciaPorProductoYSucursal">
+            <soap:operation soapAction="http://localhost/ExistenciaPorProductoYSucursal" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ExistenciaProductoSucursalTodas">
+            <soap:operation soapAction="http://localhost/ExistenciaProductoSucursalTodas" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_ProductosTopping">
+            <soap:operation soapAction="http://localhost/Func_DT_ProductosTopping" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_ExisteMembrecia">
+            <soap:operation soapAction="http://localhost/Func_ExisteMembrecia" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_DatosMembresia">
+            <soap:operation soapAction="http://localhost/Func_DatosMembresia" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_MovimientosMembresia">
+            <soap:operation soapAction="http://localhost/Func_MovimientosMembresia" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_ActualizaDatosMembresia">
+            <soap:operation soapAction="http://localhost/Func_ActualizaDatosMembresia" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_AsignaNuevaMembresia">
+            <soap:operation soapAction="http://localhost/Func_AsignaNuevaMembresia" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getLetyClub">
+            <soap:operation soapAction="http://localhost/getLetyClub" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getLetyClubQuitarPuntos">
+            <soap:operation soapAction="http://localhost/getLetyClubQuitarPuntos" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getLetyClubAcumulaPuntos">
+            <soap:operation soapAction="http://localhost/getLetyClubAcumulaPuntos" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ColocarVenta">
+            <soap:operation soapAction="http://localhost/ColocarVenta" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ColocarVentaUpdate">
+            <soap:operation soapAction="http://localhost/ColocarVentaUpdate" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ConfirmacionDeVenta">
+            <soap:operation soapAction="http://localhost/ConfirmacionDeVenta" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ReversaDeVenta">
+            <soap:operation soapAction="http://localhost/ReversaDeVenta" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDetalleCompra">
+            <soap:operation soapAction="http://localhost/GetDetalleCompra" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getMinimoCompra">
+            <soap:operation soapAction="http://localhost/getMinimoCompra" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getAparador">
+            <soap:operation soapAction="http://localhost/getAparador" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getSugerenciaCompra">
+            <soap:operation soapAction="http://localhost/getSugerenciaCompra" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getCuponEstatus">
+            <soap:operation soapAction="http://localhost/getCuponEstatus" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="putCuponCanje">
+            <soap:operation soapAction="http://localhost/putCuponCanje" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ColocarVentaEvo2">
+            <soap:operation soapAction="http://localhost/ColocarVentaEvo2" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AprobarVentaEvo2">
+            <soap:operation soapAction="http://localhost/AprobarVentaEvo2" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaEncabezadoVentaH">
+            <soap:operation soapAction="http://localhost/InsertaEncabezadoVentaH" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaDetalleVentaD">
+            <soap:operation soapAction="http://localhost/InsertaDetalleVentaD" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPagoVentaWeb">
+            <soap:operation soapAction="http://localhost/InsertaPagoVentaWeb" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaDatosVentaWeb">
+            <soap:operation soapAction="http://localhost/InsertaDatosVentaWeb" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoCliente">
+            <soap:operation soapAction="http://localhost/InsertaPedidoCliente" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoClienteProducto">
+            <soap:operation soapAction="http://localhost/InsertaPedidoClienteProducto" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoClienteProductoAtributo">
+            <soap:operation soapAction="http://localhost/InsertaPedidoClienteProductoAtributo" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoClienteSubProducto">
+            <soap:operation soapAction="http://localhost/InsertaPedidoClienteSubProducto" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoClienteSubProductoAtributo">
+            <soap:operation soapAction="http://localhost/InsertaPedidoClienteSubProductoAtributo" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoClienteMovimiento">
+            <soap:operation soapAction="http://localhost/InsertaPedidoClienteMovimiento" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoClienteMovimientoDet">
+            <soap:operation soapAction="http://localhost/InsertaPedidoClienteMovimientoDet" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ExistenciaPorCentroFecha">
+            <soap:operation soapAction="http://localhost/ExistenciaPorCentroFecha" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaServicioDomicilioH">
+            <soap:operation soapAction="http://localhost/InsertaServicioDomicilioH" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaServicioDomicilioD">
+            <soap:operation soapAction="http://localhost/InsertaServicioDomicilioD" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaServicioDomicilioPago">
+            <soap:operation soapAction="http://localhost/InsertaServicioDomicilioPago" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RegistraServDom">
+            <soap:operation soapAction="http://localhost/RegistraServDom" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPersonaDireccion">
+            <soap:operation soapAction="http://localhost/InsertaPersonaDireccion" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DesactivaPersonaDireccion">
+            <soap:operation soapAction="http://localhost/DesactivaPersonaDireccion" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RegresaClienteServicioDomicilio">
+            <soap:operation soapAction="http://localhost/RegresaClienteServicioDomicilio" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="WebAutenticar">
+            <soap:operation soapAction="http://localhost/WebAutenticar" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RegresaCalculoServicioDomicilio">
+            <soap:operation soapAction="http://localhost/RegresaCalculoServicioDomicilio" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RegresaTicketValido">
+            <soap:operation soapAction="http://localhost/RegresaTicketValido" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RegresaPedidoValido">
+            <soap:operation soapAction="http://localhost/RegresaPedidoValido" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="WEBeCommerceSoap12" type="tns:WEBeCommerceSoap">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="ProductoDetalle">
+            <soap12:operation soapAction="http://localhost/ProductoDetalle" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ProductoExistencia">
+            <soap12:operation soapAction="http://localhost/ProductoExistencia" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CatalogoDeSucursales">
+            <soap12:operation soapAction="http://localhost/CatalogoDeSucursales" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CatalogoEstados">
+            <soap12:operation soapAction="http://localhost/CatalogoEstados" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CatalogoCiudades">
+            <soap12:operation soapAction="http://localhost/CatalogoCiudades" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CatalogoDeZonas">
+            <soap12:operation soapAction="http://localhost/CatalogoDeZonas" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_Categorias">
+            <soap12:operation soapAction="http://localhost/Func_DT_Categorias" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_SubCategorias">
+            <soap12:operation soapAction="http://localhost/Func_DT_SubCategorias" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_ProductosXSubCategoria">
+            <soap12:operation soapAction="http://localhost/Func_DT_ProductosXSubCategoria" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_ProductosXSubCategoriaCentro">
+            <soap12:operation soapAction="http://localhost/Func_DT_ProductosXSubCategoriaCentro" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_ProductosXNPersonas">
+            <soap12:operation soapAction="http://localhost/Func_DT_ProductosXNPersonas" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_ProductosXRangoPrecios">
+            <soap12:operation soapAction="http://localhost/Func_DT_ProductosXRangoPrecios" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ExistenciaPorProductoYSucursal">
+            <soap12:operation soapAction="http://localhost/ExistenciaPorProductoYSucursal" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ExistenciaProductoSucursalTodas">
+            <soap12:operation soapAction="http://localhost/ExistenciaProductoSucursalTodas" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_DT_ProductosTopping">
+            <soap12:operation soapAction="http://localhost/Func_DT_ProductosTopping" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_ExisteMembrecia">
+            <soap12:operation soapAction="http://localhost/Func_ExisteMembrecia" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_DatosMembresia">
+            <soap12:operation soapAction="http://localhost/Func_DatosMembresia" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_MovimientosMembresia">
+            <soap12:operation soapAction="http://localhost/Func_MovimientosMembresia" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_ActualizaDatosMembresia">
+            <soap12:operation soapAction="http://localhost/Func_ActualizaDatosMembresia" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Func_AsignaNuevaMembresia">
+            <soap12:operation soapAction="http://localhost/Func_AsignaNuevaMembresia" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getLetyClub">
+            <soap12:operation soapAction="http://localhost/getLetyClub" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getLetyClubQuitarPuntos">
+            <soap12:operation soapAction="http://localhost/getLetyClubQuitarPuntos" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getLetyClubAcumulaPuntos">
+            <soap12:operation soapAction="http://localhost/getLetyClubAcumulaPuntos" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ColocarVenta">
+            <soap12:operation soapAction="http://localhost/ColocarVenta" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ColocarVentaUpdate">
+            <soap12:operation soapAction="http://localhost/ColocarVentaUpdate" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ConfirmacionDeVenta">
+            <soap12:operation soapAction="http://localhost/ConfirmacionDeVenta" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ReversaDeVenta">
+            <soap12:operation soapAction="http://localhost/ReversaDeVenta" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDetalleCompra">
+            <soap12:operation soapAction="http://localhost/GetDetalleCompra" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getMinimoCompra">
+            <soap12:operation soapAction="http://localhost/getMinimoCompra" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getAparador">
+            <soap12:operation soapAction="http://localhost/getAparador" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getSugerenciaCompra">
+            <soap12:operation soapAction="http://localhost/getSugerenciaCompra" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getCuponEstatus">
+            <soap12:operation soapAction="http://localhost/getCuponEstatus" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="putCuponCanje">
+            <soap12:operation soapAction="http://localhost/putCuponCanje" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ColocarVentaEvo2">
+            <soap12:operation soapAction="http://localhost/ColocarVentaEvo2" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AprobarVentaEvo2">
+            <soap12:operation soapAction="http://localhost/AprobarVentaEvo2" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaEncabezadoVentaH">
+            <soap12:operation soapAction="http://localhost/InsertaEncabezadoVentaH" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaDetalleVentaD">
+            <soap12:operation soapAction="http://localhost/InsertaDetalleVentaD" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPagoVentaWeb">
+            <soap12:operation soapAction="http://localhost/InsertaPagoVentaWeb" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaDatosVentaWeb">
+            <soap12:operation soapAction="http://localhost/InsertaDatosVentaWeb" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoCliente">
+            <soap12:operation soapAction="http://localhost/InsertaPedidoCliente" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoClienteProducto">
+            <soap12:operation soapAction="http://localhost/InsertaPedidoClienteProducto" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoClienteProductoAtributo">
+            <soap12:operation soapAction="http://localhost/InsertaPedidoClienteProductoAtributo" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoClienteSubProducto">
+            <soap12:operation soapAction="http://localhost/InsertaPedidoClienteSubProducto" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoClienteSubProductoAtributo">
+            <soap12:operation soapAction="http://localhost/InsertaPedidoClienteSubProductoAtributo" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoClienteMovimiento">
+            <soap12:operation soapAction="http://localhost/InsertaPedidoClienteMovimiento" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPedidoClienteMovimientoDet">
+            <soap12:operation soapAction="http://localhost/InsertaPedidoClienteMovimientoDet" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ExistenciaPorCentroFecha">
+            <soap12:operation soapAction="http://localhost/ExistenciaPorCentroFecha" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaServicioDomicilioH">
+            <soap12:operation soapAction="http://localhost/InsertaServicioDomicilioH" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaServicioDomicilioD">
+            <soap12:operation soapAction="http://localhost/InsertaServicioDomicilioD" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaServicioDomicilioPago">
+            <soap12:operation soapAction="http://localhost/InsertaServicioDomicilioPago" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RegistraServDom">
+            <soap12:operation soapAction="http://localhost/RegistraServDom" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InsertaPersonaDireccion">
+            <soap12:operation soapAction="http://localhost/InsertaPersonaDireccion" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DesactivaPersonaDireccion">
+            <soap12:operation soapAction="http://localhost/DesactivaPersonaDireccion" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RegresaClienteServicioDomicilio">
+            <soap12:operation soapAction="http://localhost/RegresaClienteServicioDomicilio" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="WebAutenticar">
+            <soap12:operation soapAction="http://localhost/WebAutenticar" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RegresaCalculoServicioDomicilio">
+            <soap12:operation soapAction="http://localhost/RegresaCalculoServicioDomicilio" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RegresaTicketValido">
+            <soap12:operation soapAction="http://localhost/RegresaTicketValido" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RegresaPedidoValido">
+            <soap12:operation soapAction="http://localhost/RegresaPedidoValido" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="WEBeCommerce">
+        <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">eCommerce...</wsdl:documentation>
+        <wsdl:port name="WEBeCommerceSoap" binding="tns:WEBeCommerceSoap">
+            <soap:address location="http://localhost" />
+        </wsdl:port>
+        <wsdl:port name="WEBeCommerceSoap12" binding="tns:WEBeCommerceSoap12">
+            <soap12:address location="http://localhost" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
