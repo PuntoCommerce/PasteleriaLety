@@ -74,20 +74,31 @@
 
                     <div class="col-lg-12 col-sm-5 push-sm-7 push-lg-8 social">
                         <ul class="social-links">
-                            <li style="margin: 0;"><a class="" aria-label="Facebook" href="" target="_blank"><img
-                                        class="" src="${URLUtils.staticURL('/images/icons/fb.svg')}" /></a></li>
-                            <li style="margin: 0; margin-left: 5px;"><a class="" aria-label="Instagram" href=""
-                                    target="_blank"><img class=""
-                                        src="${URLUtils.staticURL('/images/icons/ig.svg')}" /></a></li>
-                            <li style="margin: 0; margin-left: 5px;"><a class="" aria-label="LinkedIn" href=""
-                                    target="_blank"><img class=""
-                                        src="${URLUtils.staticURL('/images/icons/LinkedIn.svg')}" /></a></li>
-                            <li style="margin: 0; margin-left: 5px;"><a class="" aria-label="Tiktok" href=""
-                                    target="_blank"><img class=""
-                                        src="${URLUtils.staticURL('/images/icons/tiktok.svg')}" /></a></li>
-                            <li style="margin: 0; margin-left: 5px;"><a class="" aria-label="YouTube" href=""
-                                    target="_blank"><img class=""
-                                        src="${URLUtils.staticURL('/images/icons/youtube.svg')}" /></a></li>
+                            <li>
+                                <a aria-label="Facebook" href="" target="_blank">
+                                    <img src="${URLUtils.staticURL('/images/icons/fb.svg')}" />
+                                </a>
+                            </li>
+                            <li>
+                                <a aria-label="Instagram" href="" target="_blank">
+                                    <img src="${URLUtils.staticURL('/images/icons/ig.svg')}" />
+                                </a>
+                            </li>
+                            <li>
+                                <a aria-label="LinkedIn" href="" target="_blank">
+                                    <img src="${URLUtils.staticURL('/images/icons/LinkedIn.svg')}" />
+                                </a>
+                            </li>
+                            <li>
+                                <a aria-label="Tiktok" href="" target="_blank">
+                                    <img src="${URLUtils.staticURL('/images/icons/tiktok.svg')}" />
+                                </a>
+                            </li>
+                            <li>
+                                <a aria-label="YouTube" href="" target="_blank">
+                                    <img src="${URLUtils.staticURL('/images/icons/youtube.svg')}" />
+                                </a>
+                            </li>
 
 
                         </ul>
@@ -127,11 +138,11 @@
                                     title="${Resource.msg('button.back_to_top', 'common', null)}"
                                     aria-label="${Resource.msg('button.back_to_top', 'common', null)}">
                                     <img src="${URLUtils.staticURL('/images/icons/back-to-top.svg')}"
-                                    alt="${Resource.msg('global.storename', 'common', null)}" />
+                                        alt="${Resource.msg('global.storename', 'common', null)}" />
                                     <iscomment> <span class="fa-stack fa-lg d-flex" aria-hidden="true">
 
-                                        <i class="fa fa-arrow-up "></i>
-                                    </span> </iscomment>
+                                            <i class="fa fa-arrow-up "></i>
+                                        </span> </iscomment>
                                 </button>
                             </div>
                         </div>
@@ -160,5 +171,5 @@
     <div class="copyright-notice">
         <iscontentasset aid="footer-copy" />
     </div>
-    
+
 </footer>

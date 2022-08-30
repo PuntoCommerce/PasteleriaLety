@@ -13693,6 +13693,8 @@ a.normal {
 @media (max-width: 543.98px) {
   .collapsible-xs .title {
     line-height: 2.5rem;
+    font-family: 'Saira', sans-serif;
+    font-weight: bold;
   }
   .collapsible-xs .title:after {
     display: block;
@@ -13918,7 +13920,7 @@ footer .social {
   margin-top: 0.5em;
 }
 footer .footer-container .footer-item.collapsible-xs button {
-  font-family: var(--font-family-gotham);
+  /* font-family: var(--font-family-gotham); */
   padding: 0;
 }
 footer .social-links {
@@ -13955,7 +13957,7 @@ footer .copyright-notice .copyright .fa-heart {
 }
 footer .social-links li {
   float: left;
-  margin: 0.313em;
+  margin: 0 5px;
 }
 /* @media (max-width: 543.98px) {
   footer .social-links li {

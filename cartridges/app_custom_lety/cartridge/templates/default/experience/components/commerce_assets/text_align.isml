@@ -3,8 +3,8 @@
     assets.addCss("/css/experience/components/commerceAssets/text_align.css");
 </isscript>
 
-<div class="text_align ">
-     <span class="text align-${pdict.align}" style="font-size: 22px;">
+<div class="text_align margin_banner">
+     <span class="text align-${pdict.align} font-size-${pdict.fontsize}">
       <isprint id="text_align" value="${pdict.text_align}" encoding="off"/>
     </span>
 </div>

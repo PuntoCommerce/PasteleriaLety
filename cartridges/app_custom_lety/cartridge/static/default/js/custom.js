@@ -130,8 +130,7 @@ let checkbox = document.querySelectorAll(".values.content li button");
 //   });
 // });
 
-filter_container.addEventListener('click', (e) => {
-  console.log(e);
+filter_container.addEventListener('click', () => {
   setTimeout(() => {
     filter_container = document.querySelector("#filter-categories");
       button_filter = document.querySelector("#filter-button");

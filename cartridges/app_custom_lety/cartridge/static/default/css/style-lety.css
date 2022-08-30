@@ -235,6 +235,22 @@
   font-size: 15px !important;
 }
 
+.font-size-high{
+  font-size: 35px;
+}
+
+.font-size-medium{
+  font-size: 25px;
+}
+
+.font-size-small{
+  font-size: 15px;
+}
+
+.margin_banner{
+  margin: 68px 0;
+}
+
 /*responsive 992*/
 @media (max-width: 992px) {
   .form-login{

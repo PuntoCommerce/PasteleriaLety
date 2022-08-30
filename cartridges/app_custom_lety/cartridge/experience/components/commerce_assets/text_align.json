@@ -21,6 +21,14 @@
             "type": "enum",
             "values": ["left", "center", "rigth"],
             "required": false
+          },
+          {
+            "id":"fontsize",
+            "name": "Font Size",
+            "description": "Size text type",
+            "type": "enum",
+            "values": ["high", "medium", "small"],
+            "required": false
           }
         ]
       }
