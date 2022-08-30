@@ -49,6 +49,7 @@
 
         .logo-body {
             text-align: center;
+            background: #D7612B;
         }
 
         .divider-footer {
@@ -188,7 +189,15 @@
                 <tr>
                     <td>
                         <div class="logo-body">
-                            <img class="logo-email-body"  src="${URLUtils.httpsStatic('/images/mens_logo.png')}"
+                            <img class="logo-email-body"  src="${URLUtils.httpsStatic('/images/lety-logo.png')}"
+                                alt="logo Mens Fashion" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="logo-img">
+                            <img class="logo-img"  src="${URLUtils.httpsStatic('/images/confirm-email.png')}"
                                 alt="logo Mens Fashion" />
                         </div>
                     </td>
