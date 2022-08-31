@@ -20,6 +20,7 @@ module.exports.render = function (context, modelIn) {
    // model.alt = content.alt ? content.alt : null;
     model.text_align = content.text_align;
     model.align = content.align ? content.align : "center";
+    model.fontsize = content.fontsize ? content.fontsize : "medium"
     
     return new Template('experience/components/commerce_assets/text_align').render(model).text;
 };
