@@ -50,6 +50,7 @@
         .logo-body {
             text-align: center;
             background: #D7612B;
+            height:90px;
         }
 
         .divider-footer {
