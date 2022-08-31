@@ -12,7 +12,8 @@
     <style type="text/css">
 
         footer {
-            background-color: #000000;
+            background-color: #3E2B11;
+            color: white;
             width: 100%;
             padding: 20px 0;
         }
@@ -24,7 +25,8 @@
         }
 
         .banner-email-body{
-            width: 100%
+            width: 100%;
+            
         }
 
         .email-main {
@@ -32,7 +34,7 @@
         }
 
         .email-title {
-            background-color: #000;
+            font-size:35px;
             padding: 10px 50px;
             text-align: center;
         }
@@ -45,6 +47,22 @@
         }
 
         .logo-body {
+            text-align: center;
+            background-color: #D7612B;
+            height:90px;
+        }
+
+        .logo-email-body{
+            width: 10%;
+            padding-top: 15px;
+        }
+
+        .logo-img{
+            width:100%;
+            max-height:160px;
+        }
+
+        .icons-links{
             text-align: center;
         }
 
@@ -112,7 +130,14 @@
         }
 
         .text-container{
+            
+            padding: 40px 20px 40px 20px;
             margin: 59px 0 99px 0;
+            border: 1px solid black;
+        }
+
+        .text-container .p{
+            text-align:left;
         }
 
         @media only screen and (max-width:480px) {
@@ -138,41 +163,59 @@
                 <tr>
                     <td>
                         <div class="logo-body">
-                            <img class="logo-email-body"  src="${URLUtils.httpsStatic('/images/mens_logo.png')}"
-                                alt="logo Mens Fashion" />
+                            <img class="logo-email-body"  src="${URLUtils.httpsStatic('/images/lety-logo.png')}"
+                                alt="logo lety" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="div-logo-img">
+                            <img class="logo-img"  src="${URLUtils.httpsStatic('/images/confirm-email.png')}"
+                                alt="logo Lety"/>
                         </div>
                     </td>
                 </tr>
                 <tr class="email-title">
                     <td>
-                        <span>¡Bienvenido a Men's Fashion!</span>
+                        <span>${Resource.msg('title.thank.you.email', 'confirmation', null)}</span>
                     </td>
                 </tr>
-                <tr>
+                <iscomment> <tr>
                     <td>
                         <div class="banner-body">
                             <img class="banner-email-body" src="${URLUtils.httpsStatic('/images/bannerMail.png')}"
                                 alt="Banner Mens Fashion" />
                         </div>
                     </td>
-                </tr>                
+                </tr>  </iscomment>               
                 <tr>
                     <td>
                         <div class="text-container">
-                            <h1>${Resource.msg('email.msg.new.registration.dear', 'registration', null)}&nbsp;${pdict.firstName}&nbsp;${pdict.lastName},</h1>
+                            <p class="p">${Resource.msg('msg.welcome.register', 'registration', null)}&nbsp;${pdict.firstName}&nbsp;${pdict.lastName},</p>
 
-                            <p>${Resource.msg('email.msg.new.registration.body1','registration',null)}</p>
+                            <p class="p">${Resource.msg('msg.welcome.span','registration',null)}</p>
 
-                            <p><a href="${pdict.url}">${pdict.url}</a></p>
+                            <iscomment> <p><a href="${pdict.url}">${pdict.url}</a></p> </iscomment>
 
-                            <p>${Resource.msg('email.msg.new.registration.body2','registration',null)}</p>  
+                            <p class="p">${Resource.msg('msg.welcome.agrade','registration',null)}</p>  
+                            <div class="icons-links">
+                                <a aria-label="Facebook" href="" target="_blank"><img
+                                        class="icon-fb" src="${URLUtils.staticURL('/images/icons/fb.svg')}" /></a>
+                            <a aria-label="Instagram" href="" target="_blank"><img class="icon-ig" alt="" src="${URLUtils.staticURL('/images/icons/ig.svg')}" /></a>
+                            </div>
                         </div>
+
                     </td>                 
                 </tr>
             </table>    
         </div>      
         <footer>
+        <div class="div-info">
+            <span>${Resource.msg('title.info.email', 'confirmation', null)}</span>
+        </div>
             <div class="pay-footer">
+            <img class="pay-icon" src="${URLUtils.httpsStatic('/images/shield-check.svg')}" alt="Shield" />
                 <p class="pay-footer-text">Pagos seguros</p>
             </div>
             <div class="pay-methods">
