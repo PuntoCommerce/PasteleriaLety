@@ -104,9 +104,16 @@
                 <isset name="loopState" value="{count: 1}" scope="page" />
                 <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
                     <div class="row" data-attr="${attr.id}">
-                        <div class="col-8">
-                            <isinclude template="product/components/variationAttribute" />
-                        </div>
+
+                        <isif condition="${attr.id == " tamano"}">
+                            <div class="col-8">
+                                <isinclude template="product/components/variationAttribute" />
+                            </div>
+                        <iselse/>
+                            <div class="col-12">
+                                <isinclude template="product/components/variationAttribute" />
+                            </div>
+                        </isif>
 
                         <isif condition="${attributeStatus.last && !isBundle}">
                             <!-- Quantity Drop Down Menu -->
@@ -114,6 +121,7 @@
                                 <isinclude template="product/components/quantity" />
                             </div>
                         </isif>
+
                     </div>
                 </isloop>
 

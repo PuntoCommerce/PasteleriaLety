@@ -1,0 +1,369 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" />
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- utf-8 works for most cases -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <style type="text/css">
+        footer {
+            background-color: #3E2B11;
+            color: #FFFFFF;
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        .email-container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .banner-email-body {
+            width: 100%;
+
+        }
+
+        .email-main {
+            margin: 0;
+        }
+
+        .email-title {
+            padding: 10px 50px;
+            text-align: center;
+        }
+
+        .email-title span {
+            color: #1C1C1C;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 25px;
+        }
+
+        .logo-body {
+            text-align: center;
+            background-color: #D7612B;
+            height: 90px;
+        }
+
+        .logo-email-body {
+            width: 10%;
+            padding-top: 15px;
+        }
+
+        .logo-img {
+            width: 100%;
+            max-height: 160px;
+        }
+
+        .icons-links {
+            text-align: center;
+        }
+
+        .divider-footer {
+            width: 100%;
+        }
+
+        .logo-footer {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .logo-footer-img {
+            width: 90px;
+        }
+
+        .pay-footer-text,
+        .legal-footer-text {
+            color: #ffffff;
+            font-size: 14px;
+            margin: 10px;
+            padding: 0 5rem;
+            text-align: center;
+        }
+
+        .pay-methods {
+            margin: 0 auto;
+            width: fit-content;
+
+        }
+
+        .pay-methods img {
+            width: 30px;
+            height: auto;
+        }
+
+        .email-main p,
+        .email-main h1 {
+            margin: 0 auto;
+            max-width: 90%;
+            width: fit-content;
+        }
+
+        .email-main h1 {
+            font-size: 18px;
+            color: #000000;
+        }
+
+        .email-main p {
+            font-size: 14px;
+            color: #000000;
+        }
+
+        .email-main p a {
+            font-size: 14px;
+            color: #000000;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        table {
+            margin: 10px auto 10px auto;
+            width: 100%;
+        }
+
+        .text-container {
+            padding: 40px 20px 40px 20px;
+            margin: 59px 0 99px 0;
+            border: 1px solid black;
+        }
+
+        .button-sales {
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        .btn-sale {
+            width: 20%;
+            height: 37px;
+            font-size: 14px;
+            border: none;
+            border-radius: 25px;
+            background-color: #D7612B;
+            color: #F5F5F5;
+        }
+
+        .table-trusty {
+            text-align: center;
+        }
+
+        .span-container {
+            text-align: left;
+        }
+
+        .span2 {
+            font-weight: bold;
+        }
+
+        .msg-social {
+            text-align: center;
+            font-size: 15px;
+            font-weight: bold;
+            padding-top: 20px;
+            padding-bottom: 5px;
+        }
+
+        .social-links {
+            text-align: center;
+            padding-bottom: 10px;
+        }
+
+        .div-info {
+            text-align: center;
+            color: #FFFFFF;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .div-trusty {
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        .td-mar {
+            text-align: left;
+        }
+
+        .avisos {
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .avisos .span {
+            font-size: 15px;
+            font-weight: bold;
+            color: #FFFFFF;
+        }
+
+        a {
+            color: #FFFFFF;
+        }
+
+        .legal-footer {
+            width: 100%;
+            background-color: #C2AA8A;
+            text-align: center;
+            margin-top: 0 !important;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .legal-footer p {
+            color: #000000;
+        }
+
+        @media only screen and (max-width:480px) {
+            .email-container {
+                max-width: 100%;
+                padding: 0px;
+            }
+
+            .email-main p,
+            .email-main h1 {
+                max-width: 100%;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-container">
+        <div class="email-main">
+            <table>
+                <tr>
+                    <td>
+                        <div class="logo-body">
+                            <img class="logo-email-body" src="${URLUtils.httpsStatic('/images/lety-logo.png')}"
+                                alt="logo lety" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="div-logo-img">
+                            <img class="logo-img" src="${URLUtils.httpsStatic('/images/thanks-conf.png')}"
+                                alt="logo Lety" />
+                        </div>
+                    </td>
+                </tr>
+                <tr class="email-title">
+                    <td>
+                        <span>${Resource.msg('title.thank.you.email', 'confirmation', null)}</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="text-container">
+                            <div class="text-congrat">
+                                <p>${Resource.msg('msg.welcome.register', 'registration', null)}&nbsp;${pdict.firstName}&nbsp;${pdict.lastName},</p>
+
+                                <p>${Resource.msg('msg.welcome.span', 'registration', null)}
+                                </p>
+
+                                <p>${Resource.msg('msg.welcome.agrade', 'registration', null)}
+                                </p>
+                            </div>
+                            <div class="button-sales">
+                                <button class="btn-sale" type="" href="">${Resource.msg('msg.button.sales.email', 'confirmation', null)}</button>
+                            </div>
+                            <div class="icons-links">
+                                <a aria-label="Facebook" href="" target="_blank"><img class="icon-fb" alt=""
+                                        src="${URLUtils.httpsStatic('/images/icons-emails/facebook.png')}" /></a>
+                                <a aria-label="Instagram" href="" target="_blank"><img class="icon-ig" alt=""
+                                        src="${URLUtils.httpsStatic('/images/icons-emails/instagram.png')}" /></a>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <footer>
+            <table class="table-trusty">
+                <tr>
+                    <td>
+                        <img class="pay-icon" src="${URLUtils.httpsStatic('/images/icons-emails/camion.png')}"
+                            alt="PP" />
+                    </td>
+                    <td class="td-mar">
+                        <span class="span">ENVÍO</span>
+                        <br>
+                        <span class="span2">GRATIS</span>
+                    </td>
+                    <td> <img class="pay-icon" src="${URLUtils.httpsStatic('/images/icons-emails/credi-cart.png')}"
+                            alt="PP" />
+                    </td>
+                    <td class="td-mar">
+                        <span class="span">PAGOS</span>
+                        <br>
+                        <span class="span2">CON TARJETA</span>
+                    </td>
+                    <td>
+                        <img class="pay-icon" src="${URLUtils.httpsStatic('/images/icons-emails/lety-puntos.png')}"
+                            alt="PP" />
+                    </td>
+                    <td class="td-mar">
+                        <span class="span">DESCUENTOS</span>
+                        <br>
+                        <span class="span2">LETY CLUB</span>
+                    </td>
+                </tr>
+            </table>
+
+
+            <div class="avisos">
+                <a href=""><span class="span">${Resource.msg('msg.privacy.email', 'confirmation', null)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
+                <a href=""><span class="span">${Resource.msg('msg.help.email', 'confirmation', null)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
+                <a href=""><span class="span">${Resource.msg('msg.devolu.email', 'confirmation', null)}</span></a>
+            </div>
+            <div class="div-info">
+                <span>${Resource.msg('title.info.email', 'confirmation', null)}</span>
+            </div>
+            <div class="pay-footer">
+
+                <p class="pay-footer-text">
+                    <img class="pay-icon" src="${URLUtils.httpsStatic('/images/icons-emails/shield-check.png')}"
+                        alt="Shield" />${Resource.msg('msg.shield.email', 'confirmation', null)} <img class="pay-icon"
+                        src="${URLUtils.httpsStatic('/images/icons-emails/fontisto_paypal.png')}" alt="PP" />
+
+                    <img class="pay-icon" src="${URLUtils.httpsStatic('/images/icons-emails/fontisto_visa.png')}"
+                        alt="Visa" />
+
+                    <img class="pay-icon" src="${URLUtils.httpsStatic('/images/icons-emails/fontisto_mastercard.png')}"
+                        alt="Mastercard" /></p>
+
+            </div>
+
+            <div class="msg-social">
+                <span>${Resource.msg('title.sweet.email.footer', 'confirmation', null)}</span>
+            </div>
+            <div class="social-links">
+                <a href=""><img class="fb" src="${URLUtils.httpsStatic('/images/icons-emails/fb.png')}" alt="FB" /></a>
+                <a href=""><img class="ig" src="${URLUtils.httpsStatic('/images/icons-emails/ig.png')}" alt="Ig" /></a>
+                <a href=""><img class="linkedin" src="${URLUtils.httpsStatic('/images/icons-emails/linkedin.png')}"
+                        alt="LinkedIn" /></a>
+                <a href=""><img class="tiktok" src="${URLUtils.httpsStatic('/images/icons-emails/tiktok.png')}"
+                        alt="Tiktok" /></a>
+                <a href=""><img class="youtube" src="${URLUtils.httpsStatic('/images/icons-emails/yt.png')}"
+                        alt="Yt" /></a>
+            </div>
+
+        </footer>
+        <div class="legal-footer">
+            <p class="legal-footer-text">${Resource.msg('msg.footer.copy', 'confirmation', null)}&nbsp; <img
+                    class="heart" src="${URLUtils.httpsStatic('/images/icons-emails/heart.png')}" alt="Heart" />&nbsp;
+                ${Resource.msg('msg.footer.copy3', 'confirmation', null)}</p>
+        </div>
+    </div>
+</body>
+
+</html>
