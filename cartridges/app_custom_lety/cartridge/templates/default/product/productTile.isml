@@ -31,7 +31,7 @@
             <iselse>
                 <isinclude template="product/components/pricing/main" />
         </isif>
-        <isinclude template="product/components/productRating" sf-toolkit="on" />
+        
        <div class="justify-content-center d-flex">
        
          <isinclude url="${URLUtils.url('RnR-Average', 'product_id', product.id)}" />
