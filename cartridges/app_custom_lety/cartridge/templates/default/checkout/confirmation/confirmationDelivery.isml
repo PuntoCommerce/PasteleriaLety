@@ -9,7 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <meta name="format-detection" content="telephone=no" />
 
-   <style type="text/css">
+    <style type="text/css">
+
+    @font-face {
+            font-family: "gotham-book";
+            src: url("../css/fonts/GothamBook.ttf") format("opentype");
+        }
+
         footer {
             background-color: #3E2B11;
             color: #FFFFFF;
@@ -18,6 +24,7 @@
         }
 
         .email-container {
+            font-family: "gotham-book", sans-serif;
             max-width: 100%;
             margin: 0 auto;
             padding: 0;
@@ -99,7 +106,6 @@
         .email-main h1 {
             margin: 0 auto;
             max-width: 90%;
-            width: fit-content;
         }
 
         .email-main h1 {
@@ -128,6 +134,7 @@
             padding: 40px 20px 40px 20px;
             margin: 59px 0 99px 0;
             border: 1px solid black;
+            
         }
 
         .button-sales {
@@ -201,6 +208,7 @@
 
         a {
             color: #FFFFFF;
+            text-decoration: none;
         }
 
         .legal-footer {
@@ -232,71 +240,71 @@
     </style>
 </head>
 
-
 <body>
     <div class="email-container">
         <div class="email-main">
             <table>
                 <tr>
                     <td>
-                       <div class="logo-body">
+                        <div class="logo-body">
                             <img class="logo-email-body" src="${URLUtils.httpsStatic('/images/lety-logo.png')}"
                                 alt="logo lety" />
                         </div>
                     </td>
                 </tr>
-                 <tr>
+                <tr>
                     <td>
                         <div class="div-logo-img">
-                            <img class="logo-img" src="${URLUtils.httpsStatic('/images/confirm-email.png')}"
+                            <img class="logo-img" src="${URLUtils.httpsStatic('/images/entreg-conf.png')}"
                                 alt="logo Lety" />
                         </div>
                     </td>
                 </tr>
                 <tr class="email-title">
                     <td>
-                        <span>${Resource.msg('msg.passwordemail.title', 'login', null)}</span>
-                    </td>
-                </tr>  
-                               
-                <tr>
-                    <td style="padding-bottom: 50px;">
-                        <div>
-                            <h1 style="color:#000;">
-                                ${Resource.msg('msg.passwordemail.dear', 'login', null)}&nbsp;${pdict.firstName}&nbsp;${pdict.lastName}
-                            </h1>
-                        </div>
+                        <span>${Resource.msg('title.delivery.order', 'confirmation', null)}</span>
                     </td>
                 </tr>
+
                 <tr>
-                    <td style="padding-bottom: 25px;">
-                        <div>
-                            <p style="color:#000;">${Resource.msg('msg.passwordchangedemail.message1', 'login', null)}
-                            </p>
-                            <p style="color:#000;">${Resource.msg('msg.passwordchangedemail.message2', 'login', null)}
-                            </p>
+                    <td>
+                        <div class="text-container">
+                            <div class="text-congrat" style="text-align: left;">
+                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.order.cancel.email', 'confirmation', null)}&nbsp;${pdict.firstName}&nbsp;${pdict.lastName},
+                                </p>
+                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery.email', 'confirmation', null)}
+                                </p>
+                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery1.email', 'confirmation', null)}
+                                </p>
+                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery2.email', 'confirmation', null)}&nbsp;&nbsp;<a href="">${Resource.msg('msg.delivery3.email', 'confirmation', null)}</a>
+                                </p>
+                                 <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery4.email', 'confirmation', null)}
+                                </p>
+                                 <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery5.email', 'confirmation', null)}&nbsp;&nbsp;<a href="">${Resource.msg('msg.delivery6.email', 'confirmation', null)}</a>
+                                </p>
+                                 <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery7.email', 'confirmation', null)}
+                                </p>
+                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery8.email', 'confirmation', null)}
+                                </p>
+                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery9.email', 'confirmation', null)}
+                                </p>
+                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.order.cancel4.email', 'confirmation', null)}
+                                </p>
+                            </div>
+                            <div class="button-sales">
+                                <a href="${URLUtils.url('Home-Show')}" target="_blank"><button class="btn-sale" type="">${Resource.msg('msg.button.sales.email', 'confirmation', null)}</button></a>
+                            </div>
+                            <div class="icons-links">
+                                <a aria-label="Facebook" href="" target="_blank"><img class="icon-fb" alt=""
+                                        src="${URLUtils.httpsStatic('/images/icons-emails/facebook.png')}" /></a>
+                                <a aria-label="Instagram" href="" target="_blank"><img class="icon-ig" alt=""
+                                        src="${URLUtils.httpsStatic('/images/icons-emails/instagram.png')}" /></a>
+                            </div>
                         </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding-bottom: 60px;">
-                        <div>
-                            <p>
-                                <a href="${pdict.url}" class="btn-email"
-                                    style="color:#fff;">${Resource.msg('msg.passwordemail.button.redirect', 'login', null)}</a>
-                            </p>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding-bottom: 15px;">
-                        <div>
-                           <p style="color:#A3A3A3;">${Resource.msg('msg.passwordchangedemail.message3', 'login', null)}</p>
-                        </div>
+
                     </td>
                 </tr>
             </table>
-
         </div>
         <footer>
             <table class="table-trusty">
@@ -378,8 +386,3 @@
 </body>
 
 </html>
-
-
-
-
-

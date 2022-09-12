@@ -505,7 +505,7 @@
   display: flex;
 }
 
-.button-checkSubCategory, .button-checkPrice, span{
+.button-checkSubCategory, .button-checkPrice{
   margin: 0 8px;
 }
 

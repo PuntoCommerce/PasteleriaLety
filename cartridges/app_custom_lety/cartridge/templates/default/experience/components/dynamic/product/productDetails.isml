@@ -90,6 +90,13 @@
                         <isinclude template="product/components/pricing/main" />
                     </div>
                 </div>
+                <div class="col-12">
+                <!--Time-->
+                <div class="time" style="color:#D7612B;">
+                    <span>${Resource.msg('msg.time','pdp',null)}</span>
+                </div>
+                    
+                </div>
             </div>
             <!-- Product Availability -->
             <div class="availability-desk">

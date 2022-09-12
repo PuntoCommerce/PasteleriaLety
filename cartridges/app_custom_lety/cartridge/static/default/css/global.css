@@ -169,8 +169,8 @@
   --light: #f8f9fa;
   --dark: #343a40;
   --breakpoint-xs: 0;
-  --breakpoint-sm: 544px;
-  --breakpoint-md: 769px;
+  --breakpoint-sm: 992px;
+  --breakpoint-md: 992px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
   /*Font famili Lety*/
@@ -1067,6 +1067,13 @@ textarea {
 
   .search-desk {
     display: none !important;
+  }
+
+  .navigation-mobile .site-search input{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: #000;
   }
 
   .minicart-desk {
@@ -14705,6 +14712,7 @@ a .moreless .less {
   width: 100%;
   max-width: 270px;
   height: auto;
+  max-height: 225.42px;
 }
 .product-tile .swatches a {
   text-decoration: none;
