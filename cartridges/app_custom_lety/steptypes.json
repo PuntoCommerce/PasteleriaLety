@@ -1,0 +1,54 @@
+{
+    "step-types": {
+        "script-module-step": [
+            {
+                "@type-id": "custom.cancelledOrderNotification",
+                "@supports-parallel-execution": "false",
+                "@supports-site-context": "true",
+                "@supports-organization-context": "false",
+                "description": "Check if order is cancelled and send notification",
+                "module": "app_custom_cormag/cartridge/scripts/jobs/orderCancelledNotification.js",
+                "function": "execute",
+                "transactional": "true",
+                "timeout-in-seconds": "900",
+                "parameters": {},
+                "status-codes": {
+                    "status": [
+                        {
+                            "@code": "ERROR",
+                            "description": "An error occurs, please re-run the job or contact Support"
+                        },
+                        {
+                            "@code": "FINISHED",
+                            "description": "All orders were checked"
+                        }
+                    ]
+                }
+            },
+            {
+                "@type-id": "custom.shippingStatusNotifications",
+                "@supports-parallel-execution": "false",
+                "@supports-site-context": "true",
+                "@supports-organization-context": "false",
+                "description": "Check for shipping status changes and send notifications",
+                "module": "app_custom_cormag/cartridge/scripts/jobs/orderShippingStatusNotifications.js",
+                "function": "execute",
+                "transactional": "true",
+                "timeout-in-seconds": "900",
+                "parameters": {},
+                "status-codes": {
+                    "status": [
+                        {
+                            "@code": "ERROR",
+                            "description": "An error occurs, please re-run the job or contact Support"
+                        },
+                        {
+                            "@code": "FINISHED",
+                            "description": "All orders were checked"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
