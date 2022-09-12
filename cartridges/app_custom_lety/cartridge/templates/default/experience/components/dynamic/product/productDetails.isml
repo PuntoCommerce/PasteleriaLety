@@ -109,18 +109,26 @@
 
                 <isset name="isBundle" value="${false}" scope="page" />
                 <isset name="loopState" value="{count: 1}" scope="page" />
+            
+              
+                <div class="row" data-attr="${attr.id}">
                 
-                <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
-                    <div class="row" data-attr="${attr.id}">
-
-                        <isif condition="${attr.id == "tamano" && attr.id == "tipo"}">
+                    <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
+                    
+                        <isif condition="${attr.id === "tamano"}">
                             <div class="col-8">
                                 <isinclude template="product/components/variationAttribute" />
                             </div>
                         <iselse/>
-                            <div class="col-12">
-                                <isinclude template="product/components/variationAttribute" />
-                            </div>
+                            <isif condition="${attr.id === "tipo"}">
+                                <div class="col-8">
+                                    <isinclude template="product/components/variationAttribute" />
+                                </div>
+                            <iselse/>
+                                <div class="col-12">
+                                    <isinclude template="product/components/variationAttribute" />
+                                </div>
+                            </isif>
                         </isif>
 
                         <isif condition="${attributeStatus.last && !isBundle}">
@@ -129,9 +137,8 @@
                                 <isinclude template="product/components/quantity" />
                             </div>
                         </isif>
-
-                    </div>
-                </isloop>
+                    </isloop>
+                </div>
 
                 <div class="product-options">
                     <isif condition="${product.options && product.options.length > 0}">

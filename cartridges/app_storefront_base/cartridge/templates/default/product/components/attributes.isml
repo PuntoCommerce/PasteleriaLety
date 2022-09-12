@@ -11,13 +11,16 @@
     </div>
     <div class="col-sm-12 col-md-8 col-lg-9 value content" id="collapsible-attributes-${loopState && loopState.count ? loopState.count : '1' }">
         <isloop items="${product.attributes}" var="attrGroup">
+        
             <isif condition="${attrGroup.ID !== 'mainAttributes'}">
                <iscomment>  <h3 class="attribute-name">
                     ${attrGroup.name}
                 </h3> </iscomment>
                 <ul class="ul-attributes" style="list-style-type: disc !important;">
+                
                     <isloop items="${attrGroup.attributes}" var="attr">
                         <li class="attribute-values">
+                       <p>${JSON.attrGroup.attributes}</p>
                             ${attr.label}:
                             <isloop items="${attr.value}" var="value">
                                 ${value}

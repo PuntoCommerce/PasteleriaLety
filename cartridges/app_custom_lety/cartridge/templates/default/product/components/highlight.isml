@@ -5,8 +5,9 @@
     </isloop>
   </div>
 </isif>
-<isif condition="${product.customAttributes}">
-  <isif condition="${product.customAttributes.numerodepersonas}">
+<isloop items="${product.attributes}" var="attrGroup">
+    <isif condition="${product.attributes == "numerodepersonas"}">
+  <isif condition="${product.attributes.numerodepersonas}">
     <div class="highlight highlight--black d-flex justify-content-center align-items-center p-1">
     <div  class="highlight--container" >
       <span></span>
@@ -15,3 +16,4 @@
     
   </isif>
 </isif>
+</isloop>
