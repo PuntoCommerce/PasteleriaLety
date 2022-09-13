@@ -57,7 +57,8 @@
         }
 
         .logo-email-body {
-            width: 10%;
+            width: 15%;
+            padding-top: 7px;
         }
 
         .logo-img {
@@ -185,25 +186,36 @@
             padding-bottom: 10px;
         }
 
+         .trusty-mobile {
+            display: none;
+        }
+
         .div-trusty {
             text-align: center;
             color: #FFFFFF;
+        }
+
+        .trusty {
+            padding-left: 20px;
+            padding-right: 20px;
         }
 
         .td-mar {
             text-align: left;
         }
 
-        .avisos {
+        .avisos-desk {
             text-align: center;
-            padding-top: 10px;
-            padding-bottom: 10px;
         }
 
-        .avisos .span {
+        .avisos-desk .span {
             font-size: 15px;
             font-weight: bold;
             color: #FFFFFF;
+        }
+
+        .avisos-mobile {
+            display: none;
         }
 
         a {
@@ -224,7 +236,115 @@
             color: #000000;
         }
 
-        @media only screen and (max-width:480px) {
+       .col-3 {
+            width: 25%
+        }
+
+        .col-4 {
+            max-width: 33.33333%;
+        }
+
+        .col-lg-4 {
+            max-width: 33.33333%;
+        }
+
+        .col-6 {
+            width: 50%
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+
+        .col,
+        .col-1,
+        .col-2,
+        .col-3,
+        .col-4,
+        .col-5,
+        .col-6,
+        .col-7,
+        .col-8,
+        .col-9,
+        .col-10,
+        .col-11,
+        .col-12,
+        .col-auto,
+        .col-lg,
+        .col-lg-1,
+        .col-lg-2,
+        .col-lg-3,
+        .col-lg-4,
+        .col-lg-5,
+        .col-lg-6,
+        .col-lg-7,
+        .col-lg-8,
+        .col-lg-9,
+        .col-lg-10,
+        .col-lg-11,
+        .col-lg-12,
+        .col-lg-auto,
+        .col-md,
+        .col-md-1,
+        .col-md-2,
+        .col-md-3,
+        .col-md-4,
+        .col-md-5,
+        .col-md-6,
+        .col-md-7,
+        .col-md-8,
+        .col-md-9,
+        .col-md-10,
+        .col-md-11,
+        .col-md-12,
+        .col-md-auto,
+        .col-sm,
+        .col-sm-1,
+        .col-sm-2,
+        .col-sm-3,
+        .col-sm-4,
+        .col-sm-5,
+        .col-sm-6,
+        .col-sm-7,
+        .col-sm-8,
+        .col-sm-9,
+        .col-sm-10,
+        .col-sm-11,
+        .col-sm-12,
+        .col-sm-auto,
+        .col-xl,
+        .col-xl-1,
+        .col-xl-2,
+        .col-xl-3,
+        .col-xl-4,
+        .col-xl-5,
+        .col-xl-6,
+        .col-xl-7,
+        .col-xl-8,
+        .col-xl-9,
+        .col-xl-10,
+        .col-xl-11,
+        .col-xl-12,
+        .col-xl-auto {
+            position: relative;
+            width: 100%;
+        }
+
+        .row {
+            display: ruby;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+
+        @media only screen and (max-width:992px) {
+
+            .logo-email-body {
+                width: 40%;
+                padding-top: 6px;
+            }
+
             .email-container {
                 max-width: 100%;
                 padding: 0px;
@@ -233,6 +353,47 @@
             .email-main p,
             .email-main h1 {
                 max-width: 100%;
+            }
+
+            .table-trusty {
+                display: none;
+            }
+
+            .trusty-mobile {
+                display: flex;
+                text-align: center;
+            }
+
+            .icons-trusty {
+                width: 40%;
+            }
+
+            .span-trusty {
+                font-size: 13px;
+            }
+
+            .avisos-desk {
+                display: none;
+            }
+
+            .avisos-mobile {
+                display: block;
+                text-align: center;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            .div-info {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .pay-footer-text {
+                padding: 0;
+            }
+
+            .legal-footer-text {
+                padding: 0;
             }
 
 
@@ -307,7 +468,7 @@
             </table>
         </div>
         <footer>
-            <table class="table-trusty">
+            <table class="table-trusty" style="text-align: center;padding-right: 20px;padding-left: 20px;">
                 <tr>
                     <td>
                         <img class="pay-icon" src="${URLUtils.httpsStatic('/images/icons-emails/camion.png')}"
@@ -338,11 +499,68 @@
                 </tr>
             </table>
 
+            <div class="trusty-mobile row">
+                <div class="col-4" style="text-align: center;">
+                    <div>
+                        <img class="icons-trusty" src="${URLUtils.httpsStatic('/images/icons-emails/camion.png')}"
+                            alt="PP" />
+                    </div>
+                    <div>
+                        <span class="span span-trusty">ENVÍO</span>
+                        <br>
+                        <span class="span2 span-trusty">GRATIS</span>
+                    </div>
+                </div>
 
-            <div class="avisos">
+                <div class="col-4" style="text-align: center;">
+                    <div>
+                        <img class="icons-trusty" src="${URLUtils.httpsStatic('/images/icons-emails/credi-cart.png')}"
+                            alt="PP" />
+                    </div>
+
+                    <div>
+                        <span class="span span-trusty">PAGOS</span>
+                        <br>
+                        <span class="span2 span-trusty">CON TARJETA</span>
+                    </div>
+                </div>
+
+                <div class="col-4" style="text-align: center;">
+                    <div class="col-12 col-lg-6">
+
+                        <img class="icons-trusty" src="${URLUtils.httpsStatic('/images/icons-emails/lety-puntos.png')}"
+                            alt="PP" />
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                        <span class="span span-trusty">DESCUENTOS</span>
+                        <br>
+                        <span class="span2 span-trusty">LETY CLUB</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="avisos-desk">
                 <a href=""><span class="span">${Resource.msg('msg.privacy.email', 'confirmation', null)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
                 <a href=""><span class="span">${Resource.msg('msg.help.email', 'confirmation', null)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
                 <a href=""><span class="span">${Resource.msg('msg.devolu.email', 'confirmation', null)}</span></a>
+            </div>
+
+            <div class="avisos-mobile">
+                <div class="row" style="padding-top: 10px;">
+                    <a href=""><span style="font-size: 16px; font-weight: bold;"
+                            class="span col-12">${Resource.msg('msg.privacy.email', 'confirmation', null)}</span></a>
+                </div>
+                <div class="row" style="padding-top: 10px;">
+                    <a href=""><span style="font-size: 16px; font-weight: bold;"
+                            class="span col-12">${Resource.msg('msg.help.email', 'confirmation', null)}</span></a>
+                </div>
+                <div class="row" style="padding-top: 10px;">
+                    <a href=""><span style="font-size: 16px; font-weight: bold;"
+                            class="span col-12">${Resource.msg('msg.devolu.email', 'confirmation', null)}</span></a>
+                </div>
+
             </div>
             <div class="div-info">
                 <span>${Resource.msg('title.info.email', 'confirmation', null)}</span>
