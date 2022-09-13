@@ -51,7 +51,7 @@
         }
 
         .logo-email-body {
-            width: 15%;
+            width: 12%;
             padding-top: 7px;
         }
 

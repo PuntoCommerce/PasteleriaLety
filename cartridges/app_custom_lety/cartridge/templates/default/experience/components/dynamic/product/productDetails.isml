@@ -113,13 +113,15 @@
 
                 <!--Product type condition-->
                 <isif condition="${product.price.type === 'range'}">
-                  
+                    <div>
+                        <span style="color: #D7612B;">${Resource.msg('msg.time', 'pdp', null)}</span>
+                    </div>
                     <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
                     
                         <div class="row" data-attr="${attr.id}">
                        
                             <isif condition="${attr.id === "tamano"}">
-                                <div class="d-none">
+                                <div class="col-12">
                                     <isinclude template="product/components/variationAttribute" />
                                 </div>
                             <iselse/>
@@ -150,14 +152,14 @@
                     <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
                         <div class="row" data-attr="${attr.id}">
                             <isif condition="${attr.id === "tamano"}">
-                                <div class="col-8">
+                                <div class="col-6">
                                     <isinclude template="product/components/variationAttribute" />
                                 </div>
                             </isif>
 
                             <isif condition="${attributeStatus.last && !isBundle}">
                                 <!-- Quantity Drop Down Menu -->
-                                <div class="attribute quantity col-4">
+                                <div class="attribute quantity col-6" style="text-align: center;">
                                     <isinclude template="product/components/quantity" />
                                 </div>
                             </isif>
