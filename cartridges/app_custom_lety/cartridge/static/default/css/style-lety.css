@@ -19,7 +19,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #d8d8d8;
     padding: 20px 0 20px 0;
   }
   .checkout__stepper--item {
@@ -40,7 +39,7 @@
   }
   .checkout__stepper--item-circle-current,
   .checkout__stepper--item-circle-done {
-    background-color: #000000;
+    background-color: var(--color-lety2);
   }
   .checkout__stepper--item-title {
     font-family: "Avenir-Next";

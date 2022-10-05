@@ -208,7 +208,6 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  
 }
 article,
 aside,
@@ -716,7 +715,7 @@ header {
   display: none !important;
 }
 
-.btn-search-menu{
+.btn-search-menu {
   position: absolute;
   background-color: transparent;
   border: none;
@@ -724,7 +723,7 @@ header {
   right: 3px;
 }
 
-.div-img-menu{
+.div-img-menu {
   padding-bottom: 4rem !important;
 }
 
@@ -739,7 +738,7 @@ header {
   padding-left: 15px;
 }
 
-.detail-left .wishlist{
+.detail-left .wishlist {
   padding-left: 15px !important;
 }
 
@@ -989,6 +988,10 @@ textarea {
   padding-right: 8rem !important;
 }
 
+.form-checkout .login-oauth {
+  width: 100%;
+}
+
 /*Steps*/
 .steps-form {
   display: table;
@@ -1030,7 +1033,6 @@ textarea {
   margin-top: 0;
 }
 
-
 /*responsive 992*/
 @media (max-width: 992px) {
   .container {
@@ -1068,7 +1070,7 @@ textarea {
     display: none !important;
   }
 
-  .navigation-mobile .site-search input{
+  .navigation-mobile .site-search input {
     width: 100%;
     background-color: transparent;
     border: none;
@@ -1245,7 +1247,7 @@ textarea {
     padding-top: 1rem;
   }
 
-  .promotions-mobile{
+  .promotions-mobile {
     display: flex;
     justify-content: center;
   }
@@ -1298,6 +1300,11 @@ textarea {
 
   .btn-detail {
     width: 100% !important;
+  }
+
+  .div-btn-coment .btn-product{
+    background-color: var(--color-lety-btnProduct) !important;
+    color: var(--color-lety4) !important;
   }
 
   .row-rating-mobile {
@@ -3634,8 +3641,8 @@ input[type="submit"].btn-block {
   line-height: 1.5;
   color: #495057;
   vertical-align: middle;
-  background: url(../images/icons/arrow-down.svg)
-    no-repeat right 0.75rem center/8px 10px;
+  background: url(../images/icons/arrow-down.svg) no-repeat right 0.75rem
+    center/8px 10px;
   background-color: #fff;
   border: 1px solid #000;
   -webkit-appearance: none;
@@ -3888,7 +3895,7 @@ input[type="submit"].btn-block {
 }
 .nav-link {
   display: block;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
 }
 .nav-link:focus,
 .nav-link:hover {
@@ -3900,7 +3907,7 @@ input[type="submit"].btn-block {
   cursor: default;
 }
 
-.navbar.bg-inverse .navbar-nav .nav-link{
+.navbar.bg-inverse .navbar-nav .nav-link {
   padding-bottom: 2.5rem !important;
 }
 
@@ -13561,6 +13568,10 @@ a.skip:hover {
   width: 152px;
   height: 90px;
 }
+
+.brand{
+  text-align: center;
+}
 @media (max-width: 991.98px) {
   .brand {
     width: 4em;
@@ -13700,7 +13711,7 @@ a.normal {
 @media (max-width: 543.98px) {
   .collapsible-xs .title {
     line-height: 2.5rem;
-    font-family: 'Saira', sans-serif;
+    font-family: "Saira", sans-serif;
     font-weight: bold;
   }
   .collapsible-xs .title:after {

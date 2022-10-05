@@ -20,6 +20,12 @@
     </iscomment>
 
     <ul class="checkout__stepper">
+    <li class="continue-checkout" style="padding-right: 12%; list-style: none">
+    <button type="" class="continue-shopping-checkout d-flex" style="background-color: transparent; border: none">
+                <a class="continue-shopping-checkout" href="${URLUtils.url('Home-Show')}" title="${Resource.msg('link.continue.shopping','cart',null)}">
+                    ${Resource.msg('link.continue.shopping','cart',null)}
+                </a></button>
+    </li>
         <li class="checkout__stepper--item">
             <h3 class="checkout__stepper--item-circle checkout__stepper--item-circle-current">1</h3>
             <p class="checkout__stepper--item-title">Envío</p>
@@ -33,6 +39,10 @@
         <li class="checkout__stepper--item">
             <h3 class="checkout__stepper--item-circle">3</h3>
             <p class="checkout__stepper--item-title">Realizar Pedido</p>
+        </li>
+        <li class="msg-secur" style="padding-left: 12%; list-style: none;">
+        <img class="" src="${URLUtils.staticURL('/images/icons/candado.svg')}" alt="secur" />
+        <span>${Resource.msg('check.secure.purchase', 'checkout', null)}</span>
         </li>
     </ul>
     <div class="d-flex justify-content-center">
@@ -52,7 +62,7 @@
                     </div>
                 </iscomment>
                 <div class="row">
-                    <div class="col-12 col-lg-7">
+                    <div class="col-12 col-lg-8" style="padding-right: 7rem;">
 
                         <!----------------------------------------------------------------------------------->
                         <!-- Checkout Forms: Shipping, Payment, Coupons, Billing, etc -->
@@ -85,23 +95,16 @@
 
 
                         <!-- Step 3: Payment and Billing-->
-                        <isinclude template="checkout/billing/billing" />
+                        <isinclude template="checkout/billing/billing"/>
                         <div class="card payment-summary">
-                            <div class="card-header">
-                                <h2 class="card-header-custom">${Resource.msg('heading.payment.review', 'checkout', null)}</h2>
+                            <div class="card-header clearfix">
+                                <h2 class="pull-left card-header-custom">${Resource.msg('heading.payment', 'checkout', null)}</h2>
+                                <button class="edit-button pull-right"
+                                    aria-label="${Resource.msg('action.edit.step.msg.payment', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</button>
                             </div>
 
-                            <div class="card-body row">
-                                <div class="col-12 col-lg-6 mb-5 checkout-summary-container">
-                                    <isinclude template="checkout/shipping/shippingSummaryCheckout" />
-                                    <button class="custom_edit-button"
-                                        aria-label="${Resource.msg('action.edit.step.msg.shipping', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</button>
-                                </div>
-                                <div class="col-12 col-lg-6 mb-5 checkout-summary-container">
-                                    <isinclude template="checkout/billing/billingSummaryCheckout" />
-                                    <button class="custom_edit-button"
-                                        aria-label="${Resource.msg('action.edit.step.msg.payment', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</button>
-                                </div>
+                            <div class="card-body">
+                                <isinclude template="checkout/billing/billingSummary" />
                             </div>
                         </div>
 
@@ -109,13 +112,13 @@
                         <!----------------------------------------------------------------------------------->
                         <!-- Checkout Workflow Buttons -->
                         <!----------------------------------------------------------------------------------->
-                        <div class="card col">
+                        <div class="card col col-lg-10">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="next-step-button col-12">
                                         <div class="mb-sm-5">
                                             <button
-                                                class="btn btn--gray btn__small text-uppercase btn-block submit-shipping col-sm-12 col-lg-10"
+                                                class="btn btn-product text-uppercase btn-block submit-shipping col-sm-12 col-lg-10"
                                                 type="submit" name="submit" value="submit-shipping" <isif
                                                 condition="${pdict.order.usingMultiShipping && !pdict.order.shippable}">disabled
                                                 </isif>>
@@ -123,7 +126,7 @@
                                             </button>
 
                                             <button
-                                                class="btn btn--gray btn__small text-uppercase btn-block submit-payment"
+                                                class="btn btn-product text-uppercase btn-block submit-payment"
                                                 type="submit" name="submit" value="submit-payment">
                                                 ${Resource.msg('button.next.place.order', 'checkout', null)}
                                             </button>
@@ -144,7 +147,7 @@
                     <!----------------------------------------------------------------------------------->
                     <!-- Order Totals, Details and Summary -->
                     <!----------------------------------------------------------------------------------->
-                    <div class="col-12 col-lg-5">
+                    <div class="col-12 col-lg-4" style="padding-top: 6.7rem;">
                         <div class="card checkout__order d-none d-lg-block mt-lg-4">
                             <div class="card-header d-flex justify-content-center align-items-center">
                                 <h2 class="card-header-custom">${Resource.msg('heading.order.summary', 'checkout', null)}

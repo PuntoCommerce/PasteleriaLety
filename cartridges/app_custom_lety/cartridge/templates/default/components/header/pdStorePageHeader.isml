@@ -68,12 +68,12 @@
                                 alt="${Resource.msg('global.storename', 'common', null)}" />
                         </a>
                     </div>
-                    <div class="search col-4" style="padding-top: 16px; padding-right: 0;margin-right: -24px;">
+                    <iscomment> <div class="search col-4" style="padding-top: 16px; padding-right: 0;margin-right: -24px;">
                         <isinclude template="components/header/search" />
-                    </div>
-                    <iscomment> <div class="search-icon col-2">
-                        <i class="fa fa-search"></i>
                     </div> </iscomment>
+                    <div class="search-icon col-2">
+                        <i class="fa fa-search"></i>
+                    </div>
                     <div class="minicart col-2" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
                         <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
                     </div>

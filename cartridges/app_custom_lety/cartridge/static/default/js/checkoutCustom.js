@@ -57,11 +57,10 @@ function initAutocomplete() {
   });
 }
 
-const stateSelector = document.querySelector("select.form-control.shippingState");
-if (stateSelector) {
-  stateSelector.replaceWith(stateSelector.cloneNode(true));
-}
-
+const stateSelector = document.querySelector(
+  "select.form-control.shippingState"
+);
+stateSelector.replaceWith(stateSelector.cloneNode(true));
 
 const zipCodeField = document.querySelector(
   "input.form-control.shippingZipCode"
@@ -72,7 +71,8 @@ const checkedShippingMethod = document.querySelector(
 
 const submitButton = document.querySelector("button.submit-shipping");
 const postalCodes = document
-  .getElementById(`shippingMethod-${checkedShippingMethod.value}`) ? document.getElementById(`shippingMethod-${checkedShippingMethod.value}`).getAttribute("data-logistic") : false;
+  .getElementById(`shippingMethod-${checkedShippingMethod.value}`)
+  .getAttribute("data-logistic");
 const arrPostalCode = postalCodes.split(",");
 
 zipCodeField.addEventListener("change", (e) => {

@@ -55,7 +55,7 @@
             </div>  
         </div>
         <div class="row">
-            <div class="col-12 d-flex justify-content-end">
+            <div class="col-12 d-flex justify-content-end div-btn-coment">
                 <button type="button" action-url="${URLUtils.url("RnR-Create").toString()}" id="rnr-submit" class="btn btn-product btn-enviar-reseña" style="width: 232px;">${Resource.msg('btn.submit', 'rnr', null)}</button>
             </div>
         </div>
