@@ -992,6 +992,10 @@ textarea {
   width: 100%;
 }
 
+.card-check .card-body{
+  padding: 1.25rem 0 1.25rem 0;
+}
+
 /*Steps*/
 .steps-form {
   display: table;
@@ -16337,4 +16341,49 @@ a .moreless .less {
 #myaccount .user-message {
   padding-top: 10px;
   color: #fff;
+}
+
+
+
+/*############################## Calendar CSS ##############################################*/
+
+.calendar{
+  background-color: transparent;
+  width: 100%;
+  
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.3);
+}
+
+.calendar-info{
+  display: flex;
+  justify-content: center;
+  padding: 0 2em;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+
+.calendar-prev, .calendar-next{
+  padding: 0 10px 0 10px;
+  color: var(--color-lety3);
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.calendar-month{
+  padding: 0 10px 0 10px;
+}
+
+.calendar-year{
+  padding: 0 10px 0 10px;
+}
+
+.calendar-week{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 10px;
+}
+
+.calendar-item{
+  text-align: center;
+  line-height: 2;
 }
