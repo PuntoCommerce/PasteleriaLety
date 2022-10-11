@@ -871,67 +871,6 @@ server.post('SaveNewPassword', server.middleware.https, function (req, res, next
     next();
 });
 
-/**
- * Lety-Card : this endpoint is called to get Lety points 
- * @name Base/Lety-Card
- * @function
- * @memberof Account
- * @param {middleware} - consentTracking.consent
- * @param {middleware} - server.middleware.https
- * @param {middleware} - userLoggedIn.validateLoggedIn
- * @param {category} - sensitive
- * @param {serverfunction} - get
- * 
- * **/
- server.get('Saldo', consentTracking.consent, cache.applyDefaultCache, function (req, res, next) {
-    var Site = require('dw/system/Site');
-    var PageMgr = require('dw/experience/PageMgr');
-    var pageMetaHelper = require('*/cartridge/scripts/helpers/pageMetaHelper');
-
-    pageMetaHelper.setPageMetaTags(req.pageMetaData, Site.current);
-
-    var page = PageMgr.getPage('saldoLetyClub');
-
-    if (page && page.isVisible()) {
-        res.page('saldoLetyClub');
-    } else {
-        res.render('account/saldoLetyClub');
-    }
-
-    
-    next();
-}, pageMetaData.computedPageMetaData);
-
-/**
- * Lety-Card : this endpoint is called to get Lety points 
- * @name Base/Lety-Card
- * @function
- * @memberof Account
- * @param {middleware} - consentTracking.consent
- * @param {middleware} - server.middleware.https
- * @param {middleware} - userLoggedIn.validateLoggedIn
- * @param {category} - sensitive
- * @param {serverfunction} - get
- * 
- * **/
- server.get('Movimientos', consentTracking.consent, cache.applyDefaultCache, function (req, res, next) {
-    var Site = require('dw/system/Site');
-    var PageMgr = require('dw/experience/PageMgr');
-    var pageMetaHelper = require('*/cartridge/scripts/helpers/pageMetaHelper');
-
-    pageMetaHelper.setPageMetaTags(req.pageMetaData, Site.current);
-
-    var page = PageMgr.getPage('/movingLetyClub');
-
-    if (page && page.isVisible()) {
-        res.page('/movingLetyClub');
-    } else {
-        res.render('account/movingLetyClub');
-    }
-
-    
-    next();
-}, pageMetaData.computedPageMetaData);
 
 /**
  * Account-Header : The Account-Header endpoint is used as a remote include to include the login/account menu in the header

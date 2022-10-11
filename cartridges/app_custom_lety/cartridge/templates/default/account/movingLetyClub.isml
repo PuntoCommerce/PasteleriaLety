@@ -11,22 +11,22 @@
         </div>
 
         <!---Breadcrumbs--->
-       <iscomment>  <div class="col d-flex" style="padding-left: 6rem">
+        <div class="col d-flex" style="padding-left: 6rem">
             <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
-        </div> </iscomment>
+        </div>
 
         <div class="row justify-content-center">
             <div class="col-sm-8 col-md-10">
                 <div class="card">
                     <div class="card-header">
                         <isif condition="${pdict.addressId}">
-                            <h3>${Resource.msg('label.addressbook.editaddress', 'account', null)}</h3>
+                            <h3>${Resource.msg('label.title.club', 'account', null)}</h3>
                             <iselse>
-                                <h2 class="title-add-addres">${Resource.msg('label.addressbook.addnewaddress', 'account', null)}</h2>
+                                <h2 class="title-add-addres">${Resource.msg('label.saldo', 'account', null)}</h2>
                         </isif>
                     </div>
                     <div class="card-body">
-                        <isinclude template="account/movingForm" />
+                        <isinclude template="account/saldoForm" />
                     </div>
                 </div>
             </div>
