@@ -19,6 +19,7 @@
     assets.addCss('/css/style-lety.css');
     assets.addJs("/js/session/store.js");
     assets.addCss("/css/storesession.css");
+    assets.addCss("/css/calendar.css");
 </isscript>
 
 <!DOCTYPE html>
@@ -34,6 +35,7 @@
     </isif>
     <isactivedatahead/>
     <isinclude template="/components/schema" />
+    
 </head>
 
 <body>

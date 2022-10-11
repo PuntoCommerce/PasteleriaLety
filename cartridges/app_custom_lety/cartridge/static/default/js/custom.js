@@ -130,7 +130,73 @@ let checkbox = document.querySelectorAll(".values.content li button");
 //   });
 // });
 
-filter_container.addEventListener('click', () => {
+/* ########################################## ⬆️ Calendar Delivery ⬆️ ####################################################*/
+/* let monthNames= ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+let currentDate = new Date();
+let currentDay = currentDate.getDate();
+let monthNumber = currentDate.getMonth();
+let currentYear = currentDate.getFullYear();
+
+let dates = document.getElementsByClassName("dates");
+let month = document.getElementsByClassName("month").textContent = monthNames[monthNumber];
+let year = document.getElementsByClassName("year").textContent = currentYear.toString();
+
+let prevMonthDOM= document.getElementsByClassName("prev-month");
+let nextMonthDOM = document.getElementsByClassName("next-month");
+
+prevMonthDOM.addEventListener('click', ()=>lastMonth());
+nextMonthDOM.addEventListener('click', ()=>nextMonth());
+
+
+function writeMonth(month){
+
+}
+
+function getTotalDays(month){
+
+}
+
+function isLeap(){
+  return ((currentYear % 100 !==0)&& (currentYear % 4 === 0) || (currentYear % 400 === 0));
+ 
+}
+
+function startDay(){
+  let start = new Date(currentYear, monthNumber, 1);
+  return ((start.getDay()-1) === -1) ? 6 : start.getDate()-1;
+}
+
+function lastMonth(){
+if(monthNumber !== 0){
+  monthNumber--;
+
+}else{
+  monthNumber=11;
+  currentYear--;
+}
+setNewDate();
+}
+
+function nextMonth(){
+  if(monthNumber !== 11){
+    monthNumber++;
+  
+  }else{
+    monthNumber= 0;
+    currentYear++;
+  }
+
+  setNewDate();
+}
+
+function setNewDate(){
+ currentDate.setFullYear(currentYear, monthNumber,currentDay);
+ month.textContent = monthNames[monthNumber];
+ year.textContent = currentYear.toString();
+} */
+
+/* filter_container.addEventListener('click', () => {
   setTimeout(() => {
     filter_container = document.querySelector("#filter-categories");
       button_filter = document.querySelector("#filter-button");
@@ -155,3 +221,6 @@ button_filter.addEventListener("click", () => {
     filter_container.style.display = "none";
   }
 });
+
+
+ */

@@ -10,6 +10,8 @@
 
         <!---Address Book--->
         <isinclude template="account/addressBookCard" />
+        <!---Lety club--->
+        <isinclude template="account/clubLetyCard" />
     </div>
     <div class="col-sm-6">
         <!---Order History--->
@@ -17,6 +19,7 @@
             <isset name="order" value="${pdict.account.orderHistory}" scope="page" />
             <isinclude template="account/order/orderHistoryCard" />
         </isif>
+
         <!---Payment--->
         <isinclude template="account/paymentCard" />
         <isif condition="${pdict.account.wishlist}">

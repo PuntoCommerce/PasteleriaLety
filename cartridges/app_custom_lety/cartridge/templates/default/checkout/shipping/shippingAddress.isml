@@ -5,8 +5,8 @@
     <isset name="shippingAddress" value="${{}}" scope="page" />
 </isif>
 
-<div class="row">
-    <div class="col-sm-12 col-lg-10">
+<div class="row row-check">
+    <div class="col-sm-12 col-lg-8">
         <div class="form-group
             ${addressFields.firstName.mandatory === true ? 'required' : ''}
             ${addressFields.firstName.htmlName}">
@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-12 col-lg-10">
+    <div class="col-sm-12 col-lg-8">
         <div class="form-group
             ${addressFields.lastName.mandatory === true ? 'required' : ''}
             ${addressFields.lastName.htmlName}">
@@ -44,8 +44,8 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-sm-12 col-lg-10">
+<div class="row row-check">
+    <div class="col-sm-12 col-lg-8">
         <div class="form-group
             ${addressFields.address1.mandatory === true ? 'required' : ''}
             ${addressFields.address1.htmlName}">
@@ -66,8 +66,8 @@
 </div>
 
 
-<div class="row">
-    <div class="col-sm-12 col-lg-10">
+<div class="row row-check">
+    <div class="col-sm-12 col-lg-8">
         <div class="form-group
             ${addressFields.address2.mandatory === true ? 'required' : ''}
             ${addressFields.address2.htmlName}">
@@ -88,8 +88,8 @@
 </div>
 
 <!--- make drop down--->
-<div class="row">
-    <div class="col-sm-6 col-lg-5">
+<div class="row row-check">
+    <div class="col-sm-6 col-lg-4">
         <div class="form-group
             ${addressFields.states.stateCode.mandatory === true ? 'required' : ''}
             ${addressFields.states.stateCode.htmlName}">
@@ -110,7 +110,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-lg-5">
+    <div class="col-sm-6 col-lg-4">
         <div class="form-group
             ${addressFields.postalCode.mandatory === true ? 'required' : ''}
             ${addressFields.postalCode.htmlName}">
@@ -130,8 +130,8 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-sm-6 col-lg-5">
+<div class="row row-check">
+    <div class="col-sm-6 col-lg-4">
         <div class="form-group
             ${addressFields.city.mandatory === true ? 'required' : ''}
             ${addressFields.city.htmlName}">
@@ -148,7 +148,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-lg-5">
+    <div class="col-sm-6 col-lg-4">
         <div class="form-group
             ${addressFields.country.mandatory === true ? 'required' : ''}
             ${addressFields.country.htmlName}">
@@ -173,8 +173,8 @@
 </div>
 
 
-<div class="row">
-    <div class="col-sm-12 col-lg-10">
+<div class="row row-check">
+    <div class="col-sm-12 col-lg-8">
         <div class="form-group
             ${addressFields.phone.mandatory === true ? 'required' : ''}
             ${addressFields.phone.htmlName}">

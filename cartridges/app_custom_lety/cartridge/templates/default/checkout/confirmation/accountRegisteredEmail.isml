@@ -50,7 +50,7 @@
         }
 
         .logo-email-body {
-            width: 12%;
+            width: 10%;
             padding-top: 7px;
         }
 
@@ -331,7 +331,7 @@
         }
 
 
-        @media only screen and (max-width:992px) {
+        @media(max-width:992px) {
 
             .logo-email-body {
                 width: 40%;
@@ -346,6 +346,10 @@
             .email-main p,
             .email-main h1 {
                 max-width: 100%;
+            }
+
+            .btn-sale{
+                width: 60%
             }
 
             .table-trusty {
@@ -401,8 +405,8 @@
                 <tr>
                     <td>
                         <div class="logo-body">
-                            <img class="logo-email-body" src="${URLUtils.httpsStatic('/images/lety-logo.png')}"
-                                alt="logo lety" />
+                            <a href="https://bjqr-001.sandbox.us01.dx.commercecloud.salesforce.com/on/demandware.store/Sites-PasteleriaLety-Site/es/Home-Show"><img class="logo-email-body" src="${URLUtils.httpsStatic('/images/lety-logo.png')}"
+                                alt="logo lety" /></a>
                         </div>
                     </td>
                 </tr>
@@ -433,7 +437,7 @@
                                 </p>
                             </div>
                             <div class="button-sales">
-                                <a href="${URLUtils.url('Home-Show')}" target="_blank"><button class="btn-sale" type="">${Resource.msg('msg.button.sales.email', 'confirmation', null)}</button></a>
+                                <a href="https://bjqr-001.sandbox.us01.dx.commercecloud.salesforce.com/on/demandware.store/Sites-PasteleriaLety-Site/es/Home-Show" target="_blank"><button class="btn-sale" type="">${Resource.msg('msg.button.sales.email', 'confirmation', null)}</button></a>
                             </div>
                             <div class="icons-links">
                                 <a aria-label="Facebook" href="" target="_blank"><img class="icon-fb" alt=""

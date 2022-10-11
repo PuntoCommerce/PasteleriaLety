@@ -1,4 +1,4 @@
-const showChar = 37;
+const showChar = 34;
 const ellipsestext = "...";
 
 window.onload = () => {
