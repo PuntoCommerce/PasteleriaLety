@@ -5,9 +5,9 @@
         assets.addJs('/js/addressBook.js');
     </isscript>
 
-    <div class="container container-edit-addres">
-        <div class="title-edit-addres">
-            <h2>${Resource.msg('header.profile.address', 'account', null)}</h2>
+    <div class="container container-moves">
+        <div class="title-club">
+            <h2>${Resource.msg('label.movin', 'account', null)}</h2>
         </div>
 
         <!---Breadcrumbs--->
@@ -20,13 +20,13 @@
                 <div class="card">
                     <div class="card-header">
                         <isif condition="${pdict.addressId}">
-                            <h3>${Resource.msg('label.title.club', 'account', null)}</h3>
+                            <h3>${Resource.msg('label.movin', 'account', null)}</h3>
                             <iselse>
-                                <h2 class="title-add-addres">${Resource.msg('label.saldo', 'account', null)}</h2>
+                                <h2 class="title-add-addres">${Resource.msg('label.movin', 'account', null)}</h2>
                         </isif>
                     </div>
                     <div class="card-body">
-                        <isinclude template="account/saldoForm" />
+                        <isinclude template="account/movesForm" />
                     </div>
                 </div>
             </div>

@@ -251,10 +251,10 @@
 }
 
 /*Design Lety Club */
-.container-club .card{
+.container-club .card, .container-moves .card{
   border: none;
 }
-.container-club .card-body{
+.container-club .card-body, .container-moves .card-body{
   padding: 1.25rem 4rem;
   border: 1px solid rgba(0, 0, 0, 0.125);
 }
@@ -262,7 +262,7 @@
   padding-top: 40px;
 }
 
-.container-club .card-header{
+.container-club .card-header, .container-moves .card-header{
   background-color: var(--color-lety-checkout-grey);
 }
 
@@ -321,6 +321,23 @@
 .container-buttoms{
   padding: 30px 0 20px 0;
 }
+
+.tr-info{
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.content-table{
+  padding-top: 4rem;
+}
+
+.container-moves table{
+  width: 100%;
+}
+
+.label-search{
+  text-align: right;
+}
+
 
 
 /*responsive 992*/

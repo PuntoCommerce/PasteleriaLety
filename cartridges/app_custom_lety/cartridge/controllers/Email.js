@@ -92,12 +92,12 @@ server.get('Register', consentTracking.consent, cache.applyDefaultCache, functio
 
     pageMetaHelper.setPageMetaTags(req.pageMetaData, Site.current);
 
-    var page = PageMgr.getPage('/movingLetyClub');
+    var page = PageMgr.getPage('/movesLetyClub');
 
     if (page && page.isVisible()) {
-        res.page('/movingLetyClub');
+        res.page('/movesLetyClub');
     } else {
-        res.render('account/movingLetyClub');
+        res.render('account/movesLetyClub');
     }
 
     
