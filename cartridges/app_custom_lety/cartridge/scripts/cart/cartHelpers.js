@@ -29,22 +29,22 @@ base.addProductToCart = (currentBasket, productId, quantity, childProducts, opti
     let JSONProduct;
 
     //Existencia
-    var catalogo = ProductExistencia.ExistenciaPorCentroFecha({Empresa:1,iIdCentro:19,iIdMaterial:145,dtFecha:'2022-10-26T00:00:00.000-05:00'});
+    //var catalogo = ProductExistencia.ExistenciaPorCentroFecha({Empresa:1,iIdCentro:19,iIdMaterial:145,dtFecha:'2022-10-26T00:00:00.000-05:00'});
     //Lety club Tarjeta con puntos
     //var catalogo = ProductExistencia.getLetyClub({Empresa:1,s_IdMembresia:3019009418164});
     //Lety club Tarjeta sin puntos
     //var catalogo = ProductExistencia.getLetyClub({Empresa:1,s_IdMembresia:3000006236103});
-    JSONProduct = JSON.parse(catalogo);
-    Existencia = JSONProduct.ExistenciaPorCentroFecha[0]['Existencia'];
+    //JSONProduct = JSON.parse(catalogo);
+    //Existencia = JSONProduct.ExistenciaPorCentroFecha[0]['Existencia'];
     //Saldo = JSONProduct.getLetyClub[0]['dSaldo'];
-    //if (product.bundle) {
-    if (Existencia) {
+    if (product.bundle) {
+    /* if (Existencia) { */
         canBeAdded = base.checkBundledProductCanBeAdded(childProducts, productLineItems, quantity);
     } else {
         totalQtyRequested = quantity + base.getQtyAlreadyInCart(productId, productLineItems);
         perpetual = product.availabilityModel.inventoryRecord.perpetual;
-        //canBeAdded =(perpetual || totalQtyRequested <= product.availabilityModel.inventoryRecord.ATS.value);
-        canBeAdded =(perpetual || totalQtyRequested <= Existencia);
+        canBeAdded =(perpetual || totalQtyRequested <= product.availabilityModel.inventoryRecord.ATS.value);
+       /*  canBeAdded =(perpetual || totalQtyRequested <= Existencia); */
     }
 
     if (!canBeAdded) {
