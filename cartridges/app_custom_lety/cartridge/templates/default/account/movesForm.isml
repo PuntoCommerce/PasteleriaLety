@@ -1,0 +1,60 @@
+<form action="${URLUtils.url('Address-SaveAddress', 'addressId', pdict.addressId)}" class="address-form" method="POST"
+    <isprint value="${pdict.addressForm.attributes}" encoding="off" />>
+
+<div class=" container-form">
+    
+    <div class="row">
+        <div class="col-6">
+           <div class="">
+            <label for="" class="">${Resource.msg('label.view.moves', 'account', null)}</label>
+            <select>
+                
+            </select>
+           </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <label for="" class="col-4 label-search">${Resource.msg('label.header.banner', 'search', null)}</label>
+                <input type="" name="" value="" class="col-6 input-search">
+            </div>
+        </div>
+    </div>
+    <div class="row content-table">
+        <table>
+        <tr>
+        <th>${Resource.msg('title.th.date', 'account', null)}</th>
+        <th>${Resource.msg('title.th.suc', 'account', null)}</th>
+        <th>${Resource.msg('title.th.description', 'account', null)}</th>
+        <th>${Resource.msg('title.th.canje', 'account', null)}</th>
+        <th>${Resource.msg('title.th.abono', 'account', null)}</th>
+        <th>${Resource.msg('title.th.saldo', 'account', null)}</th>
+        </tr>
+            <tr class="tr-info">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="row">
+        
+    </div>
+
+</div>
+
+<!-- Cancel and Save Buttons -->
+<div class="row container-buttoms">
+ <div class="col-6">
+                <a href="${URLUtils.url('Account-Show')}" class="profile-back-to-account-link text-left">${Resource.msg('link.profile.backtomyaccount','account',null)}</a>
+            </div>
+    <div class="col-6 div-btn-exit">
+        <a href="${URLUtils.url('Account-Show')}" class="btn btn-save btn-save-login">${Resource.msg('link.header.logout', 'account', null)}</a>
+    </div>
+    
+</div>
+
+</form>

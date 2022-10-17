@@ -138,7 +138,7 @@
   font-family: var(--font-family-gotham-bold) !important;
 }
 
-.title-cont-myaccount, .title-edit-profile, .title-edit-addres, .title-addres{
+.title-cont-myaccount, .title-edit-profile, .title-edit-addres, .title-addres, .title-club{
   display: flex;
   justify-content: center;
 }
@@ -249,6 +249,96 @@
 .margin_banner{
   margin: 68px 0;
 }
+
+/*Design Lety Club */
+.container-club .card, .container-moves .card{
+  border: none;
+}
+.container-club .card-body, .container-moves .card-body{
+  padding: 1.25rem 4rem;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+.title-club{
+  padding-top: 40px;
+}
+
+.container-club .card-header, .container-moves .card-header{
+  background-color: var(--color-lety-checkout-grey);
+}
+
+.data-info{
+  padding-top: 29px;
+}
+
+.span-club-info{
+  display: flex;
+}
+
+.p-info{
+  font-family: var(--font-family-gotham-bold);
+}
+
+.input-card{
+  width: 100%;
+}
+
+.container-label{
+  display: grid;
+  padding: 1rem 0 .5rem 0;
+}
+
+.label-card{
+  font-family: var(--font-family-gotham-bold);
+}
+
+.container-img-card{
+  display: flex;
+  justify-content: center;
+}
+
+.form-left{
+  padding: 20px 6rem 10px 0px;
+}
+
+.form-right{
+  padding: 20px 0 20px 6rem;;
+}
+
+.cont-col{
+  padding-right: 5rem;
+}
+
+.cont-city{
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.cont-state{
+  padding-left: 5rem;
+}
+
+
+.container-buttoms{
+  padding: 30px 0 20px 0;
+}
+
+.tr-info{
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.content-table{
+  padding-top: 4rem;
+}
+
+.container-moves table{
+  width: 100%;
+}
+
+.label-search{
+  text-align: right;
+}
+
+
 
 /*responsive 992*/
 @media (max-width: 992px) {

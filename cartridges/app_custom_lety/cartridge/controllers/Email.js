@@ -61,10 +61,10 @@ server.get('Register', consentTracking.consent, cache.applyDefaultCache, functio
 
     pageMetaHelper.setPageMetaTags(req.pageMetaData, Site.current);
 
-    var page = PageMgr.getPage('saldoLetyClub');
+    var page = PageMgr.getPage('/saldoLetyClub');
 
     if (page && page.isVisible()) {
-        res.page('saldoLetyClub');
+        res.page('/saldoLetyClub');
     } else {
         res.render('account/saldoLetyClub');
     }
@@ -92,17 +92,18 @@ server.get('Register', consentTracking.consent, cache.applyDefaultCache, functio
 
     pageMetaHelper.setPageMetaTags(req.pageMetaData, Site.current);
 
-    var page = PageMgr.getPage('/movingLetyClub');
+    var page = PageMgr.getPage('/movesLetyClub');
 
     if (page && page.isVisible()) {
-        res.page('/movingLetyClub');
+        res.page('/movesLetyClub');
     } else {
-        res.render('account/movingLetyClub');
+        res.render('account/movesLetyClub');
     }
 
     
     next();
 }, pageMetaData.computedPageMetaData);
+
 
 server.get('ErrorNotFound', function (req, res, next) {
     res.setStatusCode(404);
