@@ -30,13 +30,15 @@ base.addProductToCart = (currentBasket, productId, quantity, childProducts, opti
     let Saldo1;
     let JSONApiServiceLety1;
 
+    //Existencia
+    //var catalogo = ProductExistencia.ExistenciaPorCentroFecha({Empresa:1,iIdCentro:19,iIdMaterial:145,dtFecha:'2022-10-26T00:00:00.000-05:00'});
     //Lety club Tarjeta con puntos
     //3019009418164
     //Lety club Tarjeta sin puntos
     //3000006236103
 
 
-    let ExistenciaPorCentroFecha = ApiServiceLety.ApiLety("ExistenciaPorCentroFecha",{Empresa:1,iIdCentro:19,iIdMaterial:145,dtFecha:'2022-10-26T00:00:00.000-05:00'});
+    /*let ExistenciaPorCentroFecha = ApiServiceLety.ApiLety("ExistenciaPorCentroFecha",{Empresa:1,iIdCentro:19,iIdMaterial:145,dtFecha:'2022-10-26T00:00:00.000-05:00'});
     let NewCalculoSD = ApiServiceLety.ApiLety("NewCalculoSD",{Empresa:1,Posicion:1,IdCentroAlta:1001,IdCentroAfecta:17,CentroAfecta:'Apodaca',bIndEnRango:1,Tiempo:'2022-10-14',IdFolioDireccionSeleccionado:404561001,IdFolioPersonaSeleccionado:713181001,dLat:25.71211680,dLng:-100.2948341,IdServicio:0,Folio:55000,NombreCliente:'Nombre de prueba',Direccion:'670af8d5-b9bf-40ba-a6bd-c6560b22caf2'});
     let LetyClub = ApiServiceLety.ApiLety("getLetyClub",{Empresa:1,s_IdMembresia:3019009418164});
     JSONApiServiceLety = JSON.parse(LetyClub);
@@ -52,16 +54,22 @@ base.addProductToCart = (currentBasket, productId, quantity, childProducts, opti
     Saldo1 = JSONApiServiceLety1.getLetyClub[0]['dSaldo'];
     let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia",{Empresa:1,s_IdMembresia:3019009418164});
     let Func_MovimientosMembresia = ApiServiceLety.ApiLety("Func_MovimientosMembresia",{Empresa:1,s_IdMembresia:3019009418164});
-    
+    */
 
     //if (product.bundle) {
-    if (Existencia) {
+    //if (Existencia) {
+    //var catalogo = ProductExistencia.getLetyClub({Empresa:1,s_IdMembresia:3000006236103});
+    //JSONProduct = JSON.parse(catalogo);
+    //Existencia = JSONProduct.ExistenciaPorCentroFecha[0]['Existencia'];
+    //Saldo = JSONProduct.getLetyClub[0]['dSaldo'];
+    if (product.bundle) {
+    /* if (Existencia) { */
         canBeAdded = base.checkBundledProductCanBeAdded(childProducts, productLineItems, quantity);
     } else {
         totalQtyRequested = quantity + base.getQtyAlreadyInCart(productId, productLineItems);
         perpetual = product.availabilityModel.inventoryRecord.perpetual;
-        //canBeAdded =(perpetual || totalQtyRequested <= product.availabilityModel.inventoryRecord.ATS.value);
-        canBeAdded =(perpetual || totalQtyRequested <= Existencia);
+        canBeAdded =(perpetual || totalQtyRequested <= product.availabilityModel.inventoryRecord.ATS.value);
+       /*  canBeAdded =(perpetual || totalQtyRequested <= Existencia); */
     }
 
     if (!canBeAdded) {
