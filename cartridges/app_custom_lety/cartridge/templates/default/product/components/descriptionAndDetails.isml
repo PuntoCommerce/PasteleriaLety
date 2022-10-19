@@ -52,8 +52,6 @@
             </h2>
             
         </div>
-       <iscomment>
            <isinclude template="RnR/reviewsandratings" />
-       </iscomment>
     </div>
 </div>
