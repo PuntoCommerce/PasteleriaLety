@@ -9,6 +9,5 @@ const requestSoap = (path,method,body) => {
 };
 
 module.exports = {
-  ExistenciaPorCentroFecha: (data) => requestSoap("ExistenciaPorCentroFecha", "POST", data),
-  getLetyClub: (data) => requestSoap("getLetyClub", "POST", data),
+  ApiLety: (path,data) => requestSoap(path, "POST", data),
 };

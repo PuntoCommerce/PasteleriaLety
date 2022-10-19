@@ -7,7 +7,7 @@
       const Existencia = XMLList(xml).descendants("Existencia");
 
       if(Existencia.length()===0){
-        json+='{"Existencia":"0.00"},';
+        json+='{"error":"Error en la respuesta"},';
         json = json.slice(0,-1)+']}';
       }else{
         for(let i =0; i<Existencia.length();i++){
@@ -19,32 +19,102 @@
       return json;
     }
 
+    if(path==="NewCalculoSD"){
+      let json = '{"'+path+'":[';
+      const bAplica = XMLList(xml).descendants("bAplica");
+      const dCosto = XMLList(xml).descendants("dCosto");
+
+      if(bAplica.length() === 0 || dCosto.length() === 0){
+        json+='{"error":"Error en la respuesta"},';
+        json = json.slice(0,-1)+']}';
+      }else{
+        for(let i =0; i<bAplica.length();i++){
+          json+='{"bAplica":"'+bAplica[i]+'","dCosto":"'+dCosto[i]+'"},';
+        }
+        json = json.slice(0,-1)+']}';
+      }
+    
+      return json;
+    }
+
     if(path==="getLetyClub"){
       let json = '{"'+path+'":[';
-      //Completo
       const dtFechaUltMov = XMLList(xml).descendants("dtFechaUltMov");
-      const iTipo = XMLList(xml).descendants("iTipo");
-      const sTipo = XMLList(xml).descendants("sTipo");
       const iIdMembresia = XMLList(xml).descendants("iIdMembresia");
-  
-      //Diferente
       const bExiste = XMLList(xml).descendants("bExiste");
       const bVigente = XMLList(xml).descendants("bVigente");
-      const dPorcentajeAcumula = XMLList(xml).descendants("dPorcentajeAcumula");
-      const dDescuento = XMLList(xml).descendants("dDescuento");
       const dSaldo = XMLList(xml).descendants("dSaldo");
-      const bIndEmpleado = XMLList(xml).descendants("bIndEmpleado");
-     
-      if(bExiste.length() === 0 || bVigente.length() === 0 || dtFechaUltMov.length() === 0 || dPorcentajeAcumula.length() === 0 || dDescuento.length() === 0 || dSaldo.length() === 0 || iTipo.length() === 0 || sTipo.length() === 0 || iIdMembresia.length() === 0 || bIndEmpleado.length() === 0){
-        json += '{"bExiste":"0.00","bVigente":"0.00","dtFechaUltMov":0.00,"dPorcentajeAcumula":0.00,"dDescuento":0.00,"dSaldo":0.00,"iTipo":0.00,"sTipo":"0.00","iIdMembresia":0.00,"bIndEmpleado":"0.00"},';
+      if(bExiste.length() === 0 || bVigente.length() === 0 || dtFechaUltMov.length() === 0 || dSaldo.length() === 0 || iIdMembresia.length() === 0 ){
+        json+='{"error":"Error en la respuesta"},';
         json = json.slice(0,-1)+']}';
       }else{
         for(let i =0; i<bExiste.length();i++){
-          json+='{"bExiste":"'+bExiste[i]+'","bVigente":"'+bVigente[i]+'","dtFechaUltMov":"'+dtFechaUltMov[i]+'","dPorcentajeAcumula":'+dPorcentajeAcumula[i]+',"dDescuento":'+dDescuento[i]+',"dSaldo":'+dSaldo[i]+',"iTipo":'+iTipo[i]+',"sTipo":"'+sTipo[i]+'","iIdMembresia":'+iIdMembresia[i]+',"bIndEmpleado":"'+bIndEmpleado[i]+'"},';
+          json+='{"bExiste":"'+bExiste[i]+'","bVigente":"'+bVigente[i]+'","dtFechaUltMov":"'+dtFechaUltMov[i]+'","dSaldo":"'+dSaldo[i]+'","iIdMembresia":"'+iIdMembresia[i]+'"},';
         }
         //"'+encodeURIComponent(dtFechaUltMov[i])+'"
         json = json.slice(0,-1)+']}';
       }
+      return json;
+    }
+
+    if(path==="Func_DatosMembresia"){
+      let json = '{"'+path+'":[';
+
+      const d_SaldoMembresia = XMLList(xml).descendants("d_SaldoMembresia");
+      const sdtm_FechaAlta = XMLList(xml).descendants("sdtm_FechaAlta");
+      const sc_Status = XMLList(xml).descendants("sc_Status");
+
+      if(d_SaldoMembresia.length() ===0 || sdtm_FechaAlta.length() === 0 || sc_Status.length() === 0){
+        json+='{"error":"Error en la respuesta"},';
+        json = json.slice(0,-1)+']}';
+      }else{
+        for(let i =0; i<d_SaldoMembresia.length();i++){
+          json+='{"d_SaldoMembresia":"'+d_SaldoMembresia[i]+'","sdtm_FechaAlta":"'+sdtm_FechaAlta[i]+'","sc_Status":"'+sc_Status[i]+'"},';
+        }
+        json = json.slice(0,-1)+']}';
+      }
+    
+      return json;
+    }
+
+    if(path==="Func_MovimientosMembresia"){
+      let json = '{"'+path+'":[';
+
+      const dtFechaAplica = XMLList(xml).descendants("dtFechaAplica");
+      const Centro = XMLList(xml).descendants("Centro");
+      const TipoMovimiento = XMLList(xml).descendants("TipoMovimiento");
+      const Cargo = XMLList(xml).descendants("Cargo");
+      const Abono = XMLList(xml).descendants("Abono");
+      const dSaldoAnterior = XMLList(xml).descendants("dSaldoAnterior");
+
+      if(dtFechaAplica.length()===0){
+        json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
+        json = json.slice(0,-1)+']}';
+      }else{
+        for(let i =0; i<dtFechaAplica.length();i++){
+          json+='{"dtFechaAplica":"'+dtFechaAplica[i]+'","Centro":"'+Centro[i]+'","TipoMovimiento":"'+TipoMovimiento[i]+'","Cargo":"'+Cargo[i]+'","Abono":"'+Abono[i]+'","dSaldoAnterior":"'+dSaldoAnterior[i]+'"},';
+        }
+        json = json.slice(0,-1)+']}';
+      }
+    
+      return json;
+    }
+
+    if(path==="getLetyClubQuitarPuntos"){
+      let json = '{"'+path+'":[';
+
+      const getLetyClubQuitarPuntosResult = XMLList(xml).descendants("getLetyClubQuitarPuntosResult");
+
+      if(getLetyClubQuitarPuntosResult.length() === 0){
+        json+='{"error":"Error de la respuesta o Fue Eliminado correctamente"},';
+        json = json.slice(0,-1)+']}';
+      }else{
+        for(let i =0; i<getLetyClubQuitarPuntosResult.length();i++){
+          json+='{"getLetyClubQuitarPuntosResult":"'+getLetyClubQuitarPuntosResult[i]+'"},';
+        }
+        json = json.slice(0,-1)+']}';
+      }
+    
       return json;
     }
   }
