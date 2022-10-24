@@ -5,16 +5,15 @@
     <div class="row">
         <!-- Data Card -->
         <div class="data-info col-6">
-            <span class="span-club-info">${Resource.msg('label.saldo', 'account', null)}: <p class="p-info">$0.00 MXN
-                </p>
+            <span class="span-club-info">${Resource.msg('label.saldo', 'account', null)}: <p class="p-info">${pdict.Account.SaldoMembresia}</p>
             </span>
             <span class="span-club-info">${Resource.msg('label.date.card', 'account', null)}: <p class="p-info">
-                    15-10-2022
+                    ${pdict.Account.FechaAlta}
                 </p></span>
             <span class="span-club-info">${Resource.msg('label.status.card', 'account', null)}: <p class="p-info"
-                    style="">Activa</p></span>
+                    style="">${pdict.Account.StatusMembresia}</p></span>
             <span class="span-club-info">${Resource.msg('label.noCard', 'account', null)}: <p class="p-info">
-                    3000206799125
+                ${pdict.Account.LetyCard}
                 </p></span>
         </div>
         <div class="container-img-card col-6">

@@ -20,7 +20,7 @@
                 <div class="card">
                     <div class="card-header">
                         <isif condition="${pdict.addressId}">
-                            <h3>${Resource.msg('label.title.club', 'account', null)}</h3>
+                            <h3>${Resource.msg('header.title.club', 'account', null)}</h3>
                             <iselse>
                                 <h2 class="title-add-addres">${Resource.msg('label.saldo', 'account', null)}</h2>
                         </isif>

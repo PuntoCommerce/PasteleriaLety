@@ -8,18 +8,19 @@
             <iscomment>
                 <div class="dashboard-cards-block-title"></div>
             </iscomment>
-            <div class="dashboard-info">${pdict.account.preferredAddress.address.ID}</div>
+                <div class="dashboard-info">${pdict.account.LetyCard}</div>
+         
         </div>
         <div class=" text-center row">
             <div class="col-lg-6">
-                <a href="${URLUtils.url('Email-Saldo')}" class="card-link"
+                <a href="${URLUtils.url('Account-Saldo','LetyCard', pdict.account.LetyCard ,'SaldoMembresia', pdict.account.SaldoMembresia,'FechaAlta', pdict.account.FechaAlta,'StatusMembresia', pdict.account.StatusMembresia)}" class="card-link"
                     aria-label="${Resource.msg('label.addressbook.addnewaddress', 'account', null)}"><button type="submit"
                         class="btn btn-product btn-block promo-code-btn">
                         ${Resource.msg('label.saldo', 'account', null)}
                     </button> </a>
             </div>
             <div class="col-lg-6">
-                <a href="${URLUtils.url('Email-Movimientos')}" class="card-link"
+                <a href="${URLUtils.url('Account-Movimientos')}" class="card-link"
                     aria-label="${Resource.msg('label.addressbook.addnewaddress', 'account', null)}"><button type="submit"
                         class="btn btn-product btn-block promo-code-btn">
                         ${Resource.msg('label.movin', 'account', null)}
