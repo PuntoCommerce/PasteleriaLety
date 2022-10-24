@@ -1,72 +1,77 @@
 "use strict";
 
 const server = require("server");
+const URLUtils = require("dw/web/URLUtils");
+const {
+  addLetyCardToCustomer,
+} = require("*/cartridge/scripts/helpers/letyCardHelpers");
+const ApiServiceLety = require("*/cartridge/scripts/jobs/api");
+
 server.extend(module.superModule);
-server.get(
-    'Saldo',
-    server.middleware.https,
-    function (req, res, next) {
-        var Site = require('dw/system/Site');
-    var PageMgr = require('dw/experience/PageMgr');
-    var pageMetaHelper = require('*/cartridge/scripts/helpers/pageMetaHelper');
-    var accountHelpers = require('*/cartridge/scripts/account/accountHelpers');
 
-    var accountModel = accountHelpers.getAccountModel(req);
-    pageMetaHelper.setPageMetaTags(req.pageMetaData, Site.current);
+server.get("Saldo", server.middleware.https, function (req, res, next) {
+  let letyCard = req.querystring.letyCard;
 
-    let LetyCard;
-    let SaldoMembresia;
-    let FechaAlta;
-    let StatusMembresia;    
+  let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia", {
+    Empresa: 1,
+    s_IdMembresia: letyCard,
+  });
+  let JsonDatosMembresia = JSON.parse(Func_DatosMembresia);
+  let SaldoMembresia =
+    JsonDatosMembresia.Func_DatosMembresia[0]["d_SaldoMembresia"];
+  let FechaAlta = JsonDatosMembresia.Func_DatosMembresia[0]["sdtm_FechaAlta"];
+  let StatusMembresia = JsonDatosMembresia.Func_DatosMembresia[0]["sc_Status"];
 
-   if(req.querystring.LetyCard || req.querystring.SaldoMembresia ||req.querystring.FechaAlta || req.querystring.StatusMembresia) {
-        LetyCard = req.querystring.LetyCard;
-        SaldoMembresia = req.querystring.SaldoMembresia;
-        FechaAlta = req.querystring.FechaAlta;
-        StatusMembresia = req.querystring.StatusMembresia;
-    }
+  res.render("account/saldoLetyClub", {
+    Account: {
+      LetyCard: letyCard,
+      SaldoMembresia: SaldoMembresia,
+      FechaAlta: FechaAlta,
+      StatusMembresia: StatusMembresia,
+    },
+  });
+  next();
+});
 
-    var page = PageMgr.getPage('/saldoLetyClub');
+server.get("Movimientos", server.middleware.https, function (req, res, next) {
+  var Site = require("dw/system/Site");
+  var PageMgr = require("dw/experience/PageMgr");
+  var pageMetaHelper = require("*/cartridge/scripts/helpers/pageMetaHelper");
+  var accountHelpers = require("*/cartridge/scripts/account/accountHelpers");
 
-    if (page && page.isVisible()) {
-        res.page('/saldoLetyClub');
-    } else {
-        res.render('account/saldoLetyClub', {
-            Account:
-                {
-                    LetyCard:LetyCard,
-                    SaldoMembresia: SaldoMembresia,
-                    FechaAlta: FechaAlta,
-                    StatusMembresia: StatusMembresia
-                }, 
-            addressId: 'Algo'
-        });
-    }
-        next();
-    }
-);
+  let Func_MovimientosMembresia = ApiServiceLety.ApiLety(
+    "Func_MovimientosMembresia",
+    { Empresa: 1, s_IdMembresia: req.querystring.letyCard }
+  );
 
-server.get(
-    'Movimientos',
-    server.middleware.https,
-    function (req, res, next) {
-        var Site = require('dw/system/Site');
-    var PageMgr = require('dw/experience/PageMgr');
-    var pageMetaHelper = require('*/cartridge/scripts/helpers/pageMetaHelper');
-    var accountHelpers = require('*/cartridge/scripts/account/accountHelpers');
+  let datos = [
+    { num: 1, dato: "Este es el 1" },
+    { num: 2, dato: "Este es el 2" },
+    { num: 3, dato: "Este es el 3" },
+    { num: 4, dato: "Este es el 4 tambien diferente" },
+    { num: 5, dato: "Este es el 5" },
+    { num: 6, dato: "Este es el 6" },
+    { num: 7, dato: "Este es el 7" },
+    { num: 8, dato: "Este es el 8 Diferente" },
+  ];
+  res.render("account/movesLetyClub", { datos: datos });
+  next();
+});
 
-    var accountModel = accountHelpers.getAccountModel(req);
-    pageMetaHelper.setPageMetaTags(req.pageMetaData, Site.current);
+server.post("AddLetyCard", (req, res, next) => {
+  addLetyCardToCustomer(req.form);
+  res.redirect(URLUtils.url("Account-Show"));
+  next();
+});
 
-    var page = PageMgr.getPage('/movesLetyClub');
+server.post("GenerateLetyCard", (req, res, next) => {
+  addLetyCardToCustomer({
+    customerNo: req.form.customerNo,
+    letyCard: Date.now(),
+  });
 
-    if (page && page.isVisible()) {
-        res.page('/movesLetyClub');
-    } else {
-        res.render('account/movesLetyClub');
-    }
-        next();
-    }
-);
+  res.redirect(URLUtils.url("Account-Show"));
+  next();
+});
 
 module.exports = server.exports();

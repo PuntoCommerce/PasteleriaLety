@@ -18,7 +18,13 @@
         <div class="row justify-content-center">
             <div class="col-sm-8 col-md-10">
                 <div class="card">
-                    <div class="card-header">
+                    <isloop items="${pdict.datos}" var="d" status="loopstatus">
+                        <div>
+                            <p>${d.num}</p>
+                            <p>${d.dato}</p>
+                        </div>
+                    </isloop>
+                    <iscomment> <div class="card-header">
                         <isif condition="${pdict.addressId}">
                             <h3>${Resource.msg('label.movin', 'account', null)}</h3>
                             <iselse>
@@ -27,7 +33,7 @@
                     </div>
                     <div class="card-body">
                         <isinclude template="account/movesForm" />
-                    </div>
+                    </div> </iscomment>
                 </div>
             </div>
         </div>

@@ -3,7 +3,6 @@
 var AddressModel = require('*/cartridge/models/address');
 var URLUtils = require('dw/web/URLUtils');
 var Customer = require('dw/customer/Customer');
-const ApiServiceLety = require("*/cartridge/scripts/jobs/api");
 
 /**
  * Creates a plain object that contains profile information
@@ -116,19 +115,6 @@ function getCustomerPaymentInstruments(userPaymentInstruments) {
  * @constructor
  */
 function account(currentCustomer, addressModel, orderModel) {
-    
-    this.LetyCard = '3019009418164';
-    let LetyClub = ApiServiceLety.ApiLety("getLetyClub",{Empresa:1,s_IdMembresia:this.LetyCard});
-   //let JSONApiServiceLety = JSON.parse(LetyClub);
-   //this.Saldo ="$ "+ JSONApiServiceLety.getLetyClub[0]['dSaldo'];
-    let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia",{Empresa:1,s_IdMembresia:3019009418164});
-    let JsonDatosMembresia = JSON.parse(Func_DatosMembresia);
-    this.SaldoMembresia = JsonDatosMembresia.Func_DatosMembresia[0]['d_SaldoMembresia'];
-    this.FechaAlta = JsonDatosMembresia.Func_DatosMembresia[0]['sdtm_FechaAlta'];
-    this.StatusMembresia = JsonDatosMembresia.Func_DatosMembresia[0]['sc_Status'];
-
-    let Func_MovimientosMembresia = ApiServiceLety.ApiLety("Func_MovimientosMembresia",{Empresa:1,s_IdMembresia:3019009418164});
-   
     this.profile = getProfile(currentCustomer.profile);
     this.addresses = getAddresses(currentCustomer.addressBook);
     this.preferredAddress = addressModel || getPreferredAddress(currentCustomer.addressBook);
