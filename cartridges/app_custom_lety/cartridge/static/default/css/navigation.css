@@ -72,7 +72,7 @@
 .nav.navbar-nav {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 35px;
+  padding-top: 7%;
 }
 
 /* #menuDesk .dropdown-menu .category-item.item a .hover-underline {
