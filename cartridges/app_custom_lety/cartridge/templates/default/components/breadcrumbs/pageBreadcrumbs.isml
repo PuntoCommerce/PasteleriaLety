@@ -4,11 +4,11 @@
             <isloop items="${pdict.breadcrumbs}" var="breadcrumbValue" status="loopState">
                 <li class="breadcrumb-item">
                     <isif condition="${loopState.last}">
-                        <a href="${breadcrumbValue.url}" aria-current="page">
+                        <a href="${breadcrumbValue.url}" aria-current="page" style="font-family: var(--font-family-gotham-bold) !important;">
                             ${breadcrumbValue.htmlValue}
                         </a>
                     <iselse/>
-                        <a href="${breadcrumbValue.url}">
+                        <a href="${breadcrumbValue.url}" class="item-select" >
                             ${breadcrumbValue.htmlValue}
                         </a>
                     </isif>

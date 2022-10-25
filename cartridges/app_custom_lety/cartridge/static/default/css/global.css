@@ -719,8 +719,9 @@ header {
   position: absolute;
   background-color: transparent;
   border: none;
-  top: 3px;
-  right: 3px;
+  display: flex;
+  right: 0;
+  top: 25%;
 }
 
 .div-img-menu {
@@ -1081,6 +1082,10 @@ textarea {
     border-bottom: #000;
   }
 
+  .collapsible-xs .title::after{
+    transform: rotate(-90deg) !important;
+  }
+
   .minicart-desk {
     display: none;
   }
@@ -1156,6 +1161,9 @@ textarea {
     background-color: var(--color-lety2) !important;
   }
 
+  /*Breadcrumb*/
+
+
   /*PLP*/
 
   .search-banner {
@@ -1221,6 +1229,11 @@ textarea {
 
   .container div.collapsible-sm button.title {
     color: var(--color-lety-black) !important;
+  }
+
+  .order-div{
+    padding-left: 15px !important;
+    padding-right: 15px !important;
   }
 
   /*PDP*/
@@ -13725,6 +13738,7 @@ a.normal {
     float: right;
     content: "\F078";
     font-family: FontAwesome;
+    transform: rotate(-90deg);
   }
   .collapsible-xs .card-body,
   .collapsible-xs .content {
@@ -14100,7 +14114,7 @@ footer .store-mobile {
     width: 80%;
   }
   .footer-item {
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid white !important;
   }
   footer .social-links {
     display: flex;
@@ -14171,7 +14185,7 @@ footer .store-mobile {
     content: "\F041";
   }
   .footer-item {
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid white;
   }
 
   footer .store-mobile {

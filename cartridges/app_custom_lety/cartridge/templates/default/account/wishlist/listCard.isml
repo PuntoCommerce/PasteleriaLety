@@ -1,5 +1,6 @@
 <div class="account-wishlist-item card">
     <div class="line-item-header row">
+    <p>${item}</p>
         <!--- product name--->
         <div class="line-item-name col-10">
             ${item.name}

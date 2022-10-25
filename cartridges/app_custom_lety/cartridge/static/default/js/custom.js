@@ -110,25 +110,52 @@ let filter_container = document.querySelector("#filter-categories");
 let button_filter = document.querySelector("#filter-button");
 let checkbox = document.querySelectorAll(".values.content li button");
 
-// checkbox.forEach((item) => {
-//   item.addEventListener("click", (e) => {
+checkbox.forEach((item) => {
+item.addEventListener("click", (e) => {
 
-//     setTimeout(() => {
-//       filter_container = document.querySelector("#filter-categories");
-//       button_filter = document.querySelector("#filter-button");
+setTimeout(() => {
+       filter_container = document.querySelector("#filter-categories");
+       button_filter = document.querySelector("#filter-button");
 
-//       button_filter.addEventListener("click", () => {
-//         // filter_container.classList.toggle('filtershow')
+       button_filter.addEventListener("click", () => {
+          filter_container.classList.toggle('filtershow')
 
-//         if (filter_container.style.display === "none") {
-//           filter_container.style.display = "block";
-//         } else {
-//           filter_container.style.display = "none";
-//         }
-//       });
-//     }, 1000);
-//   });
-// });
+         if (filter_container.style.display === "none") {
+           filter_container.style.display = "block";
+         } else {
+           filter_container.style.display = "none";
+         }
+       });
+     }, 1000);
+   });
+ });
+
+
+filter_container.addEventListener('click', () => {
+  setTimeout(() => {
+    filter_container = document.querySelector("#filter-categories");
+      button_filter = document.querySelector("#filter-button");
+
+      button_filter.addEventListener("click", () => {
+        if (filter_container.style.display === "none") {
+          filter_container.style.display = "block";
+        } else {
+          filter_container.style.display = "none";
+        }
+      });
+  }, 1000);
+})
+
+button_filter.addEventListener("click", () => {
+  // filter_container.classList.toggle('filtershow')
+  console.log("funciona");
+
+  if (filter_container.style.display === "none") {
+    filter_container.style.display = "block";
+  } else {
+    filter_container.style.display = "none";
+  }
+});
 
 /* ########################################## ⬆️ Calendar Delivery ⬆️ ####################################################*/
 /* let monthNames= ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
@@ -194,33 +221,5 @@ function setNewDate(){
  currentDate.setFullYear(currentYear, monthNumber,currentDay);
  month.textContent = monthNames[monthNumber];
  year.textContent = currentYear.toString();
-} */
+}  */
 
-/* filter_container.addEventListener('click', () => {
-  setTimeout(() => {
-    filter_container = document.querySelector("#filter-categories");
-      button_filter = document.querySelector("#filter-button");
-
-      button_filter.addEventListener("click", () => {
-        if (filter_container.style.display === "none") {
-          filter_container.style.display = "block";
-        } else {
-          filter_container.style.display = "none";
-        }
-      });
-  }, 1000);
-})
-
-button_filter.addEventListener("click", () => {
-  // filter_container.classList.toggle('filtershow')
-  console.log("funciona");
-
-  if (filter_container.style.display === "none") {
-    filter_container.style.display = "block";
-  } else {
-    filter_container.style.display = "none";
-  }
-});
-
-
- */

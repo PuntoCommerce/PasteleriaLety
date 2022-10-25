@@ -30,7 +30,7 @@
 }
 .rating > input:checked ~ label,
 .rating > input:checked ~ label ~ label {
-  background-image: url("../images/full-star.svg");
+  background-image: url("../images/icons/Vector.svg");
 }
 .rating > input:not(:checked) ~ label:hover,
 .rating > input:not(:checked) ~ label:hover ~ label {

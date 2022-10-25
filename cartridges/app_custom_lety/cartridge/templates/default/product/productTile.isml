@@ -2,10 +2,10 @@
 <div class="product-tile summary">
     <!-- dwMarker="product" dwContentID="${product.uuid}" -->
    <div class="row">
-   <isinclude template="product/components/promotions" />
-      <div class="col-6 promotions-product">
-        <isinclude template="product/components/promotions" />
-        </div>
+         <!--Promo-->
+             <div class="promotions col-6">
+                    <isinclude template="product/components/promotions" />
+            </div>
    <!--Wishlist heart mobile-->
         <div class="col-6 wishlist-product">
             <isinclude template="wishlist/components/addToWishListButtonHeart"/>

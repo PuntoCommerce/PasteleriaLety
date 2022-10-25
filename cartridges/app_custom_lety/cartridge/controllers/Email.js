@@ -30,12 +30,12 @@ server.get('Register', consentTracking.consent, cache.applyDefaultCache, functio
 
     pageMetaHelper.setPageMetaTags(req.pageMetaData, Site.current);
 
-    var page = PageMgr.getPage('accountEditedEmail');
+    var page = PageMgr.getPage('/confirmation');
 
     if (page && page.isVisible()) {
-        res.page('accountEditedEmail');
+        res.page('/confirmation');
     } else {
-        res.render('account/components/accountEditedEmail');
+        res.render('checkout/confirmation/confirmation');
     }
 
     

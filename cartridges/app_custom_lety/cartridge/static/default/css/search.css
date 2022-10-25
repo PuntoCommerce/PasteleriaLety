@@ -456,7 +456,7 @@
   z-index: 3;
   display: none;
   width: 326px;
-  margin: 0 101px;
+  margin: 0 50px 0 50px;
   border: 1px solid #000;
 }
 
@@ -619,6 +619,11 @@
     display: block;
     width: 100%;
   }
+}
+
+.order-div{
+  padding-left: 30px;
+  padding-right: 30px;
 }
 .content-grid-header select,
 .grid-header select {

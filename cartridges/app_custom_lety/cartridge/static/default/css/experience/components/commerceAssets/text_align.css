@@ -3,6 +3,10 @@
     margin-top: .3em;
 }
 
+.text_align .text{
+    font-size: 33px;
+}
+
 .text_align-center{
     text-align: center;
 }
@@ -14,3 +18,4 @@
 .text_align-rigth{
     text-align: right;
 }
+

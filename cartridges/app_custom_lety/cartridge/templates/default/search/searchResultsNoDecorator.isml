@@ -92,7 +92,7 @@
                                     src="${URLUtils.staticURL('/images/icons/filtro.svg')}" alt="" />
                             </button>
                         </div>
-                        <div class="result-count text-center col-12 col-md-6 col-sm-6 order-sm-2">
+                        <div class="result-count text-center col-12 col-lg-6 col-sm-6 order-sm-2">
                             <iselse>
                                 <div class="row grid-header justify-content-center">
                                     <div class="result-count col">
@@ -100,7 +100,7 @@
                 <isinclude template="search/resultsCount" />
             </div>
             <isif condition="${pdict.productSearch.productIds.length > 0}">
-                <div class="col-lg-2 col-sm-6 order-sm-3">
+                <div class="col-lg-3 col-sm-6 order-sm-3 order-div">
                     <isinclude template="search/sortOrderMenu" />
                 </div>
 
