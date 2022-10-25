@@ -6,7 +6,6 @@
             ${Resource.msg('button.addtocart', 'common', null)}
         </button>
 
-
         <isinclude template="product/components/addToCartButtonExtension" />
     </div>
 </div>

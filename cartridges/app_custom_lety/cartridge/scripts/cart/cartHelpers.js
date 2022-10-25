@@ -4,7 +4,7 @@ var ProductMgr = require('dw/catalog/ProductMgr');
 var Resource = require('dw/web/Resource');
 var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
 
-const ProductExistencia = require("~/cartridge/scripts/jobs/api");
+const ApiServiceLety = require("~/cartridge/scripts/jobs/api");
 
 base.addProductToCart = (currentBasket, productId, quantity, childProducts, options) => {
     var availableToSell;
@@ -26,13 +26,38 @@ base.addProductToCart = (currentBasket, productId, quantity, childProducts, opti
     var canBeAdded = false;
     let Existencia;
     let Saldo;
-    let JSONProduct;
+    let JSONApiServiceLety;
+    let Saldo1;
+    let JSONApiServiceLety1;
 
     //Existencia
     //var catalogo = ProductExistencia.ExistenciaPorCentroFecha({Empresa:1,iIdCentro:19,iIdMaterial:145,dtFecha:'2022-10-26T00:00:00.000-05:00'});
     //Lety club Tarjeta con puntos
-    //var catalogo = ProductExistencia.getLetyClub({Empresa:1,s_IdMembresia:3019009418164});
+    //3019009418164
     //Lety club Tarjeta sin puntos
+    //3000006236103
+
+
+    /*let ExistenciaPorCentroFecha = ApiServiceLety.ApiLety("ExistenciaPorCentroFecha",{Empresa:1,iIdCentro:19,iIdMaterial:145,dtFecha:'2022-10-26T00:00:00.000-05:00'});
+    let NewCalculoSD = ApiServiceLety.ApiLety("NewCalculoSD",{Empresa:1,Posicion:1,IdCentroAlta:1001,IdCentroAfecta:17,CentroAfecta:'Apodaca',bIndEnRango:1,Tiempo:'2022-10-14',IdFolioDireccionSeleccionado:404561001,IdFolioPersonaSeleccionado:713181001,dLat:25.71211680,dLng:-100.2948341,IdServicio:0,Folio:55000,NombreCliente:'Nombre de prueba',Direccion:'670af8d5-b9bf-40ba-a6bd-c6560b22caf2'});
+    let LetyClub = ApiServiceLety.ApiLety("getLetyClub",{Empresa:1,s_IdMembresia:3019009418164});
+    JSONApiServiceLety = JSON.parse(LetyClub);
+    Saldo = JSONApiServiceLety.getLetyClub[0]['dSaldo'];
+    let monto = 25;
+
+    if(Saldo>=monto){
+        let getLetyClubQuitarPuntos = ApiServiceLety.ApiLety("getLetyClubQuitarPuntos",{Empresa:1,s_IdMembresia:3019009418164,dMonto:monto,dSaldoAnterior:Saldo,sFolioWeb:'ban1xuKKHYX'});
+    }
+    
+    let LetyClub1 = ApiServiceLety.ApiLety("getLetyClub",{Empresa:1,s_IdMembresia:3019009418164});
+    JSONApiServiceLety1 = JSON.parse(LetyClub1);
+    Saldo1 = JSONApiServiceLety1.getLetyClub[0]['dSaldo'];
+    let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia",{Empresa:1,s_IdMembresia:3019009418164});
+    let Func_MovimientosMembresia = ApiServiceLety.ApiLety("Func_MovimientosMembresia",{Empresa:1,s_IdMembresia:3019009418164});
+    */
+
+    //if (product.bundle) {
+    //if (Existencia) {
     //var catalogo = ProductExistencia.getLetyClub({Empresa:1,s_IdMembresia:3000006236103});
     //JSONProduct = JSON.parse(catalogo);
     //Existencia = JSONProduct.ExistenciaPorCentroFecha[0]['Existencia'];
