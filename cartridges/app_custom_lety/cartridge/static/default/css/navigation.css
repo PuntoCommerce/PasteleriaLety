@@ -219,7 +219,7 @@
 
   .brand {
     width: 200px !important;
-    left: 15%;
+    left: 0% !important;
   }
 }
 

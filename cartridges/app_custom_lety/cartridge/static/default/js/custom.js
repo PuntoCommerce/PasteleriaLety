@@ -9,6 +9,12 @@ window.addEventListener("load", () => {
   changeSubMenuItem();
 });
 
+if(navigator.appVersion.includes("Mac OS") || navigator.appVersion.includes("iPhone") ){ 
+  //estilo css para mac os 
+  
+
+}
+
 const changeSubMenuItem = () => {
   const menu = $C(".menu-group");
   const subMenu = $$C(".dropdown-menu");

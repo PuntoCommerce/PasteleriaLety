@@ -109,7 +109,7 @@
                         
                         </div>
                         
-                        <isinclude template="checkout/customer/customerCelendar"/>
+                        <iscomment> <isinclude template="checkout/customer/customerCalendar"/> </iscomment>
                         
 
                         <!----------------------------------------------------------------------------------->
