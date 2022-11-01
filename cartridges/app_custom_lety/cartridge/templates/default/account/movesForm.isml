@@ -2,7 +2,6 @@
     <isprint value="${pdict.addressForm.attributes}" encoding="off" />>
 
 <div class=" container-form">
-    
     <div class="row">
         <div class="col-6">
            <div class="">
@@ -29,14 +28,16 @@
         <th>${Resource.msg('title.th.abono', 'account', null)}</th>
         <th>${Resource.msg('title.th.saldo', 'account', null)}</th>
         </tr>
+         <isloop items="${pdict.ListaMovimientos}" var="d" status="loopstatus">
             <tr class="tr-info">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>${d.dtFechaAplica}</td>
+            <td>${d.Centro}</td>
+            <td>${d.TipoMovimiento}</td>
+            <td>${d.Cargo}</td>
+            <td>${d.Abono}</td>
+            <td>${d.dSaldoAnterior}</td>
             </tr>
+            </isloop>
         </table>
     </div>
 
@@ -57,4 +58,20 @@
     
 </div>
 
+<!--Start Pagination -->
+	<div class='pagination-container'>
+		<nav>
+		    <ul class="pagination">
+                <li data-page="prev">
+				    <span> < <span class="sr-only">(current)</span></span>
+				</li>
+				   <!--	Here the JS Function Will Add the Rows -->
+                <li data-page="next" id="prev">
+					<span> > <span class="sr-only">(current)</span></span>
+			    </li>
+			</ul>
+		</nav>
+	</div>
+    
 </form>
+

@@ -11,6 +11,8 @@ server.get("Prueba", (req, res, next)=>{
     var productMgr = require('dw/catalog/ProductMgr');
     var product = productMgr.getProduct("dragonballz1-1");
     res.print("algo");
+    //product.custom.
+    //personalizado
     next();
 })
 

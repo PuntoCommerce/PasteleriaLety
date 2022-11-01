@@ -14,7 +14,6 @@ let pathJson;
  * @returns {string} request body
  */
 function createRequest(service, data) {
-    const s = service;
     const credential = service.configuration.credential;
     const { path, method, body, token } = data;
     pathJson=path
