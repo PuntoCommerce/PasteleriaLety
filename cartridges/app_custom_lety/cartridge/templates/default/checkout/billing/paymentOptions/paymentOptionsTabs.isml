@@ -1,15 +1,17 @@
 <isloop items="${pdict.order.billing.payment.applicablePaymentMethods}" var="paymentOption" status="loopSate">
-    <isif condition="${paymentOption.ID === 'MercadoPago'}">
+    <iscomment> <isif condition="${paymentOption.ID === 'MercadoPago'}">
         <isinclude template="mercadopago/checkout/mercadopagoTab" />
+    </isif> </iscomment>
+    <isif condition="${paymentOption.ID === 'CREDIT_CARD'}">
+        <isinclude template="checkout/billing/paymentOptions/creditCardTab" />
     </isif>
     <isif condition="${paymentOption.ID === 'PayPal' && pdict.paypal}">
         <isinclude template="paypal/checkout/paypalTab" />
     </isif>
-    
 
 </isloop>
 
-<ul>
+<iscomment> <ul>
     <li class="nav-item" data-method-id="${paymentOption.ID}">
         <a class="nav-link credit-card-tab <isif condition="${checkOption}">active</isif>" data-toggle="tab" href="${'#'}${paymentOption.ID}-content" role="tab"
             <isif condition="${paymentOption.ID === 'STRIPE_PAYMENT_ELEMENT'}">id="${paymentOption.ID}-tab"</isif>>
@@ -20,4 +22,4 @@
             </isif>
         </a>
     </li>
-</ul>
+</ul> </iscomment>

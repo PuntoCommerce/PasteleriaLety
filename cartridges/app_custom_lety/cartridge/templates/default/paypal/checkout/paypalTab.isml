@@ -1,0 +1,16 @@
+<li class="nav-item" data-method-id="${paymentOption.ID}">
+    <a class="nav-link paypal-tab" data-toggle="tab" href="#paypal-content" role="tab">
+        <div class="check-and-label-container d-flex">
+            <div class="check-decorator-payment">
+                <div class="outer-circle">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+            <div class="label-payment">
+                <span>${paymentOption.name}</span>
+            </div>
+        </div>
+        <img class="credit-card-option" src="${URLUtils.staticURL('/images/paypal_mark_logo.png')}" height="32"
+            alt="${paymentOption.name}" title="${paymentOption.name}" />
+    </a>
+</li>

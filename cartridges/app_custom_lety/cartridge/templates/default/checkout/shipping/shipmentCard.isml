@@ -8,6 +8,7 @@
         <input name="productLineItemUUID" type="hidden" value="${lineItem.UUID}" />
     </isif>
 
+
     <input name="originalShipmentUUID" type="hidden" value="${shippingModel.UUID}" />
     <input name="shipmentUUID" type="hidden" value="${shippingModel.UUID}" />
 
