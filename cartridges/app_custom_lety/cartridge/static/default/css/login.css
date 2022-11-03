@@ -3,7 +3,19 @@
   color: #c00;
 }
 .login-page {
-  margin-top: 1em;
+  margin-top: 47px;
+}
+
+.login-page .title-login h2{
+  font-size: 35px;
+}
+
+.login-page label, .login-page .checkout__text--bold{
+  font-weight: bold;
+}
+
+.login-page .btn-login{
+  margin-top: 30px;
 }
 .login-page .login-form-nav {
   margin-bottom: 1.25em;

@@ -20,12 +20,14 @@
     </iscomment>
 
     <ul class="checkout__stepper">
-    <li class="continue-checkout" style="padding-right: 12%; list-style: none">
-    <button type="" class="continue-shopping-checkout d-flex" style="background-color: transparent; border: none">
-                <a class="continue-shopping-checkout" href="${URLUtils.url('Home-Show')}" title="${Resource.msg('link.continue.shopping','cart',null)}">
-                    ${Resource.msg('link.continue.shopping','cart',null)}
+        <li class="continue-checkout" style="padding-right: 12%; list-style: none">
+            <button type="" class="continue-shopping-checkout d-flex"
+                style="background-color: transparent; border: none">
+                <a class="continue-shopping-checkout" href="${URLUtils.url('Home-Show')}"
+                    title="${Resource.msg('link.continue.shopping', 'cart', null)}">
+                    ${Resource.msg('link.continue.shopping', 'cart', null)}
                 </a></button>
-    </li>
+        </li>
         <li class="checkout__stepper--item">
             <h3 class="checkout__stepper--item-circle checkout__stepper--item-circle-current">1</h3>
             <p class="checkout__stepper--item-title">Envío</p>
@@ -41,8 +43,8 @@
             <p class="checkout__stepper--item-title">Realizar Pedido</p>
         </li>
         <li class="msg-secur" style="padding-left: 12%; list-style: none;">
-        <img class="" src="${URLUtils.staticURL('/images/icons/candado.svg')}" alt="secur" />
-        <span>${Resource.msg('check.secure.purchase', 'checkout', null)}</span>
+            <img class="" src="${URLUtils.staticURL('/images/icons/candado.svg')}" alt="secur" />
+            <span>${Resource.msg('check.secure.purchase', 'checkout', null)}</span>
         </li>
     </ul>
     <div class="d-flex justify-content-center">
@@ -62,7 +64,7 @@
                     </div>
                 </iscomment>
                 <div class="row">
-                    <div class="col-12 col-lg-8" style="padding-right: 7rem;">
+                    <div class="col-12 col-lg-7 chackout-address-left">
 
                         <!----------------------------------------------------------------------------------->
                         <!-- Checkout Forms: Shipping, Payment, Coupons, Billing, etc -->
@@ -95,7 +97,7 @@
 
 
                         <!-- Step 3: Payment and Billing-->
-                        <isinclude template="checkout/billing/billing"/>
+                        <isinclude template="checkout/billing/billing" />
                         <div class="card payment-summary">
                             <div class="card-header clearfix">
                                 <h2 class="pull-left card-header-custom">${Resource.msg('heading.payment', 'checkout', null)}</h2>
@@ -106,11 +108,13 @@
                             <div class="card-body">
                                 <isinclude template="checkout/billing/billingSummary" />
                             </div>
-                        
+
                         </div>
-                        
-                        <iscomment> <isinclude template="checkout/customer/customerCalendar"/> </iscomment>
-                        
+
+                        <iscomment>
+                            <isinclude template="checkout/customer/customerCalendar" />
+                        </iscomment>
+
 
                         <!----------------------------------------------------------------------------------->
                         <!-- Checkout Workflow Buttons -->
@@ -128,8 +132,7 @@
                                                 ${Resource.msg('button.next.payment', 'checkout', null)}
                                             </button>
 
-                                            <button
-                                                class="btn btn-product text-uppercase btn-block submit-payment"
+                                            <button class="btn btn-product text-uppercase btn-block submit-payment"
                                                 type="submit" name="submit" value="submit-payment">
                                                 ${Resource.msg('button.next.place.order', 'checkout', null)}
                                             </button>
@@ -150,7 +153,8 @@
                     <!----------------------------------------------------------------------------------->
                     <!-- Order Totals, Details and Summary -->
                     <!----------------------------------------------------------------------------------->
-                    <div class="col-12 col-lg-4" style="padding-top: 6.7rem;">
+                    <div class="col-12 col-lg-5 chackout-address-right">
+
                         <div class="card checkout__order d-none d-lg-block mt-lg-4">
                             <div class="card-header d-flex justify-content-center align-items-center">
                                 <h2 class="card-header-custom">${Resource.msg('heading.order.summary', 'checkout', null)}
@@ -171,6 +175,79 @@
                                     <div class="checkout__order--divider"></div>
                                 </div>
                                 <isinclude template="checkout/orderTotalSummary" />
+                                <div class="d-flex justify-content-center pb-3 pl-3 pr-3">
+                                <div class="checkout__order--divider"></div>
+                            </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <form action="${pdict.actionUrls.submitCouponCodeUrl}" class="promo-code-form"
+                                            method="GET" name="promo-code-form">
+                                            <div class="form-group">
+                                                <label
+                                                    for="couponCode">${Resource.msg('label.promo.code.check', 'checkout', null)}</label>
+                                                <div class="row">
+                                                    <div class="col-7">
+                                                        <input type="text" class="form-control coupon-code-field"
+                                                            id="couponCode" name="couponCode"
+                                                            placeholder="${Resource.msg('placholder.text.promo.code.input', 'cart', null)}">
+                                                        <div class="coupon-error">
+                                                            
+                                                            <span class="coupon-error-message" id="invalidCouponCode"
+                                                                role="alert"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <input type="hidden" name="${pdict.csrf.tokenName}"
+                                                        value="${pdict.csrf.token}" />
+
+                                                    <div class="col-5 promo-code-submit">
+                                                        <button type="submit"
+                                                            class="btn btn-product btn-block promo-code-btn">
+                                                            ${Resource.msg('button.submit.promo.code', 'cart', null)}
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center pb-3 pl-3 pr-3">
+                                <div class="checkout__order--divider"></div>
+                                
+                                </div>
+                                 <div class="row">
+                                    <div class="col-12">
+                                        <form action="${}" class="promo-code-form lety-card-form"
+                                            method="GET" name="lety-card-form">
+                                            <div class="form-group">
+                                                <label
+                                                    for="">${Resource.msg('label.code.club', 'checkout', null)}</label>
+                                                <div class="row">
+                                                    <div class="col-7">
+                                                        <input type="text" class="form-control coupon-code-field"
+                                                            id="" name=""
+                                                            placeholder="${Resource.msg('placholder.text.lety.culb.input', 'checkout', null)}">
+                                                        <div class="coupon-error">
+                                                            
+                                                            <span class="coupon-error-message" id=""
+                                                                role="alert"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <input type="hidden" name="${}"
+                                                        value="${}" />
+
+                                                    <div class="col-5 promo-code-submit">
+                                                        <button type="submit"
+                                                            class="btn btn-product btn-block promo-code-btn">
+                                                            ${Resource.msg('button.submit.promo.code', 'cart', null)}
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                            </div>
                             </div>
                         </div>
 

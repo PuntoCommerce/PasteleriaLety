@@ -631,6 +631,7 @@
 }
 .result-count {
   font-size: 0.875rem;
+  padding-top: 10px;
 }
 .refinement {
   margin-bottom: 1em;
