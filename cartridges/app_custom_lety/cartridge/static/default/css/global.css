@@ -14894,11 +14894,12 @@ footer .social:after {
   clear: both;
   content: "";
 }
-
+.goToUp{
+position: fixed !important;
+bottom: 25%;
+right: 20px;
+}
 .back-to-top {
-  position: fixed !important;
-  bottom: 25%;
-  right: 20px;
   height: 17px;
   width: 24px;
   vertical-align: initial !important;
@@ -15549,6 +15550,7 @@ div.availability {
 .truncate {
   animation: fadeIn 1s;
   height: 85px;
+  padding: 0 80px;
 }
 
 a .moreless .less {
@@ -15633,7 +15635,7 @@ a .moreless .less {
 }
 
 .product-tile .tile-body {
-  padding: 0.625em 0 1.875em;
+  padding: 0.625em 0 0;
 }
 .product-tile .tile-body .color-swatches {
   min-height: 2.25em;
@@ -17361,4 +17363,13 @@ a .moreless .less {
 .calendar-item {
   text-align: center;
   line-height: 2;
+}
+
+.experience-commerce_layouts-layout_1row_3col{
+  margin: 0 150px;
+}
+
+.tile-body .truncate-text{
+  font-size: 14px;
+  font-family: 'gotham-book';
 }

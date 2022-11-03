@@ -17,7 +17,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: #ffffff;
-  width: 518px;
   height: 45px;
   font-style: normal;
   font-weight: 650;
@@ -30,15 +29,14 @@
   transform: translate(-50%, -50%);
   width: 232px;
   height: 37px;
-  background-color: var(--color-lety1);
+  background-color: #D7612B;
   /* border-color: #ffffff; */
-  border: 1px solid var(--color-lety1);
+  border: none;
   font-style: normal;
   font-weight: 350;
   font-size: 18px;
   line-height: 24px;
   /* identical to box height, or 150%*/
-  box-shadow: 2px 2px 5px ghostwhite;
   text-align: center;
   letter-spacing: -0.011em;
   line-height: 0 !important;
@@ -46,7 +44,9 @@
   flex: none;
   order: 0;
   flex-grow: 1;
-  
+  font-family: 'gotham-book';
+  border-radius: 20px;
+  font-weight: bold;
 }
 
 .content_TB.align-top {
