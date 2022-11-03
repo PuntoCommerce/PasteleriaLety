@@ -10,7 +10,7 @@
                 </isif>
 
                 <!--- Label --->
-                <span title="${category.title}" class="${category.selected ? 'selected' : ''}" aria-hidden="true">
+                <span title="${category.title}" class="${category.selected ? 'selected' : ''}" aria-hidden="true" style="font-weight: bold;">
                     ${category.displayValue}
                 </span>
                 <span class="sr-only selected-assistive-text">

@@ -145,6 +145,13 @@
 .title-cont-myaccount .h1-tile-account, .title-container-account h1{
   background-color: transparent !important;
   color: var(--color-lety-black) !important;
+  margin-top: 36px;
+  font-size: 35px;
+}
+
+.title-addres{
+  padding-top: 22px;
+  margin-bottom: 16px;
 }
 
 .content-myaccount{
@@ -199,8 +206,9 @@
   color: var(--color-lety2) !important;
 }
 
-.title-payment, .title-edit-profile, .title-password{
-  padding-top: 30px;
+.title-payment, .title-edit-profile, .title-password, .title-edit-addres{
+  padding-top: 47px;
+  margin-bottom: 24px;
 }
 
 .label-newPayment, .title-edit-prof-form, .title-add-addres, .address-heading, 

@@ -159,7 +159,8 @@ function updateAvailability(response, $productContainer) {
         availabilityValue = '<li><div>' + response.resources.info_selectforstock + '</div></li>';
     } else {
         availabilityMessages.forEach(function (message) {
-            availabilityValue += '<li><div >' + message + '</div></li>';
+        availabilityValue += '<li><div >' + message + '</div></li>';
+            
         });
     }
 

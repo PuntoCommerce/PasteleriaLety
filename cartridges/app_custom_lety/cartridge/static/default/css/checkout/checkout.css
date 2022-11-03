@@ -465,7 +465,7 @@ span.ship-to-phone {
   margin-bottom: 1.5rem;
 }
 .card-header-custom.header-shipping {
-  font-family: var(--font-family-gotham-bold);
+  font-family: var(--font-family-gotham-bold) !important;
   font-weight: 800;
   font-size: 32px;
   line-height: 44px;
@@ -485,8 +485,9 @@ span.ship-to-phone {
 .shipment-selector-btns h3 {
   font-family: var(--font-family-gotham-bold);
   font-weight: 800;
-  font-size: 19px;
+  font-size: 20px;
   line-height: 26px;
+  padding-bottom: 40px;
 }
 .shipping-card-header {
   font-family: var(--font-family-gotham-bold);
@@ -502,7 +503,6 @@ span.ship-to-phone {
   .shipment-selector-btns h3 {
     font-family: var(--font-family-gotham);
     font-weight: 400;
-    font-size: 28px;
     line-height: 38px;
   }
   .shipping-card-header {
@@ -609,10 +609,17 @@ span.ship-to-phone {
   font-size: 20px;
   line-height: 27px;
 }
+.payment-options .credit-card-tab {
+  background-color: transparent !important;
+}
+
+.icon-visa{
+  margin-right: 10px;
+}
 .outer-circle {
   background: #fff;
   border: 1px solid #d0d0d0;
-  border-radius: 50%;
+  border-radius: 5px;
   height: 20px;
   width: 20px;
   position: relative;
@@ -1021,4 +1028,16 @@ span.ship-to-phone {
 
 .row-check{
   justify-content: left;
+}
+
+/*DESIGN CHECKOUT CUSTOM*/
+.chackout-address-left{
+  padding-right: 7rem;
+}
+.chackout-address-right{
+  padding-top: 4%;
+}
+
+.shipping-content{
+  padding-top: 0 !important;
 }

@@ -677,11 +677,11 @@ header {
   width: 100%;
 }
 
-.user .user-message{
+.user .user-message {
   position: absolute;
-    left: 0;
-    top: 23px;
-    font-size: 15px;
+  left: 0;
+  top: 23px;
+  font-size: 15px;
 }
 
 .pac-target-input {
@@ -737,8 +737,9 @@ header {
 
 /*Design PDP*/
 
-.breadcrumb-padding{
+.breadcrumb-padding {
   padding-left: 6% !important;
+  padding-bottom: 67px;
 }
 
 .img-fluid {
@@ -788,7 +789,7 @@ header {
   flex-direction: column;
 }
 
-.availability-msg .msg-existencia {
+.msg-existencia, .on-stock {
   color: var(--color-lety11);
 }
 
@@ -835,6 +836,11 @@ header {
 .h2-detail {
   font-size: 22px !important;
   font-weight: 600;
+}
+
+.form-coments label,
+.form-coments2 label {
+  font-family: var(--font-family-gotham-bold);
 }
 
 .reviews-raitngs-container h4,
@@ -1051,7 +1057,7 @@ textarea {
 }
 
 /*Responsive xs*/
-@media (max-width: 352px){
+/* @media (max-width: 352px){
   .minicart .minicart-quantity{
 
   left: 5px;
@@ -1062,7 +1068,7 @@ textarea {
   right: -3px !important;
 }
 
-}
+} */
 
 /*Responsive 544*/
 /* @media (max-width: 544px){
@@ -1159,7 +1165,7 @@ textarea {
     display: none;
   }
 
-  .minicart-total{
+  .minicart-total {
     margin-top: 0;
   }
 
@@ -6321,6 +6327,12 @@ a.close.disabled {
   border: 1px solid rgba(0, 0, 0, 0.2);
   outline: 0;
 }
+
+.modal-content-password .close {
+  position: absolute;
+  right: 30px;
+  top: 10px;
+}
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -6389,7 +6401,7 @@ a.close.disabled {
 }
 @media (min-width: 544px) {
   .modal-dialog {
-    max-width: 500px;
+    max-width: 562px;
     margin: 1.75rem auto;
   }
   .modal-dialog-scrollable {
@@ -10393,7 +10405,8 @@ dt {
   padding-right: 0 !important;
 }
 
-.header-container .pull-right, .header-container .pull-left{
+.header-container .pull-right,
+.header-container .pull-left {
   max-height: 110px;
 }
 .pull-left {
@@ -15201,10 +15214,10 @@ footer .store-mobile {
 h1.page-title {
   position: relative;
   color: #fff;
-  padding: 0.3125em 0.625em 0.3125em 15px;
+  padding: 0.3125em 0.625em 12px 15px;
   background-color: var(--skin-primary-color-1);
   display: inline-block;
-  margin: 0.9375em 0;
+  margin: 0.9375em 0 12px 0;
   font-size: 1.5rem;
 }
 

@@ -29,7 +29,7 @@
             <input type="checkbox" class="custom-control-input" id="rememberMe" name="loginRememberMe" value="true"
                 <isif condition="${pdict.rememberMe}">checked</isif>
             >
-            <label class="custom-control-label" for="rememberMe">
+            <label class="custom-control-label" for="rememberMe" style="font-weight: normal">
                 ${Resource.msg('label.checkbox.login.rememberme', 'login', null)}
             </label>
         </div>
@@ -46,5 +46,5 @@
             </a>
         </div>
     </div>
-    <button type="submit" class="btn-product btn btn--gray btn__small text-uppercase">${Resource.msg('button.text.loginform', 'login', null)}</button>
+    <button type="submit" class="btn-product btn btn--gray btn__small btn-login">${Resource.msg('button.text.loginform', 'login', null)}</button>
 </form>
