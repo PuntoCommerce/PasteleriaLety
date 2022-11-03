@@ -551,7 +551,7 @@ span.ship-to-phone {
 .checkout-summary-title-1 {
   font-family: var(--font-family-gotham-bold);
   font-weight: 800;
-  font-size: 28px;
+  font-size: 20px;
   line-height: 38px;
   color: #000000;
 }
@@ -1040,4 +1040,8 @@ span.ship-to-phone {
 
 .shipping-content{
   padding-top: 0 !important;
+}
+
+.tel-description{
+  font-size: 14px;
 }
