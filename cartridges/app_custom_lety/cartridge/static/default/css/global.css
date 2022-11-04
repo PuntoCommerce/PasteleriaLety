@@ -199,6 +199,7 @@
 :before {
   box-sizing: border-box;
 }
+
 html {
   width: 100vw;
   max-width: 100%;
@@ -17365,6 +17366,8 @@ a .moreless .less {
   line-height: 2;
 }
 
+/* QA modifications Ana */
+
 .experience-commerce_layouts-layout_1row_3col{
   margin: 0 150px;
 }
@@ -17372,4 +17375,12 @@ a .moreless .less {
 .tile-body .truncate-text{
   font-size: 14px;
   font-family: 'gotham-book';
+}
+
+
+@media (max-width: 1024px) {
+
+  .experience-commerce_layouts-layout_1row_3col{
+    margin: 0;
+  }
 }
