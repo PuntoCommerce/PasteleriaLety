@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="label-payment">
-                <span>${paymentOption.name}</span>
+                <span>${Resource.msg('label.credit.payment', 'checkout', null)}</span>
             </div>
         </div>
        <div>
@@ -28,3 +28,6 @@
         
     </a>
 </li>
+<div class="d-flex justify-content-center pb-3 pl-3 pr-3">
+                                <div class="checkout__order--divider"></div>
+                            </div>

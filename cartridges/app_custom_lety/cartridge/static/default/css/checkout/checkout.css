@@ -413,7 +413,7 @@ span.ship-to-phone {
 .form-control-label {
   font-family: var(--font-family-gotham-bold);
   font-style: normal;
-  font-size: 16px;
+  font-size: 13px;
   line-height: 22px;
   color: #000000;
 }
@@ -573,14 +573,14 @@ span.ship-to-phone {
   position: relative;
 }
 #inner-circle {
-  background: #ff0000;
-  border-radius: 50%;
+  background: url("../../images/icons/check.svg");
+ /*  border-radius: 50%; */
   height: 13px;
   width: 13px;
   position: absolute;
-  top: 50%;
+  /* top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   display: none;
 }
 .shipping-check-card.active #inner-circle {
@@ -626,8 +626,8 @@ span.ship-to-phone {
   margin-right: 10px;
 }
 .inner-circle {
-  background: #000;
-  border-radius: 50%;
+  background: url("../../images/icons/check.svg");;
+  /* border-radius: 50%; */
   height: 13px;
   width: 13px;
   position: absolute;
@@ -640,7 +640,7 @@ span.ship-to-phone {
   display: block;
 }
 .label-payment {
-  font-family: "Avenir-LT-Std";
+  font-family: var(--font-family-gotham);
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
