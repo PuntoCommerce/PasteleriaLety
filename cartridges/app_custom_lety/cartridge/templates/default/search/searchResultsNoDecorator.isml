@@ -1,6 +1,10 @@
 <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
     <isinclude template="reporting/reportingUrls" />
 </isif>
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/prueba.css');
+</isscript>
 
 <!--- Search Results Banner --->
 <isif condition="${pdict.productSearch.isCategorySearch}">
@@ -24,6 +28,7 @@
                 <li class="breadcumbs-item">
                     <a href="${URLUtils.url('Home-Show')}" class="item">Inicio</a>
                 </li>
+                
                 <isloop items="${pdict.breadcrumbs}" var="breadcrumbValue" status="loopState">
                     <li class="">
                         <a href="${breadcrumbValue.url}"
@@ -115,7 +120,7 @@
                     <isinclude url="${pdict.refineurl}" />
                 </div>
 
-                <div class="col-sm-12 col-md-9">
+                <div class="col-sm-12 col-md-9 container-PLP">
 
 
                     <!--- Product Grid --->

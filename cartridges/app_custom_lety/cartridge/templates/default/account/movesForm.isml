@@ -32,8 +32,13 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <div class="row content-table">
         <table id= "table-id">
+=======
+    <div class="row content-table ">
+        <table>
+>>>>>>> 7945c774f88df195ec0d8b03f0f5800efb586d48
         <tr>
         <th>${Resource.msg('title.th.date', 'account', null)}</th>
         <th>${Resource.msg('title.th.suc', 'account', null)}</th>

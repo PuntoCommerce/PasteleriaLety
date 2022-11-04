@@ -10,7 +10,7 @@
         <h2 class="title-addres">${Resource.msg('header.title.address','address',null)}</h2>
     </div>
         <!---Breadcrumbs--->
-        <div class="col d-flex" style="padding-left: 6rem">
+        <div class="col d-flex" style="padding-left: 7rem">
             <isinclude template="components/breadcrumbs/pageBreadcrumbs"/>
         </div>
         

@@ -388,6 +388,19 @@ ul {
   }
 }
 
+@media (max-width: 1350px) {
+  #menuDesk .nav-item a{
+    font-size: 13px;
+  }
+
+}
+
+@media (max-width: 1220px) {
+  #menuDesk .nav-item a{
+    font-size: 11px;
+  }
+
+}
 /***** View menu responsive with animation  *****/
 .viewMenu {
   transform: translateX(0);

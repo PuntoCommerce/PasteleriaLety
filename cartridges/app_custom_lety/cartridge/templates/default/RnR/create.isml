@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="form-group col-12">
+            <div class="form-group form-coments2 col-12">
                 <label for="review_rnr">${Resource.msg('label.review', 'rnr', null)}</label>
                 <textarea type="text" class="form-control form-resena" id="review_rnr"
                     placeholder="${Resource.msg('placeholder.review', 'rnr', null)}" rows="4" cols="50"></textarea>

@@ -1,10 +1,33 @@
 <li class="nav-item" data-method-id="${paymentOption.ID}">
-    <a class="nav-link credit-card-tab active" data-toggle="tab" href="#credit-card-content" role="tab">
-        <img class="credit-card-option"
-                src="${URLUtils.staticURL('/images/credit.png')}"
-                height="32"
+    <a class="nav-link credit-card-tab active " data-toggle="tab" href="#credit-card-content" role="tab">
+        
+        <div class="check-and-label-container d-flex">
+            <div class="check-decorator-payment">
+                <div class="outer-circle">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
+            <div class="label-payment">
+                <span>${Resource.msg('label.credit.payment', 'checkout', null)}</span>
+            </div>
+        </div>
+       <div>
+         <img class="credit-card-option icon-visa"
+                src="${URLUtils.staticURL('/images/icons/visa-pay.svg')}"
+                height="19"
                 alt="${paymentOption.name}"
                 title="${paymentOption.name}"
         >
+        <img class="credit-card-option"
+                src="${URLUtils.staticURL('/images/icons/master-pay.svg')}"
+                height="29"
+                alt="${paymentOption.name}"
+                title="${paymentOption.name}"
+        >
+       </div>
+        
     </a>
 </li>
+<div class="d-flex justify-content-center pb-3 pl-3 pr-3">
+                                <div class="checkout__order--divider"></div>
+                            </div>

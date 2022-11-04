@@ -174,7 +174,7 @@
   --breakpoint-lg: 993px;
   --breakpoint-xl: 1200px;
   /*Font famili Lety*/
-  --font-family-gotham: "gotham-book", sans-serif !important;
+  --font-family-gotham: "gotham-light", sans-serif !important;
   --font-family-gotham-bookItal: "gotham-bookItalic", sans-serif !important;
   --font-family-gotham-bold: "gotham-bold", sans-serif !important;
   --font-family-gotham-boldItal: "gotham-boldItalic", sans-serif !important;
@@ -199,6 +199,7 @@
 :before {
   box-sizing: border-box;
 }
+
 html {
   width: 100vw;
   max-width: 100%;
@@ -677,11 +678,11 @@ header {
   width: 100%;
 }
 
-.user .user-message{
+.user .user-message {
   position: absolute;
-    left: 0;
-    top: 23px;
-    font-size: 15px;
+  left: 0;
+  top: 23px;
+  font-size: 15px;
 }
 
 .pac-target-input {
@@ -698,6 +699,7 @@ header {
 .card .collapsible-sm .refinement .refinement-categoría {
   margin-bottom: 0 !important;
 }
+
 
 .refinement {
   margin-bottom: 0 !important;
@@ -737,8 +739,9 @@ header {
 
 /*Design PDP*/
 
-.breadcrumb-padding{
+.breadcrumb-padding {
   padding-left: 6% !important;
+  padding-bottom: 67px;
 }
 
 .img-fluid {
@@ -788,7 +791,7 @@ header {
   flex-direction: column;
 }
 
-.availability-msg .msg-existencia {
+.msg-existencia, .on-stock {
   color: var(--color-lety11);
 }
 
@@ -835,6 +838,11 @@ header {
 .h2-detail {
   font-size: 22px !important;
   font-weight: 600;
+}
+
+.form-coments label,
+.form-coments2 label {
+  font-family: var(--font-family-gotham-bold);
 }
 
 .reviews-raitngs-container h4,
@@ -958,6 +966,10 @@ textarea {
   height: 164px !important;
 }
 
+.minicart label{
+  padding-top: 8px;
+}
+
 .cart-page {
   padding-left: 5rem;
   padding-right: 5rem;
@@ -965,6 +977,10 @@ textarea {
 
 .title-cart {
   font-size: 35px;
+}
+
+.line-item-price-info, .line-item-pricing-info.quantity-label{
+  font-family: var(--font-family-gotham-bold);
 }
 
 .totals-cart {
@@ -1051,7 +1067,7 @@ textarea {
 }
 
 /*Responsive xs*/
-@media (max-width: 352px){
+/* @media (max-width: 352px){
   .minicart .minicart-quantity{
 
   left: 5px;
@@ -1062,7 +1078,7 @@ textarea {
   right: -3px !important;
 }
 
-}
+} */
 
 /*Responsive 544*/
 /* @media (max-width: 544px){
@@ -1159,7 +1175,7 @@ textarea {
     display: none;
   }
 
-  .minicart-total{
+  .minicart-total {
     margin-top: 0;
   }
 
@@ -6321,6 +6337,12 @@ a.close.disabled {
   border: 1px solid rgba(0, 0, 0, 0.2);
   outline: 0;
 }
+
+.modal-content-password .close {
+  position: absolute;
+  right: 30px;
+  top: 10px;
+}
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -6389,7 +6411,7 @@ a.close.disabled {
 }
 @media (min-width: 544px) {
   .modal-dialog {
-    max-width: 500px;
+    max-width: 562px;
     margin: 1.75rem auto;
   }
   .modal-dialog-scrollable {
@@ -10393,7 +10415,8 @@ dt {
   padding-right: 0 !important;
 }
 
-.header-container .pull-right, .header-container .pull-left{
+.header-container .pull-right,
+.header-container .pull-left {
   max-height: 110px;
 }
 .pull-left {
@@ -14881,11 +14904,12 @@ footer .social:after {
   clear: both;
   content: "";
 }
-
+.goToUp{
+position: fixed !important;
+bottom: 25%;
+right: 20px;
+}
 .back-to-top {
-  position: fixed !important;
-  bottom: 25%;
-  right: 20px;
   height: 17px;
   width: 24px;
   vertical-align: initial !important;
@@ -15200,10 +15224,10 @@ footer .store-mobile {
 h1.page-title {
   position: relative;
   color: #fff;
-  padding: 0.3125em 0.625em 0.3125em 15px;
+  padding: 0.3125em 0.625em 12px 15px;
   background-color: var(--skin-primary-color-1);
   display: inline-block;
-  margin: 0.9375em 0;
+  margin: 0.9375em 0 12px 0;
   font-size: 1.5rem;
 }
 
@@ -15536,6 +15560,7 @@ div.availability {
 .truncate {
   animation: fadeIn 1s;
   height: 85px;
+  padding: 0 80px;
 }
 
 a .moreless .less {
@@ -15620,7 +15645,7 @@ a .moreless .less {
 }
 
 .product-tile .tile-body {
-  padding: 0.625em 0 1.875em;
+  padding: 0.625em 0 0;
 }
 .product-tile .tile-body .color-swatches {
   min-height: 2.25em;
@@ -17348,4 +17373,23 @@ a .moreless .less {
 .calendar-item {
   text-align: center;
   line-height: 2;
+}
+
+/* QA modifications Ana */
+
+.experience-commerce_layouts-layout_1row_3col{
+  margin: 0 150px;
+}
+
+.tile-body .truncate-text{
+  font-size: 14px;
+  font-family: 'gotham-book';
+}
+
+
+@media (max-width: 1024px) {
+
+  .experience-commerce_layouts-layout_1row_3col{
+    margin: 0;
+  }
 }
