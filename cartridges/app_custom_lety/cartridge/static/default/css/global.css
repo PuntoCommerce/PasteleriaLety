@@ -700,6 +700,7 @@ header {
   margin-bottom: 0 !important;
 }
 
+
 .refinement {
   margin-bottom: 0 !important;
   position: absolute;
@@ -965,6 +966,10 @@ textarea {
   height: 164px !important;
 }
 
+.minicart label{
+  padding-top: 8px;
+}
+
 .cart-page {
   padding-left: 5rem;
   padding-right: 5rem;
@@ -972,6 +977,10 @@ textarea {
 
 .title-cart {
   font-size: 35px;
+}
+
+.line-item-price-info, .line-item-pricing-info.quantity-label{
+  font-family: var(--font-family-gotham-bold);
 }
 
 .totals-cart {

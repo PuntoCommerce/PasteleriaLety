@@ -1034,7 +1034,7 @@ span.ship-to-phone {
 .chackout-address-left{
   padding-right: 7rem;
 }
-.chackout-address-right{
+.checkout-address-right{
   padding-top: 4%;
 }
 
@@ -1044,4 +1044,8 @@ span.ship-to-phone {
 
 .tel-description{
   font-size: 14px;
+}
+
+.checkout-address-right .line-item-pricing-info + .price, .checkout-address-right .line-item-pricing-info + .unit-price .price{
+  font-size: 12px !important;
 }
