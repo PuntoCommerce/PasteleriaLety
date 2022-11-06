@@ -1003,6 +1003,7 @@ textarea {
 
 .data-checkout-stage {
   padding-top: 30px !important;
+  padding-left: 0;
 }
 
 .card-checkout {

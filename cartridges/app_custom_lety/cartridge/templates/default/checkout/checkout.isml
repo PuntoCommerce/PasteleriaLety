@@ -175,7 +175,7 @@
                                     <div class="checkout__order--divider"></div>
                                 </div>
                                 <isinclude template="checkout/orderTotalSummary" />
-                                <div class="d-flex justify-content-center pb-3 pl-3 pr-3">
+                                <div class="d-flex justify-content-center pb-3">
                                 <div class="checkout__order--divider"></div>
                             </div>
                                 <div class="row">
@@ -211,7 +211,7 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="d-flex justify-content-center pb-3 pl-3 pr-3">
+                                <div class="d-flex justify-content-center pb-3">
                                 <div class="checkout__order--divider"></div>
                                 
                                 </div>

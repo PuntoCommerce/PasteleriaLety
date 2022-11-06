@@ -430,6 +430,8 @@ span.ship-to-phone {
   align-items: center;
   justify-content: center;
   text-align: center;
+  max-height: 216px;
+  min-width: 282px;
 }
 .card.order-product-summary .strike-price {
   height: auto;
@@ -1032,10 +1034,11 @@ span.ship-to-phone {
 
 /*DESIGN CHECKOUT CUSTOM*/
 .chackout-address-left{
-  padding-right: 7rem;
+  
 }
 .checkout-address-right{
   padding-top: 4%;
+  max-width: 381px;
 }
 
 .shipping-content{
@@ -1049,3 +1052,26 @@ span.ship-to-phone {
 .checkout-address-right .line-item-pricing-info + .price, .checkout-address-right .line-item-pricing-info + .unit-price .price{
   font-size: 12px !important;
 }
+
+.card.payment-form{
+  max-width: 440px;
+}
+
+.payment-information .credit-card-tab, .payment-information .paypal-tab{
+  padding-left: 0;
+}
+
+.txt-info-cvv{
+  font-size: 14px;
+}
+
+.info-cvv-div{
+  padding: 0;
+}
+
+.img-cvv{
+  position: relative;
+  top: 30%;
+  left: 30%;
+}
+

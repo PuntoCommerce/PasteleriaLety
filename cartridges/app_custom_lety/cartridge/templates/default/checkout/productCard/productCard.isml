@@ -33,7 +33,7 @@
                 </div>
                 <div class="row checkout__text">
                     <!--- item price --->
-                    <div class="col-4">
+                    <div class="col-4" style="padding-right: 0;">
                         <isif condition="${lineItem.price}">
                             <p class="line-item-pricing-info">
                                 <span class="line-item-total-text unit-price-label">
@@ -55,7 +55,7 @@
                         </isif>
                     </div>
                     <!--- line item total price --->
-                    <div class="col-4">
+                    <div class="col-4" style="padding-right: 0;">
                         <p class="line-item-pricing-info">
                             <span class="line-item-total-text line-item-total-price-label">
                                 ${Resource.msg('label.total.price', 'cart', null)}
@@ -74,9 +74,9 @@
         <isinclude template="cart/productCard/cartProductCardAvailability" />
     </isif>
 
-    <isif condition=${miniCart}>
+    <iscomment> <isif condition=${miniCart}>
         <div class="line-item-promo item-${lineItem.UUID}">
             <isinclude template="checkout/productCard/productCardProductPromotions" />
         </div>
-    </isif>
+    </isif> </iscomment>
 </div>
