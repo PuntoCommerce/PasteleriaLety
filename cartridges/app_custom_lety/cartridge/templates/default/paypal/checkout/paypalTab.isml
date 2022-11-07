@@ -14,3 +14,6 @@
             alt="${paymentOption.name}" title="${paymentOption.name}" />
     </a>
 </li>
+<div class="d-flex justify-content-center pb-3">
+    <div class="checkout__order--divider"></div>
+</div>

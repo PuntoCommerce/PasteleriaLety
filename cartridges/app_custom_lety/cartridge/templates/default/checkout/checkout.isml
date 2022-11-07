@@ -138,7 +138,7 @@
                                             </button>
 
                                             <button
-                                                class="btn btn--gray btn__small text-uppercase btn-block place-order"
+                                                class="btn btn-product btn--gray btn__small btn-block place-order"
                                                 data-action="${URLUtils.url('CheckoutServices-PlaceOrder')}"
                                                 type="submit" name="submit"
                                                 value="place-order">${Resource.msg('button.place.order', 'checkout', null)}
@@ -153,7 +153,7 @@
                     <!----------------------------------------------------------------------------------->
                     <!-- Order Totals, Details and Summary -->
                     <!----------------------------------------------------------------------------------->
-                    <div class="col-12 col-lg-5 chackout-address-right">
+                    <div class="col-12 col-lg-5 checkout-address-right">
 
                         <div class="card checkout__order d-none d-lg-block mt-lg-4">
                             <div class="card-header d-flex justify-content-center align-items-center">
@@ -175,7 +175,7 @@
                                     <div class="checkout__order--divider"></div>
                                 </div>
                                 <isinclude template="checkout/orderTotalSummary" />
-                                <div class="d-flex justify-content-center pb-3 pl-3 pr-3">
+                                <div class="d-flex justify-content-center pb-3">
                                 <div class="checkout__order--divider"></div>
                             </div>
                                 <div class="row">
@@ -211,7 +211,7 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="d-flex justify-content-center pb-3 pl-3 pr-3">
+                                <div class="d-flex justify-content-center pb-3">
                                 <div class="checkout__order--divider"></div>
                                 
                                 </div>

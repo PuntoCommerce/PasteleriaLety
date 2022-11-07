@@ -1,7 +1,8 @@
 <div class="address-summary text-center">
-    <div class="d-flex flex-col flex-md-row justify-content-center align-items-center mb-4">
+    <div class=" justify-content-center align-items-center">
         <div class="icon-shipping mr-md-2">
-            <svg class="d-none d-lg-block" width="36" height="36" viewBox="0 0 36 36" fill="none"
+        <img src="${URLUtils.staticURL('/images/icons/track.svg')}" alt="Track">
+            <iscomment> <svg class="d-none d-lg-block" width="36" height="36" viewBox="0 0 36 36" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M32.9991 18.9999C32.8674 19.0007 32.737 18.9755 32.6151 18.9257C32.4933 18.876 32.3825 18.8026 32.2891 18.7099L17.9991 4.40995L3.70905 18.7099C3.51775 18.8738 3.27167 18.9594 3.02 18.9497C2.76832 18.9399 2.52958 18.8356 2.35149 18.6575C2.17339 18.4794 2.06906 18.2407 2.05934 17.989C2.04962 17.7373 2.13522 17.4912 2.29905 17.2999L17.2991 2.29995C17.4864 2.1137 17.7399 2.00916 18.0041 2.00916C18.2682 2.00916 18.5217 2.1137 18.709 2.29995L33.709 17.2999C33.8467 17.4403 33.9398 17.6182 33.9769 17.8112C34.014 18.0042 33.9934 18.2039 33.9177 18.3853C33.8419 18.5667 33.7144 18.7218 33.551 18.8311C33.3876 18.9404 33.1956 18.9991 32.9991 18.9999Z"
@@ -18,7 +19,7 @@
                 <path
                     d="M18 7.79004L6 19.83V32C6 32.5305 6.21071 33.0392 6.58579 33.4143C6.96086 33.7893 7.46957 34 8 34H15V24H21V34H28C28.5304 34 29.0391 33.7893 29.4142 33.4143C29.7893 33.0392 30 32.5305 30 32V19.76L18 7.79004Z"
                     fill="#FF0000" />
-            </svg>
+            </svg> </iscomment>
 
         </div>
         <div class="name-shipping">

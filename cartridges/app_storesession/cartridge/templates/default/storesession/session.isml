@@ -1,0 +1,75 @@
+<div >
+  <isif condition="${pdict.storeName}">
+  <div class="row">
+        
+        <div class="row p-3">
+            <!--<div class="col-12 pb-1">
+                   <button class="styleChangeOptionAddres" action-url="${URLUtils.url("StoreSession-CleanStore")}" issessionstoremandatory="${pdict.isSessionStoreMandatory}" id="cleanStore" type="button">
+                    Cambiar Dirección
+                  </button>
+            </div>-->
+            <div class="col-12">
+                  <span class="sessionStoreName" id="session-store-name">DIRECCIÓN DE ENTREGA</span>
+            </div>
+            <div class="col-12 dropdown-container m-0">
+                    <span class="sessionStoreAddress" id="session-store-address">${pdict.storeAddress1}</span>
+                    <ul class="p-0 lety-address-locator">
+                      <li class="styleOptionAddres">${pdict.storeAddress1}</li>
+                      <li class="borderOption styleOptionAddres">${pdict.storeAddress2}</li>
+                      <li class="borderOption">
+                          <button class="styleChangeOptionAddres" action-url="${URLUtils.url("StoreSession-CleanStore")}" issessionstoremandatory="${pdict.isSessionStoreMandatory}" id="cleanStore" type="button">
+                            Cambiar Dirección
+                          </button>
+                      </li> 
+                    </ul>
+            </div>
+            
+            
+            <!--<div class="col-3" onclick="prueba()">
+                <img  src="${URLUtils.staticURL('/images/icons/flecha-hacia-abajo.png')}" alt="" />
+            </div>-->
+           <!--<div class="col-3">
+                   <button action-url="${URLUtils.url("StoreSession-CleanStore")}" issessionstoremandatory="${pdict.isSessionStoreMandatory}" id="cleanStore" type="button">
+                    &times;
+                  </button>
+            </div>-->
+        </div>
+       
+  </div>
+    
+  </isif>
+
+  <div class="storesessionSearch">
+    <input type="text" id="session_search" name="location" value="" action-url="${URLUtils.url("StoreSession-SetStore")}" />
+  </div>
+
+  <isif condition="${!pdict.storeName}">
+    <div class="blockSession">
+      <div class="popup-modal-session" >
+          <div class="d-flex justify-content-center align-items-start flex-column">
+          <p class="txtSession">Ingrese Dirección</p>
+
+          <div class="single-input" id="div_session_search-modal">
+              <input type="text" id="session_search-modal" name="location" value="" action-url="${URLUtils.url("StoreSession-SetStore")}"/>
+              <span><img src="${URLUtils.staticURL('/images/icons/ubicacionNaranja.png')}" alt="" /></span>
+          </div>
+
+          <div class="buttonSession">
+              <button type="button" id="session_search-confirm">Confirmar</button>
+          </div>
+          <div class="row p-3">
+            <img class="ml-2 mr-3" src="${URLUtils.staticURL('/images/icons/ubicacion-desactivada.svg')}" alt="" />
+            <button type="button" id="session_search-location" >Encuentra Tu ubicación en el mapa</button>
+          </div>
+            
+          </div>
+        </div>
+    </div>
+  </isif>
+
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=${pdict.apikey}&libraries=places&callback=initAutocomplete&v=weekly"
+    defer>
+  </script>
+</div>
+

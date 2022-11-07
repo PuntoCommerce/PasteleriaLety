@@ -174,7 +174,7 @@
   --breakpoint-lg: 993px;
   --breakpoint-xl: 1200px;
   /*Font famili Lety*/
-  --font-family-gotham: "gotham-book", sans-serif !important;
+  --font-family-gotham: "gotham-light", sans-serif !important;
   --font-family-gotham-bookItal: "gotham-bookItalic", sans-serif !important;
   --font-family-gotham-bold: "gotham-bold", sans-serif !important;
   --font-family-gotham-boldItal: "gotham-boldItalic", sans-serif !important;
@@ -700,6 +700,7 @@ header {
   margin-bottom: 0 !important;
 }
 
+
 .refinement {
   margin-bottom: 0 !important;
   position: absolute;
@@ -965,6 +966,10 @@ textarea {
   height: 164px !important;
 }
 
+.minicart label{
+  padding-top: 8px;
+}
+
 .cart-page {
   padding-left: 5rem;
   padding-right: 5rem;
@@ -972,6 +977,10 @@ textarea {
 
 .title-cart {
   font-size: 35px;
+}
+
+.line-item-price-info, .line-item-pricing-info.quantity-label{
+  font-family: var(--font-family-gotham-bold);
 }
 
 .totals-cart {
@@ -994,6 +1003,7 @@ textarea {
 
 .data-checkout-stage {
   padding-top: 30px !important;
+  padding-left: 0;
 }
 
 .card-checkout {

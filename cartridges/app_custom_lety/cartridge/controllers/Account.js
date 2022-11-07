@@ -18,8 +18,8 @@ server.get("Saldo", server.middleware.https, function (req, res, next) {
   let SaldoMembresia = 0;
   let FechaAlta = 0;
   let StatusMembresia = 0;
-
-  if(!Func_DatosMembresia){
+ 
+  if(Func_DatosMembresia){
     let JsonDatosMembresia = JSON.parse(Func_DatosMembresia);
     SaldoMembresia =
     JsonDatosMembresia.Func_DatosMembresia[0]["d_SaldoMembresia"];
@@ -50,10 +50,6 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
   );
   let JsonMovimientosMembresia = JsonMovimientosMembresia = JSON.parse(Func_MovimientosMembresia);
   let ListaMovimientos =JsonMovimientosMembresia.Func_MovimientosMembresia;
-  //let JsonMovimientosMembresia=[{dtFechaAplica:0,Centro:0,TipoMovimiento:0,Cargo:0,Abono:0}];
-
-
-
 
   res.render("account/movesLetyClub", { ListaMovimientos: ListaMovimientos });
   next();

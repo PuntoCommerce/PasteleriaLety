@@ -73,7 +73,7 @@
 </div>
 
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-6 col-lg-12">
         <div class="form-group
             <isif condition=${creditFields.securityCode.mandatory === true}>required</isif>
             ${creditFields.securityCode.htmlName}">
@@ -84,6 +84,17 @@
             aria-describedby="securityCodeInvalidMessage" >
             <div class="invalid-feedback" id="securityCodeInvalidMessage"></div>
         </div>
+       
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-3">
+        <img class="img-cvv" src="${URLUtils.staticURL('/images/icons/cvv.svg')}" alt="cvv">
+    </div>
+    <div class="col-lg-9 info-cvv-div">
+        <span class="txt-info-cvv">${Resource.msg('txt.info.cvv', 'creditCard', null)}</span>
+        <br>
+        <span class="txt-info-cvv">${Resource.msg('txt.info.cvv2', 'creditCard', null)}</span>
     </div>
 </div>
 

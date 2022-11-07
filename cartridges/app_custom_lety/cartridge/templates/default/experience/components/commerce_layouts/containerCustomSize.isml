@@ -1,6 +1,6 @@
 <isscript>
     var assets = require('*/cartridge/scripts/assets.js');
-    assets.addCss('/css/experience/components/commerceLayouts/containerCustomSize.css');
+    assets.addCss('/css/experience/commerceLayouts/containerCustomSize.css');
 </isscript>
 
 <div class="container-custom-size container-custom-width-${pdict.width}">
