@@ -1,11 +1,11 @@
 <!--- Shipping Address --->
 <isloop var="shippingModel" items="${pdict.order.shipping}" status="shippingLoop">
     <isif condition="${shippingLoop.first}">
-        <div class="single-shipping col container_confirmation h-100 p-md-5"
+        <div class="single-shipping col container_confirmation container-confirmation-address h-100"
             data-shipment-summary="${shippingModel.UUID}">
 
-            <div class="card-header">
-                <isinclude template="checkout/shipping/shippingTitleConfirmation.isml" />
+            <div class="card-header confirmation-h2">
+                <h3 class="card-header-custom shipping_info_title confirmation-shipping2">${Resource.msg('label.order.shipping.address.confirmation', 'confirmation', null)}</h3>
             </div>
             <div class="card-body">
                 <isif condition="${shippingModel.shippingAddress !== null}">

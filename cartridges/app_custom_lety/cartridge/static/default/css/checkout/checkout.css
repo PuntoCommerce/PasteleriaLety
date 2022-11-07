@@ -712,8 +712,9 @@ span.ship-to-phone {
   border-bottom: 0;
 }
 .container_custom.receipt {
-  max-width: 85vw;
-  margin: 0 auto;
+  margin: 0;
+  padding-left: 200px;
+  padding-right: 190px;
 }
 .card-header-custom {
   text-align: center;
@@ -1093,18 +1094,22 @@ span.ship-to-phone {
   font-family: var(--font-family-gotham-bold);
 }
 
-.card-header-custom.shipping_info_title{
+.card-header-custom.confirmation-shipping{
   font-size: 18px;
-  font-family: var(--font-family-gotham-bold);
+  font-family: var(--font-family-gotham-bold) !important;
 }
 
 .container-confirmation-left {
   max-width: 465px;
-  padding-right: 5rem;
+}
+
+.txt-news-confirmation{
+  padding-bottom: 30px;
+
 }
 
 .container-confirmation-right{
-  padding-left: 7rem;
+  padding-left: 5rem;
 }
 
 .card-header-custom.h2-detail-confirmation{
@@ -1126,7 +1131,32 @@ span.ship-to-phone {
 }
 
 .btn-confirmation{
-  margin-bottom: 18px;
+  margin-bottom: 30px;
+}
+
+.container-confirmation-address, .container-confirmation-pay{
+  max-height: 210px !important;
+  padding: 0 80px !important;
+}
+
+.confirmation-h2{
+  padding: 0.75rem 0;
+  border-bottom: none;
+}
+
+.confirmation-h2 .confirmation-shipping2{
+  font-size: 18px;
+  font-family: var(--font-family-gotham-bold) !important;
+  margin-bottom: 0;
+}
+
+.container-txt-pay{
+  min-width: 306px;
+  padding: 0;
+}
+
+.container-txt-pay .payment-details{
+  padding-top: 20px;
 }
 
 

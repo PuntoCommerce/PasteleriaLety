@@ -84,7 +84,7 @@
                 <div class="col">
                     <div class="row container_confirmation">
                         <div class="col-lg-6 container-confirmation-left">
-                            <div>
+                            <div class="txt-news-confirmation">
                                 <p> ${Resource.msg('msg.newsletter.confirmation', 'confirmation', null)}</p>
                             </div>
                             <div>

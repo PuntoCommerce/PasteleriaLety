@@ -18,9 +18,9 @@
 </iscomment>
 
 <!--- Payment information --->
-<div class="container_confirmation col h-100 p-md-5">
-    <div class="card-header">
-        <h3 class="card-header-custom billing_info_title">
+<div class="container_confirmation container-confirmation-pay col h-100">
+    <div class="card-header confirmation-h2">
+        <h3 class="card-header-custom billing_info_title confirmation-shipping2">
             ${Resource.msg('label.order.payment.info', 'confirmation', null)}
             <isloop items="${pdict.order.billing.payment.selectedPaymentInstruments}" var="payment">
                 ${payment.paymentMethod}
@@ -28,7 +28,7 @@
 
         </h3>
     </div>
-    <div class="card-body text-center">
+    <div class="card-body text-center container-txt-pay">
         <isinclude template="checkout/billing/paymentOptions/paymentOptionsSummary" />
     </div>
 </div>
