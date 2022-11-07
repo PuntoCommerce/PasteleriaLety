@@ -1,4 +1,4 @@
-<h2 class="card-header-custom">${Resource.msg('title.receipt', 'confirmation', null)}</h2>
+<h2 class="card-header-custom h2-detail-confirmation">${Resource.msg('title.receipt', 'confirmation', null)}</h2>
 
 <div class="product-summary-block">
     <div class="order-products-summary">
@@ -35,12 +35,12 @@
         <!--- Shipping Address --->
         <isloop var="shippingModel" items="${pdict.order.shipping}" status="shippingLoop">
             <isif condition="${shippingLoop.first}">
-                <div class="single-shipping" data-shipment-summary="${shippingModel.UUID}">
+                <div class="single-shipping container-info-detail" data-shipment-summary="${shippingModel.UUID}">
                     <!--- Shipping information --->
-                    <p class="summary-section-label shipping-method-label mb-4">
-                        ${Resource.msg('label.order.shipping.method.custom', 'confirmation', null)}</p>
-                    <span class="shipping-method-title">${shippingModel.selectedShippingMethod.displayName}</span>
-                    <span class="shipping-method-arrival-time">
+                    <p class="summary-section-label shipping-method-label label-confirmation-detail mb-4">
+                        ${Resource.msg('label.order.shipping.method.custom', 'confirmation', null)}&nbsp;&nbsp;</p>
+                    <span class="shipping-method-title label-confirmation-detail2">${shippingModel.selectedShippingMethod.displayName}</span>
+                    <span class="shipping-method-arrival-time label-confirmation-detail2">
                         <isif condition="${shippingModel.selectedShippingMethod.estimatedArrivalTime}">
                             ${shippingModel.selectedShippingMethod.estimatedArrivalTime}
                         </isif>

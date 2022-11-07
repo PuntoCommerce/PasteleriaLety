@@ -138,7 +138,7 @@
                                             </button>
 
                                             <button
-                                                class="btn btn--gray btn__small text-uppercase btn-block place-order"
+                                                class="btn btn-product btn--gray btn__small btn-block place-order"
                                                 data-action="${URLUtils.url('CheckoutServices-PlaceOrder')}"
                                                 type="submit" name="submit"
                                                 value="place-order">${Resource.msg('button.place.order', 'checkout', null)}

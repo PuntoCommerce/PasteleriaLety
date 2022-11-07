@@ -15561,7 +15561,7 @@ div.availability {
 .truncate {
   animation: fadeIn 1s;
   height: 85px;
-  padding: 0 80px;
+  /* padding: 0 80px; */
 }
 
 a .moreless .less {
