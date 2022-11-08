@@ -4009,7 +4009,7 @@ input[type="submit"].btn-block {
   display: none;
   float: left;
   min-width: 10rem;
-  padding: 0.5rem 0;
+  padding:  35px 50px;
   margin: 0.125rem 0 0;
   font-size: 1rem;
   color: #212529;
@@ -15558,11 +15558,11 @@ div.availability {
   object-fit: cover;
 }
 
-.truncate {
+/* .truncate {
   animation: fadeIn 1s;
   height: 85px;
-  /* padding: 0 80px; */
-}
+  padding: 0 80px;
+} */
 
 a .moreless .less {
   color: var(--color-lety2) !important;
@@ -15679,11 +15679,6 @@ a .moreless .less {
   font-weight: 700;
   color: var(--color-lety-black) !important;
 }
-
-.plp-description {
-  font-size: 14px;
-}
-
 .product-tile .tile-body .price {
   font-size: 20px !important;
   height: 70px;
@@ -16486,7 +16481,7 @@ a .moreless .less {
 .site-search input {
   padding-right: 2rem;
   height: 37px;
-  width: 232px;
+  width: 209px;
   margin-top: 0.2em;
 }
 .suggestions-wrapper {
@@ -17382,10 +17377,22 @@ a .moreless .less {
   margin: 0 150px;
 }
 
-.tile-body .truncate-text{
+.tile-body .plp-description{
   font-size: 14px;
   font-family: 'gotham-book';
+  padding: 0 80px;
+  height: 80px;
 }
+
+.experience-commerce_layouts-carousel .carousel-control-prev{
+  left: -40px !important;
+}
+
+.experience-commerce_layouts-carousel .carousel-control-next{
+  right: -40px !important;
+}
+
+
 
 
 @media (max-width: 1024px) {

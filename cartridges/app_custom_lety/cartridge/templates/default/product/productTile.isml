@@ -6,10 +6,8 @@
              <div class="promotions col-6">
                     <isinclude template="product/components/promotions" />
             </div>
-   <!--Wishlist heart mobile-->
-        <div class="col-6 wishlist-product">
-            <isinclude template="wishlist/components/addToWishListButtonHeart"/>
-        </div>
+        <!--Wishlist heart mobile-->
+  
    </div>
     <isinclude template="product/components/productTileImage" />
     <div class="tile-body">
@@ -21,7 +19,7 @@
 
         <isif condition="${product.shortDescription}">
         <div class="truncate">
-                <p class="plp-description d-none">${product.shortDescription}</p>
+                <p class="plp-description">${product.shortDescription}</p>
         </div>
         </isif>
 
