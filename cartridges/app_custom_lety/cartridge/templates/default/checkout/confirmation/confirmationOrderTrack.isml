@@ -412,7 +412,7 @@
                 <tr>
                     <td>
                         <div class="div-logo-img">
-                            <img class="logo-img" src="${URLUtils.httpsStatic('/images/pedido-conf.png')}"
+                            <img class="logo-img" src="${URLUtils.httpsStatic('/images/banner-email.png')}"
                                 alt="logo Lety" />
                         </div>
                     </td>

@@ -1,0 +1,29 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/account/orderTrack.css');
+        assets.addCss('/css/account/profile.css');
+    </isscript>
+    <div class="title-container-detail-order d-flex justify-content-center">
+        <h1 class="page-title-order">${Resource.msg('label.orderhistory.title','account',null)}</h1>
+    </div>
+    <!--- Replace image once UX has given images --->
+   <iscomment>  <div class="hero slant-down account-image">
+        <h1 class="page-title">${Resource.msg('heading.order.details','order',null)}</h1>
+    </div> </iscomment>
+    <div class="container container-detail-order receipt <isif condition="${pdict.order.shipping.length > 1}">multi-ship</isif>">
+
+        <!---Breadcrumbs--->
+        <isinclude template="components/breadcrumbs/pageBreadcrumbs"/>
+        <div class="row justify-content-center">
+            <div class="col-sm-8 col-md-6 col-lg-12">
+                <isinclude template="checkout/confirmation/confirmationDetails" />
+                <div class="my-account">
+                    <a href="${pdict.exitLinkUrl}" title="${Resource.msg('link.orderdetails.myaccount','account',null)}" aria-label="${Resource.msg('link.orderdetails.myaccount','account',null)}">
+                        ${pdict.exitLinkText}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</isdecorate>
