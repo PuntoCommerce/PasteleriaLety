@@ -137,8 +137,7 @@
                                                 ${Resource.msg('button.next.place.order', 'checkout', null)}
                                             </button>
 
-                                            <button
-                                                class="btn btn-product btn--gray btn__small btn-block place-order"
+                                            <button class="btn btn-product btn--gray btn__small btn-block place-order"
                                                 data-action="${URLUtils.url('CheckoutServices-PlaceOrder')}"
                                                 type="submit" name="submit"
                                                 value="place-order">${Resource.msg('button.place.order', 'checkout', null)}
@@ -176,22 +175,21 @@
                                 </div>
                                 <isinclude template="checkout/orderTotalSummary" />
                                 <div class="d-flex justify-content-center pb-3">
-                                <div class="checkout__order--divider"></div>
-                            </div>
+                                    <div class="checkout__order--divider"></div>
+                                </div>
                                 <div class="row">
                                     <div class="col-12">
                                         <form action="${pdict.actionUrls.submitCouponCodeUrl}" class="promo-code-form"
                                             method="GET" name="promo-code-form">
                                             <div class="form-group">
-                                                <label
-                                                    for="couponCode">${Resource.msg('label.promo.code.check', 'checkout', null)}</label>
+                                                <label for="couponCode">${Resource.msg('label.promo.code.check', 'checkout', null)}</label>
                                                 <div class="row">
                                                     <div class="col-7">
                                                         <input type="text" class="form-control coupon-code-field"
                                                             id="couponCode" name="couponCode"
                                                             placeholder="${Resource.msg('placholder.text.promo.code.input', 'cart', null)}">
                                                         <div class="coupon-error">
-                                                            
+
                                                             <span class="coupon-error-message" id="invalidCouponCode"
                                                                 role="alert"></span>
                                                         </div>
@@ -212,42 +210,51 @@
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-center pb-3">
-                                <div class="checkout__order--divider"></div>
-                                
+                                    <div class="checkout__order--divider"></div>
+
                                 </div>
-                                 <div class="row">
+
+                                <div class="row">
+                                    
                                     <div class="col-12">
-                                        <form action="${}" class="promo-code-form lety-card-form"
-                                            method="GET" name="lety-card-form">
+                                        <form action="${}" class="promo-code-form lety-card-form" method="GET"
+                                            name="lety-card-form">
                                             <div class="form-group">
-                                                <label
-                                                    for="">${Resource.msg('label.code.club', 'checkout', null)}</label>
+                                                <label for="">${Resource.msg('label.code.club', 'checkout', null)}</label>
                                                 <div class="row">
                                                     <div class="col-7">
-                                                        <input type="text" class="form-control coupon-code-field"
-                                                            id="" name=""
-                                                            placeholder="${Resource.msg('placholder.text.lety.culb.input', 'checkout', null)}">
+                                                        <input type="text" class="form-control coupon-code-field" id=""
+                                                            name=""
+                                                            value="${pdict.customer.LetyCard}"
+                                                            ${pdict.customer.LetyCard !== undefined ? 'disabled' : ''}>
                                                         <div class="coupon-error">
-                                                            
+
                                                             <span class="coupon-error-message" id=""
                                                                 role="alert"></span>
                                                         </div>
                                                     </div>
 
-                                                    <input type="hidden" name="${}"
-                                                        value="${}" />
+                                                    <input type="hidden" name="${}" value="${}" />
 
                                                     <div class="col-5 promo-code-submit">
-                                                        <button type="submit"
-                                                            class="btn btn-product btn-block promo-code-btn">
-                                                            ${Resource.msg('button.submit.promo.code', 'cart', null)}
-                                                        </button>
+                                                    <isif condition="${pdict.customer.LetyCard}">
+                                                            <button type="button" class="btn btn-product btn-block promo-code-btn" data-toggle="modal"
+                                                                data-target="#letyCard">
+                                                                ${Resource.msg('button.submit.promo.code.cambiar', 'cart', null)} 
+                                                            </button>
+                                                        <iselse/>
+                                                            <button type="button" class="btn btn-product btn-block promo-code-btn" data-toggle="modal"
+                                                                data-target="#letyCard">
+                                                                ${Resource.msg('button.submit.promo.code.agregar', 'cart', null)} 
+                                                            </button>
+                                                        </isif>
                                                     </div>
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
-                            </div>
+
+                                </div>
                             </div>
                         </div>
 
@@ -280,5 +287,36 @@
     </div>
 
     <isinclude template="checkout/shipping/shippingAddressTemplate" />
+
+    <!-- Modal agregar o editar numero de letycard -->
+    <div class="modal fade" id="letyCard" tabindex="-1" aria-labelledby="letyCardLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="letyCardLabel">Lety Card</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="">
+                        <form action="${URLUtils.url("Checkout-AddLetyCard")}" method="POST">
+                            <input type="hidden" name="customerNo" value="${pdict.customer.customerNo}">
+                            <input type="text" name="letyCard" value="" required>
+                            <button type="submit">Agregar</button>
+                        </form>
+                    </div>
+                    o
+                    <div>
+                        <form action="${URLUtils.url("Checkout-GenerateLetyCard")}" method="POST">
+                            <input type="hidden" name="customerNo" value="${pdict.customer.customerNo}">
+                            <button type="submit">Generar nueva</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </isdecorate>
