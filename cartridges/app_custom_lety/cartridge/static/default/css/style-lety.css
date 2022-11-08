@@ -182,16 +182,21 @@
   padding-bottom: 40px;
 }
 
+.container-history{
+  padding: 40px 145px;
+}
+
 .container-newPass .breadcrumb, .container-payments .breadcrumb, 
 .myAccount .breadcrumb, .container-addres .breadcrumb, 
 .container-edit-addres .breadcrumb, .container-changePassword .breadcrumb,
-.container-editProfile .breadcrumb, .container-history .breadcrumb{
+.container-editProfile .breadcrumb, .container-history .breadcrumb, .container-detail-order .breadcrumb{
   border-bottom: none !important;
 }
 
 .container-newPass .card-header, .container-payments .card-header,
 .container-editProfile .card-header, .container-edit-addres .card-header, 
-.container-addres .card-header, .content-myaccount .card-header, .container-changePassword .card-header{
+.container-addres .card-header, .content-myaccount .card-header, 
+.container-changePassword .card-header, .container-history .card-header, .container-detail-order .card-header{
   background: #f3f3f3;
 }
 
@@ -259,10 +264,11 @@
 }
 
 /*Design Lety Club */
-.container-club .card, .container-moves .card{
+.container-club .card, .container-moves .card, .container-history .card, .container-detail-order .card{
   border: none;
 }
-.container-club .card-body, .container-moves .card-body{
+.container-club .card-body, .container-moves .card-body, .container-history .card-body, 
+.container-history .card-footer, .container-detail-order .card-body{
   padding: 1.25rem 4rem;
   border: 1px solid rgba(0, 0, 0, 0.125);
 }
@@ -344,6 +350,32 @@
 
 .label-search{
   text-align: right;
+}
+
+.container-history .card-header h3, .container-history .dashboard-order-card-footer-columns p{
+  font-size: 18px;
+  font-family: var(--font-family-gotham-bold) !important;
+}
+
+.container-detail-order{
+  padding: 30% 50px;
+}
+
+.view-order{
+  justify-content: center;
+  float: left !important;
+  padding-top: 60%;
+  color: var(--skin-primary-color-1);
+}
+
+.container-detail-order{
+  padding: 20px 145px;
+}
+
+.page-title-order{
+  font-family: var(--font-family-gotham-bold);
+  font-size: 35px;
+  padding-top: 66px;
 }
 
 

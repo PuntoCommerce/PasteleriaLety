@@ -409,7 +409,7 @@
                 <tr>
                     <td>
                         <div class="div-logo-img">
-                            <img class="logo-img" src="${URLUtils.httpsStatic('/images/order-cancel.png')}"
+                            <img class="logo-img" src="${URLUtils.httpsStatic('/images/banner-email.png')}"
                                 alt="logo Lety" />
                         </div>
                     </td>
