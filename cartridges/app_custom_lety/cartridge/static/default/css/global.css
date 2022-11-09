@@ -14878,11 +14878,11 @@ footer {
   padding-left: 2em;
 }
 footer h2 {
-  font-size: 17px;
+  font-size: 18px;
   margin-bottom: 0;
   line-height: 2.5em;
   font-family: var(--font-family-gotham);
-  font-weight: 500;
+  font-weight: 700;
 }
 
 footer.social-links span {
@@ -14998,7 +14998,8 @@ footer .social-links a:hover {
   }
 } */
 footer .content {
-  font-size: 16px;
+  font-size: 18px;
+  font-family: 'gotham-book';
 }
 footer .content li {
   height: 1.875rem;
@@ -17392,7 +17393,17 @@ a .moreless .less {
   right: -40px !important;
 }
 
+.experience-component.experience-commerce_assets-text_align{
+  margin: 20px 0;
+}
 
+.region{
+  margin-bottom: 0 !important;
+}
+
+.div-img-menu img{
+  width: 100% !important;
+}
 
 
 @media (max-width: 1024px) {

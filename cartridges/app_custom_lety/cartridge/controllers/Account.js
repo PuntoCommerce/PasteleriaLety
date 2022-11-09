@@ -9,24 +9,31 @@ const ApiServiceLety = require("*/cartridge/scripts/jobs/api");
 
 server.extend(module.superModule);
 
-server.get("Saldo", server.middleware.https, function (req, res, next) {
-  let letyCard = req.querystring.letyCard;
-  let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia", {
-    Empresa: 1,
-    s_IdMembresia: letyCard,
-  });
-  let SaldoMembresia = 0;
-  let FechaAlta = 0;
-  let StatusMembresia = 0;
- 
-  if(Func_DatosMembresia){
-    let JsonDatosMembresia = JSON.parse(Func_DatosMembresia);
-    SaldoMembresia =
-    JsonDatosMembresia.Func_DatosMembresia[0]["d_SaldoMembresia"];
-    FechaAlta = JsonDatosMembresia.Func_DatosMembresia[0]["sdtm_FechaAlta"];
-    StatusMembresia = JsonDatosMembresia.Func_DatosMembresia[0]["sc_Status"];
-  }
 
+server.get("Saldo", server.middleware.https, function (req, res, next) {
+    let letyCard = req.querystring.letyCard;
+    let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia", {
+      Empresa: 1,
+      s_IdMembresia: letyCard,
+    });
+
+    let JsonDatosMembresia;
+    let SaldoMembresia = 0;
+    let FechaAlta = 0;
+    let StatusMembresia = 0;
+
+    if(Func_DatosMembresia.ERROR) {
+      SaldoMembresia = 0;
+      FechaAlta = 0;
+      StatusMembresia = 0;
+    }else{
+      JsonDatosMembresia = JSON.parse(Func_DatosMembresia);
+      SaldoMembresia = JsonDatosMembresia.Func_DatosMembresia[0]["d_SaldoMembresia"];
+      FechaAlta = JsonDatosMembresia.Func_DatosMembresia[0]["sdtm_FechaAlta"];
+      StatusMembresia = JsonDatosMembresia.Func_DatosMembresia[0]["sc_Status"];
+    }
+ 
+    
   res.render("account/saldoLetyClub", {
     Account: {
       LetyCard: letyCard,
@@ -43,13 +50,24 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
   var PageMgr = require("dw/experience/PageMgr");
   var pageMetaHelper = require("*/cartridge/scripts/helpers/pageMetaHelper");
   var accountHelpers = require("*/cartridge/scripts/account/accountHelpers");
+  let ListaMovimientos = 0;
+
 
   let Func_MovimientosMembresia = ApiServiceLety.ApiLety(
     "Func_MovimientosMembresia",
     { Empresa: 1, s_IdMembresia: req.querystring.letyCard }
   );
-  let JsonMovimientosMembresia = JsonMovimientosMembresia = JSON.parse(Func_MovimientosMembresia);
-  let ListaMovimientos =JsonMovimientosMembresia.Func_MovimientosMembresia;
+
+  if(Func_MovimientosMembresia.ERROR) {
+    ListaMovimientos = [
+                          {
+                            "dtFechaAplica":"0","Centro":"0","TipoMovimiento":"0","Cargo":"0","Abono":"0","dSaldoAnterior":"0"
+                          }
+                        ]
+  }else{
+    let JsonMovimientosMembresia = JSON.parse(Func_MovimientosMembresia);
+    ListaMovimientos =JsonMovimientosMembresia.Func_MovimientosMembresia;
+  }
 
   res.render("account/movesLetyClub", { ListaMovimientos: ListaMovimientos });
   next();

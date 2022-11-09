@@ -1,14 +1,4 @@
 getPagination("#table-id");
-//getPagination('.table-class');
-//getPagination('table');
-
-/*					PAGINATION 
-		  - on change max rows select options fade out all rows gt option value mx = 5
-		  - append pagination list as per numbers of rows / max rows option (20row/5= 4pages )
-		  - each pagination li on click -> fade out all tr gt max rows * li num and (5*pagenum 2 = 10 rows)
-		  - fade out all tr lt max rows * li num - max rows ((5*pagenum 2 = 10) - 5)
-		  - fade in all tr between (maxRows*PageNum) and (maxRows*pageNum)- MaxRows 
-		  */
 
 function getPagination(table) {
   var lastPage = 1;
@@ -45,6 +35,7 @@ function getPagination(table) {
         // if tr total rows gt max rows option
         var pagenum = Math.ceil(totalRows / maxRows); // ceil total(rows/maxrows) to get ..
         //	numbers of pages
+        console.log(pagenum + "Esto es una prueba para las paginas")
         for (var i = 1; i <= pagenum; ) {
           // for each page append pagination li
           $(".pagination #prev")
@@ -52,9 +43,8 @@ function getPagination(table) {
               '<li data-page="' +
                 i +
                 '">\
-								  <span>' +
-                i++ +
-                '<span class="sr-only">(current)</span></span>\
+								  <span>' + i++ +
+                  '<span class="sr-only">(current)</span></span>\
 								</li>'
             )
             .show();
@@ -113,8 +103,6 @@ function getPagination(table) {
 }
 
 function limitPagging() {
-  // alert($('.pagination li').length)
-
   if ($(".pagination li").length > 7) {
     if ($(".pagination li.active").attr("data-page") <= 3) {
       $(".pagination li:gt(5)").hide();
@@ -147,5 +135,3 @@ $(function () {
   });
 });
 
-//  Developed By Yasser Mas
-// yasser.mas2@gmail.com
