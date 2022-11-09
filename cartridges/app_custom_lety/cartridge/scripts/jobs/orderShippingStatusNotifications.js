@@ -36,7 +36,7 @@ const execute = () => {
         let orderData = order;
 
         var emailObj = {
-            to: orde.customerEmail,
+            to: order.customerEmail,
             subject: Resource.msg('subject.order.shipped.email', 'order', null),
             from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
             type: emailHelpers.emailTypes.orderShipped
@@ -53,7 +53,7 @@ const execute = () => {
         let orderData = order;
 
         var emailObj = {
-            to: orde.customerEmail,
+            to: order.customerEmail,
             subject: Resource.msg('subject.order.delivered.email', 'order', null),
             from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
             type: emailHelpers.emailTypes.orderShipped

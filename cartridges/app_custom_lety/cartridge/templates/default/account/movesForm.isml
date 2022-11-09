@@ -37,7 +37,16 @@
         <th>${Resource.msg('title.th.abono', 'account', null)}</th>
         <th>${Resource.msg('title.th.saldo', 'account', null)}</th>
         </tr>
-    
+           <isloop items="${pdict.ListaMovimientos}" var="d" status="loopstatus">
+                <tr class="tr-info">
+                <td>${d.dtFechaAplica}</td>
+                <td>${d.Centro}</td>
+                <td>${d.TipoMovimiento}</td>
+                <td>${d.Cargo}</td>
+                <td>${d.Abono}</td>
+                <td>${d.dSaldoAnterior}</td>
+                </tr>
+            </isloop>
         </table>
     </div>
 </div>
