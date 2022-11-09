@@ -47,7 +47,7 @@
                         </isif>
                     </div>
                     <!--- quantity --->
-                    <div class="col-4">
+                    <div class="col-4" style="padding-left:0;">
                         <isif condition=${miniCart}>
                             <isinclude template="checkout/productCard/productCardQuantitySelector" />
                             <iselse>
