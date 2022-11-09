@@ -260,7 +260,7 @@
                                         <form action="${}" class="promo-code-form lety-card-form" method="GET"
                                             name="lety-card-form">
                                             <div class="form-group">
-                                                <label for="">${Resource.msg('label.code.club', 'checkout', null)}</label>
+                                                <label for="">${Resource.msg('label.code.puntos', 'checkout', null)}</label>
                                                 <div class="row">
                                                     <div class="col-7">
                                                         <input type="text" class="form-control coupon-code-field" id="letyCardModal"
