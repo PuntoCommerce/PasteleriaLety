@@ -14,14 +14,9 @@
             <div class="form-group"> 	<!--		Show Numbers Of Rows 		-->
                 <label for="" class="">${Resource.msg('label.view.moves', 'account', null)}</label>
                 <select  name="state" id="maxRows">
-                    <option value="5000">Show ALL Rows</option>
-                    <option value="2">2</option>
-                    <option value="4">4</option>
-                    <option value="15">15</option>
+                    <option value="2">5</option>
+                    <option value="4">10</option>
                     <option value="20">20</option>
-                    <option value="50">50</option>
-                    <option value="70">70</option>
-                    <option value="100">100</option>
                 </select>	
             </div>
         </div>
@@ -32,13 +27,8 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
     <div class="row content-table">
         <table id= "table-id">
-=======
-    <div class="row content-table ">
-        <table>
->>>>>>> 7945c774f88df195ec0d8b03f0f5800efb586d48
         <tr>
         <th>${Resource.msg('title.th.date', 'account', null)}</th>
         <th>${Resource.msg('title.th.suc', 'account', null)}</th>
@@ -47,23 +37,9 @@
         <th>${Resource.msg('title.th.abono', 'account', null)}</th>
         <th>${Resource.msg('title.th.saldo', 'account', null)}</th>
         </tr>
-         <isloop items="${pdict.ListaMovimientos}" var="d" status="loopstatus">
-            <tr class="tr-info">
-            <td>${d.dtFechaAplica}</td>
-            <td>${d.Centro}</td>
-            <td>${d.TipoMovimiento}</td>
-            <td>${d.Cargo}</td>
-            <td>${d.Abono}</td>
-            <td>${d.dSaldoAnterior}</td>
-            </tr>
-            </isloop>
+    
         </table>
     </div>
-
-    <div class="row">
-        
-    </div>
-
 </div>
 
 <!-- Cancel and Save Buttons -->
@@ -77,20 +53,25 @@
     
 </div>
 
-<!--Start Pagination -->
-	<div class="pagination-container">
+<div class="row">
+    <div class="col-6">
+        <span>Mostrando registros del 1 al 1 de un total de 1 registros</span>
+    </div>
+    <!--Start Pagination -->
+	<div class="pagination-container col-6 d-flex justify-content-end">
 		<nav>
 		    <ul class="pagination">
                 <li data-page="prev">
-				    <span> < <span class="sr-only">(current)</span></span>
+				    <span class="pr-2"> Anterior <span class="sr-only">(current)</span></span>
 				</li>
 				   <!--	Here the JS Function Will Add the Rows -->
                 <li data-page="next" id="prev">
-					<span> > <span class="sr-only">(current)</span></span>
+					<span class="pl-2"> Siguiente <span class="sr-only">(current)</span></span>
 			    </li>
 			</ul>
 		</nav>
 	</div>
+</div>
     
 </form>
 
