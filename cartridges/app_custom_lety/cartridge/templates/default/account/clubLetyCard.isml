@@ -18,22 +18,20 @@
         </div>
         <isif condition="${pdict.account.LetyCard}">
             <div class=" text-center row">
-                <div class="col-lg-6">
-                    <a href="${URLUtils.url('Account-Saldo','letyCard', pdict.account.LetyCard )}" class="card-link"
-                        aria-label="${Resource.msg('label.addressbook.addnewaddress', 'account', null)}"><button type="submit"
-                            class="btn btn-product btn-block promo-code-btn">
-                            ${Resource.msg('label.saldo', 'account', null)}
-                        </button> </a>
-                </div>
-                <isif condition="${pdict.customer.bloquearBoton !== undefined ? 'disabled' : ''}">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6" ${pdict.customer.bloquearBotonSaldo !== undefined ? 'disabled' : ''}>
+                        <a href="${URLUtils.url('Account-Saldo','letyCard', pdict.account.LetyCard )}" class="card-link"
+                            aria-label="${Resource.msg('label.addressbook.addnewaddress', 'account', null)}"><button type="submit"
+                                class="btn btn-product btn-block promo-code-btn">
+                                ${Resource.msg('label.saldo', 'account', null)}
+                            </button> </a>
+                    </div>
+                    <div class="col-lg-6" ${pdict.customer.bloquearBotonMovimientos !== undefined ? 'disabled' : ''}>
                         <a href="${URLUtils.url('Account-Movimientos', 'letyCard', pdict.account.LetyCard)}" class="card-link"
                             aria-label="${Resource.msg('label.addressbook.addnewaddress', 'account', null)}"><button type="submit"
                                 class="btn btn-product btn-block promo-code-btn">
                                 ${Resource.msg('label.movin', 'account', null)}
                             </button> </a>
                     </div>
-                </isif>
             </div>
         </isif>
     </div>
