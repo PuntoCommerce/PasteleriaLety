@@ -31,7 +31,7 @@
                 "@supports-site-context": "true",
                 "@supports-organization-context": "false",
                 "description": "Check for shipping status changes and send notifications",
-                "module": "app_custom_cormag/cartridge/scripts/jobs/orderShippingStatusNotifications.js",
+                "module": "app_custom_lety/cartridge/scripts/jobs/orderShippingStatusNotifications.js",
                 "function": "execute",
                 "transactional": "true",
                 "timeout-in-seconds": "900",
