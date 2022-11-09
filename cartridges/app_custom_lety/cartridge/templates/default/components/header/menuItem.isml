@@ -27,7 +27,7 @@
          </div>
       </div>
       <div class="d-flex justify-content-center col-8 div-img-menu">
-         <img src="${URLUtils.staticURL('/images/cachitoCarlosV.svg')}"
+         <img src="${URLUtils.staticURL('/images/menuImg.png')}"
                                     alt="${Resource.msg('global.storename', 'common', null)}" />
       </div>
    </div>

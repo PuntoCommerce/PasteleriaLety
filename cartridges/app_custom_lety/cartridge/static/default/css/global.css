@@ -17392,7 +17392,13 @@ a .moreless .less {
   right: -40px !important;
 }
 
+.experience-component.experience-commerce_assets-text_align{
+  margin: 20px 0;
+}
 
+.region{
+  margin-bottom: 0 !important;
+}
 
 
 @media (max-width: 1024px) {
