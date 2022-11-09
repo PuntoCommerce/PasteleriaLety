@@ -60,7 +60,10 @@
     if(path==="Func_DatosMembresia"){
       let json = '{"'+path+'":[';
 
+<<<<<<< HEAD
       const iIdFolioPersona = XMLList(xml).descendants("iIdFolioPersona");
+=======
+>>>>>>> 79d13690 (UpdateJSONDatosMembresia)
       const s_Nombre = XMLList(xml).descendants("s_Nombre");
       const s_ApellidoPat = XMLList(xml).descendants("s_ApellidoPat");
       const s_ApellidoMat = XMLList(xml).descendants("s_ApellidoMat");
@@ -101,8 +104,12 @@
           '","PreferenciaProducto":"'+PreferenciaProducto[i]+
           '","dtFechaNacimiento":"'+dtFechaNacimiento[i]+
           '","iIdCiudad":"'+iIdCiudad[i]+
+<<<<<<< HEAD
           '","iIdEstado":"'+iIdEstado[i]+
           '","iIdFolioPersona":"'+iIdFolioPersona[i]+'"},';
+=======
+          '","iIdEstado":"'+iIdEstado[i]+'"},';
+>>>>>>> 79d13690 (UpdateJSONDatosMembresia)
         }
         json = json.slice(0,-1)+']}';
       }
