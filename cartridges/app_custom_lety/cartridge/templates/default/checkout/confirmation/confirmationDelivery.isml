@@ -431,13 +431,13 @@
                     <td>
                         <div class="text-container">
                             <div class="text-congrat" style="text-align: left;">
-                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.order.cancel.email', 'confirmation', null)}&nbsp;${pdict.firstName}&nbsp;${pdict.lastName},
+                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.order.cancel.email', 'confirmation', null)}&nbsp;${pdict.order.firstName}&nbsp;${pdict.order.lastName},&nbsp;${JSON.stringify(order)} ,
                                 </p>
                                 <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery.email', 'confirmation', null)}
                                 </p>
                                 <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery1.email', 'confirmation', null)}
                                 </p>
-                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery2.email', 'confirmation', null)}&nbsp;&nbsp;<a href="">${Resource.msg('msg.delivery3.email', 'confirmation', null)}</a>
+                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery2.email', 'confirmation', null)}&nbsp;&nbsp;<a href="http://factura.pastelerialety.com/">${Resource.msg('msg.delivery3.email', 'confirmation', null)}</a>
                                 </p>
                                  <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery4.email', 'confirmation', null)}
                                 </p>

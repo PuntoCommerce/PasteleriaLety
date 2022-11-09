@@ -435,7 +435,7 @@
                 <table>
                     <tr>
                         <td style="padding-bottom: 25px;">
-                            <p style="font-weight: 900; font-size: 24px;">${pdict.firstName},</p>
+                            <p style="font-weight: 900; font-size: 24px;">${pdict.order.firstName},</p>
                             <p style="font-weight: 900; font-size: 24px;">Gracias por comprar en Pastelería Lety, tu
                                 pedido está confirmado, una vez que tu pago sea validado enviaremos un código de rastreo
                                 de la paquetería para rastrearlo.
