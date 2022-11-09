@@ -2,6 +2,7 @@
   position: relative;
   text-align: center;
   display: flex;
+  margin: 15px 0;
 }
 
 .img {
@@ -29,7 +30,7 @@
   transform: translate(-50%, -50%);
   width: 232px;
   height: 37px;
-  background-color: #D7612B;
+  background-color: #FFD5B5;
   /* border-color: #ffffff; */
   border: none;
   font-style: normal;
@@ -40,13 +41,13 @@
   text-align: center;
   letter-spacing: -0.011em;
   line-height: 0 !important;
-  color: #ffffff;
+  color: #B37E5B;
   flex: none;
   order: 0;
   flex-grow: 1;
   font-family: 'gotham-book';
   border-radius: 20px;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .content_TB.align-top {
