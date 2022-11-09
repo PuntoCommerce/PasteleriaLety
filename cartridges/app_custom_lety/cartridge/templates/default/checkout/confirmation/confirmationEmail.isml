@@ -426,14 +426,14 @@
                 <tr>
                     <td>
                         <div class="text-container">
-                            <div class="text-congrat">
+                            <div class="text-congrat" style="padding-left: 110px; padding-right: 114px">
                                 <p style="font-size: 18px;">${pdict.firstName},</p>
                                 <p style="font-size: 18px;">Gracias por comprar en Pastelería Lety, tu
                                     pedido está confirmado, una vez que tu pago sea validado enviaremos un código de
                                     rastreo
                                     de la paquetería para rastrearlo.
                                     Puedes ver el estado de tu pedido al ingresar a <a class="link-login"
-                                        style="font-weight: 700;"
+                                        style="font-weight: 700; font-size: 18px;"
                                         href="https://bjqr-001.sandbox.us01.dx.commercecloud.salesforce.com/on/demandware.store/Sites-PasteleriaLety-Site/es/Login-Show">tu
                                         cuenta.</a>
                                     <iscomment> ${Resource.msg('email.order.confirm.msg.body1', 'confirmation', null)}
@@ -446,7 +446,7 @@
                                     o al 800-0024-966
                                     <iscomment> ${Resource.msg('email.order.confirm.msg.body2', 'confirmation', null)}:<span>9999999</span> </iscomment>
                                 </p>
-                                <a href="http://factura.pastelerialety.com/">
+                                <a href="http://factura.pastelerialety.com/" style="color: #0074FC; font-size: 18px;">
                                     Si deseas facturar haz clic aquí
                                     <iscomment> ${Resource.msg('email.msg.new.registration.body3', 'confirmation', null)}
                                     </iscomment>
@@ -470,7 +470,8 @@
                                         <strong
                                             style="color: #ffffff; font-size: 16px; font-weight: 700;">${Resource.msg('label.order.detail', 'confirmation', null)}:</strong> <br />
                                     </div>
-                                    <table class="order-sumary" style="margin-bottom:40px;">
+                                    <div style="max-width: 411px; max-height: 279px; background-color: #F3F3F3;">
+                                        <table class="order-sumary" style="margin-bottom:40px;">
                                         <isif condition="${pdict.order.shipping.length === 1}">
                                             <isloop items="${pdict.order.items.items}" var="lineItem">
                                                 <tr>
@@ -568,7 +569,9 @@
                                                 </tr>
                                             </isloop>
                                         </isif>
-                                    </table>
+                                    </table> 
+                                    </div>
+                                   
                                 </div>
 
                             </div>
