@@ -1,58 +1,142 @@
-
 <isscript>
     var assets = require('*/cartridge/scripts/assets.js');
     assets.addJs("/js/pagination.js");
     assets.addCss('/css/pagination.css');
 </isscript>
 
+
+
+
 <form action="${URLUtils.url('Address-SaveAddress', 'addressId', pdict.addressId)}" class="address-form" method="POST"
     <isprint value="${pdict.addressForm.attributes}" encoding="off" />>
 
-<div class=" container-form">
+<div class="container-form">
     <div class="row">
-        <div class="col-6">
-            <div class="form-group"> 	<!--		Show Numbers Of Rows 		-->
+        <div class="col-12 col-md-6">
+            <div class="form-group"> 
                 <label for="" class="">${Resource.msg('label.view.moves', 'account', null)}</label>
-                <select  name="state" id="maxRows">
-                    <option value="2">5</option>
-                    <option value="4">10</option>
+                <select name="drowdownRows" class="drowdownRows" id="rowsSelect" onchange="pagination.onChangeRows(event)">
+                    <option value="10" selected>10</option>
                     <option value="20">20</option>
-                </select>	
+                    <option value="30">30</option>
+                </select>   
             </div>
         </div>
-        <div class="col-6">
-            <div class="row">
+        <div class="col-12 col-md-6">
+            
+            <div class="input-group mb-3 container-label-search">
                 <label for="" class="col-4 label-search">${Resource.msg('label.header.banner', 'search', null)}</label>
-                <input type="" name="" value="" class="col-6 input-search">
+                <input 
+                    type="text" 
+                    name="inputSearch" 
+                    id="inputSearch" 
+                    value="" 
+                    class="form-control input-search" 
+                    oninput="pagination.onChangeSearh(event)"
+                />
+                
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 20.0686L13 14.0228M15 8.98459C15 12.8801 11.866 16.038 8 16.038C4.13401 16.038 1 12.8801 1 8.98459C1 5.08909 4.13401 1.93115 8 1.93115C11.866 1.93115 15 5.08909 15 8.98459Z" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                    </span>
+                </div>
             </div>
+
+
         </div>
+
+        
+
     </div>
+
     <div class="row content-table">
         <table id= "table-id">
-        <tr>
-        <th>${Resource.msg('title.th.date', 'account', null)}</th>
-        <th>${Resource.msg('title.th.suc', 'account', null)}</th>
-        <th>${Resource.msg('title.th.description', 'account', null)}</th>
-        <th>${Resource.msg('title.th.canje', 'account', null)}</th>
-        <th>${Resource.msg('title.th.abono', 'account', null)}</th>
-        <th>${Resource.msg('title.th.saldo', 'account', null)}</th>
-        </tr>
-           <isloop items="${pdict.ListaMovimientos}" var="d" status="loopstatus">
-                <tr class="tr-info">
-                <td>${d.dtFechaAplica}</td>
-                <td>${d.Centro}</td>
-                <td>${d.TipoMovimiento}</td>
-                <td>${d.Cargo}</td>
-                <td>${d.Abono}</td>
-                <td>${d.dSaldoAnterior}</td>
-                </tr>
-            </isloop>
+            <tr>
+                <th>
+                    <button class="btn-table-header" type="button" onclick="pagination.orderItems(0, this)">
+                        ${Resource.msg('title.th.date', 'account', null)}
+                        <div class="icon-order-table"></div>
+                    </button>
+                    
+                </th>
+                <th>
+                    <button class="btn-table-header" type="button" onclick="pagination.orderItems(1)">
+                        ${Resource.msg('title.th.suc', 'account', null)}
+                        <div class="icon-order-table"></div>
+                    </button>
+                </th>
+                <th>
+                    <button class="btn-table-header" type="button" onclick="pagination.orderItems(2)">
+                        ${Resource.msg('title.th.description', 'account', null)}
+                        <div class="icon-order-table"></div>
+                    </button>
+                    
+                </th>
+                <th>
+                    <button class="btn-table-header" type="button" onclick="pagination.orderItems(3)">
+                        ${Resource.msg('title.th.canje', 'account', null)}
+                        <div class="icon-order-table"></div>
+                    </button>
+                </th>
+                <th>
+                    <button class="btn-table-header" type="button" onclick="pagination.orderItems(4)">
+                        ${Resource.msg('title.th.abono', 'account', null)}
+                        <div class="icon-order-table"></div>
+                    </button>
+                </th>
+                    
+                <th>
+                    <button class="btn-table-header" type="button" onclick="pagination.orderItems(5)">
+                        ${Resource.msg('title.th.saldo', 'account', null)}
+                        <div class="icon-order-table"></div>
+                    </button>
+                </th>
+            </tr>
+            <tbody id="itemsListTable"></tbody>
         </table>
     </div>
 </div>
 
+
+<div id="listCards" class="listCards"></div>
+
+
+<input type="hidden" value="${pdict.arrayMovimientos}" id="listaMovimientos"/>
+
+
+<div class="container-buttons">
+   <div class="row flex-column-reverse flex-md-row">
+    <div class="col-12 col-md-6">
+        <div class="textInfoContainer">
+            <span id="textInfoPagination"></span>
+        </div>
+        
+    </div>
+    <!--Start Pagination -->
+    <div class="col-12 col-md-6 pagination-container  d-flex justify-content-end">
+        <nav>
+            <ul class="pagination">
+                <button type="button" data-page="prev" onclick="pagination.handleBtnNavigate(1)"  class="btnControls">
+                    <span class="pr-2"> Anterior <span class="sr-only">(current)</span></span>
+                </button>
+                <button type="button" id="btnNumPage" class="btnNumPage" value=""></button>
+                   <!-- Here the JS Function Will Add the Rows -->
+                <button type="button" data-page="next" id="prev" onclick="pagination.handleBtnNavigate(2)" class="btnControls">
+                    <span class="pl-2"> Siguiente <span class="sr-only">(current)</span></span>
+                </button>
+            </ul>
+        </nav>
+    </div> 
+</div>
+
+</div>
+
+
 <!-- Cancel and Save Buttons -->
-<div class="row container-buttoms">
+<div class="row ">
  <div class="col-6">
                 <a href="${URLUtils.url('Account-Show')}" class="profile-back-to-account-link text-left">${Resource.msg('link.profile.backtomyaccount','account',null)}</a>
             </div>
@@ -61,26 +145,5 @@
     </div>
     
 </div>
-
-<div class="row">
-    <div class="col-6">
-        <span>Mostrando registros del 1 al 1 de un total de 1 registros</span>
-    </div>
-    <!--Start Pagination -->
-	<div class="pagination-container col-6 d-flex justify-content-end">
-		<nav>
-		    <ul class="pagination">
-                <li data-page="prev">
-				    <span class="pr-2"> Anterior <span class="sr-only">(current)</span></span>
-				</li>
-				   <!--	Here the JS Function Will Add the Rows -->
-                <li data-page="next" id="prev">
-					<span class="pl-2"> Siguiente <span class="sr-only">(current)</span></span>
-			    </li>
-			</ul>
-		</nav>
-	</div>
-</div>
     
 </form>
-
