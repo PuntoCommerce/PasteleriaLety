@@ -8,6 +8,7 @@ const Session = require("dw/system/Session");
 const { closestStore } = require("~/cartridge/scripts/helpers/distance");
 
 server.get("Start", (req, res, next) => {
+  //let variable = req;
   const currentSite = Site.getCurrent();
   const apikey = currentSite.getCustomPreferenceValue("mapAPI");
   const isSessionStoreMandatory = currentSite.getCustomPreferenceValue(
@@ -55,6 +56,20 @@ server.post("CleanStore", (req, res, next) => {
 });
 
 server.post("SetStore", (req, res, next) => {
+  
+  // let CustomerMgr = require('dw/customer/CustomerMgr');
+  // let AddressModel = require('*/cartridge/models/address');
+  // let collections = require('*/cartridge/scripts/util/collections');
+
+  // let customer = CustomerMgr.getCustomerByCustomerNumber(req.currentCustomer.profile.customerNo);
+  // // Lista de Direcciones
+  // let rawAddressBook = customer.addressBook.getAddresses();
+
+
+  // // Sesion en cache del usuario
+  // let userSession = req.session.privacyCache.set("storeId", storeId);
+
+  
   const stores = SystemObjectMgr.querySystemObjects(
     "Store",
     "latitude != {0} AND longitude != {0}",
@@ -78,3 +93,6 @@ server.post("SetStore", (req, res, next) => {
 
 
 module.exports = server.exports();
+
+
+//1 enpieza
