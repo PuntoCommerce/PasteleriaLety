@@ -7,6 +7,7 @@ const {
 } = require("*/cartridge/scripts/helpers/letyCardHelpers");
 const ApiServiceLety = require("*/cartridge/scripts/jobs/api");
 
+
 server.extend(module.superModule);
 
 server.get("Saldo", server.middleware.https, function (req, res, next) {
@@ -39,6 +40,7 @@ server.get("Saldo", server.middleware.https, function (req, res, next) {
 });
 
 server.get("Movimientos", server.middleware.https, function (req, res, next) {
+  
   var Site = require("dw/system/Site");
   var PageMgr = require("dw/experience/PageMgr");
   var pageMetaHelper = require("*/cartridge/scripts/helpers/pageMetaHelper");
@@ -51,7 +53,7 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
   let JsonMovimientosMembresia = JsonMovimientosMembresia = JSON.parse(Func_MovimientosMembresia);
   let ListaMovimientos =JsonMovimientosMembresia.Func_MovimientosMembresia;
 
-  res.render("account/movesLetyClub", { ListaMovimientos: ListaMovimientos });
+  res.render("account/movesLetyClub", { ListaMovimientos: ListaMovimientos, arrayMovimientos: JSON.stringify(ListaMovimientos ) });
   next();
 });
 
