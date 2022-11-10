@@ -62,11 +62,17 @@
   color: #000000;
 }
 
-#menuDesk .dropdown-menu .category-item.item a,
 #menuDesk .nav-item a {
   color: var(--color-lety-black);
   font-family: var(--font-family-gotham);
   font-size: 15px;
+}
+
+#menuDesk .dropdown-menu .category-item.item a{
+  color: var(--color-lety-black);
+  font-family: var(--font-family-gotham);
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .nav.navbar-nav {

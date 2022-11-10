@@ -1,13 +1,9 @@
 body{
-    background-color: #eee; 
+    background-color: white; 
 }
 
 table th , table td{
     text-align: center;
-}
-
-table tr:nth-child(even){
-    background-color: #BEF2F5
 }
 
 .pagination li:hover{

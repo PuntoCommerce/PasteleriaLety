@@ -4009,7 +4009,7 @@ input[type="submit"].btn-block {
   display: none;
   float: left;
   min-width: 10rem;
-  padding: 0.5rem 0;
+  padding:  35px 50px;
   margin: 0.125rem 0 0;
   font-size: 1rem;
   color: #212529;
@@ -14878,11 +14878,11 @@ footer {
   padding-left: 2em;
 }
 footer h2 {
-  font-size: 17px;
+  font-size: 18px;
   margin-bottom: 0;
   line-height: 2.5em;
   font-family: var(--font-family-gotham);
-  font-weight: 500;
+  font-weight: 700;
 }
 
 footer.social-links span {
@@ -14998,7 +14998,8 @@ footer .social-links a:hover {
   }
 } */
 footer .content {
-  font-size: 16px;
+  font-size: 18px;
+  font-family: 'gotham-book';
 }
 footer .content li {
   height: 1.875rem;
@@ -15558,11 +15559,11 @@ div.availability {
   object-fit: cover;
 }
 
-.truncate {
+/* .truncate {
   animation: fadeIn 1s;
   height: 85px;
-  /* padding: 0 80px; */
-}
+  padding: 0 80px;
+} */
 
 a .moreless .less {
   color: var(--color-lety2) !important;
@@ -15679,11 +15680,6 @@ a .moreless .less {
   font-weight: 700;
   color: var(--color-lety-black) !important;
 }
-
-.plp-description {
-  font-size: 14px;
-}
-
 .product-tile .tile-body .price {
   font-size: 20px !important;
   height: 70px;
@@ -16486,7 +16482,7 @@ a .moreless .less {
 .site-search input {
   padding-right: 2rem;
   height: 37px;
-  width: 232px;
+  width: 209px;
   margin-top: 0.2em;
 }
 .suggestions-wrapper {
@@ -17382,9 +17378,31 @@ a .moreless .less {
   margin: 0 150px;
 }
 
-.tile-body .truncate-text{
+.tile-body .plp-description{
   font-size: 14px;
   font-family: 'gotham-book';
+  padding: 0 80px;
+  height: 80px;
+}
+
+.experience-commerce_layouts-carousel .carousel-control-prev{
+  left: -40px !important;
+}
+
+.experience-commerce_layouts-carousel .carousel-control-next{
+  right: -40px !important;
+}
+
+.experience-component.experience-commerce_assets-text_align{
+  margin: 20px 0;
+}
+
+.region{
+  margin-bottom: 0 !important;
+}
+
+.div-img-menu img{
+  width: 100% !important;
 }
 
 

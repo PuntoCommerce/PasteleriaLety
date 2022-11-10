@@ -11,6 +11,11 @@ const URLUtils = require("dw/web/URLUtils");
 const csrfProtection = require("*/cartridge/scripts/middleware/csrf");
 const consentTracking = require("*/cartridge/scripts/middleware/consentTracking");
 
+const {
+  addLetyCardToCustomer,
+} = require("*/cartridge/scripts/helpers/letyCardHelpers");
+
+
 server.get(
   "oAuth",
   consentTracking.consent,
@@ -40,5 +45,21 @@ server.get(
     next();
   }
 );
+
+server.post("AddLetyCard", (req, res, next) => {
+  addLetyCardToCustomer(req.form);
+  res.redirect(URLUtils.url("Checkout-Begin"));
+  next();
+});
+
+server.post("GenerateLetyCard", (req, res, next) => {
+  addLetyCardToCustomer({
+    customerNo: req.form.customerNo,
+    letyCard: Date.now(),
+  });
+
+  res.redirect(URLUtils.url("Checkout-Begin"));
+  next();
+});
 
 module.exports = server.exports();

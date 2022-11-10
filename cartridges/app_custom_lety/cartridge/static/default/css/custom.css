@@ -296,6 +296,18 @@ ul {
   display: none;
 }
 
+.carousel-cart{
+  overflow-y: hidden;
+  height: 180vh;
+}
+
+@media (max-width: 1300px) {
+  .carousel-cart{
+    overflow-y: hidden;
+    height: 200vh;
+  }
+}
+
 @media (max-width: 991px) {
   #openCustomMenu {
     display: block;
@@ -398,5 +410,10 @@ ul {
   #actions-icons .items,
   .category-items {
     width: 50%;
+  }
+
+  .carousel-cart{
+    overflow-y: hidden;
+    height: 240vh;
   }
 }
