@@ -1,6 +1,9 @@
 const $C = (el) => document.querySelector(el);
 const $$C = (el) => document.querySelectorAll(el);
 
+
+
+
 window.addEventListener("scroll", () => {
   changeSubMenuItem();
 });
@@ -136,32 +139,40 @@ setTimeout(() => {
    });
  });
 
+try {
+  filter_container.addEventListener('click', () => {
+    setTimeout(() => {
+      filter_container = document.querySelector("#filter-categories");
+        button_filter = document.querySelector("#filter-button");
+  
+        button_filter.addEventListener("click", () => {
+          if (filter_container.style.display === "none") {
+            filter_container.style.display = "block";
+          } else {
+            filter_container.style.display = "none";
+          }
+        });
+    }, 1000);
+  })
+} catch (error) {
+  console.log(error)
+}
 
-filter_container.addEventListener('click', () => {
-  setTimeout(() => {
-    filter_container = document.querySelector("#filter-categories");
-      button_filter = document.querySelector("#filter-button");
+try {
+  button_filter.addEventListener("click", () => {
+    // filter_container.classList.toggle('filtershow')
+    console.log("funciona");
+  
+    if (filter_container.style.display === "none") {
+      filter_container.style.display = "block";
+    } else {
+      filter_container.style.display = "none";
+    }
+  });  
+} catch (error) {
+  console.log(error)
+}
 
-      button_filter.addEventListener("click", () => {
-        if (filter_container.style.display === "none") {
-          filter_container.style.display = "block";
-        } else {
-          filter_container.style.display = "none";
-        }
-      });
-  }, 1000);
-})
-
-button_filter.addEventListener("click", () => {
-  // filter_container.classList.toggle('filtershow')
-  console.log("funciona");
-
-  if (filter_container.style.display === "none") {
-    filter_container.style.display = "block";
-  } else {
-    filter_container.style.display = "none";
-  }
-});
 
 /* ########################################## ⬆️ Calendar Delivery ⬆️ ####################################################*/
 /* let monthNames= ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
