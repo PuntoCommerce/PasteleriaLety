@@ -47,7 +47,7 @@
         .email-title span {
             color: #1C1C1C;
             font-weight: bold;
-            font-size: 25px;
+            font-size: 35px;
         }
 
         .logo-body {
@@ -431,8 +431,8 @@
                     <td>
                         <div class="text-container">
                             <div class="text-congrat" style="text-align: left;">
-                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.order.cancel.email', 'confirmation', null)}&nbsp;${pdict.order.firstName}&nbsp;${pdict.order.lastName},&nbsp;${JSON.stringify(order)} ,
-                                </p>
+                                <iscomment> <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.order.cancel.email', 'confirmation', null)}&nbsp;${pdict.order.firstName}&nbsp;${pdict.order.lastName},&nbsp;${JSON.stringify(order)} ,
+                                </p> </iscomment>
                                 <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery.email', 'confirmation', null)}
                                 </p>
                                 <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery1.email', 'confirmation', null)}

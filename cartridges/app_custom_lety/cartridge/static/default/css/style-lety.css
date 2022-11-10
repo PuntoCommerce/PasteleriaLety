@@ -370,6 +370,7 @@
 
 .container-detail-order{
   padding: 20px 145px;
+  display: inline;
 }
 
 .page-title-order{

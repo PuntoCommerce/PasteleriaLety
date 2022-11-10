@@ -427,7 +427,7 @@
                     <td>
                         <div class="text-container">
                             <div class="text-congrat">
-                            <p class="text" style="  padding: 5px 0 7px 0;">${pdict.order.firstName}&nbsp;${pdict.lastName},</p>
+                            <iscomment> <p class="text" style="  padding: 5px 0 7px 0;">${pdict.order.firstName},</p> </iscomment>
                                 <p>${Resource.msg('msg.confir.track.email', 'confirmation', null)}</p>
 
                                 <a href=""><p style="font-weight: bold; padding: 5px 0 7px 0;">${Resource.msg('msg.confir.track.rastreo.email', 'confirmation', null)}

@@ -41,7 +41,7 @@
         .email-title span {
             color: #1C1C1C;
             font-weight: bold;
-            font-size: 25px;
+            font-size: 35px;
         }
 
         .logo-body {
@@ -128,7 +128,7 @@
         .text-container {
             max-width: 1124px;
             padding: 40px 20px 40px 20px;
-            margin: 24px 0 99px 10%;
+            margin: 24px 0 99px 5%;
             border: 1px solid black;
             text-align: -moz-left;
             text-align: left;
