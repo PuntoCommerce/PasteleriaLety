@@ -109,7 +109,12 @@
     
       return json;
     }
-
+    if(path==="Func_ActualizaDatosMembresia"){
+      let json = '{"'+path+'":[';
+      json+='{"se actualizo correctamente":"se actualizo correctamente"},';
+      json = json.slice(0,-1)+']}';
+      return json;
+    }
     if(path==="Func_MovimientosMembresia"){
       let json = '{"'+path+'":[';
 
