@@ -79,7 +79,7 @@ header .container {
   } */
 
 .navbar-nav {
-  background-color: #ffffff !important;
+  background-color: #D7612B !important;
   display: flex;
   justify-content: center;
 }
@@ -128,7 +128,7 @@ header .container {
   border: 1px solid #000000 !important;
   border-radius: 0 !important;
   width: 308px;
-  height: 23px !important;
+  height: 37px !important;
 }
 
 .site-search .reset-button {
