@@ -1059,19 +1059,6 @@ span.ship-to-phone {
   max-width: 440px;
 }
 
-.container-payments .payment-form .div-month, .container-payments .payment-form .div-year{
-  max-width: 435px !important;
-  padding-left: 0 !important;
-}
-
-.container-payments .payment-form .div-year{
-  text-align: right;
-}
-
-.container-payments .payment-form .btn.btn-cancelar, .container-payments .btn-product{
- max-width: 475px !important;
-}
-
 .payment-information .credit-card-tab, .payment-information .paypal-tab{
   padding-left: 0;
 }
