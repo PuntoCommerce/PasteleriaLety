@@ -1,9 +1,188 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addJs("/js/accountSaldoForm.js");
+</isscript>
+        
+
+<form action="" id="accountSaldoForm" method="get">
+
+    <div class="row mb-2">
+        <div class="data-info col-sm-12 col-md-12 col-lg-6">
+            <span class="span-club-info"><span class="d-none">*</span>${Resource.msg('label.date.card', 'account', null)}:
+                <p class="p-info">
+                    ${pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].sdtm_FechaAlta ? pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].sdtm_FechaAlta : ""}
+                </p>
+            </span>
+            <span class="span-club-info">${Resource.msg('label.status.card', 'account', null)}: 
+                <p class="p-info">
+                    ${pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].sc_Status ? pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].sc_Status : ""}
+                </p>
+            </span>
+            <span class="span-club-info">${Resource.msg('label.noCard', 'account', null)}:
+                <p class="p-info">
+                    ${pdict.Account.LetyCard ? pdict.Account.LetyCard : ""}
+                </p>
+            </span>
+            <span class="span-club-info">${Resource.msg('label.noCard', 'account', null)}:
+                <p class="p-info">
+                    ${pdict.Account.LetyCard ? pdict.Account.LetyCard : ""}
+                </p>
+            </span>
+        </div>
+        <div class="container-img-card col-sm-12 col-md-12 col-lg-6">
+            <img src="${URLUtils.staticURL('/images/card-club.svg')}" alt="Card-club" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6 form-group">
+            <label class="label-card" for="firstName">
+                <span class="text-danger d-none" id="firstNameSpan">*&nbsp;</span>${ Resource.msg('label.profile.firstname', 'account', null) }
+            </label>
+            <input
+                class="form-control input-card"
+                type="text" 
+                name="firstName" 
+                value="${pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_Nombre ? pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_Nombre : ""}"
+            />
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-6 form-group">
+            <label class="label-card" for="lastName">
+                <span class="text-danger d-none" id="lastNameSpan">*&nbsp;</span>${ Resource.msg('label.profile.lastname', 'account', null) }
+            </label>
+            <input
+                class="form-control input-card"
+                type="text" 
+                name="lastName" 
+                value="${pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_ApellidoPat ? pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_ApellidoPat : "" }${ pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_ApellidoMat  ? pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_ApellidoMat : ""}"
+            />      
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6 form-group">
+            <label class="label-card" for="member">
+                <span class="text-danger d-none" id="memberSpan">*&nbsp;</span>${Resource.msg('label.date.member', 'account', null)}
+            </label>
+            <input
+                class="form-control input-card"
+                type="text"
+                name="member"
+                value="${pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].sdtm_FechaAlta ? pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].sdtm_FechaAlta : ""}"
+            />
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6 form-group">
+            <label class="label-card" for="sexCard">
+                ${Resource.msg('label.sex.card', 'account', null)}
+            </label>
+            <input
+                class="form-control input-card"
+                type=""
+                name="sexCard"
+                value="${pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_Sexo ? pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_Sexo : ""}"
+            />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6 form-group">
+            <label class="label-card" for="email">
+                <span class="text-danger d-none" id="emailSpan">*&nbsp;</span>${Resource.msg('label.profile.email', 'account', null)}
+            </label>
+            <input
+                class="form-control input-card"
+                type="email"
+                name="email"
+                value="${pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_Mail ? pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_Mail : ""}"
+            />
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6 form-group">
+            <label class="label-card" for="phone">
+                ${Resource.msg('label.profile.phone', 'account', null)}
+            </label>
+            <input
+                class="form-control input-card"
+                type="tel"
+                name="phone"
+                value="${pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_Telefono1 ? pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_Telefono1 : ""}"
+            />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-4 col-lg-4 form-group">
+            <label class="label-card" for="address">
+                <span class="text-danger d-none" id="addressSpan">*&nbsp;</span>${Resource.msg('field.shipping.address.aditional', 'address', null)}
+            </label>
+            <input
+                class="form-control input-card"
+                type="text"
+                name="address"
+                value="${pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_Colonia ? pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_Colonia : ""}"
+            />
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 form-group">
+            <label class="label-card" for="city">
+                <span class="text-danger d-none" id="citySpan">*&nbsp;</span>${Resource.msg('field.shipping.address.city', 'address', null)}
+            </label>
+            <input
+                class="form-control input-card"
+                type="text"
+                name="city"
+                value="${pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].Ciudad ? pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].Ciudad : ""}"
+            />
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 form-group">
+            <label class="label-card" for="state">
+                <span class="text-danger d-none" id="stateSpan">*&nbsp;</span>${Resource.msg('field.shipping.address.state', 'address', null)}
+            </label>
+            <input
+                class="form-control input-card"
+                type="text"
+                name="state"
+                value="${pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].Estado ? pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].Estado : ""}"
+            />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 form-group">
+            <label class="label-card" for="favorit">
+                ${Resource.msg('label.cake.favorit', 'account', null)}
+            </label>
+            <input
+                class="form-control input-card"
+                type="text"
+                name="favorit"
+                value="${pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].PreferenciaProducto ? pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].PreferenciaProducto : ""}"
+            />
+        </div>
+    </div>
+
+    <div class="row">  
+        <div class="col-sm-12 col-md-4 col-lg-4 form-group">
+            <a href="${URLUtils.url('Account-Show')}"
+        class="profile-back-to-account-link text-left">${Resource.msg('link.profile.backtomyaccount', 'account', null)}</a>
+        </div>
+        <div class="col-sm-12 col-md-3 col-lg-4 form-group">
+            <a href="${URLUtils.url('Address-List')}" class="btn btn-cancelar">${Resource.msg('button.cancel', 'account', null)}</a>
+        </div>  
+        <div class="col-sm-12 col-md-3 col-lg-4 form-group">
+            <button class="btn btn-save btn-save-login" id="getDataAccountForm" type="button" name="save">${Resource.msg('button.save', 'account', null)}</button>
+        </div>        
+    </div>
+   
+</form>
+
+
+<!--
 <form action="${URLUtils.url('Address-SaveAddress', 'addressId', pdict.addressId)}" class="address-form" method="POST"
     <isprint value="${pdict.addressForm.attributes}" encoding="off" />>
 
 <div class=" container-form">
     <div class="row">
-        <!-- Data Card -->
+       
         <div class="data-info col-6">
             <span class="span-club-info">${Resource.msg('label.saldo', 'account', null)}: <p class="p-info">${pdict.Account.SaldoMembresia}</p>
             </span>
@@ -84,7 +263,6 @@
 
 </div>
 
-<!-- Cancel and Save Buttons -->
 <div class="row container-buttoms">
  <div class="col-4">
                 <a href="${URLUtils.url('Account-Show')}" class="profile-back-to-account-link text-left">${Resource.msg('link.profile.backtomyaccount','account',null)}</a>
@@ -98,3 +276,4 @@
 </div>
 
 </form>
+-->

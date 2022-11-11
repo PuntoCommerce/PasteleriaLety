@@ -1,18 +1,191 @@
 body{
-    background-color: #eee; 
+    background-color: white; 
 }
 
 table th , table td{
     text-align: center;
 }
 
-table tr:nth-child(even){
-    background-color: #BEF2F5
-}
-
 .pagination li:hover{
-    background: black;
+    /* background: black; */
     cursor: pointer;
 }
-table tbody tr {
+
+.icon-order{
+    width: 16px;
+    margin-left: 3px;
+}
+
+
+.container-buttons{
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+
+.btn-table-header{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    display: inline-flex;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+}
+
+.btn-table-header:focus{
+    outline:0;
+}
+
+.btnNumPage{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    display: inline-flex;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    border: 1px solid #000000;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    padding-left: 13px;
+    padding-right: 13px;
+}
+
+.btnControls{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    display: inline-flex;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+}
+
+.btnControls:focus{
+    outline:0;
+}
+
+.textInfoContainer{
+    display: inline-flex;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+}
+
+.card-title-list{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 13px;
+    color: #000000;
+}
+
+.card-text-list{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 13px;
+    color: #000000;
+}
+
+
+.card-body-list{
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    border: 0.5px solid #696969 !important;
+}
+
+.content-table{
+    display: block;
+}
+
+.listCards{
+    display: none;
+    width: auto;
+}
+
+
+.input-group-text{
+    background-color: #ffffff;
+    border: 1px solid #000000;  
+    border-left: none;
+}
+
+
+.input-search{
+    background-color: #ffffff;
+    border: 1px solid #000000;  
+    border-right: none;
+}
+
+.container-label-search{
+    display: inline-flex;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+}
+
+.label-search{
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    margin-bottom: 0px;
+}
+
+.input-group-text{
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.drowdownRows{
+    height: 44px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #000000;
+}
+
+@media (max-width: 885.98px) {
+    .content-table{
+        display: none;
+    }
+
+    .listCards{
+        display: block;
+    }
+    .container-moves{
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    .container-moves .card-body{
+        padding-left: 29px !important;
+        padding-right: 22px !important;
+    }
+
+    .label-search{
+        display: none;
+    }
+
+    .pagination-container{
+        text-align: center;
+        justify-content: center !important;
+        display: contents;
+        padding-top: 10px;
+        padding-bottom: 20px;
+    }
+
 }
