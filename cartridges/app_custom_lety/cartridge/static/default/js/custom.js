@@ -1,8 +1,35 @@
 const $C = (el) => document.querySelector(el);
 const $$C = (el) => document.querySelectorAll(el);
 
+<<<<<<< HEAD
+// #####Buscador########
 
 
+openSearch = () => {
+  const searchContainer = document.getElementById("searchContainer");
+ 
+   if (searchContainer.style.display =="none"){
+      searchContainer.style.display = "block";
+   } else {
+    searchContainer.style.display = "block"
+   }
+}
+
+closeSearch = () => {
+  const searchContainer = document.getElementById("searchContainer");
+ 
+   if (searchContainer.style.display =="block"){
+      searchContainer.style.display = "none";
+   } else {
+    searchContainer.style.display = "none"
+   }
+}
+
+// #####Buscador########
+=======
+
+
+>>>>>>> facf71387a75ddd2a4be64953365848b0b0345f0
 
 window.addEventListener("scroll", () => {
   changeSubMenuItem();
@@ -50,6 +77,7 @@ const openCustomMenu = () => {
   customMenuResponsive.classList.remove("hidden");
   customMenuResponsive.classList.add("viewMenu");
   page.classList.add("filter-blur");
+  console.log("f")
 };
 
 const closeCustomMenu = () => {

@@ -680,7 +680,7 @@ header {
 
 .user .user-message {
   position: absolute;
-  left: 0;
+  left: -4px !important;
   top: 23px;
   font-size: 15px;
 }
@@ -1067,6 +1067,22 @@ textarea {
   margin-top: 0;
 }
 
+.minicart .minicart-quantity {
+  background-color: var(--color-lety3);
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  line-height: normal;
+  display: inline-block;
+  text-align: center;
+  font-size: 0.8125em;
+  position: relative;
+  top: -0.5em;
+  left: -0.9375em;
+  color: #fff;
+  padding-bottom: 1px;
+}
+
 /*Responsive xs*/
 /* @media (max-width: 352px){
   .minicart .minicart-quantity{
@@ -1183,28 +1199,22 @@ textarea {
   .search-icon {
     margin-top: 22px;
     color: var(--color-lety-white);
-    width: 18px;
-    height: 18px;
+    width: 18px !important;
+    height: 18px !important;
   }
 
   .search-icon i {
     padding-left: 35px;
-    margin-top: 3px;
+    font-size: 18px;
   }
 
   .minicart {
-    margin-top: 18px !important;
-    padding-left: 20px !important;
-  }
-
-  .minicart img {
-    width: 16px !important;
-    height: 18px !important;
+    margin-top: 20px !important;
   }
 
   .minicart .minicart-quantity {
-    left: 11px;
-    top: -30px;
+    left: 16px;
+    top: -33px;
   }
 
   .location {
@@ -6548,9 +6558,10 @@ a.close.disabled {
   background-color: #000;
 }
 .popover {
-  top: 0;
+  top: 55px;
   left: 0;
   z-index: 1060;
+  width: 100px;
   max-width: 276px;
   font-family: var(--font-family-gotham);
   font-style: normal;
@@ -14632,21 +14643,6 @@ a.skip:hover {
 .minicart a.minicart-link:hover {
   text-decoration: none;
 }
-.minicart .minicart-quantity {
-  background-color: var(--color-lety3);
-  border-radius: 50%;
-  width: 16px;
-  height: 16px;
-  line-height: normal;
-  display: inline-block;
-  text-align: center;
-  font-size: 0.8125em;
-  position: relative;
-  top: -0.5em;
-  left: -0.9375em;
-  color: #fff;
-  padding-bottom: 1px;
-}
 
 .user img {
   margin-top: 8px;
@@ -15001,9 +14997,6 @@ footer .content {
   font-size: 18px;
   font-family: 'gotham-book';
 }
-footer .content li {
-  height: 1.875rem;
-}
 
 footer .li-contact {
   height: 22px !important;
@@ -15027,6 +15020,8 @@ footer .back-to-top {
   border: 0;
   -webkit-appearance: none;
   border-radius: 50%;
+  width: 40px;
+  height: 40px;
 }
 footer .back-to-top i.fa-arrow-up {
   color: rgba(0, 0, 0, 0.7);
@@ -15081,6 +15076,32 @@ footer .subscribe-email {
 
 footer .store-mobile {
   display: none;
+}
+
+.footer-pagos-txt{
+  font-size: 15px;
+}
+
+@media (max-width: 1200px) {
+
+  footer h2, .suscribe-label span{
+    font-size: 14px;
+  }
+  footer .content {
+    font-size: 14px;
+  }
+  footer .newsletter {
+    width: 175px !important;
+  }
+  .footer-pagos-txt{
+    font-size: 13px;
+  }
+  footer .social-links a{
+    font-size: 1.8em;
+  }
+  .goToUp{
+    right: 55px;
+  }
 }
 
 @media (max-width: 992px) {
@@ -15166,6 +15187,7 @@ footer .store-mobile {
     display: flex;
     justify-content: center;
     text-align: center;
+    margin-bottom: 15px;
   }
 
   footer .footer-email-signup-mobile {
@@ -15189,6 +15211,13 @@ footer .store-mobile {
 
   footer .social-h2 {
     text-align: center !important;
+  }
+  footer .newsletter {
+    width: 268px !important;
+  }
+  .goToUp{
+    right: 30px;
+    bottom: 15%;
   }
 }
 /* @media (max-width: 543.98px) {
@@ -17386,11 +17415,11 @@ a .moreless .less {
 }
 
 .experience-commerce_layouts-carousel .carousel-control-prev{
-  left: -40px !important;
+  left: -10px !important;
 }
 
 .experience-commerce_layouts-carousel .carousel-control-next{
-  right: -40px !important;
+  right: -10px !important;
 }
 
 .experience-component.experience-commerce_assets-text_align{
@@ -17405,10 +17434,31 @@ a .moreless .less {
   width: 100% !important;
 }
 
+#searcHeaderResponsive{
+  margin-top: 23px;
+}
 
+#searcHeaderResponsive:active, #searcHeaderResponsive:focus{
+  border: none;
+}
+
+#searchContainer{
+  display: none;
+}
+
+
+@media (max-width: 1200px) {
+  .tile-body .plp-description{
+    padding: 0;
+  }
+}
 @media (max-width: 1024px) {
 
   .experience-commerce_layouts-layout_1row_3col{
     margin: 0;
   }
 }
+/* 
+*{
+  outline: 1px solid;
+} */

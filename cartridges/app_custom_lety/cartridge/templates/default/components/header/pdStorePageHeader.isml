@@ -57,7 +57,14 @@
             Navigation Mobile
         </iscomment>
         <div class="navigation-mobile d-lg-none">
-            <div class="header d-flex justify-content-center align-items-center">
+            <div class="row">
+                <div class="col-12" id="searchContainer">
+                    <div>
+                        <isinclude template="components/header/searchResponsiveFild" />
+                    </div>
+                </div>
+            </div>
+            <div class="header justify-content-center align-items-center" id="headerContMob">
                 <div class="row header-container">
                     <div class="navbar-header brand col-lg-4 col-6">
                         <a class="logo-home" href="${URLUtils.url('Home-Show')}" title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
@@ -71,9 +78,11 @@
                     <iscomment> <div class="search col-4" style="padding-top: 16px; padding-right: 0;margin-right: -24px;">
                         <isinclude template="components/header/search" />
                     </div> </iscomment>
-                    <div class="search-icon col-2">
-                        <i class="fa fa-search"></i>
+       
+                    <div class="search search-responsive col-2">
+                        <isinclude template="components/header/searchResponsiveButton" />
                     </div>
+         
                     <div class="minicart col-2" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
                         <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
                     </div>
