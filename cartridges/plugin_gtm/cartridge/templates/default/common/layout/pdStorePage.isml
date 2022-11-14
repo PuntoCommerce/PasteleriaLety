@@ -13,17 +13,10 @@
     var assets = require('*/cartridge/scripts/assets.js');
     assets.addCss('/css/experience/components/commerceAssets/campaignBanner.css');
     assets.addJs('/js/campaignBanner.js');
-    assets.addJs('/js/hiddenBtn.js');
-    assets.addJs('/js/custom.js');
-    assets.addCss('/css/navigation.css');
-    assets.addCss('/css/style-lety.css');
-    assets.addJs("/js/session/store.js");
-    assets.addCss("/css/storesession.css");
-    assets.addCss("/css/calendar.css");
 </isscript>
 
 <!DOCTYPE html>
-<html lang="${require('dw/util/Locale').getLocale(request.getLocale()).getLanguage()}">
+<html lang="${require('dw/util/Locale').getLocale(request.getLocale()).getLanguage() || 'en'}">
 
 <head>
     <!--[if gt IE 9]><!-->
@@ -35,28 +28,17 @@
     </isif>
     <isactivedatahead/>
     <isinclude template="/components/schema" />
-
 </head>
 
 <body>
-    <isif condition="${pdict.page.ID === 'compra-impulso'}">
-    <iselse/>
-        <iscontentasset aid="header-banner" />
-    </isif>
-
     ${dw.system.HookMgr.callHook('app.template.beforeHeader', 'beforeHeader', pdict) || ''}
 
     <div class="page" data-action="${pdict.action}" data-querystring="${pdict.queryString}"
-            data-gtmpageview="${pdict.action}" >
-        <isif condition="${pdict.page.ID === 'compra-impulso'}">
-        <iselse/>
-            <isinclude template="/components/header/pdStorePageHeader" />
-        </isif>
-
+        data-gtmpageview="${pdict.action}">
+        <isinclude template="/components/header/pdStorePageHeader" />
         <div role="main" id="maincontent">
             <isreplace/>
         </div>
-
         <isinclude template="/components/footer/pageFooter" />
     </div>
     <div class="error-messaging"></div>
