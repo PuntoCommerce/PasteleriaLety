@@ -1,7 +1,6 @@
 const $C = (el) => document.querySelector(el);
 const $$C = (el) => document.querySelectorAll(el);
 
-<<<<<<< HEAD
 // #####Buscador########
 
 
@@ -26,10 +25,6 @@ closeSearch = () => {
 }
 
 // #####Buscador########
-=======
-
-
->>>>>>> facf71387a75ddd2a4be64953365848b0b0345f0
 
 window.addEventListener("scroll", () => {
   changeSubMenuItem();
