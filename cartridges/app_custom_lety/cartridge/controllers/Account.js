@@ -53,6 +53,11 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
     }
   );
 
+  /*let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia", {
+    Empresa: 1,
+    s_IdMembresia: req.querystring.letyCard ,
+  });
+
   let getLetyClub = ApiServiceLety.ApiLety(
     "getLetyClub",
     { 
@@ -66,7 +71,7 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
     { 
       Empresa: 1, 
       s_IdMembresia: req.querystring.letyCard,
-      i_IdFolioPersona:"fsffsfs",
+      i_IdFolioPersona:"713261001",
       s_Nombre:"dkjdkjfd",
       s_Appaterno:"prueba",
       s_Apmaterno:"prueba",
@@ -120,8 +125,7 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
       s_Telefono:"9987645673",
       s_Mail:"pruebaprueba" 
     }
-  );
-
+  );*/
 
 
   if(Func_MovimientosMembresia.ERROR) {
