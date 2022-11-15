@@ -1,13 +1,8 @@
 <script>//common/scripts.isml</script>
 <script defer type="text/javascript" src="${URLUtils.staticURL('/js/main.js')}"></script>
-<div data-mc-src="58a0a6ca-d380-4c07-a884-6557e57eada3#instagram"></div>
-<script 
-  src="https://cdn2.woxo.tech/a.js#636ec830e21a36d57199783c" 
-  async data-usrc>
-</script>
-<iscomment> <script
+<script
   src="https://cdn2.woxo.tech/a.js#62bf72cbf9ce2ca74c3fe882" async data-usrc>
-</script> </iscomment>
+</script>
 <isloop items="${ require('*/cartridge/scripts/assets.js').scripts }" var="script">
     <script defer type="text/javascript" src="${script.src}"
         <isif condition="${script.integrity != null}">integrity="${script.integrity}" crossorigin="anonymous"></isif>

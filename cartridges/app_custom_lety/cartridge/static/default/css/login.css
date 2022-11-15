@@ -8,6 +8,7 @@
 
 .login-page .title-login h2{
   font-size: 35px;
+  padding-bottom: 32px;
 }
 
 .login-page label, .login-page .checkout__text--bold{
