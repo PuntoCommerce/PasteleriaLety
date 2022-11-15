@@ -24,9 +24,6 @@ server.get("Saldo", server.middleware.https, function (req, res, next) {
       JsonDatosMembresia = {};
     }else{
       JsonDatosMembresia = JSON.parse(Func_DatosMembresia);
-      /*SaldoMembresia = JsonDatosMembresia.Func_DatosMembresia[0]["d_SaldoMembresia"];
-      FechaAlta = JsonDatosMembresia.Func_DatosMembresia[0]["sdtm_FechaAlta"];
-      StatusMembresia = JsonDatosMembresia.Func_DatosMembresia[0]["sc_Status"];*/
     }
  
     
@@ -50,8 +47,90 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
 
   let Func_MovimientosMembresia = ApiServiceLety.ApiLety(
     "Func_MovimientosMembresia",
-    { Empresa: 1, s_IdMembresia: req.querystring.letyCard }
+    { 
+      Empresa: 1, 
+      s_IdMembresia: req.querystring.letyCard 
+    }
   );
+
+  let getLetyClub = ApiServiceLety.ApiLety(
+    "getLetyClub",
+    { 
+      Empresa: 1, 
+      s_IdMembresia: req.querystring.letyCard 
+    }
+  );
+
+  let Func_ActualizaDatosMembresia = ApiServiceLety.ApiLety(
+    "Func_ActualizaDatosMembresia",
+    { 
+      Empresa: 1, 
+      s_IdMembresia: req.querystring.letyCard,
+      i_IdFolioPersona:"fsffsfs",
+      s_Nombre:"dkjdkjfd",
+      s_Appaterno:"prueba",
+      s_Apmaterno:"prueba",
+      s_FechaNacimiento:"02/10/2008",
+      s_Sexo:"M",
+      i_IdCiudad:"1086",
+      s_EdoCivil:"Soltero",
+      s_PastelFavorito:"cubano",
+      s_Direccion:"sdffdsdf",
+      s_Colonia:"sdffdsdf",
+      s_Telefono:"9987645673",
+      s_Mail:"pruebaprueba" 
+    }
+  );
+
+  let Func_MovimientosMembresia = ApiServiceLety.ApiLety(
+    "Func_MovimientosMembresia",
+    { 
+      Empresa: 1, 
+      s_IdMembresia: req.querystring.letyCard 
+    }
+  );
+
+  let getLetyClubQuitarPuntos = ApiServiceLety.ApiLety(
+    "getLetyClubQuitarPuntos",
+    { 
+      Empresa: 1, 
+      s_IdMembresia: req.querystring.letyCard,
+      dMonto:"20",
+      dSaldoAnterior:"50",
+      sFolioWeb:"22332" 
+    }
+  );
+
+  let Func_ExisteMembrecia = ApiServiceLety.ApiLety(
+    "Func_ExisteMembrecia",
+    { 
+      Empresa: 1, 
+      s_IdMembresia: req.querystring.letyCard 
+    }
+  );
+
+
+  let Func_AsignaNuevaMembresia = ApiServiceLety.ApiLety(
+    "Func_AsignaNuevaMembresia",
+    { 
+      Empresa: 1, 
+      s_IdMembresia: req.querystring.letyCard,
+      s_Nombre:"dkjdkjfd",
+      s_Appaterno:"prueba",
+      s_Apmaterno:"prueba",
+      s_FechaNacimiento:"02/10/2008",
+      s_Sexo:"M",
+      i_IdCiudad:"1086",
+      s_EdoCivil:"Soltero",
+      s_PastelFavorito:"cubano",
+      s_Direccion:"sdffdsdf",
+      s_Colonia:"sdffdsdf",
+      s_Telefono:"9987645673",
+      s_Mail:"pruebaprueba" 
+    }
+  );
+
+
 
   if(Func_MovimientosMembresia.ERROR) {
     ListaMovimientos = []
