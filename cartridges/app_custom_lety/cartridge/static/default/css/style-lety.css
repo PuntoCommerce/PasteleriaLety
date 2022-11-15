@@ -357,10 +357,6 @@
   font-family: var(--font-family-gotham-bold) !important;
 }
 
-.container-detail-order{
-  padding: 30% 50px;
-}
-
 .view-order{
   justify-content: center;
   float: left !important;
@@ -370,12 +366,34 @@
 
 .container-detail-order{
   padding: 20px 145px;
+  display: inline !important;
 }
 
 .page-title-order{
   font-family: var(--font-family-gotham-bold);
   font-size: 35px;
   padding-top: 66px;
+}
+
+
+.container-payments .select-month, .container-payments .select-year{
+  max-width: 435px !important;
+}
+
+.container-payments .label-year, .container-payments .label-month{
+  padding-left: 0 !important;
+}
+
+.container-payments .div-year{
+  text-align: right;
+}
+
+.container-payments .payment-form .btn.btn-cancelar, .container-payments .btn-product{
+ max-width: 475px !important;
+}
+
+.container-payments label{
+ font-family: var(--font-family-gotham-bold);
 }
 
 
