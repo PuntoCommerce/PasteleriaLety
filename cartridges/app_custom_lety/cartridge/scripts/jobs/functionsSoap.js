@@ -1,6 +1,6 @@
-"use strict";
+// "use strict";
 
-function body(data,credential,path) {
+/*function body(data,credential,path) {
     if(path==="ExistenciaPorCentroFecha"){
         return `<?xml version="1.0" encoding="utf-8"?> 
           <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
@@ -150,7 +150,4 @@ function body(data,credential,path) {
         </${path}>
         </soap:Body></soap:Envelope>`;
     }
-}
-
-
-module.exports = { body: body};
+}*/

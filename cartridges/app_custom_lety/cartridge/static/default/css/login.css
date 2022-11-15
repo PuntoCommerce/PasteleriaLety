@@ -61,3 +61,11 @@
   background: #f3f3f3;
   padding: 0.15rem 1.25rem;
 }
+
+.registration .custom-checkbox, .registration .privacy-policy, .btn-new-account{
+  margin-top: 38px;
+}
+
+.registration .privacy-policy{
+  margin-bottom: 38px;
+}

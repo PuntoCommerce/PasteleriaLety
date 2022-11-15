@@ -79,6 +79,7 @@
             aria-describedby="form-password-error" autocomplete="off" <isprint
             value=${pdict.profileForm.login.password.attributes} encoding="off" />>
         <div class="invalid-feedback" id="form-password-error"></div>
+        <span>${Resource.msg('label.input.newpassword.profile2', 'forms', null)}</span>
     </div>
 
     <div class="form-group
@@ -92,6 +93,7 @@
             aria-describedby="form-password-confirm-error" autocomplete="off" <isprint
             value=${pdict.profileForm.login.passwordconfirm.attributes} encoding="off" />>
         <div class="invalid-feedback" id="form-password-confirm-error"></div>
+        <span>${Resource.msg('label.input.newpassword.profile2', 'forms', null)}</span>
     </div>
 
     <div class="form-group custom-control custom-checkbox">
@@ -105,11 +107,11 @@
 
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
 
-    <button type="submit" class="btn btn-product">
+    <button type="submit" class="btn btn-product btn-new-account">
         ${Resource.msg('button.createaccount.registration', 'registration', null)}
     </button>
     <div class="privacy-policy">
-        ${Resource.msg('description.privacypolicy.registration', 'registration', null)}
+        ${Resource.msg('description.privacypolicy.registration', 'registration', null)} <br>
         <a href="${'#'}">
             ${Resource.msg('link.privacypolicy.registration', 'registration', null)}
         </a>
