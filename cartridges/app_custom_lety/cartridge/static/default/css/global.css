@@ -1263,6 +1263,10 @@ textarea {
 
   /*Breadcrumb*/
 
+  .breadcrumb-padding{
+    padding-bottom: 0;
+  }
+
   /*PLP*/
 
   .search-banner {
@@ -1349,7 +1353,7 @@ textarea {
   .wishlist-mobile {
     display: flex;
     position: relative;
-    justify-content: center;
+    justify-content: right;
     z-index: 1;
   }
 
@@ -1386,6 +1390,10 @@ textarea {
     font-size: 14px;
     text-align: center;
     justify-content: center;
+  }
+
+  .row-availa-mobile .col-3{
+    padding-right: 30px;
   }
 
   .mobile-promo {

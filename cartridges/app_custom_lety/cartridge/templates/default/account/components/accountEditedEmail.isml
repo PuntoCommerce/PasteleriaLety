@@ -431,7 +431,7 @@
                 <tr>
                     <td style="padding-bottom: 60px;">
                         <p>
-                            <a href="${pdict.url}" class="btn-email"
+                            <a href="${URLUtils.https('Account-Login')}" class="btn-email"
                                 style="color:black;">${Resource.msg('link.account.redirect', 'account', null)}</a>
                         </p>
                     </td>
