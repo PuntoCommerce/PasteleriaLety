@@ -111,16 +111,12 @@
     if(path==="Func_ActualizaDatosMembresia"){
       let json = '{"'+path+'":[';
       const Func_ActualizaDatosMembresiaResult = XMLList(xml).descendants("Func_ActualizaDatosMembresiaResult");
-      if(Func_ActualizaDatosMembresiaResult.length()===0){
-        json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
-        json = json.slice(0,-1)+']}';
-      }else{
+
         for(let i =0; i<Func_ActualizaDatosMembresiaResult.length();i++){
           json+='{"Func_ActualizaDatosMembresiaResult":"'+Func_ActualizaDatosMembresiaResult[i]+'"},';
         }
         json = json.slice(0,-1)+']}';
-      }
-    
+ 
       return json;
     }
     if(path==="Func_MovimientosMembresia"){
