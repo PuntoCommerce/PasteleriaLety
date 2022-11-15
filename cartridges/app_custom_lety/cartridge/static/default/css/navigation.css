@@ -78,7 +78,6 @@
 .nav.navbar-nav {
   display: flex;
   justify-content: space-evenly;
-  padding-top: 7%;
 }
 
 /* #menuDesk .dropdown-menu .category-item.item a .hover-underline {
@@ -92,7 +91,6 @@
 #searcHeader {
   background-color: transparent;
   border: none;
-  padding-top: 3px;
 }
 
 #searcHeaderResponsive::after,

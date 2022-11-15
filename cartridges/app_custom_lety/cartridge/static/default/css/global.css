@@ -1209,7 +1209,7 @@ textarea {
   }
 
   .minicart {
-    margin-top: 20px !important;
+    margin-top: 21px !important;
   }
 
   .minicart .minicart-quantity {
@@ -4883,7 +4883,6 @@ input[type="submit"].btn-block {
 }
 .nav-link {
   display: block;
-  padding: 0.5rem 1rem;
 }
 .nav-link:focus,
 .nav-link:hover {
@@ -4893,10 +4892,6 @@ input[type="submit"].btn-block {
   color: #6c757d;
   pointer-events: none;
   cursor: default;
-}
-
-.navbar.bg-inverse .navbar-nav .nav-link {
-  padding-bottom: 2.5rem !important;
 }
 
 .nav-tabs {
@@ -14365,7 +14360,6 @@ a.skip:hover {
     margin-left: 0;
   }
   .navbar.bg-inverse .navbar-nav .nav-link {
-    padding: 6px;
     white-space: nowrap;
   }
 }
@@ -14633,7 +14627,6 @@ a.skip:hover {
   margin-top: 2px;
 }
 .minicart {
-  margin-top: 0.1875em;
   vertical-align: top;
 }
 .minicart .minicart-icon {
@@ -14642,11 +14635,6 @@ a.skip:hover {
 
 .minicart a.minicart-link:hover {
   text-decoration: none;
-}
-
-.user img {
-  margin-top: 8px;
-  margin-left: 10px;
 }
 
 @media (max-width: 992px) {
@@ -15669,7 +15657,6 @@ a .moreless .less {
 
   .plp-description {
     font-size: 12px !important;
-    height: 6rem !important;
     display: block;
     padding-top: 8px;
   }
@@ -15711,9 +15698,8 @@ a .moreless .less {
 }
 .product-tile .tile-body .price {
   font-size: 20px !important;
-  height: 70px;
+  height: 50px;
 }
-
 .product-tile .tile-body .ratings {
   font-size: 0.9em;
 }
@@ -17411,7 +17397,8 @@ a .moreless .less {
   font-size: 14px;
   font-family: 'gotham-book';
   padding: 0 80px;
-  height: 80px;
+  height: 100px;
+  margin: 0;
 }
 
 .experience-commerce_layouts-carousel .carousel-control-prev{
@@ -17477,16 +17464,31 @@ a .moreless .less {
     padding: 0;
   }
 }
-@media (max-width: 1024px) {
 
+@media (max-width: 1024px) {
   .experience-commerce_layouts-layout_1row_3col{
     margin: 0;
   }
 }
+
+@media (max-width: 768px) {
+  .product-tile .tile-body .price {
+    height: 30px;
+  }
+
+  .tile-body .plp-description{
+    height: 110px;
+  }
+}
+
 @media (max-width: 535px) {
   .minicart .minicart-quantity {
     left: 25px;
     top: -33px;
   }
 }
+
+/* *{
+  outline: 1px solid red;
+} */
 
