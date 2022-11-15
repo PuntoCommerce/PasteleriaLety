@@ -82,14 +82,6 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
     }
   );
 
-  let Func_MovimientosMembresia = ApiServiceLety.ApiLety(
-    "Func_MovimientosMembresia",
-    { 
-      Empresa: 1, 
-      s_IdMembresia: req.querystring.letyCard 
-    }
-  );
-
   let getLetyClubQuitarPuntos = ApiServiceLety.ApiLety(
     "getLetyClubQuitarPuntos",
     { 

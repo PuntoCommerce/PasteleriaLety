@@ -185,17 +185,8 @@
     if(path==="Func_AsignaNuevaMembresia"){
       let json = '{"'+path+'":[';
 
-      const getLetyClubQuitarPuntosResult = XMLList(xml).descendants("getLetyClubQuitarPuntosResult");
-
-      if(getLetyClubQuitarPuntosResult.length() === 0){
-        json+='{"error":"Error de la respuesta o Fue Eliminado correctamente"},';
+        json+='{"success":"Se Asigno correctamente"},';
         json = json.slice(0,-1)+']}';
-      }else{
-        for(let i =0; i<getLetyClubQuitarPuntosResult.length();i++){
-          json+='{"getLetyClubQuitarPuntosResult":"'+getLetyClubQuitarPuntosResult[i]+'"},';
-        }
-        json = json.slice(0,-1)+']}';
-      }
     
       return json;
     }
