@@ -2,7 +2,7 @@
  const CustomerMgr = require("dw/customer/CustomerMgr");
 
  const ApiServiceLety = require("*/cartridge/scripts/jobs/api");
- 
+
  function addLetyCardToCustomer(customerNo, letyCard){
     let Func_ExisteMembrecia = ApiServiceLety.ApiLety(
         "Func_ExisteMembrecia",
@@ -28,7 +28,6 @@
                 });
             }
         }else{
-            const Hola = "fff";
         }
       }
     
