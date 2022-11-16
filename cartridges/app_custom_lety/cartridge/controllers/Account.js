@@ -53,7 +53,7 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
     }
   );
 
-  /*let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia", {
+  let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia", {
     Empresa: 1,
     s_IdMembresia: req.querystring.letyCard ,
   });
@@ -125,7 +125,7 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
       s_Telefono:"9987645673",
       s_Mail:"pruebaprueba" 
     }
-  );*/
+  );
 
 
   if(Func_MovimientosMembresia.ERROR) {
