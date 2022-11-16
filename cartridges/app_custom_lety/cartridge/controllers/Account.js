@@ -53,7 +53,7 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
     }
   );
 
-  let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia", {
+  /*let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia", {
     Empresa: 1,
     s_IdMembresia: req.querystring.letyCard ,
   });
@@ -126,7 +126,7 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
       s_Mail:"pruebaprueba" 
     }
   );
-
+*/
 
   if(Func_MovimientosMembresia.ERROR) {
     ListaMovimientos = []
@@ -146,10 +146,6 @@ server.post("AddLetyCard", (req, res, next) => {
 });
 
 server.post("GenerateLetyCard", (req, res, next) => {
-  addLetyCardToCustomer({
-    customerNo: req.form.customerNo,
-    letyCard: Date.now(),
-  });
 
   res.redirect(URLUtils.url("Account-Show"));
   next();

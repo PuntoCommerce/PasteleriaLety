@@ -128,7 +128,7 @@ function body(data,credential,path) {
         '</soap:Body></soap:Envelope>';
     }
     if(path==="Func_AsignaNuevaMembresia"){
-      return '<?xml version="1.0" encoding="utf-8"?>'
+      return '<?xml version="1.0" encoding="utf-8"?>'+
         '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">'+
         '<soap:Body><'+path+' xmlns="http://localhost/">'+
         '<IdEmpresa>'+data.Empresa+'</IdEmpresa>'+
