@@ -110,12 +110,14 @@
     }
     if(path==="Func_ActualizaDatosMembresia"){
       let json = '{"'+path+'":[';
-      const Func_ActualizaDatosMembresiaResult = XMLList(xml).descendants("Func_ActualizaDatosMembresiaResult");
+      const iCode = XMLList(xml).descendants("iCode");
+      const sMensaje = XMLList(xml).descendants("sMensaje");
 
-        for(let i =0; i<Func_ActualizaDatosMembresiaResult.length();i++){
-          json+='{"Func_ActualizaDatosMembresiaResult":"'+Func_ActualizaDatosMembresiaResult[i]+'"},';
-        }
-        json = json.slice(0,-1)+']}';
+      for(let i =0; i<iCode.length();i++){
+        json+='{"iCode":"'+iCode[i]+'","sMensaje":"'+sMensaje[i]+'"},';
+      }
+
+      json = json.slice(0,-1)+']}';
  
       return json;
     }
@@ -145,18 +147,15 @@
     if(path==="getLetyClubQuitarPuntos"){
       let json = '{"'+path+'":[';
 
-      const getLetyClubQuitarPuntosResult = XMLList(xml).descendants("getLetyClubQuitarPuntosResult");
+      const Code = XMLList(xml).descendants("iCode");
+      const sMensaje = XMLList(xml).descendants("sMensaje");
 
-      if(getLetyClubQuitarPuntosResult.length() === 0){
-        json+='{"error":"Error de la respuesta o Fue Eliminado correctamente"},';
-        json = json.slice(0,-1)+']}';
-      }else{
-        for(let i =0; i<getLetyClubQuitarPuntosResult.length();i++){
-          json+='{"getLetyClubQuitarPuntosResult":"'+getLetyClubQuitarPuntosResult[i]+'"},';
-        }
-        json = json.slice(0,-1)+']}';
+      for(let i =0; i<Code.length();i++){
+        json+='{"iCode":"'+Code[i]+'","sMensaje":"'+sMensaje[i]+'"},';
       }
-    
+      
+      json = json.slice(0,-1)+']}';
+ 
       return json;
     }
 
@@ -181,9 +180,20 @@
     if(path==="Func_AsignaNuevaMembresia"){
       let json = '{"'+path+'":[';
 
-        json+='{"success":"Se Asigno correctamente"},';
+      const iIdMembresia = XMLList(xml).descendants("iIdMembresia");
+      const iIdFolioPersona = XMLList(xml).descendants("iIdFolioPersona");
+      const sIdFolioTarjeta = XMLList(xml).descendants("sIdFolioTarjeta");
+
+      if(iIdMembresia.length() === 0){
+        json+='{"error":"Error de la respuesta o Fue Eliminado correctamente"},';
         json = json.slice(0,-1)+']}';
-    
+      }else{
+        for(let i =0; i<iIdMembresia.length();i++){
+          json+='{"iIdMembresia":"'+iIdMembresia[i]+'","iIdFolioPersona":"'+iIdFolioPersona[i]+'","sIdFolioTarjeta":"'+sIdFolioTarjeta[i]+'"},';
+        }
+        json = json.slice(0,-1)+']}';
+      }
+
       return json;
     }
   }
