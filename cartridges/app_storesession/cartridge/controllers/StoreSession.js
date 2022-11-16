@@ -41,7 +41,7 @@ server.get("Start", (req, res, next) => {
   }
 
   res.render("storesession/session", {
-     apikey: apikey,
+    // apikey: apikey,
     isSessionStoreMandatory,
     storeName: storeName,
     storeAddress1: storeAddress1f,
