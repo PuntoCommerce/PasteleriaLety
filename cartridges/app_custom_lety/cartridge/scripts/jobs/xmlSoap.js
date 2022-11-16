@@ -113,9 +113,8 @@
       const iCode = XMLList(xml).descendants("iCode");
       const sMensaje = XMLList(xml).descendants("sMensaje");
 
-      for(let i =0; i<iCode.length();i++){
-        json+='{"iCode":"'+iCode[i]+'","sMensaje":"'+sMensaje[i]+'"},';
-      }
+      json+='{"iCode":"'+iCode[i]+'","sMensaje":"'+sMensaje[i]+'"},';
+
 
       json = json.slice(0,-1)+']}';
  
@@ -148,11 +147,10 @@
       let json = '{"'+path+'":[';
 
       const Code = XMLList(xml).descendants("iCode");
-      const sMensaje = XMLList(xml).descendants("sMensaje");
+      const Mens = XMLList(xml).descendants("sMensaje");
 
-      for(let i =0; i<Code.length();i++){
-        json+='{"iCode":"'+Code[i]+'","sMensaje":"'+sMensaje[i]+'"},';
-      }
+      json+='{"iCode":"'+Code[i]+'","sMensaje":"'+Mens[i]+'"},';
+      
       
       json = json.slice(0,-1)+']}';
  
@@ -180,16 +178,16 @@
     if(path==="Func_AsignaNuevaMembresia"){
       let json = '{"'+path+'":[';
 
-      const iIdMembresia = XMLList(xml).descendants("iIdMembresia");
-      const iIdFolioPersona = XMLList(xml).descendants("iIdFolioPersona");
-      const sIdFolioTarjeta = XMLList(xml).descendants("sIdFolioTarjeta");
+      const iIdMem = XMLList(xml).descendants("iIdMembresia");
+      const iIdFol = XMLList(xml).descendants("iIdFolioPersona");
+      const sIdFol = XMLList(xml).descendants("sIdFolioTarjeta");
 
-      if(iIdMembresia.length() === 0){
+      if(iIdMem.length() === 0){
         json+='{"error":"Error de la respuesta o Fue Eliminado correctamente"},';
         json = json.slice(0,-1)+']}';
       }else{
-        for(let i =0; i<iIdMembresia.length();i++){
-          json+='{"iIdMembresia":"'+iIdMembresia[i]+'","iIdFolioPersona":"'+iIdFolioPersona[i]+'","sIdFolioTarjeta":"'+sIdFolioTarjeta[i]+'"},';
+        for(let i =0; i<iIdMem.length();i++){
+          json+='{"iIdMembresia":"'+iIdMem[i]+'","iIdFolioPersona":"'+iIdFol[i]+'","sIdFolioTarjeta":"'+sIdFol[i]+'"},';
         }
         json = json.slice(0,-1)+']}';
       }
