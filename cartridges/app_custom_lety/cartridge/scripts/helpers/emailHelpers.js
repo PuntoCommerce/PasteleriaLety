@@ -47,7 +47,8 @@ module.exports = {
         accountEdited: 6,
         orderCancelled: 7,
         orderShipped: 8,
-        orderDelivered: 9
+        orderDelivered: 9,
+        clubLetyCard: 10
     },
     validateEmail: validateEmail
 };

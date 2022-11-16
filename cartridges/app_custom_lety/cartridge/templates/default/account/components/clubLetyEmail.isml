@@ -35,13 +35,12 @@
         .email-title {
             padding: 10px 50px;
             text-align: center;
-            font-size: 35px;
         }
 
         .email-title span {
             color: #1C1C1C;
             font-weight: bold;
-            font-size: 35px;
+            font-size: 25px;
         }
 
         .logo-body {
@@ -126,9 +125,8 @@
         }
 
         .text-container {
-            max-width: 1124px;
             padding: 40px 20px 40px 20px;
-            margin: 24px 0 99px 5%;
+            margin: 59px 0 99px 0;
             border: 1px solid black;
             text-align: -moz-left;
             text-align: left;
@@ -413,7 +411,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <div class="div-logo-img" style="margin-bottom: 97px;">
+                        <div class="div-logo-img">
                             <img class="logo-img" src="${URLUtils.httpsStatic('/images/banner-email.png')}"
                                 alt="logo Lety" />
                         </div>
@@ -421,180 +419,42 @@
                 </tr>
                 <tr class="email-title">
                     <td>
-                        <span>${Resource.msg('title.confirmation.order.email', 'confirmation', null)}</span>
+                        <span>${Resource.msg('title.confir.clublety.email', 'confirmation', null)}</span>
                     </td>
                 </tr>
 
                 <tr>
                     <td>
                         <div class="text-container">
-                            <div class="text-congrat" style="padding-left: 110px; padding-right: 114px">
-                                <p style="font-size: 18px;">Gracias por comprar en Pastelería Lety, tu
-                                    pedido está confirmado, una vez que tu pago sea validado enviaremos un código de
-                                    rastreo
-                                    de la paquetería para rastrearlo.
+                            <div class="text-congrat">
+                            <iscomment> <p class="text" style="  padding: 5px 0 7px 0;">${pdict.order.firstName},</p> </iscomment>
+                                <p>${Resource.msg('msg.welcome.clublety', 'confirmation', null)}</p>
 
-                                    <iscomment> ${Resource.msg('email.order.confirm.msg.body1', 'confirmation', null)}
-                                    </iscomment>
-
+                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.txt.clublety', 'confirmation', null)}
                                 </p>
-                                <p style="font-size: 18px; padding-top: 30px;">
-                                    Si tienes preguntas acerca de tu pedido, puedes contactarnos al correo
-                                    servicio@lety.com.mx
-                                    o al 800-0024-966
-                                    <iscomment> ${Resource.msg('email.order.confirm.msg.body2', 'confirmation', null)}:<span>9999999</span> </iscomment>
+                                <p style="  padding: 20px 0 7px 0;">${Resource.msg('msg.info.card-clublety', 'confirmation', null)}
                                 </p>
-                                <p style=" padding-top: 30px;"><a href="http://factura.pastelerialety.com/"
-                                        style="color: #0074FC; font-size: 18px;">
-                                        Si deseas facturar haz clic aquí
-                                        <iscomment> ${Resource.msg('email.msg.new.registration.body3', 'confirmation', null)}
-                                        </iscomment>
-                                    </a></p>
+                                <p>3030303030</p>
                             </div>
 
-                            <div class="detail">
-                                <div class="order-detail-cont">
-                                    <div class="order-detail-title-cont">
-                                        <strong
-                                            style="color: #ffffff; font-size: 16px; font-weight: 700;">${Resource.msg('label.order.detail', 'confirmation', null)}:</strong> <br />
-                                    </div>
-                                    <div
-                                        style="max-width: 411px; max-height: 279px; background-color: #F3F3F3; margin: 0 10rem;">
-                                        <table class="order-sumary" style="margin-bottom:40px;">
-                                            <tr class="product-summary" style="margin-bottom:15px;">
-                                                <iscomment>
-                                                    <td style="width:20%;padding-bottom:15px;">
-                                                        <img src="${lineItem.images.small[0].absURL}"
-                                                            alt="Product Image" style="height:250px;" />
-                                                        <p>${JSON.stringify(lineItem)}</p>
-                                                    </td>
-                                                </iscomment>
-                                                <td style="padding-bottom:15px;">
-                                                    <div>
-                                                        <div>
-                                                            <p
-                                                                style="font-size: 16px; font-weight: bold; color: #4D4D4D;">
-                                                                ${lineItem.productName}
-                                                            </p>
-                                                            <iscomment>
-                                                                <p
-                                                                    style="font-size: 11px;font-weight: bold;color: #B3B3B3;">
-                                                                    Código:
-                                                                    ${lineItem.id}
-                                                                </p>
-                                                            </iscomment>
-                                                        </div>
-
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <div>
-                                                    <isloop items="${lineItem.variationAttributes}" var="attribute">
-                                                        <p style="font-size: 11px;font-weight: bold;color: #4D4D4D;">
-                                                            ${attribute.displayName}:
-                                                            ${attribute.displayValue}</p>
-                                                    </isloop>
-                                                </div>
-                                            </tr>
-                                            <isif condition="${pdict.order.shipping.length === 1}">
-                                                <isloop items="${pdict.order.items.items}" var="lineItem">
-                                                    <tr>
-                                                        <td style="width:50%;padding:20px 0;">
-                                                            <!--- quantity --->
-                                                            <isif condition="${lineItem.quantity > 1}">
-                                                                <p
-                                                                    style="font-size: 16px;font-weight: bold;color: #4D4D4D;">
-                                                                    <isprint value="${lineItem.quantity}"
-                                                                        formatter="##" />
-                                                                    ${Resource.msg('field.numberquantities', 'cart', null)}
-                                                                </p>
-                                                            <iselse/>
-                                                                <p
-                                                                    style="font-size: 16px;font-weight: bold;color: #4D4D4D;">
-                                                                    <isprint value=" ${lineItem.quantity}"
-                                                                        formatter="##" />
-                                                                    ${Resource.msg('field.numberquantity', 'cart', null)}
-                                                                </p>
-                                                            </isif>
-                                                        </td>
-                                                        <td style="width:50%;padding:20px 0;">
-                                                            <!--- line item total price --->
-                                                            <p
-                                                                style="text-align:right;font-size: 16px;font-weight: bold;color: #4D4D4D;">
-                                                                ${lineItem.priceTotal.price}
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>
-                                                            <p>
-                                                                <isif
-                                                                    condition="${lineItem.bonusProductLineItemUUID === 'bonus'}">
-                                                                    <isloop items="${lineItem.bonusProducts}"
-                                                                        var="bonusProduct" status="loopState">
-                                                                        <isif condition="${loopState.first}">
-                                                                            <br />
-                                                                            ${Resource.msg('text.lineitem.bonus.msg', 'cart', null)}
-                                                                        </isif>
-                                                                        ${bonusProduct.productName}
-                                                                        <isloop
-                                                                            items="${bonusProduct.variationAttributes}"
-                                                                            var="attribute">
-                                                                            <p>${attribute.displayName}:
-                                                                                ${attribute.displayValue}
-                                                                            </p>
-                                                                        </isloop>
-
-                                                                        <!--- item price --->
-                                                                        ${Resource.msg('label.each.item.price', 'cart', null)} -
-                                                                        ${bonusProduct.priceTotal.price}
-                                                                        <br />
-
-                                                                        <!--- quantity --->
-                                                                        ${Resource.msg('field.selectquantity', 'cart', null)}
-                                                                        -
-                                                                        <isprint value="${bonusProduct.quantity}"
-                                                                            formatter="##" />
-                                                                        <br />
-                                                                        <isif condition="${loopState.last}">
-                                                                            <br />
-                                                                        </isif>
-                                                                    </isloop>
-                                                                </isif>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                </isloop>
-                                            </isif>
-                                        </table>
-                                    </div>
-                                </div>
-
-                            </div>
                             <div class="button-sales">
-                                <a href="${URLUtils.url('Home-Show')}" target="_blank"><button class="btn-sale"
-                                        type="">${Resource.msg('msg.button.sales.email', 'confirmation', null)}</button></a>
+                                <a href="${URLUtils.url('Home-Show')}" target="_blank"><button class="btn-sale" type="">${Resource.msg('msg.button.sales.email', 'confirmation', null)}</button></a>
                             </div>
                             <div class="icons-links">
-                                <a aria-label="Facebook" href="https://www.facebook.com/pastelerialetymty"
-                                    target="_blank"><img class="icon-fb" alt=""
+                                <a aria-label="Facebook" href="https://www.facebook.com/pastelerialetymty" target="_blank"><img class="icon-fb" alt=""
                                         src="${URLUtils.httpsStatic('/images/icons-emails/facebook.png')}" /></a>
-                                <a aria-label="Instagram"
-                                    href="https://www.instagram.com/pastelerialety/?hl=es&__coig_restricted=1"
-                                    target="_blank"><img class="icon-ig" alt=""
+                                <a aria-label="Instagram" href="https://www.instagram.com/pastelerialety/?hl=es&__coig_restricted=1" target="_blank"><img class="icon-ig" alt=""
                                         src="${URLUtils.httpsStatic('/images/icons-emails/instagram.png')}" /></a>
                             </div>
-
+                            
                         </div>
 
                     </td>
                 </tr>
-
+               
             </table>
         </div>
-        <footer>
+       <footer>
             <table class="table-trusty" style="text-align: center;padding-right: 20px;padding-left: 20px;">
                 <tr>
                     <td>
