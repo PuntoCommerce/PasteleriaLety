@@ -405,7 +405,7 @@
                 <tr>
                     <td>
                         <div class="logo-body">
-                            <a href="https://bjqr-001.sandbox.us01.dx.commercecloud.salesforce.com/on/demandware.store/Sites-PasteleriaLety-Site/es/Home-Show"><img class="logo-email-body" src="${URLUtils.httpsStatic('/images/lety-logo.png')}"
+                            <a href="${URLUtils.https('Home-Show')}"><img class="logo-email-body" src="${URLUtils.httpsStatic('/images/lety-logo.png')}"
                                 alt="logo lety" /></a>
                         </div>
                     </td>
@@ -437,12 +437,12 @@
                                 </p>
                             </div>
                             <div class="button-sales">
-                                <a href="https://bjqr-001.sandbox.us01.dx.commercecloud.salesforce.com/on/demandware.store/Sites-PasteleriaLety-Site/es/Home-Show" target="_blank"><button class="btn-sale" type="">${Resource.msg('msg.button.sales.email', 'confirmation', null)}</button></a>
+                                <a href="${URLUtils.https('Home-Show')}" target="_blank"><button class="btn-sale" type="">${Resource.msg('msg.button.sales.email', 'confirmation', null)}</button></a>
                             </div>
                             <div class="icons-links">
-                                <a aria-label="Facebook" href="" target="_blank"><img class="icon-fb" alt=""
+                                <a aria-label="Facebook" href="https://www.facebook.com/pastelerialetymty" target="_blank"><img class="icon-fb" alt=""
                                         src="${URLUtils.httpsStatic('/images/icons-emails/facebook.png')}" /></a>
-                                <a aria-label="Instagram" href="" target="_blank"><img class="icon-ig" alt=""
+                                <a aria-label="Instagram" href="https://www.instagram.com/pastelerialety/?hl=es&__coig_restricted=1" target="_blank"><img class="icon-ig" alt=""
                                         src="${URLUtils.httpsStatic('/images/icons-emails/instagram.png')}" /></a>
                             </div>
                         </div>

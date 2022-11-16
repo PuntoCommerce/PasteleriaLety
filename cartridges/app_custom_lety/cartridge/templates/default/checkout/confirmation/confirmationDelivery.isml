@@ -47,7 +47,7 @@
         .email-title span {
             color: #1C1C1C;
             font-weight: bold;
-            font-size: 25px;
+            font-size: 35px;
         }
 
         .logo-body {
@@ -431,13 +431,13 @@
                     <td>
                         <div class="text-container">
                             <div class="text-congrat" style="text-align: left;">
-                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.order.cancel.email', 'confirmation', null)}&nbsp;${pdict.firstName}&nbsp;${pdict.lastName},
-                                </p>
+                                <iscomment> <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.order.cancel.email', 'confirmation', null)}&nbsp;${pdict.order.firstName}&nbsp;${pdict.order.lastName},&nbsp;${JSON.stringify(order)} ,
+                                </p> </iscomment>
                                 <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery.email', 'confirmation', null)}
                                 </p>
                                 <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery1.email', 'confirmation', null)}
                                 </p>
-                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery2.email', 'confirmation', null)}&nbsp;&nbsp;<a href="">${Resource.msg('msg.delivery3.email', 'confirmation', null)}</a>
+                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery2.email', 'confirmation', null)}&nbsp;&nbsp;<a href="http://factura.pastelerialety.com/">${Resource.msg('msg.delivery3.email', 'confirmation', null)}</a>
                                 </p>
                                  <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery4.email', 'confirmation', null)}
                                 </p>
@@ -453,12 +453,12 @@
                                 </p>
                             </div>
                             <div class="button-sales">
-                                <a href="${URLUtils.url('Home-Show')}" target="_blank"><button class="btn-sale" type="">${Resource.msg('msg.button.sales.email', 'confirmation', null)}</button></a>
+                                <a href="${URLUtils.https('Home-Show')}" target="_blank"><button class="btn-sale" type="">${Resource.msg('msg.button.sales.email', 'confirmation', null)}</button></a>
                             </div>
                             <div class="icons-links">
-                                <a aria-label="Facebook" href="" target="_blank"><img class="icon-fb" alt=""
+                                <a aria-label="Facebook" href="https://www.facebook.com/pastelerialetymty" target="_blank"><img class="icon-fb" alt=""
                                         src="${URLUtils.httpsStatic('/images/icons-emails/facebook.png')}" /></a>
-                                <a aria-label="Instagram" href="" target="_blank"><img class="icon-ig" alt=""
+                                <a aria-label="Instagram" href="https://www.instagram.com/pastelerialety/?hl=es&__coig_restricted=1" target="_blank"><img class="icon-ig" alt=""
                                         src="${URLUtils.httpsStatic('/images/icons-emails/instagram.png')}" /></a>
                             </div>
                         </div>

@@ -7,7 +7,7 @@
                 "@supports-site-context": "true",
                 "@supports-organization-context": "false",
                 "description": "Check if order is cancelled and send notification",
-                "module": "app_custom_cormag/cartridge/scripts/jobs/orderCancelledNotification.js",
+                "module": "app_custom_lety/cartridge/scripts/jobs/orderCancelledNotification.js",
                 "function": "execute",
                 "transactional": "true",
                 "timeout-in-seconds": "900",

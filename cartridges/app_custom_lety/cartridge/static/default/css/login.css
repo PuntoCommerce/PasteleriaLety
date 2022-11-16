@@ -8,6 +8,7 @@
 
 .login-page .title-login h2{
   font-size: 35px;
+  padding-bottom: 32px;
 }
 
 .login-page label, .login-page .checkout__text--bold{
@@ -60,4 +61,12 @@
 .login-page .card-header {
   background: #f3f3f3;
   padding: 0.15rem 1.25rem;
+}
+
+.registration .custom-checkbox, .registration .privacy-policy, .btn-new-account{
+  margin-top: 38px;
+}
+
+.registration .privacy-policy{
+  margin-bottom: 38px;
 }

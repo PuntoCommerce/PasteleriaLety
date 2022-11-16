@@ -110,8 +110,21 @@
     }
     if(path==="Func_ActualizaDatosMembresia"){
       let json = '{"'+path+'":[';
-      json+='{"se actualizo correctamente":"se actualizo correctamente"},';
+      const Cod = XMLList(xml).descendants("iCode");
+      const sMe = XMLList(xml).descendants("sMensaje");
+
+      if(Cod.length()===0){
+        json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
+        json = json.slice(0,-1)+']}';
+      }else{
+        for(let i =0; i<Cod.length();i++){
+          json+='{"iCode":"'+Cod[i]+'","sMensaje":"'+sMe[i]+'"},';
+        }
+        json = json.slice(0,-1)+']}';
+      }
+
       json = json.slice(0,-1)+']}';
+ 
       return json;
     }
     if(path==="Func_MovimientosMembresia"){
@@ -140,18 +153,60 @@
     if(path==="getLetyClubQuitarPuntos"){
       let json = '{"'+path+'":[';
 
-      const getLetyClubQuitarPuntosResult = XMLList(xml).descendants("getLetyClubQuitarPuntosResult");
+      const Code = XMLList(xml).descendants("iCode");
+      const Mens = XMLList(xml).descendants("sMensaje");
 
-      if(getLetyClubQuitarPuntosResult.length() === 0){
+
+      if(Code.length()===0){
+        json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
+        json = json.slice(0,-1)+']}';
+      }else{
+        for(let i =0; i<Code.length();i++){
+          json+='{"iCode":"'+Code[i]+'","sMensaje":"'+Mens[i]+'"},';
+        }
+        json = json.slice(0,-1)+']}';
+      }
+      
+      json = json.slice(0,-1)+']}';
+ 
+      return json;
+    }
+
+    if(path==="Func_ExisteMembrecia"){
+      let json = '{"'+path+'":[';
+
+      const Column1 = XMLList(xml).descendants("Column1");
+
+      if(Column1.length() === 0){
         json+='{"error":"Error de la respuesta o Fue Eliminado correctamente"},';
         json = json.slice(0,-1)+']}';
       }else{
-        for(let i =0; i<getLetyClubQuitarPuntosResult.length();i++){
-          json+='{"getLetyClubQuitarPuntosResult":"'+getLetyClubQuitarPuntosResult[i]+'"},';
+        for(let i =0; i<Column1.length();i++){
+          json+='{"Column1":"'+Column1[i]+'"},';
         }
         json = json.slice(0,-1)+']}';
       }
     
+      return json;
+    }
+
+    if(path==="Func_AsignaNuevaMembresia"){
+      let json = '{"'+path+'":[';
+
+      const iIdMem = XMLList(xml).descendants("iIdMembresia");
+      const iIdFol = XMLList(xml).descendants("iIdFolioPersona");
+      const sIdFol = XMLList(xml).descendants("sIdFolioTarjeta");
+
+      if(iIdMem.length() === 0){
+        json+='{"error":"Error de la respuesta o Fue Eliminado correctamente"},';
+        json = json.slice(0,-1)+']}';
+      }else{
+        for(let i =0; i<iIdMem.length();i++){
+          json+='{"iIdMembresia":"'+iIdMem[i]+'","iIdFolioPersona":"'+iIdFol[i]+'","sIdFolioTarjeta":"'+sIdFol[i]+'"},';
+        }
+        json = json.slice(0,-1)+']}';
+      }
+
       return json;
     }
   }

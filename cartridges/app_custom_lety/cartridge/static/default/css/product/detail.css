@@ -513,7 +513,7 @@ label.color ~ a:hover {
 .social-container .social-icons a,
 .social-container .social-icons i {
   color: #444;
-  padding-right: 0.2em;
+  padding-right: 12px;
 }
 label.availability {
   padding-right: 0.3125em;

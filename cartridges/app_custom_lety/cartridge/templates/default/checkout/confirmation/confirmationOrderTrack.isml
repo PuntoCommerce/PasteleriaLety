@@ -427,7 +427,7 @@
                     <td>
                         <div class="text-container">
                             <div class="text-congrat">
-                            <p class="text" style="  padding: 5px 0 7px 0;"><iscomment> ${pdict.firstName}&nbsp;${pdict.lastName} </iscomment>Alejandro,</p>
+                            <iscomment> <p class="text" style="  padding: 5px 0 7px 0;">${pdict.order.firstName},</p> </iscomment>
                                 <p>${Resource.msg('msg.confir.track.email', 'confirmation', null)}</p>
 
                                 <a href=""><p style="font-weight: bold; padding: 5px 0 7px 0;">${Resource.msg('msg.confir.track.rastreo.email', 'confirmation', null)}
@@ -458,9 +458,9 @@
                                 <a href="${URLUtils.url('Home-Show')}" target="_blank"><button class="btn-sale" type="">${Resource.msg('msg.button.sales.email', 'confirmation', null)}</button></a>
                             </div>
                             <div class="icons-links">
-                                <a aria-label="Facebook" href="" target="_blank"><img class="icon-fb" alt=""
+                                <a aria-label="Facebook" href="https://www.facebook.com/pastelerialetymty" target="_blank"><img class="icon-fb" alt=""
                                         src="${URLUtils.httpsStatic('/images/icons-emails/facebook.png')}" /></a>
-                                <a aria-label="Instagram" href="" target="_blank"><img class="icon-ig" alt=""
+                                <a aria-label="Instagram" href="https://www.instagram.com/pastelerialety/?hl=es&__coig_restricted=1" target="_blank"><img class="icon-ig" alt=""
                                         src="${URLUtils.httpsStatic('/images/icons-emails/instagram.png')}" /></a>
                             </div>
                             

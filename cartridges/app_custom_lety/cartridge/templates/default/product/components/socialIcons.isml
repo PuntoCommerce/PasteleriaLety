@@ -12,7 +12,7 @@
             </a>
         </li>
         <li>
-            <a href="https://twitter.com/share?url=${productUrlencode}&text=${product.productName}" data-share="twitter" title="${Resource.msgf('label.social.twitter', 'product', null, product.productName)}" aria-label="${Resource.msgf('label.social.twitter', 'product', null, product.productName)}" class="share-icons" target="_blank">
+            <a href="https://www.instagram.com/share?url=${productUrlencode}&text=${product.productName}" data-share="instagram" title="${Resource.msgf('label.social.instagram', 'product', null, product.productName)}" aria-label="${Resource.msgf('label.social.twitter', 'product', null, product.productName)}" class="share-icons" target="_blank">
                 <img class="icon-detail" src="${URLUtils.staticURL('/images/icons/instagram-detail.svg')}"/>
             </a>
         </li>

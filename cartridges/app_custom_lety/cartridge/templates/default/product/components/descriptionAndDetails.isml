@@ -41,8 +41,7 @@
     <isif condition="${product.longDescription}">
         <hr class="d-sm-none">
     </isif>
-     <div id="pdp-reviews-view" class="row reviews-raitngs-container collapsible-xs "
-        style="padding-bottom: 4rem;">
+     <div id="pdp-reviews-view" class="row reviews-raitngs-container collapsible-xs">
              <div class="col-sm-12 col-md-4 col-lg-12" id="resena-comentarios">
             <button class="title btn text-left btn-block d-sm-none" aria-expanded="false">
                 ${Resource.msg('label.comentarios', 'product', null)}
