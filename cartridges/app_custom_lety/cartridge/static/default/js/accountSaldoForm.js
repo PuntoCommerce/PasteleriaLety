@@ -2,7 +2,6 @@ const server = require("server");
 
 server.extend(module.superModule);
 
-
 const ApiServiceLety = require("~/cartridge/scripts/jobs/api");
 
 const accountSaldoForm = document.querySelector("#accountSaldoForm");

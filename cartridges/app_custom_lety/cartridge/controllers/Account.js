@@ -125,8 +125,8 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
       s_Telefono:"9987645673",
       s_Mail:"pruebaprueba" 
     }
-  );*/
-
+  );
+*/
 
   if(Func_MovimientosMembresia.ERROR) {
     ListaMovimientos = []
@@ -140,7 +140,11 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
 });
 
 server.post("AddLetyCard", (req, res, next) => {
-  addLetyCardToCustomer(req.form);
+
+const LetyCard= req.form.letyCard;
+const Customer= req.form.customerNo;
+
+  addLetyCardToCustomer(Customer,LetyCard);
   res.redirect(URLUtils.url("Account-Show"));
   next();
 });

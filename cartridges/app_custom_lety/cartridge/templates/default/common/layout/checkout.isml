@@ -2,6 +2,10 @@
 
 <isinclude template="/components/modules" sf-toolkit="off" />
 
+<isscript>
+    assets.addJs('/js/tagmanager.js');
+</isscript>
+
 <!DOCTYPE html>
 <html lang="${require('dw/util/Locale').getLocale(request.getLocale()).getLanguage()}">
     <head>
