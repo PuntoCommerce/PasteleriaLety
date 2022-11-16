@@ -434,7 +434,7 @@
                                 </p>
                             </div>
                             <div class="button-sales">
-                                <a href="${URLUtils.url('Home-Show')}" target="_blank"><button class="btn-sale"
+                                <a href="${URLUtils.https('Home-Show')}" target="_blank"><button class="btn-sale"
                                         type="">${Resource.msg('msg.button.sales.email', 'confirmation', null)}</button></a>
                             </div>
                             <div class="icons-links">
