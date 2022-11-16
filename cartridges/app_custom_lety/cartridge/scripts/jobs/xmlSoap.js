@@ -110,11 +110,18 @@
     }
     if(path==="Func_ActualizaDatosMembresia"){
       let json = '{"'+path+'":[';
-      const iCode = XMLList(xml).descendants("iCode");
-      const sMensaje = XMLList(xml).descendants("sMensaje");
+      const Cod = XMLList(xml).descendants("iCode");
+      const sMe = XMLList(xml).descendants("sMensaje");
 
-      json+='{"iCode":"'+iCode[i]+'","sMensaje":"'+sMensaje[i]+'"},';
-
+      if(Cod.length()===0){
+        json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
+        json = json.slice(0,-1)+']}';
+      }else{
+        for(let i =0; i<Cod.length();i++){
+          json+='{"iCode":"'+Cod[i]+'","sMensaje":"'+sMe[i]+'"},';
+        }
+        json = json.slice(0,-1)+']}';
+      }
 
       json = json.slice(0,-1)+']}';
  
@@ -149,8 +156,16 @@
       const Code = XMLList(xml).descendants("iCode");
       const Mens = XMLList(xml).descendants("sMensaje");
 
-      json+='{"iCode":"'+Code[i]+'","sMensaje":"'+Mens[i]+'"},';
-      
+
+      if(Code.length()===0){
+        json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
+        json = json.slice(0,-1)+']}';
+      }else{
+        for(let i =0; i<Code.length();i++){
+          json+='{"iCode":"'+Code[i]+'","sMensaje":"'+Mens[i]+'"},';
+        }
+        json = json.slice(0,-1)+']}';
+      }
       
       json = json.slice(0,-1)+']}';
  
