@@ -140,12 +140,20 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
 });
 
 server.post("AddLetyCard", (req, res, next) => {
-  addLetyCardToCustomer(req.form);
+
+const LetyCard= req.form.letyCard;
+const Customer= req.form.customerNo;
+
+  addLetyCardToCustomer(Customer,LetyCard);
   res.redirect(URLUtils.url("Account-Show"));
   next();
 });
 
 server.post("GenerateLetyCard", (req, res, next) => {
+  addLetyCardToCustomer({
+    customerNo: req.form.customerNo,
+    letyCard: Date.now(),
+  });
 
   res.redirect(URLUtils.url("Account-Show"));
   next();
