@@ -107,6 +107,7 @@
                 
             </div>
 
+
             <div class="attributes row-desc">
                 <!-- Attributes and Quantity -->
                 <isinclude template="product/components/mainAttributes" />

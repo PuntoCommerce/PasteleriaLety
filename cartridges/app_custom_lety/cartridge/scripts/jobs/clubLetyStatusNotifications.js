@@ -36,21 +36,22 @@ const execute = () => {
         currentDate
     );
 
+    
     for each(order in orders) {
         let orderNotified = order.custom.cancelledOrderNotified;
         
 
-        if(order.status.value == 6 && !orderNotified) {
+        if(order.status.value == 10 && !orderNotified) {
             let orderData = order;
 
             var emailObj = {
                 to: orde.customerEmail,
-                subject: Resource.msg('subject.order.cancellation.email', 'order', null),
+                subject: Resource.msg('email.subject.club.lety', 'account', null),
                 from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
-                type: emailHelpers.emailTypes.orderCancelled
+                type: emailHelpers.emailTypes.clubLetyCard
             };
 
-            emailHelpers.sendEmail(emailObj, 'checkout/cancellation/confirmationOrderCancel', {
+            emailHelpers.sendEmail(emailObj, 'account/components/clubLetyEmail', {
                 order: orderData
             });
 
