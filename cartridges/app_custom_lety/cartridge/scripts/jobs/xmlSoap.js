@@ -19,6 +19,33 @@
       return json;
     }
 
+    if(path==="CatalogoCiudades"){
+      let json = '{"'+path+'":[';
+
+      const iIdCi = XMLList(xml).descendants("iIdCiudad");
+      const iIdEs = XMLList(xml).descendants("iIdEstado");
+      const sAbr = XMLList(xml).descendants("sAbreviacion");
+      const sNom = XMLList(xml).descendants("sNombre");
+      const dtA = XMLList(xml).descendants("dtAlta");
+      const iIdUs = XMLList(xml).descendants("iIdUsrAlta");
+      const dtMod = XMLList(xml).descendants("dtModifica");
+      const iIdUsrMod = XMLList(xml).descendants("iIdUsrModifica");
+
+      if(iIdCi.length()===0){
+        json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
+        json = json.slice(0,-1)+']}';
+      }else{
+        for(let i =0; i<iIdCi.length();i++){
+          json+='{"iIdCiudad":"'+iIdCi[i]+'","iIdEstado":"'+iIdEs[i]+'","sAbreviacion":"'+sAbr[i]+'","sNombre":"'+sNom[i]+'","dtAlta":"'+dtA[i]+'","iIdUsrAlta":"'+iIdUs[i]+'","dtModifica":"'+dtMod[i]+'","iIdUsrModifica":"'+iIdUsrMod[i]+'"},';
+        }
+        json = json.slice(0,-1)+']}';
+      }
+
+      json = json.slice(0,-1)+']}';
+ 
+      return json;
+    }
+
     if(path==="NewCalculoSD"){
       let json = '{"'+path+'":[';
       const bAplica = XMLList(xml).descendants("bAplica");
@@ -69,7 +96,7 @@
       const d_SaldoMembresia = XMLList(xml).descendants("d_SaldoMembresia");
       const sdtm_FechaAlta = XMLList(xml).descendants("sdtm_FechaAlta");
       const s_Colonia = XMLList(xml).descendants("s_Colonia");
-      const iIdCiudad = XMLList(xml).descendants("iIdCiudad");
+      const iIdC = XMLList(xml).descendants("iIdCiudad");
       const Ciudad = XMLList(xml).descendants("Ciudad");
       const iIdEstado = XMLList(xml).descendants("iIdEstado");
       const Estado = XMLList(xml).descendants("Estado");
@@ -99,7 +126,7 @@
           '","s_EstadoCivil":"'+s_EstadoCivil[i]+
           '","PreferenciaProducto":"'+PreferenciaProducto[i]+
           '","dtFechaNacimiento":"'+dtFechaNacimiento[i]+
-          '","iIdCiudad":"'+iIdCiudad[i]+
+          '","iIdCiudad":"'+iIdC[i]+
           '","iIdEstado":"'+iIdEstado[i]+
           '","iIdFolioPersona":"'+iIdFolioPersona[i]+'"},';
         }
@@ -119,6 +146,25 @@
       }else{
         for(let i =0; i<Cod.length();i++){
           json+='{"iCode":"'+Cod[i]+'","sMensaje":"'+sMe[i]+'"},';
+        }
+        json = json.slice(0,-1)+']}';
+      }
+
+      json = json.slice(0,-1)+']}';
+ 
+      return json;
+    }
+    if(path==="InsertaDatosVentaWeb"){
+      let json = '{"'+path+'":[';
+      const Co = XMLList(xml).descendants("iCode");
+      const sM = XMLList(xml).descendants("sMensaje");
+
+      if(Co.length()===0){
+        json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
+        json = json.slice(0,-1)+']}';
+      }else{
+        for(let i =0; i<Co.length();i++){
+          json+='{"iCode":"'+Co[i]+'","sMensaje":"'+sM[i]+'"},';
         }
         json = json.slice(0,-1)+']}';
       }
