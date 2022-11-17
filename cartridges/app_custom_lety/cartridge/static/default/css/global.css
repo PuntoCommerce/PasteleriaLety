@@ -1311,6 +1311,16 @@ textarea {
   .header-bar span {
     display: none;
   }
+
+  .container-PLP{
+    min-height: 1170px !important;
+  }
+
+  
+  .show-more .btn.btn-cancelar{
+    max-width: 232px;
+  }
+  
   .refinement.card {
     border: 1px solid rgba(0, 0, 0, 0.125) !important;
   }

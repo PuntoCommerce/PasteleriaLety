@@ -364,6 +364,11 @@
   color: var(--skin-primary-color-1);
 }
 
+.col-detail-resum{
+  padding-top: 8%;
+  padding-left: 10%;
+}
+
 .container-detail-order{
   padding: 20px 145px;
   display: inline !important;

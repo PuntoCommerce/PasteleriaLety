@@ -75,7 +75,7 @@
 
         <div class="col-12 col-lg-6 ">
             <div class="form-group
-                <isif condition="${pdict.paymentForm.expirationYear.mandatory === true}">required</isif>">
+                <isif condition="${pdict.paymentForm.expirationYear.mandatory === true}">required</isif> div-year">
                 <label class="form-control-label col-lg-12 label-year" for="year">
                     <isprint value="${pdict.paymentForm.expirationYear.label}" encoding="htmlcontent" />
                 </label>
