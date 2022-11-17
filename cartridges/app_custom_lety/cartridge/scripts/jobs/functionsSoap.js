@@ -15,6 +15,17 @@ function body(data,credential,path) {
           '</soap:Body>'+
           '</soap:Envelope>';
     }
+    if(path==="CatalogoCiudades"){
+      return '<?xml version="1.0" encoding="utf-8"?>'+
+        '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">'+
+        '<soap:Body><'+path+' xmlns="http://localhost/">'+
+        '<IdEmpresa>'+data.Empresa+'</IdEmpresa>'+
+        '<vUsr>'+credential.user+'</vUsr>'+
+        '<vPwd>'+credential.password+'</vPwd>'+
+        '<IdEstado>'+data.IdEstado+'</IdEstado>'+
+        '</'+path+'>'+
+        '</soap:Body></soap:Envelope>';
+    }
     if(path==="NewCalculoSD"){
         return '<?xml version="1.0" encoding="utf-8"?>'+
           '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">'+
@@ -147,6 +158,42 @@ function body(data,credential,path) {
         '<s_Colonia>'+data.s_Colonia+'</s_Colonia>'+
         '<s_Telefono>'+data.s_Telefono+'</s_Telefono>'+
         '<s_Mail>'+data.s_Mail+'</s_Mail>'+
+        '</'+path+'>'+
+        '</soap:Body></soap:Envelope>';
+    }
+    if(path==="InsertaDatosVentaWeb"){
+      return '<?xml version="1.0" encoding="utf-8"?>'+
+      '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">'+
+      '<soap:Body><'+path+' xmlns="http://localhost/">'+
+        '<IdEmpresa>'+data.Empresa+'</IdEmpresa>'+
+        '<vUsr>'+credential.user+'</vUsr>'+
+        '<vPwd>'+credential.password+'</vPwd>'+
+          '<pEncabezado>'+
+            '<sFolio>'+data.sFolio+'</sFolio>'+
+            '<sFolioBanco>'+data.sFolioBanco+'</sFolioBanco>'+
+            '<sFolioTarjeta>'+data.sFolioTarjeta+'</sFolioTarjeta>'+
+            '<iIdCentro>'+data.iIdCentro+'</iIdCentro>'+
+            '<dtFechaColocacion>'+data.dtFechaColocacion+'</dtFechaColocacion>'+
+            '<dtFechaAsignacion>'+data.dtFechaAsignacion+'</dtFechaAsignacion>'+
+            '<bindImpreso>'+data.bindImpreso+'</bindImpreso>'+
+          '</pEncabezado>'+
+          '<pDetalle>'+
+            '<cVentaWebD>'+
+              '<sFolio>'+data.sFolio+'</sFolio>'+
+              '<iIdMaterial>'+data.iIdMaterial+'</iIdMaterial>'+
+              '<dPrecio>'+data.dPrecio+'</dPrecio>'+
+              '<iCantidad>'+data.iCantidad+'</iCantidad>'+
+            '</cVentaWebD>'+
+          '</pDetalle>'+
+          '<pPago>'+
+            '<sFolio>'+data.sFolio+'</sFolio>'+
+            '<iIdFormaDePago>'+data.iIdFormaDePago+'</iIdFormaDePago>'+
+            '<dMonto>'+data.bdMonto+'</dMonto>'+
+            '<dMontoExtranjero>'+data.dMontoExtranjero+'</dMontoExtranjero>'+
+            '<iIdMembresia>'+data.iIdMembresia+'</iIdMembresia>'+
+            '<sReferencia>'+data.sReferencia+'</sReferencia>'+
+            '<dMontoLetyPesos>'+data.dMontoLetyPesos+'</dMontoLetyPesos>'+
+          '</pPago>'+
         '</'+path+'>'+
         '</soap:Body></soap:Envelope>';
     }
