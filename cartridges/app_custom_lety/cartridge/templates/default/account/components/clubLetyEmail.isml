@@ -108,7 +108,7 @@
         }
 
         .email-main p {
-            font-size: 14px;
+            font-size: 18px;
             color: #000000;
         }
 
@@ -128,7 +128,9 @@
             padding: 40px 20px 40px 20px;
             margin: 59px 0 99px 0;
             border: 1px solid black;
-
+            text-align: -moz-left;
+            text-align: left;
+            text-align: -webkit-left;
         }
 
         .button-sales {
@@ -210,6 +212,7 @@
         .avisos-mobile {
             display: none;
         }
+
 
         a {
             color: #FFFFFF;
@@ -416,26 +419,26 @@
                 </tr>
                 <tr class="email-title">
                     <td>
-                        <span>${Resource.msg('title.order.cancel', 'confirmation', null)}</span>
+                        <span>${Resource.msg('title.confir.clublety.email', 'confirmation', null)}</span>
                     </td>
                 </tr>
 
                 <tr>
                     <td>
                         <div class="text-container">
-                            <div class="text-congrat" style="text-align: left;">
-                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.order.cancel.email', 'confirmation', null)}
+                            <div class="text-congrat">
+                            <iscomment> <p class="text" style="  padding: 5px 0 7px 0;">${pdict.order.firstName},</p> </iscomment>
+                                <p>${Resource.msg('msg.welcome.clublety', 'confirmation', null)}</p>
+
+                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.txt.clublety', 'confirmation', null)}
                                 </p>
-                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.order.cancel2.email', 'confirmation', null)}
+                                <p style="  padding: 20px 0 7px 0;">${Resource.msg('msg.info.card-clublety', 'confirmation', null)}
                                 </p>
-                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.order.cancel3.email', 'confirmation', null)}
-                                </p>
-                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.order.cancel4.email', 'confirmation', null)}
-                                </p>
+                                <p>3030303030</p>
                             </div>
+
                             <div class="button-sales">
-                                <a href="${URLUtils.https('Home-Show')}" target="_blank"><button class="btn-sale"
-                                        type="">${Resource.msg('msg.button.sales.email', 'confirmation', null)}</button></a>
+                                <a href="${URLUtils.url('Home-Show')}" target="_blank"><button class="btn-sale" type="">${Resource.msg('msg.button.sales.email', 'confirmation', null)}</button></a>
                             </div>
                             <div class="icons-links">
                                 <a aria-label="Facebook" href="https://www.facebook.com/pastelerialetymty" target="_blank"><img class="icon-fb" alt=""
@@ -443,13 +446,15 @@
                                 <a aria-label="Instagram" href="https://www.instagram.com/pastelerialety/?hl=es&__coig_restricted=1" target="_blank"><img class="icon-ig" alt=""
                                         src="${URLUtils.httpsStatic('/images/icons-emails/instagram.png')}" /></a>
                             </div>
+                            
                         </div>
 
                     </td>
                 </tr>
+               
             </table>
         </div>
-        <footer>
+       <footer>
             <table class="table-trusty" style="text-align: center;padding-right: 20px;padding-left: 20px;">
                 <tr>
                     <td>

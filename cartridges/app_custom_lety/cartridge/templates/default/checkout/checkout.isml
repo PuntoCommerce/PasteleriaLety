@@ -6,6 +6,7 @@
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addJs('/js/checkout.js');
+        assets.addJs('/js/priceAdjustment.js');
         assets.addCss('/css/checkout/checkout.css');
     </isscript>
 
@@ -214,8 +215,9 @@
 
                                 </div>
 
-                                <div class="row">
-                                    <!-- Lety card -->
+                                <div class="row bg-info">
+
+                                    <iscomment> Lety card </iscomment>
                                     <div class="col-12">
                                         <form action="${}" class="promo-code-form lety-card-form" method="GET"
                                             name="lety-card-form">
@@ -255,6 +257,48 @@
                                         </form>
                                     </div>
 
+                                    <iscomment> Lety saldo </iscomment>
+                                    <div class="col-12">
+                                        <p>${JSON.stringify()}</p>
+                                        <form action="${}" class="promo-code-form lety-card-form" method="GET"
+                                            name="lety-card-form">
+                                            <div class="form-group">
+                                                <label for="">${Resource.msg('label.code.club', 'checkout', null)}</label>
+                                                <div class="row">
+                                                    <div class="col-7">
+                                                        <input type="text" class="form-control coupon-code-field" id=""
+                                                            name="" value="${pdict.customer.saldo}"
+                                                            ${pdict.customer.saldo !== undefined ? 'disabled' : ''}>
+                                                        <div class="coupon-error">
+
+                                                            <span class="coupon-error-message" id=""
+                                                                role="alert"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <input type="hidden" name="${}" value="${}" />
+                                                    <iscomment>
+                                                    <div class="col-5 promo-code-submit" disabled>
+                                                        <isif condition="${pdict.customer.LetyCard}">
+                                                            <button type="button"
+                                                                class="btn btn-product btn-block promo-code-btn"
+                                                                data-toggle="modal" data-target="#letyCard">
+                                                                ${Resource.msg('button.submit.promo.code.cambiar', 'cart', null)}
+                                                            </button>
+                                                        <iselse/>
+                                                            <button type="button"
+                                                                class="btn btn-product btn-block promo-code-btn"
+                                                                data-toggle="modal" data-target="#letyCard">
+                                                                ${Resource.msg('button.submit.promo.code.agregar', 'cart', null)}
+                                                            </button>
+                                                        </isif>
+                                                    </div>
+                                                    </iscomment>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
                                     <!-- Restar lety puntos -->
                                     <div class="col-12">
                                         <form action="${}" class="promo-code-form lety-card-form" method="GET"
@@ -274,7 +318,10 @@
                                                     <input type="hidden" name="${}" value="${}" />
 
                                                     <div class="col-5 promo-code-submit">
-                                                        <button type="button"
+                                                        <button
+                                                            id="letyPuntosriceAdjustment"
+                                                            data-action="${URLUtils.url("PriceAdjustment-LetyPuntos")}"
+                                                            type="button"
                                                             class="btn btn-product btn-block promo-code-btn">
                                                             ${Resource.msg('button.submit.promo.code.restar', 'cart', null)}
                                                         </button>
