@@ -11,6 +11,7 @@
 
 <isscript>
     var assets = require('*/cartridge/scripts/assets.js');
+    assets.addJs('/js/tagmanager.js');
     assets.addCss('/css/experience/components/commerceAssets/campaignBanner.css');
     assets.addJs('/js/campaignBanner.js');
     assets.addJs('/js/hiddenBtn.js');
