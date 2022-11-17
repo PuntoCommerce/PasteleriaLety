@@ -126,7 +126,37 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
       s_Mail:"pruebaprueba" 
     }
   );
-*/
+
+let CatalogoCiudades = ApiServiceLety.ApiLety(
+  "CatalogoCiudades",
+  { 
+    Empresa: 1, 
+    IdEstado: "0" 
+  }
+);
+
+let InsertaDatosVentaWeb = ApiServiceLety.ApiLety(
+  "InsertaDatosVentaWeb",
+  { 
+    Empresa: 1, 
+    sFolio: "1300",
+    sFolioBanco:"500",
+    sFolioTarjeta:"200",
+    iIdCentro:"201",
+    dtFechaColocacion:"2022-11-15T22:00:00.228Z",
+    dtFechaAsignacion:"2022-11-15T22:00:00.228Z",
+    bindImpreso:"true",
+    iIdMaterial:"51",
+    dPrecio:"1000",
+    iCantidad:"1",
+    iIdFormaDePago:"3",
+    bdMonto:"100",
+    dMontoExtranjero:"0",
+    iIdMembresia:"30120013178",
+    sReferencia:"test",
+    dMontoLetyPesos:"0"
+  }
+);*/
 
   if(Func_MovimientosMembresia.ERROR) {
     ListaMovimientos = []
