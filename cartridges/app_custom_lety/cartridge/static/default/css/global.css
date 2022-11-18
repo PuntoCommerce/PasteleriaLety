@@ -238,7 +238,7 @@ body {
   min-height: 100vh;
 }
 footer {
-  margin-top: auto;
+  margin-top: 5rem;
 }
 [tabindex="-1"]:focus {
   outline: 0 !important;
@@ -826,6 +826,7 @@ header {
 
 .text-icons-details {
   font-size: 15px;
+  padding-right: 20px;
 }
 
 .social-container {
