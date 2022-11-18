@@ -683,6 +683,7 @@ header {
   left: -4px !important;
   top: 23px;
   font-size: 15px;
+  padding: 0;
 }
 
 .pac-target-input {
@@ -1257,10 +1258,6 @@ textarea {
     padding-top: 0 !important;
   }
 
-  .btn-product {
-    background-color: var(--color-lety2) !important;
-  }
-
   /*Breadcrumb*/
 
   .breadcrumb-padding{
@@ -1577,12 +1574,6 @@ textarea {
   }
 
 } */
-
-@media (max-width: 1600px) {
-  .header-container {
-    width: 94% !important;
-  }
-}
 
 .button-menu {
   color: var(--color-lety-white);
@@ -4036,7 +4027,7 @@ input[type="submit"].btn-block {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  top: 150px;
+  top: 105px;
 }
 .dropdown-menu-left {
   right: auto;
@@ -14524,6 +14515,7 @@ a.skip:hover {
 .header-container {
   margin: 0 15px;
   height: 110px;
+  width: 100%;
 }
 .navbar-header .country-selector,
 .navbar-header .minicart,
@@ -15698,6 +15690,7 @@ a .moreless .less {
 }
 .product-tile .tile-body .pdp-link {
   line-height: 1.2;
+  height: 45px;
 }
 .product-tile .tile-body .pdp-link a {
   font-size: 18px;
@@ -15707,7 +15700,7 @@ a .moreless .less {
 }
 .product-tile .tile-body .price {
   font-size: 20px !important;
-  height: 50px;
+  height: 68px;
 }
 .product-tile .tile-body .ratings {
   font-size: 0.9em;
@@ -17405,8 +17398,8 @@ a .moreless .less {
 .tile-body .plp-description{
   font-size: 14px;
   font-family: 'gotham-book';
-  padding: 0 80px;
-  height: 130px;
+  padding: 0;
+  height: 40px;
   margin: 0;
 }
 
@@ -17482,9 +17475,13 @@ a .moreless .less {
 }
 
 @media (max-width: 1200px) {
+
+  .product-tile .tile-body .pdp-link{
+    height: 55px;
+  }
   .tile-body .plp-description{
-    padding: 0;
-    height: 105px;
+    padding: 0 ;
+    height: 60px;
   }
 }
 
@@ -17500,7 +17497,10 @@ a .moreless .less {
   }
 
   .tile-body .plp-description{
-    height: 110px;
+    height: 70px;
+  }
+  .product-tile .tile-body .pdp-link{
+    height: 60px;
   }
 
   #responsabilidadsocial .experience-commerce_assets-editorialRichText .editorialRichText-component-container .col-12 p img{
@@ -17515,6 +17515,22 @@ a .moreless .less {
   }
 }
 
+@media (max-width: 425px) {
+
+  .tile-body .plp-description{
+    height: 40px;
+  }
+
+  .product-tile .tile-body .price{
+    height: 60px;
+  }
+}
+
+@media (max-width: 350px) {
+  .tile-body .plp-description{
+    height: 60px;
+  }
+}
 /* *{
   outline: 1px solid red;
 } */
