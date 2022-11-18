@@ -69,7 +69,7 @@
                         </a>
                     </div>
                     <div class="col-12 col-lg-6">
-                        <a href="${URLUtils.url('Address-AddAddress')}" class="btn btn-save btn-save-login" aria-label="${Resource.msg('label.addressbook.addnewaddress','account',null)}">${Resource.msg('button.addnew','account',null)}</a>
+                        <a href="${URLUtils.url('Address-AddAddress')}" class="btn btn-product" aria-label="${Resource.msg('label.addressbook.addnewaddress','account',null)}">${Resource.msg('button.addnew','account',null)}</a>
                     </div>
                 </div>
             </div>

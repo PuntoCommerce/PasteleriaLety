@@ -24,11 +24,9 @@
                                     alt="${Resource.msg('global.storename', 'common', null)}" />
                             </a>
                         </div>
-                        <div class="location location-desk">
-                            <iscomment> <isinclude template="components/header/location" /> </iscomment>
+                        <iscomment> <div class="location location-desk">
                             <isinclude url="${URLUtils.url('StoreSession-Start')}" />
-                            
-                        </div>
+                        </div> </iscomment>
                     </div>
                     <div class="pull-right d-flex align-items-center col-xl-9 col-lg-10 col-md-8">
                         <div class="search search-desk">
