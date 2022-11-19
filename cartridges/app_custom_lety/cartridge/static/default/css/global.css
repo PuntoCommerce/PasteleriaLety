@@ -15716,7 +15716,7 @@ a .moreless .less {
 }
 .product-tile .tile-body .price {
   font-size: 20px !important;
-  height: 68px;
+  height: auto;
 }
 .product-tile .tile-body .ratings {
   font-size: 0.9em;
@@ -17509,7 +17509,7 @@ a .moreless .less {
 
 @media (max-width: 768px) {
   .product-tile .tile-body .price {
-    height: 60px;
+    height: auto;
   }
 
   .tile-body .plp-description{
@@ -17535,7 +17535,7 @@ a .moreless .less {
   }
 
   .product-tile .tile-body .price {
-    height: 60px; 
+    height: auto; 
   }
 }
 
