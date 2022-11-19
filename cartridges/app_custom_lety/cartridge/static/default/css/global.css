@@ -680,8 +680,8 @@ header {
 
 .user .user-message {
   position: absolute;
-  left: -4px !important;
-  top: 23px;
+  top: 20px;
+  left: 0;
   font-size: 15px;
   padding: 0;
 }
@@ -15104,6 +15104,11 @@ footer .store-mobile {
 }
 
 @media (max-width: 992px) {
+  .header {
+    position: relative;
+    background-color: var(--color-lety2);
+    height: 110px;
+  }
   footer .social-links {
     width: 80%;
   }
