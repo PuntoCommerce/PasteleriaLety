@@ -12,21 +12,21 @@ server.extend(module.superModule);
 
 
 server.get("Saldo", server.middleware.https, function (req, res, next) {
-    let letyCard = req.querystring.letyCard;
-    let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia", {
-      Empresa: 1,
-      s_IdMembresia: letyCard,
-    });
+  let letyCard = req.querystring.letyCard;
+  let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia", {
+    Empresa: 1,
+    s_IdMembresia: letyCard,
+  });
 
-    let JsonDatosMembresia;
+  let JsonDatosMembresia;
 
-    if(Func_DatosMembresia.ERROR){
-      JsonDatosMembresia = {};
-    }else{
-      JsonDatosMembresia = JSON.parse(Func_DatosMembresia);
-    }
- 
-    
+  if (Func_DatosMembresia.ERROR) {
+    JsonDatosMembresia = {};
+  } else {
+    JsonDatosMembresia = JSON.parse(Func_DatosMembresia);
+  }
+
+
   res.render("account/saldoLetyClub", {
     Account: {
       LetyCard: letyCard,
@@ -37,7 +37,7 @@ server.get("Saldo", server.middleware.https, function (req, res, next) {
 });
 
 server.get("Movimientos", server.middleware.https, function (req, res, next) {
-  
+
   var Site = require("dw/system/Site");
   var PageMgr = require("dw/experience/PageMgr");
   var pageMetaHelper = require("*/cartridge/scripts/helpers/pageMetaHelper");
@@ -46,10 +46,9 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
 
 
   let Func_MovimientosMembresia = ApiServiceLety.ApiLety(
-    "Func_MovimientosMembresia",
-    { 
-      Empresa: 1, 
-      s_IdMembresia: req.querystring.letyCard 
+    "Func_MovimientosMembresia", {
+      Empresa: 1,
+      s_IdMembresia: req.querystring.letyCard
     }
   );
 
@@ -158,23 +157,26 @@ let InsertaDatosVentaWeb = ApiServiceLety.ApiLety(
   }
 );*/
 
-  if(Func_MovimientosMembresia.ERROR) {
+  if (Func_MovimientosMembresia.ERROR) {
     ListaMovimientos = []
-  }else{
+  } else {
     let JsonMovimientosMembresia = JSON.parse(Func_MovimientosMembresia);
-    ListaMovimientos =JsonMovimientosMembresia.Func_MovimientosMembresia;
+    ListaMovimientos = JsonMovimientosMembresia.Func_MovimientosMembresia;
   }
 
-  res.render("account/movesLetyClub", { ListaMovimientos: ListaMovimientos, arrayMovimientos: JSON.stringify(ListaMovimientos ) });
+  res.render("account/movesLetyClub", {
+    ListaMovimientos: ListaMovimientos,
+    arrayMovimientos: JSON.stringify(ListaMovimientos)
+  });
   next();
 });
 
 server.post("AddLetyCard", (req, res, next) => {
 
-const LetyCard= req.form.letyCard;
-const Customer= req.form.customerNo;
+  const LetyCard = req.form.letyCard;
+  const Customer = req.form.customerNo;
 
-  addLetyCardToCustomer(Customer,LetyCard);
+  addLetyCardToCustomer(Customer, LetyCard);
   res.redirect(URLUtils.url("Account-Show"));
   next();
 });
@@ -186,6 +188,55 @@ server.post("GenerateLetyCard", (req, res, next) => {
   });
 
   res.redirect(URLUtils.url("Account-Show"));
+  next();
+});
+
+server.post("SaveSaldoForm", (req, res, next) => {
+
+  const josnData = JSON.stringify(req.form);
+
+  const data = JSON.parse(josnData);
+
+  const lastNames = data.s_ApellidoPat.trim().split(" ");
+
+  let Func_ActualizaDatosMembresia = ApiServiceLety.ApiLety(
+    "Func_ActualizaDatosMembresia", {
+      Empresa: 1,
+      s_IdMembresia: data.lLetyCard,
+      i_IdFolioPersona: data.iIdFolioPersona,
+      s_Nombre: data.s_Nombre,
+      s_Appaterno: lastNames[0],
+      s_Apmaterno: lastNames[1],
+      s_FechaNacimiento: data.dtFechaNacimiento,
+      s_Sexo: "Masculino",
+      i_IdCiudad: "1086",
+      s_EdoCivil: "Soltero",
+      s_PastelFavorito: data.PreferenciaProducto,
+      s_Direccion: "Avenina 12",
+      s_Colonia: data.s_Colonia,
+      s_Telefono: data.s_Telefono1,
+      s_Mail: data.s_Mail
+    }
+  );
+
+
+  let JsonDatosMembresia;
+
+  JsonDatosMembresia = Func_ActualizaDatosMembresia;
+
+  if (JsonDatosMembresia.ERROR) {
+
+    res.json({
+      error: 1
+    });
+
+  } else {
+    res.json({
+      error: 0
+    })
+  }
+
+
   next();
 });
 
