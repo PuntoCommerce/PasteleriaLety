@@ -1,0 +1,95 @@
+<isset name="customPickUp" value="${pdict.forms.shippingForm.customPickUp}" scope="page"/>
+<isset name="datetime" value="${pdict.forms.shippingForm.datetime}" scope="page"/>
+
+<isif condition="${shippingModel.customPickup}">
+    <isset name="customPickup" value="${shippingModel.customPickup}" scope="page" />
+<iselse/>
+    <isset name="customPickup" value="${{}}" scope="page" />
+</isif>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group
+            ${customPickUp.firstName.mandatory === true ? 'required' : ''}
+            ${customPickUp.firstName.htmlName}">
+            <label class="form-control-label" for="custonShippingFirstName${lineItem ? lineItem.UUID : 'default'}"  >
+                ${Resource.msg('field.shipping.address.first.name','address',null)}
+
+            </label>
+            <input autofocus type="text" class="form-control custonShippingFirstName" id="custonShippingFirstName${lineItem ? lineItem.UUID : 'default'}" aria-describedby="${lineItem ? lineItem.UUID : 'default'}FirstName"
+                value="${customPickup.firstName||''}" <isprint value=${customPickUp.firstName.attributes} encoding="off"/> required
+                autocomplete="shipping given-name" >
+            <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}FirstName"><isprint value="${customPickUp.firstName.error}" ></div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group
+            ${customPickUp.lastName.mandatory === true ? 'required' : ''}
+            ${customPickUp.lastName.htmlName}">
+            <label class="form-control-label" for="customShippingLastName${lineItem ? lineItem.UUID : 'default'}">
+                ${Resource.msg('field.shipping.address.last.name','address',null)}
+            </label>
+            <input type="text" class="form-control customShippingLastName" id="customShippingLastName${lineItem ? lineItem.UUID : 'default'}" aria-describedby="${lineItem ? lineItem.UUID : 'default'}LastName"
+                value="${customPickup.lastName||''}" <isprint value=${customPickUp.lastName.attributes} encoding="off"/> required
+                autocomplete="shipping family-name">
+            <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}LastName"><isprint value="${customPickUp.lastName.error}" ></div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group
+            ${customPickUp.phone.mandatory === true ? 'required' : ''}
+            ${customPickUp.phone.htmlName}">
+            <label class="form-control-label" for="customShippingPhoneNumber${lineItem ? lineItem.UUID : 'default'}">
+                ${Resource.msg('field.shipping.address.phone','address',null)}
+            </label>
+            <input type="tel" class="form-control customShippingPhoneNumber" id="customShippingPhoneNumber${lineItem ? lineItem.UUID : 'default'}" aria-describedby="${lineItem ? lineItem.UUID : 'default'}TelephoneNumber"
+                value="${customPickup.phone||''}" <isprint value=${customPickUp.phone.attributes} encoding="off"/> required
+                   autocomplete="shipping tel">
+            <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}TelephoneNumber"><isprint value="${customPickUp.phone.error}" ></div>
+            <span>${Resource.msg('example.phone','forms',null)}</span>
+        </div>
+    </div>
+</div>
+
+<isinclude template="checkout/shipping/datetimepicker" />
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group
+            ${customPickUp.email.mandatory === true ? 'required' : ''}
+            ${customPickUp.email.htmlName}">
+            <label class="form-control-label" for="customShippingEmail${lineItem ? lineItem.UUID : 'default'}">
+                ${Resource.msg('field.shipping.address.email','address',null)}
+            </label>
+            <input type="tel" class="form-control customShippingEmail" id="customShippingEmail${lineItem ? lineItem.UUID : 'default'}" aria-describedby="${lineItem ? lineItem.UUID : 'default'}Email"
+                value="${customPickup.email||''}" <isprint value=${customPickUp.email.attributes} encoding="off"/>>
+            <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}Email"><isprint value="${customPickUp.email.error}" ></div>
+            <iscomment> <span>${Resource.msg('example.phone','forms',null)}</span> </iscomment>
+        </div>
+    </div>
+</div>
+
+
+<iscomment> <div class="row">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <label class="form-control-label">
+                ${Resource.msg('field.customer.email','checkout',null)}
+            </label>
+            <input type="text" class="form-control customEmail" id="customShippingEmail${lineItem ? lineItem.UUID : 'default'}" aria-describedby="${lineItem ? lineItem.UUID : 'default'}Email"
+                        value="${(pdict.customer.registeredUser && pdict.customer.profile && pdict.customer.profile.email) ? pdict.customer.profile.email : ''}" <isprint value=${pdict.forms.guestCustomerForm.email.attributes} encoding="off"/>
+                        aria-describedby="guestEmailInvalidMessage" 
+                        <isprint value=${customPickUp.email.attributes} encoding="off"/>
+                        >
+            <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}Email"><isprint value="${customPickUp.email.error}" ></div>
+        </div>
+    </div>
+</div> </iscomment>
