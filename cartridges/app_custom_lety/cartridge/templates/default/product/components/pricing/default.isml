@@ -19,7 +19,6 @@
 
     <isif condition="${finalOrigPrice.list !== null}">
         <isset name="price" value="${finalOrigPrice.list}" scope="page" />
-        <del>
             <span class="strike-through list">
                 <span class="value" content="${price.decimalPrice}">
                     <span class="sr-only">
@@ -31,7 +30,6 @@
                     </span>
                 </span>
             </span>
-        </del>
     </isif>
 </span>
 </span>
