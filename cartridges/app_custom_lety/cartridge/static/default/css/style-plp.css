@@ -1,0 +1,10 @@
+
+ 
+  .container.search-results, .tab-content.col-12{
+    min-height: 1170px !important;
+  }
+
+  
+  .show-more .btn.btn-cancelar{
+    max-width: 232px;
+  }

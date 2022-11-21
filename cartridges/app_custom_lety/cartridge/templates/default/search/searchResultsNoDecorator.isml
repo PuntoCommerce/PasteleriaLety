@@ -3,7 +3,7 @@
 </isif>
 <isscript>
     var assets = require('*/cartridge/scripts/assets.js');
-    assets.addCss('/css/prueba.css');
+    assets.addCss('/css/style-plp.css');
 </isscript>
 
 <!--- Search Results Banner --->
