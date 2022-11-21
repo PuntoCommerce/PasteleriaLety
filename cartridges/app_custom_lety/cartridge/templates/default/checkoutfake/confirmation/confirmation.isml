@@ -10,7 +10,7 @@
     </isif>
 
     <div>
-        <img class="" src="${URLUtils.staticURL('/images/banner-confirmation.svg')}" alt="confirmation" />
+        <img class="img-confirmation" src="${URLUtils.staticURL('/images/banner-confirmation.svg')}" alt="confirmation" />
     </div>
     <div class="confirmation-top">
         <ul class="checkout__stepper">

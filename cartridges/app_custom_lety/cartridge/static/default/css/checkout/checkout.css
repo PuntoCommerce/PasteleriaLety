@@ -747,6 +747,10 @@ span.ship-to-phone {
 .confirmation-summary-container .product-summary-block .item-image {
   margin: auto;
 }
+
+.img-confirmation{
+  width: 100%;
+}
 .address-summary .icon-shipping {
   margin-right: 15px;
 }

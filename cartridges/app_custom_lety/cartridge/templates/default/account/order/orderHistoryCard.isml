@@ -20,7 +20,7 @@
             <div class="col-4 col-lg-4 hidden-xs-down">
                 <img class="img-fluid" src="${order.firstLineItem.imageURL}" alt="${order.firstLineItem.alt}" title="${order.firstLineItem.title}">
             </div>
-            <div class="col-sm-8 col-12 col-lg-5">
+            <div class="col-sm-8 col-12 col-lg-5 col-detail-resum">
                 <div class="container-detail-order">
                     <isif condition="${pdict.accountlanding}">
                     <p>${Resource.msg('label.orderhistory.ordernumber','account',null)} <isprint value="${order.orderNumber}"/></p>

@@ -200,13 +200,29 @@
   background: #f3f3f3;
 }
 
+.btn-delete-cart{
+  background-color: var(--color-lety-btnProduct);
+  color: #b37e5b !important;
+  font-family: var(--font-family-gotham);
+  
+}
+
+.btn-delete-cancel{
+  border-color: var(--color-lety-black) !important;
+}
+
+.btn-delete-cart:hover{
+  background-color: var(--color-lety2);
+  color: var(--color-lety-white) !important;
+}
+
 .btn-cancelar{
   border-radius: 25px;
   width: 100%;
   border-color: var(--color-lety-black) !important;
 }
 
-.btn-cancelar:hover{
+.btn-cancelar:hover, .btn-delete-cancel:hover{
   border-color: var(--color-lety2) !important;
   color: var(--color-lety2) !important;
 }
@@ -362,6 +378,11 @@
   float: left !important;
   padding-top: 60%;
   color: var(--skin-primary-color-1);
+}
+
+.col-detail-resum{
+  padding-top: 8%;
+  padding-left: 10%;
 }
 
 .container-detail-order{

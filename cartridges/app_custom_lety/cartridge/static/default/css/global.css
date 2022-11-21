@@ -238,7 +238,7 @@ body {
   min-height: 100vh;
 }
 footer {
-  margin-top: auto;
+  margin-top: 5rem;
 }
 [tabindex="-1"]:focus {
   outline: 0 !important;
@@ -680,9 +680,10 @@ header {
 
 .user .user-message {
   position: absolute;
-  left: -4px !important;
-  top: 23px;
+  top: 20px;
+  left: 0;
   font-size: 15px;
+  padding: 0;
 }
 
 .pac-target-input {
@@ -825,6 +826,7 @@ header {
 
 .text-icons-details {
   font-size: 15px;
+  padding-right: 20px;
 }
 
 .social-container {
@@ -1257,10 +1259,6 @@ textarea {
     padding-top: 0 !important;
   }
 
-  .btn-product {
-    background-color: var(--color-lety2) !important;
-  }
-
   /*Breadcrumb*/
 
   .breadcrumb-padding{
@@ -1311,6 +1309,11 @@ textarea {
   .header-bar span {
     display: none;
   }
+
+  .show-more .btn.btn-cancelar{
+    max-width: 232px;
+  }
+  
   .refinement.card {
     border: 1px solid rgba(0, 0, 0, 0.125) !important;
   }
@@ -1577,12 +1580,6 @@ textarea {
   }
 
 } */
-
-@media (max-width: 1600px) {
-  .header-container {
-    width: 94% !important;
-  }
-}
 
 .button-menu {
   color: var(--color-lety-white);
@@ -14524,6 +14521,7 @@ a.skip:hover {
 .header-container {
   margin: 0 15px;
   height: 110px;
+  width: 100%;
 }
 .navbar-header .country-selector,
 .navbar-header .minicart,
@@ -15102,6 +15100,11 @@ footer .store-mobile {
 }
 
 @media (max-width: 992px) {
+  .header {
+    position: relative;
+    background-color: var(--color-lety2);
+    height: 110px;
+  }
   footer .social-links {
     width: 80%;
   }
@@ -15698,6 +15701,7 @@ a .moreless .less {
 }
 .product-tile .tile-body .pdp-link {
   line-height: 1.2;
+  height: 45px;
 }
 .product-tile .tile-body .pdp-link a {
   font-size: 18px;
@@ -15707,7 +15711,7 @@ a .moreless .less {
 }
 .product-tile .tile-body .price {
   font-size: 20px !important;
-  height: 50px;
+  height: auto;
 }
 .product-tile .tile-body .ratings {
   font-size: 0.9em;
@@ -17405,8 +17409,8 @@ a .moreless .less {
 .tile-body .plp-description{
   font-size: 14px;
   font-family: 'gotham-book';
-  padding: 0 80px;
-  height: 130px;
+  padding: 0;
+  height: 40px;
   margin: 0;
 }
 
@@ -17482,9 +17486,13 @@ a .moreless .less {
 }
 
 @media (max-width: 1200px) {
+
+  .product-tile .tile-body .pdp-link{
+    height: 55px;
+  }
   .tile-body .plp-description{
-    padding: 0;
-    height: 105px;
+    padding: 0 ;
+    height: 60px;
   }
 }
 
@@ -17496,11 +17504,14 @@ a .moreless .less {
 
 @media (max-width: 768px) {
   .product-tile .tile-body .price {
-    height: 30px;
+    height: auto;
   }
 
   .tile-body .plp-description{
-    height: 110px;
+    height: 70px;
+  }
+  .product-tile .tile-body .pdp-link{
+    height: 60px;
   }
 
   #responsabilidadsocial .experience-commerce_assets-editorialRichText .editorialRichText-component-container .col-12 p img{
@@ -17513,8 +17524,28 @@ a .moreless .less {
     left: 25px;
     top: -33px;
   }
+
+  .tile-body .plp-description{
+    height: 40px;
+  }
+
+  .product-tile .tile-body .price {
+    height: auto; 
+  }
 }
 
+@media (max-width: 535px) {
+
+  .tile-body .plp-description{
+    height: 55px;
+  }
+} 
+
+@media (max-width: 350px) {
+  .tile-body .plp-description{
+    height: 60px;
+  }
+}
 /* *{
   outline: 1px solid red;
 } */
