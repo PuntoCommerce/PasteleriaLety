@@ -1,35 +1,32 @@
-"use strict";
+'use strict';
 
-const server = require("server");
-server.extend(module.superModule);
+/**
+ * @namespace PDrender
+ */
 
-const {
-  findPromotions,
-  findAttribiutes,
-} = require("*/cartridge/scripts/helpers/hightLightHelper");
+var server = require('server');
 
-server.replace("CommerceAssets_ProductTile", (req, res, next) => {
-  var URLUtils = require("dw/web/URLUtils");
-  var ProductFactory = require("*/cartridge/scripts/factories/product");
+/**
+ * PDrender-Show : This endpoint is called when a shopper navigates to the PDrender page
+ * @name Base/PDrender-Show
+ * @function
+ * @memberof PDrender
+ * @param {middleware} - consentTracking.consent
+ * @param {middleware} - cache.applyDefaultCache
+ * @param {category} - non-sensitive
+ * @param {renders} - isml
+ * @param {serverfunction} - get
+ */
 
-  var context = JSON.parse(req.querystring.data);
-  context.product = ProductFactory.get({
-    pview: context.pview,
-    pid: context.productID,
-  });
-
-  context.product.promotions = findPromotions(context.product.id);
-  context.product.customAttributes = findAttribiutes(context.product.id);
-
-  context.urls = {
-    product: URLUtils.url("Product-Show", "pid", context.product.id)
-      .relative()
-      .toString(),
-  };
-
-  res.render("product/productTile.isml", context);
-
-  next();
+server.get('Show', function (req, res, next) {
+    var PageMgr = require('dw/experience/PageMgr');
+    var page = PageMgr.getPage(req.querystring.page);
+    if (page && page.isVisible()) {
+        res.page(req.querystring.page);
+    } else {
+        res.render('error/notFound');
+    }
+    next();
 });
 
 module.exports = server.exports();
