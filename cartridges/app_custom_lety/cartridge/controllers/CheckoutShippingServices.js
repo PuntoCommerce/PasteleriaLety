@@ -41,19 +41,21 @@ server.append("SubmitShipping", (req, res, next) => {
   Transaction.wrap(() => {
     let pickUpId = viewData.storeId;
     // let shipment = currentBasket.defaulShipment.shippingAddress;
-    let address = {
-      firstName: shipping.customPickUp.firstName.value,
-      lastName: shipping.customPickUp.lastName.value,
-      phone: shipping.customPickUp.phone.value,
-      address1: "",
-      address2: "",
-      city: "",
-      postalCode: "",
-      countryCode: "MX",
+    let result = {
+      address = {
+        firstName: shipping.customPickUp.firstName.value,
+        lastName: shipping.customPickUp.lastName.value,
+        phone: shipping.customPickUp.phone.value,
+        address1: "",
+        address2: "",
+        city: "",
+        postalCode: "",
+        countryCode: "MX",
+      }
     };
 
     COHelpers.copyShippingAddressToShipment(
-      { address },
+      result,
       currentBasket.defaultShipment
     );
     currentBasket.setCustomerEmail(shipping.customPickUp.email.value);
