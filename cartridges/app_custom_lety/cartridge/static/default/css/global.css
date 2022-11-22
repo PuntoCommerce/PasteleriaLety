@@ -17505,6 +17505,9 @@ a .moreless .less {
   margin: 0 auto;
 }
 
+.footerLink:hover{
+  color: #fff !important;
+}
 
 @media (max-width: 1325px) {
   .tile-body .plp-description{
