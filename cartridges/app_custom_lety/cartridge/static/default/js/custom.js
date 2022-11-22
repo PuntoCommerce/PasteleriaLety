@@ -43,7 +43,7 @@ if (navigator.appVersion.includes("Mac OS") || navigator.appVersion.includes("iP
 const changeSubMenuItem = () => {
   const menu = $C(".menu-group");
   const subMenu = $$C(".dropdown-menu");
-  const menuHeight = 95;
+  const menuHeight = 100;
   let rectMenu = menu.getBoundingClientRect();
 
   subMenu.forEach((sub) => {
