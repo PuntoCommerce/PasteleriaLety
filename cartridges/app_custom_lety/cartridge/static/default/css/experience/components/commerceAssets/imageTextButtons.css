@@ -8,7 +8,7 @@
 .ITBC-container {
   position: relative;
   width: 100%;
-  margin-bottom: 35px;
+  margin-bottom: 38px;
 }
 
 .ITBC-content p,
@@ -79,35 +79,11 @@
   font-style: normal;
   font-weight: 350;
   font-size: 18px;
-  line-height: 24px;
   text-align: center;
   letter-spacing: -0.011em;
-  line-height: 0 !important;
+  line-height: 2 !important;
   flex: none;
   order: 0;
-  flex-grow: 1;
-  font-family: 'gotham-book';
-  border-radius: 20px;
-  font-weight: 700;position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 232px;
-  height: 37px;
-  background-color: #FFD5B5;
-  /* border-color: #ffffff; */
-  border: none;
-  font-style: normal;
-  font-weight: 350;
-  font-size: 18px;
-  line-height: 24px;
-  /* identical to box height, or 150%*/
-  text-align: center;
-  letter-spacing: -0.011em;
-  line-height: 0 !important;
-  color: #B37E5B;
-  flex: none;
-  order: 0;
-  flex-grow: 1;
   font-family: 'gotham-book';
   border-radius: 20px;
   font-weight: 700;
@@ -134,6 +110,7 @@
   justify-content: center;
   padding: 20px;
 }
+
 
 @media (max-width: 991px) {
   .ITBC-container {
@@ -190,10 +167,3 @@
   }
 }
 
-@media (min-width: 1200px) {
-  .ITBC-content .btn-ITBC {
-    width: 100%;
-    min-width: 223px;
-    height: 54px;
-  }
-}
