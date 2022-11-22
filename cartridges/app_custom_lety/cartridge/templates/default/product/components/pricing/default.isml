@@ -1,6 +1,5 @@
 <span>
     <isset name="finalOrigPrice" value="${price}" scope="page" />
-<<<<<<< HEAD
 
     <isif condition="${finalOrigPrice.list !== null}">
         <isset name="price" value="${finalOrigPrice.list}" scope="page" />
@@ -17,8 +16,6 @@
             </span>
     </isif>
 
-=======
->>>>>>> 49f11b0a14bc71af947611bfda157b40bd36dfef
     <isset name="price" value="${finalOrigPrice.sales}" scope="page" />
     
     <isif condition="${finalOrigPrice.list}">
@@ -40,23 +37,5 @@
         <isinclude template="/product/components/pricing/formatted" />
     </span>
 
-<<<<<<< HEAD
-
-=======
-    <isif condition="${finalOrigPrice.list !== null}">
-        <isset name="price" value="${finalOrigPrice.list}" scope="page" />
-        <span class="strike-through list">
-            <span class="value" content="${price.decimalPrice}">
-                <span class="sr-only">
-                    ${Resource.msg('label.price.reduced.from', 'pricing', null)}
-                </span>
-                <isinclude template="/product/components/pricing/formatted" />
-                <span class="sr-only">
-                    ${Resource.msg('label.price.to', 'pricing', null)}
-                </span>
-            </span>
-        </span>
-    </isif>
->>>>>>> 49f11b0a14bc71af947611bfda157b40bd36dfef
 </span>
 </span>
