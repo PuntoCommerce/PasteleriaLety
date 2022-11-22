@@ -45,7 +45,7 @@
     
     <iselse/>
         <div class="container cart cart-page">
-        <div class="row" style="padding-top: 15px;padding-bottom: 20px;">
+        <div class="row row-cart-1">
             <div class="col-sm-7 text-right title-cart hidden-xs-down">
                 <span>${Resource.msg('label.title.cart', 'cart', null)}</span>
             </div>
@@ -68,7 +68,7 @@
                 <h2 class="number-of-items" style="font-size: 16px">${Resource.msgf('label.number.items.in.cart','cart', null, pdict.numItems)}</h2>
             </div>
         </div>
-            <div class="row" style="padding-right: 70px; padding-bottom: 20px">
+            <div class="row row-cart-2">
                 <!---product cards--->
                 <div class="col-sm-7 col-md-8">
                     <isloop items="${pdict.items}" var="lineItem">

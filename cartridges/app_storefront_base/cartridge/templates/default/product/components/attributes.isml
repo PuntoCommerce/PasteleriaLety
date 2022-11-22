@@ -5,15 +5,17 @@
         >
             ${Resource.msg('label.attributes', 'product', null)}
         </button>
-        <h2 class="title d-none d-sm-block h2-detail">
+        <h2 class="title d-none d-sm-block">
             ${Resource.msg('label.attributes', 'product', null)}
         </h2>
     </div>
     <div class="col-sm-12 col-md-8 col-lg-9 value content" id="collapsible-attributes-${loopState && loopState.count ? loopState.count : '1' }">
         <isloop items="${product.attributes}" var="attrGroup">
-        
             <isif condition="${attrGroup.ID !== 'mainAttributes'}">
-                <ul class="ul-attributes" style="list-style-type: disc !important;">
+                <h3 class="attribute-name">
+                    ${attrGroup.name}
+                </h3>
+                <ul>
                     <isloop items="${attrGroup.attributes}" var="attr">
                         <li class="attribute-values">
                             ${attr.label}:
