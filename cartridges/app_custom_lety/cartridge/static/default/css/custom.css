@@ -433,3 +433,10 @@ ul {
 .unavailable-product{
   color: var(--color-lety6) !important;
 }
+
+.add-wishlist-alert{
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}

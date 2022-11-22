@@ -6,22 +6,22 @@ const $$C = (el) => document.querySelectorAll(el);
 
 openSearch = () => {
   const searchContainer = document.getElementById("searchContainer");
- 
-   if (searchContainer.style.display =="none"){
-      searchContainer.style.display = "block";
-   } else {
+
+  if (searchContainer.style.display == "none") {
+    searchContainer.style.display = "block";
+  } else {
     searchContainer.style.display = "block"
-   }
+  }
 }
 
 closeSearch = () => {
   const searchContainer = document.getElementById("searchContainer");
- 
-   if (searchContainer.style.display =="block"){
-      searchContainer.style.display = "none";
-   } else {
+
+  if (searchContainer.style.display == "block") {
+    searchContainer.style.display = "none";
+  } else {
     searchContainer.style.display = "none"
-   }
+  }
 }
 
 // #####Buscador########
@@ -34,16 +34,16 @@ window.addEventListener("load", () => {
   changeSubMenuItem();
 });
 
-if(navigator.appVersion.includes("Mac OS") || navigator.appVersion.includes("iPhone") ){ 
+if (navigator.appVersion.includes("Mac OS") || navigator.appVersion.includes("iPhone")) {
   //estilo css para mac os 
-  
+
 
 }
 
 const changeSubMenuItem = () => {
   const menu = $C(".menu-group");
   const subMenu = $$C(".dropdown-menu");
-  const menuHeight = 95;
+  const menuHeight = 100;
   let rectMenu = menu.getBoundingClientRect();
 
   subMenu.forEach((sub) => {
@@ -142,30 +142,33 @@ let filter_container = document.querySelector("#filter-categories");
 let button_filter = document.querySelector("#filter-button");
 let checkbox = document.querySelectorAll(".values.content li button");
 
-checkbox.forEach((item) => {
-item.addEventListener("click", (e) => {
-
-setTimeout(() => {
-       filter_container = document.querySelector("#filter-categories");
-       button_filter = document.querySelector("#filter-button");
-
-       button_filter.addEventListener("click", () => {
+if (checkbox) {
+  checkbox.forEach((item) => {
+    item.addEventListener("click", (e) => {
+  
+      setTimeout(() => {
+        filter_container = document.querySelector("#filter-categories");
+        button_filter = document.querySelector("#filter-button");
+  
+        button_filter.addEventListener("click", () => {
           filter_container.classList.toggle('filtershow')
+  
+          if (filter_container.style.display === "none") {
+            filter_container.style.display = "block";
+          } else {
+            filter_container.style.display = "none";
+          }
+        });
+      }, 1000);
+    });
+  });
+}
 
-         if (filter_container.style.display === "none") {
-           filter_container.style.display = "block";
-         } else {
-           filter_container.style.display = "none";
-         }
-       });
-     }, 1000);
-   });
- });
-
-try {
-  filter_container.addEventListener('click', () => {
-    setTimeout(() => {
-      filter_container = document.querySelector("#filter-categories");
+if (filter_container) {
+  try {
+    filter_container.addEventListener('click', () => {
+      setTimeout(() => {
+        filter_container = document.querySelector("#filter-categories");
         button_filter = document.querySelector("#filter-button");
   
         button_filter.addEventListener("click", () => {
@@ -175,25 +178,26 @@ try {
             filter_container.style.display = "none";
           }
         });
-    }, 1000);
-  })
-} catch (error) {
-  console.log(error)
+      }, 1000);
+    })
+  } catch (error) {
+    console.log(error)
+  }
 }
 
-try {
-  button_filter.addEventListener("click", () => {
-    // filter_container.classList.toggle('filtershow')
-    console.log("funciona");
-  
-    if (filter_container.style.display === "none") {
-      filter_container.style.display = "block";
-    } else {
-      filter_container.style.display = "none";
-    }
-  });  
-} catch (error) {
-  console.log(error)
+if (button_filter) {
+  try {
+    button_filter.addEventListener("click", () => {
+
+      if (filter_container.style.display === "none") {
+        filter_container.style.display = "block";
+      } else {
+        filter_container.style.display = "none";
+      }
+    });
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 

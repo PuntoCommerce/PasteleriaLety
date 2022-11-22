@@ -47,6 +47,8 @@
     </div>
     <div class="error-messaging"></div>
     <div class="modal-background"></div>
+    <div class="add-wishlist-alert"></div>
+
     <iscontentasset aid="cookie_hint" />
     <!--[if lt IE 10]>
             <isinclude sf-toolkit="off" template="/common/scripts" />
@@ -59,6 +61,7 @@
     </iscomment>
     ${dw.system.HookMgr.callHook('app.template.afterFooter', 'afterFooter', pdict) || ''}
     <isinclude url="${URLUtils.url('ConsentTracking-Check')}" />
+
 </body>
 
 </html>
