@@ -42,7 +42,7 @@ server.append("SubmitShipping", (req, res, next) => {
     let pickUpId = viewData.storeId;
     // let shipment = currentBasket.defaulShipment.shippingAddress;
     let result = {
-      address = {
+      address: {
         firstName: shipping.customPickUp.firstName.value,
         lastName: shipping.customPickUp.lastName.value,
         phone: shipping.customPickUp.phone.value,
@@ -51,7 +51,7 @@ server.append("SubmitShipping", (req, res, next) => {
         city: "",
         postalCode: "",
         countryCode: "MX",
-      }
+      },
     };
 
     COHelpers.copyShippingAddressToShipment(
