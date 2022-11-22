@@ -87,11 +87,12 @@
   font-family: 'gotham-book';
   border-radius: 20px;
   font-weight: 700;
+  color: #B37E5B;
 }
 
 
 .ITBC-content .btn-ITBC:hover{
-  opacity: 100%;
+    text-decoration: none;
 }
 @media (max-width: 991px) {
   .ITBC-content .btn-ITBC {
