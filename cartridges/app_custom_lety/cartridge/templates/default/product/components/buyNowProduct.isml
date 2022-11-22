@@ -4,7 +4,10 @@
 </isscript>
 <div class="row cart-and-ipay">
     <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}" />
-    <input type="hidden" id="buy-now-url" class="buy-now-url" value="${URLUtils.url('Checkout-oAuth').toString()}" />
+    <iscomment> 
+    value para redirección al checkout va en el input
+    value="${URLUtils.url('Checkout-oAuth').toString()}" </iscomment>
+    <input type="hidden" id="buy-now-url" class="buy-now-url"  value="${URLUtils.url('Cart-Show').toString()}" />
     <button id="buy-now-btn" class="add-to-cart buy-now btn btn-primary tooltipAddToCart" data-toggle="modal"
         data-target="#chooseBonusProductModal" data-pid="${product.id}" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
         ${Resource.msg('button.buynow', 'pdp', null)}
