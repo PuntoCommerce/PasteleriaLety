@@ -1386,6 +1386,10 @@ textarea {
     position: relative !important;
   }
 
+  .padding-left-msg{
+    padding-left: 22px;
+  }
+
   .cart-and-ipay {
     padding-left: 15px;
     padding-right: 15px;
@@ -1422,6 +1426,16 @@ textarea {
 
   .row-rating {
     padding-bottom: 0 !important;
+  }
+
+  .row-rating-2{
+    margin-left: -30px !important;
+    margin-right: -30px !important;
+  }
+
+  .row-social-icons{
+    margin-left: -30px !important;
+    margin-right: -31px !important;
   }
 
   .hr-pdp {
@@ -1490,6 +1504,10 @@ textarea {
 
 
   /*Carrito*/
+
+  .img-proximamente{
+    max-width: 290px;
+  }
   .cart-page{
     padding-left: 15px;
     padding-right: 0;

@@ -196,25 +196,26 @@
                     </div>
                 </isif>
 
-
-                <div class="prices-add-to-cart-actions mb-2">
+                <iscomment> Quitar el d-none cuando este habilitado el checkout </iscomment>
+                <div class="prices-add-to-cart-actions mb-2 d-none">
                     <!-- Cart and Checkout -->
                     <isinclude template="product/components/buyNowProduct" />
                 </div>
-                <div class="prices-add-to-cart-actions">
+                <iscomment> Quitar el d-none cuando este habilitado el checkout </iscomment>
+                <div class="prices-add-to-cart-actions d-none">
                     <!-- Cart and [Optionally] Apple Pay -->
                     <isinclude template="product/components/addToCartProduct" />
                 </div>
                 <div class="row row-desc row-rating-mobile mt-3">
                     <div class="col-12 row-rating">
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center row-rating-2">
                             <isinclude url="${URLUtils.url('RnR-AverageV2', 'product_id', pdict.product.id)}" />
                         </div>
                     </div>
 
                 </div>
                 <!-- Social Sharing Icons -->
-                <div class="row row-desc">
+                <div class="row row-desc row-social-icons">
                     <isinclude template="product/components/socialIcons" />
                 </div>
             </div>
