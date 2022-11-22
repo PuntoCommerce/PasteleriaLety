@@ -3,7 +3,7 @@
     assets.addCss('/css/experience/components/commerceLayouts/layout.css');
 </isscript>
 
-<div class="mobile-1r-1c mt-2">
+<div class="mobile-1r-1c">
     <div class="row mx-n2">
         <isprint value="${pdict.regions.column1.setClassName("region col-12").render()}" encoding="off"/>
     </div>

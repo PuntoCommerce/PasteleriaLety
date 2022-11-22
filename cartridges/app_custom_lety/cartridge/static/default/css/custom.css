@@ -417,3 +417,11 @@ ul {
     height: 240vh;
   }
 }
+
+.breadcum-product-name--slash{
+  margin-left: 0.5rem !important;
+}
+
+.price-empty-space{
+  margin-bottom: 30px;
+}

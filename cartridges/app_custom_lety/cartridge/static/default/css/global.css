@@ -231,6 +231,7 @@ body {
   color: #212529;
   text-align: left;
   background-color: #f9f9f9;
+  overflow-x: hidden;
 }
 .page {
   display: flex;
@@ -977,6 +978,16 @@ textarea {
   padding-right: 5rem;
 }
 
+.cart-page .row-cart-1{
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+
+.cart-page .row-cart-2{
+  padding-right: 70px; 
+  padding-bottom: 20px
+}
+
 .title-cart {
   font-size: 35px;
 }
@@ -1014,6 +1025,22 @@ textarea {
 
 .checkout--rightBorder {
   padding-left: 13rem !important;
+}
+
+.contain-invitado{
+  padding: 3.5rem 3rem 30px 2rem !important;
+}
+
+.contain-links{
+  padding: 0 3rem 10px 2rem !important;
+}
+
+.contain-create{
+  padding: 20px 3rem 20px 2rem !important;
+}
+
+.div-link{
+  width: 100%;
 }
 
 .create-check {
@@ -1084,63 +1111,6 @@ textarea {
   color: #fff;
   padding-bottom: 1px;
 }
-
-/*Responsive xs*/
-/* @media (max-width: 352px){
-  .minicart .minicart-quantity{
-
-  left: 5px;
-  top: -39px;
-}
-
-.header-container .minicart{
-  right: -3px !important;
-}
-
-} */
-
-/*Responsive 544*/
-/* @media (max-width: 544px){
-  .minicart .minicart-quantity {
-    left: -8px;
-    top: -10px;
-  }
-
-  .header-container .minicart{
-    right: -16px;
-  }
-} */
-
-/*Responsive 769px*/
-/* @media (max-width: 769px) {
-  .brand img {
-    width: 104.38px;
-    height: 56.52px;
-    margin-top: -11px;
-  }
-
-  .header-container .search-icon,
-  .header-container .minicart {
-    text-align: right;
-    padding-right: 0 !important;
-    padding-left: 0 !important;
-    right: -14px;
-  }
-  
-  .header-container .search-icon i {
-    font-size: 130% !important;
-  }
-
-  .header-container .minicart img {
-    width: 24px !important;
-    height: 24px !important;
-  }
-
-  .minicart .minicart-quantity {
-    left: -12px;
-    top: -9px;
-  }
-} */
 
 /*responsive 992*/
 @media (max-width: 993px) {
@@ -1310,11 +1280,6 @@ textarea {
     display: none;
   }
 
-  .container-PLP{
-    min-height: 1170px !important;
-  }
-
-  
   .show-more .btn.btn-cancelar{
     max-width: 232px;
   }
@@ -1523,13 +1488,69 @@ textarea {
     grid-column: 1 !important;
   }
 
+
+  /*Carrito*/
+  .cart-page{
+    padding-left: 15px;
+    padding-right: 0;
+  }
+
+  .cart-page .row-cart-2{
+    padding-right: 15px;
+    padding-bottom: 20px;
+  }
+
+  .cart-page .checkout-continue .btn-product{
+    width: 100%;
+  }
+
+  .product-card-footer{
+    margin-top: 40px;
+  }
+
+  .product-card-footer .row{
+    justify-content: space-between;
+  }
+
+  .line-item-price{
+    display: none;
+  }
+
+  .checkout-continue{
+    position: relative !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .checkout--rightBorder{
+    padding-left: 15px;
+    padding: 0 !important;
+  }
+
+  /*Auth chackout*/
+  .checkout .contain-invitado, .checkout .contain-links, .checkout .contain-create{
+    padding: 0 27px !important;
+  }
+  .checkout .contain-invitado .btn-product{
+    width: 100% !important;
+   
+  }
+
+  .checkout hr{
+    width: 70% !important;
+  }
+
+  .checkout .checkout--topBorder{
+    padding: 10px 27px !important;
+  }
+
   /*Footer*/
   .footer-item-img {
     border-bottom: none !important;
   }
 
-  .li-pagos {
-    margin-left: 24px !important;
+  .footer-email-signup.footer-news-desk{
+    padding-left: 0 !important;
   }
 
   footer .copyright,
@@ -4648,7 +4669,7 @@ input[type="submit"].btn-block {
   appearance: none;
 }
 .custom-select:focus {
-  border-color: #61d2ff;
+  border-color: var(--color-lety3);
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 161, 224, 0.25);
 }
@@ -15716,7 +15737,8 @@ a .moreless .less {
 }
 .product-tile .tile-body .price {
   font-size: 20px !important;
-  height: 68px;
+  height: auto;
+  min-height: 70px;
 }
 .product-tile .tile-body .ratings {
   font-size: 0.9em;
@@ -17509,7 +17531,7 @@ a .moreless .less {
 
 @media (max-width: 768px) {
   .product-tile .tile-body .price {
-    height: 60px;
+    height: auto;
   }
 
   .tile-body .plp-description{
@@ -17535,7 +17557,7 @@ a .moreless .less {
   }
 
   .product-tile .tile-body .price {
-    height: 60px; 
+    height: auto; 
   }
 }
 

@@ -1,0 +1,32 @@
+
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addJs("/js/datetime.js");
+</isscript>
+
+<input autofocus type="hidden" class="form-control shippingDate" id="shippingDate${lineItem ? lineItem.UUID : 'default'}" aria-describedby="${lineItem ? lineItem.UUID : 'default'}Date"
+    value="${customPickup.date ||''}" <isprint value=${datetime.date.attributes} encoding="off"/>
+    autocomplete="shipping given-name" >
+<input autofocus type="hidden" class="form-control shippingTime" id="shippingTime${lineItem ? lineItem.UUID : 'default'}" aria-describedby="${lineItem ? lineItem.UUID : 'default'}Time"
+    value="${customPickup.time ||''}" <isprint value=${datetime.time.attributes} encoding="off"/>
+    autocomplete="shipping given-name" >
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group required Date">
+            <label class="form-control-label" for="shippingFirstName${lineItem ? lineItem.UUID : 'default'}"  >
+                ${Resource.msg('field.shipping.address.first.name','address',null)}
+            </label>
+            <input type="date" id="custom-checkout-date" min="" max="" />
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group required Date">
+            <div class="d-flex flex-column" id="custom-store-hours" data-store-hours='{"mon":{"openHours":8,"openMin":0,"closeHours":21,"closeMin":0},"tue":{"openHours":8,"openMin":0,"closeHours":21,"closeMin":0},"wed":{"openHours":8,"openMin":0,"closeHours":21,"closeMin":0},"thu":{"openHours":8,"openMin":0,"closeHours":21,"closeMin":0},"fri":{"openHours":8,"openMin":0,"closeHours":21,"closeMin":0},"sat":{"openHours":8,"openMin":0,"closeHours":21,"closeMin":0},"sun":{"openHours":9,"openMin":0,"closeHours":21,"closeMin":0}}'></div>
+        </div>
+    </div>
+</div>
+

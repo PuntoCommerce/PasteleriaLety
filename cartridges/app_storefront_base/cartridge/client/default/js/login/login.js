@@ -102,7 +102,7 @@ module.exports = {
                             $('.send-email-btn').empty()
                                 .html('<a href="'
                                     + data.returnUrl
-                                    + '" class="btn btn-primary btn-block">'
+                                    + '" class="btn btn-product btn-block">'
                                     + data.buttonText + '</a>'
                                 );
                         }
