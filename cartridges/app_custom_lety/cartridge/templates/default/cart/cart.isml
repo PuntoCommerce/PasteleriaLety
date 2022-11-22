@@ -23,16 +23,24 @@
         <div class="container cart-empty">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h1>${Resource.msg('info.cart.empty.msg','cart',null)}</h1>
+
+                    <iscomment> 
+                    Descomentar cuando este listo el checkout
+                    <h1>${Resource.msg('info.cart.empty.msg','cart',null)}</h1> </iscomment>
+
+                     <!---Borrar cuando este listo el checkout--->
+                    <h2>PRÓXIMAMENTE</h2>
+                     <img class="img-proximamente" src="${URLUtils.staticURL('/images/menuImg.png')}"
+                                    alt="${Resource.msg('global.storename', 'common', null)}" />
                 </div>
             </div>
         </div>
 
     <div class="container">
-       <iscomment>  <h1 class="page-title">${Resource.msg('title.cart','cart',null)}</h1> </iscomment>
+       <iscomment> <h1 class="page-title">${Resource.msg('title.cart','cart',null)}</h1> </iscomment>
         <div class="row cart-header">
         
-            <div class="col-sm-12 hidden-xs-down d-flex justify-content-center">
+            <div class="col-sm-12 d-flex justify-content-center">
                 <button type="" class="continue-shopping-link d-flex">
                 <a class="continue-shopping-link" style="color: var(--color-lety-white) !important; padding-top: 5px" href="${URLUtils.url('Home-Show')}" title="${Resource.msg('link.continue.shopping','cart',null)}">
                     ${Resource.msg('link.continue.shopping','cart',null)}

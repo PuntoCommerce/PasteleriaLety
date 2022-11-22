@@ -20,7 +20,7 @@
         </h1>
     </iscomment>
 
-    <ul class="checkout__stepper">
+    <ul class="checkout__stepper checkout__stepper_desk">
         <li class="continue-checkout" style="padding-right: 12%; list-style: none">
             <button type="" class="continue-shopping-checkout d-flex"
                 style="background-color: transparent; border: none">
@@ -48,6 +48,40 @@
             <span>${Resource.msg('check.secure.purchase', 'checkout', null)}</span>
         </li>
     </ul>
+    <div class="checkout__stepper_mobile">
+        <ul class="checkout__stepper">
+        <li class="continue-checkout" style="padding-right: 12%; list-style: none">
+            <button type="" class="continue-shopping-checkout d-flex"
+                style="background-color: transparent; border: none">
+                <a class="continue-shopping-checkout" href="${URLUtils.url('Home-Show')}"
+                    title="${Resource.msg('link.continue.shopping', 'cart', null)}">
+                    ${Resource.msg('link.continue.shopping', 'cart', null)}
+                </a></button>
+        </li>
+        <div class="contain-stepess d-flex">
+           <li class="checkout__stepper--item">
+            <h3 class="checkout__stepper--item-circle checkout__stepper--item-circle-current">1</h3>
+            <p class="checkout__stepper--item-title">Envío</p>
+        </li>
+        <div class="checkout__stepper--divider"></div>
+        <li class="checkout__stepper--item">
+            <h3 class="checkout__stepper--item-circle">2</h3>
+            <p class="checkout__stepper--item-title">Pago</p>
+        </li>
+        <div class="checkout__stepper--divider"></div>
+        <li class="checkout__stepper--item checkout__stepper--item--3">
+            <h3 class="checkout__stepper--item-circle ">3</h3>
+            <p class="checkout__stepper--item-title">Realizar Pedido</p>
+        </li> 
+        </div>
+        
+        <li class="msg-secur" style="padding-left: 12%; list-style: none;">
+            <img class="" src="${URLUtils.staticURL('/images/icons/candado.svg')}" alt="secur" />
+            <span>${Resource.msg('check.secure.purchase', 'checkout', null)}</span>
+        </li>
+    </ul>
+    </div>
+    
     <div class="d-flex justify-content-center">
         <div class="col-sm-12 col-lg-10">
             <div id="checkout-main" class="container data-checkout-stage <isif condition="
@@ -257,7 +291,46 @@
                                         </form>
                                     </div>
 
-                                    <iscomment> Lety saldo </iscomment>
+                                    <div class="col-12">
+                                        <form action="${}" class="promo-code-form lety-card-form" method="GET"
+                                            name="lety-card-form">
+                                            <div class="form-group">
+                                                <label for="">Saldo lety club</label>
+                                                <div class="row">
+                                                    <div class="col-7">
+                                                        <input type="text" class="form-control coupon-code-field" id=""
+                                                            name="" value="${pdict.customer.saldo}"
+                                                            ${pdict.customer.saldo !== undefined ? 'disabled' : ''}>
+                                                        <div class="coupon-error">
+
+                                                            <span class="coupon-error-message" id=""
+                                                                role="alert"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <input type="hidden" name="${}" value="${}" />
+
+                                                    <div class="col-5 promo-code-submit">
+                                                        <isif condition="${pdict.customer.LetyCard}">
+                                                            <button type="button"
+                                                                class="btn btn-product btn-block promo-code-btn"
+                                                                data-toggle="modal" data-target="#letyCard">
+                                                                ${Resource.msg('button.submit.promo.code.cambiar', 'cart', null)}
+                                                            </button>
+                                                        <iselse/>
+                                                            <button type="button"
+                                                                class="btn btn-product btn-block promo-code-btn"
+                                                                data-toggle="modal" data-target="#letyCard">
+                                                                ${Resource.msg('button.submit.promo.code.agregar', 'cart', null)}
+                                                            </button>
+                                                        </isif>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <iscomment> Lety saldo
                                     <div class="col-12">
                                         <p>${JSON.stringify()}</p>
                                         <form action="${}" class="promo-code-form lety-card-form" method="GET"
@@ -293,12 +366,12 @@
                                                             </button>
                                                         </isif>
                                                     </div>
-                                                    </iscomment>
+                                                   
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
-
+                                    </iscomment>
                                     <!-- Restar lety puntos -->
                                     <div class="col-12">
                                         <form action="${}" class="promo-code-form lety-card-form" method="GET"

@@ -685,7 +685,6 @@ server.post('PasswordResetDialogForm', server.middleware.https, function (req, r
                 success: true,
                 receivedMsgHeading: receivedMsgHeading,
                 receivedMsgBody: receivedMsgBody,
-                
                 buttonText: buttonText,
                 mobile: mobile === 'true',
                 returnUrl: returnUrl

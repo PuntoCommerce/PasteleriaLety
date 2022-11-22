@@ -8,7 +8,9 @@
         <ul class="list-unstyled availability-msg">
             <li>
                 <isif condition="${!product.readyToOrder}">
-                    ${Resource.msg('info.selectforstock', 'product', 'Select Styles for Availability ')}
+                    <div class="padding-left-msg">
+                        ${Resource.msg('info.selectforstock', 'product', 'Select Styles for Availability ')}
+                    </div>
                 <iselse/>
                     <isloop items="${product.availability.messages}" var="message">
                         <isif condition="${message === " En existencia"}">

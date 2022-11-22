@@ -481,6 +481,14 @@
   border-bottom: 1px solid #000;
 }
 
+.refinements__card-header h2{
+  font-family: var(--font-family-gotham-bold) !important;
+}
+
+.span-category{
+  font-family: var(--font-family-gotham-bold);
+}
+
 .refinements ul li button{
   color: #000;
   display: flex;
@@ -630,7 +638,7 @@
   width: 100%;
 }
 .result-count {
-  font-size: 0.875rem;
+  font-size: 18px;
   padding-top: 10px;
 }
 .refinement {

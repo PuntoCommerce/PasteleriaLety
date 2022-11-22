@@ -24,11 +24,9 @@
                                     alt="${Resource.msg('global.storename', 'common', null)}" />
                             </a>
                         </div>
-                        <div class="location location-desk">
-                            <iscomment> <isinclude template="components/header/location" /> </iscomment>
+                        <iscomment> <div class="location location-desk">
                             <isinclude url="${URLUtils.url('StoreSession-Start')}" />
-                            
-                        </div>
+                        </div> </iscomment>
                     </div>
                     <div class="pull-right d-flex align-items-center col-xl-9 col-lg-10 col-md-8">
                         <div class="search search-desk">
@@ -64,7 +62,7 @@
                     </div>
                 </div>
             </div>
-            <div class="header justify-content-center align-items-center" id="headerContMob">
+            <div class="header container justify-content-center align-items-center" id="headerContMob">
                 <div class="row header-container">
                     <div class="navbar-header brand col-6 col-sm-9">
                         <a class="logo-home" href="${URLUtils.url('Home-Show')}" title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(

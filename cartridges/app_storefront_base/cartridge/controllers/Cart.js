@@ -56,6 +56,7 @@ server.post('AddProduct', function (req, res, next) {
     var ProductLineItemsModel = require('*/cartridge/models/productLineItems');
     var cartHelper = require('*/cartridge/scripts/cart/cartHelpers');
     var basketCalculationHelpers = require('*/cartridge/scripts/helpers/basketCalculationHelpers');
+
     var currentBasket = BasketMgr.getCurrentOrNewBasket();
     var previousBonusDiscountLineItems = currentBasket.getBonusDiscountLineItems();
     var productId = req.form.pid;

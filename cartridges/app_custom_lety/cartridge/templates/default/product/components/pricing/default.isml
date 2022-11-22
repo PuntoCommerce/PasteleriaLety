@@ -3,7 +3,6 @@
 
     <isif condition="${finalOrigPrice.list !== null}">
         <isset name="price" value="${finalOrigPrice.list}" scope="page" />
-        <del>
             <span class="strike-through list">
                 <span class="value" content="${price.decimalPrice}">
                     <span class="sr-only">
@@ -15,10 +14,16 @@
                     </span>
                 </span>
             </span>
-        </del>
     </isif>
 
     <isset name="price" value="${finalOrigPrice.sales}" scope="page" />
+    
+    <isif condition="${finalOrigPrice.list}">
+    <iselse/>
+        <div class="price-empty-space">
+        </div>
+    </isif>
+
     <span class="sales">
         <isif condition="${isLowPrice == 'range-low'}">
             <span class="value" content="${price.decimalPrice}">
@@ -30,6 +35,7 @@
             <span class="value" content="${price.decimalPrice}">
         </isif>
         <isinclude template="/product/components/pricing/formatted" />
-        </span>
     </span>
+
+</span>
 </span>

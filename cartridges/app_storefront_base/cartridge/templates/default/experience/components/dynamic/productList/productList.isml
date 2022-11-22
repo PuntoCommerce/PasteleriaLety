@@ -14,18 +14,16 @@
                 <isif condition="${pdict.productSearch.productIds.length > 0}">
                 
                     <div class="row grid-header">
-                     
                         <div class="result-count text-center col-12 col-md-9 col-sm-6 order-sm-2">
                             <isinclude template="search/resultsCount" />
                         </div>
-                       
+                        <div class="col-6 col-sm-3 order-sm-1">
+                            <isinclude template="search/sortOrderMenu" />
+                        </div>
                         <div class="col-6 col-sm-3 text-right d-md-none order-sm-3">
                             <button type="button" class="btn btn-primary filter-results col-12">
                                 ${Resource.msg('button.filter', 'search', null)}
                             </button>
-                        </div>
-                        <div class="col-6 col-sm-3 order-sm-1">
-                            <isinclude template="search/sortOrderMenu" />
                         </div>
                     </div>
 

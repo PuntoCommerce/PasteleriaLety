@@ -19,12 +19,12 @@ server.append("Begin", (req, res, next) => {
 
   let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia", {
     Empresa: 1,
-    s_IdMembresia: viewData.customer.letyCard,
+    s_IdMembresia: viewData.customer.LetyCard,
   });
 
   let JsonDatosMembresia = JSON.parse(Func_DatosMembresia);
   let SaldoMembresia =
-    JsonDatosMembresia.Func_DatosMembresia[0];
+    JsonDatosMembresia.Func_DatosMembresia[0].d_SaldoMembresia;
 
   viewData.customer.saldo = SaldoMembresia; 
   

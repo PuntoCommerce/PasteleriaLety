@@ -1,65 +1,73 @@
-const server = require("server");
-
-server.extend(module.superModule);
-
-const ApiServiceLety = require("~/cartridge/scripts/jobs/api");
-
 const accountSaldoForm = document.querySelector("#accountSaldoForm");
 const getDataAccountForm = document.querySelector("#getDataAccountForm");
+const lLetyCard = document.querySelector("#lLetyCard");
+const iIdFolioPersona = document.querySelector("#iIdFolioPersona");
+const s_Nombre = document.querySelector("#s_Nombre");
+const s_ApellidoPat = document.querySelector("#s_ApellidoPat");
+const s_Mail = document.querySelector("#s_Mail");
+const s_Telefono1 = document.querySelector("#s_Telefono1");
+const s_Colonia = document.querySelector("#s_Colonia");
+const Ciudad = document.querySelector("#Ciudad");
+const Estado = document.querySelector("#Estado");
+const dtFechaNacimiento = document.querySelector("#dtFechaNacimiento");
+const PreferenciaProducto = document.querySelector("#PreferenciaProducto");
+const modalSuccess = document.querySelector("#modalSuccess");
 
-getDataAccountForm.addEventListener("click", e => {
-    
-    let formFlag = true;
+getDataAccountForm.addEventListener("click", async () => {
 
-    for (const element of accountSaldoForm.elements) {
-        if(requiredFields(element.name, arrayFields)) {
-            if(isEmptyField(element.value.replaceAll(" ", ""))) {
-                document.querySelector(`#${element.name}Span`).classList.remove("d-none");
-                formFlag = false;
+    formFlag = false;
+    const formData = new FormData(accountSaldoForm);
+    for (var i = 0, element; element = accountSaldoForm.elements[i++];) {
+        if (requiredFields(element.id, arrayFields)) {
+            if (isEmptyField(element.value.replaceAll(" ", ""))) {
+                document.querySelector(`#${element.id}Span`).classList.remove("d-none");
+                formFlag = true;
             } else {
-                document.querySelector(`#${element.name}Span`).classList.add("d-none");
+                document.querySelector(`#${element.id}Span`).classList.add("d-none");
             }
         }
     }
 
-    if(formFlag) {
-        //makeCallEndpoint();
+    if (formFlag) {
+        $("#modalError").modal("show");
+        return false;
     }
-});
 
-const makeCallEndpoint = () => {
+    formData.append("lLetyCard", lLetyCard.value);
+    formData.append("iIdFolioPersona", iIdFolioPersona.value);
+    formData.append("iIdFolioPersona", iIdFolioPersona.value);
+    formData.append("s_Nombre", s_Nombre.value);
+    formData.append("s_ApellidoPat", s_ApellidoPat.value);
+    formData.append("s_Mail", s_Mail.value);
+    formData.append("s_Telefono1", s_Telefono1.value);
+    formData.append("s_Colonia", s_Colonia.value);
+    formData.append("Ciudad", Ciudad.value);
+    formData.append("Estado", Estado.value);
+    formData.append("dtFechaNacimiento", dtFechaNacimiento.value);
+    formData.append("PreferenciaProducto", PreferenciaProducto.value);
 
-    let Func_ActualizaDatosMembresia = ApiServiceLety.ApiLety(" Func_ActualizaDatosMembresia", {
-        Empresa: 1,
-        s_IdMembresia: letyCard,
+    const response = await fetch(getDataAccountForm.getAttribute("data-action"), {
+        method: "POST",
+        body: formData
     });
 
-    alert(Func_ActualizaDatosMembresia);
+    const updateSaldo = await response.json();
 
-}
+    if (updateSaldo.error === 0) $("#modalSuccess").modal("show");
+
+    else if (updateSaldo.error === 0) $("#modalError").modal("show");
+
+});
 
 const requiredFields = (field, arrayFields) => {
-    
+
     return arrayFields.includes(field) ? true : false
 }
 
-const arrayFields = ["firstName", "lastName", "email", "address", "city", "state"];
-
+const arrayFields = ["LetyCard", "iIdFolioPersona", "s_Nombre", "s_ApellidoPat", "s_Mail", "s_Telefono1", "s_Colonia", "Ciudad", "Estado"];
 
 const isEmptyField = (field) => {
-   
-    if(field === "" || field === null || field === undefined) return true;
+
+    if (field === "" || field === null || field === undefined) return true;
     return false;
-
 }
-
-
-/*
-
-
-Eliminar el null de tarjeta
-revisar que de tarjeta cuando este logueado.
-
-Home
-
-*/

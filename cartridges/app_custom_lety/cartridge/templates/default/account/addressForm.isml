@@ -159,7 +159,7 @@
             <a href="${URLUtils.url('Address-List')}" class="btn btn-cancelar">${Resource.msg('button.cancel','account',null)}</a>
         </div>
         <div class="col-6">
-            <button type="submit" name="save" class="btn btn-save btn-save-login">${Resource.msg('button.save','account',null)}</button>
+            <button type="submit" name="save" class="btn btn-product">${Resource.msg('button.save','account',null)}</button>
         </div>
     </div>
 
