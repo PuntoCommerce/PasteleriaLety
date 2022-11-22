@@ -425,3 +425,11 @@ ul {
 .price-empty-space{
   margin-bottom: 30px;
 }
+
+.avaibility-product{
+  color: var(--color-lety11) !important;
+}
+
+.unavailable-product{
+  color: var(--color-lety6) !important;
+}
