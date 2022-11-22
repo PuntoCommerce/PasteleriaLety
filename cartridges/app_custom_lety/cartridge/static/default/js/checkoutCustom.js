@@ -64,19 +64,6 @@ function initAutocomplete() {
   });
 }
 
-(() => {
-  const fNameFW = querySelector.querySelector(
-    ".form-control.custonShippingFirstName"
-  );
-  const lNameFW = querySelector.querySelector(
-    ".form-control.customShippingLastName"
-  );
-  const phoneFW = querySelector.querySelector(
-    ".form-control.customShippingPhoneNumber"
-  );
-  const emailFW = querySelector.querySelector(".form-control.customEmail");
-})();
-
 // const stateSelector = document.querySelector(
 //   "select.form-control.shippingState"
 // );
