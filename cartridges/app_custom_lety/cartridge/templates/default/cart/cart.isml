@@ -23,16 +23,24 @@
         <div class="container cart-empty">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h1>${Resource.msg('info.cart.empty.msg','cart',null)}</h1>
+
+                    <iscomment> 
+                    Descomentar cuando este listo el checkout
+                    <h1>${Resource.msg('info.cart.empty.msg','cart',null)}</h1> </iscomment>
+
+                     <!---Borrar cuando este listo el checkout--->
+                    <h2>PRÓXIMAMENTE</h2>
+                     <img class="img-proximamente" src="${URLUtils.staticURL('/images/menuImg.png')}"
+                                    alt="${Resource.msg('global.storename', 'common', null)}" />
                 </div>
             </div>
         </div>
 
     <div class="container">
-       <iscomment>  <h1 class="page-title">${Resource.msg('title.cart','cart',null)}</h1> </iscomment>
+       <iscomment> <h1 class="page-title">${Resource.msg('title.cart','cart',null)}</h1> </iscomment>
         <div class="row cart-header">
         
-            <div class="col-sm-12 hidden-xs-down d-flex justify-content-center">
+            <div class="col-sm-12 d-flex justify-content-center">
                 <button type="" class="continue-shopping-link d-flex">
                 <a class="continue-shopping-link" style="color: var(--color-lety-white) !important; padding-top: 5px" href="${URLUtils.url('Home-Show')}" title="${Resource.msg('link.continue.shopping','cart',null)}">
                     ${Resource.msg('link.continue.shopping','cart',null)}
@@ -45,10 +53,9 @@
     
     <iselse/>
         <div class="container cart cart-page">
-        <div class="row row-cart-1">
+        <div class="row" style="padding-top: 15px;padding-bottom: 20px;">
             <div class="col-sm-7 text-right title-cart hidden-xs-down">
-                <iscomment> <span>${Resource.msg('label.title.cart', 'cart', null)}</span> </iscomment>
-                <span>Próximamente</span>
+                <span>${Resource.msg('label.title.cart', 'cart', null)}</span>
             </div>
             <div class="col-sm-5 text-right hidden-xs-down">
                 <div style="padding-top: 15px;">
@@ -58,7 +65,7 @@
                 </div>
             </div>
         </div>
-        <iscomment> <div class="row">
+        <div class="row">
          <div class="col-sm-5 hidden-xs-down d-flex justify-content-left">
                 
                 <a class="continue-shopping-link" style=" background-color: transparent;" href="${URLUtils.url('Home-Show')}" title="${Resource.msg('link.continue.shopping','cart',null)}">
@@ -68,14 +75,10 @@
             <div class="col-sm-7 text-left">
                 <h2 class="number-of-items" style="font-size: 16px">${Resource.msgf('label.number.items.in.cart','cart', null, pdict.numItems)}</h2>
             </div>
-        </div> </iscomment>
-            <div class="row row-cart-2">
-            <div class="d-flex justify-content-center col-8 div-img-menu">
-         <img src="${URLUtils.staticURL('/images/menuImg.png')}"
-                                    alt="${Resource.msg('global.storename', 'common', null)}" />
-      </div>
+        </div>
+            <div class="row" style="padding-right: 70px; padding-bottom: 20px">
                 <!---product cards--->
-<iscomment>                 <div class="col-sm-7 col-md-8">
+                <div class="col-sm-7 col-md-8">
                     <isloop items="${pdict.items}" var="lineItem">
                         <isif condition="${lineItem.productType === 'bundle'}">
                             <isinclude template="cart/productCard/cartBundleCard" />
@@ -88,9 +91,9 @@
                         </isif>
                     </isloop>
                     <isinclude template="cart/cartApproachingDiscount" />
-                </div> </iscomment>
+                </div>
                 <!---totals, and checkout actions--->
-                <iscomment> <div class="col-sm-5 col-md-4 totals">
+                <div class="col-sm-5 col-md-4 totals">
                    <div class="totals-cart">
                      <isinclude template="cart/cartPromoCode" />
                     <div class="coupons-and-promos">
@@ -106,7 +109,7 @@
                             <isinclude template="cart/checkoutButtonsAuth" />
                         </div>
                     </div>
-                </div> </iscomment>
+                </div>
             </div>
             <isinclude template="cart/cartRemoveProductModal"/>
         </div>
