@@ -20,7 +20,7 @@
         </h1>
     </iscomment>
 
-    <ul class="checkout__stepper">
+    <ul class="checkout__stepper checkout__stepper_desk">
         <li class="continue-checkout" style="padding-right: 12%; list-style: none">
             <button type="" class="continue-shopping-checkout d-flex"
                 style="background-color: transparent; border: none">
@@ -43,6 +43,37 @@
             <h3 class="checkout__stepper--item-circle">3</h3>
             <p class="checkout__stepper--item-title">Realizar Pedido</p>
         </li>
+        <li class="msg-secur" style="padding-left: 12%; list-style: none;">
+            <img class="" src="${URLUtils.staticURL('/images/icons/candado.svg')}" alt="secur" />
+            <span>${Resource.msg('check.secure.purchase', 'checkout', null)}</span>
+        </li>
+    </ul>
+    <ul class="checkout__stepper checkout__stepper_mobile">
+        <li class="continue-checkout" style="padding-right: 12%; list-style: none">
+            <button type="" class="continue-shopping-checkout d-flex"
+                style="background-color: transparent; border: none">
+                <a class="continue-shopping-checkout" href="${URLUtils.url('Home-Show')}"
+                    title="${Resource.msg('link.continue.shopping', 'cart', null)}">
+                    ${Resource.msg('link.continue.shopping', 'cart', null)}
+                </a></button>
+        </li>
+        <div class="contain-stepess d-flex">
+           <li class="checkout__stepper--item">
+            <h3 class="checkout__stepper--item-circle checkout__stepper--item-circle-current">1</h3>
+            <p class="checkout__stepper--item-title">Envío</p>
+        </li>
+        <div class="checkout__stepper--divider"></div>
+        <li class="checkout__stepper--item">
+            <h3 class="checkout__stepper--item-circle">2</h3>
+            <p class="checkout__stepper--item-title">Pago</p>
+        </li>
+        <div class="checkout__stepper--divider"></div>
+        <li class="checkout__stepper--item checkout__stepper--item--3">
+            <h3 class="checkout__stepper--item-circle ">3</h3>
+            <p class="checkout__stepper--item-title">Realizar Pedido</p>
+        </li> 
+        </div>
+        
         <li class="msg-secur" style="padding-left: 12%; list-style: none;">
             <img class="" src="${URLUtils.staticURL('/images/icons/candado.svg')}" alt="secur" />
             <span>${Resource.msg('check.secure.purchase', 'checkout', null)}</span>
