@@ -31,8 +31,6 @@ if (sizeSelect) {
 
 // ================================ Add Product To Wishlist ================================
 
-var opacity = 0;
-var intervalID = 0;
 
 $('.add-to-wish-list').on('click', (e) => {
     var url = e.target.dataset.href;
@@ -54,23 +52,7 @@ $('.add-to-wish-list').on('click', (e) => {
         $('.add-wishlist-alert').append('<div class="alert alert-success" role="alert">' + 'Se añadio a tu wishlist correctamente' + '</div>');
     }, 1500);
 
-    setInterval(() => {
-        intervalID = setInterval(hideAlert, 20)
-    }, 4000);
-
     setTimeout(() => {
-    $('.add-wishlist-alert .alert-success').remove();
+        $('.add-wishlist-alert .alert-success').remove();
     }, 4500);
 })
-
-function hideAlert() {
-    var alert = document.querySelector('.add-wishlist-alert');
-    opacity = Number(window.getComputedStyle(alert).getPropertyValue('opacity'));
-
-    if (opacity > 0) {
-        opacity = opacity - 0.1;
-        alert.style.opacity = opacity;
-    } else {
-        clearInterval(intervalID)
-    }
-}
