@@ -40,7 +40,11 @@
     display: none !important;
   }
 
-  .checkout__stepper_mobile{
+  ..checkout__stepper_mobile{
+    display: block !important;
+  }
+
+  .checkout__stepper_mobile .checkout__stepper{
     display: grid !important;
     grid-row: 3;
   }
