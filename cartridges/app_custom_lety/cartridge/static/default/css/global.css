@@ -1563,6 +1563,10 @@ textarea {
   }
 
   /*Footer*/
+
+  .footer{
+    margin-top: 1rem;
+  }
   .footer-item-img {
     border-bottom: none !important;
   }
@@ -1599,6 +1603,7 @@ textarea {
     .multilevel-dropdown {
     display: none;
   }
+
 }
 
 /* @media (max-width: 1024px){
