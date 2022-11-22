@@ -45,7 +45,7 @@
                 <iscontentasset aid="footer-nosotros" />
             </div>
             <div class="footer-item footer-item-img col-lg-4" style="margin-top:15px;">
-                <div class="footer-email-signup footer-news-desk" style="padding-left: 1.5em;">
+                <div class="footer-email-signup footer-news-desk">
                     <form role="form">
                         <div class="row">
                             <div class="input-group">
@@ -67,7 +67,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="row" style="padding-left: 1.5em;">
+                <div class="row">
                     <div class="col-lg-12 col-lg-5 push-lg-7 push-lg-8 social-h2" style="text-align: left;">
                         <h2 style="font-weight: bold;">Comparte tus dulces recuerdos</h2>
                     </div>
