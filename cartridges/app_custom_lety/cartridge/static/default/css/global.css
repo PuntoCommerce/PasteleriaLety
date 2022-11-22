@@ -1386,6 +1386,10 @@ textarea {
     position: relative !important;
   }
 
+  .padding-left-msg{
+    padding-left: 22px;
+  }
+
   .cart-and-ipay {
     padding-left: 15px;
     padding-right: 15px;
@@ -1422,6 +1426,16 @@ textarea {
 
   .row-rating {
     padding-bottom: 0 !important;
+  }
+
+  .row-rating-2{
+    margin-left: -30px !important;
+    margin-right: -30px !important;
+  }
+
+  .row-social-icons{
+    margin-left: -30px !important;
+    margin-right: -31px !important;
   }
 
   .hr-pdp {
@@ -1490,6 +1504,10 @@ textarea {
 
 
   /*Carrito*/
+
+  .img-proximamente{
+    max-width: 290px;
+  }
   .cart-page{
     padding-left: 15px;
     padding-right: 0;
@@ -1545,6 +1563,10 @@ textarea {
   }
 
   /*Footer*/
+
+  .footer{
+    margin-top: 1rem;
+  }
   .footer-item-img {
     border-bottom: none !important;
   }
@@ -1581,6 +1603,7 @@ textarea {
     .multilevel-dropdown {
     display: none;
   }
+
 }
 
 /* @media (max-width: 1024px){
@@ -15315,7 +15338,10 @@ h6 {
 }
 .price .strike-through {
   text-decoration: line-through;
-  color: #999;
+  color: #4E4E4E;
+  font-family: var(--font-family-gotham);
+  font-size: 16px;
+  font-weight: 400;
 }
 .price .range,
 .price .sales,
@@ -17508,6 +17534,10 @@ a .moreless .less {
 
 .footerLink:hover{
   color: #fff !important;
+}
+
+#Terminos ul{
+  list-style-type: circle;
 }
 
 @media (max-width: 1325px) {
