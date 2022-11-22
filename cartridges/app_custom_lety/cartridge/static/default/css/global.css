@@ -17459,6 +17459,7 @@ a .moreless .less {
 
 .div-img-menu img{
   width: 100% !important;
+  height: fit-content;
 }
 
 #searcHeaderResponsive{
