@@ -8,6 +8,7 @@
     assets.addJs('/js/campaignBanner.js');
     assets.addJs('/js/hiddenBtn.js');
     assets.addJs('/js/tagmanager.js');
+    assets.addJs('/js/pdpAttributes.js');
     assets.addJs('/js/custom.js');
     assets.addCss('/css/navigation.css');
     assets.addCss('/css/style-lety.css');
