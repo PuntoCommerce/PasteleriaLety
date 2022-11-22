@@ -15315,7 +15315,10 @@ h6 {
 }
 .price .strike-through {
   text-decoration: line-through;
-  color: #999;
+  color: #4E4E4E;
+  font-family: var(--font-family-gotham);
+  font-size: 16px;
+  font-weight: 400;
 }
 .price .range,
 .price .sales,
@@ -17507,6 +17510,10 @@ a .moreless .less {
 
 .footerLink:hover{
   color: #fff !important;
+}
+
+#Terminos ul{
+  list-style-type: circle;
 }
 
 @media (max-width: 1325px) {

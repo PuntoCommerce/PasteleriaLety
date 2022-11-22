@@ -1,7 +1,20 @@
 <span>
     <isset name="finalOrigPrice" value="${price}" scope="page" />
 
-
+    <isif condition="${finalOrigPrice.list !== null}">
+        <isset name="price" value="${finalOrigPrice.list}" scope="page" />
+            <span class="strike-through list">
+                <span class="value" content="${price.decimalPrice}">
+                    <span class="sr-only">
+                        ${Resource.msg('label.price.reduced.from', 'pricing', null)}
+                    </span>
+                    <isinclude template="/product/components/pricing/formatted" />
+                    <span class="sr-only">
+                        ${Resource.msg('label.price.to', 'pricing', null)}
+                    </span>
+                </span>
+            </span>
+    </isif>
 
     <isset name="price" value="${finalOrigPrice.sales}" scope="page" />
     <span class="sales">
@@ -17,19 +30,6 @@
         <isinclude template="/product/components/pricing/formatted" />
     </span>
 
-    <isif condition="${finalOrigPrice.list !== null}">
-        <isset name="price" value="${finalOrigPrice.list}" scope="page" />
-            <span class="strike-through list">
-                <span class="value" content="${price.decimalPrice}">
-                    <span class="sr-only">
-                        ${Resource.msg('label.price.reduced.from', 'pricing', null)}
-                    </span>
-                    <isinclude template="/product/components/pricing/formatted" />
-                    <span class="sr-only">
-                        ${Resource.msg('label.price.to', 'pricing', null)}
-                    </span>
-                </span>
-            </span>
-    </isif>
+
 </span>
 </span>
