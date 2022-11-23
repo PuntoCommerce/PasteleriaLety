@@ -15314,6 +15314,7 @@ footer .store-mobile {
   position: fixed;
   top: 15%;
   left: 50%;
+  z-index: 5 !important;
 }
 .email-signup-alert {
   animation: fade 5s linear forwards;
