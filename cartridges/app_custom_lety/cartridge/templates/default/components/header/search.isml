@@ -1,4 +1,4 @@
-<div class="site-search search-responsive d-flex align-items-center justify-content-center">
+<div class="site-search search-responsive d-flex align-items-center justify-content-end">
     <form role="search"
           action="${URLUtils.url('Search-Show')}"
           method="get"
