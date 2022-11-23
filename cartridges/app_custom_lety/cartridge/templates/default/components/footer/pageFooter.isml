@@ -6,7 +6,7 @@
 <footer id="footercontent">
     <div class="container-1450 footer-container">
         <div class="row">
-            <iscomment> <div class="footer-item col-lg-2 store-mobile " style="margin-top:15px;">
+            <div class="footer-item col-lg-2 store-mobile " style="margin-top:15px;">
                 <div class="footer-email-signup footer-email-signup-mobile" style="padding-left: 1.5em;">
                     <form role="form">
                         <div class="row">
@@ -32,7 +32,7 @@
                         </div>
                     </form>
                 </div>
-            </div> </iscomment>
+            </div>
 
             <div class="footer-item col-lg-3 collapsible-md" style="margin-top:15px;">
                 <iscontentasset aid="footer-contact" />
