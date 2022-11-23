@@ -680,8 +680,6 @@ header {
 }
 
 .user .user-message {
-  position: absolute;
-  top: 20px;
   left: 0;
   font-size: 15px;
   padding: 0;
@@ -1137,6 +1135,7 @@ textarea {
   .navigation-desktop .header {
     height: 0px !important;
   }
+
   .brand-desk {
     display: none !important;
   }
@@ -1159,6 +1158,15 @@ textarea {
   .collapsible-xs .title::after {
     transform: rotate(-90deg) !important;
   }
+
+  .category-dropdownMenu, .subcategory-dropdownMenu{
+    margin-bottom: 20px;
+  }
+  .category-dropdownMenu a, .sub-items .category-title{
+    font-family: var(--font-family-gotham-black) !important;
+    font-weight: 800;
+  }
+
 
   .minicart-desk {
     display: none;
@@ -1599,6 +1607,10 @@ textarea {
 
   footer .content li a {
     font-size: 14px !important;
+  }
+
+  .footer .newsletter-container input{
+    
   }
 
   .main-menu-desk
@@ -15290,6 +15302,7 @@ footer .store-mobile {
 
   .newsletter-container input{
     width: 100% !important;
+    text-align: center !important;
   }
   
   .newsletter-container .subscribe-email{
@@ -17496,7 +17509,7 @@ a .moreless .less {
   font-size: 14px;
   font-family: 'gotham-book';
   padding: 0;
-  height: 40px;
+  min-height: 60px;
   margin: 0;
 }
 
