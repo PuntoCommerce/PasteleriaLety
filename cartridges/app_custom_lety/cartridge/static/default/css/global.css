@@ -15130,6 +15130,17 @@ footer .store-mobile {
   font-size: 15px;
 }
 
+.newsletter-container{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.suscribe-label{
+  display: flex;
+  justify-content: start;
+}
+
 @media (max-width: 1200px) {
 
   footer h2, .suscribe-label span{
@@ -15257,10 +15268,10 @@ footer .store-mobile {
     justify-content: center;
     margin-left: -1.5em;
   }
-
+/* 
   footer .footer-news-desk {
     display: none;
-  }
+  } */
 
   footer .social-h2 {
     text-align: center !important;
@@ -15271,6 +15282,23 @@ footer .store-mobile {
   .goToUp{
     right: 30px;
     bottom: 15%;
+  }
+
+  .newsletter-container{
+    display: block;
+  }
+
+  .newsletter-container input{
+    width: 100% !important;
+  }
+  
+  .newsletter-container .subscribe-email{
+    width: 100% !important;
+    margin-top: 8px;
+  }
+
+  .suscribe-label{
+    justify-content: center !important;
   }
 }
 /* @media (max-width: 543.98px) {
@@ -17489,6 +17517,7 @@ a .moreless .less {
 
 .div-img-menu img{
   width: 100% !important;
+  height: fit-content;
 }
 
 #searcHeaderResponsive{

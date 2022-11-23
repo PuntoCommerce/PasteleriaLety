@@ -6,7 +6,7 @@
 <footer id="footercontent">
     <div class="container-1450 footer-container">
         <div class="row">
-            <div class="footer-item col-lg-2 store-mobile " style="margin-top:15px;">
+            <iscomment> <div class="footer-item col-lg-2 store-mobile " style="margin-top:15px;">
                 <div class="footer-email-signup footer-email-signup-mobile" style="padding-left: 1.5em;">
                     <form role="form">
                         <div class="row">
@@ -32,7 +32,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> </iscomment>
 
             <div class="footer-item col-lg-3 collapsible-md" style="margin-top:15px;">
                 <iscontentasset aid="footer-contact" />
@@ -49,19 +49,17 @@
                     <form role="form">
                         <div class="row">
                             <div class="input-group">
-                                <div class="suscribe-label d-flex justify-content-start">
+                                <div class="suscribe-label">
                                     <span style="font-weight: bold;">${Resource.msg('description.form.emailsignup', 'homePage', null)}</span>
                                 </div>
-                                <div class="d-flex justify-content-start align-items-center input-button">
+                                <div class="input-button newsletter-container">
 
                                     <input type="text" class="form-control newsletter" name="hpEmailSignUp"
                                         placeholder="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}"
                                         aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}">
-                                    <span class="input-group-append">
                                         <button type="submit" class="subscribe-email"
                                             data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">
                                             ${Resource.msg('button.form.emailsignup', 'homePage', null)}</button>
-                                    </span>
                                 </div>
                             </div>
                         </div>
