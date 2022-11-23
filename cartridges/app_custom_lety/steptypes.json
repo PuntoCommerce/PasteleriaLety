@@ -79,7 +79,7 @@
                 "@supports-site-context": "true",
                 "@supports-organization-context": "false",
                 "description": "Send Orders to SalesCloud",
-                "module": "mens_app/cartridge/scripts/jobs/clearFile.js",
+                "module": "app_custom_lety/cartridge/scripts/jobs/clearFile.js",
                 "function": "execute",
                 "transactional": "true",
                 "timeout-in-seconds": "900",
