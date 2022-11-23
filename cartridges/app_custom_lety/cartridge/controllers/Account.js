@@ -192,52 +192,99 @@ server.post("GenerateLetyCard", (req, res, next) => {
 });
 
 server.post("SaveSaldoForm", (req, res, next) => {
-
-  const josnData = JSON.stringify(req.form);
-
-  const data = JSON.parse(josnData);
-
-  const lastNames = data.s_ApellidoPat.trim().split(" ");
-
-  let Func_ActualizaDatosMembresia = ApiServiceLety.ApiLety(
-    "Func_ActualizaDatosMembresia", {
-      Empresa: 1,
-      s_IdMembresia: data.lLetyCard,
-      i_IdFolioPersona: data.iIdFolioPersona,
-      s_Nombre: data.s_Nombre,
-      s_Appaterno: lastNames[0],
-      s_Apmaterno: lastNames[1],
-      s_FechaNacimiento: data.dtFechaNacimiento,
-      s_Sexo: "Masculino",
-      i_IdCiudad: "1086",
-      s_EdoCivil: "Soltero",
-      s_PastelFavorito: data.PreferenciaProducto,
-      s_Direccion: "Avenina 12",
-      s_Colonia: data.s_Colonia,
-      s_Telefono: data.s_Telefono1,
-      s_Mail: data.s_Mail
-    }
-  );
-
-
+  // sacar todo desde node. con desestructuracion d
+  
+  const data = JSON.parse(JSON.stringify(req.form));
+  
+  //const data = JSON.parse(JSON.stringify(req.form));
+  
+  
+  let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia", {
+    Empresa: 1,
+    s_IdMembresia: data.lLetyCard,
+  });
+  
   let JsonDatosMembresia;
-
-  JsonDatosMembresia = Func_ActualizaDatosMembresia;
-
-  if (JsonDatosMembresia.ERROR) {
-
-    res.json({
-      error: 1
+  
+  if (Func_DatosMembresia.ERROR) {
+  
+    JsonDatosMembresia = {};
+  
+    return res.json({
+      error: 1,
+      msg: "Ocurrió un error al intentar actualizar los datos."
     });
-
+  
   } else {
-    res.json({
-      error: 0
-    })
+  
+    JsonDatosMembresia = JSON.parse(Func_DatosMembresia);
+  
+    let iIdFolioPersona = JsonDatosMembresia = JsonDatosMembresia.Func_DatosMembresia[0].iIdFolioPersona
+  
+    if (iIdFolioPersona != "" || iIdFolioPersona != undefined != null) {// suele llegar con comillas.
+  
+      let dtFechaNacimiento = data.dtFechaNacimiento;
+      let PreferenciaProducto = data.PreferenciaProducto;
+      //let s_Sexo = data.PreferenciaProducto;
+  
+      if(dtFechaNacimiento == undefined || dtFechaNacimiento == null) dtFechaNacimiento = "";
+  
+      if(PreferenciaProducto == undefined || PreferenciaProducto == null) PreferenciaProducto = "";
+  
+      let Func_ActualizaDatosMembresia = ApiServiceLety.ApiLety(
+        "Func_ActualizaDatosMembresia", {
+          Empresa: 1,
+          s_IdMembresia: data.lLetyCard,
+          i_IdFolioPersona: iIdFolioPersona,
+          s_Nombre: data.s_Nombre,
+          s_Appaterno: data.s_ApellidoPat,
+          s_Apmaterno: data.s_Apmaterno,
+          s_FechaNacimiento: dtFechaNacimiento,
+          s_Sexo: "Masculino",
+          i_IdCiudad: "1086",
+          s_EdoCivil: "Soltero",
+          s_PastelFavorito: PreferenciaProducto,
+          s_Direccion: "Avenina 12",
+          s_Colonia: data.s_Colonia,
+          s_Telefono: data.s_Telefono1,
+          s_Mail: data.s_Mail
+        }
+      );
+  
+      let JsonDatosActualizar;
+  
+      JsonDatosActualizar = Func_ActualizaDatosMembresia;
+  
+      if (JsonDatosActualizar.ERROR) {
+  
+        return res.json({
+          error: 1,
+          msg: "Ocurrió un error al intentar actualizar los datos."
+        });
+  
+      } else {
+  
+        res.json({
+          error: 0,
+          msg: "ok"
+        });
+  
+      }
+  
+    } else {
+  
+      return res.json({
+        error: 1,
+        msg: "Ocurrió un error al intentar actualizar los datos."
+      });
+  
+    }
+  
   }
-
-
+  
   next();
-});
+  
+ });
+ 
 
 module.exports = server.exports();
