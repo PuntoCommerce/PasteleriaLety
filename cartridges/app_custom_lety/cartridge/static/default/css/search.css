@@ -493,6 +493,7 @@
   color: #000;
   display: flex;
   margin: 11px 0;
+  text-align: initial;
 }
 
 .button-checkCategory{

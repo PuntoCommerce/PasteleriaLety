@@ -1,5 +1,4 @@
 <form action="" class="login-oauth" method="post" name="login-oauth-form">
-    
     <div class="form-group">
         <a  href="${URLUtils.https('Login-OAuthLogin', 'oauthProvider', 'Facebook', 'oauthLoginTargetEndPoint', pdict.oAuthReentryEndpoint)}" class="btn btn-login-FG btn-outline-primary oauth-facebook"
            role="button" aria-pressed="true">
@@ -7,7 +6,7 @@
                 ${Resource.msg('button.text.oauth.facebook', 'login', null)}
         </a>
     </div>
-    <div class="form-group">
+    <div class="form-group d-none">
         <a  href="${URLUtils.https('Login-OAuthLogin', 'oauthProvider', 'Google', 'oauthLoginTargetEndPoint', pdict.oAuthReentryEndpoint)}" class="btn btn-login-FG btn-outline-primary oauth-google"
            role="button" aria-pressed="true">
            <img src="${URLUtils.staticURL('/images/icons/google-check.svg')}" alt="${Resource.msg('global.storename', 'common', null)}" />
