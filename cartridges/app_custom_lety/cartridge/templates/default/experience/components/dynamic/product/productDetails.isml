@@ -53,16 +53,16 @@
 
 
         <!-- Product Images Carousel -->
-        <div class="col-12 col-xl-7">
-            <div class="d-xl-none">
+        <div class="col-12 col-lg-7">
+            <div class="d-md-block d-lg-none">
                 <isinclude template="product/components/imageCarousel" />
             </div>
-            <div class="d-none d-xl-block h-100">
+            <div class="d-none d-lg-block h-100">
                 <isinclude template="product/components/ImageProductDetail" />
             </div>
         </div>
 
-        <div class="col-12 col-xl-5 detail-left">
+        <div class="col-12 col-lg-5 detail-left">
             <!-- Product Name -->
             <div class="row row-desc">
                 <h1 class="product-name hidden-sm-down">${product.productName}</h1>
