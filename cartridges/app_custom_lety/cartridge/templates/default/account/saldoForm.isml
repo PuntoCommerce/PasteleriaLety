@@ -67,19 +67,19 @@
       </div>
   </div>
   <div class="row">
-      <div class="col-sm-12 col-md-12 col-lg-4 form-group">
+      <div class="col-sm-12 col-md-12 col-lg-6 form-group">
           <label class="label-card" >
               ${Resource.msg('label.date.member', 'account', null)}
           </label>
           <input class="form-control input-card" type="text" id="dtFechaNacimiento" value="${pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].dtFechaNacimiento !== "undefined" ? pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].dtFechaNacimiento : ""}" />
       </div>
-      <div class="col-sm-12 col-md-12 col-lg-4 form-group">
+      <div class="col-sm-12 col-md-12 col-lg-6 form-group">
           <label class="label-card">
               ${Resource.msg('label.sex.card', 'account', null)}
           </label>
           <input class="form-control input-card" type="text" name="s_Sexo" value="${pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_Sexo !== "undefined" ? pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_Sexo : ""}" />
       </div>
-       <div class="col-sm-12 col-md-12 col-lg-4 form-group">
+       <!--<div class="col-sm-12 col-md-12 col-lg-4 form-group">
            <div class="form-check form-check-inline">
                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
                <label class="form-check-label" for="inlineCheckbox1">Masculino</label>
@@ -88,7 +88,7 @@
                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
                <label class="form-check-label" for="inlineCheckbox1">Femenino</label>
            </div>
-      </div>
+      </div>-->
   </div>
   <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-6 form-group">
