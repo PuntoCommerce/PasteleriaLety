@@ -442,5 +442,5 @@ ul {
 }
 
 #pdp .price-empty-space{
-  display: none;
+  display: none !important;
 }
