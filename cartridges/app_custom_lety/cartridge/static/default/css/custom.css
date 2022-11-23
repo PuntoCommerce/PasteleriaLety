@@ -440,3 +440,7 @@ ul {
   left: 50%;
   transform: translate(-50%, 0);
 }
+
+#pdp .price-empty-space{
+  display: none;
+}
