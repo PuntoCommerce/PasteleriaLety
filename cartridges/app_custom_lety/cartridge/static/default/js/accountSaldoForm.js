@@ -1,7 +1,7 @@
  
 window.onload=function() {
  
-    alert('OK');
+    //alert('OK');
   
  }
   
