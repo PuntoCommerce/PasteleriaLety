@@ -41,6 +41,12 @@ if (navigator.appVersion.includes("Mac OS") || navigator.appVersion.includes("iP
       line-height: 2.8;
     }
 
+  footer li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
   @media (max-width: 991px) {
     .ITBC-content .btn-ITBC {
       line-height: 1.5;
