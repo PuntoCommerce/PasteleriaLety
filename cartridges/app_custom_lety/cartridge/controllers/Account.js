@@ -200,45 +200,32 @@ server.post("GenerateLetyCard", (req, res, next) => {
 
 server.post("SaveSaldoForm", (req, res, next) => {
   // sacar todo desde node. con desestructuracion d
-  
-  const data = JSON.parse(JSON.stringify(req.form));
-  
-  //const data = JSON.parse(JSON.stringify(req.form));
-  
+   const data = JSON.parse(JSON.stringify(req.form));
+   //const data = JSON.parse(JSON.stringify(req.form));
   
   let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia", {
     Empresa: 1,
     s_IdMembresia: data.lLetyCard,
   });
-  
-  let JsonDatosMembresia;
-  
-  if (Func_DatosMembresia.ERROR) {
-  
-    JsonDatosMembresia = {};
-  
-    return res.json({
+   let JsonDatosMembresia;
+   if (Func_DatosMembresia.ERROR) {
+     JsonDatosMembresia = {};
+     return res.json({
       error: 1,
       msg: "Ocurrió un error al intentar actualizar los datos."
     });
-  
-  } else {
-  
-    JsonDatosMembresia = JSON.parse(Func_DatosMembresia);
-  
-    let iIdFolioPersona = JsonDatosMembresia = JsonDatosMembresia.Func_DatosMembresia[0].iIdFolioPersona
-  
-    if (iIdFolioPersona != "" || iIdFolioPersona != undefined != null) {// suele llegar con comillas.
-  
-      let dtFechaNacimiento = data.dtFechaNacimiento;
+   } else {
+     JsonDatosMembresia = JSON.parse(Func_DatosMembresia);
+     let iIdFolioPersona = JsonDatosMembresia = JsonDatosMembresia.Func_DatosMembresia[0].iIdFolioPersona
+     if (iIdFolioPersona != "" || iIdFolioPersona != undefined != null) {// suele llegar con comillas.
+       let dtFechaNacimiento = data.dtFechaNacimiento;
       let PreferenciaProducto = data.PreferenciaProducto;
-      //let s_Sexo = data.PreferenciaProducto;
+      let s_Sexo = data.s_Sexo;
+       if(dtFechaNacimiento == undefined || dtFechaNacimiento == null) dtFechaNacimiento = "";
+       if(PreferenciaProducto == undefined || PreferenciaProducto == null) PreferenciaProducto = "";
   
-      if(dtFechaNacimiento == undefined || dtFechaNacimiento == null) dtFechaNacimiento = "";
-  
-      if(PreferenciaProducto == undefined || PreferenciaProducto == null) PreferenciaProducto = "";
-  
-      let Func_ActualizaDatosMembresia = ApiServiceLety.ApiLety(
+      if(s_Sexo == undefined || s_Sexo == null) s_Sexo = "";
+       let Func_ActualizaDatosMembresia = ApiServiceLety.ApiLety(
         "Func_ActualizaDatosMembresia", {
           Empresa: 1,
           s_IdMembresia: data.lLetyCard,
@@ -247,7 +234,7 @@ server.post("SaveSaldoForm", (req, res, next) => {
           s_Appaterno: data.s_ApellidoPat,
           s_Apmaterno: data.s_Apmaterno,
           s_FechaNacimiento: dtFechaNacimiento,
-          s_Sexo: "Masculino",
+          s_Sexo: s_Sexo,
           i_IdCiudad: "1086",
           s_EdoCivil: "Soltero",
           s_PastelFavorito: PreferenciaProducto,
@@ -257,41 +244,27 @@ server.post("SaveSaldoForm", (req, res, next) => {
           s_Mail: data.s_Mail
         }
       );
-  
-      let JsonDatosActualizar;
-  
-      JsonDatosActualizar = Func_ActualizaDatosMembresia;
-  
-      if (JsonDatosActualizar.ERROR) {
-  
-        return res.json({
+       let JsonDatosActualizar;
+       JsonDatosActualizar = Func_ActualizaDatosMembresia;
+       if (JsonDatosActualizar.ERROR) {
+         return res.json({
           error: 1,
           msg: "Ocurrió un error al intentar actualizar los datos."
         });
-  
-      } else {
-  
-        res.json({
+       } else {
+         res.json({
           error: 0,
           msg: "ok"
         });
-  
-      }
-  
-    } else {
-  
-      return res.json({
+       }
+     } else {
+       return res.json({
         error: 1,
         msg: "Ocurrió un error al intentar actualizar los datos."
       });
-  
-    }
-  
-  }
-  
-  next();
-  
- });
+     }
+   }
+   next();
+  });
  
-
 module.exports = server.exports();

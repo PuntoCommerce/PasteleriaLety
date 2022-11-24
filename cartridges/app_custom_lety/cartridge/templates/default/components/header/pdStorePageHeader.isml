@@ -29,10 +29,10 @@
                         </div> </iscomment>
                     </div>
                     <div class="pull-right d-flex align-items-center col-xl-9 col-lg-10 col-md-8">
-                        <div class="search search-desk">
+                        <div class="search search-desk col-xl-3 col-lg-">
                             <isinclude template="components/header/search" />
                         </div>
-                        <div class="main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"
+                        <div class="col-xl-7 col-lg- main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"
                             id="sg-navbar-collapse">
                             <div class="container">
                                 <div class="row">
@@ -40,11 +40,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="hidden-md-down">
+                        <div class="col-xl-1 col-lg- hidden-md-down">
                             <isinclude url="${URLUtils.url('Account-Header')}" />
                             <isinclude url="${URLUtils.url('Page-Locale')}" />
                         </div>
-                        <div class="minicart minicart-desk" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
+                        <div class="col-xl-1 col-lg- minicart minicart-desk" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
                             <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
                         </div>
                     </div>
