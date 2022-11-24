@@ -36,6 +36,13 @@
           "description": "Text for the component",
           "type": "markup",
           "required": false
+        },
+        {
+          "id": "urlImg",
+          "name": "URL Img",
+          "description": "URL for the image",
+          "type": "url",
+          "required": false
         }
       ]
     },
