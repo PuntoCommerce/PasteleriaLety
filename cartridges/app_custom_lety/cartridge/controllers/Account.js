@@ -134,6 +134,13 @@ let CatalogoCiudades = ApiServiceLety.ApiLety(
   }
 );
 
+let CatalogoEstados = ApiServiceLety.ApiLety(
+  "CatalogoEstados",
+  { 
+    Empresa: 1
+  }
+);
+
 let InsertaDatosVentaWeb = ApiServiceLety.ApiLety(
   "InsertaDatosVentaWeb",
   { 
