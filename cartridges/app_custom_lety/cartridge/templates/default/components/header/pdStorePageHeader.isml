@@ -4,9 +4,9 @@
         <!-- Campaign Banner Component renders here -->
         <isprint value="${pdict.regions.headerbanner.render()}" encoding="off" />
     </isif>
-
+    
     <nav role="navigation">
-
+    
         <iscomment>
             Navigation Desktop
         </iscomment>
@@ -24,11 +24,9 @@
                                     alt="${Resource.msg('global.storename', 'common', null)}" />
                             </a>
                         </div>
-                        <iscomment>
-                            <div class="location location-desk">
-                                <isinclude url="${URLUtils.url('StoreSession-Start')}" />
-                            </div>
-                        </iscomment>
+                        <iscomment> <div class="location location-desk">
+                            <isinclude url="${URLUtils.url('StoreSession-Start')}" />
+                        </div> </iscomment>
                     </div>
                     <div class="pull-right d-flex align-items-center col-xl-9 col-lg-10 col-md-8">
                         <div class="search search-desk col-xl-3 col-lg-">
@@ -43,31 +41,10 @@
                             </div>
                         </div>
                         <div class="col-xl-1 col-lg- hidden-md-down">
-                            <div class="user hidden-md-down">
-                                <a href="${URLUtils.https('Login-Show')}" role="button"
-                                    aria-label="${Resource.msg('label.header.loginbutton', 'account', null)}">
-                                    <img src="${URLUtils.staticURL('/images/icons/user.svg')}"
-                                        alt="${Resource.msg('global.storename', 'common', null)}" />
-                                    <iscomment> <span class="user-message">${Resource.msg('link.header.login', 'account', null)}</span>
-                                    </iscomment>
-
-                                </a>
-                            </div>
                             <isinclude url="${URLUtils.url('Account-Header')}" />
                             <isinclude url="${URLUtils.url('Page-Locale')}" />
                         </div>
-                        <div class="col-xl-1 col-lg- minicart minicart-desk"
-                            data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
-                            <a class="minicart-link" href="${URLUtils.https('Cart-Show')}"
-                                title="${Resource.msgf('minicart.count', 'common', null, pdict.quantityTotal)}"
-                                aria-label="${Resource.msgf('minicart.count', 'common', null, pdict.quantityTotal)}"
-                                aria-haspopup="true">
-                                <img src="${URLUtils.staticURL('/images/icons/shopping-bag.svg')}"
-                                    alt="${Resource.msg('global.storename', 'common', null)}" />
-                                <span class="minicart-quantity">
-                                    <isprint value="${pdict.quantityTotal}" formatter="##" />
-                                </span>
-                            </a>
+                        <div class="col-xl-1 col-lg- minicart minicart-desk" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
                             <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
                         </div>
                     </div>
@@ -96,30 +73,18 @@
                                 alt="${Resource.msg('global.storename', 'common', null)}" />
                         </a>
                     </div>
-
-
+            
+       
                     <div class="search search-responsive col-2 col-sm-1">
                         <isinclude template="components/header/searchResponsiveButton" />
                     </div>
-
+         
                     <div class="minicart col-2 col-sm-1" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
-                        <a class="minicart-link" href="${URLUtils.https('Cart-Show')}"
-                            title="${Resource.msgf('minicart.count', 'common', null, pdict.quantityTotal)}"
-                            aria-label="${Resource.msgf('minicart.count', 'common', null, pdict.quantityTotal)}"
-                            aria-haspopup="true">
-                            <img src="${URLUtils.staticURL('/images/icons/shopping-bag.svg')}"
-                                alt="${Resource.msg('global.storename', 'common', null)}" />
-                            <span class="minicart-quantity">
-                                <isprint value="${pdict.quantityTotal}" formatter="##" />
-                            </span>
-                        </a>
                         <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
                     </div>
-                    <button class="button-menu col-2 col-sm-1" type="button" id="openCustomMenu"
-                        onclick="openCustomMenu()">
-                        <img src="${URLUtils.staticURL('/images/icons/menu.svg')}"
-                            alt="${Resource.msg('global.storename', 'common', null)}" />
-                    </button>
+                  <button class="button-menu col-2 col-sm-1" type="button" id="openCustomMenu" onclick="openCustomMenu()">
+                                      <img src="${URLUtils.staticURL('/images/icons/menu.svg')}" alt="${Resource.msg('global.storename', 'common', null)}" />
+                                    </button>
                 </div>
             </div>
             <div class="main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"
