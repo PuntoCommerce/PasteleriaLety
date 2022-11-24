@@ -6,6 +6,7 @@
                 alt="${Resource.msg('global.storename', 'common', null)}" />
             <iscomment> <span class="user-message">${Resource.msg('link.header.login', 'account', null)}</span>
             </iscomment>
+            
         </a>
     </div>
 <iselse/>

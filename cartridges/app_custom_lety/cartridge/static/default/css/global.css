@@ -668,6 +668,10 @@ pre code {
   margin-left: auto;
 }
 
+.classPrueba{
+  width: 100% !important;
+}
+
 /*Header*/
 header {
   width: 100vw;
