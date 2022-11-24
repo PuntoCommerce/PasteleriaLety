@@ -36,8 +36,20 @@ window.addEventListener("load", () => {
 
 if (navigator.appVersion.includes("Mac OS") || navigator.appVersion.includes("iPhone")) {
   //estilo css para mac os 
+  var styles = `
+  .ITBC-content .btn-ITBC {
+      line-height: 2.8;
+    }
 
-
+  @media (max-width: 991px) {
+    .ITBC-content .btn-ITBC {
+      line-height: 1.5;
+    }
+  }`;
+  var styleSheet = document.createElement("style")
+  styleSheet.type = "text/css"
+  styleSheet.innerText = styles
+  document.head.appendChild(styleSheet)
 }
 
 const changeSubMenuItem = () => {
