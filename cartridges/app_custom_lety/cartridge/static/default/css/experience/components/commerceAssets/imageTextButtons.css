@@ -81,7 +81,7 @@
   font-size: 18px;
   text-align: center;
   letter-spacing: -0.011em;
-  line-height: 2 !important;
+  line-height: 2;
   flex: none;
   order: 0;
   font-family: 'gotham-book';
