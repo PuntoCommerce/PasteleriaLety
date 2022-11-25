@@ -34,30 +34,6 @@ window.addEventListener("load", () => {
   changeSubMenuItem();
 });
 
-if (navigator.appVersion.includes("Mac OS") || navigator.appVersion.includes("iPhone")) {
-  //estilo css para mac os 
-  var styles = `
-  .ITBC-content .btn-ITBC {
-      line-height: 2.8;
-    }
-
-  footer li a{
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
-  @media (max-width: 991px) {
-    .ITBC-content .btn-ITBC {
-      line-height: 1.5;
-    }
-  }`;
-  var styleSheet = document.createElement("style")
-  styleSheet.type = "text/css"
-  styleSheet.innerText = styles
-  document.head.appendChild(styleSheet)
-}
-
 const changeSubMenuItem = () => {
   const menu = $C(".menu-group");
   const subMenu = $$C(".dropdown-menu");
@@ -68,6 +44,8 @@ const changeSubMenuItem = () => {
     sub.style.top = rectMenu.y + menuHeight + "px";
   });
 };
+
+
 
 const toggleSubCategories = $$C(".toggle-subcategories");
 
@@ -218,70 +196,26 @@ if (button_filter) {
   }
 }
 
+if (navigator.appVersion.includes("Mac OS") || navigator.appVersion.includes("iPhone")) {
+  //estilo css para mac os 
+  var styles = `
+  .ITBC-content .btn-ITBC {
+      line-height: 2.8;
+    }
 
-/* ########################################## ⬆️ Calendar Delivery ⬆️ ####################################################*/
-/* let monthNames= ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-
-let currentDate = new Date();
-let currentDay = currentDate.getDate();
-let monthNumber = currentDate.getMonth();
-let currentYear = currentDate.getFullYear();
-
-let dates = document.getElementsByClassName("dates");
-let month = document.getElementsByClassName("month").textContent = monthNames[monthNumber];
-let year = document.getElementsByClassName("year").textContent = currentYear.toString();
-
-let prevMonthDOM= document.getElementsByClassName("prev-month");
-let nextMonthDOM = document.getElementsByClassName("next-month");
-
-prevMonthDOM.addEventListener('click', ()=>lastMonth());
-nextMonthDOM.addEventListener('click', ()=>nextMonth());
-
-
-function writeMonth(month){
-
-}
-
-function getTotalDays(month){
-
-}
-
-function isLeap(){
-  return ((currentYear % 100 !==0)&& (currentYear % 4 === 0) || (currentYear % 400 === 0));
- 
-}
-
-function startDay(){
-  let start = new Date(currentYear, monthNumber, 1);
-  return ((start.getDay()-1) === -1) ? 6 : start.getDate()-1;
-}
-
-function lastMonth(){
-if(monthNumber !== 0){
-  monthNumber--;
-
-}else{
-  monthNumber=11;
-  currentYear--;
-}
-setNewDate();
-}
-
-function nextMonth(){
-  if(monthNumber !== 11){
-    monthNumber++;
-  
-  }else{
-    monthNumber= 0;
-    currentYear++;
+  footer li a{
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
-  setNewDate();
+  @media (max-width: 991px) {
+    .ITBC-content .btn-ITBC {
+      line-height: 1.5;
+    }
+  }`;
+  var styleSheet = document.createElement("style")
+  styleSheet.type = "text/css"
+  styleSheet.innerText = styles
+  document.head.appendChild(styleSheet)
 }
-
-function setNewDate(){
- currentDate.setFullYear(currentYear, monthNumber,currentDay);
- month.textContent = monthNames[monthNumber];
- year.textContent = currentYear.toString();
-}  */
-
