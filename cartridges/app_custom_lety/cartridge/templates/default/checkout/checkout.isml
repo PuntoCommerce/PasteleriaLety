@@ -8,6 +8,11 @@
         assets.addJs('/js/checkout.js');
         assets.addJs('/js/priceAdjustment.js');
         assets.addCss('/css/checkout/checkout.css');
+
+
+        // Custom Pickup CSS and JS 
+        assets.addCss('/css/storePickup.css');
+        assets.addJs('/js/storePickup.js');
     </isscript>
 
     <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">

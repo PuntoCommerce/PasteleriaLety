@@ -5,7 +5,6 @@
 <isscript>
     var assets = require('*/cartridge/scripts/assets.js');
     assets.addJs('/js/tagmanager.js');
-    assets.addJs("/js/checkoutCustom.js");
 </isscript>
 
 <!DOCTYPE html>
