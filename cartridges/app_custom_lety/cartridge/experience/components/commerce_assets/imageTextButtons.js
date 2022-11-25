@@ -82,6 +82,8 @@ module.exports.render = function (context, modelIn) {
   };
   model.markupLayout = content.markupLayout || "center";
 
+  model.urlImg = content.urlImg;
+
   model.buttons = [
     {
       active: content.text1 && content.url1 ? true : false,

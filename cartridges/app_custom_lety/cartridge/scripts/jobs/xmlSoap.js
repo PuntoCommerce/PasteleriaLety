@@ -45,7 +45,32 @@
  
       return json;
     }
+    if(path==="CatalogoEstados"){
+      let json = '{"'+path+'":[';
 
+      const iId = XMLList(xml).descendants("iIdPais");
+      const iIdE = XMLList(xml).descendants("iIdEstado");
+      const sAb = XMLList(xml).descendants("sAbreviacion");
+      const sNo = XMLList(xml).descendants("sNombre");
+      const dt = XMLList(xml).descendants("dtAlta");
+      const iIdU = XMLList(xml).descendants("iIdUsrAlta");
+      const dtMo = XMLList(xml).descendants("dtModifica");
+      const iIdUsrMo = XMLList(xml).descendants("iIdUsrModifica");
+
+      if(iId.length()===0){
+        json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
+        json = json.slice(0,-1)+']}';
+      }else{
+        for(let i =0; i<iId.length();i++){
+          json+='{"iIdPais":"'+iId[i]+'","iIdEstado":"'+iIdE[i]+'","sAbreviacion":"'+sAb[i]+'","sNombre":"'+sNo[i]+'","dtAlta":"'+dt[i]+'","iIdUsrAlta":"'+iIdU[i]+'","dtModifica":"'+dtMo[i]+'","iIdUsrModifica":"'+iIdUsrMo[i]+'"},';
+        }
+        json = json.slice(0,-1)+']}';
+      }
+
+      json = json.slice(0,-1)+']}';
+ 
+      return json;
+    }
     if(path==="NewCalculoSD"){
       let json = '{"'+path+'":[';
       const bAplica = XMLList(xml).descendants("bAplica");

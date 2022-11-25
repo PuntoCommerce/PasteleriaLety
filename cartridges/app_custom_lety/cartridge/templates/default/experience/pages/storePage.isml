@@ -9,7 +9,7 @@
     <div class="storepage" id="${pdict.page.ID}" data-gtmpageview="${pdict.page.ID}">
         <div class="container">
         <div class="row">
-            <isprint value="${pdict.regions.main.setClassName("").render()}" encoding="off" />
+            <isprint value="${pdict.regions.main.setClassName("classPrueba").render()}" encoding="off"/>
         </div>
         </div>
     </div>

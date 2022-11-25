@@ -4,9 +4,9 @@
         <!-- Campaign Banner Component renders here -->
         <isprint value="${pdict.regions.headerbanner.render()}" encoding="off" />
     </isif>
-    
+
     <nav role="navigation">
-    
+
         <iscomment>
             Navigation Desktop
         </iscomment>
@@ -15,18 +15,19 @@
                 <div class="row header-container">
                     <div class="pull-left d-flex align-items-center col-xl-3 col-lg-2 col-md-4">
                         <div class="navbar-header brand brand-desk">
-                            <a class="logo-home" href="${URLUtils.url('Home-Show')}"
-                                title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
-                                       'global.home', 'common', null))}">
+                            <a class="logo-home" href="${URLUtils.url('Home-Show')}" title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
+                                                                                            'global.home', 'common', null))}">
                                 <img class="hidden-md-down" src="${URLUtils.staticURL('/images/lety-logo.svg')}"
                                     alt="${Resource.msg('global.storename', 'common', null)}" />
                                 <img class="d-lg-none" src="${URLUtils.staticURL('/images/lety-logo.svg')}"
                                     alt="${Resource.msg('global.storename', 'common', null)}" />
                             </a>
                         </div>
-                        <iscomment> <div class="location location-desk">
-                            <isinclude url="${URLUtils.url('StoreSession-Start')}" />
-                        </div> </iscomment>
+                        <iscomment>
+                            <div class="location location-desk">
+                                <isinclude url="${URLUtils.url('StoreSession-Start')}" />
+                            </div>
+                        </iscomment>
                     </div>
                     <div class="pull-right d-flex align-items-center col-xl-9 col-lg-10 col-md-8">
                         <div class="search search-desk col-xl-3 col-lg-">
@@ -44,7 +45,9 @@
                             <isinclude url="${URLUtils.url('Account-Header')}" />
                             <isinclude url="${URLUtils.url('Page-Locale')}" />
                         </div>
-                        <div class="col-xl-1 col-lg- minicart minicart-desk" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
+                        <div class="col-xl-1 col-lg- minicart minicart-desk"
+                            data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
+                           
                             <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
                         </div>
                     </div>
@@ -65,26 +68,29 @@
             <div class="header container justify-content-center align-items-center" id="headerContMob">
                 <div class="row header-container">
                     <div class="navbar-header brand col-6 col-sm-9">
-                        <a class="logo-home" href="${URLUtils.url('Home-Show')}" title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
-                                                                                        'global.home', 'common', null))}">
+                        <a class="logo-home" href="${URLUtils.url('Home-Show')}"
+                            title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
+                                   'global.home', 'common', null))}">
                             <img class="hidden-md-down" src="${URLUtils.staticURL('/images/lety-logo.svg')}"
                                 alt="${Resource.msg('global.storename', 'common', null)}" />
                             <img class="d-lg-none" src="${URLUtils.staticURL('/images/lety-logo.svg')}"
                                 alt="${Resource.msg('global.storename', 'common', null)}" />
                         </a>
                     </div>
-            
-       
+
+
                     <div class="search search-responsive col-2 col-sm-1">
                         <isinclude template="components/header/searchResponsiveButton" />
                     </div>
-         
+
                     <div class="minicart col-2 col-sm-1" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
                         <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
                     </div>
-                  <button class="button-menu col-2 col-sm-1" type="button" id="openCustomMenu" onclick="openCustomMenu()">
-                                      <img src="${URLUtils.staticURL('/images/icons/menu.svg')}" alt="${Resource.msg('global.storename', 'common', null)}" />
-                                    </button>
+                    <button class="button-menu col-2 col-sm-1" type="button" id="openCustomMenu"
+                        onclick="openCustomMenu()">
+                        <img src="${URLUtils.staticURL('/images/icons/menu.svg')}"
+                            alt="${Resource.msg('global.storename', 'common', null)}" />
+                    </button>
                 </div>
             </div>
             <div class="main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"

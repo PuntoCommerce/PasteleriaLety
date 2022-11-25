@@ -197,7 +197,7 @@
                 </isif>
 
                 <iscomment> Quitar el d-none cuando este habilitado el checkout </iscomment>
-                <div class="prices-add-to-cart-actions mb-2">
+                <div class="prices-add-to-cart-actions mb-2 d-none">
                     <!-- Cart and Checkout -->
                     <isinclude template="product/components/buyNowProduct" />
                 </div>
