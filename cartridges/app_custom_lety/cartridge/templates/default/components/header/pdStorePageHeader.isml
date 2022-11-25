@@ -42,31 +42,12 @@
                             </div>
                         </div>
                         <div class="col-xl-1 col-lg- hidden-md-down">
-                            <div class="user hidden-md-down">
-                                <a href="${URLUtils.https('Login-Show')}" role="button"
-                                    aria-label="${Resource.msg('label.header.loginbutton', 'account', null)}">
-                                    <img src="${URLUtils.staticURL('/images/icons/user.svg')}"
-                                        alt="${Resource.msg('global.storename', 'common', null)}" />
-                                    <iscomment> <span class="user-message">${Resource.msg('link.header.login', 'account', null)}</span>
-                                    </iscomment>
-
-                                </a>
-                            </div>
                             <isinclude url="${URLUtils.url('Account-Header')}" />
                             <isinclude url="${URLUtils.url('Page-Locale')}" />
                         </div>
                         <div class="col-xl-1 col-lg- minicart minicart-desk"
                             data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
-                            <a class="minicart-link" href="${URLUtils.https('Cart-Show')}"
-                                title="${Resource.msgf('minicart.count', 'common', null, pdict.quantityTotal)}"
-                                aria-label="${Resource.msgf('minicart.count', 'common', null, pdict.quantityTotal)}"
-                                aria-haspopup="true">
-                                <img src="${URLUtils.staticURL('/images/icons/shopping-bag.svg')}"
-                                    alt="${Resource.msg('global.storename', 'common', null)}" />
-                                <span class="minicart-quantity">
-                                    <isprint value="${pdict.quantityTotal}" formatter="##" />
-                                </span>
-                            </a>
+                           
                             <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
                         </div>
                     </div>
