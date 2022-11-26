@@ -935,6 +935,15 @@ textarea {
   grid-column: 2 !important;
 }
 
+.conten-attributes ul{
+  padding: 0 20px !important;
+  list-style-type: disc !important;
+}
+
+.conten-attributes li{
+  padding-bottom: 15px !important;
+}
+
 /*Design comentarios y rating*/
 
 .rating > label {

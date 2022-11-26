@@ -6,7 +6,6 @@
     </isif>
 
     <nav role="navigation">
-
         <iscomment>
             Navigation Desktop
         </iscomment>
@@ -84,6 +83,7 @@
                     </div>
 
                     <div class="minicart col-2 col-sm-1" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
+                       
                         <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
                     </div>
                     <button class="button-menu col-2 col-sm-1" type="button" id="openCustomMenu"

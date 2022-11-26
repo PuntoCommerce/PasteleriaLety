@@ -6,7 +6,7 @@
                 ${Resource.msg('button.text.oauth.facebook', 'login', null)}
         </a>
     </div>
-    <div class="form-group d-none">
+    <div class="form-group">
         <a  href="${URLUtils.https('Login-OAuthLogin', 'oauthProvider', 'Google', 'oauthLoginTargetEndPoint', pdict.oAuthReentryEndpoint)}" class="btn btn-login-FG btn-outline-primary oauth-google"
            role="button" aria-pressed="true">
            <img src="${URLUtils.staticURL('/images/icons/google-check.svg')}" alt="${Resource.msg('global.storename', 'common', null)}" />

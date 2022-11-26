@@ -197,12 +197,12 @@
                 </isif>
 
                 <iscomment> Quitar el d-none cuando este habilitado el checkout </iscomment>
-                <div class="prices-add-to-cart-actions mb-2 ">
+                <div class="prices-add-to-cart-actions mb-2">
                     <!-- Cart and Checkout -->
                     <isinclude template="product/components/buyNowProduct" />
                 </div>
                 <iscomment> Quitar el d-none cuando este habilitado el checkout </iscomment>
-                <div class="prices-add-to-cart-actions d-none">
+                <div class="prices-add-to-cart-actions">
                     <!-- Cart and [Optionally] Apple Pay -->
                     <isinclude template="product/components/addToCartProduct" />
                 </div>
