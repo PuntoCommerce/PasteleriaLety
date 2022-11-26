@@ -32,14 +32,14 @@ const sendOrderToERP = (orderId) => {
     Empresa: "1",
     sFolio: orderId,
     sFolioBanco: pi.paymentTransaction.transactionID,
-    sFolioTarjeta: pi.creditCardNumberLastDigits,
-    //
-    iIdCentro: order.custom.pickupInStoreId,
+    sFolioTarjeta:
+      pi.creditCardNumberLastDigits || pi.paymentTransaction.transactionID,
+    iIdCentro: order.custom.storeId,
     dtFechaColocacion: today.toISOString(),
     dtFechaAsignacion: parseDeliveryDateTime(order.custom.deliveryDateTime),
     bindImpreso: false,
     iIdFormaDePago: 3,
-    bdMonto: order.totalNetPrice,
+    bdMonto: order.totalNetPrice.value,
     dMontoExtranjero: 0,
     iIdMembresia: 0,
     sReferencia: order.UUID,

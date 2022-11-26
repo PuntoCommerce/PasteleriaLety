@@ -17,13 +17,13 @@ server.append("SubmitShipping", (req, res, next) => {
 
   let viewData = res.getViewData();
 
-  // Transaction.wrap(() => {
-  //   let pickUpId = viewData.storeId;
-  //   currentBasket.setCustomerEmail(shipping.customPickUp.email.value);
-  //   currentBasket.custom.pickupInStoreId = pickUpId;
-  //   currentBasket.custom.deliveryDateTime =
-  //     shipping.datetime.date.value + " : " + shipping.datetime.time.value;
-  // });
+  Transaction.wrap(() => {
+    let pickUpId = viewData.storeId;
+    currentBasket.setCustomerEmail(shipping.customPickUp.email.value);
+    currentBasket.custom.storeId = pickUpId;
+    currentBasket.custom.deliveryDateTime =
+      shipping.datetime.date.value + " : " + shipping.datetime.time.value;
+  });
 
   next();
 });
