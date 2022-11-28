@@ -25,7 +25,10 @@
         </h1>
     </iscomment>
 
-    <ul class="checkout__stepper checkout__stepper_desk">
+<div>
+    
+</div>
+        <ul class="checkout__stepper">
         <li class="continue-checkout" style="padding-right: 12%; list-style: none">
             <button type="" class="continue-shopping-checkout d-flex"
                 style="background-color: transparent; border: none">
@@ -34,7 +37,8 @@
                     ${Resource.msg('link.continue.shopping', 'cart', null)}
                 </a></button>
         </li>
-        <li class="checkout__stepper--item">
+        <div class="conten-steps-EPR">
+            <li class="checkout__stepper--item">
             <h3 class="checkout__stepper--item-circle checkout__stepper--item-circle-current">1</h3>
             <p class="checkout__stepper--item-title">Envío</p>
         </li>
@@ -47,45 +51,14 @@
         <li class="checkout__stepper--item">
             <h3 class="checkout__stepper--item-circle">3</h3>
             <p class="checkout__stepper--item-title">Realizar Pedido</p>
-        </li>
-        <li class="msg-secur" style="padding-left: 12%; list-style: none;">
-            <img class="" src="${URLUtils.staticURL('/images/icons/candado.svg')}" alt="secur" />
-            <span>${Resource.msg('check.secure.purchase', 'checkout', null)}</span>
-        </li>
-    </ul>
-    <div class="checkout__stepper_mobile">
-        <ul class="checkout__stepper">
-        <li class="continue-checkout" style="padding-right: 12%; list-style: none">
-            <button type="" class="continue-shopping-checkout d-flex"
-                style="background-color: transparent; border: none">
-                <a class="continue-shopping-checkout" href="${URLUtils.url('Home-Show')}"
-                    title="${Resource.msg('link.continue.shopping', 'cart', null)}">
-                    ${Resource.msg('link.continue.shopping', 'cart', null)}
-                </a></button>
-        </li>
-        <div class="contain-stepess d-flex">
-           <li class="checkout__stepper--item">
-            <h3 class="checkout__stepper--item-circle checkout__stepper--item-circle-current">1</h3>
-            <p class="checkout__stepper--item-title">Envío</p>
-        </li>
-        <div class="checkout__stepper--divider"></div>
-        <li class="checkout__stepper--item">
-            <h3 class="checkout__stepper--item-circle">2</h3>
-            <p class="checkout__stepper--item-title">Pago</p>
-        </li>
-        <div class="checkout__stepper--divider"></div>
-        <li class="checkout__stepper--item checkout__stepper--item--3">
-            <h3 class="checkout__stepper--item-circle ">3</h3>
-            <p class="checkout__stepper--item-title">Realizar Pedido</p>
         </li> 
         </div>
-        
+       
         <li class="msg-secur" style="padding-left: 12%; list-style: none;">
             <img class="" src="${URLUtils.staticURL('/images/icons/candado.svg')}" alt="secur" />
             <span>${Resource.msg('check.secure.purchase', 'checkout', null)}</span>
         </li>
     </ul>
-    </div>
     
     <div class="d-flex justify-content-center">
         <div class="col-sm-12 col-lg-10">
@@ -194,7 +167,7 @@
                     <!----------------------------------------------------------------------------------->
                     <div class="col-12 col-lg-5 checkout-address-right">
 
-                        <div class="card checkout__order d-none d-lg-block mt-lg-4">
+                        <div class="card checkout__order d-lg-block mt-lg-4">
                             <div class="card-header d-flex justify-content-center align-items-center">
                                 <h2 class="card-header-custom">${Resource.msg('heading.order.summary', 'checkout', null)}
                                 </h2>
@@ -224,7 +197,7 @@
                                             <div class="form-group">
                                                 <label for="couponCode">${Resource.msg('label.promo.code.check', 'checkout', null)}</label>
                                                 <div class="row">
-                                                    <div class="col-7">
+                                                    <div class="col-6 col-lg-7">
                                                         <input type="text" class="form-control coupon-code-field"
                                                             id="couponCode" name="couponCode"
                                                             placeholder="${Resource.msg('placholder.text.promo.code.input', 'cart', null)}">
@@ -238,7 +211,7 @@
                                                     <input type="hidden" name="${pdict.csrf.tokenName}"
                                                         value="${pdict.csrf.token}" />
 
-                                                    <div class="col-5 promo-code-submit">
+                                                    <div class="col-6 col-lg-5 promo-code-submit">
                                                         <button type="submit"
                                                             class="btn btn-product btn-block promo-code-btn">
                                                             ${Resource.msg('button.submit.promo.code', 'cart', null)}

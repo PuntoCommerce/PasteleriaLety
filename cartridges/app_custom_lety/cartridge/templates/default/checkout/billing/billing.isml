@@ -13,7 +13,7 @@
             data-address-mode="${!pdict.order.billing.billingAddress.address ? 'new' : 'edit'}" <isprint
             value=${pdict.forms.billingForm.attributes} encoding="off" /> novalidate>
 
-        <fieldset class="billing-address-block ">
+        <fieldset class="billing-address-block">
             <!-------------------------------------------------------------------------->
             <!-- Billing Address Selector                                             -->
             <!-------------------------------------------------------------------------->
