@@ -1173,9 +1173,9 @@ textarea {
     display: none !important;
   }
 
-  #searcHeaderResponsive{
+  /* #searcHeaderResponsive{
   margin: 11px auto 0 auto !important;
-  }
+  } */
 
   .navigation-mobile .site-search input {
     width: 100%;
@@ -17618,7 +17618,8 @@ a .moreless .less {
 
 #searcHeaderResponsive{
   display: block;
-  margin: 23px auto 0 auto;
+  margin: auto auto 0 auto;
+  padding-top: 23px;
 }
 
 #responsabilidadsocial .experience-commerce_assets-editorialRichText .editorialRichText-component-container .col-12 p img{

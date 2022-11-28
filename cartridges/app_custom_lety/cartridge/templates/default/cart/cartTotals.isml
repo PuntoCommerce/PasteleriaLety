@@ -1,8 +1,8 @@
 <div class="row">
-    <div class="col-8">
+    <div class="col-7 col-lg-8 col-xl-8">
         <p>${Resource.msg('label.shipping.cost','cart',null)}</p>
     </div>
-    <div class="col-4">
+    <div class="col-5 col-lg-4 col-xl-4">
         <p class="text-right shipping-cost">${pdict.totals.totalShippingCost}</p>
     </div>
 </div>
