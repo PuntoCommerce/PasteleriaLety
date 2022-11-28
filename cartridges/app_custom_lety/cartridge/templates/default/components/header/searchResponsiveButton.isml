@@ -1,1 +1,2 @@
 <button  type="button" onclick="openSearch()" id="searcHeaderResponsive" name="search-button" aria    -label="${Resource.msg('label.header.search.go', 'common', null)}"></button>
+
