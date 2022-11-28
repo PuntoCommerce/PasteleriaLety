@@ -1,4 +1,5 @@
 <isset name="addressFields" value="${pdict.forms.shippingForm.shippingAddress.addressFields}" scope="page" />
+<isset name="customPickup" value="${pdict.forms.shippingForm.customPickUp}" scope="page" />
 <isif condition="${shippingModel.shippingAddress}">
     <isset name="shippingAddress" value="${shippingModel.shippingAddress}" scope="page" />
 <iselse/>
@@ -211,13 +212,13 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="form-group
-            ${customPickUp.email.mandatory === true ? 'required' : ''}
-            ${customPickUp.email.htmlName}">
+            ${customPickup.email.mandatory === true ? 'required' : ''}
+            ${customPickup.email.htmlName}">
             <label class="form-control-label" for="customShippingEmail${lineItem ? lineItem.UUID : 'default'}">
                 ${Resource.msg('field.shipping.address.email','address',null)}
             </label>
             <input type="tel" class="form-control customShippingEmail" id="customShippingEmail${lineItem ? lineItem.UUID : 'default'}" aria-describedby="${lineItem ? lineItem.UUID : 'default'}Email"
-                value="${customPickup.email||''}" <isprint value=${customPickUp.email.attributes} encoding="off"/>>
+                value="${customPickup.email.value||''}" <isprint value=${customPickUp.email.attributes} encoding="off"/>>
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}Email"><isprint value="${customPickUp.email.error}" ></div>
             <iscomment> <span>${Resource.msg('example.phone','forms',null)}</span> </iscomment>
         </div>
