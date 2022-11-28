@@ -17590,6 +17590,21 @@ a .moreless .less {
   list-style-type: circle;
 }
 
+.continue-shopping-checkout{
+  font-family: 'gotham-book';
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+.checkout__stepper--item-circle{
+  font-family: 'gotham-book' !important;
+  font-weight: 700;
+}
+
+.checkout__stepper--item{
+  min-width: 144px !important;
+}
+
 @media (max-width: 1325px) {
   .tile-body .plp-description{
     padding: 0 60px;
