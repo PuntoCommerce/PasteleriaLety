@@ -6,10 +6,10 @@
 <isset name="datetime" value="${pdict.forms.shippingForm.datetime}" scope="page"/>
 
 <input autofocus type="hidden" class="form-control shippingDate" id="shippingDate${lineItem ? lineItem.UUID : 'default'}" aria-describedby="${lineItem ? lineItem.UUID : 'default'}Date"
-    value="${customPickup.date.value ||''}" <isprint value=${datetime.date.attributes} encoding="off"/>
+    value="${customPickup.date ||''}" <isprint value=${datetime.date.attributes} encoding="off"/>
     autocomplete="shipping given-name" >
 <input autofocus type="hidden" class="form-control shippingTime" id="shippingTime${lineItem ? lineItem.UUID : 'default'}" aria-describedby="${lineItem ? lineItem.UUID : 'default'}Time"
-    value="${customPickup.time.value ||''}" <isprint value=${datetime.time.attributes} encoding="off"/>
+    value="${customPickup.time ||''}" <isprint value=${datetime.time.attributes} encoding="off"/>
     autocomplete="shipping given-name" >
 
 <div class="row">
