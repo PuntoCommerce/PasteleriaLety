@@ -20,7 +20,7 @@
             <fieldset class="address-selector-block">
                 <div class="form-group">
                     <label class="form-control-label" for="billingAddressSelector">
-                        ${Resource.msg('heading.billing.address', 'checkout', null)}
+                        ${Resource.msg('heading.billing.facturacion', 'checkout', null)}
                     </label>
 
                     <isinclude template="checkout/billing/addressSelector" />
