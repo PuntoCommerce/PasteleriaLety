@@ -19,13 +19,7 @@
     dateForm.value = formatedCurrentDate;
     dateForm.min = formatedCurrentDate;
     dateFormFW.value = formatedCurrentDate;
-    updateStoreDay(
-      currentDate
-        .toLocaleDateString("en-US", { weekday: "short" })
-        .toLowerCase(),
-      dataStoreHours,
-      timeForm
-    );
+    updateStoreDay(currentDate, dataStoreHours, timeForm);
     currentDate.setDate(currentDate.getDate() + 30);
 
     dateForm.max = formatDate(currentDate);
@@ -35,25 +29,24 @@
       let date = new Date(e.target.value);
       date.setDate(date.getDate() + 1);
       dateFormFW.value = formatDate(date);
-      updateStoreDay(
-        date.toLocaleDateString("en-US", { weekday: "short" }).toLowerCase(),
-        dataStoreHours,
-        timeForm
-      );
+      updateStoreDay(date, dataStoreHours, timeForm);
     });
   };
 
-  const updateStoreDay = (day, weekSchedule, container) => {
+  const updateStoreDay = (date, weekSchedule, container) => {
+    let day = date
+      .toLocaleDateString("en-US", { weekday: "short" })
+      .toLowerCase();
     let inner = ``;
     let { openHours, closeHours } = weekSchedule[day];
     for (let i = openHours; i < closeHours; i++) {
       let { label, id } = formatHours(i);
-      if (i === openHours) setStoreHour({ target: { value: label } });
+      if (i === openHours) setStoreHour({ target: { value: i } });
       inner += `
     <div>
       <input type="radio" class="radio-schedule-custom" id="${id}" name="time" ${
         i === openHours ? "checked" : ""
-      } value="${label}" />
+      } value="${i}" />
       <label for="${id}">${label}</label>
     </div>
     `;
@@ -64,7 +57,7 @@
   };
 
   const setStoreHour = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     let timeFormFW = QS(".form-control.shippingTime");
     timeFormFW.value = event.target.value;
   };

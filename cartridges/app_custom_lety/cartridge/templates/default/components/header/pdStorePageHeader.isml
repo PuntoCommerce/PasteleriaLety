@@ -6,7 +6,6 @@
     </isif>
 
     <nav role="navigation">
-
         <iscomment>
             Navigation Desktop
         </iscomment>
@@ -23,17 +22,15 @@
                                     alt="${Resource.msg('global.storename', 'common', null)}" />
                             </a>
                         </div>
-                        <iscomment>
-                            <div class="location location-desk">
-                                <isinclude url="${URLUtils.url('StoreSession-Start')}" />
-                            </div>
-                        </iscomment>
+                        <div class="location location-desk">
+                            <isinclude url="${URLUtils.url('StoreSession-Start')}" />
+                        </div>
                     </div>
                     <div class="pull-right d-flex align-items-center col-xl-9 col-lg-10 col-md-8">
-                        <div class="search search-desk col-xl-3 col-lg-">
+                        <div class="search search-desk col-xl-3 col-lg-3">
                             <isinclude template="components/header/search" />
                         </div>
-                        <div class="col-xl-7 col-lg- main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"
+                        <div class="col-xl-6 col-lg-6 main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"
                             id="sg-navbar-collapse">
                             <div class="container">
                                 <div class="row">
@@ -41,11 +38,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-1 col-lg- hidden-md-down">
+                        <div class="col-xl-2 col-lg-2 hidden-md-down user-conten">
                             <isinclude url="${URLUtils.url('Account-Header')}" />
                             <isinclude url="${URLUtils.url('Page-Locale')}" />
                         </div>
-                        <div class="col-xl-1 col-lg- minicart minicart-desk"
+                        <div class="col-xl-1 col-lg-1 minicart minicart-desk"
                             data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
                            
                             <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
@@ -84,6 +81,7 @@
                     </div>
 
                     <div class="minicart col-2 col-sm-1" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
+                       
                         <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
                     </div>
                     <button class="button-menu col-2 col-sm-1" type="button" id="openCustomMenu"
@@ -104,6 +102,7 @@
         </div>
     </nav>
     <div class="location d-block d-md-none">
-        <isinclude template="components/header/location" />
+        <iscomment> <isinclude template="components/header/location" /> </iscomment>
+        <iscomment> <isinclude url="${URLUtils.url('StoreSession-Start')}" /> </iscomment>
     </div>
 </header>

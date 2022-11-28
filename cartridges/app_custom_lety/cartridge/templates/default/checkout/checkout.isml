@@ -8,6 +8,11 @@
         assets.addJs('/js/checkout.js');
         assets.addJs('/js/priceAdjustment.js');
         assets.addCss('/css/checkout/checkout.css');
+
+
+        // Custom Pickup CSS and JS 
+        assets.addCss('/css/storePickup.css');
+        assets.addJs('/js/storePickup.js');
     </isscript>
 
     <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
@@ -20,7 +25,10 @@
         </h1>
     </iscomment>
 
-    <ul class="checkout__stepper checkout__stepper_desk">
+<div>
+    
+</div>
+        <ul class="checkout__stepper">
         <li class="continue-checkout" style="padding-right: 12%; list-style: none">
             <button type="" class="continue-shopping-checkout d-flex"
                 style="background-color: transparent; border: none">
@@ -29,7 +37,8 @@
                     ${Resource.msg('link.continue.shopping', 'cart', null)}
                 </a></button>
         </li>
-        <li class="checkout__stepper--item">
+        <div class="conten-steps-EPR">
+            <li class="checkout__stepper--item">
             <h3 class="checkout__stepper--item-circle checkout__stepper--item-circle-current">1</h3>
             <p class="checkout__stepper--item-title">Envío</p>
         </li>
@@ -42,45 +51,14 @@
         <li class="checkout__stepper--item">
             <h3 class="checkout__stepper--item-circle">3</h3>
             <p class="checkout__stepper--item-title">Realizar Pedido</p>
-        </li>
-        <li class="msg-secur" style="padding-left: 12%; list-style: none;">
-            <img class="" src="${URLUtils.staticURL('/images/icons/candado.svg')}" alt="secur" />
-            <span>${Resource.msg('check.secure.purchase', 'checkout', null)}</span>
-        </li>
-    </ul>
-    <div class="checkout__stepper_mobile">
-        <ul class="checkout__stepper">
-        <li class="continue-checkout" style="padding-right: 12%; list-style: none">
-            <button type="" class="continue-shopping-checkout d-flex"
-                style="background-color: transparent; border: none">
-                <a class="continue-shopping-checkout" href="${URLUtils.url('Home-Show')}"
-                    title="${Resource.msg('link.continue.shopping', 'cart', null)}">
-                    ${Resource.msg('link.continue.shopping', 'cart', null)}
-                </a></button>
-        </li>
-        <div class="contain-stepess d-flex">
-           <li class="checkout__stepper--item">
-            <h3 class="checkout__stepper--item-circle checkout__stepper--item-circle-current">1</h3>
-            <p class="checkout__stepper--item-title">Envío</p>
-        </li>
-        <div class="checkout__stepper--divider"></div>
-        <li class="checkout__stepper--item">
-            <h3 class="checkout__stepper--item-circle">2</h3>
-            <p class="checkout__stepper--item-title">Pago</p>
-        </li>
-        <div class="checkout__stepper--divider"></div>
-        <li class="checkout__stepper--item checkout__stepper--item--3">
-            <h3 class="checkout__stepper--item-circle ">3</h3>
-            <p class="checkout__stepper--item-title">Realizar Pedido</p>
         </li> 
         </div>
-        
+       
         <li class="msg-secur" style="padding-left: 12%; list-style: none;">
             <img class="" src="${URLUtils.staticURL('/images/icons/candado.svg')}" alt="secur" />
             <span>${Resource.msg('check.secure.purchase', 'checkout', null)}</span>
         </li>
     </ul>
-    </div>
     
     <div class="d-flex justify-content-center">
         <div class="col-sm-12 col-lg-10">
@@ -189,7 +167,7 @@
                     <!----------------------------------------------------------------------------------->
                     <div class="col-12 col-lg-5 checkout-address-right">
 
-                        <div class="card checkout__order d-none d-lg-block mt-lg-4">
+                        <div class="card checkout__order d-lg-block mt-lg-4">
                             <div class="card-header d-flex justify-content-center align-items-center">
                                 <h2 class="card-header-custom">${Resource.msg('heading.order.summary', 'checkout', null)}
                                 </h2>
@@ -219,7 +197,7 @@
                                             <div class="form-group">
                                                 <label for="couponCode">${Resource.msg('label.promo.code.check', 'checkout', null)}</label>
                                                 <div class="row">
-                                                    <div class="col-7">
+                                                    <div class="col-6 col-lg-7">
                                                         <input type="text" class="form-control coupon-code-field"
                                                             id="couponCode" name="couponCode"
                                                             placeholder="${Resource.msg('placholder.text.promo.code.input', 'cart', null)}">
@@ -233,7 +211,7 @@
                                                     <input type="hidden" name="${pdict.csrf.tokenName}"
                                                         value="${pdict.csrf.token}" />
 
-                                                    <div class="col-5 promo-code-submit">
+                                                    <div class="col-6 col-lg-5 promo-code-submit">
                                                         <button type="submit"
                                                             class="btn btn-product btn-block promo-code-btn">
                                                             ${Resource.msg('button.submit.promo.code', 'cart', null)}
@@ -250,159 +228,143 @@
                                 </div>
 
                                 <div class="row bg-info">
+                                   <iscomment> Lety card </iscomment>
+                                   <iscomment> Membresia </iscomment>
+                                   <div class="col-12">
+                                       <form action="${}" class="promo-code-form lety-card-form" method="GET"
+                                           name="lety-card-form">
+                                           <div class="form-group">
+                                               <label for="">${Resource.msg('label.code.club', 'checkout', null)}</label>
+                                               <div class="row">
+                                                  
+                                                   <div class="col-7">
+                                                       <input type="text" class="form-control coupon-code-field" id=""
+                                                           name="" value="${pdict.customer.LetyCard}"
+                                                           ${pdict.customer.LetyCard !== undefined ? 'disabled' : ''}>
+                                                       <div class="coupon-error">
+ 
+                                                           <span class="coupon-error-message" id=""
+                                                               role="alert"></span>
+                                                       </div>
+                                                   </div>
+                                                   <iscomment> No se para que se es, preguntar a Myrna </iscomment>
+                                                   <input type="hidden" name="${}" value="${}" />
+ 
+                                                   <div class="col-5 promo-code-submit">
+                                                       <isif condition="${pdict.customer.LetyCard}">
+                                                           <button type="button"
+                                                               class="btn btn-product btn-block promo-code-btn"
+                                                               data-toggle="modal" data-target="#letyCard">
+                                                               ${Resource.msg('button.submit.promo.code.cambiar', 'cart', null)}
+                                                           </button>
+                                                       <iselse/>
+                                                           <button type="button"
+                                                               class="btn btn-product btn-block promo-code-btn"
+                                                               data-toggle="modal" data-target="#letyCard">
+                                                               ${Resource.msg('button.submit.promo.code.agregar', 'cart', null)}
+                                                           </button>
+                                                       </isif>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </form>
+                                   </div>
+                                    
+                                    <iscomment> Saldo lety club </iscomment>
+                                   <div class="col-12">
+                                       <form action="${}" class="promo-code-form lety-card-form" method="GET"
+                                           name="lety-card-form">
+                                           <div class="form-group">
+                                               <label for="">Saldo lety club</label>
+                                               <div class="row">
+                                                   <div class="col-7">
+                                                       <input
+                                                           class="form-control coupon-code-field"
+                                                           id="checkoutSaldoLetyClcub"
+                                                           type="text"
+                                                           name=""
+                                                           value="${pdict.customer.saldo}" ${pdict.customer.saldo !== undefined ? 'disabled' : ''}
+                                                      />
+                                                       <div class="coupon-error">
+                                                           <span class="coupon-error-message" id="" role="alert"></span>
+                                                       </div>
+                                                   </div>
+                                                   <iscomment> No se para que se es, preguntar a Myrna </iscomment>
+                                                   <input type="hidden" name="${}" value="${}" />
+                                                   <div class="col-5 promo-code-submit">
+                                                       <isif condition="${pdict.customer.LetyCard}">
+                                                           <button
+                                                               type="button"
+                                                               class="btn btn-product btn-block promo-code-btn"
+                                                               data-toggle="modal"
+                                                               data-target="#letyCard">${Resource.msg('button.submit.promo.code.cambiar', 'cart', null)}
+                                                           </button>
+                                                       <iselse/>
+                                                           <button type="button"
+                                                               class="btn btn-product btn-block promo-code-btn"
+                                                               data-toggle="modal" data-target="#letyCard">
+                                                               ${Resource.msg('button.submit.promo.code.agregar', 'cart', null)}
+                                                           </button>
+                                                       </isif>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </form>
+                                   </div>
 
-                                    <iscomment> Lety card </iscomment>
-                                    <div class="col-12">
-                                        <form action="${}" class="promo-code-form lety-card-form" method="GET"
-                                            name="lety-card-form">
-                                            <div class="form-group">
-                                                <label for="">${Resource.msg('label.code.club', 'checkout', null)}</label>
-                                                <div class="row">
-                                                    <div class="col-7">
-                                                        <input type="text" class="form-control coupon-code-field" id=""
-                                                            name="" value="${pdict.customer.LetyCard}"
-                                                            ${pdict.customer.LetyCard !== undefined ? 'disabled' : ''}>
-                                                        <div class="coupon-error">
 
-                                                            <span class="coupon-error-message" id=""
-                                                                role="alert"></span>
-                                                        </div>
-                                                    </div>
 
-                                                    <input type="hidden" name="${}" value="${}" />
+                                    <iscomment> Cange lety puntos </iscomment>
+                                   <div class="col-12">
+                                       <form action="${}" class="promo-code-form lety-card-form" method="GET"
+                                           name="lety-card-form">
+                                           <div class="form-group">
+                                               <label for="">${Resource.msg('label.code.puntos', 'checkout', null)}</label>
+                                               <div class="row">
+                                                   <div class="col-7">
+                                                       <input
+                                                           class="form-control coupon-code-field"
+                                                           id="checkaoutLetyPuntos"
+                                                           type="text"
+                                                           name=""/>
+                                                       <div class="coupon-error">
+                                                           <span class="coupon-error-message" id=""
+                                                               role="alert"></span>
+                                                       </div>
+                                                   </div>
+                                                   <input type="hidden" name="${}" value="${}" />
+                                                   <div class="col-5 promo-code-submit">
+                                                       <button
+                                                           class="btn btn-product btn-block promo-code-btn"
+                                                           id="letyPuntosAddpriceAdjustment"
+                                                           data-action="${URLUtils.url("PriceAdjustment-LetyPuntos")}"
+                                                           type="button">
+                                                           ${Resource.msg('button.submit.promo.code.restar', 'cart', null)}
+                                                       </button>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </form>
+                                   </div>
 
-                                                    <div class="col-5 promo-code-submit">
-                                                        <isif condition="${pdict.customer.LetyCard}">
-                                                            <button type="button"
-                                                                class="btn btn-product btn-block promo-code-btn"
-                                                                data-toggle="modal" data-target="#letyCard">
-                                                                ${Resource.msg('button.submit.promo.code.cambiar', 'cart', null)}
-                                                            </button>
-                                                        <iselse/>
-                                                            <button type="button"
-                                                                class="btn btn-product btn-block promo-code-btn"
-                                                                data-toggle="modal" data-target="#letyCard">
-                                                                ${Resource.msg('button.submit.promo.code.agregar', 'cart', null)}
-                                                            </button>
-                                                        </isif>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
 
-                                    <div class="col-12">
-                                        <form action="${}" class="promo-code-form lety-card-form" method="GET"
-                                            name="lety-card-form">
-                                            <div class="form-group">
-                                                <label for="">Saldo lety club</label>
-                                                <div class="row">
-                                                    <div class="col-7">
-                                                        <input type="text" class="form-control coupon-code-field" id=""
-                                                            name="" value="${pdict.customer.saldo}"
-                                                            ${pdict.customer.saldo !== undefined ? 'disabled' : ''}>
-                                                        <div class="coupon-error">
+                                   <iscomment> Show price adjustment apply  </iscomment>
+                                 
+                                   <div class="col-12">
+                                       <iscomment> Remove the price adjustment </iscomment>
+                                       <div class="row">
+                                           <div class="col-12 promo-code-submit">
+                                               <button
+                                                   id="letyPuntosRemovePriceAdjustment"
+                                                   data-action="${URLUtils.url("PriceAdjustment-RemoveLetyPuntos")}"
+                                                   type="button"
+                                                   class="btn btn-product btn-block promo-code-btn">
+                                                   Cancelar cange de puntos
+                                               </button>
+                                           </div>
+                                       </div>
+                                   </div>
 
-                                                            <span class="coupon-error-message" id=""
-                                                                role="alert"></span>
-                                                        </div>
-                                                    </div>
-
-                                                    <input type="hidden" name="${}" value="${}" />
-
-                                                    <div class="col-5 promo-code-submit">
-                                                        <isif condition="${pdict.customer.LetyCard}">
-                                                            <button type="button"
-                                                                class="btn btn-product btn-block promo-code-btn"
-                                                                data-toggle="modal" data-target="#letyCard">
-                                                                ${Resource.msg('button.submit.promo.code.cambiar', 'cart', null)}
-                                                            </button>
-                                                        <iselse/>
-                                                            <button type="button"
-                                                                class="btn btn-product btn-block promo-code-btn"
-                                                                data-toggle="modal" data-target="#letyCard">
-                                                                ${Resource.msg('button.submit.promo.code.agregar', 'cart', null)}
-                                                            </button>
-                                                        </isif>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-
-                                    <iscomment> Lety saldo
-                                    <div class="col-12">
-                                        <p>${JSON.stringify()}</p>
-                                        <form action="${}" class="promo-code-form lety-card-form" method="GET"
-                                            name="lety-card-form">
-                                            <div class="form-group">
-                                                <label for="">${Resource.msg('label.code.club', 'checkout', null)}</label>
-                                                <div class="row">
-                                                    <div class="col-7">
-                                                        <input type="text" class="form-control coupon-code-field" id=""
-                                                            name="" value="${pdict.customer.saldo}"
-                                                            ${pdict.customer.saldo !== undefined ? 'disabled' : ''}>
-                                                        <div class="coupon-error">
-
-                                                            <span class="coupon-error-message" id=""
-                                                                role="alert"></span>
-                                                        </div>
-                                                    </div>
-
-                                                    <input type="hidden" name="${}" value="${}" />
-                                                    <iscomment>
-                                                    <div class="col-5 promo-code-submit" disabled>
-                                                        <isif condition="${pdict.customer.LetyCard}">
-                                                            <button type="button"
-                                                                class="btn btn-product btn-block promo-code-btn"
-                                                                data-toggle="modal" data-target="#letyCard">
-                                                                ${Resource.msg('button.submit.promo.code.cambiar', 'cart', null)}
-                                                            </button>
-                                                        <iselse/>
-                                                            <button type="button"
-                                                                class="btn btn-product btn-block promo-code-btn"
-                                                                data-toggle="modal" data-target="#letyCard">
-                                                                ${Resource.msg('button.submit.promo.code.agregar', 'cart', null)}
-                                                            </button>
-                                                        </isif>
-                                                    </div>
-                                                   
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    </iscomment>
-                                    <!-- Restar lety puntos -->
-                                    <div class="col-12">
-                                        <form action="${}" class="promo-code-form lety-card-form" method="GET"
-                                            name="lety-card-form">
-                                            <div class="form-group">
-                                                <label for="">${Resource.msg('label.code.puntos', 'checkout', null)}</label>
-                                                <div class="row">
-                                                    <div class="col-7">
-                                                        <input type="text" class="form-control coupon-code-field" id="letyCardModal"
-                                                            name="">
-                                                        <div class="coupon-error">
-                                                            <span class="coupon-error-message" id=""
-                                                                role="alert"></span>
-                                                        </div>
-                                                    </div>
-
-                                                    <input type="hidden" name="${}" value="${}" />
-
-                                                    <div class="col-5 promo-code-submit">
-                                                        <button
-                                                            id="letyPuntosriceAdjustment"
-                                                            data-action="${URLUtils.url("PriceAdjustment-LetyPuntos")}"
-                                                            type="button"
-                                                            class="btn btn-product btn-block promo-code-btn">
-                                                            ${Resource.msg('button.submit.promo.code.restar', 'cart', null)}
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
 
                                 </div>
                             </div>
@@ -474,5 +436,76 @@
             </div>
         </div>
     </div>
+
+    <iscomment> </iscomment>
+ 
+<div class="modal fade" id="modalSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog w-25" role="document">
+       <div class="modal-content">
+           <div class="modal-body">
+               <div class="d-flex justify-content-center mt-3">
+                   <img class="center-block" src="${URLUtils.staticURL('/images/success-svg.svg')}" alt="success" width="25%" height="auto" />
+               </div>
+               <hr/>
+               <div class="text-center my-3 h4">
+                   <p>Cargando.</p>
+               </div>
+               <div class="text-center my-3">
+                   <p>Espere un momento porfavor.</p>
+               </div>
+               <div class="text-center my-3">
+                   <button type="button" class="btn bg-primary text-white" data-dismiss="modal">Cerrar</button>
+               </div>    
+           </div>
+       </div>
+   </div>
+</div>
+ 
+<div class="modal fade" id="modalSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog w-25" role="document">
+       <div class="modal-content">
+           <div class="modal-body">
+               <div class="d-flex justify-content-center mt-3">
+                   <img class="center-block" src="${URLUtils.staticURL('/images/success-svg.svg')}" alt="success" width="25%" height="auto" />
+               </div>
+               <hr/>
+               <div class="text-center my-3 h4">
+                   <p>Completado.</p>
+               </div>
+               <div class="text-center my-3">
+                   <p>Se ha actualizado la información correspondiente.</p>
+               </div>
+               <div class="text-center my-3">
+                   <button type="button" class="btn bg-primary text-white" data-dismiss="modal">Cerrar</button>
+               </div>    
+           </div>
+       </div>
+   </div>
+</div>
+ 
+<!-- Modal Error -->
+<div class="modal fade" id="modalError" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog w-25" role="document">
+       <div class="modal-content">
+           <div class="modal-body">
+               <div class="d-flex justify-content-center mt-3">
+                   <img class="center-block" src="${URLUtils.staticURL('/images/error-svg.svg')}" alt="success" width="25%" height="auto" />
+               </div>
+               <hr/>
+               <div class="text-center my-3 h4">
+                   <p>Error.</p>
+               </div>
+               <div class="text-center my-3">
+                   <p id="msgError"></p>
+               </div>
+               <div class="text-center my-3">
+                   <button type="button" class="btn bg-primary text-white" data-dismiss="modal">Cerrar</button>
+               </div>    
+           </div>
+       </div>
+   </div>
+</div>   
+
+
 
 </isdecorate>

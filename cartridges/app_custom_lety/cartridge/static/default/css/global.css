@@ -689,6 +689,10 @@ header {
   padding: 0;
 }
 
+.user.hidden-md-down.nav-item .popover.popover-bottom{
+  top: 30px !important;
+}
+
 .pac-target-input {
   width: 100%;
   height: 37px;
@@ -935,6 +939,15 @@ textarea {
   grid-column: 2 !important;
 }
 
+.conten-attributes ul{
+  padding: 0 20px !important;
+  list-style-type: disc !important;
+}
+
+.conten-attributes li{
+  padding-bottom: 15px !important;
+}
+
 /*Design comentarios y rating*/
 
 .rating > label {
@@ -942,6 +955,7 @@ textarea {
   height: 30px !important;
 }
 /* Design Carrito */
+
 .cart-empty {
   padding-top: 80px;
   padding-bottom: 40px;
@@ -1005,6 +1019,13 @@ textarea {
   border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
+.cart-page .quantity{
+  margin-top: 30%;
+}
+
+.cart-page .line-item-total-price .price{
+  margin-top: 27%;
+}
 .product-edit {
   padding-top: 20px !important;
 }
@@ -1151,6 +1172,10 @@ textarea {
   .search-desk {
     display: none !important;
   }
+
+  /* #searcHeaderResponsive{
+  margin: 11px auto 0 auto !important;
+  } */
 
   .navigation-mobile .site-search input {
     width: 100%;
@@ -1529,6 +1554,10 @@ textarea {
     padding-right: 0;
   }
 
+  .cart-page .number-of-items{
+    text-align: center;
+  }
+
   .cart-page .row-cart-2{
     padding-right: 15px;
     padding-bottom: 20px;
@@ -1576,6 +1605,26 @@ textarea {
 
   .checkout .checkout--topBorder{
     padding: 10px 27px !important;
+  }
+
+  /*Checkout*/
+
+  .card-check .next-step-button .btn-product{
+    width: 100%;
+  }
+
+  .container.data-checkout-stage{
+    padding-right: 0;
+  }
+
+  .promo-code-submit{
+    padding: 0 !important;
+  }
+
+
+  .promo-code-submit .btn-product{
+    width: 100%;
+    margin-bottom: 20px;
   }
 
   /*Footer*/
@@ -17538,10 +17587,6 @@ a .moreless .less {
   height: fit-content;
 }
 
-#searcHeaderResponsive{
-  margin-top: 23px;
-}
-
 #searcHeaderResponsive:active, #searcHeaderResponsive:focus{
   border: none;
 }
@@ -17573,7 +17618,8 @@ a .moreless .less {
 
 #searcHeaderResponsive{
   display: block;
-  margin: 23px auto 0 auto;
+  margin: auto auto 0 auto;
+  padding-top: 23px;
 }
 
 #responsabilidadsocial .experience-commerce_assets-editorialRichText .editorialRichText-component-container .col-12 p img{

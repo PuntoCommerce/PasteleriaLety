@@ -3,6 +3,7 @@
     var assets = require('*/cartridge/scripts/assets.js');
     assets.addJs("/js/datetime.js");
 </isscript>
+<isset name="datetime" value="${pdict.forms.shippingForm.datetime}" scope="page"/>
 
 <input autofocus type="hidden" class="form-control shippingDate" id="shippingDate${lineItem ? lineItem.UUID : 'default'}" aria-describedby="${lineItem ? lineItem.UUID : 'default'}Date"
     value="${customPickup.date ||''}" <isprint value=${datetime.date.attributes} encoding="off"/>
@@ -25,7 +26,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="form-group required Date">
-            <div class="d-flex flex-column" id="custom-store-hours" data-store-hours='{"mon":{"openHours":8,"openMin":0,"closeHours":21,"closeMin":0},"tue":{"openHours":8,"openMin":0,"closeHours":21,"closeMin":0},"wed":{"openHours":8,"openMin":0,"closeHours":21,"closeMin":0},"thu":{"openHours":8,"openMin":0,"closeHours":21,"closeMin":0},"fri":{"openHours":8,"openMin":0,"closeHours":21,"closeMin":0},"sat":{"openHours":8,"openMin":0,"closeHours":21,"closeMin":0},"sun":{"openHours":9,"openMin":0,"closeHours":21,"closeMin":0}}'></div>
+            <div class="d-flex flex-column" id="custom-store-hours" data-store-hours='${pdict.jsonStoreSchedule}'></div>
         </div>
     </div>
 </div>

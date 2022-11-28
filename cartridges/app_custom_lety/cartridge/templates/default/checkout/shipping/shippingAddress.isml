@@ -1,9 +1,17 @@
 <isset name="addressFields" value="${pdict.forms.shippingForm.shippingAddress.addressFields}" scope="page" />
+<isset name="customPickup" value="${pdict.forms.shippingForm.customPickUp}" scope="page" />
 <isif condition="${shippingModel.shippingAddress}">
     <isset name="shippingAddress" value="${shippingModel.shippingAddress}" scope="page" />
 <iselse/>
     <isset name="shippingAddress" value="${{}}" scope="page" />
 </isif>
+
+<div class="row show-custompickup" style="display: none">
+    <div class="col-sm-6">
+        <isinclude template="checkout/pickup/pickup" />
+   </div>
+</div>
+
 
 <div class="row row-check">
     <div class="col-sm-12 col-lg-9">
@@ -44,7 +52,7 @@
     </div>
 </div>
 
-<div class="row row-check">
+<div class="row autofill-custompickup row-check">
     <div class="col-sm-12 col-lg-9">
         <div class="form-group
             ${addressFields.address1.mandatory === true ? 'required' : ''}
@@ -66,7 +74,7 @@
 </div>
 
 
-<div class="row row-check">
+<div class="row autofill-custompickup row-check">
     <div class="col-sm-12 col-lg-9">
         <div class="form-group
             ${addressFields.address2.mandatory === true ? 'required' : ''}
@@ -88,7 +96,7 @@
 </div>
 
 <!--- make drop down--->
-<div class="row row-check">
+<div class="row autofill-custompickup row-check">
     <div class="col-sm-6 col-lg-4">
         <div class="form-group
             ${addressFields.states.stateCode.mandatory === true ? 'required' : ''}
@@ -130,7 +138,7 @@
     </div>
 </div>
 
-<div class="row row-check">
+<div class="row autofill-custompickup row-check">
     <div class="col-sm-6 col-lg-4">
         <div class="form-group
             ${addressFields.city.mandatory === true ? 'required' : ''}
@@ -195,6 +203,24 @@
                 <span class="checkout-summary-title-1 mb-3 mt-5">${Resource.msg('check.shipping.tel.heading', 'checkout', null)}</span>
                 <span class="tel-description">${Resource.msg('check.shipping.tel.text', 'checkout', null)}</span>
             </div>
+        </div>
+    </div>
+</div>
+
+<isinclude template="checkout/shipping/datetimepicker" />
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group
+            ${customPickup.email.mandatory === true ? 'required' : ''}
+            ${customPickup.email.htmlName}">
+            <label class="form-control-label" for="customShippingEmail${lineItem ? lineItem.UUID : 'default'}">
+                ${Resource.msg('field.shipping.address.email','address',null)}
+            </label>
+            <input type="tel" class="form-control customShippingEmail" id="customShippingEmail${lineItem ? lineItem.UUID : 'default'}" aria-describedby="${lineItem ? lineItem.UUID : 'default'}Email"
+                value="${customPickup.email.value || ''}" <isprint value=${customPickup.email.attributes} encoding="off"/>>
+            <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}Email"><isprint value="${customPickup.email.error}" ></div>
+            <iscomment> <span>${Resource.msg('example.phone','forms',null)}</span> </iscomment>
         </div>
     </div>
 </div>

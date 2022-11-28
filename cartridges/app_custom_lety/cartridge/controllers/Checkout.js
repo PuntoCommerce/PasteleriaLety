@@ -11,27 +11,33 @@ const URLUtils = require("dw/web/URLUtils");
 const csrfProtection = require("*/cartridge/scripts/middleware/csrf");
 const consentTracking = require("*/cartridge/scripts/middleware/consentTracking");
 const ApiServiceLety = require("*/cartridge/scripts/jobs/api");
-const { addLetyCardToCustomer } = require("*/cartridge/scripts/helpers/letyCardHelpers");
+const {
+  addLetyCardToCustomer,
+} = require("*/cartridge/scripts/helpers/letyCardHelpers");
+const Site = require("dw/system/Site");
 
 server.append("Begin", (req, res, next) => {
-
   const viewData = res.getViewData();
+
+  let jsonStoreSchedule =
+    Site.getCurrent().getCustomPreferenceValue("jsonStoreSchedule");
+  viewData.jsonStoreSchedule = jsonStoreSchedule;
 
   let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia", {
     Empresa: 1,
     s_IdMembresia: viewData.customer.LetyCard,
   });
 
-  let JsonDatosMembresia = JSON.parse(Func_DatosMembresia);
-  let SaldoMembresia =
-    JsonDatosMembresia.Func_DatosMembresia[0].d_SaldoMembresia;
+  if (!Func_DatosMembresia.error) {
+    let JsonDatosMembresia = JSON.parse(Func_DatosMembresia);
+    let SaldoMembresia =
+      JsonDatosMembresia.Func_DatosMembresia[0].d_SaldoMembresia;
 
-  viewData.customer.saldo = SaldoMembresia; 
-  
+    viewData.customer.saldo = SaldoMembresia;
+  }
   res.setViewData(viewData);
 
   next();
-
 });
 
 server.get(

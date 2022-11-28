@@ -32,7 +32,7 @@ header .container {
 
   .search {
     margin: 0 0 0 0 !important;
-    padding-top: 9px;
+    /* padding-top: 9px; */
   }
 
   #searchContainer form {
@@ -114,7 +114,6 @@ header .container {
 #searcHeader {
   background-color: transparent;
   border: none;
-  padding-top: 3px;
 }
 
 #searcHeaderResponsive::after,

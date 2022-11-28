@@ -188,12 +188,7 @@ function body(data,credential,path) {
             '<bindImpreso>'+data.bindImpreso+'</bindImpreso>'+
           '</pEncabezado>'+
           '<pDetalle>'+
-            '<cVentaWebD>'+
-              '<sFolio>'+data.sFolio+'</sFolio>'+
-              '<iIdMaterial>'+data.iIdMaterial+'</iIdMaterial>'+
-              '<dPrecio>'+data.dPrecio+'</dPrecio>'+
-              '<iCantidad>'+data.iCantidad+'</iCantidad>'+
-            '</cVentaWebD>'+
+            hanldeItems(data.items, data.sFolio) +
           '</pDetalle>'+
           '<pPago>'+
             '<sFolio>'+data.sFolio+'</sFolio>'+
@@ -208,6 +203,22 @@ function body(data,credential,path) {
         '</soap:Body></soap:Envelope>';
     }
 }
+
+const hanldeItems = (items, folio) => {
+  let itemsString = '';
+  let item;
+  for (let i = 0; i < items.length; i++) {
+    item = items[i];
+    itemsString += '<cVentaWebD>'+
+        '<sFolio>'+folio+'</sFolio>'+
+        '<iIdMaterial>'+item.iIdMaterial+'</iIdMaterial>'+
+        '<dPrecio>'+item.dPrecio+'</dPrecio>'+
+        '<iCantidad>'+item.iCantidad+'</iCantidad>'+
+      '</cVentaWebD>';
+  }
+  return itemsString;
+}
+
 module.exports = {
   body: body,
 };
