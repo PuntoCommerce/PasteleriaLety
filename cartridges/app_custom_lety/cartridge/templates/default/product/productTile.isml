@@ -29,12 +29,12 @@
             <iselse>
                 <isinclude template="product/components/pricing/main" />
         </isif>
-        
+        <isinclude template="product/components/highlight" />
        <div class="justify-content-center d-flex">
        
          <isinclude url="${URLUtils.url('RnR-Average', 'product_id', product.id)}" />
        </div> 
-        <isinclude template="product/components/highlight" />
+        
         <div class="summary__footer">
 
             <isif condition="${pdict.hasStoreAssigned}">
