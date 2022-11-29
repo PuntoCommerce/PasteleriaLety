@@ -441,8 +441,6 @@
                                 </p>
                                  <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery4.email', 'confirmation', null)}
                                 </p>
-                                 <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery5.email', 'confirmation', null)}&nbsp;&nbsp;<a href="">${Resource.msg('msg.delivery6.email', 'confirmation', null)}</a>
-                                </p>
                                  <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery7.email', 'confirmation', null)}
                                 </p>
                                 <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.delivery8.email', 'confirmation', null)}
@@ -477,7 +475,7 @@
                     <td class="td-mar">
                         <span class="span">ENVÍO</span>
                         <br>
-                        <span class="span2">GRATIS</span>
+                        <span class="span2">A DOMICILIO</span>
                     </td>
                     <td> <img class="pay-icon" src="${URLUtils.httpsStatic('/images/icons-emails/credi-cart.png')}"
                             alt="PP" />

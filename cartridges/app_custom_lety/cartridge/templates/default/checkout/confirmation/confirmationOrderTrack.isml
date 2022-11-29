@@ -430,9 +430,6 @@
                             <iscomment> <p class="text" style="  padding: 5px 0 7px 0;">${pdict.order.firstName},</p> </iscomment>
                                 <p>${Resource.msg('msg.confir.track.email', 'confirmation', null)}</p>
 
-                                <a href=""><p style="font-weight: bold; padding: 5px 0 7px 0;">${Resource.msg('msg.confir.track.rastreo.email', 'confirmation', null)}
-                                </p></a>
-
                                 <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.confir.track2.email', 'confirmation', null)}
                                 </p>
                                 <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.confir.track3.email', 'confirmation', null)}
@@ -481,7 +478,7 @@
                     <td class="td-mar">
                         <span class="span">ENVÍO</span>
                         <br>
-                        <span class="span2">GRATIS</span>
+                        <span class="span2">A DOMICILIO</span>
                     </td>
                     <td> <img class="pay-icon" src="${URLUtils.httpsStatic('/images/icons-emails/credi-cart.png')}"
                             alt="PP" />

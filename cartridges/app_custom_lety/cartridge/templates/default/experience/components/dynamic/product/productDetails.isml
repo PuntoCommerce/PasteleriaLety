@@ -171,7 +171,7 @@
                     </isloop>
                     <!--Product no variations selector-->
                     <isif condition="${!product.variationAttributes}">
-                        <div class="row">
+                        <div class="row quantity-mobile-conent">
                             <div class="col-12">
                                 <div class="simple-quantity">
                                     <isinclude template="product/components/quantity" />
