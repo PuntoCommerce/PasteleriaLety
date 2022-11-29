@@ -209,6 +209,10 @@ if (navigator.appVersion.includes("Mac OS") || navigator.appVersion.includes("iP
     height: 100%;
   }
 
+  .checkout__stepper--item-circle{
+    padding-top: 20px;
+  }
+
   @media (max-width: 991px) {
     .ITBC-content .btn-ITBC {
       line-height: 1.5;

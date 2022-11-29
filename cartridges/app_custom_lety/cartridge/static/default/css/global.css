@@ -171,7 +171,7 @@
   --breakpoint-xs: 352px;
   --breakpoint-sm: 544px;
   --breakpoint-md: 769px;
-  --breakpoint-lg: 1025px;
+  --breakpoint-lg: 993px;
   --breakpoint-xl: 1200px;
   /*Font famili Lety*/
   --font-family-gotham: "gotham-light", sans-serif !important;
@@ -1402,16 +1402,8 @@ textarea {
     justify-content: center;
   }
 
-  .row-availa-mobile{
-    padding: 0 10%;
-  }
-
-  .msg-existencia, .on-stock{
-    /* margin-left: 45px; */
-  }
-
-  .availability-msg li{
-    margin-left: 45px;
+  .row-availa-mobile .col-3{
+    padding-right: 30px;
   }
 
   .mobile-promo {
@@ -1462,10 +1454,6 @@ textarea {
     font-size: 13px !important;
   }
 
-  .row-rating-mobile .row-rating{
-    display: inline !important;
-  }
-
   .rnr-full-star {
     background-image: url("../images/icons/star-mobile.svg") !important;
     width: 14px !important;
@@ -1482,8 +1470,8 @@ textarea {
   }
 
   .row-rating-2{
-    margin-left: -20px !important;
-    margin-right: -20px !important;
+    margin-left: -30px !important;
+    margin-right: -30px !important;
   }
 
   .row-social-icons{
@@ -4152,7 +4140,7 @@ input[type="submit"].btn-block {
 .menuDesk-right{
   position: initial !important;
 }
-#sg-navbar-collapse{
+.menu-toggleable-left.navbar-toggleable-sm{
   position: initial;
 }
 .dropdown-menu {
@@ -15807,7 +15795,8 @@ a .moreless .less {
 }
 
 .btn-product:hover,
-.buy-now.btn:hover {
+.buy-now.btn:hover,
+.text2:hover {
   background-color: var(--color-lety2);
   color: var(--color-lety-white) !important;
 }
