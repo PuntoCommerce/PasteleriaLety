@@ -11,30 +11,78 @@ const ApiServiceLety = require("*/cartridge/scripts/jobs/api");
 server.extend(module.superModule);
 
 
+ 
 server.get("Saldo", server.middleware.https, function (req, res, next) {
+ 
   let letyCard = req.querystring.letyCard;
+  
   let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia", {
     Empresa: 1,
     s_IdMembresia: letyCard,
   });
-
+  
   let JsonDatosMembresia;
-
+  
   if (Func_DatosMembresia.ERROR) {
     JsonDatosMembresia = {};
   } else {
     JsonDatosMembresia = JSON.parse(Func_DatosMembresia);
   }
-
-
-  res.render("account/saldoLetyClub", {
+  
+  /* Woring */
+  
+  let CatalogoCiudades = ApiServiceLety.ApiLety(
+    "CatalogoCiudades",
+    {
+      Empresa: 1,
+      IdEstado: "0"
+    }
+  );
+  
+  let JsonDatosCiudades;
+  
+  if (CatalogoCiudades.ERROR) {
+    JsonDatosCiudades = {};
+  } else {
+    let catalogo = JSON.parse(CatalogoCiudades);
+    JsonDatosCiudades = catalogo.CatalogoCiudades;
+  }
+   // delete
+  let CatalogoEstados = ApiServiceLety.ApiLety(
+    "CatalogoEstados",
+    {
+      Empresa: 1
+    }
+  );
+  
+   let JsonDatosEstados;
+  let estdo = "";
+  
+  if (CatalogoEstados.ERROR) {
+    JsonDatosEstados = {};
+  } else {
+    let estados = JSON.parse(CatalogoEstados);
+    JsonDatosEstados = estados.CatalogoEstados;
+  
+  }
+  
+  if (CatalogoEstados.ERROR) {
+    JsonDatosEstados = {};
+  } else {
+    let estados = JSON.parse(CatalogoEstados);
+    JsonDatosEstados = estados.CatalogoEstados
+  }
+   res.render("account/saldoLetyClub", {
     Account: {
       LetyCard: letyCard,
       JsonDatosMembresia: JsonDatosMembresia,
+      JsonDatosCiudades: JsonDatosCiudades,
+      JsonDatosEstados: JsonDatosEstados
     },
   });
   next();
-});
+ });
+ 
 
 server.get("Movimientos", server.middleware.https, function (req, res, next) {
 
@@ -202,8 +250,7 @@ server.post("SaveSaldoForm", (req, res, next) => {
   // sacar todo desde node. con desestructuracion d
    const data = JSON.parse(JSON.stringify(req.form));
    //const data = JSON.parse(JSON.stringify(req.form));
-  
-  let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia", {
+   let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia", {
     Empresa: 1,
     s_IdMembresia: data.lLetyCard,
   });
@@ -223,8 +270,7 @@ server.post("SaveSaldoForm", (req, res, next) => {
       let s_Sexo = data.s_Sexo;
        if(dtFechaNacimiento == undefined || dtFechaNacimiento == null) dtFechaNacimiento = "";
        if(PreferenciaProducto == undefined || PreferenciaProducto == null) PreferenciaProducto = "";
-  
-      if(s_Sexo == undefined || s_Sexo == null) s_Sexo = "";
+       if(s_Sexo == undefined || s_Sexo == null) s_Sexo = "";
        let Func_ActualizaDatosMembresia = ApiServiceLety.ApiLety(
         "Func_ActualizaDatosMembresia", {
           Empresa: 1,
@@ -235,7 +281,7 @@ server.post("SaveSaldoForm", (req, res, next) => {
           s_Apmaterno: data.s_Apmaterno,
           s_FechaNacimiento: dtFechaNacimiento,
           s_Sexo: s_Sexo,
-          i_IdCiudad: "1086",
+          i_IdCiudad: data.cCiudad,
           s_EdoCivil: "Soltero",
           s_PastelFavorito: PreferenciaProducto,
           s_Direccion: "Avenina 12",
@@ -265,6 +311,36 @@ server.post("SaveSaldoForm", (req, res, next) => {
      }
    }
    next();
+ });
+  
+ server.post("getState", (req, res, next) => {
+  
+  const {idEstado} = JSON.parse(req.body);
+  
+  let CatalogoEstados = ApiServiceLety.ApiLety(
+    "CatalogoEstados",
+    {
+      Empresa: 1
+    }
+  );
+  let JsonDatosEstados;
+  
+  if (CatalogoEstados.ERROR) {
+    JsonDatosEstados = {};
+  } else {
+    let estados = JSON.parse(CatalogoEstados);
+    JsonDatosEstados = estados.CatalogoEstados;
+  }
+  
+  //let { sNombre } = JsonDatosEstados.find(item => item.iIdEstado === stringify(idEstado));
+  
+  res.json({
+    JsonDatosEstados:JsonDatosEstados
   });
+  
+  next();
+ });
+ 
+ 
  
 module.exports = server.exports();

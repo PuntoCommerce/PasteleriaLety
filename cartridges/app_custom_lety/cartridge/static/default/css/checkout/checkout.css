@@ -41,11 +41,6 @@
     padding-top: 19px;
   }
 
-  .checkout__stepper_mobile .msg-secur{
-    padding-left: 0 !important;
-    text-align: center !important;
-  }
-
   
 }
 
@@ -982,6 +977,11 @@ span.ship-to-phone {
 .checkout__text--h3 {
   font-size: 32px;
 }
+
+.checkout__text .qty-detail-check-p{
+  margin-top: .5rem;
+  text-align: center;
+}
 .checkout__item {
   background-color: #ffffff !important;
   padding: 20px;
@@ -1039,6 +1039,10 @@ span.ship-to-phone {
 }
 .checkout__stepper--divider-done {
   background-color: #000000;
+}
+
+.checkout__stepper .msg-secur{
+  font-family: var(--font-family-gotham-bold) !important;
 }
 .checkout__order {
   border: 1px solid #000000;

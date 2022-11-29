@@ -20,7 +20,7 @@
     dateForm.min = formatedCurrentDate;
     dateFormFW.value = formatedCurrentDate;
     updateStoreDay(currentDate, dataStoreHours, timeForm);
-    currentDate.setDate(currentDate.getDate() + 30);
+    currentDate.setDate(currentDate.getDate() + 1);
 
     dateForm.max = formatDate(currentDate);
 
@@ -39,6 +39,10 @@
       .toLowerCase();
     let inner = ``;
     let { openHours, closeHours } = weekSchedule[day];
+    if (openHours < date.getHours()) {
+      openHours = date.getHours() + 1;
+      // openHours = 21;
+    }
     for (let i = openHours; i < closeHours; i++) {
       let { label, id } = formatHours(i);
       if (i === openHours) setStoreHour({ target: { value: i } });
