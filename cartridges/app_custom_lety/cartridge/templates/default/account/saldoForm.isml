@@ -75,9 +75,6 @@ pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_ApellidoPat !== "undef
        </label>
        <input class="form-control input-card" type="date" data-datebirth="${pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].dtFechaNacimiento}" id="dtFechaNacimiento" />
    </div>
-   <!--<div class="col-sm-12 col-md-12 col-lg-6 form-group">
-       <input class="form-control input-card" type="text" id="s_Sexo" value="${pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_Sexo !== "undefined" ? pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_Sexo : ""}" />
-   </div>-->
    <div class="col-sm-12 col-md-12 col-lg-6 form-group" id="dS_Sexo" data-tipo="${pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_Sexo}">
          <p class="label-card">${Resource.msg('label.sex.card', 'account', null)}</p>
         <div class="form-check form-check-inline">
