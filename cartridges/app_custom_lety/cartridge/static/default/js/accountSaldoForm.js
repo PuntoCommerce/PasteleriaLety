@@ -1,22 +1,3 @@
- 
- 
- 
- 
-0=======================================================
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 const mMale = document.querySelector("#mMale");
 const fFemale = document.querySelector("#fFemale");
 //const cCities = document.querySelector("#cCities");
@@ -37,7 +18,8 @@ window.onload = function () {
    }
  
    const cCiudad = document.querySelector("#cCiudad");
- 
+   const dateBirth = document.querySelector("#dtFechaNacimiento").getAttribute("data-datebirth").split("/");
+   $("#dtFechaNacimiento").val(dateBirth[2]+"-"+dateBirth[1]+"-"+dateBirth[0]);
    const ids = cCiudad.getAttribute("data-city").split("!");
  
    let idCity = "";
