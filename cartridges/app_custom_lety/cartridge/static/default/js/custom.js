@@ -26,24 +26,24 @@ closeSearch = () => {
 
 // #####Buscador########
 
-window.addEventListener("scroll", () => {
-  changeSubMenuItem();
-});
+// window.addEventListener("scroll", () => {
+//   changeSubMenuItem();
+// });
 
-window.addEventListener("load", () => {
-  changeSubMenuItem();
-});
+// window.addEventListener("load", () => {
+//   changeSubMenuItem();
+// });
 
-const changeSubMenuItem = () => {
-  const menu = $C(".menu-group");
-  const subMenu = $$C(".dropdown-menu");
-  const menuHeight = 100;
-  let rectMenu = menu.getBoundingClientRect();
+// const changeSubMenuItem = () => {
+//   const menu = $C(".menu-group");
+//   const subMenu = $$C(".dropdown-menu");
+//   const menuHeight = 100;
+//   let rectMenu = menu.getBoundingClientRect();
 
-  subMenu.forEach((sub) => {
-    sub.style.top = rectMenu.y + menuHeight + "px";
-  });
-};
+//   subMenu.forEach((sub) => {
+//     sub.style.top = rectMenu.y + menuHeight + "px";
+//   });
+// };
 
 
 

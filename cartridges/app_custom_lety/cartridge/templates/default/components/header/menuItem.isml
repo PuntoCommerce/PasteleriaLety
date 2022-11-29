@@ -1,5 +1,5 @@
-<div class="dropdown-menu ">
-   <div class="d-flex">
+<div class="dropdown-menu dropdown-content">
+
       <div class="dropdown-menu-content col-4" role="menu" aria-hidden="true" aria-label="${category.id}">
          <isset name="categoryImage" value="${category.thumbnail}" scope="page" />
          <div class="d-flex justify-content-center row">
@@ -30,5 +30,5 @@
          <img src="${URLUtils.staticURL('/images/menuImg.png')}"
                                     alt="${Resource.msg('global.storename', 'common', null)}" />
       </div>
-   </div>
+
 </div>

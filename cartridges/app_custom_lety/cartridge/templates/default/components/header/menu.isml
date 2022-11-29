@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-md bg-inverse col-12" id="customMenu">
+<nav class="navbar navbar-expand-md bg-inverse" id="customMenu">
 
     <div id="menuDesk" class="menu-group" role="navigation">
-        <ul class="nav navbar-nav" role="menu">
+        <div class="nav navbar-nav" role="menu">
             <isif condition="${pdict.categories}">
                 <isloop items="${pdict.categories}" var="category" status="status_item">
                     <isif condition="${category.subCategories}">
-                        <li class="nav-item dropdown ${status_item.last ? 'last_category_item' : ''}"
+                        <div class="nav-item dropdown ${status_item.last ? 'last_category_item' : ''}"
                             role="presentation">
 
                             <a style="color: var(--color-lety-white)" href="<isprint value=" ${category.url}"
@@ -19,7 +19,7 @@
 
                             <isset name="menuItem" value="${category}" scope="page" />
                             <isinclude template="components/header/menuItem" />
-                        </li>
+                        </div>
                     <iselse/>
                         <li class="nav-item ${status_item.last ? 'last_category_item' : ''}" role="presentation">
                             <a style="color: var(--color-lety-white)" href="<isprint value=" ${category.url}"
