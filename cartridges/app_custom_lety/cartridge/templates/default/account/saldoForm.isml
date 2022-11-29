@@ -8,7 +8,6 @@ pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_ApellidoPat !== "undef
 <p>${JSON.stringify(pdict.Account.JsonDatosEstados)}</p>
 <p>${JSON.stringify(pdict.Account.JsonDatosCiudades)}</p>
 -->
-<p>${JSON.stringify(pdict.Account.JsonDatosMembresia)}</p>
  
 <form id="accountSaldoForm" method="POST">
 <div class="row">
