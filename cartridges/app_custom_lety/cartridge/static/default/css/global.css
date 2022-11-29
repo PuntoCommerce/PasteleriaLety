@@ -1402,8 +1402,16 @@ textarea {
     justify-content: center;
   }
 
-  .row-availa-mobile .col-3{
-    padding-right: 30px;
+  .row-availa-mobile{
+    padding: 0 10%;
+  }
+
+  .msg-existencia, .on-stock{
+    /* margin-left: 45px; */
+  }
+
+  .availability-msg li{
+    margin-left: 45px;
   }
 
   .mobile-promo {
@@ -1454,6 +1462,10 @@ textarea {
     font-size: 13px !important;
   }
 
+  .row-rating-mobile .row-rating{
+    display: inline !important;
+  }
+
   .rnr-full-star {
     background-image: url("../images/icons/star-mobile.svg") !important;
     width: 14px !important;
@@ -1470,8 +1482,8 @@ textarea {
   }
 
   .row-rating-2{
-    margin-left: -30px !important;
-    margin-right: -30px !important;
+    margin-left: -20px !important;
+    margin-right: -20px !important;
   }
 
   .row-social-icons{

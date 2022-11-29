@@ -508,6 +508,7 @@ label.color ~ a:hover {
 @media (max-width: 991.98px) {
   .social-container .social-icons {
     font-size: 1.5625em;
+    text-align: left;
   }
 }
 .social-container .social-icons a,

@@ -15,7 +15,8 @@
                 <ul>
                     <isloop items="${attrGroup.attributes}" var="attr">
                         <li class="attribute-values">
-                            <iscomment> ${attr.label}: </iscomment>
+                        <iscomment>  <p>${JSON.stringify(product.attributes)}</p> </iscomment>
+                            ${attr.label}:
                             <isloop items="${attr.value}" var="value">
                                 ${value}
                             </isloop>
