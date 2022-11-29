@@ -199,12 +199,19 @@
                 <iscomment> Quitar el d-none cuando este habilitado el checkout </iscomment>
                 <div class="prices-add-to-cart-actions mb-2">
                     <!-- Cart and Checkout -->
-                    <isinclude template="product/components/buyNowProduct" />
+                    <isscript>
+                        var assets = require('*/cartridge/scripts/assets.js');
+                        assets.addJs('/js/pdpBuyNow.js');
+                    </isscript>
+                    <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/buyNowProduct', 'addToCartUrl', pdict.addToCartUrl)}" />
+                    
+                    <iscomment> <isinclude template="product/components/buyNowProduct" /> </iscomment>
                 </div>
                 <iscomment> Quitar el d-none cuando este habilitado el checkout </iscomment>
                 <div class="prices-add-to-cart-actions">
                     <!-- Cart and [Optionally] Apple Pay -->
-                    <isinclude template="product/components/addToCartProduct" />
+                     <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/addToCartProduct', 'addToCartUrl', pdict.addToCartUrl)}" />
+                    <iscomment> <isinclude template="product/components/addToCartProduct" /> </iscomment>
                 </div>
                 <div class="row row-desc row-rating-mobile mt-3">
                     <div class="col-12 row-rating">
