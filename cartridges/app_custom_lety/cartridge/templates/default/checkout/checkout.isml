@@ -258,7 +258,7 @@
 
                                 </div>
 
-                                <div class="row bg-info">
+                                <div class="row">
                                    <iscomment> Lety card </iscomment>
                                    <iscomment> Membresia </iscomment>
                                    <div class="col-12">
@@ -381,7 +381,7 @@
 
                                    <iscomment> Show price adjustment apply  </iscomment>
                                  
-                                   <div class="col-12">
+                                   <div class="col-12" id="hideDivCancelCange">
                                        <iscomment> Remove the price adjustment </iscomment>
                                        <div class="row">
                                            <div class="col-12 promo-code-submit">
@@ -491,7 +491,31 @@
        </div>
    </div>
 </div>
+
+<iscomment> Modal loading </iscomment> 
+<div class="modal fade" id="modalLoading" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog w-25" role="document">
+      <div class="modal-content">
+          <div class="modal-body">
+              <div class="d-flex justify-content-center mt-3">
+                  <img class="center-block" src="${URLUtils.staticURL('/images/success-svg.svg')}" alt="success" width="25%" height="auto" />
+              </div>
+              <hr/>
+              <div class="text-center my-3 h4">
+                  <p>Completado.</p>
+              </div>
+              <div class="text-center my-3">
+                  <p>Se ha actualizado la información correspondiente.</p>
+              </div>
+              <div class="text-center my-3">
+                  <button type="button" class="btn bg-primary text-white" data-dismiss="modal">Cerrar</button>
+              </div>   
+          </div>
+      </div>
+  </div>
+</div>
  
+<iscomment> Modal success </iscomment> 
 <div class="modal fade" id="modalSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog w-25" role="document">
        <div class="modal-content">
