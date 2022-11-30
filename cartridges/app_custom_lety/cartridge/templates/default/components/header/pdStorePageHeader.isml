@@ -27,10 +27,10 @@
                         </div>
                     </div>
                     <div class="pull-right d-flex align-items-center col-xl-9 col-lg-10 col-md-8 menuDesk-right">
-                        <div class="search search-desk col-xl-3 col-lg-3">
+                        <div class="search search-desk col-3">
                             <isinclude template="components/header/search" />
                         </div>
-                        <div class="col-xl-7 col-lg-6 main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"
+                        <div class="col-6 col-xl-6 col-lg-6 main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"
                             id="sg-navbar-collapse">
                             <div class="container">
                                 <div class="row">
@@ -38,11 +38,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-1 col-lg-2 hidden-md-down user-conten">
+                        <div class="col-1 col-xl-2 col-lg-2 hidden-md-down user-conten">
                             <isinclude url="${URLUtils.url('Account-Header')}" />
                             <isinclude url="${URLUtils.url('Page-Locale')}" />
                         </div>
-                        <div class="col-xl-1 col-lg-1 minicart minicart-desk"
+                        <div class="col-1 col-xl-1 col-lg-1 minicart minicart-desk"
                             data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
                            
                             <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
@@ -51,9 +51,7 @@
                 </div>
             </div>
         </div>
-        <iscomment>
-            Navigation Mobile
-        </iscomment>
+        <!--Navigation Mobile -->
         <div class="navigation-mobile d-lg-none">
             <div class="row">
                 <div class="col-12" id="searchContainer">

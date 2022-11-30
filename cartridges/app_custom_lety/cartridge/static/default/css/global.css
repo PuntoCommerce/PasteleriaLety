@@ -912,7 +912,7 @@ textarea {
 .title.callout.btn.text-left {
   background-color: var(--color-lety6);
   color: var(--color-lety-white);
-  width: 72px;
+  width: 80px;
   height: 38px;
 }
 
@@ -1221,11 +1221,6 @@ textarea {
     margin-top: 21px !important;
   }
 
-  .minicart .minicart-quantity {
-    left: 20px;
-    top: -35px;
-  }
-
   .location {
     height: 22px;
     margin-left: 0 !important;
@@ -1403,14 +1398,27 @@ textarea {
     margin-top: 14px;
   }
 
-  .quantity-mobile-conent{
-    position: absolute;
-    top: 45px;
-    right: 35px;
+  .row-availa-mobile{
+    padding-left: 9%;
+  }
+
+  .availability-msg li{
+    margin-left: 20px;
   }
 
   .quantity-mobile-conent .simple-quantity{
     display: grid;
+  }
+
+  .mobile-promo {
+    position: absolute;
+    padding-left: 22px;
+  }
+
+  .quantity-mobile-conent{
+    position: absolute;
+    top: 45px;
+    right: 35px;
   }
 
   .quantity-mobile-conent .simple-quantity .quantity-select{
@@ -1479,6 +1487,10 @@ textarea {
   .row-rating-mobile {
     display: block !important;
     font-size: 13px !important;
+  }
+
+  .row-rating-mobile .row-rating{
+    padding: 0 !important;
   }
 
   .rnr-full-star {
@@ -1642,6 +1654,9 @@ textarea {
 
   .container.data-checkout-stage{
     padding-right: 0;
+  }
+  .data-checkout-stage {
+    padding-top: 0 !important;
   }
 
   .promo-code-submit{
@@ -15825,7 +15840,7 @@ a .moreless .less {
 .buy-now.btn:hover,
 .text2:hover {
   background-color: var(--color-lety2);
-  color: var(--color-lety-white) !important;
+  color: #ffffff;
 }
 
 @media (max-width: 992px) {
@@ -16697,7 +16712,7 @@ a .moreless .less {
 .site-search input {
   padding-right: 2rem;
   height: 37px;
-  width: 209px;
+  width: 100%;
   margin-top: 0.2em;
 }
 .suggestions-wrapper {
@@ -17707,7 +17722,24 @@ a .moreless .less {
   .experience-commerce_layouts-layout_1row_3col{
     margin: 0;
   }
+  .brand img {
+    width: 90px;
+    margin-top: -6px;
+  }
+
+  .minicart .minicart-quantity {
+    left: 20px;
+    top: -35px;
+  }
+
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .minicart{
+    top: 12px;
+  }
+}
+
 
 @media (max-width: 768px) {
   .product-tile .tile-body .price {
@@ -17724,6 +17756,11 @@ a .moreless .less {
   #responsabilidadsocial .experience-commerce_assets-editorialRichText .editorialRichText-component-container .col-12 p img{
     width: 50%;
   }
+
+  .minicart{
+    top: 0;
+  }
+  
 }
 
 @media (max-width: 535px) {

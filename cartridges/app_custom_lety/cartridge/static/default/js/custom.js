@@ -105,9 +105,9 @@ window.addEventListener("scroll", () => {
   changeSubMenuItem();
 });
 
-window.addEventListener("load", () => {
-  changeSubMenuItem();
-});
+// window.addEventListener("load", () => {
+//   changeSubMenuItem();
+// });
 
 /* ########################################## Sticky Nav Bar ####################################################### */
 // Listen on scroll event to show/hide btn back to top
@@ -216,6 +216,10 @@ if (navigator.appVersion.includes("Mac OS") || navigator.appVersion.includes("iP
   @media (max-width: 991px) {
     .ITBC-content .btn-ITBC {
       line-height: 1.5;
+    }
+
+    .text2:hover {
+      color: #ffffff;
     }
   }`;
   var styleSheet = document.createElement("style")
