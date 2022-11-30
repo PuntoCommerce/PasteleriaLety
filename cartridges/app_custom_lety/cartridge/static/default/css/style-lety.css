@@ -433,6 +433,14 @@
  font-family: var(--font-family-gotham-bold);
 }
 
+.content-img-confirmation{
+  width: 100%;
+}
+
+.img-page-confirmation{
+  width: 100%;
+}
+
 
 
 /*responsive 992*/

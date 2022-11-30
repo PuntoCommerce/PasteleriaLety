@@ -9,8 +9,9 @@
         <isinclude template="reporting/reportingUrls" />
     </isif>
 
-    <div>
-        <img class="" src="${URLUtils.staticURL('/images/banner-confirmation.svg')}" alt="confirmation" />
+    <div class="content-img-confirmation">
+        <img class="img-page-confirmation" src="${URLUtils.staticURL('/images/banner-confirmation.svg')}"
+            alt="confirmation" />
     </div>
     <div class="confirmation-top">
         <ul class="checkout__stepper">
@@ -75,7 +76,8 @@
                     </isif>
                     <div class="info-letyclub">
                         <p> ${Resource.msg('info.card.letyclub', 'confirmation', null)}&nbsp;</p><a
-                            class="link-letyclub" href="">${Resource.msg('mag-thanks.tarjeta.lety.email', 'confirmation', null)}</a>
+                            class="link-letyclub"
+                            href="${URLUtils.url('Account-Show')}">${Resource.msg('mag-thanks.tarjeta.lety.email', 'confirmation', null)}</a>
                     </div>
                 </div>
             </div>
@@ -84,46 +86,50 @@
                 <div class="col">
                     <div class="row container_confirmation">
                         <div class="col-lg-6 container-confirmation-left">
-                            <div class="txt-news-confirmation">
-                                <p> ${Resource.msg('msg.newsletter.confirmation', 'confirmation', null)}</p>
-                            </div>
-                            <div>
-                                <button type="submit" class="btn--gray btn__small btn btn-cancelar btn-confirmation"
-                                    src="">${Resource.msg('button.text.createAccount', 'confirmation', null)}</button>
-                                <button type="submit" class="btn--gray btn__small btn btn-cancelar btn-confirmation"
-                                    src="">${Resource.msg('button.text.createAccount', 'confirmation', null)}</button>
-                                <button type="submit" class="btn btn-product btn--gray btn__small btn-confirmation"
-                                    src="">${Resource.msg('button.text.createAccount', 'confirmation', null)}</button>
-                            </div>
+                            <isif condition="${pdict.returningCustomer === false && pdict.order.orderEmail}">
+                                <div class="col-sm-6 col-lg-6 offset-md-0 push-md-6">
+                                    <isinclude template="checkout/confirmation/confirmationCreateAccountConfirmation" />
+                                </div>
+                            </isif>
+                            <iscomment>
+                                <div class="txt-news-confirmation">
+                                    <p> ${Resource.msg('msg.newsletter.confirmation', 'confirmation', null)}</p>
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn--gray btn__small btn btn-cancelar btn-confirmation"
+                                        src="">${Resource.msg('button.text.createAccount', 'confirmation', null)}</button>
+                                    <button type="submit" class="btn--gray btn__small btn btn-cancelar btn-confirmation"
+                                        src="">${Resource.msg('button.text.createAccount', 'confirmation', null)}</button>
+                                    <button type="submit" class="btn btn-product btn--gray btn__small btn-confirmation"
+                                        src="">${Resource.msg('button.text.createAccount', 'confirmation', null)}</button>
+                                </div>
+                            </iscomment>
                         </div>
-                        <isif condition="${pdict.returningCustomer === false && pdict.order.orderEmail}">
-                            <div class="col-sm-6 col-lg-6 offset-md-0 push-md-6">
-                                <isinclude template="checkout/confirmation/confirmationCreateAccountConfirmation" />
-                            </div>
-                        </isif>
-                        <div class="${pdict.returningCustomer ? 'col-sm-6' : 'col-sm-6 offset-md-0 pull-md-6'} container-confirmation-right">
+
+                        <div
+                            class="${pdict.returningCustomer ? 'col-sm-6' : 'col-sm-6 offset-md-0 pull-md-6'} container-confirmation-right">
                             <isinclude template="checkout/confirmation/confirmationDetailsCustom" />
                         </div>
-                </div>
-                <div class="col-12 mb-4"></div>
-                <div class="row">
-                    <div class="col-sm-6 offset-sm-3 offset-md-0 push-md-6 pl-0 pr-0 pr-md-2 mb-4">
-                        <isinclude template="checkout/shipping/shippingSummaryConfirmation.isml" />
                     </div>
-                    <div class="col-sm-6 offset-sm-3 offset-md-0 push-md-6 pr-0 pl-0 pl-md-2 mb-4">
-                        <isinclude template="checkout/billing/billingSummaryConfirmation.isml" />
+                    <div class="col-12 mb-4"></div>
+                    <div class="row">
+                        <div class="col-sm-6 offset-sm-3 offset-md-0 push-md-6 pl-0 pr-0 pr-md-2 mb-4">
+                            <isinclude template="checkout/shipping/shippingSummaryConfirmation.isml" />
+                        </div>
+                        <div class="col-sm-6 offset-sm-3 offset-md-0 push-md-6 pr-0 pl-0 pl-md-2 mb-4">
+                            <isinclude template="checkout/billing/billingSummaryConfirmation.isml" />
+                        </div>
                     </div>
                 </div>
             </div>
+            <iscomment>
+                <div class="mb-3 col">
+                    <a href="${URLUtils.url('Home-Show')}"
+                        class="btn btn-primary btn-block order-confirmation-continue-shopping" role="button"
+                        aria-pressed="true">
+                        ${Resource.msg('button.continue.shopping', 'confirmation', null)}
+                    </a>
+                </div>
+            </iscomment>
         </div>
-        <iscomment>
-            <div class="mb-3 col">
-                <a href="${URLUtils.url('Home-Show')}"
-                    class="btn btn-primary btn-block order-confirmation-continue-shopping" role="button"
-                    aria-pressed="true">
-                    ${Resource.msg('button.continue.shopping', 'confirmation', null)}
-                </a>
-            </div>
-        </iscomment>
-    </div>
 </isdecorate>
