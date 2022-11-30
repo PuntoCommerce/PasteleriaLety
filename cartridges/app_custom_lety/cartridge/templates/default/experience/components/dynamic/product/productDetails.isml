@@ -88,7 +88,7 @@
                     <isinclude template="wishlist/components/addToWishListButton" />
                 </div>
             </div>
-            <div class="row row-desc">
+            <div class="row row-desc price-row">
                 <div class="col-12">
                     <!-- Prices -->
                     <div class="prices prices-pdp">
