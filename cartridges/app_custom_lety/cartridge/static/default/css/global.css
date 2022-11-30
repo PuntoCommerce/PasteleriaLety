@@ -1403,14 +1403,27 @@ textarea {
     margin-top: 14px;
   }
 
-  .quantity-mobile-conent{
-    position: absolute;
-    top: 45px;
-    right: 35px;
+  .row-availa-mobile{
+    padding-left: 9%;
+  }
+
+  .availability-msg li{
+    margin-left: 20px;
   }
 
   .quantity-mobile-conent .simple-quantity{
     display: grid;
+  }
+
+  .mobile-promo {
+    position: absolute;
+    padding-left: 22px;
+  }
+
+  .quantity-mobile-conent{
+    position: absolute;
+    top: 45px;
+    right: 35px;
   }
 
   .quantity-mobile-conent .simple-quantity .quantity-select{
@@ -1479,6 +1492,10 @@ textarea {
   .row-rating-mobile {
     display: block !important;
     font-size: 13px !important;
+  }
+
+  .row-rating-mobile .row-rating{
+    padding: 0 !important;
   }
 
   .rnr-full-star {
