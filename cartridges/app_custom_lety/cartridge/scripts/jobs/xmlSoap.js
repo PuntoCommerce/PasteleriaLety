@@ -198,6 +198,68 @@
  
       return json;
     }
+
+    if(path==="InsertaPersonaDireccion"){
+      let json = '{"'+path+'":[';
+      const Codd = XMLList(xml).descendants("iCode");
+      const sMenss = XMLList(xml).descendants("sMensaje");
+      const idFol = XMLList(xml).descendants("iIdFolioPersona");
+      const idC = XMLList(xml).descendants("iIdCentro");
+      const idDi = XMLList(xml).descendants("iIdDireccion");
+      const iIdFolioDire = XMLList(xml).descendants("iIdFolioDireccion");
+      const sDirec = XMLList(xml).descendants("sDireccion");
+      const sCol = XMLList(xml).descendants("sColonia");
+      const sCP = XMLList(xml).descendants("sCP");
+      const sTel1 = XMLList(xml).descendants("sTelefono1");
+      const sTel2 = XMLList(xml).descendants("sTelefono2");
+      const sEntreCa = XMLList(xml).descendants("sEntreCalles");
+      const sObserva = XMLList(xml).descendants("sObservaciones");
+      const iIdCiu = XMLList(xml).descendants("iIdCiudad");
+      const dLat = XMLList(xml).descendants("dLatitud");
+      const dLong = XMLList(xml).descendants("dLongitud");
+      const sMenssajee = XMLList(xml).descendants("sMensaje");
+      const sNoInterior = XMLList(xml).descendants("sNoInterior");
+      const sNoExterior = XMLList(xml).descendants("sNoExterior");
+      const iIdUsuario = XMLList(xml).descendants("iIdUsuario");
+      const dtFecha = XMLList(xml).descendants("dtFecha");
+      const iTipoDireccion = XMLList(xml).descendants("iTipoDireccion");
+      const dCost = XMLList(xml).descendants("dCosto");
+
+      if(Codd.length()===0){
+        json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
+        json = json.slice(0,-1)+']}';
+      }else{
+        for(let i =0; i<Codd.length();i++){
+          json+='{"iCode":"'+Codd[i]+'","sMensaje":"'+sMenssajee[i]+'","iIdFolioPersona":"'+idFol[i]+'","iIdCentro":"'+idC[i]+'","iIdDireccion":"'+idDi[i]+'","iIdFolioDireccion":"'+iIdFolioDire[i]+'","sDireccion":"'+sDirec[i]+'","sColonia":"'+sCol[i]+'","sCP":"'+sCP[i]+'","sTelefono1":"'+sTel1[i]+'","sTelefono2":"'+sTel2[i]+'","sEntreCalles":"'+sEntreCa[i]+'","sObservaciones":"'+sObserva[i]+'","iIdCiudad":"'+iIdCiu[i]+'","dLatitud":"'+dLat[i]+'","dLongitud":"'+dLong[i]+'","sMensaje":"'+sMenss[i]+'","sNoInterior":"'+sNoInterior[i]+'","sNoExterior":"'+sNoExterior[i]+'","iIdUsuario":"'+iIdUsuario[i]+'","dtFecha":"'+dtFecha[i]+'","iTipoDireccion":"'+iTipoDireccion[i]+'","dCosto":"'+dCost[i]+'"},';
+        }
+        json = json.slice(0,-1)+']}';
+      }
+
+      json = json.slice(0,-1)+']}';
+ 
+      return json;
+    }
+
+    if(path==="RegistraServDom"){
+      let json = '{"'+path+'":[';
+      const Codeee = XMLList(xml).descendants("iCode");
+      const sMeee = XMLList(xml).descendants("sMensaje");
+
+      if(Codeee.length()===0){
+        json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
+        json = json.slice(0,-1)+']}';
+      }else{
+        for(let i =0; i<Codeee.length();i++){
+          json+='{"iCode":"'+Codeee[i]+'","sMensaje":"'+sMeee[i]+'"},';
+        }
+        json = json.slice(0,-1)+']}';
+      }
+
+      json = json.slice(0,-1)+']}';
+ 
+      return json;
+    }
+
     if(path==="Func_MovimientosMembresia"){
       let json = '{"'+path+'":[';
 

@@ -158,19 +158,18 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
     "Func_AsignaNuevaMembresia",
     { 
       Empresa: 1, 
-      s_IdMembresia: req.querystring.letyCard,
-      s_Nombre:"dkjdkjfd",
-      s_Appaterno:"prueba",
-      s_Apmaterno:"prueba",
-      s_FechaNacimiento:"02/10/2008",
-      s_Sexo:"M",
-      i_IdCiudad:"1086",
-      s_EdoCivil:"Soltero",
-      s_PastelFavorito:"cubano",
-      s_Direccion:"sdffdsdf",
-      s_Colonia:"sdffdsdf",
-      s_Telefono:"9987645673",
-      s_Mail:"pruebaprueba" 
+      s_Nombre:"",
+      s_Appaterno:"",
+      s_Apmaterno:"",
+      s_FechaNacimiento:"",
+      s_Sexo:"",
+      i_IdCiudad:"",
+      s_EdoCivil:"",
+      s_PastelFavorito:"",
+      s_Direccion:"",
+      s_Colonia:"",
+      s_Telefono:"",
+      s_Mail:"" 
     }
   );
 
@@ -210,7 +209,79 @@ let InsertaDatosVentaWeb = ApiServiceLety.ApiLety(
     sReferencia:"test",
     dMontoLetyPesos:"0"
   }
-);*/
+);
+
+let RegistraServDom = ApiServiceLety.ApiLety(
+  "RegistraServDom",
+  { 
+    IdEmpresa: 1, 
+    iIdCentroAlta:"201",
+    iIdServDom:"0",
+    iIdCentroAfecta:"3",
+    iIdFolioPersona:"90000",
+    iIdFolioDireccion:"9201",
+    dtFechaAlta:"2022-11-11T05:10:55.555",
+    dtFechaEntrega:"2022-11-11T05:10:55.555",
+    iIdUsuarioAlta:"1",
+    bIndFactura:"0",
+    sObservaciones:"RegistroPrueba",
+    iIdCentroAlta:"201",
+    iIdServDom:"0",
+    iIdMaterial:"51",
+    dPrecio:"100",
+    dPrecioBase:"100",
+    dCantidad:"1",
+    dCantidadBase:"1",
+    iIdUnidad:"1",
+    iIdUnidadBase:"1",
+    dPorcDescuento:"0",
+    dMontoDescuento:"0",
+    dPorcIVA:"0",
+    dMontoIVA:"0",
+    dPorcIEPS:"0",
+    dMontoIEPS:"0",
+    iIdCombo:"0",
+    iIdCentroAlta:"201",
+    iIdServDom:"0",
+    iIdFormaDePago:"3",
+    dMonto:"100",
+    TipoDeCambio:"1",
+    dImporte:"100",
+    sFolioTarjeta:"30120013178",
+    dMontoLetyPesos:"0",
+    NombreCompleto:"Nombre de prueba",
+    Municipio:"Prueba",
+    Estado:"Prueba"
+  }
+);
+
+let InsertaPersonaDireccion = ApiServiceLety.ApiLety(
+  "InsertaPersonaDireccion",
+  { 
+    IdEmpresa: 1, 
+    iIdFolioPersona:"10501",
+    iIdCentro:"617",
+    iIdDireccion:"0",
+    iIdFolioDireccion:"0",
+    sDireccion:"Prueba",
+    sColonia:"Prueba",
+    sCP:"66350",
+    sTelefono1:"1234567890",
+    sTelefono2:"7894561320",
+    sEntreCalles:"calles test",
+    sObservaciones:"test",
+    iIdCiudad:"1086",
+    dLatitud:"0.0",
+    dLongitud:"0.0",
+    sNoInterior:"520",
+    sNoExterior:"520",
+    iIdUsuario:"1",
+    dtFecha:"2022-11-25T10:11:00",
+    iTipoDireccion:"0",
+    address:"Av Juan Pablo II 551, Sin Nombre de Col 35, 66490 San Nicolás de los Garza, N.L"
+  }
+);
+*/
 
   if (Func_MovimientosMembresia.ERROR) {
     ListaMovimientos = []
