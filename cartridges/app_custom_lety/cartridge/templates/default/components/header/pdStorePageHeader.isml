@@ -30,7 +30,7 @@
                         <div class="search search-desk col-3">
                             <isinclude template="components/header/search" />
                         </div>
-                        <div class="col-7 main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"
+                        <div class="col-6 col-xl-6 col-lg-6 main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"
                             id="sg-navbar-collapse">
                             <div class="container">
                                 <div class="row">
@@ -38,11 +38,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-1 hidden-md-down user-conten">
+                        <div class="col-1 col-xl-2 col-lg-2 hidden-md-down user-conten">
                             <isinclude url="${URLUtils.url('Account-Header')}" />
                             <isinclude url="${URLUtils.url('Page-Locale')}" />
                         </div>
-                        <div class="col-1 minicart minicart-desk"
+                        <div class="col-1 col-xl-1 col-lg-1 minicart minicart-desk"
                             data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
                            
                             <isinclude url="${URLUtils.url('Cart-MiniCart')}" />

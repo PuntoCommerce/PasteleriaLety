@@ -1390,8 +1390,6 @@ textarea {
     display: none !important;
   }
 
-<<<<<<< HEAD
-=======
   .product-options {
     margin-top: 30px !important;
   }
@@ -1428,7 +1426,6 @@ textarea {
     height: 32px;
   }
 
->>>>>>> 719cf31f608e108e05d06e37aecd6693fb3fe748
   .availability-mobile {
     display: flex !important;
     font-size: 14px;
@@ -1455,17 +1452,12 @@ textarea {
 
   .prices-add-to-cart-actions {
     position: relative !important;
-<<<<<<< HEAD
-  }
-
-=======
     padding: 0 !important;
   }
 
   .cart-and-ipay{
     padding: 0 !important;
   }
->>>>>>> 719cf31f608e108e05d06e37aecd6693fb3fe748
   .strike-through{
     padding-right: 4rem !important;
   }
