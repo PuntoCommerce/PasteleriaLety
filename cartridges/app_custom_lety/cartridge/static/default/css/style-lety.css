@@ -433,8 +433,21 @@
  font-family: var(--font-family-gotham-bold);
 }
 
+.order-confirm-create-account .card-header{
+  padding: 0 1.25rem;
+  border-bottom: none;
+}
+
 .order-confirm-create-account .card{
   border: none;
+}
+
+.order-confirm-create-account .card-body{
+  padding: 1rem 1.25rem;
+}
+
+.order-confirm-create-account .form-group{
+  margin-bottom: 1.25rem;
 }
 .content-img-confirmation{
   width: 100%;
