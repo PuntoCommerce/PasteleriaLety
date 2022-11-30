@@ -1395,6 +1395,16 @@ textarea {
     display: none !important;
   }
 
+  .product-options {
+    margin-top: 30px !important;
+  }
+
+  .quantity-mobile-conent{
+    position: absolute;
+    top: 62px;
+    right: 35px;
+  }
+
   .availability-mobile {
     display: flex !important;
     font-size: 14px;
@@ -1421,8 +1431,12 @@ textarea {
 
   .prices-add-to-cart-actions {
     position: relative !important;
+    padding: 0;
   }
 
+  .cart-and-ipay{
+    padding: 0;
+  }
   .strike-through{
     padding-right: 4rem !important;
   }

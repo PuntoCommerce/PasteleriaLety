@@ -477,7 +477,7 @@
                     <td class="td-mar">
                         <span class="span">ENVÍO</span>
                         <br>
-                        <span class="span2">GRATIS</span>
+                        <span class="span2">A DOMICILIO</span>
                     </td>
                     <td> <img class="pay-icon" src="${URLUtils.httpsStatic('/images/icons-emails/credi-cart.png')}"
                             alt="PP" />
