@@ -1034,7 +1034,7 @@ span.ship-to-phone {
 .checkout__stepper--divider {
   width: 10%;
   height: 2px;
-  margin: 30px 10px 0 10px;
+  margin: 30px 0;
   background-color: #64656a;
 }
 .checkout__stepper--divider-done {
@@ -1198,9 +1198,5 @@ span.ship-to-phone {
   .checkout__stepper--divider {
     height: 1px;
     margin: 30px 0;
-  }
-
-  .checkout__stepper{
-    display: block;
   }
 }
