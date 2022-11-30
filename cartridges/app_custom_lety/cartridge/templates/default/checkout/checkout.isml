@@ -6,6 +6,7 @@
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addJs('/js/checkout.js');
+        assets.addJs('/js/custom.js');
         assets.addJs('/js/priceAdjustment.js');
         assets.addCss('/css/checkout/checkout.css');
 
@@ -68,7 +69,7 @@
         <div class="checkout_top">
             <div>
                 <p class="checkout_top_text">
-                <img class="mr-3 checkout_top_img" src="${URLUtils.staticURL('/images/segura.svg')}" alt="lock"/>Compra segura</p>
+                <img class="mr-3 checkout_top_img" src="${URLUtils.staticURL('/images/candado.svg')}" alt="lock"/>Compra segura</p>
             </div>
             <div>
                 <p class="checkout_top_text ml-4">Seguir comprando</p>
