@@ -56,7 +56,22 @@
     background-color: #000000;
   }
 
-  
+  @media (max-width: 992px) {
+
+    .checkout__stepper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 20px 0 35px 0;
+      margin-bottom: 0;
+    }
+
+    .checkout__stepper--item-title{
+      position: absolute;
+      bottom: 0;
+    }
+  }
   /*Designer Login*/
   .login-page{
     padding-left: 10% !important;
