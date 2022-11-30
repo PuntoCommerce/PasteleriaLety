@@ -38,11 +38,12 @@
     border-radius: 50%;
   }
   .checkout__stepper--item-circle-current,
-  .checkout__stepper--item-circle-done {
+  .checkout__stepper--item-circle-done,
+  .checkout__stepper--item-circle.active {
     background-color: var(--color-lety2);
   }
   .checkout__stepper--item-title {
-    font-family: "Avenir-Next";
+    font-family: var(--font-family-gotham) !important;
     font-size: 18px;
     color: #000000;
   }
@@ -430,6 +431,14 @@
 
 .container-payments label{
  font-family: var(--font-family-gotham-bold);
+}
+
+.content-img-confirmation{
+  width: 100%;
+}
+
+.img-page-confirmation{
+  width: 100%;
 }
 
 
