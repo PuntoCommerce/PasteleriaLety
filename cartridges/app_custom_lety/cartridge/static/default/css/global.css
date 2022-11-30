@@ -1221,11 +1221,6 @@ textarea {
     margin-top: 21px !important;
   }
 
-  .minicart .minicart-quantity {
-    left: 20px;
-    top: -35px;
-  }
-
   .location {
     height: 22px;
     margin-left: 0 !important;
@@ -1395,6 +1390,8 @@ textarea {
     display: none !important;
   }
 
+<<<<<<< HEAD
+=======
   .product-options {
     margin-top: 30px !important;
   }
@@ -1431,6 +1428,7 @@ textarea {
     height: 32px;
   }
 
+>>>>>>> 719cf31f608e108e05d06e37aecd6693fb3fe748
   .availability-mobile {
     display: flex !important;
     font-size: 14px;
@@ -1457,12 +1455,17 @@ textarea {
 
   .prices-add-to-cart-actions {
     position: relative !important;
+<<<<<<< HEAD
+  }
+
+=======
     padding: 0 !important;
   }
 
   .cart-and-ipay{
     padding: 0 !important;
   }
+>>>>>>> 719cf31f608e108e05d06e37aecd6693fb3fe748
   .strike-through{
     padding-right: 4rem !important;
   }
@@ -1659,6 +1662,9 @@ textarea {
 
   .container.data-checkout-stage{
     padding-right: 0;
+  }
+  .data-checkout-stage {
+    padding-top: 0 !important;
   }
 
   .promo-code-submit{
@@ -15842,7 +15848,7 @@ a .moreless .less {
 .buy-now.btn:hover,
 .text2:hover {
   background-color: var(--color-lety2);
-  color: var(--color-lety-white) !important;
+  color: #ffffff;
 }
 
 @media (max-width: 992px) {
@@ -16714,7 +16720,7 @@ a .moreless .less {
 .site-search input {
   padding-right: 2rem;
   height: 37px;
-  width: 209px;
+  width: 100%;
   margin-top: 0.2em;
 }
 .suggestions-wrapper {
@@ -17724,7 +17730,24 @@ a .moreless .less {
   .experience-commerce_layouts-layout_1row_3col{
     margin: 0;
   }
+  .brand img {
+    width: 90px;
+    margin-top: -6px;
+  }
+
+  .minicart .minicart-quantity {
+    left: 20px;
+    top: -35px;
+  }
+
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .minicart{
+    top: 12px;
+  }
+}
+
 
 @media (max-width: 768px) {
   .product-tile .tile-body .price {
@@ -17741,6 +17764,11 @@ a .moreless .less {
   #responsabilidadsocial .experience-commerce_assets-editorialRichText .editorialRichText-component-container .col-12 p img{
     width: 50%;
   }
+
+  .minicart{
+    top: 0;
+  }
+  
 }
 
 @media (max-width: 535px) {
