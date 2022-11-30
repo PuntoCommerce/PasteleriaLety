@@ -221,6 +221,7 @@ if (navigator.appVersion.includes("Mac OS") || navigator.appVersion.includes("iP
     .text2:hover {
       color: #ffffff;
     }
+    
   }`;
   var styleSheet = document.createElement("style")
   styleSheet.type = "text/css"
