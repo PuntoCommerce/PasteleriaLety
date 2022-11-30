@@ -87,7 +87,7 @@
                     <div class="row container_confirmation">
                         <div class="col-lg-6 container-confirmation-left">
                             <isif condition="${pdict.returningCustomer === false && pdict.order.orderEmail}">
-                                <div class="col-sm-6 col-lg-6 offset-md-0 push-md-6">
+                                <div class="">
                                     <isinclude template="checkout/confirmation/confirmationCreateAccountConfirmation" />
                                 </div>
                             </isif>
