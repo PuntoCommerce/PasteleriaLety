@@ -433,12 +433,23 @@
  font-family: var(--font-family-gotham-bold);
 }
 
+.order-confirm-create-account .card{
+  border: none;
+}
 .content-img-confirmation{
   width: 100%;
 }
 
 .img-page-confirmation{
   width: 100%;
+}
+
+.input-pass-confirmation{
+  border-radius: 25px;
+  width: 100%;
+  border-color: var(--color-lety-black) !important;
+  height: 37px;
+  text-align: center;
 }
 
 

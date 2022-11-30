@@ -827,7 +827,7 @@ span.ship-to-phone {
     line-height: 33px;
   }
   .order-confirm-create-account {
-    padding: 5%;
+    padding: 0;
   }
 }
 .pickup-title {
