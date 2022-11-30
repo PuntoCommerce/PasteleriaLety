@@ -16,7 +16,7 @@
                     <label class="form-control-label" for="newPassword">
                         ${Resource.msg('field.password', 'confirmation', null)}
                     </label>
-                    <input type="password" class="form-control" id="newPassword"
+                    <input type="password" class="form-control input-pass-confirmation" id="newPassword"
                         data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
                         data-range-error="${Resource.msg('error.message.8_255characters', 'forms', null)}" <isprint
                         value="${pdict.passwordForm.newpassword.attributes}" encoding="off" />>
@@ -27,7 +27,7 @@
                     <label class="form-control-label" for="newPasswordConfirm">
                         ${Resource.msg('field.confirm.password', 'confirmation', null)}
                     </label>
-                    <input type="password" class="form-control" id="newPasswordConfirm"
+                    <input type="password" class="form-control input-pass-confirmation" id="newPasswordConfirm"
                         data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
                         data-range-error="${Resource.msg('error.message.8_255characters', 'forms', null)}" <isprint
                         value="${pdict.passwordForm.newpasswordconfirm.attributes}" encoding="off" />>
@@ -38,7 +38,7 @@
 
                     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
 
-                    <button class="btn btn-primary btn-block">
+                    <button class="btn btn-product">
                         ${Resource.msg('button.create.account', 'confirmation', null)}
                     </button>
             </form>
