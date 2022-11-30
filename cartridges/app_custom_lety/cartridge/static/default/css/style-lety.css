@@ -38,7 +38,8 @@
     border-radius: 50%;
   }
   .checkout__stepper--item-circle-current,
-  .checkout__stepper--item-circle-done {
+  .checkout__stepper--item-circle-done,
+  .checkout__stepper--item-circle.active {
     background-color: var(--color-lety2);
   }
   .checkout__stepper--item-title {
