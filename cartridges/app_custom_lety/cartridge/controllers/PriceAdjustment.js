@@ -53,10 +53,11 @@ server.post("LetyPuntos", (req, res, next) => {
     // dela forma viejita.
     res.json({
         body: toAjustment,
-        err,
-        code,
-        renderedTotas,
+        err: err,
+        code: code,
+        renderedTotas: renderedTotas
     })
+
     next();
 });
 server.post("RemoveLetyPuntos", (req, res, next) => {
@@ -72,6 +73,7 @@ server.post("RemoveLetyPuntos", (req, res, next) => {
         Transaction.wrap(function (params) {
             result = currentBasket.removePriceAdjustment(currentBasket.priceAdjustments[0]);
         });
+        COHelpers.recalculateBasket(currentBasket);
         code = 0;
         err = "Sin error";
     } catch (error) {
@@ -79,11 +81,29 @@ server.post("RemoveLetyPuntos", (req, res, next) => {
         code = 1;
         result = "";
     }
+    var currentLocale = Locale.getLocale(req.locale.id);
+
+    var orderModel = new OrderModel(
+        currentBasket, {
+            usingMultiShipping: false,
+            shippable: true,
+            countryCode: currentLocale.country,
+            containerView: 'basket'
+        }
+    );
+    let renderedTotas = renderTemplateHelper.getRenderedHtml({
+            order: orderModel
+        },
+        "checkout/orderTotalSummary"
+    );
+
     res.json({
         err,
         code,
-        response: result
+        response: result,
+        renderedTotas: renderedTotas
     });
+
     next();
 });
 module.exports = server.exports();
