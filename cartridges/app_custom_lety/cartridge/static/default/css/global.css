@@ -15840,7 +15840,7 @@ a .moreless .less {
 .buy-now.btn:hover,
 .text2:hover {
   background-color: var(--color-lety2);
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 @media (max-width: 992px) {

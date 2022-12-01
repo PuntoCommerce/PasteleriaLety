@@ -1199,6 +1199,31 @@ span.ship-to-phone {
 .content-img-confirmation .img-page-confir-mobile{
   display: none;
 }
+
+.input-pass-confirmation{
+  border-radius: 25px;
+  width: 100%;
+  border-color: var(--color-lety-black) !important;
+  height: 37px;
+  text-align: center;
+}
+
+.card.order-confirm-create-account{
+  border: none;
+}
+
+.order-confirm-create-account .card-body{
+  padding-top:  0 !important;
+}
+
+.txt-news-confirmation p{
+  margin-bottom: 1.5rem !important;
+}
+
+.order-confirm-create-account .form-group{
+  margin-bottom: 1.5rem !important;
+}
+
 @media (max-width: 992px) {
   .checkout__stepper--divider {
     height: 1px;
@@ -1230,13 +1255,12 @@ span.ship-to-phone {
 
   .confirmation-top .checkout__stepper--item{
     min-width: 80px !important;
-    max-width: 80px !important;
   }
   .confirmation-top .checkout__stepper--item-circle-current{
     width: 40px;
     height: 40px;
-    margin-top: 20px !important;
-    margin-bottom: 25px !important;
+    margin-bottom: 25px;
+    margin-top: 20px;
   }
 
   .confirmation-top .checkout__stepper--item-title{
@@ -1257,18 +1281,40 @@ span.ship-to-phone {
     height: 50px;
   }
 
-  .container-custom-confirmation .single-shipping.thankyou_text{
-    font-size: 16px !important;
-    padding: 0 23px !important;
+  .single-shipping.thankyou_text{
+    font-size: 17px !important;
+    margin-bottom: 0 !important;
   }
 
-  .order-thank-you-email-msg{
-    font-size: 16px !important;
-    padding: 0 20px !important;
+  .container-custom-confirmation .order-thank-you-email-msg{
+    font-size: 16px;
+    padding: 0 23px;
   }
 
   .confirmation-summary-container{
     padding: 0 24px !important;
+  }
+
+  .confirmation-summary-container .container_confirmation{
+    padding: 0 !important;
+  }
+
+  .confirmation-summary-container .container_confirmation_detail{
+    
+    min-height: 585px !important;
+  }
+
+  .container-confirmation-address, .container-confirmation-pay{
+    min-height: 260px !important;
+    padding: 0 !important;
+  }
+
+  .container-confirmation-left {
+    max-height: 230px;
+  }
+
+  .txt-news-confirmation p{
+    padding-top: 20px !important;
   }
 
   .info-letyclub{
@@ -1276,52 +1322,31 @@ span.ship-to-phone {
     padding: 0 25px !important;
   }
 
+  .content-form-regis-confiration{
+    padding: 0 !important;
+  }
+
+  .order-confirm-create-account .card-header.txt-news-confirmation{
+    padding: 0 !important;
+  }
+
+  .order-confirm-create-account .card-body{
+    padding: 0 !important;
+  }
+
+  .order-confirm-create-account .btn-product{
+    width: 100%;
+  }
+
   .container-confirmation-right{
-    padding-left: 0 !important;
-  }
-
-  .confirmation-summary-container .container_confirmation{
-    padding: 0 !important;
-  }
-  
-
-  .container-confirmation-address, .container-confirmation-pay{
     padding: 0 !important;
   }
 
-  .container-confirmation-address{
-    min-height: 250px !important;
+  .container-confirmation-pay .card-header.confirmation-h2{
+    padding-top: 20%;
   }
 
-  .container-confirmation-pay{
-    min-height: 170px !important;
-  }
-
-  .container-confirmation-address .card-body{
-    padding: 0 !important;
-    font-size: 14px !important;
-  }
-
-  .container-txt-pay .payment-details{
-    padding-top:  0;
-  }
-
-  .card-header-custom.h2-detail-confirmation{
-    margin: 1.25rem !important;
-  }
-
-  .container-confirmation-address .icon-shipping{
-    padding-bottom: 10px;
-  }
-
-  .container-confirmation-pay .container-txt-pay{
-    
-    min-width: 240px !important;
-    padding: 10px !important;
-
-  }
-
-  .container-confirmation-pay .payment-details span{
-    font-size: 13px !important;
+  .card-body.text-center.container-txt-pay{
+    min-width: 220px;
   }
 }

@@ -260,7 +260,7 @@
 
                                 </div>
 
-                                <div class="row bg-info">
+                                <div class="row">
                                    <iscomment> Lety card </iscomment>
                                    <iscomment> Membresia </iscomment>
                                    <div class="col-12">
@@ -310,7 +310,7 @@
                                            <div class="form-group">
                                                <label for="">Saldo lety club</label>
                                                <div class="row">
-                                                   <div class="col-7">
+                                                   <div class="col-12">
                                                        <input
                                                            class="form-control coupon-code-field"
                                                            id="checkoutSaldoLetyClcub"
@@ -324,22 +324,6 @@
                                                    </div>
                                                    <iscomment> No se para que se es, preguntar a Myrna </iscomment>
                                                    <input type="hidden" name="${}" value="${}" />
-                                                   <div class="col-5 promo-code-submit">
-                                                       <isif condition="${pdict.customer.LetyCard}">
-                                                           <button
-                                                               type="button"
-                                                               class="btn btn-product btn-block promo-code-btn"
-                                                               data-toggle="modal"
-                                                               data-target="#letyCard">${Resource.msg('button.submit.promo.code.cambiar', 'cart', null)}
-                                                           </button>
-                                                       <iselse/>
-                                                           <button type="button"
-                                                               class="btn btn-product btn-block promo-code-btn"
-                                                               data-toggle="modal" data-target="#letyCard">
-                                                               ${Resource.msg('button.submit.promo.code.agregar', 'cart', null)}
-                                                           </button>
-                                                       </isif>
-                                                   </div>
                                                </div>
                                            </div>
                                        </form>
@@ -383,15 +367,15 @@
 
                                    <iscomment> Show price adjustment apply  </iscomment>
                                  
-                                   <div class="col-12">
+                                   <div class="col-12 d-none" id="hideDivCancelCange" data-adjustmentapplied="${pdict.customer.adjustmentApplied}">
                                        <iscomment> Remove the price adjustment </iscomment>
                                        <div class="row">
                                            <div class="col-12 promo-code-submit">
                                                <button
+                                                   class="btn btn-product btn-block promo-code-btn"
                                                    id="letyPuntosRemovePriceAdjustment"
                                                    data-action="${URLUtils.url("PriceAdjustment-RemoveLetyPuntos")}"
-                                                   type="button"
-                                                   class="btn btn-product btn-block promo-code-btn">
+                                                   type="button">
                                                    Cancelar cange de puntos
                                                </button>
                                            </div>

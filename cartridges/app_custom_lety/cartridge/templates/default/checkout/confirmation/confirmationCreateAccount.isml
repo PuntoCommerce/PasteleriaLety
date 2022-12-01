@@ -16,7 +16,7 @@
                     </label>
                     <input
                         type="password"
-                        class="form-control"
+                        class="form-control input-pass-confirmation"
                         id="newPassword"
                         data-missing-error="${Resource.msg('error.message.required','forms',null)}"
                         data-range-error="${Resource.msg('error.message.8_255characters','forms',null)}"
@@ -30,7 +30,7 @@
                     </label>
                     <input
                         type="password"
-                        class="form-control"
+                        class="form-control input-pass-confirmation"
                         id="newPasswordConfirm"
                         data-missing-error="${Resource.msg('error.message.required','forms',null)}"
                         data-range-error="${Resource.msg('error.message.8_255characters','forms',null)}"
@@ -42,7 +42,7 @@
 
                 <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
 
-                <button class="btn btn-primary btn-block">
+                <button class="btn btn-product">
                     ${Resource.msg('button.create.account','confirmation',null)}
                 </button>
             </form>

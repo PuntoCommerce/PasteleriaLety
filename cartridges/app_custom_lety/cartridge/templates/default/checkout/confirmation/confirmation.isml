@@ -12,7 +12,7 @@
     <div class="content-img-confirmation">
         <img class="img-page-confirmation" src="${URLUtils.staticURL('/images/banner-confirmation.svg')}"
             alt="confirmation" />
-            <img class="img-page-confir-mobile" src="${URLUtils.staticURL('/images/banner-mobile-conf.svg')}"
+        <img class="img-page-confir-mobile" src="${URLUtils.staticURL('/images/banner-mobile-conf.svg')}"
             alt="confirmation" />
     </div>
     <div class="confirmation-top">
@@ -45,7 +45,8 @@
                 <h1 class="page-title">${Resource.msg('title.thank.you.page', 'confirmation', null)}</h1>
             </div>
         </iscomment>
-        <div class="container_custom container-custom-confirmation receipt <isif condition=" ${pdict.order.shipping.length > 1}">multi-ship</isif>">
+        <div class="container_custom container-custom-confirmation receipt <isif condition="
+            ${pdict.order.shipping.length > 1}">multi-ship</isif>">
             <div class="row justify-content-center">
                 <img class="bag-confirmation" src="${URLUtils.httpsStatic('/images/icons/bag-confir.svg')}"
                     alt="Bag confirmation" />
@@ -86,26 +87,17 @@
             <div class="row confirmation-summary-container">
 
                 <div class="col">
-                    <div class="row container_confirmation">
+                    <div class="row container_confirmation container_confirmation_detail">
                         <div class="col-lg-6 container-confirmation-left">
-                            <isif condition="${pdict.returningCustomer === false && pdict.order.orderEmail}">
-                                <div class="col-12">
+
+                             <isif condition="${pdict.returningCustomer === false && pdict.order.orderEmail}">
+                                <div class="col-sm-12 col-lg-12 offset-md-0 content-form-regis-confiration">
+                               <iscomment> Aquí va el código </iscomment>
+                               
+                               <iscomment> Aquí termina descomentar el código de</iscomment>
                                     <isinclude template="checkout/confirmation/confirmationCreateAccountConfirmation" />
                                 </div>
                             </isif>
-                            <iscomment>
-                                <div class="txt-news-confirmation">
-                                    <p> ${Resource.msg('msg.newsletter.confirmation', 'confirmation', null)}</p>
-                                </div>
-                                <div>
-                                    <button type="submit" class="btn--gray btn__small btn btn-cancelar btn-confirmation"
-                                        src="">${Resource.msg('button.text.createAccount', 'confirmation', null)}</button>
-                                    <button type="submit" class="btn--gray btn__small btn btn-cancelar btn-confirmation"
-                                        src="">${Resource.msg('button.text.createAccount', 'confirmation', null)}</button>
-                                    <button type="submit" class="btn btn-product btn--gray btn__small btn-confirmation"
-                                        src="">${Resource.msg('button.text.createAccount', 'confirmation', null)}</button>
-                                </div>
-                            </iscomment>
                         </div>
 
                         <div
@@ -124,14 +116,5 @@
                     </div>
                 </div>
             </div>
-            <iscomment>
-                <div class="mb-3 col">
-                    <a href="${URLUtils.url('Home-Show')}"
-                        class="btn btn-primary btn-block order-confirmation-continue-shopping" role="button"
-                        aria-pressed="true">
-                        ${Resource.msg('button.continue.shopping', 'confirmation', null)}
-                    </a>
-                </div>
-            </iscomment>
         </div>
 </isdecorate>

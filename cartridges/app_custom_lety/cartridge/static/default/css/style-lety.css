@@ -442,14 +442,6 @@
   width: 100%;
 }
 
-.input-pass-confirmation{
-  border-radius: 25px;
-  width: 100%;
-  border-color: var(--color-lety-black) !important;
-  height: 37px;
-  text-align: center;
-}
-
 
 
 /*responsive 992*/

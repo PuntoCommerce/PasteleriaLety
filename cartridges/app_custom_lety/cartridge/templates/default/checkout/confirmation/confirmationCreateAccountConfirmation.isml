@@ -1,7 +1,7 @@
 <div>
     <div class="card order-confirm-create-account">
         <div class="card-header  txt-news-confirmation">
-            <h3 class="card-header-custom d-none d-lg-block">
+            <iscomment> <h3 class="card-header-custom d-none d-lg-block">
                 <isloop var="shippingModel" items="${pdict.order.shipping}" status="shippingLoop">
                     <isif condition="${shippingLoop.first}">
                         <div class="single-shipping thankyou_text mb-4" data-shipment-summary="${shippingModel.UUID}">
@@ -15,7 +15,7 @@
                         </div>
                     </isif>
                 </isloop>
-            </h3>
+            </h3> </iscomment>
            <p> ${Resource.msg('msg.newsletter.confirmation', 'confirmation', null)}</p>
         </div>
         <div class="card-body">
