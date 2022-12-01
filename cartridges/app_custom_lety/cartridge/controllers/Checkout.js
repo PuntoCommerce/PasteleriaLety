@@ -64,6 +64,7 @@ server.get(
         profileForm: profileForm,
         rememberMe: rememberMe,
         actionUrl: actionUrl,
+        oAuthReentryEndpoint: 2,
       });
     }
     next();
