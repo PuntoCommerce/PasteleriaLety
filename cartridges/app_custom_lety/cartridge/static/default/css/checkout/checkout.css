@@ -1199,6 +1199,31 @@ span.ship-to-phone {
 .content-img-confirmation .img-page-confir-mobile{
   display: none;
 }
+
+.input-pass-confirmation{
+  border-radius: 25px;
+  width: 100%;
+  border-color: var(--color-lety-black) !important;
+  height: 37px;
+  text-align: center;
+}
+
+.card.order-confirm-create-account{
+  border: none;
+}
+
+.order-confirm-create-account .card-body{
+  padding-top:  0 !important;
+}
+
+.txt-news-confirmation p{
+  margin-bottom: 0 !important;
+}
+
+.order-confirm-create-account .form-group{
+  margin-bottom: 0 !important;
+}
+
 @media (max-width: 992px) {
   .checkout__stepper--divider {
     height: 1px;
