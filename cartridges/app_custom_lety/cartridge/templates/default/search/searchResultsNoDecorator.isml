@@ -101,9 +101,9 @@
                             <iselse>
                                 <div class="row grid-header justify-content-center">
                                     <div class="result-count col">
-                </isif>
-                <isinclude template="search/resultsCount" />
-            </div>
+                            </isif>
+                            <isinclude template="search/resultsCount" />
+                        </div>
             <isif condition="${pdict.productSearch.productIds.length > 0}">
                 <div class="col-lg-3 col-sm-6 order-sm-3 order-div">
                     <isinclude template="search/sortOrderMenu" />
