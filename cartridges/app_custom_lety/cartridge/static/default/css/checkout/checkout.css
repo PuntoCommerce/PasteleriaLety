@@ -1217,11 +1217,11 @@ span.ship-to-phone {
 }
 
 .txt-news-confirmation p{
-  margin-bottom: 0 !important;
+  margin-bottom: 1.5rem !important;
 }
 
 .order-confirm-create-account .form-group{
-  margin-bottom: 0 !important;
+  margin-bottom: 1.5rem !important;
 }
 
 @media (max-width: 992px) {
@@ -1254,11 +1254,13 @@ span.ship-to-phone {
   }
 
   .confirmation-top .checkout__stepper--item{
-    width: 80px !important;
+    min-width: 80px !important;
   }
   .confirmation-top .checkout__stepper--item-circle-current{
     width: 40px;
     height: 40px;
+    margin-bottom: 25px;
+    margin-top: 20px;
   }
 
   .confirmation-top .checkout__stepper--item-title{
@@ -1279,7 +1281,12 @@ span.ship-to-phone {
     height: 50px;
   }
 
-  .container-custom-confirmation .order-thank-you-email{
+  .single-shipping.thankyou_text{
+    font-size: 17px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .container-custom-confirmation .order-thank-you-email-msg{
     font-size: 16px;
     padding: 0 23px;
   }
@@ -1288,8 +1295,58 @@ span.ship-to-phone {
     padding: 0 24px !important;
   }
 
+  .confirmation-summary-container .container_confirmation{
+    padding: 0 !important;
+  }
+
+  .confirmation-summary-container .container_confirmation_detail{
+    
+    min-height: 585px !important;
+  }
+
+  .container-confirmation-address, .container-confirmation-pay{
+    min-height: 260px !important;
+    padding: 0 !important;
+  }
+
+  .container-confirmation-left {
+    max-height: 230px;
+  }
+
+  .txt-news-confirmation p{
+    padding-top: 20px !important;
+  }
+
   .info-letyclub{
     font-size: 14px;
     padding: 0 25px !important;
+  }
+
+  .content-form-regis-confiration{
+    padding: 0 !important;
+  }
+
+  .order-confirm-create-account .card-header.txt-news-confirmation{
+    padding: 0 !important;
+  }
+
+  .order-confirm-create-account .card-body{
+    padding: 0 !important;
+  }
+
+  .order-confirm-create-account .btn-product{
+    width: 100%;
+  }
+
+  .container-confirmation-right{
+    padding: 0 !important;
+  }
+
+  .container-confirmation-pay .card-header.confirmation-h2{
+    padding-top: 20%;
+  }
+
+  .card-body.text-center.container-txt-pay{
+    min-width: 220px;
   }
 }
