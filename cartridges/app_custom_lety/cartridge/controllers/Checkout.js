@@ -15,9 +15,26 @@ const {
   addLetyCardToCustomer,
 } = require("*/cartridge/scripts/helpers/letyCardHelpers");
 const Site = require("dw/system/Site");
+var BasketMgr = require('dw/order/BasketMgr');
 
 server.append("Begin", (req, res, next) => {
   const viewData = res.getViewData();
+
+  let adjustmentApplied = false;
+  /*
+    Find price adjustmetn.
+    If the browser refreshes, it looks to see if an adjustment already exists.
+  */
+  try {
+    const currentBasket = BasketMgr.getCurrentBasket();
+    if(currentBasket.priceAdjustments.length > 0) {
+      adjustmentApplied = true;
+    }
+  } catch (error) {
+    adjustmentApplied = false;
+  }
+  viewData.customer.adjustmentApplied = adjustmentApplied;
+  /* end */
 
   let jsonStoreSchedule =
     Site.getCurrent().getCustomPreferenceValue("jsonStoreSchedule");
