@@ -38,11 +38,12 @@
     border-radius: 50%;
   }
   .checkout__stepper--item-circle-current,
-  .checkout__stepper--item-circle-done {
+  .checkout__stepper--item-circle-done,
+  .checkout__stepper--item-circle.active {
     background-color: var(--color-lety2);
   }
   .checkout__stepper--item-title {
-    font-family: "Avenir-Next";
+    font-family: var(--font-family-gotham) !important;
     font-size: 18px;
     color: #000000;
   }
@@ -56,7 +57,22 @@
     background-color: #000000;
   }
 
-  
+  @media (max-width: 992px) {
+
+    .checkout__stepper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 20px 0 35px 0;
+      margin-bottom: 0;
+    }
+
+    .checkout__stepper--item-title{
+      position: absolute;
+      bottom: 0;
+    }
+  }
   /*Designer Login*/
   .login-page{
     padding-left: 10% !important;
@@ -415,6 +431,25 @@
 
 .container-payments label{
  font-family: var(--font-family-gotham-bold);
+}
+
+.order-confirm-create-account .card{
+  border: none;
+}
+.content-img-confirmation{
+  width: 100%;
+}
+
+.img-page-confirmation{
+  width: 100%;
+}
+
+.input-pass-confirmation{
+  border-radius: 25px;
+  width: 100%;
+  border-color: var(--color-lety-black) !important;
+  height: 37px;
+  text-align: center;
 }
 
 

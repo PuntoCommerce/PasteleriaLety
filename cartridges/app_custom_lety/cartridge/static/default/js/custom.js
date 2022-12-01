@@ -26,24 +26,24 @@ closeSearch = () => {
 
 // #####Buscador########
 
-window.addEventListener("scroll", () => {
-  changeSubMenuItem();
-});
+// window.addEventListener("scroll", () => {
+//   changeSubMenuItem();
+// });
 
-window.addEventListener("load", () => {
-  changeSubMenuItem();
-});
+// window.addEventListener("load", () => {
+//   changeSubMenuItem();
+// });
 
-const changeSubMenuItem = () => {
-  const menu = $C(".menu-group");
-  const subMenu = $$C(".dropdown-menu");
-  const menuHeight = 100;
-  let rectMenu = menu.getBoundingClientRect();
+// const changeSubMenuItem = () => {
+//   const menu = $C(".menu-group");
+//   const subMenu = $$C(".dropdown-menu");
+//   const menuHeight = 100;
+//   let rectMenu = menu.getBoundingClientRect();
 
-  subMenu.forEach((sub) => {
-    sub.style.top = rectMenu.y + menuHeight + "px";
-  });
-};
+//   subMenu.forEach((sub) => {
+//     sub.style.top = rectMenu.y + menuHeight + "px";
+//   });
+// };
 
 
 
@@ -105,9 +105,9 @@ window.addEventListener("scroll", () => {
   changeSubMenuItem();
 });
 
-window.addEventListener("load", () => {
-  changeSubMenuItem();
-});
+// window.addEventListener("load", () => {
+//   changeSubMenuItem();
+// });
 
 /* ########################################## Sticky Nav Bar ####################################################### */
 // Listen on scroll event to show/hide btn back to top
@@ -209,10 +209,23 @@ if (navigator.appVersion.includes("Mac OS") || navigator.appVersion.includes("iP
     height: 100%;
   }
 
+  .checkout__stepper--item-circle{
+    padding-top: 20px;
+  }
+
+  .check-icon{
+    padding-bottom: 18px;
+  }
+
   @media (max-width: 991px) {
     .ITBC-content .btn-ITBC {
       line-height: 1.5;
     }
+
+    .text2:hover {
+      color: #ffffff;
+    }
+    
   }`;
   var styleSheet = document.createElement("style")
   styleSheet.type = "text/css"

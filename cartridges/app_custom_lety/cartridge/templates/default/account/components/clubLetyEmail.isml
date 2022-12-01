@@ -434,6 +434,7 @@
                                 </p>
                                 <p style="  padding: 20px 0 7px 0;">${Resource.msg('msg.info.card-clublety', 'confirmation', null)}
                                 </p>
+                                <iscomment> Agregar numero de tarjeta club lety </iscomment>
                                 <p>3030303030</p>
                             </div>
 
@@ -464,7 +465,7 @@
                     <td class="td-mar">
                         <span class="span">ENVÍO</span>
                         <br>
-                        <span class="span2">GRATIS</span>
+                        <span class="span2">A DOMICILIO</span>
                     </td>
                     <td> <img class="pay-icon" src="${URLUtils.httpsStatic('/images/icons-emails/credi-cart.png')}"
                             alt="PP" />

@@ -155,7 +155,6 @@ function body(data,credential,path) {
         '<IdEmpresa>'+data.Empresa+'</IdEmpresa>'+
         '<vUsr>'+credential.user+'</vUsr>'+
         '<vPwd>'+credential.password+'</vPwd>'+
-        '<s_IdMembresia>'+data.s_IdMembresia+'</s_IdMembresia>'+
         '<s_Nombre>'+data.s_Nombre+'</s_Nombre>'+
         '<s_Appaterno>'+data.s_Appaterno+'</s_Appaterno>'+
         '<s_Apmaterno>'+data.s_Apmaterno+'</s_Apmaterno>'+
@@ -168,6 +167,93 @@ function body(data,credential,path) {
         '<s_Colonia>'+data.s_Colonia+'</s_Colonia>'+
         '<s_Telefono>'+data.s_Telefono+'</s_Telefono>'+
         '<s_Mail>'+data.s_Mail+'</s_Mail>'+
+        '</'+path+'>'+
+        '</soap:Body></soap:Envelope>';
+    }
+    if(path==="InsertaPersonaDireccion"){
+      return '<?xml version="1.0" encoding="utf-8"?>'+
+        '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">'+
+        '<soap:Body><'+path+' xmlns="http://localhost/">'+
+        '<IdEmpresa>'+data.IdEmpresa+'</IdEmpresa>'+
+        '<vUsr>'+credential.user+'</vUsr>'+
+        '<vPwd>'+credential.password+'</vPwd>'+
+        '<pPersonaDireccion>'+
+        '<iIdFolioPersona>'+data.iIdFolioPersona+'</iIdFolioPersona>'+
+        '<iIdCentro>'+data.iIdCentro+'</iIdCentro>'+
+        '<iIdDireccion>'+data.iIdDireccion+'</iIdDireccion>'+
+        '<iIdFolioDireccion>'+data.iIdFolioDireccion+'</iIdFolioDireccion>'+
+        '<sDireccion>'+data.sDireccion+'</sDireccion>'+
+        '<sColonia>'+data.sColonia+'</sColonia>'+
+        '<sCP>'+data.sCP+'</sCP>'+
+        '<sTelefono1>'+data.sTelefono1+'</sTelefono1>'+
+        '<sTelefono2>'+data.sTelefono2+'</sTelefono2>'+
+        '<sEntreCalles>'+data.sEntreCalles+'</sEntreCalles>'+
+        '<sObservaciones>'+data.sObservaciones+'</sObservaciones>'+
+        '<iIdCiudad>'+data.iIdCiudad+'</iIdCiudad>'+
+        '<dLatitud>'+data.dLatitud+'</dLatitud>'+
+        '<dLongitud>'+data.dLongitud+'</dLongitud>'+
+        '<sNoInterior>'+data.sNoInterior+'</sNoInterior>'+
+        '<sNoExterior>'+data.sNoExterior+'</sNoExterior>'+
+        '<iIdUsuario>'+data.iIdUsuario+'</iIdUsuario>'+
+        '<dtFecha>'+data.dtFecha+'</dtFecha>'+
+        '<iTipoDireccion>'+data.iTipoDireccion+'</iTipoDireccion>'+
+        '</pPersonaDireccion>'+
+        '<address>'+data.address+'</address>'+
+        '</'+path+'>'+
+        '</soap:Body></soap:Envelope>';
+    }
+    if(path==="RegistraServDom"){
+      return '<?xml version="1.0" encoding="utf-8"?>'+
+        '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">'+
+        '<soap:Body><'+path+' xmlns="http://localhost/">'+
+        '<IdEmpresa>'+data.IdEmpresa+'</IdEmpresa>'+
+        '<vUsr>'+credential.user+'</vUsr>'+
+        '<vPwd>'+credential.password+'</vPwd>'+
+        '<pServicioDomicilioH>'+
+        '<iIdCentroAlta>'+data.iIdCentroAlta+'</iIdCentroAlta>'+
+        '<iIdServDom>'+data.iIdServDom+'</iIdServDom>'+
+        '<iIdCentroAfecta>'+data.iIdCentroAfecta+'</iIdCentroAfecta>'+
+        '<iIdFolioPersona>'+data.iIdFolioPersona+'</iIdFolioPersona>'+
+        '<iIdFolioDireccion>'+data.iIdFolioDireccion+'</iIdFolioDireccion>'+
+        '<dtFechaAlta>'+data.dtFechaAlta+'</dtFechaAlta>'+
+        '<dtFechaEntrega>'+data.dtFechaEntrega+'</dtFechaEntrega>'+
+        '<iIdUsuarioAlta>'+data.iIdUsuarioAlta+'</iIdUsuarioAlta>'+
+        '<bIndFactura>'+data.bIndFactura+'</bIndFactura>'+
+        '<sObservaciones>'+data.sObservaciones+'</sObservaciones>'+
+      '</pServicioDomicilioH>'+
+      '<pServicioDomicilioD>'+
+        '<cServicioDomicilioDWeb>'+
+          '<iIdCentroAlta>'+data.iIdCentroAlta+'</iIdCentroAlta>'+
+          '<iIdServDom>'+data.iIdServDom+'</iIdServDom>'+
+          '<iIdMaterial>'+data.iIdMaterial+'</iIdMaterial>'+
+          '<dPrecio>'+data.dPrecio+'</dPrecio>'+
+          '<dPrecioBase>'+data.dPrecioBase+'</dPrecioBase>'+
+          '<dCantidad>'+data.dCantidad+'</dCantidad>'+
+          '<dCantidadBase>'+data.dCantidadBase+'</dCantidadBase>'+
+          '<iIdUnidad>'+data.iIdUnidad+'</iIdUnidad>'+
+          '<iIdUnidadBase>'+data.iIdUnidadBase+'</iIdUnidadBase>'+
+          '<dPorcDescuento>'+data.dPorcDescuento+'</dPorcDescuento>'+
+          '<dMontoDescuento>'+data.dMontoDescuento+'</dMontoDescuento>'+
+          '<dPorcIVA>'+data.dPorcIVA+'</dPorcIVA>'+
+          '<dMontoIVA>'+data.dMontoIVA+'</dMontoIVA>'+
+          '<dPorcIEPS>'+data.dPorcIEPS+'</dPorcIEPS>'+
+          '<dMontoIEPS>'+data.dMontoIEPS+'</dMontoIEPS>'+
+          '<iIdCombo>'+data.iIdCombo+'</iIdCombo>'+
+        '</cServicioDomicilioDWeb>'+
+      '</pServicioDomicilioD>'+
+      '<pServicioDomicilioPago>'+
+        '<iIdCentroAlta>'+data.iIdCentroAlta+'</iIdCentroAlta>'+
+        '<iIdServDom>'+data.iIdServDom+'</iIdServDom>'+
+        '<iIdFormaDePago>'+data.iIdFormaDePago+'</iIdFormaDePago>'+
+        '<dMonto>'+data.dMonto+'</dMonto>'+
+        '<TipoDeCambio>'+data.TipoDeCambio+'</TipoDeCambio>'+
+        '<dImporte>'+data.dImporte+'</dImporte>'+
+        '<sFolioTarjeta>'+data.sFolioTarjeta+'</sFolioTarjeta>'+
+        '<dMontoLetyPesos>'+data.dMontoLetyPesos+'</dMontoLetyPesos>'+
+      '</pServicioDomicilioPago>'+
+      '<NombreCompleto>'+data.NombreCompleto+'</NombreCompleto>'+
+      '<Municipio>'+data.Municipio+'</Municipio>'+
+      '<Estado>'+data.Estado+'</Estado>'+
         '</'+path+'>'+
         '</soap:Body></soap:Envelope>';
     }

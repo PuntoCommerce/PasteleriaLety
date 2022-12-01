@@ -827,7 +827,7 @@ span.ship-to-phone {
     line-height: 33px;
   }
   .order-confirm-create-account {
-    padding: 5%;
+    padding: 0;
   }
 }
 .pickup-title {
@@ -1034,7 +1034,7 @@ span.ship-to-phone {
 .checkout__stepper--divider {
   width: 10%;
   height: 2px;
-  margin: 30px 10px 0 10px;
+  margin: 30px 0;
   background-color: #64656a;
 }
 .checkout__stepper--divider-done {
@@ -1189,5 +1189,25 @@ span.ship-to-phone {
   padding-top: 20px;
 }
 
+.checkout_top_text{
+  text-align: center;
+  font-size: 16px;
+  font-family: var(--font-family-gotham-bold) !important;
+}
 
+.checkout_top_text_2{
+  font-family: 'gotham-book';
+}
+@media (max-width: 992px) {
+  .checkout__stepper--divider {
+    height: 1px;
+    margin: 30px 0;
+  }
+}
 
+@media (max-width: 425px) {
+  .checkout__stepper--item-title{
+    margin: 0 30px;
+    text-align: center;
+  }
+}

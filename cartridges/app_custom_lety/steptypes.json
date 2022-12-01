@@ -89,7 +89,31 @@
                     }
                   ]
                 }
-              }
+              },
+              {
+                "@type-id": "custom.clubLetyStatusNotifications",
+                "@supports-parallel-execution": "false",
+                "@supports-site-context": "true",
+                "@supports-organization-context": "false",
+                "description": "Generate confirmation lety card and send notifications",
+                "module": "app_custom_lety/cartridge/scripts/jobs/clubLetyStatusNotifications.js",
+                "function": "execute",
+                "transactional": "true",
+                "timeout-in-seconds": "900",
+                "parameters": {},
+                "status-codes": {
+                    "status": [
+                        {
+                            "@code": "ERROR",
+                            "description": "An error occurs, please re-run the job or contact Support"
+                        },
+                        {
+                            "@code": "FINISHED",
+                            "description": "All orders were checked"
+                        }
+                    ]
+                }
+            }
         ]
     }
 }

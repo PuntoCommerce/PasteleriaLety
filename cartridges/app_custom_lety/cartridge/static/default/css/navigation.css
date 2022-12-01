@@ -69,6 +69,7 @@
   color: var(--color-lety-black);
   font-family: var(--font-family-gotham);
   font-size: 15px;
+  padding-top: 5px;
 }
 
 #menuDesk .dropdown-menu .category-item.item a{
@@ -81,6 +82,7 @@
 .nav.navbar-nav {
   display: flex;
   justify-content: space-evenly;
+  float: left;
 }
 
 /* #menuDesk .dropdown-menu .category-item.item a .hover-underline {
@@ -232,9 +234,7 @@
 
 /* Menu */
 .dropdown-menu {
-  position: fixed !important;
-  width: 100vw;
-
+  width: 100%;
   box-shadow: none !important;
 }
 

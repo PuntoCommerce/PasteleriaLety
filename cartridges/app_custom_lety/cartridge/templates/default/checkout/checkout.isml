@@ -6,6 +6,7 @@
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addJs('/js/checkout.js');
+        assets.addJs('/js/custom.js');
         assets.addJs('/js/priceAdjustment.js');
         assets.addCss('/css/checkout/checkout.css');
 
@@ -29,38 +30,69 @@
 <div>
     
 </div>
+    <!-- Header Desktop -->
+    <div class="checkout-header-desk d-none d-md-block">
         <ul class="checkout__stepper">
-        <li class="continue-checkout" style="padding-right: 12%; list-style: none">
-            <button type="" class="continue-shopping-checkout d-flex"
-                style="background-color: transparent; border: none">
-                <a class="continue-shopping-checkout" href="${URLUtils.url('Home-Show')}"
-                    title="${Resource.msg('link.continue.shopping', 'cart', null)}">
-                    ${Resource.msg('link.continue.shopping', 'cart', null)}
-                </a></button>
-        </li>
-        <div class="conten-steps-EPR">
+            <li class="continue-checkout" style="padding-right: 12%; list-style: none">
+                <button type="" class="continue-shopping-checkout d-flex"
+                    style="background-color: transparent; border: none">
+                    <a class="continue-shopping-checkout" href="${URLUtils.url('Home-Show')}"
+                        title="${Resource.msg('link.continue.shopping', 'cart', null)}">
+                        ${Resource.msg('link.continue.shopping', 'cart', null)}
+                    </a></button>
+            </li>
+            <div class="conten-steps-EPR">
+                <li class="checkout__stepper--item">
+                <h3 class="checkout__stepper--item-circle checkout__stepper--item-circle-current">1</h3>
+                <p class="checkout__stepper--item-title">Envío</p>
+            </li>
+            <div class="checkout__stepper--divider"></div>
             <li class="checkout__stepper--item">
-            <h3 class="checkout__stepper--item-circle checkout__stepper--item-circle-current">1</h3>
-            <p class="checkout__stepper--item-title">Envío</p>
-        </li>
-        <div class="checkout__stepper--divider"></div>
-        <li class="checkout__stepper--item">
-            <h3 class="checkout__stepper--item-circle">2</h3>
-            <p class="checkout__stepper--item-title">Pago</p>
-        </li>
-        <div class="checkout__stepper--divider"></div>
-        <li class="checkout__stepper--item">
-            <h3 class="checkout__stepper--item-circle">3</h3>
-            <p class="checkout__stepper--item-title">Realizar Pedido</p>
-        </li> 
+                <h3 class="checkout__stepper--item-circle">2</h3>
+                <p class="checkout__stepper--item-title">Pago</p>
+            </li>
+            <div class="checkout__stepper--divider"></div>
+            <li class="checkout__stepper--item">
+                <h3 class="checkout__stepper--item-circle">3</h3>
+                <p class="checkout__stepper--item-title">Realizar Pedido</p>
+            </li> 
+            </div>
+        
+            <li class="msg-secur" style="padding-left: 12%; list-style: none;">
+                <img class="" src="${URLUtils.staticURL('/images/icons/candado.svg')}" alt="secur" />
+                <span>${Resource.msg('check.secure.purchase', 'checkout', null)}</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Header Mobile -->
+    <div class="checkout-header-mob d-md-none">
+        <div class="checkout_top">
+            <div>
+                <p class="checkout_top_text">
+                <img class="mr-3 checkout_top_img" src="${URLUtils.staticURL('/images/candado.svg')}" alt="lock"/>Compra segura</p>
+            </div>
+            <div>
+                <p class="checkout_top_text_2 ml-4">Seguir comprando</p>
+            </div>
         </div>
-       
-        <li class="msg-secur" style="padding-left: 12%; list-style: none;">
-            <img class="" src="${URLUtils.staticURL('/images/icons/candado.svg')}" alt="secur" />
-            <span>${Resource.msg('check.secure.purchase', 'checkout', null)}</span>
-        </li>
-    </ul>
-    
+        <ul class="checkout__stepper">
+            <li class="checkout__stepper--item">
+                <h3 id="checkoutStep1" class="checkout__stepper--item-circle checkout__stepper--item-circle-current">1</h3>
+                <p class="checkout__stepper--item-title">Envío</p>
+            </li>
+            <div id="checkoutStepDivider1" class="checkout__stepper--divider"></div>
+            <li class="checkout__stepper--item">
+                <h3 id="checkoutStep2" class="checkout__stepper--item-circle">2</h3>
+                <p class="checkout__stepper--item-title">Pago</p>
+            </li>
+            <div id="checkoutStepDivider2" class="checkout__stepper--divider"></div>
+            <li class="checkout__stepper--item">
+                <h3 id="checkoutStep3" class="checkout__stepper--item-circle">3</h3>
+                <p class="checkout__stepper--item-title">Realizar Pedido</p>
+            </li>
+        </ul>
+    </div>
     <div class="d-flex justify-content-center">
         <div class="col-sm-12 col-lg-10">
             <div id="checkout-main" class="container data-checkout-stage <isif condition="
@@ -139,7 +171,7 @@
                                     <div class="next-step-button col-12">
                                         <div class="mb-sm-5">
                                             <button
-                                                class="btn btn-product text-uppercase btn-block submit-shipping col-sm-12 col-lg-12"
+                                                class="btn btn-product btn-block submit-shipping col-sm-12 col-lg-12"
                                                 type="submit" name="submit" value="submit-shipping" <isif
                                                 condition="${pdict.order.usingMultiShipping && !pdict.order.shippable}">disabled
                                                 </isif>>
