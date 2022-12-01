@@ -8,8 +8,8 @@
   <div class="mt-5 mb-5 checkout">
     <div class="row d-flex justify-content-center form-checkout ">
       <div class="col-12 pl-5 pr-5 col-md-6 d-flex justify-content-center align-items-center">
-        <img class="mr-2" src="${URLUtils.staticURL('/images/icons/check.svg')}" alt="check" height="14px" />
-        ${Resource.msg('check.shipping', 'checkout', null)}
+        <!--<img class="mr-2" src="${URLUtils.staticURL('/images/icons/check.svg')}" alt="check" height="14px" />
+        ${Resource.msg('check.shipping', 'checkout', null)}-->
       </div>
       <div class="col-12 pl-5 pr-5 col-md-6 d-flex justify-content-center align-items-center">
         <img class="mr-2" src="${URLUtils.staticURL('/images/icons/check.svg')}" alt="check" height="14px" />
