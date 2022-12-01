@@ -42,6 +42,7 @@
   .checkout__stepper--item-circle.active {
     background-color: var(--color-lety2);
   }
+
   .checkout__stepper--item-title {
     font-family: var(--font-family-gotham) !important;
     font-size: 18px;
@@ -56,23 +57,7 @@
   .checkout__stepper--divider-done {
     background-color: #000000;
   }
-
-  @media (max-width: 992px) {
-
-    .checkout__stepper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      padding: 20px 0 35px 0;
-      margin-bottom: 0;
-    }
-
-    .checkout__stepper--item-title{
-      position: absolute;
-      bottom: 0;
-    }
-  }
+  
   /*Designer Login*/
   .login-page{
     padding-left: 10% !important;
@@ -433,8 +418,21 @@
  font-family: var(--font-family-gotham-bold);
 }
 
+.order-confirm-create-account .card-header{
+  padding: 0 1.25rem;
+  border-bottom: none;
+}
+
 .order-confirm-create-account .card{
   border: none;
+}
+
+.order-confirm-create-account .card-body{
+  padding: 1rem 1.25rem;
+}
+
+.order-confirm-create-account .form-group{
+  margin-bottom: 1.25rem;
 }
 .content-img-confirmation{
   width: 100%;

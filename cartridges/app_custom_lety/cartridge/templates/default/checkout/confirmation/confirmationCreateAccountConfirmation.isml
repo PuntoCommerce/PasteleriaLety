@@ -1,6 +1,6 @@
 <div>
     <div class="card order-confirm-create-account">
-        <div class="card-header">
+        <div class="card-header  txt-news-confirmation">
             <h3 class="card-header-custom d-none d-lg-block">
                 <isloop var="shippingModel" items="${pdict.order.shipping}" status="shippingLoop">
                     <isif condition="${shippingLoop.first}">
@@ -16,7 +16,7 @@
                     </isif>
                 </isloop>
             </h3>
-            <h3 class="card-header-custom d-lg-none">${Resource.msg('title.save.customer.information.mobile', 'confirmation', null)}</h3>
+           <p> ${Resource.msg('msg.newsletter.confirmation', 'confirmation', null)}</p>
         </div>
         <div class="card-body">
             <form
@@ -25,7 +25,7 @@
                 ${pdict.passwordForm.attributes} novalidate>
                 <div class="form-group
                     <isif condition=" ${pdict.passwordForm.newpassword.mandatory === true}">required</isif>">
-                    <input type="password" class="form-control"
+                    <input type="password" class="form-control input-pass-confirmation"
                         placeholder=" ${Resource.msg('field.password', 'confirmation', null)}" id="newPassword"
                         data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
                         data-range-error="${Resource.msg('error.message.8_255characters', 'forms', null)}" <isprint
@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group
                     <isif condition=" ${pdict.passwordForm.newpasswordconfirm.mandatory === true}">required</isif>">
-                    <input type="password" class="form-control" id="newPasswordConfirm"
+                    <input type="password" class="form-control input-pass-confirmation" id="newPasswordConfirm"
                         placeholder="${Resource.msg('field.confirm.password', 'confirmation', null)}"
                         data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
                         data-range-error="${Resource.msg('error.message.8_255characters', 'forms', null)}" <isprint
@@ -46,7 +46,7 @@
 
                     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
 
-                    <button class="btn btn--gray btn__small text-uppercase">
+                    <button class="btn btn-product">
                         ${Resource.msg('button.create.account', 'confirmation', null)}
                     </button>
             </form>
