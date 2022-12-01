@@ -12,6 +12,8 @@
     <div class="content-img-confirmation">
         <img class="img-page-confirmation" src="${URLUtils.staticURL('/images/banner-confirmation.svg')}"
             alt="confirmation" />
+            <img class="img-page-confir-mobile" src="${URLUtils.staticURL('/images/banner-mobile-conf.svg')}"
+            alt="confirmation" />
     </div>
     <div class="confirmation-top">
         <ul class="checkout__stepper">
@@ -33,7 +35,7 @@
                 <h3 class="checkout__stepper--item-circle checkout__stepper--item-circle-current"><img
                         class="check-icon" src="${URLUtils.httpsStatic('/images/icons/chack-white.svg')}" alt="Check" />
                 </h3>
-                <p class="checkout__stepper--item-title">Realizar Pedido</p>
+                <p class="checkout__stepper--item-title checkout__stepper--item-title-3">Realizar Pedido</p>
             </li>
         </ul>
     </div>
@@ -43,7 +45,7 @@
                 <h1 class="page-title">${Resource.msg('title.thank.you.page', 'confirmation', null)}</h1>
             </div>
         </iscomment>
-        <div class="container_custom receipt <isif condition=" ${pdict.order.shipping.length > 1}">multi-ship</isif>">
+        <div class="container_custom container-custom-confirmation receipt <isif condition=" ${pdict.order.shipping.length > 1}">multi-ship</isif>">
             <div class="row justify-content-center">
                 <img class="bag-confirmation" src="${URLUtils.httpsStatic('/images/icons/bag-confir.svg')}"
                     alt="Bag confirmation" />
@@ -87,7 +89,7 @@
                     <div class="row container_confirmation">
                         <div class="col-lg-6 container-confirmation-left">
                             <isif condition="${pdict.returningCustomer === false && pdict.order.orderEmail}">
-                                <div class="">
+                                <div class="col-12">
                                     <isinclude template="checkout/confirmation/confirmationCreateAccountConfirmation" />
                                 </div>
                             </isif>

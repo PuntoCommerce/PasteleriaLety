@@ -42,7 +42,7 @@
 
                 <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
 
-                <button class="btn btn-product">
+                <button class="btn btn-primary btn-block">
                     ${Resource.msg('button.create.account','confirmation',null)}
                 </button>
             </form>
