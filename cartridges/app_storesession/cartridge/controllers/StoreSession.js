@@ -15,6 +15,7 @@ server.get("Start", (req, res, next) => {
   let store;
   if (storeId) {
     store = StoreMgr.getStore(storeId);
+    req.session.privacyCache.set("empresaId", store.custom.empresaId);
   }
 
   res.render("storesession/session", {
@@ -57,6 +58,7 @@ server.post("SetStore", (req, res, next) => {
   const store = StoreMgr.getStore(storeId);
 
   req.session.privacyCache.set("storeId", storeId);
+  req.session.privacyCache.set("empresaId", store.custom.empresaId);
 
   next();
 });
