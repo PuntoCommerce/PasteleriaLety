@@ -1134,7 +1134,8 @@ span.ship-to-phone {
 }
 
 .txt-news-confirmation{
-  padding-bottom: 30px;
+  padding-bottom: 20px;
+  padding-top: 20px;
 
 }
 
@@ -1195,19 +1196,132 @@ span.ship-to-phone {
   font-family: var(--font-family-gotham-bold) !important;
 }
 
-.checkout_top_text_2{
-  font-family: 'gotham-book';
+.content-img-confirmation .img-page-confir-mobile{
+  display: none;
 }
 @media (max-width: 992px) {
   .checkout__stepper--divider {
     height: 1px;
     margin: 30px 0;
   }
-}
 
-@media (max-width: 425px) {
+  .checkout__stepper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px 0 35px 0;
+    margin-bottom: 0;
+  }
+
   .checkout__stepper--item-title{
-    margin: 0 30px;
-    text-align: center;
+    font-family: var(--font-family-gotham) !important;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .content-img-confirmation .img-page-confirmation{
+    display: none;
+  }
+
+  .content-img-confirmation .img-page-confir-mobile{
+    display: flex;
+  }
+
+  .confirmation-top .checkout__stepper--item{
+    min-width: 80px !important;
+    max-width: 80px !important;
+  }
+  .confirmation-top .checkout__stepper--item-circle-current{
+    width: 40px;
+    height: 40px;
+    margin-top: 20px !important;
+    margin-bottom: 25px !important;
+  }
+
+  .confirmation-top .checkout__stepper--item-title{
+    font-size: 14px;
+  }
+
+  .confirmation-top .checkout__stepper--item-title-3{
+    right: 10px;
+  }
+  .container_custom.receipt{
+    margin-top: 17px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .container-custom-confirmation .bag-confirmation{
+    width: 50px;
+    height: 50px;
+  }
+
+  .container-custom-confirmation .single-shipping.thankyou_text{
+    font-size: 16px !important;
+    padding: 0 23px !important;
+  }
+
+  .order-thank-you-email-msg{
+    font-size: 16px !important;
+    padding: 0 20px !important;
+  }
+
+  .confirmation-summary-container{
+    padding: 0 24px !important;
+  }
+
+  .info-letyclub{
+    font-size: 14px;
+    padding: 0 25px !important;
+  }
+
+  .container-confirmation-right{
+    padding-left: 0 !important;
+  }
+
+  .confirmation-summary-container .container_confirmation{
+    padding: 0 !important;
+  }
+  
+
+  .container-confirmation-address, .container-confirmation-pay{
+    padding: 0 !important;
+  }
+
+  .container-confirmation-address{
+    min-height: 250px !important;
+  }
+
+  .container-confirmation-pay{
+    min-height: 170px !important;
+  }
+
+  .container-confirmation-address .card-body{
+    padding: 0 !important;
+    font-size: 14px !important;
+  }
+
+  .container-txt-pay .payment-details{
+    padding-top:  0;
+  }
+
+  .card-header-custom.h2-detail-confirmation{
+    margin: 1.25rem !important;
+  }
+
+  .container-confirmation-address .icon-shipping{
+    padding-bottom: 10px;
+  }
+
+  .container-confirmation-pay .container-txt-pay{
+    
+    min-width: 240px !important;
+    padding: 10px !important;
+
+  }
+
+  .container-confirmation-pay .payment-details span{
+    font-size: 13px !important;
   }
 }
