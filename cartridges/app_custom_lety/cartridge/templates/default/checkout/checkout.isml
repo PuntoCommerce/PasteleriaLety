@@ -30,7 +30,7 @@
     
 </div>
     <!-- Header Desktop -->
-    <div class="checkout-header-desk d-none d-sm-block">
+    <div class="checkout-header-desk d-none d-md-block">
         <ul class="checkout__stepper">
             <li class="continue-checkout" style="padding-right: 12%; list-style: none">
                 <button type="" class="continue-shopping-checkout d-flex"
@@ -72,7 +72,7 @@
                 <img class="mr-3 checkout_top_img" src="${URLUtils.staticURL('/images/candado.svg')}" alt="lock"/>Compra segura</p>
             </div>
             <div>
-                <p class="checkout_top_text ml-4">Seguir comprando</p>
+                <p class="checkout_top_text_2 ml-4">Seguir comprando</p>
             </div>
         </div>
         <ul class="checkout__stepper">
@@ -259,7 +259,7 @@
 
                                 </div>
 
-                                <div class="row">
+                                <div class="row bg-info">
                                    <iscomment> Lety card </iscomment>
                                    <iscomment> Membresia </iscomment>
                                    <div class="col-12">
@@ -382,7 +382,7 @@
 
                                    <iscomment> Show price adjustment apply  </iscomment>
                                  
-                                   <div class="col-12" id="hideDivCancelCange">
+                                   <div class="col-12">
                                        <iscomment> Remove the price adjustment </iscomment>
                                        <div class="row">
                                            <div class="col-12 promo-code-submit">
@@ -492,31 +492,7 @@
        </div>
    </div>
 </div>
-
-<iscomment> Modal loading </iscomment> 
-<div class="modal fade" id="modalLoading" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog w-25" role="document">
-      <div class="modal-content">
-          <div class="modal-body">
-              <div class="d-flex justify-content-center mt-3">
-                  <img class="center-block" src="${URLUtils.staticURL('/images/success-svg.svg')}" alt="success" width="25%" height="auto" />
-              </div>
-              <hr/>
-              <div class="text-center my-3 h4">
-                  <p>Completado.</p>
-              </div>
-              <div class="text-center my-3">
-                  <p>Se ha actualizado la información correspondiente.</p>
-              </div>
-              <div class="text-center my-3">
-                  <button type="button" class="btn bg-primary text-white" data-dismiss="modal">Cerrar</button>
-              </div>   
-          </div>
-      </div>
-  </div>
-</div>
  
-<iscomment> Modal success </iscomment> 
 <div class="modal fade" id="modalSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog w-25" role="document">
        <div class="modal-content">

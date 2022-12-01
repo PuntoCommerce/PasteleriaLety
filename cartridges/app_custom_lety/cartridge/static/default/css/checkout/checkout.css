@@ -1194,9 +1194,20 @@ span.ship-to-phone {
   font-size: 16px;
   font-family: var(--font-family-gotham-bold) !important;
 }
+
+.checkout_top_text_2{
+  font-family: 'gotham-book';
+}
 @media (max-width: 992px) {
   .checkout__stepper--divider {
     height: 1px;
     margin: 30px 0;
+  }
+}
+
+@media (max-width: 425px) {
+  .checkout__stepper--item-title{
+    margin: 0 30px;
+    text-align: center;
   }
 }
