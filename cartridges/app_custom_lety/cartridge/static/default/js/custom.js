@@ -213,6 +213,10 @@ if (navigator.appVersion.includes("Mac OS") || navigator.appVersion.includes("iP
     padding-top: 20px;
   }
 
+  .check-icon{
+    padding-bottom: 18px;
+  }
+
   @media (max-width: 991px) {
     .ITBC-content .btn-ITBC {
       line-height: 1.5;
