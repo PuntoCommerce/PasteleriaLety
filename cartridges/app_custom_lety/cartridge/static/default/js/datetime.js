@@ -34,14 +34,17 @@
   };
 
   const updateStoreDay = (date, weekSchedule, container) => {
+    let today = new Date();
+    let todayWeekDay = today
+      .toLocaleDateString("en-US", { weekday: "short" })
+      .toLowerCase();
     let day = date
       .toLocaleDateString("en-US", { weekday: "short" })
       .toLowerCase();
     let inner = ``;
     let { openHours, closeHours } = weekSchedule[day];
-    if (openHours < date.getHours()) {
+    if (openHours < date.getHours() && todayWeekDay == day) {
       openHours = date.getHours() + 1;
-      // openHours = 21;
     }
     for (let i = openHours; i < closeHours; i++) {
       let { label, id } = formatHours(i);
