@@ -87,30 +87,42 @@ class Pagination {
 
     // -----------------------------------------------------------
     let cards = ''
+    let dtFechaAplica;
+    let tipoMovimiento;
+    let cargo;
+    let abono;
+    let dSaldoAnterior;
     for (const [c, item] of this.arrayPagination[p].entries()) {
+  
+      dtFechaAplica = (item.dtFechaAplica || item.dtFechaAplica !== undefined) ? dtFechaAplica = item.dtFechaAplica : dtFechaAplica = "";
+      tipoMovimiento = (item.TipoMovimiento || item.TipoMovimiento !== undefined) ? tipoMovimiento = item.TipoMovimiento : tipoMovimiento = "";
+      cargo = (item.Cargo || item.Cargo !== undefined) ? cargo = item.Cargo : cargo = "";
+      abono = (item.Abono || item.Abono !== undefined) ? abono = item.Abono : abono = "";
+      dSaldoAnterior = (item.dSaldoAnterior || item.dSaldoAnterior !== undefined) ? dSaldoAnterior = item.dSaldoAnterior : dSaldoAnterior = "";
+    
       cards += `<div class="card card-list" >\
                   <div class="card-body card-body-list">\
                     <h5 class="card-title card-title-list">Fecha Movimiento</h5>\
-                    <p class="card-text card-text-list">${item.dtFechaAplica}</p>\
-
+                    <p class="card-text card-text-list">${dtFechaAplica}</p>\
+  
                     <h5 class="card-title card-title-list">Sucursal</h5>\
-                    <p class="card-text card-text-list">${item.dtFechaAplica}</p>\
-
+                    <p class="card-text card-text-list">${dtFechaAplica}</p>\
+  
                     <h5 class="card-title card-title-list">Descripción</h5>\
-                    <p class="card-text card-text-list">${item.TipoMovimiento}</p>\
-
+                    <p class="card-text card-text-list">${tipoMovimiento}</p>\
+  
                     <h5 class="card-title card-title-list">Canjes</h5>\
-                    <p class="card-text card-text-list">${item.Cargo}</p>\
-
+                    <p class="card-text card-text-list">${cargo}</p>\
+  
                     <h5 class="card-title card-title-list">Abono</h5>\
-                    <p class="card-text card-text-list">${item.Abono}</p>\
-
+                    <p class="card-text card-text-list">${abono}</p>\
+  
                     <h5 class="card-title card-title-list">Saldo</h5>\
-                    <p class="card-text card-text-list">${item.dSaldoAnterior}</p>\
-
+                    <p class="card-text card-text-list">${dSaldoAnterior}</p>\
+  
                   </div>\
-                </div>`; 
-    }
+                </div>`;
+    } 
     // -----------------------------------------------------------
     document.getElementById("listCards").innerHTML = cards
 
