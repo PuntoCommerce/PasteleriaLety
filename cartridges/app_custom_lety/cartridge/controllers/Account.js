@@ -129,7 +129,7 @@ server.post("GenerateLetyCard", (req, res, next) => {
   const Custom = req.currentCustomer.profile.customerNo;
   const data = JSON.parse(JSON.stringify(req.form));
   const letyCardNew = crearLetyCard(Custom, data);
-  res.redirect(URLUtils.url("Account-Show"));
+  //res.redirect(URLUtils.url("Account-Show"));
   next();
  });
  
