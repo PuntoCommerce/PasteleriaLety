@@ -106,8 +106,8 @@ server.post("RemoveLetyPuntos", (req, res, next) => {
     );
 
     res.json({
-        err,
-        code,
+        err: err,
+        code: code,
         response: result,
         renderedTotas: renderedTotas
     });
