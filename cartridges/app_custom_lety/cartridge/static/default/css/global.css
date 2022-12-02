@@ -690,7 +690,7 @@ header {
 }
 
 .user.hidden-md-down.nav-item .popover.popover-bottom{
-  top: 30px !important;
+  top: 60px !important;
 }
 
 .user-conten .user{
@@ -6757,7 +6757,7 @@ a.close.disabled {
 }
 .popover {
   top: 55px;
-  left: 0;
+  left: 118px;
   z-index: 1060;
   width: 100px;
   max-width: 276px;
