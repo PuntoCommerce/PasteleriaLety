@@ -972,7 +972,8 @@ span.ship-to-phone {
   margin-left: 5px;
 }
 .checkout__text--bold {
-  font-family: "AvenirLTStd-Heavy" !important;
+  font-family: var(--font-family-gotham) !important;
+  font-weight: 700;
 }
 .checkout__text--h3 {
   font-size: 32px;
