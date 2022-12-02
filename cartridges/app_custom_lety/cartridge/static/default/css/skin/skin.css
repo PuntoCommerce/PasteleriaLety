@@ -3,7 +3,7 @@
 .hero,
 body {
   background-color: var(--skin-background-color-1);
-  font-family: var(--font-family-gotham);
+  font-family: var(--font-family-gotham) !important;
   color: var(--skin-main-text-color-1);
 }
 .hero {
@@ -89,7 +89,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--skin-header-font), sans-serif;
+  font-family: var(--font-family-gotham) !important;
 }
 a {
   color: var(--skin-link-color-1);
