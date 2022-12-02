@@ -99,8 +99,9 @@
             </div>
         </div>
     </nav>
-    <div class="location d-block d-md-none">
-        <iscomment> <isinclude template="components/header/location" /> </iscomment>
-        <iscomment> <isinclude url="${URLUtils.url('StoreSession-Start')}" /> </iscomment>
+    <div class="location d-block d-md-none" style="height: 100px;">
+        <isinclude url="${URLUtils.url('StoreSession-Start', 'mobile', true)}" />
     </div>
 </header>
+
+<isinclude url="${URLUtils.url('StoreSession-MapsScript')}" sf-toolkit="on" />

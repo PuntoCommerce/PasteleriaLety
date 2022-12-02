@@ -8,8 +8,12 @@ const Session = require("dw/system/Session");
 const { closestStore } = require("~/cartridge/scripts/helpers/distance");
 
 server.get("Start", (req, res, next) => {
-  const currentSite = Site.getCurrent();
-  const apikey = currentSite.getCustomPreferenceValue("mapAPI");
+  let render = "storesession/session";
+  let mobile = req.querystring.mobile;
+  mobile = mobile == "true" ? true : false;
+  if (mobile) {
+    render = "storesession/sessionMobile";
+  }
 
   const storeId = req.session.raw.privacy.storeId;
   let store;
@@ -18,9 +22,17 @@ server.get("Start", (req, res, next) => {
     req.session.privacyCache.set("empresaId", store.custom.empresaId);
   }
 
-  res.render("storesession/session", {
-    apikey: apikey,
+  res.render(render, {
     store: store,
+    mobile: mobile,
+  });
+  next();
+});
+
+server.get("MapsScript", (req, res, next) => {
+  const apikey = Site.getCurrent().getCustomPreferenceValue("mapAPI");
+  res.render("storesession/mapsScript", {
+    apikey: apikey,
   });
   next();
 });
@@ -31,17 +43,6 @@ server.post("CleanStore", (req, res, next) => {
 });
 
 server.post("SetStore", (req, res, next) => {
-  // let CustomerMgr = require('dw/customer/CustomerMgr');
-  // let AddressModel = require('*/cartridge/models/address');
-  // let collections = require('*/cartridge/scripts/util/collections');
-
-  // let customer = CustomerMgr.getCustomerByCustomerNumber(req.currentCustomer.profile.customerNo);
-  // // Lista de Direcciones
-  // let rawAddressBook = customer.addressBook.getAddresses();
-
-  // // Sesion en cache del usuario
-  // let userSession = req.session.privacyCache.set("storeId", storeId);
-
   const stores = SystemObjectMgr.querySystemObjects(
     "Store",
     "latitude != {0} AND longitude != {0}",
