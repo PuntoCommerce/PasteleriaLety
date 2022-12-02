@@ -28,6 +28,20 @@ const sendOrderToERP = (orderId) => {
   let paymentInstruments = order.getPaymentInstruments();
   let pi = paymentInstruments[0];
   let today = new Date();
+
+  let letyPuntosCard = 0;
+  let letyPuntosAmount = 0;
+
+  try {
+    if (order.custom.letyPuntosCard && order.custom.letyPuntosAmount) {
+      letyPuntosCard = parseInt(order.custom.letyPuntosCard);
+      letyPuntosAmount = order.custom.letyPuntosAmount;
+    }
+  } catch (error) {
+    letyPuntosCard = 0;
+    letyPuntosAmount = 0;
+  }
+
   let payload = {
     Empresa: "1",
     sFolio: orderId,
@@ -41,9 +55,9 @@ const sendOrderToERP = (orderId) => {
     iIdFormaDePago: 3,
     bdMonto: order.totalNetPrice.value,
     dMontoExtranjero: 0,
-    iIdMembresia: 0,
+    iIdMembresia: letyPuntosCard,
     sReferencia: order.UUID,
-    dMontoLetyPesos: 0,
+    dMontoLetyPesos: letyPuntosAmount,
     items: hanldeItems(order.productLineItems),
   };
 

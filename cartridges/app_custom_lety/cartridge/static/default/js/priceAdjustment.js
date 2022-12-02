@@ -80,9 +80,21 @@ letyPuntosAddpriceAdjustment.addEventListener("click", async () => {
        $("#modalError").modal("show");
        return false;
    }
+
+   /* */
+   console.log(saldo, letyPuntos)
+   if (total - letyPuntos < 5) {
+       msgError.textContent = "El total no puede ser 0, debe contener al menos 5.";
+       $("#modalError").modal("show");
+       return false;
+   }
+
+   let member = document.getElementById("letyPuntocCard-form");
+
    $("#modalLoading").modal("show");
    const formData = new FormData();
    formData.append("toAjustment", letyPuntos);
+   formData.append("member", member.value);
  
    const response = await fetch(letyPuntosAddpriceAdjustment.getAttribute("data-action"), {
        method: "POST",
