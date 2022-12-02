@@ -429,8 +429,7 @@
                             <div class="text-congrat">
                             <iscomment> <p class="text" style="  padding: 5px 0 7px 0;">${pdict.order.firstName},</p> </iscomment>
                                 <p>${Resource.msg('msg.welcome.clublety', 'confirmation', null)}</p>
-
-                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.txt.clublety', 'confirmation', null)}
+                                <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.welcome.agrade', 'confirmation', null)}
                                 </p>
                                 <p style="  padding: 20px 0 7px 0;">${Resource.msg('msg.info.card-clublety', 'confirmation', null)}
                                 </p>

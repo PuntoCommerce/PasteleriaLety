@@ -40,7 +40,6 @@
                     <!--- Shipping information --->
                     <p class="summary-section-label shipping-method-label label-confirmation-detail mb-4">
                         ${Resource.msg('label.order.shipping.method.custom', 'confirmation', null)}&nbsp;&nbsp;</p>
-                        <p>${JSON.stringify(pdict.order.shipping)}</p>
                     <span class="shipping-method-title label-confirmation-detail2">${shippingModel.selectedShippingMethod.displayName}</span>
                     <span class="shipping-method-arrival-time label-confirmation-detail2">
                         <isif condition="${shippingModel.selectedShippingMethod.estimatedArrivalTime}">
