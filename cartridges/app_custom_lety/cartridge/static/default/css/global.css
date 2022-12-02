@@ -1139,6 +1139,15 @@ textarea {
   display: none;
 }
 
+/*Design geolocalización*/
+
+.cleanStore{
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 25px;
+}
+
 /*responsive 992*/
 @media (max-width: 993px) {
   .container {
@@ -1225,6 +1234,13 @@ textarea {
     height: 60px;
     margin-left: 0 !important;
     background-color: var(--color-lety12-footer);
+  }
+
+  .cleanStoreMobile{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 25px;
   }
 
   .input-location {
