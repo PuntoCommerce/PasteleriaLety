@@ -1256,6 +1256,9 @@ textarea {
     border: none;
     color: white;
     font-size: 25px;
+    position: absolute;
+    right: 10px;
+    top: 80px;
   }
 
   .input-location {

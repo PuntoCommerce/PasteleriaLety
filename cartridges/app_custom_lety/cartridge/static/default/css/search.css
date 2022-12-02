@@ -634,9 +634,16 @@
   padding-left: 30px;
   padding-right: 30px;
 }
-.content-grid-header select,
-.grid-header select {
+.content-grid-header select {
   width: 100%;
+}
+
+.order-div{
+  text-align: right;
+}
+
+.grid-header select{
+  max-width: 270px;
 }
 .result-count {
   font-size: 18px;
