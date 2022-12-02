@@ -4,7 +4,7 @@
         <div class="col-sm-12" style="padding: 0">
             <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}">
             <button class="add-to-cart btn" data-toggle="modal" data-target="#chooseBonusProductModal"
-                data-pid="${product.id}" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+                data-pid="${pdict.pid}" ${!pdict.readyToOrder || !pdict.available ? "disabled" : ""}>
                 ${Resource.msg('button.addtocart', 'common', null)}
             </button>
 

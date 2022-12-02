@@ -9,6 +9,11 @@ server.get(
     const viewData = res.getViewData();
     viewData.addToCartUrl = req.querystring.addToCartUrl;
     viewData.pid = req.querystring.pid;
+
+    viewData.available = req.querystring.available == "true" ? true : false;
+    viewData.readyToOrder =
+      req.querystring.readyToOrder == "true" ? true : false;
+
     res.setViewData(viewData);
     res.render(req.querystring.rurl);
     next();
