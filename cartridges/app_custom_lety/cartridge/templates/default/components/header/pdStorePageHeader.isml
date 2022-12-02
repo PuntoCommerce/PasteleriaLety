@@ -99,7 +99,7 @@
             </div>
         </div>
     </nav>
-    <div class="location d-block d-md-none" style="height: 100px;">
+    <div class="location d-block d-md-none">
         <isinclude url="${URLUtils.url('StoreSession-Start', 'mobile', true)}" />
     </div>
 </header>
