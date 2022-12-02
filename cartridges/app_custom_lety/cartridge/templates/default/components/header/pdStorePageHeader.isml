@@ -12,7 +12,7 @@
         <div class="navigation-desktop">
             <div class="header d-flex justify-content-center align-items-center">
                 <div class="row header-container">
-                    <div class="pull-left d-flex align-items-center col-xl-3 col-lg-2 col-md-4">
+                    <div class="pull-left d-flex align-items-center col-xl-3 col-lg-3 col-md-4">
                         <div class="navbar-header brand brand-desk">
                             <a class="logo-home" href="${URLUtils.url('Home-Show')}" title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
                                                                                             'global.home', 'common', null))}">
@@ -26,7 +26,7 @@
                             <isinclude url="${URLUtils.url('StoreSession-Start')}" />
                         </div>
                     </div>
-                    <div class="pull-right d-flex align-items-center col-xl-9 col-lg-10 col-md-8 menuDesk-right">
+                    <div class="pull-right d-flex align-items-center col-xl-9 col-lg-9 col-md-8 menuDesk-right">
                         <div class="search search-desk col-3">
                             <isinclude template="components/header/search" />
                         </div>
