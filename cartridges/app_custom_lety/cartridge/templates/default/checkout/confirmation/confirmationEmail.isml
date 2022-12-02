@@ -441,11 +441,7 @@
                                 <p style="font-size: 18px; padding-top: 30px;">
                                     Si tienes preguntas acerca de tu pedido, puedes contactarnos al correo
                                     clientes@pastelerialety.com
-<<<<<<< HEAD
-                                    o al 81 8242 2080
-=======
                                     o al 8182422080
->>>>>>> 3cc53986e705df4b701ede8e88905d45dfe64f2b
                                     <iscomment> ${Resource.msg('email.order.confirm.msg.body2', 'confirmation', null)}:<span>9999999</span> </iscomment>
                                 </p>
                                 <p style=" padding-top: 30px;"><a href="http://factura.pastelerialety.com/" style="color: #0074FC; font-size: 18px;">
@@ -464,11 +460,11 @@
                                     <div style="max-width: 411px; max-height: 279px; background-color: #F3F3F3; margin: 0 10rem;">
                                         <table class="order-sumary" style="margin-bottom:40px;">
                                         <tr class="product-summary" style="margin-bottom:15px;">
-                                                    <td style="width:20%;padding-bottom:15px;">
+                                                   <iscomment>  <td style="width:20%;padding-bottom:15px;">
                                                         <img src="${lineItem.images.small[0].absURL}"
                                                             alt="Product Image" style="height:250px;" />
                                                             <p>${JSON.stringify(lineItem)}</p>
-                                                    </td>
+                                                    </td> </iscomment>
                                                     <td style="padding-bottom:15px;">
                                                         <div>
                                                             <div style="margin-bottom:10%;">
@@ -476,15 +472,13 @@
                                                                     style="font-size: 14px;font-weight: bold;color: #4D4D4D;">
                                                                     ${lineItem.productName}
                                                                 </p>
-                                                                <p
+                                                                <iscomment> <p
                                                                     style="font-size: 11px;font-weight: bold;color: #B3B3B3;">
                                                                     Código:
                                                                     ${lineItem.id}
-                                                                </p>
+                                                                </p> </iscomment>
                                                             </div>
-                                                            <img src="${lineItem.images.small[0].absURL}" alt="Product Image"
-                                                            style="height:250px;" />
-                                          
+                                                            
                                                             <div>
                                                                 <isloop items="${lineItem.variationAttributes}"
                                                                     var="attribute">
@@ -501,7 +495,6 @@
                                             <isloop items="${pdict.order.items.items}" var="lineItem">
                                                 <tr>
                                                     <td style="width:50%;padding:20px 0;">
-                                                    <p>${JSON.stringify(pdict.order)}</p>
                                                         <!--- quantity --->
                                                         <isif condition="${lineItem.quantity > 1}">
                                                             <p
@@ -526,7 +519,7 @@
                                                     </td>
                                                 </tr>
                                                 
-                                                <iscomment> <tr>
+                                                <tr>
                                                     <td>
                                                         <p>
                                                             <isif
@@ -563,7 +556,7 @@
                                                             </isif>
                                                         </p>
                                                     </td>
-                                                </tr> </iscomment>
+                                                </tr>
                                             </isloop>
                                         </isif>
                                     </table> 
@@ -630,7 +623,7 @@
                     <div>
                         <span class="span span-trusty">ENVÍO</span>
                         <br>
-                        <span class="span2 span-trusty">A DOMICILIO</span>
+                        <span class="span2 span-trusty">GRATIS</span>
                     </div>
                 </div>
 
