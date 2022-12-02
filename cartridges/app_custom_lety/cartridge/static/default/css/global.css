@@ -702,7 +702,7 @@ header {
   position: relative;
 }
 
-#cleanStore{
+#cleanStore, #cleanStoreMobile{
   border: none;
   background: none;
   color: #fff;
@@ -17778,6 +17778,9 @@ a .moreless .less {
 
   .minicart{
     top: 0;
+  }
+  .location .row .row{
+    padding: 0 !important;
   }
   
 }
