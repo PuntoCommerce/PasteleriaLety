@@ -435,7 +435,7 @@
                                 <p style="  padding: 20px 0 7px 0;">${Resource.msg('msg.info.card-clublety', 'confirmation', null)}
                                 </p>
                                 <iscomment> Agregar numero de tarjeta club lety </iscomment>
-                                <p>3030303030</p>
+                                <p>${pdict.membresia}</p>
                             </div>
 
                             <div class="button-sales">
@@ -496,7 +496,7 @@
                     <div>
                         <span class="span span-trusty">ENVÍO</span>
                         <br>
-                        <span class="span2 span-trusty">GRATIS</span>
+                        <span class="span2 span-trusty">A DOMICILIO</span>
                     </div>
                 </div>
 

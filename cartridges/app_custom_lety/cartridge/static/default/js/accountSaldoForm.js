@@ -1,50 +1,52 @@
- 
- 
- 
- 
+/* tags checkbox */
 const mMale = document.querySelector("#mMale");
 const fFemale = document.querySelector("#fFemale");
-//const cCities = document.querySelector("#cCities");
+const kOtro = document.querySelector("#kOtro");
+/* vars */
 var dateRegex = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
 let gender = "";
 let ciudad = "";
 window.onload = function () {
-  const dS_Sexo = document.querySelector("#dS_Sexo").getAttribute("data-tipo");
-  if (!isEmptyField(dS_Sexo)) {
-      if (dS_Sexo === "Masculino") {
-          mMale.checked = true;
-          fFemale.checked = false;
-          gender = "Masculino";
-      } else if (dS_Sexo === "Femenino") {
-          mMale.checked = false;
-          fFemale.checked = true;
-          gender = "Femenino";
-      }
-  }
-  const cCiudad = document.querySelector("#cCiudad");
-  const dateBirth = document.querySelector("#dtFechaNacimiento").getAttribute("data-datebirth").split("/");
-  $("#dtFechaNacimiento").val(dateBirth[2]+"-"+dateBirth[1]+"-"+dateBirth[0]);
-  const ids = cCiudad.getAttribute("data-city").split("!");
-  ciudad = ids[0];
-  let idCity = "";
-  setTimeout(() => {
-      $("#cCiudad option").each(function(i) {
-        
-          idCity = $(this).val().split("!");
-          if(Number(idCity[0]) === Number(ids[0])) {
-              cCiudad.options[i].selected = true
-          }
-      });
-  },500);
-}
-/*
-if(dateRegex.test("01/05/2022")) {
-   alert("Go");
-} else {
-   alert("Bad");
-}
-*/
+    const dS_Sexo = document.querySelector("#dS_Sexo").getAttribute("data-tipo");
+    if (!isEmptyField(dS_Sexo)) {
+        if (dS_Sexo === "Masculino") {
+            mMale.checked = true;
+            fFemale.checked = false;
+            kOtro.checked = false;
+            gender = "Masculino";
+        } else if (dS_Sexo === "Femenino") {
+            fFemale.checked = true;
+            mMale.checked = false;
+            kOtro.checked = false;
+            gender = "Femenino";
+        }
+        else if (dS_Sexo === "Otro") {
+            kOtro.checked = true;
+            mMale.checked = false;
+            fFemale.checked = false;
+            gender = "Otro";
+        }
+    }
+    const cCiudad = document.querySelector("#cCiudad");
+    const dateBirth = document.querySelector("#dtFechaNacimiento").getAttribute("data-datebirth").split("/");
+    $("#dtFechaNacimiento").val(dateBirth[2] + "-" + dateBirth[1] + "-" + dateBirth[0]);
+    const ids = cCiudad.getAttribute("data-city").split("!");
+    ciudad = ids[0];
+    let idCity = "";
+    setTimeout(() => {
+        $("#cCiudad option").each(function (i) {
+  
+            idCity = $(this).val().split("!");
+            if (Number(idCity[0]) === Number(ids[0])) {
+                cCiudad.options[i].selected = true
+            }
  
+        });
+    }, 500);
+}
+ /* tags inputs */
+  
+
 const arrayFields = ["LetyCard", "s_Nombre", "s_ApellidoPat", "s_Apmaterno", "s_Mail", "s_Telefono1", "s_Colonia", "Ciudad", "Estado"];
 const accountSaldoForm = document.querySelector("#accountSaldoForm");
 const getDataAccountForm = document.querySelector("#getDataAccountForm");
@@ -53,6 +55,7 @@ const s_Nombre = document.querySelector("#s_Nombre");
 const s_ApellidoPat = document.querySelector("#s_ApellidoPat");
 const s_Apmaterno = document.querySelector("#s_Apmaterno");
 const s_Mail = document.querySelector("#s_Mail");
+const s_EstadoCivil = document.querySelector("#s_EstadoCivil");
 const s_Telefono1 = document.querySelector("#s_Telefono1");
 const s_Colonia = document.querySelector("#s_Colonia");
 const eEstado = document.querySelector("#Estado");
@@ -60,25 +63,37 @@ const dtFechaNacimiento = document.querySelector("#dtFechaNacimiento");
 const PreferenciaProducto = document.querySelector("#PreferenciaProducto");
 const cCiudad = document.querySelector("#cCiudad");
 const msgError = document.querySelector("#msgError");
-mMale.addEventListener('change', function() {
- if (this.checked) {
-     fFemale.checked = false;
-     gender = "Masculino";console.log(gender);
-  
- }
-});
-fFemale.addEventListener('change', function() {
- if (this.checked) {
-     mMale.checked = false;
-     gender = "Femenino";console.log(gender);
- }
-});
+
+mMale.addEventListener('change', function () {
+    if (this.checked) {
+        fFemale.checked = false;
+        kOtro.checked = false;
+        gender = "Masculino";
+    }
+ });
+ fFemale.addEventListener('change', function () {
+    if (this.checked) {
+        mMale.checked = false;
+        kOtro.checked = false;
+        gender = "Femenino";
+        console.log(gender);
+    }
+ });
+ kOtro.addEventListener('change', function () {
+    if (this.checked) {
+        mMale.checked = false;
+        fFemale.checked = false;
+        gender = "Otro";
+        console.log(gender);
+    }
+ });
+ 
 /* get selected city */
 const getCity = async (tagHtml) => {
   //ciudad = document.querySelector('#cCiudad option:checked').value;
   let idEstado = tagHtml.split("!");
   ciudad = idEstado[0];
-  console.log(ciudad);
+
   const response = await fetch("Account-getState", {
       method: "POST",
       body: JSON.stringify({
@@ -90,6 +105,7 @@ const getCity = async (tagHtml) => {
  
   eEstado.value = estado.sNombre;
 }
+
 getDataAccountForm.addEventListener("click", async () => {
  msgError.textContent = "";
   formFlag = false;
@@ -112,7 +128,7 @@ getDataAccountForm.addEventListener("click", async () => {
  
   let date = dtFechaNacimiento.value.trim().split("-");
   let newDate = date[2]+"/"+date[1]+"/"+date[0];
-   console.log(date);
+  
   if(!isEmptyField(newDate)) {
      if(dateRegex.test(newDate)) {
      } else {
@@ -121,13 +137,14 @@ getDataAccountForm.addEventListener("click", async () => {
          return false;
      }
   }
-  console.log(newDate);
+
   formData.append("lLetyCard", lLetyCard.value.trim());
   formData.append("s_Nombre", s_Nombre.value.trim());
   formData.append("s_ApellidoPat", s_ApellidoPat.value.trim());
   formData.append("s_Apmaterno", s_Apmaterno.value.trim());
   formData.append("s_Sexo", gender);
   formData.append("s_Mail", s_Mail.value.trim());
+  formData.append("s_EstadoCivil", s_EstadoCivil.value.trim());
   formData.append("s_Telefono1", s_Telefono1.value.trim());
   formData.append("s_Colonia", s_Colonia.value.trim());
   formData.append("cCiudad", ciudad);
@@ -151,8 +168,4 @@ const requiredFields = (field, arrayFields) => {
 const isEmptyField = (field) => {
   if (field === "" || field === null || field === undefined) return true;
   return false;
-}
-const validateDate = (value) => {
- var format = /\//;
- alert(format.test(value));
 }

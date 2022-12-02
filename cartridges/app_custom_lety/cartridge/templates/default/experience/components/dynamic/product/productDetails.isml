@@ -111,15 +111,106 @@
 
 
             <div class="attributes row-desc">
-                <!-- Attributes and Quantity -->
-                <isinclude template="product/components/mainAttributes" />
+                  <!-- Attributes and Quantity -->
+                    <isinclude template="product/components/mainAttributes" />
 
-                <isset name="isBundle" value="${false}" scope="page" />
-                <isset name="loopState" value="{count: 1}" scope="page" />
+                    <isset name="isBundle" value="${false}" scope="page" />
+                    <isset name="loopState" value="{count: 1}" scope="page" />
+                    <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
+                        <div class="row" data-attr="${attr.id}">
+                            <div class="col-8">
+                                <isinclude template="product/components/variationAttribute" />
+                            </div>
+
+                            <isif condition="${attributeStatus.last && !isBundle}">
+                                <!-- Quantity Drop Down Menu -->
+                                <div class="attribute quantity col-4">
+                                    <isinclude template="product/components/quantity" />
+                                </div>
+                            </isif>
+                        </div>
+                    </isloop>
+
+                    <isif condition="${!product.variationAttributes}">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="simple-quantity">
+                                    <isinclude template="product/components/quantity" />
+                                </div>
+                            </div>
+                        </div>
+                    </isif>
+
+                    <div class="product-options">
+                        <isif condition="${product.options && product.options.length > 0}">
+                            <isinclude template="product/components/options" />
+                        </isif>
+                    </div>
+
+                <!-- Size Chart -->
+                <isif condition="${product.variationAttributes && product.sizeChartId}">
+                    <div class="row">
+                        <div class="size-chart col-12">
+                            <isinclude template="product/components/sizeChart" />
+                        </div>
+                    </div>
+                </isif>
+
+                <iscomment> Quitar el d-none cuando este habilitado el checkout </iscomment>
+                <div class="prices-add-to-cart-actions mb-2">
+                    <!-- Cart and Checkout -->
+                    <isscript>
+                        var assets = require('*/cartridge/scripts/assets.js');
+                        assets.addJs('/js/pdpBuyNow.js');
+                    </isscript>
+                    <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/buyNowProduct', 'addToCartUrl', pdict.addToCartUrl)}" />
+                    
+                    <iscomment> <isinclude template="product/components/buyNowProduct" /> </iscomment>
+                </div>
+                <iscomment> Quitar el d-none cuando este habilitado el checkout </iscomment>
+                <div class="prices-add-to-cart-actions">
+                    <!-- Cart and [Optionally] Apple Pay -->
+                    <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/addToCartProduct', 'addToCartUrl', pdict.addToCartUrl)}" />
+                    <iscomment> <isinclude template="product/components/addToCartProduct" /> </iscomment>
+                </div>
+                <div class="row row-desc row-rating-mobile mt-3">
+                    <div class="col-12 row-rating">
+                        <div class="row justify-content-center row-rating-2">
+                            <isinclude url="${URLUtils.url('RnR-AverageV2', 'product_id', pdict.product.id)}" />
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Social Sharing Icons -->
+                <div class="row row-desc row-social-icons">
+                    <isinclude template="product/components/socialIcons" />
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-                <!--Product type condition-->
-                <isif condition="${product.price.type === 'range'}">
+    <!-- All good -->
+    <hr class="hr-pdp" style="width: 92%; border-top: .5px solid var(--color-lety-black)">
+
+    <div>
+        <isslot id="cts-recommendations-m" description="Complete the set products" context="global"
+            context-object="${pdict.product.raw}" />
+    </div>
+
+    <isset name="loopState" value="{count: 1}" scope="page" />
+    <isinclude template="product/components/descriptionAndDetails" />
+
+    <div class="recommendations">
+        <isslot id="product-recommendations-m" description="Recommended products" context="global"
+            context-object="${pdict.product.raw}" />
+    </div>
+</section>
+</isobject>
+
+
+  <!--Product type condition-->
+                <iscomment> <isif condition="${product.price.type === 'range'}">
                     <div>
                         <span style="color: #D7612B;">${Resource.msg('msg.time', 'pdp', null)}</span>
                     </div>
@@ -128,9 +219,19 @@
                         <div class="row" data-attr="${attr.id}">
                        
                             <isif condition="${attr.id === "tamano"}">
-                                <div class="col-12">
-                                    <isinclude template="product/components/variationAttribute" />
+                             <div class="col-8">
+                                <isinclude template="product/components/variationAttribute" />
+                            </div>
+
+                            <isif condition="${attributeStatus.last && !isBundle}">
+                                <!-- Quantity Drop Down Menu -->
+                                <div class="attribute quantity col-4">
+                                    <isinclude template="product/components/quantity" />
                                 </div>
+                            </isif>
+                               <iscomment>  <div class="col-12">
+                                    <isinclude template="product/components/variationAttribute" />
+                                </div> 
                             <iselse/>
 
                                 ${JSON.stringify(attr.id)}
@@ -179,71 +280,4 @@
                             </div>
                         </div>
                     </isif>
-                </isif>
-
-                <div class="product-options">
-                    <isif condition="${product.options && product.options.length > 0}">
-                        <isinclude template="product/components/options" />
-                    </isif>
-                </div>
-
-                <!-- Size Chart -->
-                <isif condition="${product.variationAttributes && product.sizeChartId}">
-                    <div class="row">
-                        <div class="size-chart col-12">
-                            <isinclude template="product/components/sizeChart" />
-                        </div>
-                    </div>
-                </isif>
-
-                <iscomment> Quitar el d-none cuando este habilitado el checkout </iscomment>
-                <div class="prices-add-to-cart-actions mb-2">
-                    <!-- Cart and Checkout -->
-                    <isscript>
-                        var assets = require('*/cartridge/scripts/assets.js');
-                        assets.addJs('/js/pdpBuyNow.js');
-                    </isscript>
-                    <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/buyNowProduct', 'addToCartUrl', pdict.addToCartUrl)}" />
-                    
-                    <iscomment> <isinclude template="product/components/buyNowProduct" /> </iscomment>
-                </div>
-                <iscomment> Quitar el d-none cuando este habilitado el checkout </iscomment>
-                <div class="prices-add-to-cart-actions">
-                    <!-- Cart and [Optionally] Apple Pay -->
-                     <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/addToCartProduct', 'addToCartUrl', pdict.addToCartUrl)}" />
-                    <iscomment> <isinclude template="product/components/addToCartProduct" /> </iscomment>
-                </div>
-                <div class="row row-desc row-rating-mobile mt-3">
-                    <div class="col-12 row-rating">
-                        <div class="row justify-content-center row-rating-2">
-                            <isinclude url="${URLUtils.url('RnR-AverageV2', 'product_id', pdict.product.id)}" />
-                        </div>
-                    </div>
-
-                </div>
-                <!-- Social Sharing Icons -->
-                <div class="row row-desc row-social-icons">
-                    <isinclude template="product/components/socialIcons" />
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- All good -->
-    <hr class="hr-pdp" style="width: 92%; border-top: .5px solid var(--color-lety-black)">
-
-    <div>
-        <isslot id="cts-recommendations-m" description="Complete the set products" context="global"
-            context-object="${pdict.product.raw}" />
-    </div>
-
-    <isset name="loopState" value="{count: 1}" scope="page" />
-    <isinclude template="product/components/descriptionAndDetails" />
-
-    <div class="recommendations">
-        <isslot id="product-recommendations-m" description="Recommended products" context="global"
-            context-object="${pdict.product.raw}" />
-    </div>
-</section>
-</isobject>
+                </isif> </iscomment>

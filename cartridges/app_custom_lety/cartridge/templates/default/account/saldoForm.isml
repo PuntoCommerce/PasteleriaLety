@@ -85,6 +85,10 @@ pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_ApellidoPat !== "undef
             <input class="form-check-input" type="checkbox" id="fFemale" value="option1" />
             <label class="form-check-label" for="fFemale">Femenino</label>
         </div>
+        <div class="form-check form-check-inline">
+           <input class="form-check-input" type="checkbox" id="kOtro" />
+           <label class="form-check-label" for="kOtro">Otro</label>
+       </div>
    </div>
 </div>
 <div class="row">

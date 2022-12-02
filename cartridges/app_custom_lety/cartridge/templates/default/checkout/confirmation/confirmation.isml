@@ -100,6 +100,7 @@
                             </isif>
                         </div>
 
+
                         <div
                             class="${pdict.returningCustomer ? 'col-sm-6' : 'col-sm-6 offset-md-0 pull-md-6'} container-confirmation-right">
                             <isinclude template="checkout/confirmation/confirmationDetailsCustom" />
