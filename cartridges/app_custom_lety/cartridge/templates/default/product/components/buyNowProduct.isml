@@ -3,7 +3,7 @@
         <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}" />
         <input type="hidden" id="buy-now-url" class="buy-now-url" value="${URLUtils.url('Checkout-oAuth').toString()}" />
         <button id="buy-now-btn" class="add-to-cart buy-now btn btn-primary tooltipAddToCart" data-toggle="modal"
-            data-target="#chooseBonusProductModal" data-pid="${pdict.pid}" >
+            data-target="#chooseBonusProductModal" data-pid="${pdict.pid}" ${!pdict.readyToOrder || !pdict.available ? "disabled" : ""} >
             ${Resource.msg('button.buynow', 'pdp', null)}
             <iscomment>
                 <span class="tooltiptext">${Resource.msg('tooltip.addtocart.disabled.button', 'pdp', null)}</span>
