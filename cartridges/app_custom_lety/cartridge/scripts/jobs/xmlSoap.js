@@ -142,6 +142,7 @@
           '","s_Nombre":"'+s_Nombre[i]+
           '","s_ApellidoPat":"'+s_ApellidoPat[i]+
           '","s_ApellidoMat":"'+s_ApellidoMat[i]+
+          '","s_Direccion":"'+s_Direccion[i]+
           '","s_Mail":"'+s_Mail[i]+
           '","s_Telefono1":"'+s_Telefono1[i]+
           '","s_Colonia":"'+s_Colonia[i]+
