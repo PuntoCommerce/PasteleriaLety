@@ -442,14 +442,7 @@
   width: 100%;
 }
 
-/*Design geolocalización*/
 
-.cleanStore, .cleanStoreMobile{
-  background-color: transparent;
-  border: none;
-  color: white;
-  font-size: 25px;
-}
 
 .location .roe.p-3{
   padding: 1rem 0 !important;

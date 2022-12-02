@@ -7,7 +7,7 @@
             </div>
             <div class="col-12 dropdown-container m-0 d-flex">
                 <span class="sessionStoreAddress" id="session-store-address">${pdict.store.name} - ${pdict.store.address1}</span>
-                <button action-url="${URLUtils.url("StoreSession-CleanStore")}" id="cleanStoreMobile" type="button">
+                <button action-url="${URLUtils.url("StoreSession-CleanStore")}" id="cleanStoreMobile" class="cleanStoreMobile" type="button">
                   &times;
                 </button>
             </div>
