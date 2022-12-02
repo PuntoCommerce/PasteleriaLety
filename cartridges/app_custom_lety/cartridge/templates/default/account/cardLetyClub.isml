@@ -26,7 +26,7 @@
                         </isif>
                     </div>
                     <div class="card-body">
-                        <isinclude template="account/addCardLetyMember" />
+                        <isinclude template="account/addCardMember" />
                     </div>
                 </div>
             </div>
