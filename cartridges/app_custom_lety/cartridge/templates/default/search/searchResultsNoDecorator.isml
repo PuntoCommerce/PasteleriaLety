@@ -90,7 +90,7 @@
                         </div> </iscomment>
 
                         <!--Filter Button-->
-                        <div class="col-6 col-lg-3 col-sm-6 order-sm-1 filter-button">
+                        <div class="col-6 col-lg-6 col-sm-6 order-sm-1 filter-button">
                             <button type="button" class="btn" id="filter-button">
                                 ${Resource.msg('label.filters.pdp', 'search', null)}
                                 <img style="padding-left: 10px;" class="btn-default-img-filters"
@@ -105,7 +105,7 @@
                                         <isinclude template="search/resultsCount" />
                                     </div>
                             <isif condition="${pdict.productSearch.productIds.length > 0}">
-                                <div class="col-lg-3 col-sm-6 order-sm-3 order-div">
+                                <div class="col-lg-6 col-sm-6 order-sm-3 order-div">
                                     <isinclude template="search/sortOrderMenu" />
                                 </div>
                             </isif>
