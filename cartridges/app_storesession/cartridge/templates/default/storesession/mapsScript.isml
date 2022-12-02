@@ -1,0 +1,4 @@
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=${pdict.apikey}&libraries=places&callback=initBothAutocomplete&v=weekly"
+    defer>
+</script>
