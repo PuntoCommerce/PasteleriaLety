@@ -64,19 +64,21 @@
                     </button>
                 </form>
             </div>
+            <iscomment>
             <div class="mb-2">
-                <iscomment>
+               
                 <form action="${URLUtils.url("Account-GenerateLetyCard")}" method="POST">
                     <input type="hidden" name="customerNo" value="${pdict.account.customerNo}">
                     <button class="btn btn-product btn-block promo-code-btn" type="submit">Generar nueva</button>
                 </form>
-                </iscomment>
+                
                 <form class="mt-3" action="${URLUtils.url("Account-AddLetyCardMember")}" method="POST">
                     <input type="hidden" name="customerNo" value="${pdict.account.customerNo}">
                     <button class="btn btn-product btn-block" type="submit">Generar membresia</button>
                     <button class="btn btnModal w-100 mt-3" type="button" data-dismiss="modal">Cancelar</button>
                 </form>
             </div>
+            </iscomment>
             </div>
         </div>
     </div>

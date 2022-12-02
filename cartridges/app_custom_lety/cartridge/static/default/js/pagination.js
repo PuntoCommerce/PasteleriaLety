@@ -77,16 +77,18 @@ class Pagination {
       let cargo;
       let abono;
       let dSaldoAnterior;
+      let centro;
   
       dtFechaAplica = (item.dtFechaAplica || item.dtFechaAplica !== "undefined") ? dtFechaAplica = item.dtFechaAplica : dtFechaAplica = "";
       tipoMovimiento = (item.TipoMovimiento || item.TipoMovimiento !== "undefined") ? tipoMovimiento = item.TipoMovimiento : tipoMovimiento = "";
       cargo = (item.Cargo || item.Cargo !== "undefined") ? cargo = item.Cargo : cargo = "";
       abono = (item.Abono || item.Abono !== "undefined") ? abono = item.Abono : abono = "";
       dSaldoAnterior = (item.dSaldoAnterior || item.dSaldoAnterior !== "undefined") ? dSaldoAnterior = item.dSaldoAnterior : dSaldoAnterior = "";
+      centro = (item.Centro || item.Centro !== "undefined") ? centro = item.Centro : centro = "";
    
       html += `<tr class="tr-info">\
                 <td>${dtFechaAplica}</td>\
-                <td>${Centro}</td>\
+                <td>${centro}</td>\
                 <td>${tipoMovimiento}</td>\
                 <td>${cargo}</td>\
                 <td>${abono}</td>\
