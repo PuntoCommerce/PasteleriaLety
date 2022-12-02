@@ -440,8 +440,8 @@
                                 </p>
                                 <p style="font-size: 18px; padding-top: 30px;">
                                     Si tienes preguntas acerca de tu pedido, puedes contactarnos al correo
-                                    servicio@lety.com.mx
-                                    o al 800-0024-966
+                                    clientes@pastelerialety.com
+                                    o al 8182422080
                                     <iscomment> ${Resource.msg('email.order.confirm.msg.body2', 'confirmation', null)}:<span>9999999</span> </iscomment>
                                 </p>
                                 <p style=" padding-top: 30px;"><a href="http://factura.pastelerialety.com/" style="color: #0074FC; font-size: 18px;">
@@ -467,7 +467,7 @@
                                                     </td> </iscomment>
                                                     <td style="padding-bottom:15px;">
                                                         <div>
-                                                            <div style="margin-bottom:35%;">
+                                                            <div style="margin-bottom:10%;">
                                                                 <p
                                                                     style="font-size: 14px;font-weight: bold;color: #4D4D4D;">
                                                                     ${lineItem.productName}
@@ -478,6 +478,9 @@
                                                                     ${lineItem.id}
                                                                 </p> </iscomment>
                                                             </div>
+                                                            <img src="${lineItem.images.small[0].absURL}" alt="Product Image"
+                                                            style="height:250px;" />
+                                          
                                                             <div>
                                                                 <isloop items="${lineItem.variationAttributes}"
                                                                     var="attribute">

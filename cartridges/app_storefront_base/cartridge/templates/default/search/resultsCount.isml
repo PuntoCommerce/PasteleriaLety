@@ -1,8 +1,8 @@
 <isobject object="${pdict.apiProductSearch}" view="none">
     <isif condition="${pdict.productSearch.isCategorySearch}">
-        <iscomment> <span>
+        <span>
             ${Resource.msgf('label.results', 'search', null, pdict.productSearch.count)}
-        </span> </iscomment>
+        </span>
     <iselse>
         <p>
             <span class="search-result-count">
