@@ -17831,3 +17831,9 @@ a .moreless .less {
   outline: 1px solid red;
 } */
 
+.btnModal {
+ background-color: white;
+ color: text;
+ border: 1px solid black;
+ border-radius: 25px;
+}
