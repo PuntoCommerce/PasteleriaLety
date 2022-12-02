@@ -677,6 +677,7 @@ module.exports = function () {
         }
     });
 
+    
     $('body').on('product:afterAttributeSelect', function (e, response) {
         if ($('.modal.show .product-quickview .bundle-items').length) {
             $('.modal.show').find(response.container).data('pid', response.data.product.id);

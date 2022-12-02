@@ -1222,7 +1222,7 @@ textarea {
   }
 
   .location {
-    height: 22px;
+    height: 60px;
     margin-left: 0 !important;
     background-color: var(--color-lety12-footer);
   }
