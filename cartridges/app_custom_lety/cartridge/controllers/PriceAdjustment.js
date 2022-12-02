@@ -9,9 +9,12 @@ var OrderModel = require('*/cartridge/models/order');
 var Locale = require("dw/util/Locale");
 
 var COHelpers = require("*/cartridge/scripts/checkout/checkoutHelpers");
+var Site = require('dw/system/Site');
 server.post("LetyPuntos", (req, res, next) => {
 
     const currentBasket = BasketMgr.getCurrentBasket();
+
+    const letyPuntosPromotionId = Site.getCurrent().getCustomPreferenceValue("letyPuntosPromotionId");
     const {
         toAjustment,
         member
@@ -20,8 +23,11 @@ server.post("LetyPuntos", (req, res, next) => {
     let code;
     let err;
     try {
+        let letyPuntosAmount = Number(toAjustment);
         Transaction.wrap(function (params) {
-            currentBasket.createPriceAdjustment("promoprueba", AmountDiscount(Number(toAjustment)));
+            currentBasket.createPriceAdjustment(letyPuntosPromotionId, AmountDiscount(letyPuntosAmount));
+            currentBasket.custom.letyPuntosAmount = letyPuntosAmount;
+            currentBasket.custom.letyPuntosCard = member;
         });
 
         COHelpers.recalculateBasket(currentBasket); // update
@@ -72,6 +78,8 @@ server.post("RemoveLetyPuntos", (req, res, next) => {
     try {
         Transaction.wrap(function (params) {
             result = currentBasket.removePriceAdjustment(currentBasket.priceAdjustments[0]);
+            currentBasket.custom.letyPuntosAmount = 0;
+            currentBasket.custom.letyPuntosCard = "";
         });
         COHelpers.recalculateBasket(currentBasket);
         code = 0;

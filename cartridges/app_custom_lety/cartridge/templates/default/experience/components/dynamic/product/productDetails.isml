@@ -163,14 +163,14 @@
                         var assets = require('*/cartridge/scripts/assets.js');
                         assets.addJs('/js/pdpBuyNow.js');
                     </isscript>
-                    <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/buyNowProduct', 'addToCartUrl', pdict.addToCartUrl)}" />
+                    <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/buyNowProduct', 'addToCartUrl', pdict.addToCartUrl, "readyToOrder", product.readyToOrder, "available", product.available)}" />
                     
                     <iscomment> <isinclude template="product/components/buyNowProduct" /> </iscomment>
                 </div>
                 <iscomment> Quitar el d-none cuando este habilitado el checkout </iscomment>
                 <div class="prices-add-to-cart-actions">
                     <!-- Cart and [Optionally] Apple Pay -->
-                    <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/addToCartProduct', 'addToCartUrl', pdict.addToCartUrl)}" />
+                    <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/addToCartProduct', 'addToCartUrl', pdict.addToCartUrl, "readyToOrder", product.readyToOrder, "available", product.available)}" />
                     <iscomment> <isinclude template="product/components/addToCartProduct" /> </iscomment>
                 </div>
                 <div class="row row-desc row-rating-mobile mt-3">

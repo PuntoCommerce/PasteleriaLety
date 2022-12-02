@@ -9,7 +9,7 @@
                 <div class="col-lg-12">
                     <div class="dashboard-info">${pdict.account.LetyCard}</div>
                 </div>
-            <div class="col-lg-12">
+            <div class="col-lg-12 mt-2">
                 <button type="button" class="btn btn-product btn-block promo-code-btn" data-toggle="modal" data-target="#letyCard">
                         ${Resource.msg('button.submit.promo.code.cambiar', 'cart', null)}
                 </button>
@@ -24,15 +24,15 @@
             </isif>
         </div>
         <isif condition="${pdict.account.LetyCard}">
-            <div class=" text-center row">
-                    <div class="col-lg-12" ${pdict.customer.bloquearBotonSaldo !== undefined ? 'disabled' : ''}>
+            <div class="row text-center">
+                    <div class="col-lg-12 my-2" ${pdict.customer.bloquearBotonSaldo !== undefined ? 'disabled' : ''}>
                         <a href="${URLUtils.url('Account-Saldo','letyCard', pdict.account.LetyCard )}" class="card-link"
                             aria-label="${Resource.msg('label.addressbook.addnewaddress', 'account', null)}"><button type="submit"
                                 class="btn btn-product btn-block promo-code-btn">
                                 ${Resource.msg('label.saldo', 'account', null)}
                             </button> </a>
                     </div>
-                    <div class="col-lg-12" ${pdict.customer.bloquearBotonMovimientos !== undefined ? 'disabled' : ''}>
+                    <div class="col-lg-12 my-2" ${pdict.customer.bloquearBotonMovimientos !== undefined ? 'disabled' : ''}>
                         <a href="${URLUtils.url('Account-Movimientos', 'letyCard', pdict.account.LetyCard)}" class="card-link"
                             aria-label="${Resource.msg('label.addressbook.addnewaddress', 'account', null)}"><button type="submit"
                                 class="btn btn-product btn-block promo-code-btn">

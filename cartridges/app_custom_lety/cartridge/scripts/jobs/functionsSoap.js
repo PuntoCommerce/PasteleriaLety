@@ -132,7 +132,6 @@ function body(data,credential,path) {
         '<vPwd>'+credential.password+'</vPwd>'+
         '<s_IdMembresia>'+data.s_IdMembresia+'</s_IdMembresia>'+
         '<dMonto>'+data.dMonto+'</dMonto>'+
-        '<dSaldoAnterior>'+data.dSaldoAnterior+'</dSaldoAnterior>'+
         '<sFolioWeb>'+data.sFolioWeb+'</sFolioWeb>'+
         '</'+path+'>'+
         '</soap:Body></soap:Envelope>';
