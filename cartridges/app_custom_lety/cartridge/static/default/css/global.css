@@ -1135,6 +1135,10 @@ textarea {
   padding-bottom: 1px;
 }
 
+.result-count {
+  display: none;
+}
+
 /*responsive 992*/
 @media (max-width: 993px) {
   .container {
@@ -1163,10 +1167,6 @@ textarea {
 
   .brand-desk {
     display: none !important;
-  }
-
-  .location-desk {
-    display: none;
   }
 
   .search-desk {
@@ -1277,9 +1277,6 @@ textarea {
   }
 
   .row.search-nav {
-    display: none;
-  }
-  .result-count {
     display: none;
   }
 

@@ -72,53 +72,54 @@ class Pagination {
         this.rowEnd = item['count']
       }
 
+      let dtFechaAplica;
+      let tipoMovimiento;
+      let cargo;
+      let abono;
+      let dSaldoAnterior;
+  
+      dtFechaAplica = (item.dtFechaAplica || item.dtFechaAplica !== "undefined") ? dtFechaAplica = item.dtFechaAplica : dtFechaAplica = "";
+      tipoMovimiento = (item.TipoMovimiento || item.TipoMovimiento !== "undefined") ? tipoMovimiento = item.TipoMovimiento : tipoMovimiento = "";
+      cargo = (item.Cargo || item.Cargo !== "undefined") ? cargo = item.Cargo : cargo = "";
+      abono = (item.Abono || item.Abono !== "undefined") ? abono = item.Abono : abono = "";
+      dSaldoAnterior = (item.dSaldoAnterior || item.dSaldoAnterior !== "undefined") ? dSaldoAnterior = item.dSaldoAnterior : dSaldoAnterior = "";
+   
       html += `<tr class="tr-info">\
-                <td>${item.dtFechaAplica}</td>\
-                <td>${item.Centro}</td>\
-                <td>${item.TipoMovimiento}</td>\
-                <td>${item.Cargo}</td>\
-                <td>${item.Abono}</td>\
-                <td>${item.dSaldoAnterior}</td>\
-              </tr>`; 
+                <td>${dtFechaAplica}</td>\
+                <td>${Centro}</td>\
+                <td>${tipoMovimiento}</td>\
+                <td>${cargo}</td>\
+                <td>${abono}</td>\
+                <td>${dSaldoAnterior}</td>\
+              </tr>`;
     }
+ 
+ 
     document.getElementById("itemsListTable").innerHTML = html
 
-
+    let cards = "";
 
     // -----------------------------------------------------------
-    let cards = ''
-    let dtFechaAplica;
-    let tipoMovimiento;
-    let cargo;
-    let abono;
-    let dSaldoAnterior;
     for (const [c, item] of this.arrayPagination[p].entries()) {
-  
-      dtFechaAplica = (item.dtFechaAplica || item.dtFechaAplica !== undefined) ? dtFechaAplica = item.dtFechaAplica : dtFechaAplica = "";
-      tipoMovimiento = (item.TipoMovimiento || item.TipoMovimiento !== undefined) ? tipoMovimiento = item.TipoMovimiento : tipoMovimiento = "";
-      cargo = (item.Cargo || item.Cargo !== undefined) ? cargo = item.Cargo : cargo = "";
-      abono = (item.Abono || item.Abono !== undefined) ? abono = item.Abono : abono = "";
-      dSaldoAnterior = (item.dSaldoAnterior || item.dSaldoAnterior !== undefined) ? dSaldoAnterior = item.dSaldoAnterior : dSaldoAnterior = "";
-    
       cards += `<div class="card card-list" >\
                   <div class="card-body card-body-list">\
                     <h5 class="card-title card-title-list">Fecha Movimiento</h5>\
-                    <p class="card-text card-text-list">${dtFechaAplica}</p>\
+                    <p class="card-text card-text-list">${item.dtFechaAplica}</p>\
   
                     <h5 class="card-title card-title-list">Sucursal</h5>\
-                    <p class="card-text card-text-list">${dtFechaAplica}</p>\
+                    <p class="card-text card-text-list">${item.dtFechaAplica}</p>\
   
                     <h5 class="card-title card-title-list">Descripción</h5>\
-                    <p class="card-text card-text-list">${tipoMovimiento}</p>\
+                    <p class="card-text card-text-list">${item.TipoMovimiento}</p>\
   
                     <h5 class="card-title card-title-list">Canjes</h5>\
-                    <p class="card-text card-text-list">${cargo}</p>\
+                    <p class="card-text card-text-list">${item.Cargo}</p>\
   
                     <h5 class="card-title card-title-list">Abono</h5>\
-                    <p class="card-text card-text-list">${abono}</p>\
+                    <p class="card-text card-text-list">${item.Abono}</p>\
   
                     <h5 class="card-title card-title-list">Saldo</h5>\
-                    <p class="card-text card-text-list">${dSaldoAnterior}</p>\
+                    <p class="card-text card-text-list">${item.dSaldoAnterior}</p>\
   
                   </div>\
                 </div>`;

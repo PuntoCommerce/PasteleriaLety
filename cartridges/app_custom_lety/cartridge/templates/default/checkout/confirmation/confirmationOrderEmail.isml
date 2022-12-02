@@ -446,8 +446,8 @@
                             </p>
                             <p style="font-weight: 900; font-size: 24px;">
                                 Si tienes preguntas acerca de tu pedido, puedes contactarnos al correo
-                                servicio@lety.com.mx
-                                o al 800-0024-966
+                                clientes@pastelerialety.com
+                                o al 8182422080.
                                 <iscomment> ${Resource.msg('email.order.confirm.msg.body2', 'confirmation', null)}:<span>9999999</span> </iscomment>
                             </p>
                             <a href="">

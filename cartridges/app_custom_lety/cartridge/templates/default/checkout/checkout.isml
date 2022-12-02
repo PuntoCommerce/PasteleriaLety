@@ -260,7 +260,8 @@
 
                                 </div>
 
-                                <div class="row">
+                               <isif condition="${pdict.customer.profile}">
+                                   <div class="row" >
                                    <iscomment> Lety card </iscomment>
                                    <iscomment> Membresia </iscomment>
                                    <div class="col-12">
@@ -275,14 +276,14 @@
                                                            name="" value="${pdict.customer.LetyCard}"
                                                            ${pdict.customer.LetyCard !== undefined ? 'disabled' : ''}>
                                                        <div class="coupon-error">
- 
+  
                                                            <span class="coupon-error-message" id=""
                                                                role="alert"></span>
                                                        </div>
                                                    </div>
                                                    <iscomment> No se para que se es, preguntar a Myrna </iscomment>
                                                    <input type="hidden" name="${}" value="${}" />
- 
+  
                                                    <div class="col-5 promo-code-submit">
                                                        <isif condition="${pdict.customer.LetyCard}">
                                                            <button type="button"
@@ -302,8 +303,8 @@
                                            </div>
                                        </form>
                                    </div>
-                                    
-                                    <iscomment> Saldo lety club </iscomment>
+                                      
+                                       <iscomment> Saldo lety club </iscomment>
                                    <div class="col-12">
                                        <form action="${}" class="promo-code-form lety-card-form" method="GET"
                                            name="lety-card-form">
@@ -328,10 +329,7 @@
                                            </div>
                                        </form>
                                    </div>
-
-
-
-                                    <iscomment> Cange lety puntos </iscomment>
+                                       <iscomment> Cange lety puntos </iscomment>
                                    <div class="col-12">
                                        <form action="${}" class="promo-code-form lety-card-form" method="GET"
                                            name="lety-card-form">
@@ -363,10 +361,10 @@
                                            </div>
                                        </form>
                                    </div>
-
-
+ 
+ 
                                    <iscomment> Show price adjustment apply  </iscomment>
-                                 
+                                  
                                    <div class="col-12 d-none" id="hideDivCancelCange" data-adjustmentapplied="${pdict.customer.adjustmentApplied}">
                                        <iscomment> Remove the price adjustment </iscomment>
                                        <div class="row">
@@ -381,9 +379,11 @@
                                            </div>
                                        </div>
                                    </div>
+ 
+                                   </div>
+                               </isif>
 
 
-                                </div>
                             </div>
                         </div>
 

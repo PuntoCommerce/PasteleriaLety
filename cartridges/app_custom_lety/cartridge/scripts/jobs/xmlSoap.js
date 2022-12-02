@@ -331,7 +331,7 @@
       const sIdFol = XMLList(xml).descendants("sIdFolioTarjeta");
 
       if(iIdMem.length() === 0){
-        json+='{"error":"Error de la respuesta o Fue Eliminado correctamente"},';
+        json+='{"error":"Error de la respuesta"},';
         json = json.slice(0,-1)+']}';
       }else{
         for(let i =0; i<iIdMem.length();i++){
