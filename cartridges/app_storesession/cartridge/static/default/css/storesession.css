@@ -91,6 +91,10 @@
   font-size: 10px;
 }
 
+.sessionStoreName-mobile{
+  display: none;
+}
+
 .sessionStoreAddress{
   color: white;
   font-size: 11px;
@@ -136,4 +140,13 @@ option{
 .dropdown-container:active ul{
   max-height:450px;
   width: 180px;
+}
+
+@media (max-width: 992px){
+  .sessionStoreName{
+    display: none;
+  }
+  .sessionStoreName-mobile{
+    display: flex;
+  }
 }
