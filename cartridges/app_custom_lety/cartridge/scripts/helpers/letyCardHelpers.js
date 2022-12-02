@@ -36,7 +36,7 @@
     
  };
 
- function crearLetyCard(customerNo){
+ function crearLetyCard(customerNo, data){
   
   const customer = CustomerMgr.getProfile(customerNo);
   let LetyC = "";
