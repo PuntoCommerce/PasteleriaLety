@@ -11,7 +11,7 @@
         <!---Address Book--->
         <isinclude template="account/addressBookCard" />
         <!---Lety club--->
-        <isif condition="${pdict.account.LetyCard}">
+        <isif condition="${pdict.account.LetyCard1}">
            <isinclude template="account/clubLetyCard" />
            <iselse>
                <isinclude template="account/clubLetyCardNew" />
