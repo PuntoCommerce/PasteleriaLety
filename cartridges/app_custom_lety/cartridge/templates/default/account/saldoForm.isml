@@ -109,7 +109,7 @@ pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_ApellidoPat !== "undef
       <label class="label-card">
           <span class="text-danger d-none" id="s_AddressSpan">*&nbsp;</span>Dirección
       </label>
-      <input class="form-control input-card" type="text" id="s_Mail" value="${pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_Direccion !== "undefined" ? pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_Direccion : ""}" />
+      <input class="form-control input-card" type="text" id="f_Adreess" value="${pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_Direccion !== "undefined" ? pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_Direccion : ""}" />
   </div>
   <div class="col-sm-12 col-md-12 col-lg-6 form-group">
       <label class="label-card">
@@ -159,14 +159,10 @@ pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_ApellidoPat !== "undef
   </div>
 </div>
 <div class="row">
-  <div class="col-sm-12 col-md-12 col-lg-4 form-group mt-2">
-      <a href="${URLUtils.url('Account-Show')}"
-          class="profile-back-to-account-link text-left text-center">${Resource.msg('link.profile.backtomyaccount', 'account', null)}</a>
+  <div class="col-sm-12 col-md-12 col-lg-6 form-group">
+      <a href="${URLUtils.url('Account-Show')}" class="btn btn-cancelar">${Resource.msg('button.cancel', 'account', null)}</a>
   </div>
-  <div class="col-sm-12 col-md-12 col-lg-4 form-group">
-      <a href="${URLUtils.url('Address-List')}" class="btn btn-cancelar">${Resource.msg('button.cancel', 'account', null)}</a>
-  </div>
-  <div class="col-sm-12 col-md-12 col-lg-4 form-group">
+  <div class="col-sm-12 col-md-12 col-lg-6 form-group">
       <button class="btn btn-save btn-save-login" id="getDataAccountForm" type="button" data-action="${URLUtils.url("Account-SaveSaldoForm")}">
           ${Resource.msg('button.save', 'account', null)}
       </button>

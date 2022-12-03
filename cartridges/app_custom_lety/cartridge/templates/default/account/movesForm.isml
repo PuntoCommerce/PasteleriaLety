@@ -24,7 +24,7 @@
         </div>
         <div class="col-12 col-md-6">
             
-            <div class="input-group mb-3 container-label-search">
+            <div class="input-group mb-3 container-label-search d-none">
                 <label for="" class="col-4 label-search">${Resource.msg('label.header.banner', 'search', null)}</label>
                 <input 
                     type="text" 
@@ -138,7 +138,7 @@
 <!-- Cancel and Save Buttons -->
 <div class="row ">
  <div class="col-6">
-                <a href="${URLUtils.url('Account-Show')}" class="profile-back-to-account-link text-left">${Resource.msg('link.profile.backtomyaccount','account',null)}</a>
+               <!-- <a href="${URLUtils.url('Account-Show')}" class="profile-back-to-account-link text-left">${Resource.msg('link.profile.backtomyaccount','account',null)}</a>-->
             </div>
     <div class="col-6 div-btn-exit">
         <a href="${URLUtils.url('Account-Show')}" class="btn btn-save btn-save-login">${Resource.msg('link.header.logout', 'account', null)}</a>

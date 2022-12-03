@@ -22,7 +22,7 @@
                         <isif condition="${pdict.addressId}">
                             <h3>${Resource.msg('header.title.club', 'account', null)}</h3>
                             <iselse>
-                                <h2 class="title-add-addres">${Resource.msg('label.saldo', 'account', null)}</h2>
+                                <h2 class="title-add-addres">Crear Membrecía</h2>
                         </isif>
                     </div>
                     <div class="card-body">
