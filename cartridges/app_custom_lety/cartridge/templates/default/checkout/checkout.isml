@@ -70,7 +70,7 @@
         <div class="checkout_top">
             <div>
                 <p class="checkout_top_text">
-                <img class="mr-3 checkout_top_img" src="${URLUtils.staticURL('/images/candado.svg')}" alt="lock"/>Compra segura</p>
+                <img class="mr-3 checkout_top_img" src="${URLUtils.staticURL('/images/icons/candado.svg')}" alt="lock"/>Compra segura</p>
             </div>
             <div>
                 <p class="checkout_top_text_2 ml-4">Seguir comprando</p>
@@ -89,7 +89,7 @@
             <div id="checkoutStepDivider2" class="checkout__stepper--divider"></div>
             <li class="checkout__stepper--item">
                 <h3 id="checkoutStep3" class="checkout__stepper--item-circle">3</h3>
-                <p class="checkout__stepper--item-title">Realizar Pedido</p>
+                <p class="checkout__stepper--item-title checkout__stepper--item-title3">Realizar Pedido</p>
             </li>
         </ul>
     </div>
@@ -456,8 +456,8 @@
 
     <iscomment> </iscomment>
  
-<div class="modal fade" id="modalSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-   <div class="modal-dialog w-25" role="document">
+<div class="modal fade" id="modalLoading" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
        <div class="modal-content">
            <div class="modal-body">
                <div class="d-flex justify-content-center mt-3">
@@ -479,7 +479,7 @@
 </div>
  
 <div class="modal fade" id="modalSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-   <div class="modal-dialog w-25" role="document">
+   <div class="modal-dialog" role="document">
        <div class="modal-content">
            <div class="modal-body">
                <div class="d-flex justify-content-center mt-3">
@@ -502,7 +502,7 @@
  
 <!-- Modal Error -->
 <div class="modal fade" id="modalError" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-   <div class="modal-dialog w-25" role="document">
+   <div class="modal-dialog" role="document">
        <div class="modal-content">
            <div class="modal-body">
                <div class="d-flex justify-content-center mt-3">

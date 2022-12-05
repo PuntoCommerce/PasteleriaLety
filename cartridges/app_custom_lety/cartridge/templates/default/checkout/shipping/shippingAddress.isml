@@ -19,7 +19,7 @@
             ${addressFields.firstName.mandatory === true ? 'required' : ''}
             ${addressFields.firstName.htmlName}">
             <label class="form-control-label" for="shippingFirstName${lineItem ? lineItem.UUID : 'default'}">
-                ${Resource.msg('field.shipping.address.first.name', 'address', null)}<span>${Resource.msg('field.shipping.address.required', 'address', null)}</span>
+                ${Resource.msg('field.shipping.address.first.name.recip', 'address', null)}<span>${Resource.msg('field.shipping.address.required', 'address', null)}</span>
             </label>
             <input autofocus type="text" class="form-control shippingFirstName"
                 id="shippingFirstName${lineItem ? lineItem.UUID : 'default'}"

@@ -32,8 +32,10 @@ const sendOrderToERP = (orderId) => {
   let letyPuntosCard = 0;
   let letyPuntosAmount = 0;
 
+  let hasLetyPuntosCard = order.custom.letyPuntosCard ? true : false;
+  let hasLetyPuntosAmount = order.custom.letyPuntosAmount ? true : false;
   try {
-    if (order.custom.letyPuntosCard && order.custom.letyPuntosAmount) {
+    if (hasLetyPuntosCard && hasLetyPuntosAmount) {
       letyPuntosCard = parseInt(order.custom.letyPuntosCard);
       letyPuntosAmount = order.custom.letyPuntosAmount;
     }
@@ -62,7 +64,17 @@ const sendOrderToERP = (orderId) => {
   };
 
   const response = ApiLety("InsertaDatosVentaWeb", payload);
-  let a = today.getDate();
+  if (!response.error) {
+    if (hasLetyPuntosCard && hasLetyPuntosAmount) {
+      let payloadRemoveLetyPuntos = {
+        Empresa: "1",
+        s_IdMembresia: letyPuntosCard,
+        dMonto: letyPuntosAmount,
+        sFolioWeb: orderId,
+      };
+      ApiLety("getLetyClubQuitarPuntos", payloadRemoveLetyPuntos);
+    }
+  }
 };
 
 module.exports = {

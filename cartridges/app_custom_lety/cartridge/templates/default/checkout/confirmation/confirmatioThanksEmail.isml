@@ -75,9 +75,13 @@
             width: 10%;
         }
 
+        .div-logo-img {
+            width: 100%
+        }
+
         .logo-img {
             width: 100%;
-            max-height: 160px;
+            min-height: 160px;
         }
 
         .icons-links {

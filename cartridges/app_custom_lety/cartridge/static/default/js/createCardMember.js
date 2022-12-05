@@ -29,8 +29,8 @@ window.onload = function () {
        }
    }
    const cCiudad = document.querySelector("#cCiudad");
-   const dateBirth = document.querySelector("#dtFechaNacimiento").getAttribute("data-datebirth").split("/");
-   $("#dtFechaNacimiento").val(dateBirth[2] + "-" + dateBirth[1] + "-" + dateBirth[0]);
+   //const dateBirth = document.querySelector("#dtFechaNacimiento").getAttribute("data-datebirth").split("/");
+   //$("#dtFechaNacimiento").val(dateBirth[2] + "-" + dateBirth[1] + "-" + dateBirth[0]);
    const ids = cCiudad.getAttribute("data-city").split("!");
    ciudad = ids[0];
    let idCity = "";
@@ -44,7 +44,6 @@ window.onload = function () {
    }, 500);
 }
 /* tags inputs */
- // dtFechaNacimiento
 const arrayFields = ["s_Nombre", "s_ApellidoPat", "s_Apmaterno", "s_Mail", "s_EstadoCivil", "f_Adreess", "s_Telefono1", "s_Colonia", "Ciudad", "Estado", "PreferenciaProducto"];
 const accountSaldoForm = document.querySelector("#accountSaldoForm");
 const getDataAccountForm = document.querySelector("#getDataAccountForm");
@@ -62,6 +61,8 @@ const eEstado = document.querySelector("#Estado");
 const PreferenciaProducto = document.querySelector("#PreferenciaProducto");
 const cCiudad = document.querySelector("#cCiudad");
  
+/* tag p */
+const infoSuccess = document.querySelector("#infoSuccess");
 const msgError = document.querySelector("#msgError");
  
 mMale.addEventListener('change', function () {
@@ -89,6 +90,7 @@ kOtro.addEventListener('change', function () {
 });
 /* get selected city */
 const getCity = async (tagHtml) => {
+    console.log("entro...");
  //ciudad = document.querySelector('#cCiudad option:checked').value;
  let idEstado = tagHtml.split("!");
  ciudad = idEstado[0];
@@ -102,15 +104,15 @@ const getCity = async (tagHtml) => {
  const result = await response.json();
  let estado = result.JsonDatosEstados.find(item => item.iIdEstado === String(idEstado[1]));
  eEstado.value = estado.sNombre;
+ console.log(eEstado);
 }
  
 getDataAccountForm.addEventListener("click", async () => {
 msgError.textContent = "";
+infoSuccess.textContent = "";
  formFlag = false;
  const formData = new FormData();
  for (var i = 0, element; element = accountSaldoForm.elements[i++];) {
-   console.log(`#${element.id}Span`);
-   console.log(element.value);
      if (requiredFields(element.id, arrayFields)) {
          if (isEmptyField(element.value.replaceAll(" ", ""))) {
              document.querySelector(`#${element.id}Span`).classList.remove("d-none");
@@ -151,18 +153,22 @@ msgError.textContent = "";
  formData.append("Estado", eEstado.value.trim());
  formData.append("dtFechaNacimiento", newDate);
  formData.append("PreferenciaProducto", PreferenciaProducto.value.trim());
+
  
  const response = await fetch(getDataAccountForm.getAttribute("data-action"), {
      method: "POST",
      body: formData
  });
- /*
+ 
  const updateSaldo = await response.json();
- if (updateSaldo.code === 0) { $("#modalSuccess").modal("show"); }
+
+ if (updateSaldo.code === 0) {
+    infoSuccess.textContent = "Tus datos se guardaron con éxito.";
+    $("#modalSuccess").modal("show"); }
  else if (updateSaldo.code === 1) {
-    msgError.textContent = "Ocurrió un error";
+    msgError.textContent = "Lo sentimos, algo paso, por favor intenta más tarde.";
     $("#modalError").modal("show");
-}*/
+}
  
 });
 const requiredFields = (field, arrayFields) => {

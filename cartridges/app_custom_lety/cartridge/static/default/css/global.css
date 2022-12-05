@@ -690,7 +690,7 @@ header {
 }
 
 .user.hidden-md-down.nav-item .popover.popover-bottom{
-  top: 60px !important;
+  top: 55px !important;
 }
 
 .user-conten .user{
@@ -1258,7 +1258,7 @@ textarea {
     font-size: 25px;
     position: absolute;
     right: 10px;
-    top: 80px;
+    top: 100px;
   }
 
   .input-location {
@@ -14442,7 +14442,7 @@ input[placeholder] {
   z-index: 1;
 }
 .error-hero {
-  background-image: url("../images/storelocator.jpg");
+  background-image: url("../images/banner-confirmation.svg");
   margin-bottom: 0.625em;
 }
 .error-message {
