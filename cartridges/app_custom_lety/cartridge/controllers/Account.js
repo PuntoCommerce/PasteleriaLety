@@ -125,12 +125,24 @@ server.post("AddLetyCard", (req, res, next) => {
 });
 
 server.post("GenerateLetyCard", (req, res, next) => {
-  const Custom = req.currentCustomer.profile.customerNo;
-  const data = JSON.parse(JSON.stringify(req.form));
-  const letyCardNew = crearLetyCard(Custom, data);
+
+  let code;
+  try {
+    const Custom = req.currentCustomer.profile.customerNo;
+    const data = JSON.parse(JSON.stringify(req.form));
+    const letyCardNew = crearLetyCard(Custom, data);
+    code = 0;
+  } catch (error) {
+    code = 0;
+  }
+
+  res.json({
+    code: code
+  });
+
   next();
- });
- 
+});
+
 
 server.post("SaveSaldoForm", (req, res, next) => {
   // sacar todo desde node. con desestructuracion d
@@ -239,55 +251,58 @@ server.post("getState", (req, res, next) => {
 });
 
 
+/* working create card... server.middleware.https,*/
+server.post("AddLetyCardMember",  function (req, res, next) {
 
- 
+  const Custom = req.currentCustomer;
+  let letyCard = req.querystring.letyCard;
+  const userData = req.currentCustomer.profile;
+
+
+  let CatalogoCiudades = ApiServiceLety.ApiLety(
+    "CatalogoCiudades", {
+      Empresa: 1,
+      IdEstado: "0"
+    }
+  );
+
+  let JsonDatosCiudades;
+
+  if (CatalogoCiudades.ERROR) {
+    JsonDatosCiudades = {};
+  } else {
+    let catalogo = JSON.parse(CatalogoCiudades);
+    JsonDatosCiudades = catalogo.CatalogoCiudades;
+  }
+  // delete
+  let CatalogoEstados = ApiServiceLety.ApiLety(
+    "CatalogoEstados", {
+      Empresa: 1
+    }
+  );
+
+  let JsonDatosEstados;
+
+  if (CatalogoEstados.ERROR) {
+    JsonDatosEstados = {};
+  } else {
+    let estados = JSON.parse(CatalogoEstados);
+    JsonDatosEstados = estados.CatalogoEstados;
+
+  }
+
+  res.render("account/cardLetyClub", {
+    Account: {
+      JsonDatosCiudades: JsonDatosCiudades,
+      userData: userData,
+      JsonDatosEstados: JsonDatosEstados
+    }
+  });
+  next();
+});
 /* working create card... */
-server.post("AddLetyCardMember", server.middleware.https, function (req, res, next) {
 
-let CatalogoCiudades = ApiServiceLety.ApiLety(
-"CatalogoCiudades", {
-  Empresa: 1,
-  IdEstado: "0"
-}
-);
 
-let JsonDatosCiudades;
-
-if (CatalogoCiudades.ERROR) {
-JsonDatosCiudades = {};
-} else {
-let catalogo = JSON.parse(CatalogoCiudades);
-JsonDatosCiudades = catalogo.CatalogoCiudades;
-}
-// delete
-let CatalogoEstados = ApiServiceLety.ApiLety(
-"CatalogoEstados", {
-  Empresa: 1
-}
-);
-
-let JsonDatosEstados;
-let estdo = "";
-
-if (CatalogoEstados.ERROR) {
-JsonDatosEstados = {};
-} else {
-let estados = JSON.parse(CatalogoEstados);
-JsonDatosEstados = estados.CatalogoEstados;
-
-}
-
-res.render("account/cardLetyClub", {
-Account: {
-  JsonDatosCiudades: JsonDatosCiudades,
-  JsonDatosEstados: JsonDatosEstados
-}
-});
-next();
-});
- /* working create card... */
- 
- 
 
 
 module.exports = server.exports();

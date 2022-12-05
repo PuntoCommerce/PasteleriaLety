@@ -14450,7 +14450,7 @@ input[placeholder] {
   z-index: 1;
 }
 .error-hero {
-  background-image: url("../images/storelocator.jpg");
+  background-image: url("../images/banner-confirmation.svg");
   margin-bottom: 0.625em;
 }
 .error-message {

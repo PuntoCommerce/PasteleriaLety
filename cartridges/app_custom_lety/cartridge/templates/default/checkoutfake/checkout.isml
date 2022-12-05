@@ -259,7 +259,6 @@
 
                                     <iscomment> Lety saldo </iscomment>
                                     <div class="col-12">
-                                        <p>${JSON.stringify()}</p>
                                         <form action="${}" class="promo-code-form lety-card-form" method="GET"
                                             name="lety-card-form">
                                             <div class="form-group">

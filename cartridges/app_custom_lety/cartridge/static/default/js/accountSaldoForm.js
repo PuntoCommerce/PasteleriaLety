@@ -35,12 +35,10 @@ window.onload = function () {
     let idCity = "";
     setTimeout(() => {
         $("#cCiudad option").each(function (i) {
-  
             idCity = $(this).val().split("!");
             if (Number(idCity[0]) === Number(ids[0])) {
                 cCiudad.options[i].selected = true
             }
- 
         });
     }, 500);
 }
@@ -62,7 +60,10 @@ const eEstado = document.querySelector("#Estado");
 const dtFechaNacimiento = document.querySelector("#dtFechaNacimiento");
 const PreferenciaProducto = document.querySelector("#PreferenciaProducto");
 const cCiudad = document.querySelector("#cCiudad");
-const msgError = document.querySelector("#msgError");
+/* alerts */
+const info = document.querySelector("#msgError");
+
+
 
 mMale.addEventListener('change', function () {
     if (this.checked) {

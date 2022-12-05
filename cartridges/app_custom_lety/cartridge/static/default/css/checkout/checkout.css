@@ -1246,6 +1246,16 @@ span.ship-to-phone {
     bottom: 0;
   }
 
+  .checkout_top_text_2.ml-4{
+    display: flex;
+    justify-content: center;
+    margin-left: 0 !important;
+  }
+
+  .checkout__stepper--item-title3{
+    right: 5px !important;
+  }
+
   .content-img-confirmation .img-page-confirmation{
     display: none;
   }
