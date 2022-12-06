@@ -108,7 +108,7 @@ class Pagination {
                     <p class="card-text card-text-list">${item.dtFechaAplica}</p>\
   
                     <h5 class="card-title card-title-list">Sucursal</h5>\
-                    <p class="card-text card-text-list">${item.dtFechaAplica}</p>\
+                    <p class="card-text card-text-list">${item.Centro}</p>\
   
                     <h5 class="card-title card-title-list">Descripción</h5>\
                     <p class="card-text card-text-list">${item.TipoMovimiento}</p>\
@@ -218,6 +218,8 @@ class Pagination {
           search.test(s.count) === true || 
           search.test(s.TipoMovimiento) === true ||
           search.test(s.Abono) === true ||
+          search.test(s.Centro) === true ||
+          search.test(s.dtFechaAplica) === true ||
           search.test(s.Cargo) === true
           ){
         return true
