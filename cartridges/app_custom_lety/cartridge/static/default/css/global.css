@@ -1194,7 +1194,9 @@ textarea {
 }
 
 .txt-range{
-  font-family: var(--font-family-gotham-black) !important;
+  font-size: 15px !important;
+  font-family: var(--font-family-gotham) !important;
+  padding-top: 4px !important;
 }
 
 .content-range-price .range{
