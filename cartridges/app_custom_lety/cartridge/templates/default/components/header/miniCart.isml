@@ -13,4 +13,10 @@
             <isprint value="${pdict.quantityTotal}" formatter="##" />
         </span>
 </div> </iscomment>
-<div class="popover popover-bottom"></div>
+<div class="popover popover-bottom" id="minicartPopover">
+    <div class="row closeMinicartBtn">
+        <button type="button" id="closeSearchBtn" onclick="closeMinicart()">
+            <img src="${URLUtils.staticURL('/images/close.svg')}"/>
+        </button>
+    </div>
+</div>

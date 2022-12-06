@@ -16,21 +16,21 @@
     <iselse/>
         <div class="row">
             <div class="item-image col-4">
+                <div class="checkout__text">
+                    <span>${lineItem.productName}</span>
+                </div>
                 <img class="product-image" src="${lineItem.images.small[0].url}" alt="${lineItem.images.small[0].alt}"
                     title="${lineItem.images.small[0].title}">
             </div>
             <div class="item-attributes col-8">
-                <div class="checkout__text">
-                    <span>${lineItem.productName}</span>
-                </div>
-                <div class="d-flex checkout__text">
+                <iscomment> <div class="d-flex checkout__text">
                     <isloop items="${lineItem.variationAttributes}" var="attribute" status="status">
                         <p class="line-item-attributes">${attribute.displayValue}</p>
                         <isif condition="${!status.last}">
                             <span>&nbsp;/&nbsp;</span>
                         </isif>
                     </isloop>
-                </div>
+                </div> </iscomment>
                 <div class="row checkout__text">
                     <!--- item price --->
                     <div class="col-4" style="padding-right: 0;">
