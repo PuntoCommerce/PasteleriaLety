@@ -450,7 +450,7 @@
 
 .location .dropdown-container{
   padding: 0 !important;
-  min-width: 220px !important;
+  position: relative;
 }
 
 
