@@ -31,9 +31,10 @@
                 });
             }
         }else{
+          Exis=='0';
         }
       }
-    
+    return Exis;
  };
 
  function crearLetyCard(customerNo, data){
