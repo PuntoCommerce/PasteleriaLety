@@ -830,7 +830,7 @@ header {
 }
 
 .select-tamano {
-  width: 100%;
+  width: 80% !important; 
 }
 
 .content-selects{
@@ -1060,11 +1060,11 @@ textarea {
 }
 
 .cart-page .quantity{
-  margin-top: 30%;
+  margin-top: 15%;
 }
 
 .cart-page .line-item-total-price .price{
-  margin-top: 27%;
+  margin-top: 5%;
 }
 .product-edit {
   padding-top: 20px !important;
@@ -1195,6 +1195,10 @@ textarea {
 
 .txt-range{
   font-family: var(--font-family-gotham-black) !important;
+}
+
+.content-range-price .range{
+  display: inherit;
 }
 
 /*responsive 992*/
@@ -1524,6 +1528,14 @@ textarea {
     padding-left: 22px;
   }
 
+  .content-selects{
+    min-width: 192px;
+  }
+
+  .select-tamano {
+    width: 100% !important; 
+  }
+
   .cart-and-ipay {
     padding-left: 15px;
     padding-right: 15px;
@@ -1645,6 +1657,10 @@ textarea {
     grid-column: 1 !important;
   }
 
+  .rnr-comments-container{
+    padding: 10px 20px;
+  }
+
 
   /*Carrito*/
 
@@ -1675,6 +1691,10 @@ textarea {
 
   .product-card-footer .row{
     justify-content: space-between;
+  }
+
+  .cart-page .line-item-total-price .price, .cart-page .quantity{
+    margin-top: 0;
   }
 
   .line-item-price{

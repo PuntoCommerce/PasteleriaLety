@@ -1,14 +1,14 @@
 <form action="" class="login-oauth" method="post" name="login-oauth-form">
 
     <div class="form-group">
-        <a  href="${URLUtils.https('Login-OAuthLogin', 'oauthProvider', 'Facebook', 'oauthLoginTargetEndPoint', pdict.oAuthReentryEndpoint)}" class="btn btn-login-FG btn-outline-primary oauth-facebook"
+        <a  href="${URLUtils.https('Login-OAuthLogin', 'oauthProvider', 'Facebook', 'oauthLoginTargetEndPoint', pdict.oAuthReentryEndpoint)}" class="btn btn-login-FG oauth-facebook"
            role="button" aria-pressed="true">
                  <img src="${URLUtils.staticURL('/images/icons/face-check.svg')}" alt="${Resource.msg('global.storename', 'common', null)}" />
                 ${Resource.msg('button.text.oauth.facebook', 'login', null)}
         </a>
     </div>
     <div class="form-group">
-        <a  href="${URLUtils.https('Login-OAuthLogin', 'oauthProvider', 'Google', 'oauthLoginTargetEndPoint', pdict.oAuthReentryEndpoint)}" class="btn btn-login-FG btn-outline-primary oauth-google"
+        <a  href="${URLUtils.https('Login-OAuthLogin', 'oauthProvider', 'Google', 'oauthLoginTargetEndPoint', pdict.oAuthReentryEndpoint)}" class="btn btn-login-FG oauth-google"
            role="button" aria-pressed="true">
            <img src="${URLUtils.staticURL('/images/icons/google-check.svg')}" alt="${Resource.msg('global.storename', 'common', null)}" />
             <iscomment> <i class="fa fa-google" aria-hidden="true"></i> </iscomment>
