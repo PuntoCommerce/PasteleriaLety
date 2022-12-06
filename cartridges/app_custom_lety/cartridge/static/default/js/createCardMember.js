@@ -2,12 +2,27 @@
 const mMale = document.querySelector("#mMale");
 const fFemale = document.querySelector("#fFemale");
 const kOtro = document.querySelector("#kOtro");
+/* inputs */
+const s_ApellidoPat = document.querySelector("#s_ApellidoPat");
 /* vars */
 var dateRegex = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
 let gender = "";
 let ciudad = "";
  
 window.onload = function () {
+    let lastnameSplit = [];
+    const lastname = s_ApellidoPat_ApellidoPat.getAttribute("data-qlastname");
+    if(!isEmptyField(lastname)) {console.log("Entro");
+        if (/\s/.test(lastname)) {console.log("Entro.");
+            lastnameSplit = lastname.split(" ");
+            document.querySelector("#s_ApellidoPat").value = lastnameSplit[0];
+            lastnameSplit.shift();
+            document.querySelector("#s_Apmaterno").value = lastnameSplit.toString().replace(/,/g," ");
+        } else {
+            lastnameSplit[0] = lastname;
+            document.querySelector("#s_ApellidoPat").innerHTML = lastname
+        }
+    }
    const dS_Sexo = document.querySelector("#dS_Sexo").getAttribute("data-tipo");
    if (!isEmptyField(dS_Sexo)) {
        if (dS_Sexo === "Masculino") {
@@ -28,7 +43,7 @@ window.onload = function () {
            gender = "Otro";
        }
    }
-   const cCiudad = document.querySelector("#cCiudad");
+   /*const cCiudad = document.querySelector("#cCiudad");
    //const dateBirth = document.querySelector("#dtFechaNacimiento").getAttribute("data-datebirth").split("/");
    //$("#dtFechaNacimiento").val(dateBirth[2] + "-" + dateBirth[1] + "-" + dateBirth[0]);
    const ids = cCiudad.getAttribute("data-city").split("!");
@@ -41,7 +56,7 @@ window.onload = function () {
                cCiudad.options[i].selected = true
            }
        });
-   }, 500);
+   }, 500);*/
 }
 /* tags inputs */
 const arrayFields = ["s_Nombre", "s_ApellidoPat", "s_Apmaterno", "s_Mail", "s_EstadoCivil", "f_Adreess", "s_Telefono1", "s_Colonia", "Ciudad", "Estado", "PreferenciaProducto"];
@@ -49,7 +64,6 @@ const accountSaldoForm = document.querySelector("#accountSaldoForm");
 const getDataAccountForm = document.querySelector("#getDataAccountForm");
  
 const s_Nombre = document.querySelector("#s_Nombre");
-const s_ApellidoPat = document.querySelector("#s_ApellidoPat");
 const s_Apmaterno = document.querySelector("#s_Apmaterno");
 const dtFechaNacimiento = document.querySelector("#dtFechaNacimiento");
 const s_Mail = document.querySelector("#s_Mail");

@@ -81,6 +81,15 @@
   font-size: 15px;
 }
 
+.session-btn-mobile{
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+}
+.session-btn-mobile:hover{
+  color: var(--color-lety2);
+}
+
 .storesessionSearch{
   display: none;
 }
@@ -100,12 +109,14 @@
   font-size: 12px;
   padding: 0 30px;
   font-family: 'gotham-book';
+  text-transform: lowercase;
 }
 
 .sessionStoreName{
+  text-transform: uppercase;
   color: white;
   font-size: 14px;
-  padding: 0 15px;
+  padding: 0;
   font-family: 'gotham-book';
   font-weight: 700;
 }
@@ -115,8 +126,7 @@ option{
 }
 
 .dropdown-container{
-  position:static;
-  width: 180px;
+  width: 150px;
 }
 .lety-address-locator{
   position: absolute;
@@ -152,11 +162,31 @@ option{
   width: 180px;
 }
 
+@media (max-width: 1024px){
+  .dropdown-container{
+    width: 30px;
+  }
+
+  .sessionStoreName{
+    font-size: 11px;
+  }
+
+  .sessionStoreAddress{
+    font-size: 11px;
+  }
+}
+
 @media (max-width: 992px){
   .sessionStoreName{
     display: none;
   }
   .sessionStoreName-mobile{
     display: flex;
+  }
+  .sessionStoreAddress{
+    font-size: 14px;
+  }
+  .dropdown-container{
+    width: 100%;
   }
 }

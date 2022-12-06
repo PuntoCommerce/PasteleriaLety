@@ -13,12 +13,12 @@
         </li>
         <li>
             <a href="https://www.instagram.com/share?url=${productUrlencode}&text=${product.productName}" data-share="instagram" title="${Resource.msgf('label.social.instagram', 'product', null, product.productName)}" aria-label="${Resource.msgf('label.social.twitter', 'product', null, product.productName)}" class="share-icons" target="_blank">
-                <img class="icon-detail" src="${URLUtils.staticURL('/images/icons/instagram-detail.svg')}"/>
+                <img alt="" class="icon-detail" src="${URLUtils.staticURL('/images/icons/instagram-detail.svg')}"/>
             </a>
         </li>
         <li>
-        <a href="" class="share-icons" id="fa-link" role="button" title="${Resource.msgf('label.social.link', 'product', null, product.productName)}" aria-label="${Resource.msgf('label.social.link', 'product', null, product.productName)}">
-            <img class="icon-detail" src="${URLUtils.staticURL('/images/icons/compartir.svg')}"/>
+        <a href="" class="share-icons" id="btn-compartir" role="button" title="${Resource.msgf('label.social.link', 'product', null, product.productName)}" aria-label="${Resource.msgf('label.social.link', 'product', null, product.productName)}">
+            <img alt="sicon-hare" class="icon-detail" src="${URLUtils.staticURL('/images/icons/compartir.svg')}"/>
         </a>
         <iscomment> <input type="hidden" id="shareUrl" value="${URLUtils.https('Product-Show', 'pid', product.id)}"/> </iscomment>
         </li>

@@ -1253,7 +1253,8 @@ span.ship-to-phone {
   }
 
   .checkout__stepper--item-title3{
-    right: 5px !important;
+    right: -10px !important;
+    top: 76px !important;
   }
 
   .content-img-confirmation .img-page-confirmation{

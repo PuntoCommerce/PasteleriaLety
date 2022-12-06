@@ -649,3 +649,13 @@ label.availability {
   grid-template-columns: 15% 85%;
   margin: 0;
 }
+
+.promotions-wish-row-2{
+  display: grid;
+  grid-template-columns: 100% 85%;
+  margin: 0;
+}
+
+.detail-left .whishlist-secound{
+  padding-left: 0 !important;
+}
