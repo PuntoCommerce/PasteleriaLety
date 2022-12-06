@@ -1060,11 +1060,11 @@ textarea {
 }
 
 .cart-page .quantity{
-  margin-top: 30%;
+  margin-top: 15%;
 }
 
 .cart-page .line-item-total-price .price{
-  margin-top: 27%;
+  margin-top: 5%;
 }
 .product-edit {
   padding-top: 20px !important;
@@ -1195,6 +1195,10 @@ textarea {
 
 .txt-range{
   font-family: var(--font-family-gotham-black) !important;
+}
+
+.content-range-price .range{
+  display: inherit;
 }
 
 /*responsive 992*/
@@ -1687,6 +1691,10 @@ textarea {
 
   .product-card-footer .row{
     justify-content: space-between;
+  }
+
+  .cart-page .line-item-total-price .price, .cart-page .quantity{
+    margin-top: 0;
   }
 
   .line-item-price{

@@ -1,5 +1,5 @@
 <div class="content-range-price">
-<span class="txt-range">Desde:</span>
+<span class="txt-range">Desde:&nbsp;&nbsp;</span>
     <span class="range">
     <isset name="origPrice" value="${price}" scope="page" />
 

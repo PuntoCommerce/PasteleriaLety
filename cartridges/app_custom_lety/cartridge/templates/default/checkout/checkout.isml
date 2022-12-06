@@ -89,7 +89,7 @@
             <div id="checkoutStepDivider2" class="checkout__stepper--divider"></div>
             <li class="checkout__stepper--item">
                 <h3 id="checkoutStep3" class="checkout__stepper--item-circle">3</h3>
-                <p class="checkout__stepper--item-title checkout__stepper--item-title3">Realizar Pedido</p>
+                <p class="checkout__stepper--item-title checkout__stepper--item-title3">Realizar <br> Pedido</p>
             </li>
         </ul>
     </div>
