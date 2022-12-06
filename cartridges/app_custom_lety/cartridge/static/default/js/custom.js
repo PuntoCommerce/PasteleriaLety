@@ -26,6 +26,18 @@ closeSearch = () => {
 
 // #####Buscador########
 
+//Minicart
+closeMinicart = () => {
+  const minicartContainer = document.getElementById("minicartPopover");
+
+  if (minicartContainer.style.display == "block") {
+    minicartContainer.style.display = "none";
+  } else {
+    minicartContainer.style.display = "none"
+  }
+}
+//Minicart
+
 // window.addEventListener("scroll", () => {
 //   changeSubMenuItem();
 // });
