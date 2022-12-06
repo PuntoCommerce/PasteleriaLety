@@ -492,7 +492,7 @@
 .refinements ul li button{
   color: #000;
   display: flex;
-  margin: 11px 0;
+  margin: 20px 0;
   text-align: initial;
 }
 
@@ -510,8 +510,12 @@
 }
 
 .sub-categories .button-checkSubCategory{
-  margin-bottom: 11px;
+  margin-bottom: 20px;
   display: flex;
+}
+
+.sub-categories .button-checkSubCategory span, .refinements ul li button span{
+  padding-left: 10px;
 }
 
 .button-checkSubCategory, .button-checkPrice{
@@ -797,7 +801,7 @@
 }
 .search-nav {
   margin-bottom: 1em;
-  border-bottom: 0.063em solid #ccc;
+  /* border-bottom: 0.063em solid #ccc; */
 }
 .search-nav .nav-tabs-wrapper {
   padding: 0;

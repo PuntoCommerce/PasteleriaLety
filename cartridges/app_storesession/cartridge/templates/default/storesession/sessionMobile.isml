@@ -38,8 +38,8 @@
               <button type="button" id="session_search-confirm">Confirmar</button>
           </div>
           <div class="row p-3">
-            <img class="ml-2 mr-3" src="${URLUtils.staticURL('/images/icons/ubicacion-desactivada.svg')}" alt="" />
-            <button type="button" id="session_search-locationMobile" >Encuentra Tu ubicación en el mapa</button>
+            <img class="" src="${URLUtils.staticURL('/images/icons/ubicacion-desactivada.svg')}" alt="" />
+            <button type="button" class="session-btn-mobile" id="session_search-locationMobile" >Encuentra Tu ubicación en el mapa</button>
           </div>
             
           </div>

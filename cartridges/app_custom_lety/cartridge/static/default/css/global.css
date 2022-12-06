@@ -833,8 +833,22 @@ header {
   width: 100%;
 }
 
+.content-selects{
+  min-width: 440px;
+  padding: 0 50px 0 0 !important;
+}
+
 .quantity-select {
-  width: 58px !important;
+  min-width: 100% !important;
+}
+
+.attribute.quantity{
+  max-width: 88px;
+  padding: 0;
+}
+
+.simple-quantity{
+  max-width: 106px;
 }
 
 .add-to-cart.btn,
@@ -1172,6 +1186,15 @@ textarea {
   border: none;
   color: white;
   font-size: 25px;
+}
+
+/*Product tile*/
+.product-tile .price .content-range-price{
+  display: inline-flex;
+}
+
+.txt-range{
+  font-family: var(--font-family-gotham-black) !important;
 }
 
 /*responsive 992*/
@@ -1578,6 +1601,11 @@ textarea {
   .description-and-detail .content {
     font-size: 14px;
   }
+
+  .product-attributes .conten-attributes, .description .value.content, .details .value.content{
+    padding: 0 40px !important;
+  }
+  
 
   .reviews-raitngs-container {
     padding-left: 0 !important;

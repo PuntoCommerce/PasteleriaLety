@@ -45,7 +45,7 @@
         <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
 
         <div class="form-group">
-            <button class="btn btn-block btn-primary" type="submit" name="submit" value="submit">
+            <button class="btn btn-product" type="submit" name="submit" value="submit">
                 ${Resource.msg('button.text.trackorderform', 'login', null)}
             </button>
         </div>
