@@ -102,12 +102,12 @@
   width: 100%;
   min-height: 37px;
   border-radius: 25px;
+  border-color: var(--color-lety-black);
 }
 
 .btn-login-FG:hover{
-  background-color: var(--color-lety3);
-  color: var(--color-lety-white);
-  border-color: var(--color-lety-black);
+  border-color: var(--color-lety3);
+  color: var(--color-lety3);
 }
 
 .login-oauth .form-group img{
