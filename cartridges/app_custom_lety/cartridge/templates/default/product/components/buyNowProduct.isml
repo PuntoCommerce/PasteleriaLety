@@ -1,3 +1,4 @@
+<p>Esta</p>
 <isif condition="${pdict.hasInventoryOn}">
     <div class="row cart-and-ipay">
         <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}" />

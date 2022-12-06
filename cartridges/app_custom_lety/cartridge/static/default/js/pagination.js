@@ -38,6 +38,7 @@ class Pagination {
       this.listaMovimientosFilter = this.getListMembers()
     }
     else{
+      console.log(search)
       this.listaMovimientosFilter = search
     }
     
@@ -51,16 +52,18 @@ class Pagination {
     let p = this.page - 1;
     let html = ''
     
+    /* Era cero pero lo cambie a 1*/
+    if(this.arrayPagination.length === 1){
+      this.resetData()
+      return false
+    }
 
-    if(this.arrayPagination.length === 0){
+    if(this.arrayPagination[p].entries() === undefined){
       this.resetData()
       return false
     }
-    
-    if(this.arrayPagination[p][0].error === "Error en la respuesta o No hay datos de membresia"){
-      this.resetData()
-      return false
-    }
+
+    //console.log(this.arrayPagination[p].entries().le);
 
     for (const [i, item] of this.arrayPagination[p].entries()) {
       if(i === 0){
@@ -70,29 +73,15 @@ class Pagination {
       if(i === (this.arrayPagination[p].length - 1)){
         this.rowEnd = item['count']
       }
-
-      let dtFechaAplica;
-      let tipoMovimiento;
-      let cargo;
-      let abono;
-      let dSaldoAnterior;
-      let centro;
-  
-      dtFechaAplica = (item.dtFechaAplica || item.dtFechaAplica !== "undefined") ? dtFechaAplica = item.dtFechaAplica : dtFechaAplica = "";
-      tipoMovimiento = (item.TipoMovimiento || item.TipoMovimiento !== "undefined") ? tipoMovimiento = item.TipoMovimiento : tipoMovimiento = "";
-      cargo = (item.Cargo || item.Cargo !== "undefined") ? cargo = item.Cargo : cargo = "";
-      abono = (item.Abono || item.Abono !== "undefined") ? abono = item.Abono : abono = "";
-      dSaldoAnterior = (item.dSaldoAnterior || item.dSaldoAnterior !== "undefined") ? dSaldoAnterior = item.dSaldoAnterior : dSaldoAnterior = "";
-      centro = (item.Centro || item.Centro !== "undefined") ? centro = item.Centro : centro = "";
-
-        html += `<tr class="tr-info">\
-                  <td>${dtFechaAplica}</td>\
-                  <td>${centro}</td>\
-                  <td>${tipoMovimiento}</td>\
-                  <td>${cargo}</td>\
-                  <td>${abono}</td>\
-                  <td>${dSaldoAnterior}</td>\
-                </tr>`;
+   
+      html += `<tr class="tr-info">\
+                <td>${item.dtFechaAplica}</td>\
+                <td>${item.dtFechaAplica}</td>\
+                <td>${item.TipoMovimiento }</td>\
+                <td>${item.Cargo}</td>\
+                <td>${item.Abono}</td>\
+                <td>${item.dSaldoAnterior}</td>\
+              </tr>`;
     }
  
  
@@ -169,7 +158,6 @@ class Pagination {
 
   
   onChangeRows(e){
-    
     var value = e.target.value;
     this.rowsByPages = parseInt(value);
     this.arrayPagination = []
