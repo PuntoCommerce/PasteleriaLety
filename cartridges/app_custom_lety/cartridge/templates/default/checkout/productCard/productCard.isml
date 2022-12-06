@@ -14,11 +14,6 @@
         <!--- individual bundled line items --->
         <isinclude template="cart/productCard/cartProductCardBundledItems" />
     <iselse/>
-        <div class="row closeMinicartBtn">
-            <button type="button" id="closeSearchBtn" onclick="closeMinicart()">
-                <img src="${URLUtils.staticURL('/images/close.svg')}"/>
-            </button>
-        </div>
         <div class="row">
             <div class="item-name col-12">
                 <div class="checkout__text">
