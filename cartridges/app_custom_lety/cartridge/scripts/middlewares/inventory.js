@@ -1,6 +1,7 @@
 const BasketMgr = require("dw/order/BasketMgr");
 const collections = require("*/cartridge/scripts/util/collections");
 const { ApiLety } = require("*/cartridge/scripts/jobs/api");
+const Resource = require("dw/web/Resource");
 
 const handleExistenciaCall = (pid, quantity, storeId) => {
   let today = new Date();
@@ -20,16 +21,15 @@ const handleExistenciaCall = (pid, quantity, storeId) => {
       let json = JSON.parse(existencia);
       if (json.ExistenciaPorCentroFecha[0].Existencia < quantity) {
         error = true;
-        message =
-          "Esta sucursale no cuenta con los productos y/o cantidades solicitadas.";
+        message = Resource.msg("no.stock.available", "stockCustom", null);
       }
     } catch (error) {
       error = true;
-      message = "Ocurrio un error al comunicarse con la sucursal.";
+      message = Resource.msg("response.error", "stockCustom", null);
     }
   } else {
     error = true;
-    message = "Ocurrio un error al comunicarse con la sucursal.";
+    message = Resource.msg("response.error", "stockCustom", null);
   }
   return { error: error, message: message };
 };
