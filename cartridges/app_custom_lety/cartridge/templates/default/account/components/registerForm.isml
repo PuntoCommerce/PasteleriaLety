@@ -112,7 +112,7 @@
     </button>
     <div class="privacy-policy">
         ${Resource.msg('description.privacypolicy.registration', 'registration', null)} <br>
-        <a href="${'#'}">
+        <a href="${'https://www.pastelerialety.com/on/demandware.store/Sites-PasteleriaLety-Site/es/PDrender-Show?page=aviso'}">
             ${Resource.msg('link.privacypolicy.registration', 'registration', null)}
         </a>
     </div>

@@ -674,7 +674,19 @@ pre code {
 
 /*Header*/
 header {
-  width: 100vw;
+  width: 100%;
+}
+.minicart-desk{
+  padding: 0 !important;
+}
+.iconsHeader{
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 !important;
+}
+.minicartCont{
+  width: 34px;
+  height: 24px;
 }
 .location-desk {
   width: 100%;
@@ -687,10 +699,6 @@ header {
   left: 0;
   font-size: 15px;
   padding: 0;
-}
-
-.user.hidden-md-down.nav-item .popover.popover-bottom{
-  top: 55px !important;
 }
 
 .user-conten .user{
@@ -706,6 +714,9 @@ header {
   border: none;
   background: none;
   color: #fff;
+  position: absolute;
+  right: -8px;
+  top: -0.4em;
 }
 
 .pac-target-input {
@@ -822,8 +833,22 @@ header {
   width: 100%;
 }
 
+.content-selects{
+  min-width: 440px;
+  padding: 0 50px 0 0 !important;
+}
+
 .quantity-select {
-  width: 58px !important;
+  min-width: 100% !important;
+}
+
+.attribute.quantity{
+  max-width: 88px;
+  padding: 0;
+}
+
+.simple-quantity{
+  max-width: 106px;
 }
 
 .add-to-cart.btn,
@@ -1144,8 +1169,8 @@ textarea {
   text-align: center;
   font-size: 0.8125em;
   position: relative;
-  top: -0.5em;
-  left: -0.9375em;
+  top: -2.5em;
+  left: 1.2em;
   color: #fff;
   padding-bottom: 1px;
 }
@@ -1163,6 +1188,15 @@ textarea {
   font-size: 25px;
 }
 
+/*Product tile*/
+.product-tile .price .content-range-price{
+  display: inline-flex;
+}
+
+.txt-range{
+  font-family: var(--font-family-gotham-black) !important;
+}
+
 /*responsive 992*/
 @media (max-width: 993px) {
   .container {
@@ -1174,13 +1208,6 @@ textarea {
   .header {
     height: 70px !important;
   }
-  .header-container {
-    height: 70px !important;
-    margin: 0px;
-    width: 100%;
-    height: 100%;
-  }
-
   .navbar-header {
     padding-top: 11px;
   }
@@ -1246,7 +1273,6 @@ textarea {
   }
 
   .location {
-    height: 60px;
     margin-left: 0 !important;
     background-color: var(--color-lety12-footer);
   }
@@ -1574,6 +1600,11 @@ textarea {
   .description-and-detail .content {
     font-size: 14px;
   }
+
+  .product-attributes .conten-attributes, .description .value.content, .details .value.content{
+    padding: 0 40px !important;
+  }
+  
 
   .reviews-raitngs-container {
     padding-left: 0 !important;
@@ -6756,8 +6787,8 @@ a.close.disabled {
   background-color: #000;
 }
 .popover {
-  top: 55px;
-  left: 118px;
+  top: 25px;
+  left: 0;
   z-index: 1060;
   width: 100px;
   max-width: 276px;
@@ -14714,7 +14745,6 @@ a.skip:hover {
   position: relative;
   background-color: var(--color-lety2);
   height: 110px;
-  width: 100%;
 }
 .header-container {
   margin: 0 15px;
@@ -15313,6 +15343,12 @@ footer .store-mobile {
     position: relative;
     background-color: var(--color-lety2);
     height: 110px;
+  }
+  .header-container {
+    height: 70px !important;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
   }
   footer .social-links {
     width: 80%;
@@ -16211,6 +16247,7 @@ a .moreless .less {
 }
 .minicart {
   position: relative;
+  margin-left: 30px;
 }
 .minicart h1 {
   font-size: 1rem;
@@ -16703,7 +16740,7 @@ a .moreless .less {
 }
 
 .location {
-  margin-left: 10px;
+  margin-left: 25px;
   width: 100%;
 }
 
@@ -17586,10 +17623,7 @@ a .moreless .less {
   display: block;
 }
 #myaccount .user-message {
-  padding-top: 10px;
   color: #fff;
-  position: absolute;
-  bottom: -30px;
 }
 
 /*############################## Calendar CSS ##############################################*/
@@ -17703,7 +17737,7 @@ a .moreless .less {
 #searcHeaderResponsive{
   display: block;
   margin: auto auto 0 auto;
-  padding-top: 23px;
+  padding-top: 25px;
 }
 
 #responsabilidadsocial .experience-commerce_assets-editorialRichText .editorialRichText-component-container .col-12 p img{
@@ -17735,6 +17769,12 @@ a .moreless .less {
   min-width: 144px !important;
 }
 
+.iconsHeaderMob{
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+}
+
 @media (max-width: 1325px) {
   .tile-body .plp-description{
     padding: 0 60px;
@@ -17762,7 +17802,7 @@ a .moreless .less {
   }
 
   .minicart .minicart-quantity {
-    left: 20px;
+    left: 15px;
     top: -35px;
   }
 
@@ -17771,13 +17811,6 @@ a .moreless .less {
   }
   
 }
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .minicart{
-    top: 12px;
-  }
-}
-
 
 @media (max-width: 768px) {
   .product-tile .tile-body .price {
@@ -17798,15 +17831,29 @@ a .moreless .less {
   .minicart{
     top: 0;
   }
-  .location .row .row{
-    padding: 0 !important;
+
+  .minicart{
+    margin-left: 0;
+  }
+  footer {
+    margin-top: 1rem;
+  }
+  .dropdown{
+    float: initial;
+  }
+  .site-search {
+    background-color: #ffffff;
   }
   
+  #cleanStoreMobile{
+  right: 11px;
+  top: -0.3em;
+  }
+
 }
 
 @media (max-width: 535px) {
   .minicart .minicart-quantity {
-    left: 25px;
     top: -33px;
   }
 

@@ -49,7 +49,7 @@ $('.add-to-wish-list').on('click', (e) => {
 
     setTimeout(() => {
         $.spinner().stop();
-        $('.add-wishlist-alert').append('<div class="alert alert-success" role="alert">' + 'Se añadio a tu wishlist correctamente' + '</div>');
+        $('.add-wishlist-alert').append('<div class="alert alert-success" role="alert">' + 'Se añadio a tu lista de desos correctamente' + '</div>');
     }, 1500);
 
     setTimeout(() => {
