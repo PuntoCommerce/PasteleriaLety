@@ -714,6 +714,9 @@ header {
   border: none;
   background: none;
   color: #fff;
+  position: absolute;
+  right: 2px;
+  top: -0.1em;
 }
 
 .pac-target-input {
@@ -1205,13 +1208,6 @@ textarea {
   .header {
     height: 70px !important;
   }
-  .header-container {
-    height: 70px !important;
-    margin: 0px;
-    width: 100%;
-    height: 100%;
-  }
-
   .navbar-header {
     padding-top: 11px;
   }
@@ -14762,7 +14758,6 @@ a.skip:hover {
   position: relative;
   background-color: var(--color-lety2);
   height: 110px;
-  width: 100%;
 }
 .header-container {
   margin: 0 15px;
@@ -15361,6 +15356,12 @@ footer .store-mobile {
     position: relative;
     background-color: var(--color-lety2);
     height: 110px;
+  }
+  .header-container {
+    height: 70px !important;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
   }
   footer .social-links {
     width: 80%;
@@ -16752,7 +16753,7 @@ a .moreless .less {
 }
 
 .location {
-  margin-left: 10px;
+  margin-left: 25px;
   width: 100%;
 }
 
@@ -17749,7 +17750,7 @@ a .moreless .less {
 #searcHeaderResponsive{
   display: block;
   margin: auto auto 0 auto;
-  padding-top: 23px;
+  padding-top: 25px;
 }
 
 #responsabilidadsocial .experience-commerce_assets-editorialRichText .editorialRichText-component-container .col-12 p img{
@@ -17781,6 +17782,12 @@ a .moreless .less {
   min-width: 144px !important;
 }
 
+.iconsHeaderMob{
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+}
+
 @media (max-width: 1325px) {
   .tile-body .plp-description{
     padding: 0 60px;
@@ -17808,7 +17815,7 @@ a .moreless .less {
   }
 
   .minicart .minicart-quantity {
-    left: 20px;
+    left: 15px;
     top: -35px;
   }
 
@@ -17840,12 +17847,17 @@ a .moreless .less {
   .location .row .row{
     padding: 0 !important;
   }
-  
+
+  .minicart{
+    margin-left: 0;
+  }
+  footer {
+    margin-top: 1rem;
+  }
 }
 
 @media (max-width: 535px) {
   .minicart .minicart-quantity {
-    left: 25px;
     top: -33px;
   }
 

@@ -281,6 +281,7 @@ ul {
 @media (max-width: 991px) {
   #openCustomMenu {
     display: block;
+    padding: 0;
   }
 
   #menuDesk {
@@ -292,7 +293,7 @@ ul {
   }
 
   .brand {
-    padding-top: 18px;
+    padding: 18px 0 0 0;
   }
 
   #customMenuResponsive {
