@@ -674,7 +674,19 @@ pre code {
 
 /*Header*/
 header {
-  width: 100vw;
+  width: 100%;
+}
+.minicart-desk{
+  padding: 0 !important;
+}
+.iconsHeader{
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 !important;
+}
+.minicartCont{
+  width: 34px;
+  height: 24px;
 }
 .location-desk {
   width: 100%;
@@ -687,10 +699,6 @@ header {
   left: 0;
   font-size: 15px;
   padding: 0;
-}
-
-.user.hidden-md-down.nav-item .popover.popover-bottom{
-  top: 55px !important;
 }
 
 .user-conten .user{
@@ -1158,8 +1166,8 @@ textarea {
   text-align: center;
   font-size: 0.8125em;
   position: relative;
-  top: -0.5em;
-  left: -0.9375em;
+  top: -2.5em;
+  left: 1.2em;
   color: #fff;
   padding-bottom: 1px;
 }
@@ -6784,8 +6792,8 @@ a.close.disabled {
   background-color: #000;
 }
 .popover {
-  top: 55px;
-  left: 118px;
+  top: 25px;
+  left: 0;
   z-index: 1060;
   width: 100px;
   max-width: 276px;
@@ -16239,6 +16247,7 @@ a .moreless .less {
 }
 .minicart {
   position: relative;
+  margin-left: 30px;
 }
 .minicart h1 {
   font-size: 1rem;
@@ -17614,10 +17623,7 @@ a .moreless .less {
   display: block;
 }
 #myaccount .user-message {
-  padding-top: 10px;
   color: #fff;
-  position: absolute;
-  bottom: -30px;
 }
 
 /*############################## Calendar CSS ##############################################*/
@@ -17799,13 +17805,6 @@ a .moreless .less {
   }
   
 }
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .minicart{
-    top: 12px;
-  }
-}
-
 
 @media (max-width: 768px) {
   .product-tile .tile-body .price {

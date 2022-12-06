@@ -231,7 +231,7 @@
         json = json.slice(0,-1)+']}';
       }else{
         for(let i =0; i<Codd.length();i++){
-          json+='{"iCode":"'+Codd[i]+'","sMensaje":"'+sMenssajee[i]+'","iIdFolioPersona":"'+idFol[i]+'","iIdCentro":"'+idC[i]+'","iIdDireccion":"'+idDi[i]+'","iIdFolioDireccion":"'+iIdFolioDire[i]+'","sDireccion":"'+sDirec[i]+'","sColonia":"'+sCol[i]+'","sCP":"'+sCP[i]+'","sTelefono1":"'+sTel1[i]+'","sTelefono2":"'+sTel2[i]+'","sEntreCalles":"'+sEntreCa[i]+'","sObservaciones":"'+sObserva[i]+'","iIdCiudad":"'+iIdCiu[i]+'","dLatitud":"'+dLat[i]+'","dLongitud":"'+dLong[i]+'","sMensaje":"'+sMenss[i]+'","sNoInterior":"'+sNoInterior[i]+'","sNoExterior":"'+sNoExterior[i]+'","iIdUsuario":"'+iIdUsuario[i]+'","dtFecha":"'+dtFecha[i]+'","iTipoDireccion":"'+iTipoDireccion[i]+'","dCosto":"'+dCost[i]+'"},';
+          json+='{"iCode":"'+Codd[i]+'","sMensaje":"'+sMenssajee[i]+'","iIdFolioPersona":"'+idFol[i]+'","iIdCentro":"'+idC[i]+'","iIdDireccion":"'+idDi[i]+'","iIdFolioDireccion":"'+iIdFolioDire[i]+'","sDireccion":"'+sDirec[i]+'","sColonia":"'+sCol[i]+'","sCP":"'+sCP[i]+'","sTelefono1":"'+sTel1[i]+'","sTelefono2":"'+sTel2[i]+'","sEntreCalles":"'+sEntreCa[i]+'","sObservaciones":"'+sObserva[i]+'","iIdCiudad":"'+iIdCiu[i]+'","dLatitud":"'+dLat[i]+'","dLongitud":"'+dLong[i]+'","oRequest2sMensaje":"'+sMenss[i]+'","sNoInterior":"'+sNoInterior[i]+'","sNoExterior":"'+sNoExterior[i]+'","iIdUsuario":"'+iIdUsuario[i]+'","dtFecha":"'+dtFecha[i]+'","iTipoDireccion":"'+iTipoDireccion[i]+'","oRequest2dCosto":"'+dCost[i]+'"},';
         }
         json = json.slice(0,-1)+']}';
       }
