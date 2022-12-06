@@ -715,8 +715,8 @@ header {
   background: none;
   color: #fff;
   position: absolute;
-  right: 2px;
-  top: -0.1em;
+  right: -8px;
+  top: -0.4em;
 }
 
 .pac-target-input {
@@ -830,7 +830,7 @@ header {
 }
 
 .select-tamano {
-  width: 80% !important; 
+  width: 100%;
 }
 
 .content-selects{
@@ -1060,11 +1060,11 @@ textarea {
 }
 
 .cart-page .quantity{
-  margin-top: 15%;
+  margin-top: 30%;
 }
 
 .cart-page .line-item-total-price .price{
-  margin-top: 5%;
+  margin-top: 27%;
 }
 .product-edit {
   padding-top: 20px !important;
@@ -1197,10 +1197,6 @@ textarea {
   font-family: var(--font-family-gotham-black) !important;
 }
 
-.content-range-price .range{
-  display: inherit;
-}
-
 /*responsive 992*/
 @media (max-width: 993px) {
   .container {
@@ -1277,7 +1273,6 @@ textarea {
   }
 
   .location {
-    height: 60px;
     margin-left: 0 !important;
     background-color: var(--color-lety12-footer);
   }
@@ -1528,14 +1523,6 @@ textarea {
     padding-left: 22px;
   }
 
-  .content-selects{
-    min-width: 192px;
-  }
-
-  .select-tamano {
-    width: 100% !important; 
-  }
-
   .cart-and-ipay {
     padding-left: 15px;
     padding-right: 15px;
@@ -1657,10 +1644,6 @@ textarea {
     grid-column: 1 !important;
   }
 
-  .rnr-comments-container{
-    padding: 10px 20px;
-  }
-
 
   /*Carrito*/
 
@@ -1691,10 +1674,6 @@ textarea {
 
   .product-card-footer .row{
     justify-content: space-between;
-  }
-
-  .cart-page .line-item-total-price .price, .cart-page .quantity{
-    margin-top: 0;
   }
 
   .line-item-price{
@@ -17852,9 +17831,6 @@ a .moreless .less {
   .minicart{
     top: 0;
   }
-  .location .row .row{
-    padding: 0 !important;
-  }
 
   .minicart{
     margin-left: 0;
@@ -17868,6 +17844,12 @@ a .moreless .less {
   .site-search {
     background-color: #ffffff;
   }
+  
+  #cleanStoreMobile{
+  right: 11px;
+  top: -0.3em;
+  }
+
 }
 
 @media (max-width: 535px) {

@@ -107,9 +107,8 @@
 .sessionStoreAddress{
   color: white;
   font-size: 12px;
-  padding: 0 30px;
+  padding: 0 15px;
   font-family: 'gotham-book';
-  text-transform: lowercase;
 }
 
 .sessionStoreName{
@@ -173,6 +172,7 @@ option{
 
   .sessionStoreAddress{
     font-size: 11px;
+    padding: 0;
   }
 }
 
@@ -188,5 +188,11 @@ option{
   }
   .dropdown-container{
     width: 100%;
+  }
+  .storeNameCont{
+    display: none;
+  }
+  .btmSession{
+    display: none;
   }
 }
