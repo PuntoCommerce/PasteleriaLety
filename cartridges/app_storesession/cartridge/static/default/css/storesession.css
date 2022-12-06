@@ -185,6 +185,7 @@ option{
   }
   .sessionStoreAddress{
     font-size: 14px;
+    padding: 0 15px;
   }
   .dropdown-container{
     width: 100%;
@@ -194,5 +195,10 @@ option{
   }
   .btmSession{
     display: none;
+  }
+}
+@media (max-width: 375px){
+  .sessionStoreAddress{
+    font-size: 11px;
   }
 }

@@ -17879,7 +17879,7 @@ a .moreless .less {
   }
   
   #cleanStoreMobile{
-  right: 11px;
+  right: 0;
   top: -0.3em;
   }
 
@@ -17896,6 +17896,9 @@ a .moreless .less {
 
   .product-tile .tile-body .price {
     height: auto; 
+  }
+  #cleanStoreMobile{
+    right: 20px;
   }
 }
 
