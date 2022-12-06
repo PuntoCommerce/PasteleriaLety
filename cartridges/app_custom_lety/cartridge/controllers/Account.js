@@ -115,14 +115,30 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
 });
 
 server.post("AddLetyCard", (req, res, next) => {
-
-  const LetyCard = req.form.letyCard;
-  const Customer = req.form.customerNo;
-
-  addLetyCardToCustomer(Customer, LetyCard);
-  res.redirect(URLUtils.url("Account-Show"));
-  next();
-});
+  const data = JSON.parse(JSON.stringify(req.form));
+  const Custom = req.currentCustomer.profile.customerNo;
+  const addedCard = addLetyCardToCustomer(Custom, data.lLetyCard);// null error servidor 0 no existe
+  if(addedCard == "1") {
+    res.json({
+      code: 0
+    });
+  } else {
+    let error="";
+    switch (addedCard) {
+      case "0":
+          error="No se encontró esta tarjeta. intenta con otra por favor.";
+        break;
+      default:
+        error="Ocurrió un error con el servidor intentalo mas tarde."
+        break;
+    }
+    res.json({
+      code: 1,
+      error: error
+    });
+  }
+    next();
+}); 
 
 server.post("GenerateLetyCard", (req, res, next) => {
 
