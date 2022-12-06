@@ -17842,6 +17842,12 @@ a .moreless .less {
   footer {
     margin-top: 1rem;
   }
+  .dropdown{
+    float: initial;
+  }
+  .site-search {
+    background-color: #ffffff;
+  }
 }
 
 @media (max-width: 535px) {
