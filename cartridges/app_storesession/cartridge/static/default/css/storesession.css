@@ -197,7 +197,7 @@ option{
     display: none;
   }
 }
-@media (max-width: 375px){
+@media (max-width: 380px){
   .sessionStoreAddress{
     font-size: 11px;
   }

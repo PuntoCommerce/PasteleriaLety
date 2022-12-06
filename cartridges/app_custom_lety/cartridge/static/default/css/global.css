@@ -694,6 +694,10 @@ header {
   position: absolute;
   right: 5px;
 }
+.minicartCont .item-image {
+  height: 100%;
+  width: 100%;
+}
 .location-desk {
   width: 100%;
 }
