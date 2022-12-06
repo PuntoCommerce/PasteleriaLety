@@ -15,7 +15,7 @@ const {
   addLetyCardToCustomer,
 } = require("*/cartridge/scripts/helpers/letyCardHelpers");
 const Site = require("dw/system/Site");
-var BasketMgr = require('dw/order/BasketMgr');
+var BasketMgr = require("dw/order/BasketMgr");
 
 server.append("Begin", (req, res, next) => {
   const viewData = res.getViewData();
@@ -27,7 +27,7 @@ server.append("Begin", (req, res, next) => {
   */
   try {
     const currentBasket = BasketMgr.getCurrentBasket();
-    if(currentBasket.priceAdjustments.length > 0) {
+    if (currentBasket.priceAdjustments.length > 0) {
       adjustmentApplied = true;
     }
   } catch (error) {
@@ -63,6 +63,13 @@ server.get(
   server.middleware.https,
   csrfProtection.generateToken,
   (req, res, next) => {
+    const currentBasket = BasketMgr.getCurrentBasket();
+
+    if (!currentBasket || currentBasket.productLineItems.isEmpty()) {
+      res.redirect("Cart-Show");
+      return next();
+    }
+
     const actionUrl = URLUtils.url("Account-Login", "rurl", 2);
     let rememberMe = false;
     if (req.currentCustomer.credentials) {
