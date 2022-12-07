@@ -1004,6 +1004,17 @@ textarea {
   width: 30px !important;
   height: 30px !important;
 }
+
+/*Mi cuenta*/
+/*Dettalle de orden*/
+.container-detail-order .row-breadcrumbs, 
+.container-detail-order .content-order-detail{
+  padding: 20px 145px !important;
+}
+
+.container-detail-order .summary-section-label{
+  font-family: var(--font-family-gotham-bold) !important;
+}
 /* Design Carrito */
 
 .cart-empty {
@@ -1201,6 +1212,10 @@ textarea {
 /*Product tile*/
 .product-tile .price .content-range-price{
   display: inline-flex;
+}
+
+.range{
+  display: inherit;
 }
 
 .txt-range{
