@@ -16,7 +16,7 @@
         </isif>
         <div class="row">
             <div class="col-sm-6 offset-sm-3">
-                <a href="${URLUtils.url('Home-Show')}" class="btn btn-primary btn-block error continue-shopping" role="button" aria-pressed="true">
+                <a href="${URLUtils.url('Home-Show')}" class="btn btn-product error continue-shopping" role="button" aria-pressed="true">
                     ${Resource.msg('button.continue.shopping','confirmation',null)}
                 </a>
             </div>
