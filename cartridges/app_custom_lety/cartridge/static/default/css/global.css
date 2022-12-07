@@ -688,6 +688,16 @@ header {
   width: 34px;
   height: 24px;
 }
+#closeSearchBtn{
+  border: none;
+  background: none;
+  position: absolute;
+  right: 5px;
+}
+.minicartCont .item-image {
+  height: 100%;
+  width: 100%;
+}
 .location-desk {
   width: 100%;
 }
@@ -715,8 +725,8 @@ header {
   background: none;
   color: #fff;
   position: absolute;
-  right: 2px;
-  top: -0.1em;
+  right: -8px;
+  top: -0.4em;
 }
 
 .pac-target-input {
@@ -830,7 +840,7 @@ header {
 }
 
 .select-tamano {
-  width: 80% !important; 
+  width: 100%;
 }
 
 .content-selects{
@@ -1060,11 +1070,11 @@ textarea {
 }
 
 .cart-page .quantity{
-  margin-top: 15%;
+  margin-top: 30%;
 }
 
 .cart-page .line-item-total-price .price{
-  margin-top: 5%;
+  margin-top: 27%;
 }
 .product-edit {
   padding-top: 20px !important;
@@ -1199,10 +1209,6 @@ textarea {
   padding-top: 4px !important;
 }
 
-.content-range-price .range{
-  display: inherit;
-}
-
 /*responsive 992*/
 @media (max-width: 993px) {
   .container {
@@ -1279,7 +1285,6 @@ textarea {
   }
 
   .location {
-    height: 60px;
     margin-left: 0 !important;
     background-color: var(--color-lety12-footer);
   }
@@ -1530,14 +1535,6 @@ textarea {
     padding-left: 22px;
   }
 
-  .content-selects{
-    min-width: 192px;
-  }
-
-  .select-tamano {
-    width: 100% !important; 
-  }
-
   .cart-and-ipay {
     padding-left: 15px;
     padding-right: 15px;
@@ -1659,10 +1656,6 @@ textarea {
     grid-column: 1 !important;
   }
 
-  .rnr-comments-container{
-    padding: 10px 20px;
-  }
-
 
   /*Carrito*/
 
@@ -1693,10 +1686,6 @@ textarea {
 
   .product-card-footer .row{
     justify-content: space-between;
-  }
-
-  .cart-page .line-item-total-price .price, .cart-page .quantity{
-    margin-top: 0;
   }
 
   .line-item-price{
@@ -14901,8 +14890,11 @@ a.skip:hover {
   }
 }
 a.normal {
-  color: var(--skin-primary-color-1);
+  color: #0074FC;
   text-decoration: underline;
+  font-family: 'gotham-book';
+  font-weight: 400;
+  font-size: 16px;
 }
 .slide-up {
   transition-duration: 0.5s;
@@ -16273,7 +16265,9 @@ a .moreless .less {
   margin-left: 30px;
 }
 .minicart h1 {
-  font-size: 1rem;
+  font-family: 'gotham-book' !important;
+  font-size: 18px;
+  font-weight: 700;
 }
 .minicart .cart {
   padding-top: 0.625em;
@@ -16306,13 +16300,37 @@ a .moreless .less {
   width: 100%;
 }
 .minicart .popover {
-  top: 100%;
+  position: fixed;
+  top: 0;
   left: auto;
   right: 0;
   min-width: 23.44rem;
   max-width: 23.44rem;
   min-height: 22.7rem;
   display: none;
+  border: none;
+}
+.minicart .popover .card{
+  border: none;
+}
+.minicartCont .checkout__order--product > .row {
+  justify-content: flex-start;  
+}
+.minicartCont .item-attributes {
+  padding-left: 15px;
+}
+.minicart label{
+  padding-top: 0;
+}
+.minicartCont .unit-price-label, .minicartCont .line-item-total-price-label{
+  font-family: 'gotham-bold';
+}
+.minicartCont .checkout-btn a {
+  color: #B37E5B;
+}
+.minicartCont .checkout-btn a:hover {
+  color: #ffffff;
+  text-decoration: none;
 }
 .minicart .popover:before {
   left: auto;
@@ -16325,9 +16343,6 @@ a .moreless .less {
 .minicart .popover.show {
   display: block;
 }
-.minicart .minicart-footer {
-  border-top: 1px solid #ccc;
-}
 .minicart .estimated-total {
   margin-top: 0.625em;
 }
@@ -16335,6 +16350,7 @@ a .moreless .less {
 .minicart .sub-total-label {
   font-size: 1em;
   font-weight: 600;
+  font-family: 'gotham-book';
 }
 .minicart .line-item-divider {
   margin: 0.625em -0.625em 0.625em -1.325em;
@@ -17798,6 +17814,12 @@ a .moreless .less {
   padding: 0;
 }
 
+#minicartPopover{
+  background: none;
+  border: none;
+  margin-left: 88%;
+}
+
 @media (max-width: 1325px) {
   .tile-body .plp-description{
     padding: 0 60px;
@@ -17854,9 +17876,6 @@ a .moreless .less {
   .minicart{
     top: 0;
   }
-  .location .row .row{
-    padding: 0 !important;
-  }
 
   .minicart{
     margin-left: 0;
@@ -17870,6 +17889,12 @@ a .moreless .less {
   .site-search {
     background-color: #ffffff;
   }
+  
+  #cleanStoreMobile{
+  right: 0;
+  top: -0.3em;
+  }
+
 }
 
 @media (max-width: 535px) {
@@ -17883,6 +17908,9 @@ a .moreless .less {
 
   .product-tile .tile-body .price {
     height: auto; 
+  }
+  #cleanStoreMobile{
+    right: 20px;
   }
 }
 

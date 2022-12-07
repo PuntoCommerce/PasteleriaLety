@@ -4,12 +4,6 @@
     assets.addCss('/css/pagination.css');
 </isscript>
 
-
-
-
-<form action="${URLUtils.url('Address-SaveAddress', 'addressId', pdict.addressId)}" class="address-form" method="POST"
-    <isprint value="${pdict.addressForm.attributes}" encoding="off" />>
-
 <div class="container-form">
     <div class="row">
         <div class="col-12 col-md-6">
@@ -23,8 +17,7 @@
             </div>
         </div>
         <div class="col-12 col-md-6">
-            
-            <div class="input-group mb-3 container-label-search d-none">
+            <div class="input-group mb-3 container-label-search">
                 <label for="" class="col-4 label-search">${Resource.msg('label.header.banner', 'search', null)}</label>
                 <input 
                     type="text" 
@@ -34,22 +27,15 @@
                     class="form-control input-search" 
                     oninput="pagination.onChangeSearh(event)"
                 />
-                
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">
                         <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M19 20.0686L13 14.0228M15 8.98459C15 12.8801 11.866 16.038 8 16.038C4.13401 16.038 1 12.8801 1 8.98459C1 5.08909 4.13401 1.93115 8 1.93115C11.866 1.93115 15 5.08909 15 8.98459Z" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-
                     </span>
                 </div>
             </div>
-
-
         </div>
-
-        
-
     </div>
 
     <div class="row content-table">
@@ -113,7 +99,6 @@
         <div class="textInfoContainer">
             <span id="textInfoPagination"></span>
         </div>
-        
     </div>
     <!--Start Pagination -->
     <div class="col-12 col-md-6 pagination-container  d-flex justify-content-end">
@@ -131,9 +116,7 @@
         </nav>
     </div> 
 </div>
-
 </div>
-
 
 <!-- Cancel and Save Buttons -->
 <div class="row ">
@@ -143,7 +126,5 @@
     <div class="col-6 div-btn-exit">
         <a href="${URLUtils.url('Account-Show')}" class="btn btn-save btn-save-login">${Resource.msg('link.header.logout', 'account', null)}</a>
     </div>
-    
 </div>
     
-</form>

@@ -13,4 +13,4 @@
             <isprint value="${pdict.quantityTotal}" formatter="##" />
         </span>
 </div> </iscomment>
-<div class="popover popover-bottom"></div>
+<div class="popover popover-bottom" id="minicartPopover"></div>
