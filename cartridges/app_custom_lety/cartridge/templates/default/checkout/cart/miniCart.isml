@@ -4,11 +4,16 @@
         <isinclude template="reporting/reportingUrls" />
     </isif>
     <div>
+        <div class="row closeMinicartBtn">
+            <button type="button" id="minicartPopover" onclick="closeMinicart()">
+                <img src="${URLUtils.staticURL('/images/close.svg')}"/>
+            </button>
+        </div>
         <div class="row">
-            <div class="col-6">
+            <div class="col-8">
                 <h1>${Resource.msg('title.your.shopping.cart','cart',null)}</h1>
             </div>
-            <div class="col-6 text-right">
+            <div class="col-4 text-right">
                 <a class="normal" href="${URLUtils.https('Cart-Show')}" title="${Resource.msg('link.view.cart','cart',null)}">
                     ${Resource.msg('link.view.cart','cart',null)}
                 </a>

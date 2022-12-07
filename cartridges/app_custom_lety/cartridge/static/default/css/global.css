@@ -694,6 +694,10 @@ header {
   position: absolute;
   right: 5px;
 }
+.minicartCont .item-image {
+  height: 100%;
+  width: 100%;
+}
 .location-desk {
   width: 100%;
 }
@@ -17808,6 +17812,12 @@ a .moreless .less {
   padding: 0;
 }
 
+#minicartPopover{
+  background: none;
+  border: none;
+  margin-left: 88%;
+}
+
 @media (max-width: 1325px) {
   .tile-body .plp-description{
     padding: 0 60px;
@@ -17879,7 +17889,7 @@ a .moreless .less {
   }
   
   #cleanStoreMobile{
-  right: 11px;
+  right: 0;
   top: -0.3em;
   }
 
@@ -17896,6 +17906,9 @@ a .moreless .less {
 
   .product-tile .tile-body .price {
     height: auto; 
+  }
+  #cleanStoreMobile{
+    right: 20px;
   }
 }
 
