@@ -238,5 +238,4 @@ server.replace('UpdateQuantity', inventory.checkOnlineInventory, function (req, 
     return next();
 });
 
-
 module.exports = server.exports();

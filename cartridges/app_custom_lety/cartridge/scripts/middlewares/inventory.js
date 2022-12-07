@@ -19,7 +19,10 @@ const handleExistenciaCall = (pid, quantity, storeId) => {
   if (typeof existencia == "string") {
     try {
       let json = JSON.parse(existencia);
-      if (json.ExistenciaPorCentroFecha[0].Existencia < quantity) {
+      if (
+        json.ExistenciaPorCentroFecha[0].Existencia < quantity ||
+        json.ExistenciaPorCentroFecha[0].error
+      ) {
         error = true;
         message = Resource.msg("no.stock.available", "stockCustom", null);
       }
