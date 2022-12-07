@@ -592,7 +592,7 @@ function sendConfirmationEmail(order, locale) {
     var orderObject = { order: orderModel };
 
     var emailObj = {
-        to: order.customerEmail && 'clientes@pastelerialety.com',
+        to: order.customerEmail,
         subject: Resource.msg('subject.order.confirmation.email', 'order', null),
         from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
         type: emailHelpers.emailTypes.orderConfirmation
