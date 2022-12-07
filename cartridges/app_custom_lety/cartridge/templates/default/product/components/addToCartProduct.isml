@@ -1,5 +1,5 @@
 
-<p>Esta2</p>
+
 <isif condition="${pdict.hasInventoryOn}">
     <div class="row cart-and-ipay">
         <div class="col-sm-12" style="padding: 0">
