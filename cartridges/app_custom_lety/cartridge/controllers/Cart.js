@@ -238,5 +238,31 @@ server.replace('UpdateQuantity', inventory.checkOnlineInventory, function (req, 
     return next();
 });
 
+server.get("OnlineInventory", (req, res, next) => {
+const { ApiLety } = require("*/cartridge/scripts/jobs/api");
+
+    let pid = req.querystring.pid;
+  let storeId = req.session.raw.privacy.storeId;
+  let today = new Date();
+
+  let existencia = ApiLety("ExistenciaPorCentroFecha", {
+    Empresa: "1",
+    iIdMaterial: parseInt(pid),
+    iIdCentro: parseInt(storeId),
+    dtFecha: today.toISOString(),
+  });
+
+
+
+  res.json({
+    existencia: existencia,
+    errorMessage: existencia.errorMessage,
+    pid: pid,
+    storeId: storeId,
+  })
+  next();
+
+})
+
 
 module.exports = server.exports();
