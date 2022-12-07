@@ -17812,6 +17812,12 @@ a .moreless .less {
   padding: 0;
 }
 
+#minicartPopover{
+  background: none;
+  border: none;
+  margin-left: 88%;
+}
+
 @media (max-width: 1325px) {
   .tile-body .plp-description{
     padding: 0 60px;

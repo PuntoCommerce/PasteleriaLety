@@ -3,8 +3,6 @@
     <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
         <isinclude template="reporting/reportingUrls" />
     </isif>
-    <div class="row closeMinicartBtn" onclick="closeMinicart()">
-    </div>
     <div>
         <div class="row closeMinicartBtn">
             <button type="button" id="minicartPopover" onclick="closeMinicart()">
