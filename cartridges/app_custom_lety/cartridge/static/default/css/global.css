@@ -1004,6 +1004,17 @@ textarea {
   width: 30px !important;
   height: 30px !important;
 }
+
+/*Mi cuenta*/
+/*Dettalle de orden*/
+.container-detail-order .row-breadcrumbs, 
+.container-detail-order .content-order-detail{
+  padding: 20px 145px !important;
+}
+
+.container-detail-order .summary-section-label{
+  font-family: var(--font-family-gotham-bold) !important;
+}
 /* Design Carrito */
 
 .cart-empty {
@@ -1203,8 +1214,14 @@ textarea {
   display: inline-flex;
 }
 
+.range{
+  display: inherit;
+}
+
 .txt-range{
-  font-family: var(--font-family-gotham-black) !important;
+  font-size: 15px !important;
+  font-family: var(--font-family-gotham) !important;
+  padding-top: 4px !important;
 }
 
 /*responsive 992*/
@@ -14483,7 +14500,7 @@ input[placeholder] {
   z-index: 1;
 }
 .error-hero {
-  background-image: url("../images/banner-confirmation.svg");
+  background-image: url("../images/large-banner-pagina error.png");
   margin-bottom: 0.625em;
 }
 .error-message {

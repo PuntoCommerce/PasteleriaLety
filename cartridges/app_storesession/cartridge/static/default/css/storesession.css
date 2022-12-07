@@ -25,6 +25,7 @@
 
 .txtSession{
   font-weight: 600;
+  text-align: center;
 }
 
 
@@ -159,6 +160,10 @@ option{
 .dropdown-container:active ul{
   max-height:450px;
   width: 180px;
+}
+
+.content-session-modal{
+  min-width: 300px;
 }
 
 @media (max-width: 1024px){
