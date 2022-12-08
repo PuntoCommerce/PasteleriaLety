@@ -16,6 +16,7 @@ module.exports.render = function (context, modelIn) {
     var content = context.content;
 
     model.width = content.width ? content.width : '95';
+    model.classname = content.classname;
     model.regions = PageRenderHelper.getRegionModelRegistry(context.component);
 
     return new Template('experience/components/commerce_layouts/containerCustomSize').render(model).text;

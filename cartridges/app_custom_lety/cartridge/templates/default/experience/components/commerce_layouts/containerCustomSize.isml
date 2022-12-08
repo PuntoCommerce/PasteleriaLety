@@ -3,7 +3,7 @@
     assets.addCss('/css/experience/commerceLayouts/containerCustomSize.css');
 </isscript>
 
-<div class="container-custom-size container-custom-width-${pdict.width}">
+<div class="container-custom-size container-custom-width-${pdict.width} ${pdict.classname}">
     <div class="row">
         <isprint value="${pdict.regions.customSizeContainer.setClassName(" region col-12").render()}" encoding="off" />
     </div>

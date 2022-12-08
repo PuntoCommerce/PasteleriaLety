@@ -22,6 +22,13 @@
                         "60"
                     ],
                     "required": false
+                },
+                {
+                    "id": "classname",
+                    "name": "classname",
+                    "description": "Text for identify the classname",
+                    "type": "string",
+                    "required": false
                 }
             ]
         }
