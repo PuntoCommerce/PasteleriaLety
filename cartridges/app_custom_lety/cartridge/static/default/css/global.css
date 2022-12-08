@@ -237,6 +237,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow: hidden;
 }
 footer {
   margin-top: 5rem;
@@ -1081,11 +1082,11 @@ textarea {
 }
 
 .cart-page .quantity{
-  margin-top: 30%;
+  margin-top: 15%;
 }
 
 .cart-page .line-item-total-price .price{
-  margin-top: 27%;
+  margin-top: 7%;
 }
 .product-edit {
   padding-top: 20px !important;
@@ -1720,7 +1721,7 @@ textarea {
 
   /*Auth chackout*/
   .checkout .contain-invitado, .checkout .contain-links, .checkout .contain-create{
-    padding: 0 27px !important;
+    padding: 0 37px !important;
   }
   .checkout .contain-invitado .btn-product{
     width: 100% !important;
@@ -1749,9 +1750,8 @@ textarea {
   }
 
   .promo-code-submit{
-    padding: 0 !important;
+    padding: 0 15px 0 0 !important;
   }
-
 
   .promo-code-submit .btn-product{
     width: 100%;

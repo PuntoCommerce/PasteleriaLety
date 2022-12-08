@@ -24,7 +24,7 @@
   <isif condition="${!pdict.store}">
     <div class="blockSession">
       <div class="popup-modal-session" >
-          <div class="d-flex justify-content-center align-items-start flex-column">
+          <div class="d-flex justify-content-center flex-column content-session-modal-mobile">
           <p class="txtSession">Ingrese Dirección</p>
 
           <div class="single-input" id="div_session_search-modalMobile">
@@ -37,7 +37,7 @@
           </div>
           <div class="row p-3">
             <img class="" src="${URLUtils.staticURL('/images/icons/ubicacion-desactivada.svg')}" alt="" />
-            <button type="button" class="session-btn-mobile" id="session_search-locationMobile" >Encuentra Tu ubicación en el mapa</button>
+            <button type="button" class="session-btn-mobile" id="session_search-locationMobile" >Utilizar tu ubicación</button>
           </div>
             
           </div>
