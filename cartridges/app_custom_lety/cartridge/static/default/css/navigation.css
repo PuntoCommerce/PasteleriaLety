@@ -121,8 +121,10 @@
 }
 
 .suggestions {
-  top: 19px;
-  right: -86px;
+  left: 0;
+  top: 37px;
+  border: none;
+  width: 100%;
 }
 
 .suggestions .children:hover {
