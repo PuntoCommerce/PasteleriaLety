@@ -182,6 +182,9 @@ option{
 }
 
 @media (max-width: 992px){
+  .content-session-modal-mobile{
+    min-width: 250px;
+  }
   .sessionStoreName{
     display: none;
   }

@@ -479,6 +479,15 @@
     padding-right: 1rem !important;
   }
 
+  .btn-login-FG{
+    font-size: 11px;
+  }
+
+  .container.login-page .btn-track-order{
+    width: 100%;
+    font-size: 12px;
+  }
+
   .div-btn-cancel{
     padding-bottom: 10px !important;
   }

@@ -16,7 +16,7 @@ const handleExistenciaCall = (pid, quantity, storeId) => {
   let error = false;
   let message = "";
 
-  if (typeof existencia == "string") {
+  /* if (typeof existencia == "string") {
     try {
       let json = JSON.parse(existencia);
       if (
@@ -33,7 +33,7 @@ const handleExistenciaCall = (pid, quantity, storeId) => {
   } else {
     error = true;
     message = Resource.msg("response.error", "stockCustom", null);
-  }
+  } */
   return { error: error, message: message };
 };
 
