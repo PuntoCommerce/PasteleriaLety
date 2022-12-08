@@ -840,6 +840,14 @@ header {
   color: var(--color-lety11);
 }
 
+.content-tama-quanty{
+  display: inherit;
+}
+
+.div-tamano{
+  padding-left: 0 !important;
+}
+
 .select-tamano {
   width: 100%;
 }
@@ -848,6 +856,7 @@ header {
   min-width: 440px;
   padding: 0 50px 0 0 !important;
 }
+
 
 .quantity-select {
   min-width: 100% !important;
