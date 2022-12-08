@@ -16306,13 +16306,14 @@ a .moreless .less {
   padding-right: 0.938em;
 }
 .minicart .card-body {
-  padding: 0.625em;
+  padding: 15px;
 }
 .minicart .quantity-label {
   font-size: 0.813em;
 }
 .minicart .quantity {
   width: 100%;
+  min-width: 0;
 }
 .minicart .popover {
   position: fixed;
