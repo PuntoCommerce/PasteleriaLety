@@ -162,6 +162,7 @@
 .gift-message-block {
   padding-bottom: 1em;
   padding-top: 1em;
+  display: none;
 }
 .confirm-details .shipping-method,
 .confirm-details .shipping-method-price,
@@ -1253,7 +1254,7 @@ span.ship-to-phone {
   }
 
   .checkout__stepper--item-title3{
-    right: -10px !important;
+    right: 20px !important;
     top: 76px !important;
   }
 

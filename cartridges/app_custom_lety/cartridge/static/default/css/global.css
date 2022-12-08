@@ -237,6 +237,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow: hidden;
 }
 footer {
   margin-top: 5rem;
@@ -839,6 +840,14 @@ header {
   color: var(--color-lety11);
 }
 
+.content-tama-quanty{
+  display: inherit;
+}
+
+.div-tamano{
+  padding-left: 0 !important;
+}
+
 .select-tamano {
   width: 100%;
 }
@@ -847,6 +856,7 @@ header {
   min-width: 440px;
   padding: 0 50px 0 0 !important;
 }
+
 
 .quantity-select {
   min-width: 100% !important;
@@ -1081,11 +1091,11 @@ textarea {
 }
 
 .cart-page .quantity{
-  margin-top: 30%;
+  margin-top: 15%;
 }
 
 .cart-page .line-item-total-price .price{
-  margin-top: 27%;
+  margin-top: 7%;
 }
 .product-edit {
   padding-top: 20px !important;
@@ -1720,7 +1730,7 @@ textarea {
 
   /*Auth chackout*/
   .checkout .contain-invitado, .checkout .contain-links, .checkout .contain-create{
-    padding: 0 27px !important;
+    padding: 0 37px !important;
   }
   .checkout .contain-invitado .btn-product{
     width: 100% !important;
@@ -1749,9 +1759,8 @@ textarea {
   }
 
   .promo-code-submit{
-    padding: 0 !important;
+    padding: 0 15px 0 0 !important;
   }
-
 
   .promo-code-submit .btn-product{
     width: 100%;
@@ -16306,13 +16315,14 @@ a .moreless .less {
   padding-right: 0.938em;
 }
 .minicart .card-body {
-  padding: 0.625em;
+  padding: 15px;
 }
 .minicart .quantity-label {
   font-size: 0.813em;
 }
 .minicart .quantity {
   width: 100%;
+  min-width: 0;
 }
 .minicart .popover {
   position: fixed;
@@ -16837,9 +16847,6 @@ a .moreless .less {
   height: 37px;
   width: 100%;
   margin-top: 0.2em;
-}
-.suggestions-wrapper {
-  position: relative;
 }
 .suggestions {
   display: block;
