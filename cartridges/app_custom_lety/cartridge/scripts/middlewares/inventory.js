@@ -23,8 +23,16 @@ const handleExistenciaCall = (pid, quantity, storeId) => {
         json.ExistenciaPorCentroFecha[0].Existencia < quantity ||
         json.ExistenciaPorCentroFecha[0].error
       ) {
+        let letyQuantity = json.ExistenciaPorCentroFecha[0].error
+          ? 0
+          : Math.ceil(json.ExistenciaPorCentroFecha[0].Existencia);
         error = true;
-        message = Resource.msg("no.stock.available", "stockCustom", null);
+        message = Resource.msgf(
+          "no.stock.available",
+          "stockCustom",
+          null,
+          letyQuantity
+        );
       }
     } catch (error) {
       error = true;
