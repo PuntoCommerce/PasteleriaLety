@@ -183,6 +183,7 @@ server.post("SaveSaldoForm", (req, res, next) => {
       let PreferenciaProducto = data.PreferenciaProducto;
       let s_Sexo = data.s_Sexo;
       let s_EstadoCivil = data.s_EstadoCivil;
+      let f_Adreess = data.s_EstadoCivil;
       if (dtFechaNacimiento == undefined || dtFechaNacimiento == null) {
         dtFechaNacimiento = "";
       }
@@ -195,6 +196,9 @@ server.post("SaveSaldoForm", (req, res, next) => {
       if (s_EstadoCivil == undefined || s_EstadoCivil == null) {
         s_EstadoCivil = "";
       }
+      if (f_Adreess == undefined || f_Adreess == null) {
+        f_Adreess = "";
+      } 
       let Func_ActualizaDatosMembresia = ApiServiceLety.ApiLety(
         "Func_ActualizaDatosMembresia", {
           Empresa: 1,
@@ -208,7 +212,7 @@ server.post("SaveSaldoForm", (req, res, next) => {
           i_IdCiudad: data.cCiudad,
           s_EdoCivil: s_EstadoCivil,
           s_PastelFavorito: PreferenciaProducto,
-          s_Direccion: "Avenina 12",
+          s_Direccion: f_Adreess,
           s_Colonia: data.s_Colonia,
           s_Telefono: data.s_Telefono1,
           s_Mail: data.s_Mail
@@ -237,34 +241,72 @@ server.post("SaveSaldoForm", (req, res, next) => {
   next();
 });
 
+
 server.post("getState", (req, res, next) => {
-
-  const {
-    idEstado
-  } = JSON.parse(req.body);
-
-  let CatalogoEstados = ApiServiceLety.ApiLety(
-    "CatalogoEstados", {
-      Empresa: 1
+  /*
+   const {
+     idEstado
+   } = JSON.parse(req.body);*/
+   
+   let CatalogoEstados = ApiServiceLety.ApiLety(
+     "CatalogoEstados", {
+       Empresa: 1
+     }
+   );
+   let JsonDatosEstados;
+   let error="";
+   let code="";
+   if (CatalogoEstados.ERROR) {
+     JsonDatosEstados = {};
+     error="Ocurrió un error con el servidor, intente más tarde por favor."
+     code=1;
+   } else {
+     let estados = JSON.parse(CatalogoEstados);
+     JsonDatosEstados = estados.CatalogoEstados;
+     code=0;
+     error="";
+   }
+   res.json({
+     JsonDatosEstados: JsonDatosEstados,
+     code:code,
+     error:error
+   });
+   
+   next();
+  });
+   
+server.post("getCities", (req, res, next) => {
+  let CatalogoCiudades = ApiServiceLety.ApiLety(
+    "CatalogoCiudades", {
+      Empresa: 1,
+      IdEstado: "0"
     }
   );
-  let JsonDatosEstados;
-
-  if (CatalogoEstados.ERROR) {
-    JsonDatosEstados = {};
+  
+  let JsonDatosCiudades;
+  let error="";
+  let code="";
+  
+  if (CatalogoCiudades.ERROR) {
+    JsonDatosCiudades = {};
+    error="Ocurrió un error con el servidor, intente más tarde por favor."
+    code=1;
   } else {
-    let estados = JSON.parse(CatalogoEstados);
-    JsonDatosEstados = estados.CatalogoEstados;
+    let catalogo = JSON.parse(CatalogoCiudades);
+    JsonDatosCiudades = catalogo.CatalogoCiudades;
+    code=0;
+    error="";
   }
-
-  //let { sNombre } = JsonDatosEstados.find(item => item.iIdEstado === stringify(idEstado));
-
+  
   res.json({
-    JsonDatosEstados: JsonDatosEstados
+    JsonDatosCiudades: JsonDatosCiudades,
+    code:code,
+    error: error
   });
-
+  
   next();
 });
+  
 
 
 /* working create card... server.middleware.https,*/
