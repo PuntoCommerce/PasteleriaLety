@@ -16,15 +16,23 @@ const handleExistenciaCall = (pid, quantity, storeId) => {
   let error = false;
   let message = "";
 
-  /* if (typeof existencia == "string") {
+  if (typeof existencia == "string") {
     try {
       let json = JSON.parse(existencia);
       if (
         json.ExistenciaPorCentroFecha[0].Existencia < quantity ||
         json.ExistenciaPorCentroFecha[0].error
       ) {
+        let letyQuantity = json.ExistenciaPorCentroFecha[0].error
+          ? 0
+          : Math.ceil(json.ExistenciaPorCentroFecha[0].Existencia);
         error = true;
-        message = Resource.msg("no.stock.available", "stockCustom", null);
+        message = Resource.msgf(
+          "no.stock.available",
+          "stockCustom",
+          null,
+          letyQuantity
+        );
       }
     } catch (error) {
       error = true;
@@ -33,7 +41,7 @@ const handleExistenciaCall = (pid, quantity, storeId) => {
   } else {
     error = true;
     message = Resource.msg("response.error", "stockCustom", null);
-  } */
+  }
   return { error: error, message: message };
 };
 
