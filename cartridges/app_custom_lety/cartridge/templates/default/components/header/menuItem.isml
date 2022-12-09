@@ -1,34 +1,33 @@
-<div class="dropdown-menu dropdown-content">
-
-      <div class="dropdown-menu-content col-4" role="menu" aria-hidden="true" aria-label="${category.id}">
-         <isset name="categoryImage" value="${category.thumbnail}" scope="page" />
-         <div class="d-flex justify-content-center row">
-            <div class="col-12 d-flex justify-content-around" style="flex-direction: column;">
-               <isloop items="${menuItem.subCategories}" var="category">
-                <div>
+<div class="dropdown-menu dropdown-content ${category.name}">
+    <div class=dropdown-cont>
+      <div class="d-flex justify-content-center col-8 div-img-menu ${category.id}">
+            <img class="${category.id}" src="${URLUtils.staticURL('/images/')}${category.name}.png" alt="${Resource.msg('global.storename', 'common', null)}" />
+        </div>
+        <div class="dropdown-menu-content col-4" role="menu" aria-hidden="true" aria-label="${category.id}">
+            <isset name="categoryImage" value="${category.thumbnail}" scope="page" />
+            <div class="d-flex justify-content-center row">
+                <div class="col-12 d-flex justify-content-around" style="flex-direction: column;">
+                    <isloop items="${menuItem.subCategories}" var="category">
+    
+                        <div class="category-item item ${category.name}">
+                            <a href="${category.url}">${category.name}</a>
+                        </div>
+                        <isif condition="${category.subCategories}">
+                            <ul class="subcategories">
+                                <isloop items="${category.subCategories}" var="subCategory">
+                                <li class="sub-category-item item" imageurl="
+                                <isprint value="${subCategory.image}" encoding="htmldoublequote"/>
+                                ">
+                                <a href="${subCategory.url}">${subCategory.name}</a>
+                                </li>
+                                </isloop>
+                            </ul>
+                        </isif>
                     
-                    <div class="category-item item">
-                        <a href="${category.url}">${category.name}</a>
-                    </div>
-                    <isif condition="${category.subCategories}">
-                        <ul class="subcategories">
-                            <isloop items="${category.subCategories}" var="subCategory">
-                            <li class="sub-category-item item" imageurl="
-                            <isprint value="${subCategory.image}" encoding="htmldoublequote"/>
-                            ">
-                            <a href="${subCategory.url}">${subCategory.name}</a>
-                            </li>
-                            </isloop>
-                        </ul>
-                    </isif>
+                    </isloop>
                 </div>
-               </isloop>
             </div>
-         </div>
-      </div>
-      <div class="d-flex justify-content-center col-8 div-img-menu">
-         <img src="${URLUtils.staticURL('/images/menuImg.png')}"
-                                    alt="${Resource.msg('global.storename', 'common', null)}" />
-      </div>
-
+        </div>
+    </div>    
 </div>
+   
