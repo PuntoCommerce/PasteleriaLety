@@ -7,6 +7,10 @@ const Session = require("dw/system/Session");
 
 const { closestStore } = require("~/cartridge/scripts/helpers/distance");
 
+//Administraction side develoment sistem object types : crear la variable
+// 
+
+
 server.get("Start", (req, res, next) => {
   let render = "storesession/session";
   let mobile = req.querystring.mobile;
@@ -14,12 +18,18 @@ server.get("Start", (req, res, next) => {
   if (mobile) {
     render = "storesession/sessionMobile";
   }
-
+  let empresaId;
   const storeId = req.session.raw.privacy.storeId;
   let store;
   if (storeId) {
     store = StoreMgr.getStore(storeId);
     req.session.privacyCache.set("empresaId", store.custom.empresaId);
+    empresaId = store.custom.empresaId;
+    
+    const customPricebookToggle = Site.getCurrent().getCustomPreferenceValue(
+      "customPricebookToggle"
+    );
+    let result = handleToggglePriceBook(empresaId, customPricebookToggle);
   }
 
   res.render(render, {
@@ -28,6 +38,22 @@ server.get("Start", (req, res, next) => {
   });
   next();
 });
+
+const handleToggglePriceBook = (empresaId, customPriceBookToggle) => {
+  let jsonCPT;
+  let error;
+  try {
+    jsonCPT = JSON.parse(customPriceBookToggle);
+    let priceBook = jsonCPT.values.find(v => v.value == empresaId);
+    let list  = PriceBookMgr.getPriceBook(priceBook.pricebookList);
+    let sales  = PriceBookMgr.getPriceBook(priceBook.pricebookSales);
+    PriceBookMgr.setApplicablePriceBooks(list, sales);
+    error="working...";
+  } catch (error) {
+    error=error;
+  }
+  return error;
+}
 
 server.get("MapsScript", (req, res, next) => {
   const apikey = Site.getCurrent().getCustomPreferenceValue("mapAPI");
