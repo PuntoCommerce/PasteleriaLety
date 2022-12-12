@@ -16014,7 +16014,9 @@ a .moreless .less {
 }
 .product-tile .tile-body .pdp-link {
   line-height: 1.2;
-  height: 60px;
+  height: 55px;
+  width: 250px;
+  overflow: hidden;
 }
 .product-tile .tile-body .pdp-link a {
   font-size: 18px;
@@ -16022,11 +16024,18 @@ a .moreless .less {
   font-weight: 700;
   color: var(--color-lety-black) !important;
   font-family: 'gotham-book';
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 .product-tile .tile-body .price {
   font-size: 20px !important;
   height: auto;
   min-height: 70px;
+}
+.product-tile .tile-body .truncate{
+  width: 250px;
+  overflow: hidden;
 }
 .product-tile .tile-body .ratings {
   font-size: 0.9em;
