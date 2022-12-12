@@ -16015,7 +16015,7 @@ a .moreless .less {
 .product-tile .tile-body .pdp-link {
   line-height: 1.2;
   height: 55px;
-  width: 250px;
+  width: 100%;
   overflow: hidden;
 }
 .product-tile .tile-body .pdp-link a {
@@ -16034,7 +16034,7 @@ a .moreless .less {
   min-height: 70px;
 }
 .product-tile .tile-body .truncate{
-  width: 250px;
+  width: 100%;
   overflow: hidden;
 }
 .product-tile .tile-body .ratings {
