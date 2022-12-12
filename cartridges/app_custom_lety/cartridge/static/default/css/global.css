@@ -14848,6 +14848,12 @@ a.skip:hover {
     height: 51.52px;
     margin-top: -7px;
   }
+
+  .no-menu .brand{
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0 !important;
+  }
   .header {
     background-color: var(--color-lety2);
     height: 5em;
