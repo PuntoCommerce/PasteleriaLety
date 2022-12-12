@@ -16017,6 +16017,7 @@ a .moreless .less {
   height: 55px;
   width: 100%;
   overflow: hidden;
+  margin: 0 auto;
 }
 .product-tile .tile-body .pdp-link a {
   font-size: 18px;
@@ -16036,6 +16037,7 @@ a .moreless .less {
 .product-tile .tile-body .truncate{
   width: 100%;
   overflow: hidden;
+  margin: 0 auto;
 }
 .product-tile .tile-body .ratings {
   font-size: 0.9em;
