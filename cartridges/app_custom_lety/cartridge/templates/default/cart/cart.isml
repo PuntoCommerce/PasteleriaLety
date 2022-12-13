@@ -116,12 +116,12 @@
 
         <isinclude template="cart/cartRemoveCouponModal"/>
     </isif>
-
+<iscomment> 
     <div class="embed-responsive embed-responsive-16by9 carousel-cart">
-    <iscomment> 
-        <iframe class="embed-responsive-item" src="/s/PasteleriaLety/compra-impulso.html" /> </iscomment>
-        <iframe class="embed-responsive-item" src="${URLUtils.url('PDrender-Show', 'page', 'compra-impulso')}" />
-    </div>
+    
+        <iframe class="embed-responsive-item" src="/s/PasteleriaLety/compra-impulso.html" /> 
+        <iframe class="embed-responsive-item" src="${URLUtils.url('PDrender-Show', 'page', 'compra-impulso')}" /> 
+    </div></iscomment>
 
     <div class="container">
         <isslot id="cart-recommendations-m" description="Recommended products" context="global" />
