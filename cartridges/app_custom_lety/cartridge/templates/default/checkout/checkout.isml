@@ -273,7 +273,7 @@
                                                   
                                                    <div class="col-7">
                                                        <input type="text" class="form-control coupon-code-field" id="letyPuntocCard-form"
-                                                           name="" value="${pdict.customer.LetyCard}"
+                                                           name="" value="${pdict.customer.LetyCard ? pdict.customer.LetyCard : ""}"
                                                            ${pdict.customer.LetyCard !== undefined ? 'disabled' : ''}>
                                                        <div class="coupon-error">
   
@@ -317,7 +317,7 @@
                                                            id="checkoutSaldoLetyClcub"
                                                            type="text"
                                                            name=""
-                                                           value="${pdict.customer.saldo}" ${pdict.customer.saldo !== undefined ? 'disabled' : ''}
+                                                           value="${pdict.customer.saldo ? pdict.customer.saldo : ""}" ${pdict.customer.saldo !== undefined ? 'disabled' : ''}
                                                       />
                                                        <div class="coupon-error">
                                                            <span class="coupon-error-message" id="" role="alert"></span>
