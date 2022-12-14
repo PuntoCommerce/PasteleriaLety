@@ -18028,20 +18028,36 @@ a .moreless .less {
   display: initial;
 }
 
-#refinement-categoria .values{
-  display: grid;
-  grid-template-columns: repeat(2, .5fr);
+#refinement-categoría .sub-categories .values{
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  margin-top: 20px;
 }
 
-#refinement-numero-de-personas .values{
-  display: grid;
-  grid-template-columns: repeat(3, .5fr);
+#refinement-categoría .sub-categories li button{
+  margin: 0 0 10px 0;
+}
+
+#refinement-número-de-personas .values{
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  margin-top: 20px;
+}
+
+#refinement-número-de-personas li button{
+  margin: 0 0 10px 0;
 }
 
 .filterTitle{
   width: 82%;
 }
 
+.check-disable{
+  margin-right: 10px;
+}
+
 .refinements__card .card-body{
-  padding: 0 1.25rem;
+  padding: 0 1rem;
 }
