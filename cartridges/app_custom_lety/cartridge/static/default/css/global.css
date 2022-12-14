@@ -1234,6 +1234,10 @@ textarea {
   padding-top: 4px !important;
 }
 
+.summary-details{
+  display: none !important;
+}
+
 /*responsive 992*/
 @media (max-width: 993px) {
   .container {
@@ -1356,6 +1360,11 @@ textarea {
   }
   .price {
     padding-top: 0 !important;
+  }
+
+  .range .price-range{
+    font-size: 14px !important;
+    padding-top: 5px;
   }
 
   /*Breadcrumb*/

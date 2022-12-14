@@ -430,8 +430,7 @@
                         <div class="text-container">
                             <div class="text-congrat" style="padding-left: 110px; padding-right: 114px">
                                 <p style="font-size: 18px;">Gracias por comprar en Pastelería Lety, tu
-                                    pedido está confirmado, una vez que tu pago sea validado enviaremos un código de
-                                    rastreo
+                                    pedido está confirmado.
                                     de la paquetería para rastrearlo.
                                     
                                     <iscomment> ${Resource.msg('email.order.confirm.msg.body1', 'confirmation', null)}
