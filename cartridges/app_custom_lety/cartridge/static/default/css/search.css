@@ -505,8 +505,7 @@
 }
 
 .sub-categories{
-  margin: 0 40px;
-  display: inline-flex;
+  margin: 0;
 }
 
 .sub-categories .button-checkSubCategory{

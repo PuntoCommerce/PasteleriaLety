@@ -10,9 +10,10 @@
                 </isif>
 
                 <!--- Label --->
-                <span title="${category.title}" class="${category.selected ? 'selected' : ''}" aria-hidden="true">
+                <div class="filterTitle"><span title="${category.title}" class="${category.selected ? 'selected' : ''}" aria-hidden="true">
                     ${category.displayValue}
                 </span>
+                </div>
             </button>
         </li>
     </isloop>
