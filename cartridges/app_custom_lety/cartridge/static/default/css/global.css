@@ -18021,16 +18021,20 @@ a .moreless .less {
   display: initial;
 }
 
-#refinement-categoría .values{
+#refinement-categoria .values{
   display: grid;
   grid-template-columns: repeat(2, .5fr);
 }
 
-#refinement-número-de-personas .values{
+#refinement-numero-de-personas .values{
   display: grid;
   grid-template-columns: repeat(3, .5fr);
 }
 
 .filterTitle{
   width: 82%;
+}
+
+.refinements__card .card-body{
+  padding: 0 1.25rem;
 }
