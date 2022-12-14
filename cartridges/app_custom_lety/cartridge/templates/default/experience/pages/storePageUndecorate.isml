@@ -14,6 +14,8 @@
     assets.addJs("/js/session/store.js");
     assets.addCss("/css/storesession.css");
     assets.addCss("/css/calendar.css");
+    assets.addCss('/css/experience/components/commerceLayouts/carousel.css');
+    assets.addJs('/js/carousel.js');
 </isscript>
 
 <div class="storepage undecorate" id="${pdict.page.ID}">
