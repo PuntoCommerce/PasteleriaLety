@@ -18005,3 +18005,17 @@ a .moreless .less {
 #openFilters{
   display: initial;
 }
+
+#refinement-categoría .values{
+  display: grid;
+  grid-template-columns: repeat(2, .5fr);
+}
+
+#refinement-número-de-personas .values{
+  display: grid;
+  grid-template-columns: repeat(3, .5fr);
+}
+
+.filterTitle{
+  width: 82%;
+}
