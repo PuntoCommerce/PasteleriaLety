@@ -17996,3 +17996,12 @@ a .moreless .less {
  border: 1px solid black;
  border-radius: 25px;
 }
+
+#closeFilters{
+  visibility: hidden;
+  padding-left: 10px;
+}
+
+#openFilters{
+  display: initial;
+}

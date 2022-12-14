@@ -93,8 +93,9 @@
                         <div class="col-6 col-lg-6 col-sm-6 order-sm-1 filter-button">
                             <button type="button" class="btn" id="filter-button">
                                 ${Resource.msg('label.filters.pdp', 'search', null)}
-                                <img style="padding-left: 10px;" class="btn-default-img-filters"
+                                <img id="openFilters" class="btn-default-img-filters" style="padding-left: 10px;"
                                     src="${URLUtils.staticURL('/images/icons/filtro.svg')}" alt="" />
+                                <img id="closeFilters" src="${URLUtils.staticURL('/images/close.svg')}"/>
                             </button>
                         </div>
                         <div class="result-count text-center col-12 col-lg-6 col-sm-6 order-sm-2">
