@@ -446,7 +446,7 @@
                             <p style="font-weight: 900; font-size: 24px;">
                                 Si tienes preguntas acerca de tu pedido, puedes contactarnos al correo
                                 clientes@pastelerialety.com
-                                o al 8182422080.
+                                o al 8182422000.
                                 <iscomment> ${Resource.msg('email.order.confirm.msg.body2', 'confirmation', null)}:<span>9999999</span> </iscomment>
                             </p>
                             <a href="">
