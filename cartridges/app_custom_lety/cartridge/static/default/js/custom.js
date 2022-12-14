@@ -38,6 +38,13 @@ closeMinicart = () => {
 }
 //Minicart
 
+//Filters
+
+filterIcon = () => {
+
+}
+//Filters
+
 // window.addEventListener("scroll", () => {
 //   changeSubMenuItem();
 // });
@@ -149,6 +156,9 @@ setTimeout(function () {
 let filter_container = document.querySelector("#filter-categories");
 let button_filter = document.querySelector("#filter-button");
 let checkbox = document.querySelectorAll(".values.content li button");
+let openIcon = document.getElementById("openFilters");
+let closeIcon = document.getElementById("closeFilters");
+
 
 if (checkbox) {
   checkbox.forEach((item) => {
@@ -163,8 +173,12 @@ if (checkbox) {
   
           if (filter_container.style.display === "none") {
             filter_container.style.display = "block";
+            closeIcon.style.visibility = "visible";
+            openIcon.style.display = "none";
           } else {
             filter_container.style.display = "none";
+            openIcon.style.display = "initial";
+            closeIcon.style.visibility = "hidden";
           }
         });
       }, 1000);
@@ -182,8 +196,12 @@ if (filter_container) {
         button_filter.addEventListener("click", () => {
           if (filter_container.style.display === "none") {
             filter_container.style.display = "block";
+            closeIcon.style.visibility = "visible";
+            openIcon.style.display = "none";
           } else {
             filter_container.style.display = "none";
+            openIcon.style.display = "initial";
+            closeIcon.style.visibility = "hidden";
           }
         });
       }, 1000);
@@ -199,8 +217,12 @@ if (button_filter) {
 
       if (filter_container.style.display === "none") {
         filter_container.style.display = "block";
+        closeIcon.style.visibility = "visible";
+        openIcon.style.display = "none";
       } else {
         filter_container.style.display = "none";
+        openIcon.style.display = "initial";
+        closeIcon.style.visibility = "hidden";
       }
     });
   } catch (error) {

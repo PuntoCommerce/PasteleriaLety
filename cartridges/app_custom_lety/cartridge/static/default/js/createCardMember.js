@@ -27,7 +27,7 @@ var dateRegex = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
 let gender = "";
 let ciudad = "";
 let idEstado = "1";
-$("#modalLoading").modal('show');
+
 window.onload = async () => {
    let lastnameSplit = [];
    const lastname = s_ApellidoPat_ApellidoPat.getAttribute("data-qlastname");
