@@ -1,0 +1,57 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" />
+
+<isinclude template="/components/modules" sf-toolkit="off" />
+
+<!-- Include Page Designer Campaign Banner JavaScript and Styles only once here rather than at component level. -->
+<!-- There should only be one Campagin Banner added on a PD page. Multiple Banners is unsupported at the moment. -->
+
+<isif condition="${pdict.resetEditPDMode}">
+    <script> var resetCampaignBannerSessionToken = true; </script>
+</isif>
+
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addJs('/js/tagmanager.js');
+    assets.addCss('/css/experience/components/commerceAssets/campaignBanner.css');
+    assets.addJs('/js/campaignBanner.js');
+    assets.addJs('/js/hiddenBtn.js');
+    assets.addJs('/js/custom.js');
+    assets.addJs('/js/pdpAttributes.js');
+    assets.addCss('/css/navigation.css');
+    assets.addCss('/css/style-lety.css');
+    assets.addJs("/js/session/store.js");
+    assets.addCss("/css/storesession.css");
+    assets.addCss("/css/calendar.css");
+</isscript>
+
+<!DOCTYPE html>
+<html lang="${require('dw/util/Locale').getLocale(request.getLocale()).getLanguage()}">
+
+<head>
+    <!--[if gt IE 9]><!-->
+    <isinclude sf-toolkit="off" template="/common/scripts" />
+    <!--<![endif]-->
+    <isinclude template="/common/htmlHead" />
+    <isif condition="${pdict.canonicalUrl}">
+        <link rel="canonical" href="${pdict.canonicalUrl}" />
+    </isif>
+    <isactivedatahead/>
+    <isinclude template="/components/schema" />
+
+</head>
+
+<body>
+
+    ${dw.system.HookMgr.callHook('app.template.beforeHeader', 'beforeHeader', pdict) || ''}
+
+    <div class="page page-undecorated" data-action="${pdict.action}" data-querystring="${pdict.queryString}"
+            data-gtmpageview="${pdict.action}" >
+        
+        <div role="main" id="maincontent">
+            <isreplace/>
+        </div>
+    </div>
+
+</body>
+
+</html>
