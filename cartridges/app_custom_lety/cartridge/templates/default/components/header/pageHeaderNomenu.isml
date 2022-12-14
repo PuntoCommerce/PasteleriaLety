@@ -1,13 +1,13 @@
 <header>
     <isinclude template="/components/header/skipNav" />
-    <div class="header-banner slide-up d-none">
+    <div class="header-banner slide-up">
         <div class="container">
             <div class="d-flex justify-content-between">
                 <div></div>
                 <div class="content">
                     <isslot id="header-banner-m" description="Slot above the site header" context="global" />
                 </div>
-                <div class="close-button">
+                <div class="close-button d-none">
                     <button type="button" class="close" aria-label="${Resource.msg('label.header.banner.close', 'common', null)}">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -16,7 +16,7 @@
         </div>
     </div>
     <nav role="navigation">
-        <div class="header container">
+        <div class="header container no-menu">
             <div class="col-12">
                 <div class="navbar-header brand row">
                     <a class="logo-home" href="${URLUtils.url('Home-Show')}" title="${ Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg('global.home', 'common', null)) }">

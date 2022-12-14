@@ -437,8 +437,7 @@
                         <td style="padding-bottom: 25px;">
                             <p style="font-weight: 900; font-size: 24px;">${pdict.order.firstName},</p>
                             <p style="font-weight: 900; font-size: 24px;">Gracias por comprar en Pastelería Lety, tu
-                                pedido está confirmado, una vez que tu pago sea validado enviaremos un código de rastreo
-                                de la paquetería para rastrearlo.
+                                pedido está confirmado.
                                 Puedes ver el estado de tu pedido al ingresar a tu cuenta.
                                 <iscomment> ${Resource.msg('email.order.confirm.msg.body1', 'confirmation', null)}
                                 </iscomment>
@@ -447,7 +446,7 @@
                             <p style="font-weight: 900; font-size: 24px;">
                                 Si tienes preguntas acerca de tu pedido, puedes contactarnos al correo
                                 clientes@pastelerialety.com
-                                o al 8182422080.
+                                o al 8182422000.
                                 <iscomment> ${Resource.msg('email.order.confirm.msg.body2', 'confirmation', null)}:<span>9999999</span> </iscomment>
                             </p>
                             <a href="">

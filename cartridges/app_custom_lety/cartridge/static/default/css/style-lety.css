@@ -507,6 +507,22 @@
   .title-edit-addres{
     padding-top: 20px;
   }
+
+  .page-title-order{
+    padding: 30px !important;
+  }
+
+  .container-detail-order .content-order-detail{
+    padding: 10px 20px !important;
+  }
+
+  .container-detail-order .card-body{
+    padding: 1.25rem 1rem !important;
+  }
+
+  .content-order-detail .my-account a{
+    color: var(--skin-primary-color-1);
+  }
 }
 
 

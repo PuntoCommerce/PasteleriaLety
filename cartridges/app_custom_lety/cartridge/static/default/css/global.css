@@ -1234,6 +1234,10 @@ textarea {
   padding-top: 4px !important;
 }
 
+.summary-details-pay{
+  display: none !important;
+}
+
 /*responsive 992*/
 @media (max-width: 993px) {
   .container {
@@ -1356,6 +1360,11 @@ textarea {
   }
   .price {
     padding-top: 0 !important;
+  }
+
+  .range .price-range{
+    font-size: 14px !important;
+    padding-top: 5px;
   }
 
   /*Breadcrumb*/
@@ -14848,6 +14857,12 @@ a.skip:hover {
     height: 51.52px;
     margin-top: -7px;
   }
+
+  .no-menu .brand{
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0 !important;
+  }
   .header {
     background-color: var(--color-lety2);
     height: 5em;
@@ -16009,7 +16024,7 @@ a .moreless .less {
 .product-tile .tile-body .pdp-link {
   line-height: 1.2;
   height: 55px;
-  width: 250px;
+  width: 100%;
   overflow: hidden;
   margin: 0 auto;
 }
@@ -16029,7 +16044,7 @@ a .moreless .less {
   min-height: 70px;
 }
 .product-tile .tile-body .truncate{
-  width: 250px;
+  width: 100%;
   overflow: hidden;
   margin: 0 auto;
 }
