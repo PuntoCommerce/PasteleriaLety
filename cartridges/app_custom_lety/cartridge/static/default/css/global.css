@@ -18029,25 +18029,25 @@ a .moreless .less {
   display: initial;
 }
 
-#refinement-categoría .sub-categories .values{
+#refinement-categoria .sub-categories .values{
   columns: 2;
   -webkit-columns: 2;
   -moz-columns: 2;
   margin-top: 20px;
 }
 
-#refinement-categoría .sub-categories li button{
+#refinement-categoria .sub-categories li button{
   margin: 0 0 10px 0;
 }
 
-#refinement-número-de-personas .values{
+#refinement-numero-de-personas .values{
   columns: 2;
   -webkit-columns: 2;
   -moz-columns: 2;
   margin-top: 20px;
 }
 
-#refinement-número-de-personas li button{
+#refinement-numero-de-personas li button{
   margin: 0 0 10px 0;
 }
 
