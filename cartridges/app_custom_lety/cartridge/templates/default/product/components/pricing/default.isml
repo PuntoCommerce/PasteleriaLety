@@ -1,4 +1,4 @@
-<span>
+<span class="price-range">
     <isset name="finalOrigPrice" value="${price}" scope="page" />
 
     <iscomment> <isif condition="${finalOrigPrice.list !== null}">

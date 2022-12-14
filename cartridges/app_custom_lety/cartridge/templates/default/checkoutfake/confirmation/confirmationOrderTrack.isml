@@ -430,8 +430,8 @@
                             <iscomment> <p class="text" style="  padding: 5px 0 7px 0;">${pdict.order.firstName},</p> </iscomment>
                                 <p>${Resource.msg('msg.confir.track.email', 'confirmation', null)}</p>
 
-                                <a href=""><p style="font-weight: bold; padding: 5px 0 7px 0;">${Resource.msg('msg.confir.track.rastreo.email', 'confirmation', null)}
-                                </p></a>
+                                <iscomment> <a href=""><p style="font-weight: bold; padding: 5px 0 7px 0;">${Resource.msg('msg.confir.track.rastreo.email', 'confirmation', null)}
+                                </p></a> </iscomment>
 
                                 <p style="  padding: 5px 0 7px 0;">${Resource.msg('msg.confir.track2.email', 'confirmation', null)}
                                 </p>

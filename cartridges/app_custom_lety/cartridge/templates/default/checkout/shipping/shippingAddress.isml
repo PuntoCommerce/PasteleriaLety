@@ -217,7 +217,7 @@
             <label class="form-control-label" for="customShippingEmail${lineItem ? lineItem.UUID : 'default'}">
                 ${Resource.msg('field.shipping.address.email','address',null)}
             </label>
-            <input type="tel" class="form-control customShippingEmail" id="customShippingEmail${lineItem ? lineItem.UUID : 'default'}" aria-describedby="${lineItem ? lineItem.UUID : 'default'}Email"
+            <input type="email" class="form-control customShippingEmail" id="customShippingEmail${lineItem ? lineItem.UUID : 'default'}" aria-describedby="${lineItem ? lineItem.UUID : 'default'}Email"
                 value="${customPickup.email.value || ''}" <isprint value=${customPickup.email.attributes} encoding="off"/>>
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}Email"><isprint value="${customPickup.email.error}" ></div>
             <iscomment> <span>${Resource.msg('example.phone','forms',null)}</span> </iscomment>

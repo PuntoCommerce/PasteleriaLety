@@ -773,7 +773,7 @@ span.ship-to-phone {
   color: #000000;
 }
 .confirmation-summary-container .container_confirmation {
-  max-height: 360px;
+  min-height: 360px;
   border: 1px solid #000;
   padding: 40px 63px;
 }
@@ -1254,7 +1254,7 @@ span.ship-to-phone {
   }
 
   .checkout__stepper--item-title3{
-    right: 20px !important;
+    right: 3% !important;
     top: 76px !important;
   }
 

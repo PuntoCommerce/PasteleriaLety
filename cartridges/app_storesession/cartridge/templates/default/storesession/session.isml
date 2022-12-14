@@ -41,6 +41,7 @@
           <div class="row p-3">
             <img class="" src="${URLUtils.staticURL('/images/icons/ubicacion-desactivada.svg')}" alt="" />
             <button type="button" id="session_search-location" >Utilizar tu ubicación</button>
+            
           </div>
             
           </div>
