@@ -1040,6 +1040,11 @@ textarea {
   padding-bottom: 40px;
 }
 
+.cart-empty h1{
+  font-size: 2.5rem;
+  padding: 5rem 0;
+}
+
 .cart-header {
   padding-bottom: 80px;
 }
