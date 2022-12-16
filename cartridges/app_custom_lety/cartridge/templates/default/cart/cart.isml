@@ -23,15 +23,7 @@
         <div class="container cart-empty">
             <div class="row">
                 <div class="col-12 text-center">
-
-                    <iscomment> 
-                    Descomentar cuando este listo el checkout</iscomment>
                     <h1>${Resource.msg('info.cart.empty.msg','cart',null)}</h1> 
-
-                     <!---Borrar cuando este listo el checkout--->
-                   <iscomment>  <h2>PRÓXIMAMENTE</h2>
-                     <img class="img-proximamente" src="${URLUtils.staticURL('/images/menuImg.png')}"
-                                    alt="${Resource.msg('global.storename', 'common', null)}" /> </iscomment>
                 </div>
             </div>
         </div>
