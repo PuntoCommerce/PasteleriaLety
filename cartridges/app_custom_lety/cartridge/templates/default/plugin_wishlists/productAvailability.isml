@@ -1,5 +1,5 @@
 <!-- Availability -->
-<div class="availability row product-availability row-desc" data-ready-to-order="${product.readyToOrder}" data-available="${product.available}">
+<div class="availability row product-availability row-desc d-none" data-ready-to-order="${product.readyToOrder}" data-available="${product.available}">
     <div class="col">
         <isinclude template="product/components/availability" />
     </div>

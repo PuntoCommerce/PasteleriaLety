@@ -455,7 +455,7 @@
   left: 0;
   z-index: 3;
   display: none;
-  width: 326px;
+  width: 340px;
   margin: 0 50px 0 50px;
   border: 1px solid #000;
 }
@@ -505,8 +505,7 @@
 }
 
 .sub-categories{
-  margin: 0 40px;
-  display: inline-flex;
+  margin: 0;
 }
 
 .sub-categories .button-checkSubCategory{
@@ -515,7 +514,7 @@
 }
 
 .sub-categories .button-checkSubCategory span, .refinements ul li button span{
-  padding-left: 10px;
+  font-size: 15px;
 }
 
 .button-checkSubCategory, .button-checkPrice{

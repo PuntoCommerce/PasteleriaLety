@@ -23,15 +23,7 @@
         <div class="container cart-empty">
             <div class="row">
                 <div class="col-12 text-center">
-
-                    <iscomment> 
-                    Descomentar cuando este listo el checkout</iscomment>
                     <h1>${Resource.msg('info.cart.empty.msg','cart',null)}</h1> 
-
-                     <!---Borrar cuando este listo el checkout--->
-                   <iscomment>  <h2>PRÓXIMAMENTE</h2>
-                     <img class="img-proximamente" src="${URLUtils.staticURL('/images/menuImg.png')}"
-                                    alt="${Resource.msg('global.storename', 'common', null)}" /> </iscomment>
                 </div>
             </div>
         </div>
@@ -117,9 +109,7 @@
         <isinclude template="cart/cartRemoveCouponModal"/>
     </isif>
 
-    <div class="embed-responsive embed-responsive-16by9 carousel-cart">
-        <iframe class="embed-responsive-item" src="/s/PasteleriaLety/compra-impulso.html" />
-    </div>
+    <isinclude url="${URLUtils.url('PDrender-Show', 'page', 'compra-impulso')}" />
 
     <div class="container">
         <isslot id="cart-recommendations-m" description="Recommended products" context="global" />

@@ -239,6 +239,14 @@ body {
   min-height: 100vh;
   overflow: hidden;
 }
+
+.page-undecorated{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+}
 footer {
   margin-top: 5rem;
 }
@@ -1032,6 +1040,11 @@ textarea {
   padding-bottom: 40px;
 }
 
+.cart-empty h1{
+  font-size: 2.5rem;
+  padding: 5rem 0;
+}
+
 .cart-header {
   padding-bottom: 80px;
 }
@@ -1234,6 +1247,10 @@ textarea {
   padding-top: 4px !important;
 }
 
+.summary-details-pay{
+  display: none !important;
+}
+
 /*responsive 992*/
 @media (max-width: 993px) {
   .container {
@@ -1356,6 +1373,11 @@ textarea {
   }
   .price {
     padding-top: 0 !important;
+  }
+
+  .range .price-range{
+    font-size: 14px !important;
+    padding-top: 5px;
   }
 
   /*Breadcrumb*/
@@ -14848,6 +14870,12 @@ a.skip:hover {
     height: 51.52px;
     margin-top: -7px;
   }
+
+  .no-menu .brand{
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0 !important;
+  }
   .header {
     background-color: var(--color-lety2);
     height: 5em;
@@ -16009,7 +16037,7 @@ a .moreless .less {
 .product-tile .tile-body .pdp-link {
   line-height: 1.2;
   height: 55px;
-  width: 250px;
+  width: 100%;
   overflow: hidden;
   margin: 0 auto;
 }
@@ -16029,7 +16057,7 @@ a .moreless .less {
   min-height: 70px;
 }
 .product-tile .tile-body .truncate{
-  width: 250px;
+  width: 100%;
   overflow: hidden;
   margin: 0 auto;
 }
@@ -17995,4 +18023,47 @@ a .moreless .less {
  color: text;
  border: 1px solid black;
  border-radius: 25px;
+}
+
+#closeFilters{
+  visibility: hidden;
+  padding-left: 10px;
+}
+
+#openFilters{
+  display: initial;
+}
+
+#refinement-categoria .sub-categories .values{
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  margin-top: 20px;
+}
+
+#refinement-categoria .sub-categories li button{
+  margin: 0 0 10px 0;
+}
+
+#refinement-numero-de-personas .values{
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  margin-top: 20px;
+}
+
+#refinement-numero-de-personas li button{
+  margin: 0 0 10px 0;
+}
+
+.filterTitle{
+  width: 82%;
+}
+
+.check-disable{
+  margin-right: 10px;
+}
+
+.refinements__card .card-body{
+  padding: 0 1rem;
 }

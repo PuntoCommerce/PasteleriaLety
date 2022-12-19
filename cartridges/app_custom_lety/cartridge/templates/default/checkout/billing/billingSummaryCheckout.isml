@@ -21,6 +21,6 @@
 
 <!--- Payment information --->
 <div class="summary-details">
-    <span class="summary-section-label payment-info-label">${Resource.msg('label.order.payment.email.method', 'confirmation', null)}</span><br />
+    <span class="summary-section-label payment-info-label">${Resource.msg('label.order.payment.email.method2', 'confirmation', null)}</span><br />
     <isinclude template="checkout/billing/paymentOptions/paymentOptionsSummary" />
 </div>
