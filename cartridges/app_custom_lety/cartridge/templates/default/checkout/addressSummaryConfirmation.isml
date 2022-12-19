@@ -47,7 +47,7 @@
             <isif condition="${address && address.postalCode}">${address.postalCode}</isif>
         </span>
     </div>
-    <div class="address2">
+    <div class="address2 d-none">
         <isif condition="${address && address.address2}">${address.address2}</isif>
     </div>
 </div>
