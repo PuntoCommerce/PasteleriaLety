@@ -2,6 +2,16 @@
 
 <div class="product-summary-block">
     <div class="order-products-summary">
+        <div class="content-order-details">
+            <span class="span-detail-order">
+                <p style="font-weight: bold;">${Resource.msg('label.order.number', 'confirmation', null)}&nbsp;&nbsp;</p>
+                <p>${pdict.order.orderNumber}</p>
+            </span>
+            <span class="span-detail-order">
+                <p style="font-weight: bold;">${Resource.msg('label.order.email', 'confirmation', null)}&nbsp;&nbsp;</p>
+                <p>${pdict.order.orderEmail}</p>
+            </span>
+        </div>
         <isloop items="${pdict.order.shipping}" var="shippingModel">
             <isif condition="${pdict.order.shipping.length > 1}">
                 <div class="shipment-block">
@@ -40,7 +50,8 @@
                     <!--- Shipping information --->
                     <p class="summary-section-label shipping-method-label label-confirmation-detail mb-4">
                         ${Resource.msg('label.order.shipping.method.custom', 'confirmation', null)}&nbsp;&nbsp;</p>
-                    <span class="shipping-method-title label-confirmation-detail2">${shippingModel.selectedShippingMethod.displayName}</span>
+                    <span
+                        class="shipping-method-title label-confirmation-detail2">${shippingModel.selectedShippingMethod.displayName}</span>
                     <span class="shipping-method-arrival-time label-confirmation-detail2">
                         <isif condition="${shippingModel.selectedShippingMethod.estimatedArrivalTime}">
                             ${shippingModel.selectedShippingMethod.estimatedArrivalTime}
