@@ -9,6 +9,7 @@ const { ApiLety } = require("*/cartridge/scripts/jobs/api");
 const gMaps = require("*/cartridge/scripts/googleMaps/api");
 const OrderModel = require("*/cartridge/models/order");
 const Locale = require("dw/util/Locale");
+const inventory = require("*/cartridge/scripts/middlewares/inventory");
 
 const validateEmail = (email) => {
   if (!email) {
@@ -40,14 +41,6 @@ server.append("SubmitShipping", (req, res, next) => {
     });
   }
 
-  let storeId = req.session.raw.privacy.storeId;
-  Transaction.wrap(() => {
-    currentBasket.setCustomerEmail(shipping.customPickUp.email.value);
-    currentBasket.custom.storeId = storeId;
-    currentBasket.custom.deliveryDateTime =
-      shipping.datetime.date.value + " : " + shipping.datetime.time.value;
-  });
-
   let geocode;
   let splitedAddress;
   let InsertaPersonaDireccion;
@@ -71,6 +64,7 @@ server.append("SubmitShipping", (req, res, next) => {
       lng = geocode.results[0].geometry.location.lng;
     }
 
+    inventory.handleStoreShipping(req, currentBasket, { lat: lat, lng: lng });
     splitedAddress = CAHelpers.splitAddress(viewData.address.address1);
 
     body = {
@@ -111,6 +105,13 @@ server.append("SubmitShipping", (req, res, next) => {
       COHelpers.recalculateBasket(currentBasket);
     }
   }
+
+  Transaction.wrap(() => {
+    currentBasket.setCustomerEmail(shipping.customPickUp.email.value);
+    currentBasket.custom.storeId = req.session.raw.privacy.storeId;
+    currentBasket.custom.deliveryDateTime =
+      shipping.datetime.date.value + " : " + shipping.datetime.time.value;
+  });
 
   next();
 });
