@@ -200,8 +200,11 @@ server.replace('PlaceOrder', server.middleware.https, function (req, res, next) 
   if (order.getCustomerEmail()) {
       COHelpers.sendConfirmationEmail(order, req.locale.id);
   }
-  
-  HO.sendOrderToERP(order.orderNo);
+  if(order.defaultShipment.shippingMethodID == "pickup"){
+      HO.sendPickupOrderToERP(order.orderNo);
+  } else {
+      HO.sendShippingOrderToERP(order.orderNo);
+  }
 
 
   // Reset usingMultiShip after successful Order placement
@@ -219,5 +222,15 @@ server.replace('PlaceOrder', server.middleware.https, function (req, res, next) 
 
   return next();
 });
+
+server.get("Prueba", (req, res, next) => {
+    
+  var OrderMgr = require('dw/order/OrderMgr');
+  let order = OrderMgr.getOrder(req.querystring.oid);
+
+  res.json({order: order})
+    
+    next();
+})
 
 module.exports = server.exports();

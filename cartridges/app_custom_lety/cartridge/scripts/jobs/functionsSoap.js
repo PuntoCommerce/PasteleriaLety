@@ -198,6 +198,8 @@ function body(data,credential,path) {
         '<iTipoDireccion>'+data.iTipoDireccion+'</iTipoDireccion>'+
         '</pPersonaDireccion>'+
         '<address>'+data.address+'</address>'+
+        '<latitud>'+data.dLatitud+'</latitud>'+
+        '<longitud>'+data.dLongitud+'</longitud>'+
         '</'+path+'>'+
         '</soap:Body></soap:Envelope>';
     }
@@ -221,24 +223,7 @@ function body(data,credential,path) {
         '<sObservaciones>'+data.sObservaciones+'</sObservaciones>'+
       '</pServicioDomicilioH>'+
       '<pServicioDomicilioD>'+
-        '<cServicioDomicilioDWeb>'+
-          '<iIdCentroAlta>'+data.iIdCentroAlta+'</iIdCentroAlta>'+
-          '<iIdServDom>'+data.iIdServDom+'</iIdServDom>'+
-          '<iIdMaterial>'+data.iIdMaterial+'</iIdMaterial>'+
-          '<dPrecio>'+data.dPrecio+'</dPrecio>'+
-          '<dPrecioBase>'+data.dPrecioBase+'</dPrecioBase>'+
-          '<dCantidad>'+data.dCantidad+'</dCantidad>'+
-          '<dCantidadBase>'+data.dCantidadBase+'</dCantidadBase>'+
-          '<iIdUnidad>'+data.iIdUnidad+'</iIdUnidad>'+
-          '<iIdUnidadBase>'+data.iIdUnidadBase+'</iIdUnidadBase>'+
-          '<dPorcDescuento>'+data.dPorcDescuento+'</dPorcDescuento>'+
-          '<dMontoDescuento>'+data.dMontoDescuento+'</dMontoDescuento>'+
-          '<dPorcIVA>'+data.dPorcIVA+'</dPorcIVA>'+
-          '<dMontoIVA>'+data.dMontoIVA+'</dMontoIVA>'+
-          '<dPorcIEPS>'+data.dPorcIEPS+'</dPorcIEPS>'+
-          '<dMontoIEPS>'+data.dMontoIEPS+'</dMontoIEPS>'+
-          '<iIdCombo>'+data.iIdCombo+'</iIdCombo>'+
-        '</cServicioDomicilioDWeb>'+
+        handleItemsServDom(data.items, data.iIdServDom) +
       '</pServicioDomicilioD>'+
       '<pServicioDomicilioPago>'+
         '<iIdCentroAlta>'+data.iIdCentroAlta+'</iIdCentroAlta>'+
@@ -253,6 +238,7 @@ function body(data,credential,path) {
       '<NombreCompleto>'+data.NombreCompleto+'</NombreCompleto>'+
       '<Municipio>'+data.Municipio+'</Municipio>'+
       '<Estado>'+data.Estado+'</Estado>'+
+      '<deliveryEstimateId>'+data.deliveryEstimateId+'</deliveryEstimateId>'+
         '</'+path+'>'+
         '</soap:Body></soap:Envelope>';
     }
@@ -273,7 +259,7 @@ function body(data,credential,path) {
             '<bindImpreso>'+data.bindImpreso+'</bindImpreso>'+
           '</pEncabezado>'+
           '<pDetalle>'+
-            hanldeItems(data.items, data.sFolio) +
+            handleItemsPickup(data.items, data.sFolio) +
           '</pDetalle>'+
           '<pPago>'+
             '<sFolio>'+data.sFolio+'</sFolio>'+
@@ -289,7 +275,36 @@ function body(data,credential,path) {
     }
 }
 
-const hanldeItems = (items, folio) => {
+const handleItemsServDom = (items, folio) => {
+  let itemsString = '';
+  let item;
+  for (let i = 0; i < items.length; i++) {
+    item = items[i];
+    itemsString += '<cServicioDomicilioDWeb>'+
+          '<iIdCentroAlta>'+0+'</iIdCentroAlta>'+
+          '<iIdServDom>'+folio+'</iIdServDom>'+
+          '<iIdMaterial>'+item.iIdMaterial+'</iIdMaterial>'+
+          '<dPrecio>'+item.dPrecio+'</dPrecio>'+
+          '<dPrecioBase>'+item.dPrecioBase+'</dPrecioBase>'+
+          '<dCantidad>'+item.dCantidad+'</dCantidad>'+
+          '<dCantidadBase>'+item.dCantidadBase+'</dCantidadBase>'+
+          '<iIdUnidad>'+item.iIdUnidad+'</iIdUnidad>'+
+          '<iIdUnidadBase>'+item.iIdUnidadBase+'</iIdUnidadBase>'+
+          '<dPorcDescuento>'+item.dPorcDescuento+'</dPorcDescuento>'+
+          '<dMontoDescuento>'+item.dMontoDescuento+'</dMontoDescuento>'+
+          '<dPorcIVA>'+item.dPorcIVA+'</dPorcIVA>'+
+          '<dMontoIVA>'+item.dMontoIVA+'</dMontoIVA>'+
+          '<dPorcIEPS>'+item.dPorcIEPS+'</dPorcIEPS>'+
+          '<dMontoIEPS>'+item.dMontoIEPS+'</dMontoIEPS>'+
+          '<iIdCombo>'+item.iIdCombo+'</iIdCombo>'+
+        '</cServicioDomicilioDWeb>';
+  }
+
+  return itemsString
+
+}
+
+const handleItemsPickup = (items, folio) => {
   let itemsString = '';
   let item;
   for (let i = 0; i < items.length; i++) {
