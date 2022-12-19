@@ -40,4 +40,34 @@ const closestStore = (stores, clientLocation) => {
   return store;
 };
 
-module.exports = { closestStore: closestStore };
+const addDistanceToStores = (stores, clientLocation) => {
+  let s = undefined;
+  let finalStores = [];
+  let distance;
+
+  while (stores.hasNext()) {
+    s = stores.next();
+    distance = calDistance(
+      clientLocation.lat,
+      clientLocation.lng,
+      s.latitude,
+      s.longitude
+    );
+    finalStores.push({
+      store: s,
+      distance: distance,
+    });
+  }
+  return finalStores;
+};
+
+const sortStoresByDistance = (stores, clientLocation) => {
+  let storesWDistance = addDistanceToStores(stores, clientLocation);
+  let sortedStores = storesWDistance.sort((a, b) => a.distance - b.distance);
+  return sortedStores;
+};
+
+module.exports = {
+  closestStore: closestStore,
+  sortStoresByDistance: sortStoresByDistance,
+};

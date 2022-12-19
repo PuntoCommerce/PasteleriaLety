@@ -201,44 +201,58 @@
     }
 
     if(path==="InsertaPersonaDireccion"){
-      let json = '{"'+path+'":[';
-      const Codd = XMLList(xml).descendants("iCode");
-      const sMenss = XMLList(xml).descendants("sMensaje");
-      const idFol = XMLList(xml).descendants("iIdFolioPersona");
-      const idC = XMLList(xml).descendants("iIdCentro");
-      const idDi = XMLList(xml).descendants("iIdDireccion");
-      const iIdFolioDire = XMLList(xml).descendants("iIdFolioDireccion");
-      const sDirec = XMLList(xml).descendants("sDireccion");
-      const sCol = XMLList(xml).descendants("sColonia");
-      const sCP = XMLList(xml).descendants("sCP");
-      const sTel1 = XMLList(xml).descendants("sTelefono1");
-      const sTel2 = XMLList(xml).descendants("sTelefono2");
-      const sEntreCa = XMLList(xml).descendants("sEntreCalles");
-      const sObserva = XMLList(xml).descendants("sObservaciones");
-      const iIdCiu = XMLList(xml).descendants("iIdCiudad");
-      const dLat = XMLList(xml).descendants("dLatitud");
-      const dLong = XMLList(xml).descendants("dLongitud");
-      const sMenssajee = XMLList(xml).descendants("sMensaje");
-      const sNoInterior = XMLList(xml).descendants("sNoInterior");
-      const sNoExterior = XMLList(xml).descendants("sNoExterior");
-      const iIdUsuario = XMLList(xml).descendants("iIdUsuario");
-      const dtFecha = XMLList(xml).descendants("dtFecha");
-      const iTipoDireccion = XMLList(xml).descendants("iTipoDireccion");
-      const dCost = XMLList(xml).descendants("dCosto");
+      // let json = '{"'+path+'":[';
+      // const Codd = XMLList(xml).descendants("iCode");
+      // const sMenss = XMLList(xml).descendants("sMensaje");
+      // const idFol = XMLList(xml).descendants("iIdFolioPersona");
+      // const idC = XMLList(xml).descendants("iIdCentro");
+      // const idDi = XMLList(xml).descendants("iIdDireccion");
+      // const iIdFolioDire = XMLList(xml).descendants("iIdFolioDireccion");
+      // const sDirec = XMLList(xml).descendants("sDireccion");
+      // const sCol = XMLList(xml).descendants("sColonia");
+      // const sCP = XMLList(xml).descendants("sCP");
+      // const sTel1 = XMLList(xml).descendants("sTelefono1");
+      // const sTel2 = XMLList(xml).descendants("sTelefono2");
+      // const sEntreCa = XMLList(xml).descendants("sEntreCalles");
+      // const sObserva = XMLList(xml).descendants("sObservaciones");
+      // const iIdCiu = XMLList(xml).descendants("iIdCiudad");
+      // const dLat = XMLList(xml).descendants("dLatitud");
+      // const dLong = XMLList(xml).descendants("dLongitud");
+      // const sMenssajee = XMLList(xml).descendants("sMensaje");
+      // const sNoInterior = XMLList(xml).descendants("sNoInterior");
+      // const sNoExterior = XMLList(xml).descendants("sNoExterior");
+      // const iIdUsuario = XMLList(xml).descendants("iIdUsuario");
+      // const dtFecha = XMLList(xml).descendants("dtFecha");
+      // const iTipoDireccion = XMLList(xml).descendants("iTipoDireccion");
+      // const dCost = XMLList(xml).descendants("dCosto");
 
-      if(Codd.length()===0){
-        json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
-        json = json.slice(0,-1)+']}';
-      }else{
-        for(let i =0; i<Codd.length();i++){
-          json+='{"iCode":"'+Codd[i]+'","sMensaje":"'+sMenssajee[i]+'","iIdFolioPersona":"'+idFol[i]+'","iIdCentro":"'+idC[i]+'","iIdDireccion":"'+idDi[i]+'","iIdFolioDireccion":"'+iIdFolioDire[i]+'","sDireccion":"'+sDirec[i]+'","sColonia":"'+sCol[i]+'","sCP":"'+sCP[i]+'","sTelefono1":"'+sTel1[i]+'","sTelefono2":"'+sTel2[i]+'","sEntreCalles":"'+sEntreCa[i]+'","sObservaciones":"'+sObserva[i]+'","iIdCiudad":"'+iIdCiu[i]+'","dLatitud":"'+dLat[i]+'","dLongitud":"'+dLong[i]+'","oRequest2sMensaje":"'+sMenss[i]+'","sNoInterior":"'+sNoInterior[i]+'","sNoExterior":"'+sNoExterior[i]+'","iIdUsuario":"'+iIdUsuario[i]+'","dtFecha":"'+dtFecha[i]+'","iTipoDireccion":"'+iTipoDireccion[i]+'","oRequest2dCosto":"'+dCost[i]+'"},';
-        }
-        json = json.slice(0,-1)+']}';
-      }
+      // if(Codd.length()===0){
+      //   json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
+      //   json = json.slice(0,-1)+']}';
+      // }else{
+      //   for(let i =0; i<Codd.length();i++){
+      //     json+='{"iCode":"'+Codd[i]+'","sMensaje":"'+sMenssajee[i]+'","iIdFolioPersona":"'+idFol[i]+'","iIdCentro":"'+idC[i]+'","iIdDireccion":"'+idDi[i]+'","iIdFolioDireccion":"'+iIdFolioDire[i]+'","sDireccion":"'+sDirec[i]+'","sColonia":"'+sCol[i]+'","sCP":"'+sCP[i]+'","sTelefono1":"'+sTel1[i]+'","sTelefono2":"'+sTel2[i]+'","sEntreCalles":"'+sEntreCa[i]+'","sObservaciones":"'+sObserva[i]+'","iIdCiudad":"'+iIdCiu[i]+'","dLatitud":"'+dLat[i]+'","dLongitud":"'+dLong[i]+'","oRequest2sMensaje":"'+sMenss[i]+'","sNoInterior":"'+sNoInterior[i]+'","sNoExterior":"'+sNoExterior[i]+'","iIdUsuario":"'+iIdUsuario[i]+'","dtFecha":"'+dtFecha[i]+'","iTipoDireccion":"'+iTipoDireccion[i]+'","oRequest2dCosto":"'+dCost[i]+'"},';
+      //   }
+      //   json = json.slice(0,-1)+']}';
+      // }
 
-      json = json.slice(0,-1)+']}';
+      // json = json.slice(0,-1)+']}';
  
-      return json;
+      // return json;
+      const oRequest = XMLList(xml).descendants("oRequest");
+      const iIdFolioDireccion = oRequest.descendants("iIdFolioDireccion");
+
+      const oRequest2 = XMLList(xml).descendants("oRequest2");
+      const sMensaje2 = oRequest2.descendants("sMensaje");
+      const bAplica2 = oRequest2.descendants("bAplica");
+      const dCosto2 = oRequest2.descendants("dCosto");
+
+      return {
+        iIdFolioDireccion: iIdFolioDireccion.toString(),
+        sMensaje: sMensaje2.toString(),
+        bAplica: bAplica2.toString(),
+        dCost: dCosto2.toString(),
+      };
     }
 
     if(path==="RegistraServDom"){

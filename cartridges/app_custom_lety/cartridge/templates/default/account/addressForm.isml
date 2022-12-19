@@ -1,3 +1,8 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addJs('/js/customAddress.js');
+</isscript>
+
 <form
     action="${URLUtils.url('Address-SaveAddress', 'addressId', pdict.addressId)}"
     class="address-form"
@@ -50,11 +55,12 @@
         ${pdict.addressForm.address1.mandatory === true ? 'required' : ''}">
         <label class="form-control-label" for="address1">
             <isprint value="${pdict.addressForm.address1.label}" encoding="htmlcontent" />
+            <span>${Resource.msg('example.shipping.address.one', 'address', null)}</span>
         </label>
-        <input type="text" class="form-control" id="address1"
+        <input type="text" class="form-control shippingAddressOne" id="address1"
             <isprint value="${pdict.addressForm.address1.attributes}" encoding="off" />
             autocomplete="address-line1">
-        <div class="invalid-feedback"></div>
+        <div class="invalid-feedback" id="feedbackAddressLine1"></div>
     </div>
 
     <!-- Address 2 -->
@@ -159,7 +165,7 @@
             <a href="${URLUtils.url('Address-List')}" class="btn btn-cancelar">${Resource.msg('button.cancel','account',null)}</a>
         </div>
         <div class="col-6">
-            <button type="submit" name="save" class="btn btn-product">${Resource.msg('button.save','account',null)}</button>
+            <button type="submit" name="save" class="btn btn-product submit-shipping">${Resource.msg('button.save','account',null)}</button>
         </div>
     </div>
 

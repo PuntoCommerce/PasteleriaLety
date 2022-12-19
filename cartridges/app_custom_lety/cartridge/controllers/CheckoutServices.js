@@ -269,4 +269,14 @@ server.replace(
   }
 );
 
+server.get("Prueba", (req, res, next) => {
+    
+  var OrderMgr = require('dw/order/OrderMgr');
+  let order = OrderMgr.getOrder(req.querystring.oid);
+
+  res.json({order: order})
+    
+    next();
+})
+
 module.exports = server.exports();
