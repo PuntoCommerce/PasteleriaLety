@@ -250,7 +250,7 @@ server.replace(
       COHelpers.sendConfirmationEmailClient(order, req.locale.id, req.session.raw.privacy.storeId);
     }
 
-    HO.sendOrderToERP(order.orderNo);
+    HO.sendPickupOrderToERP(order.orderNo);
 
     // Reset usingMultiShip after successful Order placement
     req.session.privacyCache.set("usingMultiShipping", false);
@@ -273,10 +273,15 @@ server.get("Prueba", (req, res, next) => {
     
   var OrderMgr = require('dw/order/OrderMgr');
   let order = OrderMgr.getOrder(req.querystring.oid);
+  var Calendar = require('dw/util/Calendar');
+
+
+  let today = new Date();
+  today.setHours(today.getHours() - 6);
 
   res.json({order: order})
     
     next();
-})
+});
 
 module.exports = server.exports();

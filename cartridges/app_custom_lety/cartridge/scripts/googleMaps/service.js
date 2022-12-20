@@ -42,7 +42,7 @@ function createRequest(service, data) {
   service.addParam("key", credential.password);
   service.setAuthentication("NONE");
 
-  params.forEach(({ key, value }) => service.addParam(key, value));
+  //params.forEach(({ key, value }) => service.addParam(key, value));
 
   return "";
 }

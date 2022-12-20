@@ -6,7 +6,7 @@ const Transaction = require("dw/system/Transaction");
 const CAHelpers = require("*/cartridge/scripts/helpers/customAddressHelpers");
 const SCHelpers = require("*/cartridge/scripts/helpers/shippingCostHelpers");
 const { ApiLety } = require("*/cartridge/scripts/jobs/api");
-const gMaps = require("*/cartridge/scripts/googleMaps/api");
+//const gMaps = require("*/cartridge/scripts/googleMaps/api");
 const OrderModel = require("*/cartridge/models/order");
 const Locale = require("dw/util/Locale");
 const inventory = require("*/cartridge/scripts/middlewares/inventory");
@@ -56,13 +56,13 @@ server.append("SubmitShipping", (req, res, next) => {
       ", " +
       viewData.address.stateCode;
 
-    geocode = gMaps.getGeocode([{ key: "address", value: totalAddress }]);
+    //geocode = gMaps.getGeocode([{ key: "address", value: totalAddress }]);
     let lat = 0;
     let lng = 0;
-    if (geocode.status == "OK") {
-      lat = geocode.results[0].geometry.location.lat;
-      lng = geocode.results[0].geometry.location.lng;
-    }
+    // if (geocode.status == "OK") {
+    //   lat = geocode.results[0].geometry.location.lat;
+    //   lng = geocode.results[0].geometry.location.lng;
+    // }
 
     inventory.handleStoreShipping(req, currentBasket, { lat: lat, lng: lng });
     splitedAddress = CAHelpers.splitAddress(viewData.address.address1);
