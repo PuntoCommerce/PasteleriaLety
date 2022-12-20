@@ -2,6 +2,7 @@ const OrderMgr = require("dw/order/OrderMgr");
 const { ApiLety } = require("*/cartridge/scripts/jobs/api");
 const functionsSoap = require("*/cartridge/scripts/jobs/functionsSoap");
 const Logger = require("dw/system/Logger");
+const Site = require("dw/system/Site");
 
 const parseDeliveryDateTime = (deliveryDateTime) => {
   let [date, time] = deliveryDateTime.split(" : ");
@@ -146,8 +147,11 @@ const sendShippingOrderToERP = (orderId) => {
 const sendPickupOrderToERP = (orderId) => {
   let order = OrderMgr.getOrder(orderId);
   let paymentInstruments = order.getPaymentInstruments();
-  let pi = paymentInstruments[0];
+  let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(
+    "hoursDifferenceFromGMT"
+  );
   let today = new Date();
+  today.setHours(today.getHours() + hoursDifferenceFromGMT);
 
   let letyPuntos = handleLetyPuntos(order);
 
