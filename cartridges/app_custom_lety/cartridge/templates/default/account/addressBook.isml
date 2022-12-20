@@ -34,9 +34,9 @@
                         <div class="card-body card-body-positioning">
                             <div>${address.address.firstName} ${address.address.lastName}</div>
                             <div>${address.address.address1}</div>
-                            <isif condition="${address.address.address2 !== null}">
+                            <iscomment> <isif condition="${address.address.address2 !== null}">
                                 <div>${address.address.address2}</div>
-                            </isif>
+                            </isif> </iscomment>
                             <div>${address.address.city}, ${address.address.stateCode} ${address.address.postalCode}</div>
                             <div>${address.address.phone}</div>
                             <isif condition="${address.address.ID !== pdict.addressBook[0].address.ID}">
