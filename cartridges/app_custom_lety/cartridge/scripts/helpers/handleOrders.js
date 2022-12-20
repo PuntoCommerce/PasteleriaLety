@@ -2,7 +2,7 @@ const OrderMgr = require("dw/order/OrderMgr");
 const { ApiLety } = require("*/cartridge/scripts/jobs/api");
 const functionsSoap = require("*/cartridge/scripts/jobs/functionsSoap");
 const Logger = require("dw/system/Logger");
-x;
+
 const parseDeliveryDateTime = (deliveryDateTime) => {
   let [date, time] = deliveryDateTime.split(" : ");
   let dateTime = new Date(date);
