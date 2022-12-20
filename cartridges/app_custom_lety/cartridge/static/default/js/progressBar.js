@@ -11,18 +11,18 @@ const stepBarCircles = document.querySelectorAll('.checkout__stepper--item-circl
 const stepBar = (step) => {
     switch (step) {
         case 1:
-            stepBarLines[0].style.opacity = '.75';
-            stepBarLines[1].style.opacity = '.75';
+            stepBarLines[0].style.opacity = '.50';
+            stepBarLines[1].style.opacity = '.50';
             stepBarCircles[0].style.opacity = '1';
-            stepBarCircles[1].style.opacity = '.75';
-            stepBarCircles[2].style.opacity = '.75';
+            stepBarCircles[1].style.opacity = '.50';
+            stepBarCircles[2].style.opacity = '.50';
             break;
         case 2:
             stepBarLines[0].style.opacity = '1';
-            stepBarLines[1].style.opacity = '.75';
+            stepBarLines[1].style.opacity = '.50';
             stepBarCircles[0].style.opacity = '1';
             stepBarCircles[1].style.opacity = '1';
-            stepBarCircles[2].style.opacity = '.75';
+            stepBarCircles[2].style.opacity = '.50';
             break;
         case 2:
             stepBarLines[0].style.opacity = '1';

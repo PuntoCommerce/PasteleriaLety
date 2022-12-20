@@ -5,6 +5,7 @@
 <isscript>
     var assets = require('*/cartridge/scripts/assets.js');
     assets.addJs('/js/tagmanager.js');
+    assets.addJs("/js/progressBar.js");
 </isscript>
 
 <!DOCTYPE html>

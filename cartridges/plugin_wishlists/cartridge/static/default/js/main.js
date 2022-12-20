@@ -7201,7 +7201,7 @@
       if (e.valid.error) {
         if (e.valid.message) {
           var t =
-            '<div class="alert alert-danger alert-dismissible valid-cart-error fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+            '<div class="alert alert-danger alert-dismissible valid-cart-error fade show d-none" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
             e.valid.message +
             "</div>";
           $(".cart-error").append(t);
@@ -7268,7 +7268,7 @@
     }
     function l(e) {
       var t =
-        '<div class="alert alert-danger alert-dismissible valid-cart-error fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+        '<div class="alert alert-danger alert-dismissible valid-cart-error fade show d-none" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
         e +
         "</div>";
       $(".cart-error").append(t);
