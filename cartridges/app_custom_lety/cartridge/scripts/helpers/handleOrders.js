@@ -147,6 +147,7 @@ const sendShippingOrderToERP = (orderId) => {
 const sendPickupOrderToERP = (orderId) => {
   let order = OrderMgr.getOrder(orderId);
   let paymentInstruments = order.getPaymentInstruments();
+  let pi = paymentInstruments[0];
   let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(
     "hoursDifferenceFromGMT"
   );
