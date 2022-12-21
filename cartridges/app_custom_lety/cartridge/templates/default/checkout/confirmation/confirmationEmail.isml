@@ -401,6 +401,7 @@
 
         }
     </style>
+   
 </head>
 
 <body>
@@ -449,12 +450,12 @@
 
                             <div class="detail">
                                 <div class="order-detail-cont">
-                                    <div class="order-detail-title-cont">
+                                    <div class="order-detail-title-cont" style="padding: 30px 114px 30px 130px;">
                                         <strong
-                                            style="color: #ffffff; font-size: 16px; font-weight: 700;">${Resource.msg('label.order.detail', 'confirmation', null)}:</strong> <br />
+                                            style="font-size: 16px; font-weight: 700;">${Resource.msg('label.order.detail', 'confirmation', null)}:</strong> <br />
                                     </div>
                                     <div
-                                        style="max-width: 411px; min-height: 279px; background-color: #F3F3F3; margin: 0 10rem;">
+                                        style="min-width: 411px; min-height: 279px; background-color: #F3F3F3; margin: 0 8rem;">
                                         <table class="order-sumary" style="margin-bottom:40px;">
                                             <div class="content-order-details">
                                             
@@ -489,8 +490,7 @@
                                                     <tr>
                                                         <td>
 
-                                                            <p
-                                                                style="min-width: 285px;text-align:left;font-size: 16px;font-weight: bold;color: #4D4D4D; padding-left: 15px;">
+                                                            <p style="min-width: 285px;text-align:left;font-size: 16px;font-weight: bold;color: #4D4D4D; padding-left: 15px;">
 
                                                                 ${lineItem.productName}
                                                             </p>

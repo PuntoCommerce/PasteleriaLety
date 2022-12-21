@@ -9,7 +9,7 @@
         assets.addJs('/js/custom.js');
         assets.addJs('/js/priceAdjustment.js');
         assets.addCss('/css/checkout/checkout.css');
-        assets.addJs('/js/customAddress.js')
+        assets.addJs('/js/customAddress.js');
 
 
         // Custom Pickup CSS and JS 

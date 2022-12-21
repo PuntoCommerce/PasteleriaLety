@@ -7200,11 +7200,11 @@
     function a(e) {
       if (e.valid.error) {
         if (e.valid.message) {
-          var t =
+         /*  var t =
             '<div class="alert alert-danger alert-dismissible valid-cart-error fade show d-none" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
             e.valid.message +
             "</div>";
-          $(".cart-error").append(t);
+          $(".cart-error").append(t); */
         } else
           $(".cart")
             .empty()
@@ -7266,13 +7266,13 @@
               .append(t.priceTotal.renderedPrice);
         });
     }
-    function l(e) {
+   /*  function l(e) {
       var t =
         '<div class="alert alert-danger alert-dismissible valid-cart-error fade show d-none" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
         e +
         "</div>";
       $(".cart-error").append(t);
-    }
+    } */
     function c(e) {
       var t = "";
       $(".approaching-discounts").empty(),
