@@ -24,7 +24,7 @@ const stepBar = (step) => {
             stepBarCircles[1].style.opacity = '1';
             stepBarCircles[2].style.opacity = '.50';
             break;
-        case 2:
+        case 3:
             stepBarLines[0].style.opacity = '1';
             stepBarLines[1].style.opacity = '1';
             stepBarCircles[0].style.opacity = '1';

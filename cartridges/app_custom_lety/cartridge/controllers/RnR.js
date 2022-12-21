@@ -36,6 +36,8 @@ server.get("AverageV2", (req, res, next) => {
 
     next();
   }
+
+  
 });
 
 module.exports = server.exports();
