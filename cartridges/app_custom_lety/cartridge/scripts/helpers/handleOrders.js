@@ -62,7 +62,7 @@ const handleItemsPickup = (pli) => {
     item = iterator.next();
     items.push({
       iIdMaterial: item.productID,
-      dPrecio: item.priceValue,
+      dPrecio: item.basePrice.value,
       iCantidad: item.quantityValue,
     });
   }

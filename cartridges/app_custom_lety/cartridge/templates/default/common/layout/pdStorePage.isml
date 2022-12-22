@@ -41,19 +41,13 @@
 </head>
 
 <body>
-    <isif condition="${pdict.page.ID === 'compra-impulso'}">
-    <iselse/>
         <iscontentasset aid="header-banner" />
-    </isif>
 
     ${dw.system.HookMgr.callHook('app.template.beforeHeader', 'beforeHeader', pdict) || ''}
 
     <div class="page" data-action="${pdict.action}" data-querystring="${pdict.queryString}"
             data-gtmpageview="${pdict.action}" >
-        <isif condition="${pdict.page.ID === 'compra-impulso'}">
-        <iselse/>
             <isinclude template="/components/header/pdStorePageHeader" />
-        </isif>
 
         <div role="main" id="maincontent">
             <isreplace/>
