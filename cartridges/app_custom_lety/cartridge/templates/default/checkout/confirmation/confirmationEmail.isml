@@ -438,10 +438,13 @@
 
 
                                 </p>
-                                <p style="font-size: 18px; padding-top: 30px;">
+                                <span><p style="font-size: 18px; padding-top: 30px; color: inherit;">
 
-                                    ${Resource.msg('email.order.confirm.del.msg2', 'confirmation', null)}
-                                </p>
+                                    ${Resource.msg('email.order.confirm.del.msg2', 'confirmation', null)} 
+                                </p><p style="font-size: 18px; padding-top: 30px; color: inherit;"><a href="">clientes@pastelerialety.com</a></p><p style="font-size: 18px; padding-top: 30px; color: inherit;">
+
+                                    ${Resource.msg('email.order.confirm.msg2.2', 'confirmation', null)} 
+                                </p></span>
                                 <p style=" padding-top: 30px;"><a href="http://factura.pastelerialety.com/"
                                         style="font-size: 18px;">
                                         ${Resource.msg('email.order.confirm.del.msg3', 'confirmation', null)}
