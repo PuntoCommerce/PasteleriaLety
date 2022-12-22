@@ -99,28 +99,28 @@
             </div>
             <!-- Product Availability -->
             <div class="availability-desk">
-            <isif condition="${product.price.type === 'range'}">
-                <div class="d-none">
+                <isif condition="${product.price.type === 'range'}">
+                    <div class="d-none">
+                        <isinclude template="plugin_wishlists/productAvailability" />
+                    </div>
+                <iselse/>
                     <isinclude template="plugin_wishlists/productAvailability" />
-                </div>
-            <iselse/>
-                <isinclude template="plugin_wishlists/productAvailability" />
-            </isif>
-                
+                </isif>
+
             </div>
 
 
             <div class="attributes row-desc">
-                  <!-- Attributes and Quantity -->
-                    <isinclude template="product/components/mainAttributes" />
+                <!-- Attributes and Quantity -->
+                <isinclude template="product/components/mainAttributes" />
 
-                    <isset name="isBundle" value="${false}" scope="page" />
-                    <isset name="loopState" value="{count: 1}" scope="page" />
-                    <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
-                        <div class="row" data-attr="${attr.id}">
-                        
-                          <div class="col-12 content-tama-quanty" style="display: inherit;">
-                              <div class="col-8 div-tamano">
+                <isset name="isBundle" value="${false}" scope="page" />
+                <isset name="loopState" value="{count: 1}" scope="page" />
+                <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
+                    <div class="row" data-attr="${attr.id}">
+
+                        <div class="col-12 content-tama-quanty" style="display: inherit;">
+                            <div class="col-8 div-tamano">
                                 <isinclude template="product/components/variationAttribute" />
                             </div>
 
@@ -130,25 +130,25 @@
                                     <isinclude template="product/components/quantity" />
                                 </div>
                             </isif>
-                          </div>
                         </div>
-                    </isloop>
+                    </div>
+                </isloop>
 
-                    <isif condition="${!product.variationAttributes}">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="simple-quantity">
-                                    <isinclude template="product/components/quantity" />
-                                </div>
+                <isif condition="${!product.variationAttributes}">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="simple-quantity">
+                                <isinclude template="product/components/quantity" />
                             </div>
                         </div>
-                    </isif>
-
-                    <div class="product-options">
-                        <isif condition="${product.options && product.options.length > 0}">
-                            <isinclude template="product/components/options" />
-                        </isif>
                     </div>
+                </isif>
+
+                <div class="product-options">
+                    <isif condition="${product.options && product.options.length > 0}">
+                        <isinclude template="product/components/options" />
+                    </isif>
+                </div>
 
                 <!-- Size Chart -->
                 <isif condition="${product.variationAttributes && product.sizeChartId}">
@@ -166,15 +166,23 @@
                         var assets = require('*/cartridge/scripts/assets.js');
                         assets.addJs('/js/pdpBuyNow.js');
                     </isscript>
-                    <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/buyNowProduct', 'addToCartUrl', pdict.addToCartUrl, "readyToOrder", product.readyToOrder, "available", product.available)}" />
-                    
-                    <iscomment> <isinclude template="product/components/buyNowProduct" /> </iscomment>
+                    <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/buyNowProduct',
+                                        'addToCartUrl', pdict.addToCartUrl, " readyToOrder ", product.readyToOrder, "
+                                        available " , product.available)}" />
+
+                    <iscomment>
+                        <isinclude template="product/components/buyNowProduct" />
+                    </iscomment>
                 </div>
                 <iscomment> Quitar el d-none cuando este habilitado el checkout </iscomment>
                 <div class="prices-add-to-cart-actions">
                     <!-- Cart and [Optionally] Apple Pay -->
-                    <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/addToCartProduct', 'addToCartUrl', pdict.addToCartUrl, "readyToOrder", product.readyToOrder, "available", product.available)}" />
-                    <iscomment> <isinclude template="product/components/addToCartProduct" /> </iscomment>
+                    <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/addToCartProduct',
+                                        'addToCartUrl', pdict.addToCartUrl, " readyToOrder ", product.readyToOrder, "
+                                        available " , product.available)}" />
+                    <iscomment>
+                        <isinclude template="product/components/addToCartProduct" />
+                    </iscomment>
                 </div>
                 <div class="row row-desc row-rating-mobile mt-3">
                     <div class="col-12 row-rating">
@@ -208,79 +216,84 @@
         <isslot id="product-recommendations-m" description="Recommended products" context="global"
             context-object="${pdict.product.raw}" />
     </div>
+
 </section>
+<isinclude url="${URLUtils.url('PDrender-Show', 'page', 'pdp-carousel')}" />
 </isobject>
 
 
-  <!--Product type condition-->
-                <iscomment> <isif condition="${product.price.type === 'range'}">
-                    <div>
-                        <span style="color: #D7612B;">${Resource.msg('msg.time', 'pdp', null)}</span>
+<!--Product type condition-->
+<iscomment>
+    <isif condition="${product.price.type === 'range'}">
+        <div>
+            <span style="color: #D7612B;">${Resource.msg('msg.time', 'pdp', null)}</span>
+        </div>
+        <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
+
+            <div class="row" data-attr="${attr.id}">
+
+                <isif condition="${attr.id === " tamano"}">
+                    <div class="col-8">
+                        <isinclude template="product/components/variationAttribute" />
                     </div>
-                    <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
-                    
-                        <div class="row" data-attr="${attr.id}">
-                       
-                            <isif condition="${attr.id === "tamano"}">
-                             <div class="col-8">
-                                <isinclude template="product/components/variationAttribute" />
-                            </div>
 
-                            <isif condition="${attributeStatus.last && !isBundle}">
-                                <!-- Quantity Drop Down Menu -->
-                                <div class="attribute quantity col-4">
-                                    <isinclude template="product/components/quantity" />
-                                </div>
-                            </isif>
-                               <iscomment>  <div class="col-12">
-                                    <isinclude template="product/components/variationAttribute" />
-                                </div> 
-                            <iselse/>
-
-                                ${JSON.stringify(attr.id)}
-                                <isif condition="${attr.id === "diseno"}">
-                                    <div class="col-8">
-                                        <isinclude template="product/components/variationAttribute" />
-                                        
-                                    </div>
-                                    <!-- Quantity Drop Down Menu -->
-                                    <div class="attribute quantity col-4" style="text-align:right;">
-                                        <isinclude template="product/components/quantity" />
-                                    </div>
-                                <iselse/>
-                                    <div class="col-12">
-                                        <isinclude template="product/components/variationAttribute" />
-                                    </div>
-                                </isif>
-                            </isif>
-                            
-                            
-                        </div>
-                    </isloop>
-                <iselse/>
-                    <!--Product with variations selector-->
-                    <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
-                        <div class="row" data-attr="${attr.id}">
-                            <div class="col-8">
-                                <isinclude template="product/components/variationAttribute" />
-                            </div>
-
-                            <isif condition="${attributeStatus.last && !isBundle}">
-                                <!-- Quantity Drop Down Menu -->
-                                <div class="attribute quantity col-4">
-                                    <isinclude template="product/components/quantity" />
-                                </div>
-                            </isif>
-                        </div>
-                    </isloop>
-                    <!--Product no variations selector-->
-                    <isif condition="${!product.variationAttributes}">
-                        <div class="row quantity-mobile-conent">
-                            <div class="col-12">
-                                <div class="simple-quantity">
-                                    <isinclude template="product/components/quantity" />
-                                </div>
-                            </div>
+                    <isif condition="${attributeStatus.last && !isBundle}">
+                        <!-- Quantity Drop Down Menu -->
+                        <div class="attribute quantity col-4">
+                            <isinclude template="product/components/quantity" />
                         </div>
                     </isif>
-                </isif> </iscomment>
+                    <iscomment>
+                        <div class="col-12">
+                            <isinclude template="product/components/variationAttribute" />
+                        </div>
+                    <iselse/>
+
+                        ${JSON.stringify(attr.id)}
+                        <isif condition="${attr.id === " diseno"}">
+                            <div class="col-8">
+                                <isinclude template="product/components/variationAttribute" />
+
+                            </div>
+                            <!-- Quantity Drop Down Menu -->
+                            <div class="attribute quantity col-4" style="text-align:right;">
+                                <isinclude template="product/components/quantity" />
+                            </div>
+                        <iselse/>
+                            <div class="col-12">
+                                <isinclude template="product/components/variationAttribute" />
+                            </div>
+                        </isif>
+                </isif>
+
+
+            </div>
+        </isloop>
+    <iselse/>
+        <!--Product with variations selector-->
+        <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
+            <div class="row" data-attr="${attr.id}">
+                <div class="col-8">
+                    <isinclude template="product/components/variationAttribute" />
+                </div>
+
+                <isif condition="${attributeStatus.last && !isBundle}">
+                    <!-- Quantity Drop Down Menu -->
+                    <div class="attribute quantity col-4">
+                        <isinclude template="product/components/quantity" />
+                    </div>
+                </isif>
+            </div>
+        </isloop>
+        <!--Product no variations selector-->
+        <isif condition="${!product.variationAttributes}">
+            <div class="row quantity-mobile-conent">
+                <div class="col-12">
+                    <div class="simple-quantity">
+                        <isinclude template="product/components/quantity" />
+                    </div>
+                </div>
+            </div>
+        </isif>
+    </isif>
+</iscomment>
