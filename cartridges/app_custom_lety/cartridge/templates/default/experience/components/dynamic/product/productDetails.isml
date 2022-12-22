@@ -218,7 +218,6 @@
     </div>
 
 </section>
-<isinclude url="${URLUtils.url('PDrender-Show', 'page', 'pdp-carousel')}" />
 </isobject>
 
 
