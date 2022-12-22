@@ -21,12 +21,14 @@ server.append("Begin", (req, res, next) => {
   const viewData = res.getViewData();
 
   let adjustmentApplied = false;
+  let currentEmail = null;
   /*
     Find price adjustmetn.
     If the browser refreshes, it looks to see if an adjustment already exists.
   */
   try {
     const currentBasket = BasketMgr.getCurrentBasket();
+    currentEmail = currentBasket.customerEmail;
     if (currentBasket.priceAdjustments.length > 0) {
       adjustmentApplied = true;
     }
@@ -34,6 +36,7 @@ server.append("Begin", (req, res, next) => {
     adjustmentApplied = false;
   }
   viewData.customer.adjustmentApplied = adjustmentApplied;
+  viewData.currentEmail = currentEmail;
   /* end */
 
   let jsonStoreSchedule =

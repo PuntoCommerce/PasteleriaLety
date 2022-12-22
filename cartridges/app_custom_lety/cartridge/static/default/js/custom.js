@@ -113,16 +113,16 @@ const toggleSubMenu = (category, back = false) => {
 
 /* ########################################## ⬆️ Btn Back to top & Sticky Nav Bar⬆️ ####################################################### */
 // Listen on scroll event to show/hide btn back to top & add sticky nav
-const backToTopBtn = $C(".goToUp");
+// const backToTopBtn = $C(".goToUp");
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 700) {
-    backToTopBtn.classList.remove("hidden");
-  } else {
-    backToTopBtn.classList.add("hidden");
-  }
-  changeSubMenuItem();
-});
+// window.addEventListener("scroll", () => {
+//   if (window.scrollY > 700) {
+//     backToTopBtn.classList.remove("hidden");
+//   } else {
+//     backToTopBtn.classList.add("hidden");
+//   }
+//   changeSubMenuItem();
+// });
 
 // window.addEventListener("load", () => {
 //   changeSubMenuItem();

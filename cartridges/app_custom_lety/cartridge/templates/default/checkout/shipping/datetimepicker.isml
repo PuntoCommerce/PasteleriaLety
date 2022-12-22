@@ -16,7 +16,7 @@
     <div class="col-sm-12">
         <div class="form-group required Date">
             <label class="form-control-label" for="shippingFirstName${lineItem ? lineItem.UUID : 'default'}"  >
-                ${Resource.msg('field.shipping.address.first.name','address',null)}
+                ${Resource.msg('field.shipping.delivery.date','address',null)}
             </label>
             <input type="date" id="custom-checkout-date" min="" max="" />
         </div>

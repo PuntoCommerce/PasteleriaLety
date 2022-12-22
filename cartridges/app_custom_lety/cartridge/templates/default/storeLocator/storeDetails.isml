@@ -14,11 +14,11 @@
             </isif>
             ${store.postalCode}
         </a>
-        <div class="store-hours">
+        <iscomment> <div class="store-hours">
             <isif condition="${store.storeHours}">
                 <isprint value="${store.storeHours}" encoding="off"/>
             </isif>
-        </div>
+        </div> </iscomment>
         <p>
             <isif condition="${store.phone}">
                 <i class="fa fa-phone" aria-hidden="true"></i>

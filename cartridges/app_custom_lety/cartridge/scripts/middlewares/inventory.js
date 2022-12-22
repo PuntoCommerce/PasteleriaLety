@@ -2,6 +2,8 @@ const BasketMgr = require("dw/order/BasketMgr");
 const collections = require("*/cartridge/scripts/util/collections");
 const { ApiLety } = require("*/cartridge/scripts/jobs/api");
 const Resource = require("dw/web/Resource");
+const StoreMgr = require("dw/catalog/StoreMgr");
+const distance = require("*/cartridge/scripts/helpers/distance");
 
 const handleExistenciaCall = (pid, quantity, storeId) => {
   let today = new Date();
@@ -101,7 +103,29 @@ const checkOnlineInventoryMulti = (collection, storeId) => {
   return { error: error, errors: errors };
 };
 
+const handleNearestWithService = (collection, clientLocation) => {
+  const stores = SystemObjectMgr.querySystemObjects(
+    "Store",
+    "isShippingAvailable = {0}",
+    "creationDate desc",
+    true
+  );
+  let sortedStores = distance.sortStoresByDistance(stores, clientLocation);
+  return store[1];
+};
+
+const handleStoreShipping = (req, currentBasket, clientLocation) => {
+  let store = StoreMgr.getStore(req.session.raw.privacy.storeId);
+  if (!store.custom.isShippingAvailable) {
+    let result = handleNearestWithService(
+      currentBasket.productLineItems,
+      clientLocation
+    );
+  }
+};
+
 module.exports = {
   checkOnlineInventory: checkOnlineInventory,
   checkOnlineInventoryMulti: checkOnlineInventoryMulti,
+  handleStoreShipping: handleStoreShipping,
 };

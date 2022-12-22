@@ -58,7 +58,9 @@
             ${addressFields.address1.mandatory === true ? 'required' : ''}
             ${addressFields.address1.htmlName}">
             <label class="form-control-label" for="shippingAddressOne${lineItem ? lineItem.UUID : 'default'}">
-                ${Resource.msg('field.shipping.address.one', 'address', null)}<span>${Resource.msg('field.shipping.address.required', 'address', null)}</span>
+                ${Resource.msg('field.shipping.address.one', 'address', null)}
+                <span>${Resource.msg('field.shipping.address.required', 'address', null)}</span>
+                <span>${Resource.msg('example.shipping.address.one', 'address', null)}</span>
             </label>
             <input type="text" class="form-control shippingAddressOne"
                 id="shippingAddressOne${lineItem ? lineItem.UUID : 'default'}"
@@ -199,10 +201,10 @@
                 <isprint value="${addressFields.phone.error}">
             </div>
             <span>${Resource.msg('example.phone', 'forms', null)}</span>
-            <div class="tel-description-container d-flex flex-column">
+            <iscomment> <div class="tel-description-container d-flex flex-column">
                 <span class="checkout-summary-title-1 mb-3 mt-5">${Resource.msg('check.shipping.tel.heading', 'checkout', null)}</span>
                 <span class="tel-description">${Resource.msg('check.shipping.tel.text', 'checkout', null)}</span>
-            </div>
+            </div> </iscomment>
         </div>
     </div>
 </div>
@@ -218,7 +220,7 @@
                 ${Resource.msg('field.shipping.address.email','address',null)}
             </label>
             <input type="email" class="form-control customShippingEmail" id="customShippingEmail${lineItem ? lineItem.UUID : 'default'}" aria-describedby="${lineItem ? lineItem.UUID : 'default'}Email"
-                value="${customPickup.email.value || ''}" <isprint value=${customPickup.email.attributes} encoding="off"/>>
+                value="${pdict.currentEmail || ''}" <isprint value=${customPickup.email.attributes} encoding="off"/>>
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}Email"><isprint value="${customPickup.email.error}" ></div>
             <iscomment> <span>${Resource.msg('example.phone','forms',null)}</span> </iscomment>
         </div>
