@@ -468,7 +468,7 @@
                                                 </span>
                                                 <span class="span-detail-order">
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.day', 'confirmation', null)}&nbsp;&nbsp;</p>
-                                                    <p>${pdict.order.creationDate.toLocaleDateString()}</p>
+                                                    <p><isprint value="${pdict.order.creationDate}" style="DATE_SHORT" timezone="utc" /></p>
                                                 </span>
                                                 <span class="span-detail-order">
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.email', 'confirmation', null)}&nbsp;&nbsp;</p>
@@ -478,20 +478,14 @@
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.name', 'confirmation', null)}&nbsp;&nbsp;</p>
                                                     <p>${pdict.order.billing.billingAddress.address.firstName}&nbsp;${pdict.order.billing.billingAddress.address.lastName}</p>
                                                 </span>
-                                                <iscomment>
                                                 <span class="span-detail-order">
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.address', 'confirmation', null)}&nbsp;&nbsp;</p>
-                                                    <p>${pdict.order.shipping.address1}</p>
+                                                    <p>${pdict.order.shipping[0].shippingAddress.address1}</p>
                                                 </span>
-                                                </iscomment>
                                                 <span class="span-detail-order">
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.phone', 'confirmation', null)}&nbsp;&nbsp;</p>
                                                     <p>${pdict.order.billing.billingAddress.address.phone}</p>
                                                 </span>
-                                                <iscomment>  <span class="span-detail-order">
-                                                    <p style="font-weight: bold;">${Resource.msg('label.order.address', 'confirmation', null)}&nbsp;&nbsp;</p>
-                                                    <p>${pdict.order.matchingAddressId}</p>
-                                                </span> </iscomment>
                                             </div>
                                             <isif condition="${pdict.order.shipping.length === 1}">
 
