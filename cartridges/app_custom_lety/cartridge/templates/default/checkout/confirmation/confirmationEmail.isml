@@ -468,7 +468,11 @@
                                                 </span>
                                                 <span class="span-detail-order">
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.day', 'confirmation', null)}&nbsp;&nbsp;</p>
+<<<<<<< HEAD
                                                     <p>${pdict.order.creationDate}</p>
+=======
+                                                    <p><isprint value="${pdict.order.creationDate}" style="DATE_SHORT" timezone="utc" /></p>
+>>>>>>> 4220f22cb76b2433bc463b96eb6545a7261dc1bf
                                                 </span>
                                                 <span class="span-detail-order">
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.email', 'confirmation', null)}&nbsp;&nbsp;</p>
@@ -478,12 +482,18 @@
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.name', 'confirmation', null)}&nbsp;&nbsp;</p>
                                                     <p>${pdict.order.billing.billingAddress.address.firstName}&nbsp;${pdict.order.billing.billingAddress.address.lastName}</p>
                                                 </span>
+<<<<<<< HEAD
                                                 
+=======
+>>>>>>> 4220f22cb76b2433bc463b96eb6545a7261dc1bf
                                                 <span class="span-detail-order">
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.address', 'confirmation', null)}&nbsp;&nbsp;</p>
                                                     <p>${pdict.order.shipping[0].shippingAddress.address1}</p>
                                                 </span>
+<<<<<<< HEAD
                                                
+=======
+>>>>>>> 4220f22cb76b2433bc463b96eb6545a7261dc1bf
                                                 <span class="span-detail-order">
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.phone', 'confirmation', null)}&nbsp;&nbsp;</p>
                                                     <p>${pdict.order.billing.billingAddress.address.phone}</p>
