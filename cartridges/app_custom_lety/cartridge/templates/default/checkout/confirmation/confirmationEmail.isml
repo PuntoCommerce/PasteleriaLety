@@ -479,6 +479,10 @@
                                                     <p>${pdict.order.billing.billingAddress.address.firstName}&nbsp;${pdict.order.billing.billingAddress.address.lastName}</p>
                                                 </span>
                                                 <span class="span-detail-order">
+                                                    <p style="font-weight: bold;">${Resource.msg('label.order.address', 'confirmation', null)}&nbsp;&nbsp;</p>
+                                                    <p>${pdict.order.shipping.address1}</p>
+                                                </span>
+                                                <span class="span-detail-order">
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.phone', 'confirmation', null)}&nbsp;&nbsp;</p>
                                                     <p>${pdict.order.billing.billingAddress.address.phone}</p>
                                                 </span>
