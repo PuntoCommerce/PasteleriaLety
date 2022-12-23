@@ -118,9 +118,7 @@
                     <isset name="loopState" value="{count: 1}" scope="page" />
                     <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
                         <div class="row" data-attr="${attr.id}">
-                        
-                          <div class="col-12 content-tama-quanty" style="display: inherit;">
-                              <div class="col-8 div-tamano">
+                            <div class="col-8">
                                 <isinclude template="product/components/variationAttribute" />
                             </div>
 
@@ -130,7 +128,6 @@
                                     <isinclude template="product/components/quantity" />
                                 </div>
                             </isif>
-                          </div>
                         </div>
                     </isloop>
 
