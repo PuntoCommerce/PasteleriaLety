@@ -28,7 +28,11 @@ server.append("Begin", (req, res, next) => {
   */
   try {
     const currentBasket = BasketMgr.getCurrentBasket();
-    currentEmail = currentBasket.customerEmail;
+    if (currentBasket.customer.profile) {
+      currentEmail = currentBasket.customer.profile.email;
+    } else {
+      currentEmail = currentBasket.customerEmail;
+    }
     if (currentBasket.priceAdjustments.length > 0) {
       adjustmentApplied = true;
     }
