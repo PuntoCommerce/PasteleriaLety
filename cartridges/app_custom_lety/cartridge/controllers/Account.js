@@ -117,10 +117,11 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
 server.post("AddLetyCard", (req, res, next) => {
   const data = JSON.parse(JSON.stringify(req.form));
   const Custom = req.currentCustomer.profile.customerNo;
-  const addedCard = addLetyCardToCustomer(Custom, data.lLetyCard);// null error servidor 0 no existe
+  const addedCard = addLetyCardToCustomer(Custom, data.letyCard);// null error servidor 0 no existe
   if(addedCard == "1") {
     res.json({
-      code: 0
+      code: 0,
+      redirectURL: URLUtils.url("Account-Show"), 
     });
   } else {
     let error="";

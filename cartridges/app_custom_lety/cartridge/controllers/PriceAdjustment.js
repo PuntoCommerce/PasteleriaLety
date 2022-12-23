@@ -8,6 +8,8 @@ const renderTemplateHelper = require("*/cartridge/scripts/renderTemplateHelper")
 var OrderModel = require('*/cartridge/models/order');
 var Locale = require("dw/util/Locale");
 
+const { removeLetyPuntos } = require("*/cartridge/scripts/helpers/letyCardHelpers");
+
 var COHelpers = require("*/cartridge/scripts/checkout/checkoutHelpers");
 var Site = require('dw/system/Site');
 server.post("LetyPuntos", (req, res, next) => {
@@ -71,44 +73,21 @@ server.post("RemoveLetyPuntos", (req, res, next) => {
         Si se intenta remover el ajuste de precio si haber agregado antes, lanzara una excepcion.
         validar que solo aplique si existe.
     */
-    const currentBasket = BasketMgr.getCurrentBasket();
-    let result;
-    let code;
-    let err;
-    try {
-        Transaction.wrap(function (params) {
-            result = currentBasket.removePriceAdjustment(currentBasket.priceAdjustments[0]);
-            currentBasket.custom.letyPuntosAmount = 0;
-            currentBasket.custom.letyPuntosCard = "";
-        });
-        COHelpers.recalculateBasket(currentBasket);
-        code = 0;
-        err = "Sin error";
-    } catch (error) {
-        err = error;
-        code = 1;
-        result = "";
-    }
-    var currentLocale = Locale.getLocale(req.locale.id);
+    const letyPuntosPromotionId = Site.getCurrent().getCustomPreferenceValue("letyPuntosPromotionId");
 
-    var orderModel = new OrderModel(
-        currentBasket, {
-            usingMultiShipping: false,
-            shippable: true,
-            countryCode: currentLocale.country,
-            containerView: 'basket'
-        }
-    );
+
+    let removed = removeLetyPuntos(req.locale.id, letyPuntosPromotionId)
+    
     let renderedTotas = renderTemplateHelper.getRenderedHtml({
-            order: orderModel
+            order: removed.orderModel
         },
         "checkout/orderTotalSummary"
     );
 
     res.json({
-        err: err,
-        code: code,
-        response: result,
+        err: removed.err,
+        code: removed.code,
+        response: removed.result,
         renderedTotas: renderedTotas
     });
 
