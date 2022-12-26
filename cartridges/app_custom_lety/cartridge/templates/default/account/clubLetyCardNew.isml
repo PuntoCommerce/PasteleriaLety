@@ -10,7 +10,7 @@
                    <button class="btn btn-product btn-block" type="submit">Solicitar membresía</button>
                </form>
            </div>
-           <div class="col-sm-12 col-md-6 col-lg-6 mt-3">
+           <div class="col-sm-12 col-md-6 col-lg-6 mt-3" hidden>
                 <button type="button" class="btn btn-product btn-block promo-code-btn" data-toggle="modal" data-target="#letyCard">
                         Asignar membresia
                 </button>
