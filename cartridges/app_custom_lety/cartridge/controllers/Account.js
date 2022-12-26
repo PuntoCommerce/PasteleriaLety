@@ -9,7 +9,21 @@ const {
 const ApiServiceLety = require("*/cartridge/scripts/jobs/api");
 
 
+var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
+var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
+var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
+
 server.extend(module.superModule);
+
+/**
+ * Checks if the email value entered is correct format
+ * @param {string} email - email string to check if valid
+ * @returns {boolean} Whether email is valid
+ */
+function validateEmail(email) {
+  var regex = /^[\w.%+-]+@[\w.-]+\.[\w]{2,6}$/;
+  return regex.test(email);
+}
 
 
 server.get("Saldo", server.middleware.https, function (req, res, next) {
