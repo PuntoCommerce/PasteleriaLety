@@ -1,3 +1,7 @@
+<isscript>
+  var assets = require('*/cartridge/scripts/assets.js');
+  assets.addJs("/js/addLetyCard.js");
+</isscript>
 <div class="card">
    <div class="card-header clearfix">
        <h2 class="pull-left">Crear Membresía</h2>
@@ -12,14 +16,14 @@
            </div>
            <div class="col-sm-12 col-md-6 col-lg-6 mt-3">
                 <button type="button" class="btn btn-product btn-block promo-code-btn" data-toggle="modal" data-target="#letyCard">
-                        Asignar membresia
+                    Asignar membresia
                 </button>
            </div>
        </div>
    </div>
  
 </div>
- 
+<!-- Modal data-->
 <div class="modal fade" id="letyCard" tabindex="-1" aria-labelledby="letyCardLabel" aria-hidden="true">
 <div class="modal-dialog">
   <div class="modal-content">
@@ -31,11 +35,11 @@
     </div>
     <div class="modal-body">
       <div>
-          <form action="${URLUtils.url("Account-AddLetyCard")}" method="POST">
+          <form method="POST">
               <input class="mb-2" type="hidden" name="customerNo" value="${pdict.account.customerNo}" />
-              <input class="form-control coupon-code-field mb-5" type="text" name="letyCard" value="" required/>
-              <button class="btn btn-product btn-block promo-code-btn" type="submit">
-                  Guardar
+              <input class="form-control coupon-code-field mb-5" type="text" id="tletyCard" value="" required/>
+              <button class="btn btn-product btn-block promo-code-btn" id="getDataAddLetyCard" type="button" data-action="${URLUtils.url("Account-AddLetyCard")}">
+                Guardar
               </button>
           </form>
       </div>
@@ -53,3 +57,74 @@
 
     ${Resource.msg('button.submit.promo.code.cambiar', 'cart', null)}
  -->
+<!-- Modal loading-->
+ <div class="modal fade" id="modalLoading" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-body">
+              <div class="d-flex justify-content-center mt-3">
+                  <img class="center-block" src="${URLUtils.staticURL('/images/loading-svg.svg')}" alt="success" width="25%" height="auto" />
+              </div>
+              <hr/>
+              <div class="text-center my-3 h4">
+                  <p>Cargando.</p>
+              </div>
+              <div class="text-center my-3">
+                <p>por favor espere un momento.</p>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                </div>
+              </div>
+              <div class="text-center my-3">
+                  <button type="button" class="btn bg-primary text-white" data-dismiss="modal">Cerrar</button>
+              </div> 
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Modal success-->
+<div class="modal fade" id="modalSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="d-flex justify-content-center mt-3">
+                <img class="center-block" src="${URLUtils.staticURL('/images/success-svg.svg')}" alt="success" width="25%" height="auto" />
+            </div>
+            <hr/>
+            <div class="text-center my-3 h4">
+                <p>Completado.</p>
+            </div>
+            <div class="text-center my-3" id="infoSuccess">
+                <p>Se ha actualizado la información correspondiente.</p>
+            </div>
+            <div class="text-center my-3">
+                <a href="${URLUtils.url('Account-Show')}" class="btn btn-cancelar">OK</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Modal Error -->
+<div class="modal fade" id="modalError" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="d-flex justify-content-center mt-3">
+                <img class="center-block" src="${URLUtils.staticURL('/images/error-svg.svg')}" alt="success" width="25%" height="auto" />
+            </div>
+            <hr/>
+            <div class="text-center my-3 h4">
+                <p>Error.</p>
+            </div>
+            <div class="text-center my-3">
+                <p id="msgError"></p>
+            </div>
+            <div class="text-center my-3">
+                <button type="button" class="btn bg-primary text-white" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+ 
+ 
