@@ -313,13 +313,17 @@
                                                <label for="">Saldo lety club</label>
                                                <div class="row">
                                                    <div class="col-12">
-                                                       <input
+                                                        <input
                                                            class="form-control coupon-code-field"
                                                            id="checkoutSaldoLetyClcub"
                                                            type="text"
                                                            name=""
                                                            value="${pdict.customer.saldo ? pdict.customer.saldo : ""}" ${pdict.customer.saldo !== undefined ? 'disabled' : ''}
-                                                      />
+                                                           <isif condition="${pdict.customer.saldo}">
+                                                            <iselse>
+                                                                disabled
+                                                            </isif>
+                                                        />
                                                        <div class="coupon-error">
                                                            <span class="coupon-error-message" id="" role="alert"></span>
                                                        </div>
@@ -342,7 +346,12 @@
                                                            class="form-control coupon-code-field"
                                                            id="checkaoutLetyPuntos"
                                                            type="text"
-                                                           name=""/>
+                                                           name=""
+                                                           <isif condition="${pdict.customer.saldo}">
+                                                            <iselse>
+                                                                disabled
+                                                            </isif>
+                                                        />
                                                        <div class="coupon-error">
                                                            <span class="coupon-error-message" id=""
                                                                role="alert"></span>
@@ -350,11 +359,17 @@
                                                    </div>
                                                    <input type="hidden" name="${}" value="${}" />
                                                    <div class="col-5 promo-code-submit">
+                                                        <iscomment>Validatr en el backend...</iscomment>
                                                        <button
                                                            class="btn btn-product btn-block promo-code-btn"
                                                            id="letyPuntosAddpriceAdjustment"
                                                            data-action="${URLUtils.url("PriceAdjustment-LetyPuntos")}"
-                                                           type="button">
+                                                           type="button"
+                                                           <isif condition="${pdict.customer.saldo}">
+                                                            <iselse>
+                                                                disabled
+                                                            </isif>
+                                                           >
                                                            ${Resource.msg('button.submit.promo.code.restar', 'cart', null)}
                                                        </button>
                                                    </div>
