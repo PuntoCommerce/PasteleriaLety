@@ -276,7 +276,7 @@ server.post(
                             registrationForm.form.customer.email.valid = false;
                             registrationForm.form.customer.emailconfirm.valid = false;
                             registrationForm.form.customer.email.error =
-                                Resource.msg('error.message.username.invalid.regist', 'forms', null);
+                                Resource.msg('error.message.username.invalid', 'forms', null);
                         }
                     }
                 }
@@ -481,7 +481,7 @@ server.post(
                     if (!status.error) {
                         formInfo.profileForm.customer.email.valid = false;
                         formInfo.profileForm.customer.email.error =
-                            Resource.msg('error.message.username.invalid.regist', 'forms', null);
+                            Resource.msg('error.message.username.invalid', 'forms', null);
                     }
 
                     delete formInfo.profileForm;
