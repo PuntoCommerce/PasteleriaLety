@@ -4,6 +4,7 @@ const { ApiLety } = require("*/cartridge/scripts/jobs/api");
 const Resource = require("dw/web/Resource");
 const StoreMgr = require("dw/catalog/StoreMgr");
 const distance = require("*/cartridge/scripts/helpers/distance");
+var SystemObjectMgr = require("dw/object/SystemObjectMgr");
 
 const handleExistenciaCall = (pid, quantity, storeId) => {
   let today = new Date();

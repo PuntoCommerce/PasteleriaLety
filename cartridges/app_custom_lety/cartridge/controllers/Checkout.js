@@ -13,6 +13,7 @@ const consentTracking = require("*/cartridge/scripts/middleware/consentTracking"
 const ApiServiceLety = require("*/cartridge/scripts/jobs/api");
 const {
   addLetyCardToCustomer,
+  removeLetyPuntos
 } = require("*/cartridge/scripts/helpers/letyCardHelpers");
 const Site = require("dw/system/Site");
 var BasketMgr = require("dw/order/BasketMgr");
@@ -28,7 +29,11 @@ server.append("Begin", (req, res, next) => {
   */
   try {
     const currentBasket = BasketMgr.getCurrentBasket();
-    currentEmail = currentBasket.customerEmail;
+    if (currentBasket.customer.profile) {
+      currentEmail = currentBasket.customer.profile.email;
+    } else {
+      currentEmail = currentBasket.customerEmail;
+    }
     if (currentBasket.priceAdjustments.length > 0) {
       adjustmentApplied = true;
     }
@@ -54,6 +59,12 @@ server.append("Begin", (req, res, next) => {
       JsonDatosMembresia.Func_DatosMembresia[0].d_SaldoMembresia;
 
     viewData.customer.saldo = SaldoMembresia;
+  }
+
+  const letyPuntosPromotionId = Site.getCurrent().getCustomPreferenceValue("letyPuntosPromotionId");
+  let letyPuntos = removeLetyPuntos(req.locale.id, letyPuntosPromotionId);
+  if(letyPuntos.orderModel){
+    viewData.order = letyPuntos.orderModel;
   }
   res.setViewData(viewData);
 

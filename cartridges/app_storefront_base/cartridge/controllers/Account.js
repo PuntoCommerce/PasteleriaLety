@@ -481,7 +481,7 @@ server.post(
                     if (!status.error) {
                         formInfo.profileForm.customer.email.valid = false;
                         formInfo.profileForm.customer.email.error =
-                            Resource.msg('error.message.username.invalid', 'forms', null);
+                            Resource.msg('error.message.username.invalid.regist', 'forms', null);
                     }
 
                     delete formInfo.profileForm;

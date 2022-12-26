@@ -64,13 +64,13 @@ server.append("SubmitShipping", (req, res, next) => {
     //   lng = geocode.results[0].geometry.location.lng;
     // }
 
-    inventory.handleStoreShipping(req, currentBasket, { lat: lat, lng: lng });
+    // inventory.handleStoreShipping(req, currentBasket, { lat: lat, lng: lng });
     splitedAddress = CAHelpers.splitAddress(viewData.address.address1);
 
     body = {
       IdEmpresa: 1,
       iIdFolioPersona: 90000,
-      iIdCentro: parseInt(storeId),
+      iIdCentro: parseInt(req.session.raw.privacy.storeId),
       iIdDireccion: 0,
       iIdFolioDireccion: 0,
       sDireccion: splitedAddress.street,

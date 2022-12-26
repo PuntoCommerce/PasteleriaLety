@@ -1,6 +1,6 @@
 <div class="div-btn-check">
- <iscomment>  </iscomment>
-   <button type="button" class="btn-product checkout-btn">
-   <a href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}">${Resource.msg('button.complete.order', 'checkout', null)}</a>
+  <a href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}">
+    <button type="button" class="btn-product checkout-btn">${Resource.msg('button.complete.order', 'checkout', null)}
     </button>
+  </a>
 </div>

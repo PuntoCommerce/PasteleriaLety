@@ -5,6 +5,12 @@
  var Resource = require('dw/web/Resource');
  var Site = require('dw/system/Site');
  var URLUtils = require('dw/web/URLUtils');
+const BasketMgr = require('dw/order/BasketMgr');
+const COHelpers = require("*/cartridge/scripts/checkout/checkoutHelpers");
+const OrderModel = require('*/cartridge/models/order');
+const Locale = require('dw/util/Locale');
+const collections = require('*/cartridge/scripts/util/collections');
+
 
  function addLetyCardToCustomer(customerNo, letyCard){
     let Func_ExisteMembrecia = ApiServiceLety.ApiLety(
@@ -82,11 +88,52 @@
     
     emailHelpers.sendEmail(emailObj, 'account/components/clubLetyEmail', userObject);  
   }
-
-  
 };
+
+function removeLetyPuntos(localeId, promotionID) {
+  const currentBasket = BasketMgr.getCurrentBasket();
+    let result;
+    let code;
+    let err;
+    try {
+      let letyPuntosPA = collections.find(currentBasket.priceAdjustments, 
+          (pa) => { return pa.promotionID == promotionID });
+      if(letyPuntosPA) {
+        Transaction.wrap(function (params) {
+          result = currentBasket.removePriceAdjustment(letyPuntosPA);
+          currentBasket.custom.letyPuntosAmount = 0;
+          currentBasket.custom.letyPuntosCard = "";
+        });
+        COHelpers.recalculateBasket(currentBasket);
+        code = 0;
+        err = "Sin error";
+      }
+    } catch (error) {
+        err = error;
+        code = 1;
+        result = "";
+    }
+    var currentLocale = Locale.getLocale(localeId);
+
+    var orderModel = new OrderModel(
+        currentBasket, {
+            usingMultiShipping: false,
+            shippable: true,
+            countryCode: currentLocale.country,
+            containerView: 'basket'
+        }
+    );
+
+    return {
+      orderModel: orderModel,
+      err: err,
+      code: code,
+      result: result
+    }
+}
 
  module.exports = {
    addLetyCardToCustomer: addLetyCardToCustomer,
    crearLetyCard:crearLetyCard,
+   removeLetyPuntos: removeLetyPuntos
  };

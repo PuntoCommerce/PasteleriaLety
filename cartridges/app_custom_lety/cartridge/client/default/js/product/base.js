@@ -480,7 +480,7 @@ function handlePostCartAdd(response) {
 
         setTimeout(function () {
             $('.add-to-basket-alert').remove();
-        }, 5000);
+        }, 10000);
     }
 }
 
