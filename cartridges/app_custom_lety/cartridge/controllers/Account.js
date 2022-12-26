@@ -12,7 +12,6 @@ const ApiServiceLety = require("*/cartridge/scripts/jobs/api");
 server.extend(module.superModule);
 
 
-
 server.get("Saldo", server.middleware.https, function (req, res, next) {
 
   let letyCard = req.querystring.letyCard;
@@ -148,9 +147,13 @@ server.post("GenerateLetyCard", (req, res, next) => {
     const Custom = req.currentCustomer.profile.customerNo;
     const data = JSON.parse(JSON.stringify(req.form));
     const letyCardNew = crearLetyCard(Custom, data);
-    code = 0;
+    if(letyCardNew === undefined || letyCardNew === "undefined" || letyCardNew === null || letyCardNew === "") {
+      code = 1;
+    } else {
+      code = 0;
+    }
   } catch (error) {
-    code = 0;
+    code = 1;
   }
 
   res.json({
