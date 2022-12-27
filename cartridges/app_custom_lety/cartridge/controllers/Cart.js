@@ -3,6 +3,16 @@ server.extend(module.superModule);
 // const letyCartHelper = require("*/cartridge/scripts/cart/letyCartHelpers");
 const inventory = require("*/cartridge/scripts/middlewares/inventory");
 
+server.append("Show", (req, res, next) => {
+  if(req.querystring.error) {
+    let viewData = res.getViewData();
+    viewData.valid.error = true;
+    viewData.valid.message = req.querystring.error;
+    res.setViewData(viewData);
+  }
+  next();
+})
+
 server.replace('AddProduct', inventory.checkOnlineInventory, function (req, res, next) {
   var BasketMgr = require('dw/order/BasketMgr');
   var Resource = require('dw/web/Resource');

@@ -1,5 +1,5 @@
 <div class="div-btn-check">
-  <a href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}">
+  <a href="${URLUtils.url('Checkout-oAuth', 'stage', 'shipping')}">
     <button type="button" class="btn-product checkout-btn">${Resource.msg('button.complete.order', 'checkout', null)}
     </button>
   </a>
