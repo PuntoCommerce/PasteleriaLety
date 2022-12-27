@@ -18,6 +18,7 @@ const handleExistenciaCall = (pid, quantity, storeId) => {
 
   let error = false;
   let message = "";
+  let letyQuantity = 0;
 
   if (typeof existencia == "string") {
     try {
@@ -26,7 +27,7 @@ const handleExistenciaCall = (pid, quantity, storeId) => {
         json.ExistenciaPorCentroFecha[0].Existencia < quantity ||
         json.ExistenciaPorCentroFecha[0].error
       ) {
-        let letyQuantity = json.ExistenciaPorCentroFecha[0].error
+        letyQuantity = json.ExistenciaPorCentroFecha[0].error
           ? 0
           : Math.ceil(json.ExistenciaPorCentroFecha[0].Existencia);
         error = true;
@@ -45,7 +46,7 @@ const handleExistenciaCall = (pid, quantity, storeId) => {
     error = true;
     message = Resource.msg("response.error", "stockCustom", null);
   }
-  return { error: error, message: message };
+  return { error: error, message: message, quantity: letyQuantity };
 };
 
 const checkOnlineInventory = (req, res, next) => {
@@ -87,7 +88,7 @@ const checkOnlineInventoryMulti = (collection, storeId) => {
   let error = false;
   let message = "";
   let store = parseInt(storeId);
-  let errors = [];
+  let errors = [Resource.msg("no.stock.available.multi", "stockCustom", null)];
   let err;
   let products = collections.forEach(collection, (p) => {
     let existencia = handleExistenciaCall(
@@ -97,7 +98,15 @@ const checkOnlineInventoryMulti = (collection, storeId) => {
     );
     if (existencia.error) {
       error = true;
-      errors.push(existencia.message + " (" + p.productName + "). ");
+      errors.push(
+        Resource.msgf(
+          "no.stock.available.product",
+          "stockCustom",
+          null,
+          p.productName,
+          existencia.quantity
+        )
+      );
     }
   });
 
