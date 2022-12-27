@@ -9,7 +9,6 @@ const handleChange = ({ lat, lng }, urlSet) => {
     }).then((response) =>
       response.json().then((json) => {
         if (json.redirectUrl) {
-          console.log(json);
           location.href = json.redirectUrl;
         } else {
           location.reload();
