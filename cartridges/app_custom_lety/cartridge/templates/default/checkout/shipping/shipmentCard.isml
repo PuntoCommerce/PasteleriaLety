@@ -3,7 +3,7 @@
           action="${shipmentLoopState
           ? URLUtils.url('CheckoutAddressServices-AddNewAddress')
           : URLUtils.url('CheckoutShippingServices-SubmitShipping')}"
-          data-address-mode="${shippingModel.matchingAddressId ? 'edit' : 'new'}"
+          data-address-mode="${shippingModel.matchingAddressId ? 'new' : 'new'}"
           <isprint value=${pdict.forms.shippingForm.attributes} encoding="off"/>
     >
         <isif condition="${lineItem}">
