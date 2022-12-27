@@ -35,7 +35,7 @@
     </div>
     <div class="modal-body">
       <div>
-          <form method="POST">
+          <form method="POST" id="formAddLetyCard">
               <input class="mb-2" type="hidden" name="customerNo" value="${pdict.account.customerNo}" />
               <input class="form-control coupon-code-field mb-5" type="text" id="tletyCard" value="" required/>
               <button class="btn btn-product btn-block promo-code-btn" id="getDataAddLetyCard" type="button" data-action="${URLUtils.url("Account-AddLetyCard")}">
