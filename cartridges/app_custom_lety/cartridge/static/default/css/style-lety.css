@@ -409,7 +409,9 @@
   position: relative;
 }
 
-
+.container-wishlist{
+  padding: 20px 145px;
+}
 
 /*responsive 992*/
 @media (max-width: 992px) {
