@@ -251,6 +251,11 @@ if (navigator.appVersion.includes("Mac OS") || navigator.appVersion.includes("iP
     padding-bottom: 18px;
   }
 
+  .div-a-minicart .normal, .card-make-default-link .normal,.div-mobile-back-profile .normal{
+    position: absolute;
+    bottom: 0;
+  }
+
   #cleanStoreMobile {
     top: -0.6em;
 }

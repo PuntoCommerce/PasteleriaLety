@@ -377,7 +377,7 @@ server.post("AddLetyCardMember",  function (req, res, next) {
   next();
 });
 
-if (registrationForm.validForm) {
+/* if (registrationForm.validForm) {
   var login = registrationForm.email;
   var password = registrationForm.password;
 
@@ -419,7 +419,7 @@ if (registrationForm.validForm) {
               Resource.msg('error.message.username.invalid.regist', 'forms', null);
       }
   }
-}
+} */
 /* working create card... */
 
 /**
@@ -443,7 +443,7 @@ if (registrationForm.validForm) {
  * @param {returns} - json
  * @param {serverfunction} - post
  */
-server.replace(
+/* server.replace(
   'SubmitRegistration',
   server.middleware.https,
   csrfProtection.validateAjaxRequest,
@@ -451,7 +451,7 @@ server.replace(
       var CustomerMgr = require('dw/customer/CustomerMgr');
       var Resource = require('dw/web/Resource');
 
-      var formErrors = require('*/cartridge/scripts/formErrors');
+      var formErrors = require('cartridge/scripts/formErrors');
 
       var registrationForm = server.forms.getForm('profile');
 
@@ -502,7 +502,7 @@ server.replace(
 
           this.on('route:BeforeComplete', function (req, res) { // eslint-disable-line no-shadow
               var Transaction = require('dw/system/Transaction');
-              var accountHelpers = require('*/cartridge/scripts/helpers/accountHelpers');
+              var accountHelpers = require('cartridge/scripts/helpers/accountHelpers');
               var authenticatedCustomer;
               var serverError;
 
@@ -593,7 +593,7 @@ server.replace(
 
       return next();
   }
-);
+); */
 
 /**
  * Account-SaveProfile : The Account-SaveProfile endpoint is the endpoint that gets hit when a shopper has edited their profile
@@ -613,7 +613,7 @@ server.replace(
  * @param {returns} - json
  * @param {serverfunction} - post
  */
-server.replace(
+/* server.replace(
   'SaveProfile',
   server.middleware.https,
   csrfProtection.validateAjaxRequest,
@@ -622,9 +622,9 @@ server.replace(
       var CustomerMgr = require('dw/customer/CustomerMgr');
       var Resource = require('dw/web/Resource');
       var URLUtils = require('dw/web/URLUtils');
-      var accountHelpers = require('*/cartridge/scripts/helpers/accountHelpers');
+      var accountHelpers = require('cartridge/scripts/helpers/accountHelpers');
 
-      var formErrors = require('*/cartridge/scripts/formErrors');
+      var formErrors = require('cartridge/scripts/formErrors');
 
       var profileForm = server.forms.getForm('profile');
 
@@ -723,7 +723,7 @@ server.replace(
       }
       return next();
   }
-);
+); */
 
 
 module.exports = server.exports();
