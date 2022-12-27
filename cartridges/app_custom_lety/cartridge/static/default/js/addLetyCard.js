@@ -1,6 +1,6 @@
 const getDataAddLetyCard = document.querySelector("#getDataAddLetyCard");
+const formAddLetyCard = document.querySelector("#formAddLetyCard");
 const letyCard = document.querySelector("#tletyCard");
-console.log(letyCard);
 
 getDataAddLetyCard.addEventListener("click", async() => {
     const formData = new FormData();
@@ -16,4 +16,10 @@ getDataAddLetyCard.addEventListener("click", async() => {
         msgError.textContent = addedCart.error;
        $("#modalError").modal("show");
     }
+});
+
+formAddLetyCard.keypress(function(e) {
+  if (e.which == 13) {
+    return false;
+  }
 });

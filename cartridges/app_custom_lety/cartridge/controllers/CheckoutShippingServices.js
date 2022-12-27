@@ -10,6 +10,7 @@ const { ApiLety } = require("*/cartridge/scripts/jobs/api");
 const OrderModel = require("*/cartridge/models/order");
 const Locale = require("dw/util/Locale");
 const inventory = require("*/cartridge/scripts/middlewares/inventory");
+const URLUtils = require("dw/web/URLUtils");
 
 const validateEmail = (email) => {
   if (!email) {
@@ -17,6 +18,32 @@ const validateEmail = (email) => {
   }
   return true;
 };
+
+server.prepend("SubmitShipping", (req, res, next) => {
+  let storeId = req.form.store;
+  const currentBasket = BasketMgr.getCurrentBasket();
+  if (currentBasket) {
+    let existencia = inventory.checkOnlineInventoryMulti(
+      currentBasket.productLineItems,
+      storeId
+    );
+    if (existencia.error) {
+      let message = existencia.errors.join("");
+      let viewData = res.getViewData();
+      viewData.error = true;
+      viewData = {
+        error: true,
+        cartError: true,
+        fieldErrors: [],
+        serverErrors: [],
+        redirectUrl: URLUtils.url("Cart-Show", "error", message).toString(),
+      };
+      res.setViewData(viewData);
+      return next();
+    }
+  }
+  next();
+});
 
 server.append("SubmitShipping", (req, res, next) => {
   const shipping = server.forms.getForm("shipping");
@@ -39,6 +66,22 @@ server.append("SubmitShipping", (req, res, next) => {
       serverErrors: [],
       error: true,
     });
+  }
+
+  let existencia = inventory.checkOnlineInventoryMulti(
+    currentBasket.productLineItems,
+    req.form.store
+  );
+  if (existencia.error) {
+    let message = existencia.errors.join("");
+    res.json({
+      error: true,
+      cartError: true,
+      fieldErrors: [],
+      serverErrors: [],
+      redirectUrl: URLUtils.url("Cart-Show", "error", message).toString(),
+    });
+    return next();
   }
 
   let geocode;
