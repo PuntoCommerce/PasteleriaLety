@@ -66,7 +66,8 @@ letyPuntosAddpriceAdjustment.addEventListener("click", async () => {
    }
  
    let total = converToNumber(checkoutSubTotal.innerHTML);// no se aceptan negativos.
- 
+   let totalAplcable = converToNumber(checkoutSubTotal.getAttribute("total-avaiable-letypuntos"));// no se aceptan negativos.
+   
    /* para probar esto manipular el dom y mandarlo vacio o con valor no numerico. */
    if (isEmptyField(total) && isNaN(total)) {
        msgError.textContent = "Actualmente hay un conflicto para proceder con el descuento, por favor revisa el total de la orden.";
@@ -75,14 +76,13 @@ letyPuntosAddpriceAdjustment.addEventListener("click", async () => {
    }
  
    /* Validar que cange o (lety puntos) no sea mayor al total de la orden */
-   if (letyPuntos > total) {
-       msgError.textContent = "Los lety puntos para el canje no puede ser mayor al total de la orden.";
+   if (letyPuntos > totalAplcable) {
+       msgError.textContent = "Los lety puntos para el canje no puede ser mayor al total de los productos aplicables ( $" + totalAplcable +" ).";
        $("#modalError").modal("show");
        return false;
    }
 
    /* */
-   console.log(saldo, letyPuntos)
    if (total - letyPuntos < 5) {
        msgError.textContent = "El total no puede ser 0, debe contener al menos 5.";
        $("#modalError").modal("show");

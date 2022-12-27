@@ -11,6 +11,19 @@ const OrderModel = require('*/cartridge/models/order');
 const Locale = require('dw/util/Locale');
 const collections = require('*/cartridge/scripts/util/collections');
 
+function getTotalAvailableLetyPuntos(collection) {
+  let products = collection.iterator();
+  let product;
+  let total = 0;
+  while (products.hasNext()) {
+    product = products.next();
+    if (product.product.custom.isLetyPuntos) {
+      total += product.basePrice.value;
+    }
+  }
+  return total;
+}
+
 
  function addLetyCardToCustomer(customerNo, letyCard){
     let Func_ExisteMembrecia = ApiServiceLety.ApiLety(
@@ -135,5 +148,6 @@ function removeLetyPuntos(localeId, promotionID) {
  module.exports = {
    addLetyCardToCustomer: addLetyCardToCustomer,
    crearLetyCard:crearLetyCard,
-   removeLetyPuntos: removeLetyPuntos
+   removeLetyPuntos: removeLetyPuntos,
+   getTotalAvailableLetyPuntos: getTotalAvailableLetyPuntos
  };

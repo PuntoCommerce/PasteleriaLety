@@ -13,7 +13,8 @@ const consentTracking = require("*/cartridge/scripts/middleware/consentTracking"
 const ApiServiceLety = require("*/cartridge/scripts/jobs/api");
 const {
   addLetyCardToCustomer,
-  removeLetyPuntos
+  removeLetyPuntos,
+  getTotalAvailableLetyPuntos,
 } = require("*/cartridge/scripts/helpers/letyCardHelpers");
 const Site = require("dw/system/Site");
 var BasketMgr = require("dw/order/BasketMgr");
@@ -23,12 +24,16 @@ server.append("Begin", (req, res, next) => {
 
   let adjustmentApplied = false;
   let currentEmail = null;
+
   /*
     Find price adjustmetn.
     If the browser refreshes, it looks to see if an adjustment already exists.
   */
   try {
     const currentBasket = BasketMgr.getCurrentBasket();
+    viewData.totalAvailableLetyPuntos = getTotalAvailableLetyPuntos(
+      currentBasket.productLineItems
+    );
     if (currentBasket.customer.profile) {
       currentEmail = currentBasket.customer.profile.email;
     } else {
@@ -61,9 +66,11 @@ server.append("Begin", (req, res, next) => {
     viewData.customer.saldo = SaldoMembresia;
   }
 
-  const letyPuntosPromotionId = Site.getCurrent().getCustomPreferenceValue("letyPuntosPromotionId");
+  const letyPuntosPromotionId = Site.getCurrent().getCustomPreferenceValue(
+    "letyPuntosPromotionId"
+  );
   let letyPuntos = removeLetyPuntos(req.locale.id, letyPuntosPromotionId);
-  if(letyPuntos.orderModel){
+  if (letyPuntos.orderModel) {
     viewData.order = letyPuntos.orderModel;
   }
   res.setViewData(viewData);
