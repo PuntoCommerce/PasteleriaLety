@@ -1,7 +1,7 @@
 <div class="row justify-content-center ">
     <div class="col-sm-8 col-md-6 col-xl-12 container-wishlist">
         <h2 class="wishlist-owner">${Resource.msgf('wishlist.owner.name', 'wishlist', null, pdict.wishlist.owner.firstName)}</h2>
-        <isif condition=${!pdict.wishlist.publicView}>
+        <iscomment> <isif condition=${!pdict.wishlist.publicView}>
             <div class="row">
                 <div class="col-6">
                     <div class="custom-control custom-checkbox wishlist-hide">
@@ -12,11 +12,14 @@
                     </div>
                 </div>
             </div>
-        </isif>
-        <isinclude template="wishlist/components/list">
+        </isif> </iscomment>
+        <div class="container-list-wishlist row">
+             <isinclude template="wishlist/components/list">
+        </div>
+       
         <isif condition=${!pdict.wishlist.publicView}>
             <div class="my-account text-center col-12">
-                <a href="${URLUtils.url('Account-Show')}" title="${Resource.msgf('link.wishlist.myaccount', 'wishlist', null)}">
+                <a style="color: var(--skin-main-text-color-1);" href="${URLUtils.url('Account-Show')}" title="${Resource.msgf('link.wishlist.myaccount', 'wishlist', null)}">
                     ${Resource.msgf('link.wishlist.myaccount', 'wishlist', null)}
                 </a>
             </div>
