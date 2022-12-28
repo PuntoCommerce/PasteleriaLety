@@ -81,26 +81,35 @@ const handleLetyPuntosAfterInsert = (letyPuntos, folio) => {
   }
 };
 
-const handleLetyPuntos = (order) => {
-  let letyPuntosCard = 0;
-  let letyPuntosAmount = 0;
+const handleLetyPuntosCard = (order) => {
+  let exist = false;
+  let card = 0;
+  if (order.custom.letyPuntosCard) {
+    exist = true;
+    card = order.custom.letyPuntosCard;
+  } else if (order.customer.profile.custom.letyPuntosCard) {
+    exist = true;
+    card = order.customer.profile.custom.letyPuntosCard;
+  }
+  return { exist: exist, card: card };
+};
 
-  let hasLetyPuntosCard = order.custom.letyPuntosCard ? true : false;
+const handleLetyPuntos = (order) => {
+  let letyPuntosAmount = 0;
+  let letyPuntosCard = handleLetyPuntosCard(order);
+
   let hasLetyPuntosAmount = order.custom.letyPuntosAmount ? true : false;
   try {
-    if (hasLetyPuntosCard && hasLetyPuntosAmount) {
-      letyPuntosCard = parseInt(order.custom.letyPuntosCard);
+    if (hasLetyPuntosAmount) {
       letyPuntosAmount = order.custom.letyPuntosAmount;
     }
   } catch (error) {
-    letyPuntosCard = 0;
     letyPuntosAmount = 0;
   }
-
   return {
-    card: letyPuntosCard,
+    card: letyPuntosCard.card,
     amount: letyPuntosAmount,
-    hasCard: hasLetyPuntosCard,
+    hasCard: letyPuntosCard.exist,
     hasAmount: hasLetyPuntosAmount,
   };
 };
@@ -182,7 +191,7 @@ const sendPickupOrderToERP = (orderId) => {
     const logger = Logger.getLogger("ERP_Orders", "ERP_Orders");
     const bodyXML = functionsSoap.body(
       payload,
-      { user: "hidden", password: hidden },
+      { user: "hidden", password: "hidden" },
       "InsertaDatosVentaWeb"
     );
     logger.error("Pickup error. payload: {0}", bodyXML);
