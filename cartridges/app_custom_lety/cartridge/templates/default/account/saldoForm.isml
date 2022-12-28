@@ -2,14 +2,6 @@
 var assets = require('*/cartridge/scripts/assets.js');
 assets.addJs("/js/accountSaldoForm.js");
 </isscript>
-<!--
-action="${URLUtils.url("Account-SaveSaldoForm")}"  onsubmit="return validateForm()"
-pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0].s_ApellidoPat !== "undefined" ? pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0]
-<p>${JSON.stringify(pdict.Account.JsonDatosEstados)}</p>
-<p>${JSON.stringify(pdict.Account.JsonDatosCiudades)}</p>
-<p>${JSON.stringify(pdict.Account.JsonDatosEstados)}</p>
- 
--->
 <form id="accountSaldoForm" method="POST">
 <div class="row">
  <div class="col-sm-12 col-md-12 col-lg-12 d-xs-block d-sm-block d-md-block d-lg-none">

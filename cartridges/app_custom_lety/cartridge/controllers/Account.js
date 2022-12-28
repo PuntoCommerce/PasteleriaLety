@@ -202,7 +202,7 @@ server.post("SaveSaldoForm", (req, res, next) => {
       let PreferenciaProducto = data.PreferenciaProducto;
       let s_Sexo = data.s_Sexo;
       let s_EstadoCivil = data.s_EstadoCivil;
-      let f_Adreess = data.s_EstadoCivil;
+      let f_Adreess = data.f_Adreess;
       if (dtFechaNacimiento == undefined || dtFechaNacimiento == null) {
         dtFechaNacimiento = "";
       }
