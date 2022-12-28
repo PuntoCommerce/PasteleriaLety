@@ -4,11 +4,15 @@ const { ApiLety } = require("*/cartridge/scripts/jobs/api");
 const Resource = require("dw/web/Resource");
 const StoreMgr = require("dw/catalog/StoreMgr");
 const distance = require("*/cartridge/scripts/helpers/distance");
-var SystemObjectMgr = require("dw/object/SystemObjectMgr");
+const SystemObjectMgr = require("dw/object/SystemObjectMgr");
+const Site = require("dw/system/Site");
 
 const handleExistenciaCall = (pid, quantity, storeId) => {
+  let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(
+    "hoursDifferenceFromGMT"
+  );
   let today = new Date();
-  today.setMinutes(today.getMinutes() + 1);
+  today.setHours(today.getHours() + hoursDifferenceFromGMT);
   let existencia = ApiLety("ExistenciaPorCentroFecha", {
     Empresa: "1",
     iIdMaterial: parseInt(pid),
