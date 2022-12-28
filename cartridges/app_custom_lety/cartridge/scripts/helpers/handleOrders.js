@@ -87,9 +87,11 @@ const handleLetyPuntosCard = (order) => {
   if (order.custom.letyPuntosCard) {
     exist = true;
     card = order.custom.letyPuntosCard;
-  } else if (order.customer.profile.custom.letyPuntosCard) {
-    exist = true;
-    card = order.customer.profile.custom.letyPuntosCard;
+  } else if (order.customer.profile) {
+    if (order.customer.profile.custom.letyPuntosCard) {
+      exist = true;
+      card = order.customer.profile.custom.letyPuntosCard;
+    }
   }
   return { exist: exist, card: card };
 };
