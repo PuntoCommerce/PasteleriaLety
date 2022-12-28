@@ -53,7 +53,7 @@ class Pagination {
     let html = ''
     
     /* Era cero pero lo cambie a 1*/
-    if(this.arrayPagination.length === 1){
+    if(this.arrayPagination.length === 0){
       this.resetData()
       return false
     }
