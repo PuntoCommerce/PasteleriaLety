@@ -13,6 +13,7 @@ const handleExistenciaCall = (pid, quantity, storeId, empresaId) => {
   );
   let today = new Date();
   today.setHours(today.getHours() + hoursDifferenceFromGMT);
+  today.setMinutes(today.getMinutes() + 1);
   let existencia = ApiLety("ExistenciaPorCentroFecha", {
     Empresa: empresaId,
     iIdMaterial: parseInt(pid),
@@ -104,6 +105,7 @@ const checkOnlineInventoryMulti = (collection, storeId) => {
     let existencia = handleExistenciaCall(
       p.productID,
       p.quantityValue,
+      storeId,
       store.custom.empresaId
     );
     if (existencia.error) {
