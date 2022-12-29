@@ -76,7 +76,7 @@ class Pagination {
    
       html += `<tr class="tr-info">\
                 <td>${item.dtFechaAplica}</td>\
-                <td>${item.dtFechaAplica}</td>\
+                <td>${item.Centro}</td>\
                 <td>${item.TipoMovimiento }</td>\
                 <td>${item.Cargo}</td>\
                 <td>${item.Abono}</td>\
