@@ -250,8 +250,21 @@ server.replace(
       COHelpers.sendConfirmationEmailClient(order, req.locale.id, req.session.raw.privacy.storeId);
     }
 
-    HO.sendPickupOrderToERP(order.orderNo);
-
+    let status = {};
+    try {
+      status = HO.sendPickupOrderToERP(order.orderNo);
+    } catch (error) {
+      status.error = true;
+      status.message = JSON.stringify(error);
+    }
+    
+    if(status.error) {
+      Transaction.wrap(() => {
+        order.custom.isError = true;
+        order.custom.errorDetail = status.message;
+      })
+    }
+    
     // Reset usingMultiShip after successful Order placement
     req.session.privacyCache.set("usingMultiShipping", false);
 

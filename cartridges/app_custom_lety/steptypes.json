@@ -113,6 +113,52 @@
                         }
                     ]
                 }
+            },
+            {
+                "@type-id": "custom.sendPendingOrders",
+                "@supports-parallel-execution": "false",
+                "@supports-site-context": "true",
+                "@supports-organization-context": "false",
+                "description": "Send pending orders to ERP.",
+                "module": "app_custom_lety/cartridge/scripts/jobs/sendPendingOrders.js",
+                "function": "execute",
+                "transactional": "true",
+                "timeout-in-seconds": "900",
+                "parameters": {
+                  "parameter": [
+                    {
+                      "@name": "daysBefore",
+                      "@type": "string",
+                      "@required": "true",
+                      "description": "Days ago to search orders.",
+                      "@trim": false,
+                      "enum-values":
+                        {
+                          "value":
+                          [
+                            "1",
+                            "3",
+                            "5",
+                            "10",
+                            "20",
+                            "30"
+                          ]
+                        }
+                    }
+                  ]
+                },
+                "status-codes": {
+                    "status": [
+                        {
+                            "@code": "ERROR",
+                            "description": "An error occurs, please re-run the job or contact Support"
+                        },
+                        {
+                            "@code": "FINISHED",
+                            "description": "All orders were checked"
+                        }
+                    ]
+                }
             }
         ]
     }
