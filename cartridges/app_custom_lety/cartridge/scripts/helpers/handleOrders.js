@@ -1,6 +1,6 @@
 const OrderMgr = require("dw/order/OrderMgr");
-const { ApiLety } = require("*/cartridge/scripts/jobs/api");
-const functionsSoap = require("*/cartridge/scripts/jobs/functionsSoap");
+const { ApiLety } = require("~/cartridge/scripts/jobs/api");
+const functionsSoap = require("~/cartridge/scripts/jobs/functionsSoap");
 const Logger = require("dw/system/Logger");
 const Site = require("dw/system/Site");
 
@@ -156,6 +156,7 @@ const sendShippingOrderToERP = (orderId) => {
 };
 
 const sendPickupOrderToERP = (orderId) => {
+  let status = {};
   let order = OrderMgr.getOrder(orderId);
   let paymentInstruments = order.getPaymentInstruments();
   let pi = paymentInstruments[0];
@@ -197,7 +198,10 @@ const sendPickupOrderToERP = (orderId) => {
       "InsertaDatosVentaWeb"
     );
     logger.error("Pickup error. payload: {0}", bodyXML);
+    status.message = response.message;
+    status.error = true;
   }
+  return status;
 };
 
 module.exports = {
