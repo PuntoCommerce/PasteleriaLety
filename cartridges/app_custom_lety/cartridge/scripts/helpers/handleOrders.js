@@ -3,6 +3,7 @@ const { ApiLety } = require("~/cartridge/scripts/jobs/api");
 const functionsSoap = require("~/cartridge/scripts/jobs/functionsSoap");
 const Logger = require("dw/system/Logger");
 const Site = require("dw/system/Site");
+const StoreMgr = require("dw/catalog/StoreMgr");
 
 const parseDeliveryDateTime = (deliveryDateTime) => {
   let [date, time] = deliveryDateTime.split(" : ");
@@ -168,8 +169,10 @@ const sendPickupOrderToERP = (orderId) => {
 
   let letyPuntos = handleLetyPuntos(order);
 
+  let store = StoreMgr.getStore(order.custom.storeId);
+
   let payload = {
-    Empresa: "1",
+    Empresa: store.custom.empresaId,
     sFolio: orderId,
     sFolioBanco: pi.paymentTransaction.transactionID,
     sFolioTarjeta:

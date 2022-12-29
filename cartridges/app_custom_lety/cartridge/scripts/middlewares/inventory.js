@@ -7,14 +7,14 @@ const distance = require("*/cartridge/scripts/helpers/distance");
 const SystemObjectMgr = require("dw/object/SystemObjectMgr");
 const Site = require("dw/system/Site");
 
-const handleExistenciaCall = (pid, quantity, storeId) => {
+const handleExistenciaCall = (pid, quantity, storeId, empresaId) => {
   let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(
     "hoursDifferenceFromGMT"
   );
   let today = new Date();
   today.setHours(today.getHours() + hoursDifferenceFromGMT);
   let existencia = ApiLety("ExistenciaPorCentroFecha", {
-    Empresa: "1",
+    Empresa: empresaId,
     iIdMaterial: parseInt(pid),
     iIdCentro: parseInt(storeId),
     dtFecha: today.toISOString(),
@@ -57,6 +57,7 @@ const checkOnlineInventory = (req, res, next) => {
   let pid = req.form.pid;
   let quantity;
   let storeId = req.session.raw.privacy.storeId;
+  let store = StoreMgr.getStore(storeId);
   let currentBasket = BasketMgr.getCurrentBasket();
   let isUpdate = false;
 
@@ -79,7 +80,12 @@ const checkOnlineInventory = (req, res, next) => {
     }
   }
 
-  let existencia = handleExistenciaCall(pid, quantity, storeId);
+  let existencia = handleExistenciaCall(
+    pid,
+    quantity,
+    storeId,
+    store.custom.empresaId
+  );
 
   let viewData = res.getViewData();
   viewData.error = existencia.error;
@@ -91,14 +97,14 @@ const checkOnlineInventory = (req, res, next) => {
 const checkOnlineInventoryMulti = (collection, storeId) => {
   let error = false;
   let message = "";
-  let store = parseInt(storeId);
+  let store = StoreMgr.getStore(storeId);
   let errors = [Resource.msg("no.stock.available.multi", "stockCustom", null)];
   let err;
   let products = collections.forEach(collection, (p) => {
     let existencia = handleExistenciaCall(
       p.productID,
       p.quantityValue,
-      storeId
+      store.custom.empresaId
     );
     if (existencia.error) {
       error = true;
