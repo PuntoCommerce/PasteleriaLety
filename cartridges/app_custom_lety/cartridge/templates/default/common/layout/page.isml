@@ -30,15 +30,15 @@
     </isif>
     <isactivedatahead/>
     <isinclude template="/components/schema" />
-    
+
 </head>
 
 <body>
-    <iscontentasset aid="header-banner" /> 
+    <iscontentasset aid="header-banner" />
     ${dw.system.HookMgr.callHook('app.template.beforeHeader', 'beforeHeader', pdict) || ''}
 
     <div class="page" data-action="${pdict.action}" data-querystring="${pdict.queryString}"
-            data-gtmpageview="${pdict.action}" >
+        data-gtmpageview="${pdict.action}">
         <isinclude template="/components/header/pdStorePageHeader" />
         <div role="main" id="maincontent" class="main">
             <isreplace/>
@@ -61,7 +61,7 @@
     </iscomment>
     ${dw.system.HookMgr.callHook('app.template.afterFooter', 'afterFooter', pdict) || ''}
     <isinclude url="${URLUtils.url('ConsentTracking-Check')}" />
-
+    
 </body>
 
 </html>

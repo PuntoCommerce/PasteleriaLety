@@ -1036,8 +1036,7 @@ textarea {
 }
 
 .wishlistItemCards {
-  justify-content: space-evenly;
-  display: flex;
+  display: contents;
   text-align: center;
   padding: 60px 0;
 }
@@ -1051,6 +1050,7 @@ textarea {
 .card-info-wishlist {
   min-width: 350px !important;
   min-height: 250px;
+  margin: 20px;
 }
 
 .header-card-wishlist {
@@ -1059,6 +1059,10 @@ textarea {
 
 .img-wishlist {
   font-size: 35px !important;
+}
+
+.wl-social-sharing{
+  padding: 60px;
 }
 
 /*Design comentarios y rating*/
@@ -1267,6 +1271,10 @@ textarea {
 
 .result-count {
   display: none;
+}
+
+.container-details-sumary{
+  display: none !important;
 }
 
 /*Design geolocalización*/
