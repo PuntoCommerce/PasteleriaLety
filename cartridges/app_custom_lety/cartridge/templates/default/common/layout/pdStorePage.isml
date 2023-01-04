@@ -16,6 +16,7 @@
     assets.addJs('/js/campaignBanner.js');
     assets.addJs('/js/hiddenBtn.js');
     assets.addJs('/js/custom.js');
+    assets.addJs('/js/contact.js');
     assets.addJs('/js/pdpAttributes.js');
     assets.addCss('/css/navigation.css');
     assets.addCss('/css/style-lety.css');
@@ -58,6 +59,7 @@
     <div class="error-messaging"></div>
     <div class="modal-background"></div>
     <div class="add-wishlist-alert"></div>
+    <div class="send-contact-alert"></div>
     <iscontentasset aid="cookie_hint" />
     <!--[if lt IE 10]>
             <isinclude sf-toolkit="off" template="/common/scripts" />

@@ -77,7 +77,8 @@ letyPuntosAddpriceAdjustment.addEventListener("click", async () => {
  
    /* Validar que cange o (lety puntos) no sea mayor al total de la orden */
    if (letyPuntos > totalAplcable) {
-       msgError.textContent = "Los lety puntos para el canje no puede ser mayor al total de los productos aplicables ( $" + totalAplcable +" ).";
+    //    msgError.textContent = "Los lety puntos para el canje no puede ser mayor al total de los productos aplicables ( $" + totalAplcable +" ).";
+    msgError.textContent = "Recuerda que los lety puntos son aplicables a productos de línea";
        $("#modalError").modal("show");
        return false;
    }
