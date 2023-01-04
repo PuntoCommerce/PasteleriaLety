@@ -53,7 +53,7 @@ class Pagination {
     let html = ''
     
     /* Era cero pero lo cambie a 1*/
-    if(this.arrayPagination.length === 1){
+    if(this.arrayPagination.length === 0){
       this.resetData()
       return false
     }
@@ -76,7 +76,7 @@ class Pagination {
    
       html += `<tr class="tr-info">\
                 <td>${item.dtFechaAplica}</td>\
-                <td>${item.dtFechaAplica}</td>\
+                <td>${item.Centro}</td>\
                 <td>${item.TipoMovimiento }</td>\
                 <td>${item.Cargo}</td>\
                 <td>${item.Abono}</td>\

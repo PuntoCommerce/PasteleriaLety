@@ -6,6 +6,7 @@
              title="${product.images.medium[0].title}"
              />
     </a>
+    
     <isif condition="${pdict.display.showQuickView !== false}">
         <a class="quickview hidden-sm-down" href="${pdict.urls.quickView}"
            data-toggle="modal"
