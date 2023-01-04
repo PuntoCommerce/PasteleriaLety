@@ -1,0 +1,134 @@
+{
+    "name": "Contact Form",
+    "description": "Contact Form Component",
+    "group": "commerce_assets",
+    "attribute_definition_groups": [
+      {
+        "id": "input_name",
+        "name": "First Name input" ,
+        "attribute_definitions": [
+          {
+            "id": "label_firstName",
+            "name": "First Name label",
+            "description": "Name of the label",
+            "type": "string",
+            "required": true
+          },
+          {
+            "id": "firstName_id",
+            "name": "Input ID",
+            "description": "This input get the first name",
+            "type": "string",
+            "required": true
+          },
+          {
+            "id": "input_firstName_type",
+            "name": "Input type",
+            "description": "Type of the input",
+            "type": "enum",
+            "values": ["text", "password", "email", "tel", "num"],
+            "required": true
+          },
+          {
+            "id": "label_lastName",
+            "name": "Last Name label",
+            "description": "Name of the label",
+            "type": "string",
+            "required": true
+          },
+          {
+            "id": "lastName_id",
+            "name": "Input ID",
+            "description": "This input get the last name",
+            "type": "string",
+            "required": true
+          },
+          {
+            "id": "input_lastName_type",
+            "name": "Input type",
+            "description": "Type of the input",
+            "type": "enum",
+            "values": ["text", "password", "email", "tel", "num"],
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "input_email",
+        "name": "Email input" ,
+        "attribute_definitions": [
+          {
+            "id": "label_email",
+            "name": "Email label",
+            "description": "Name of the label",
+            "type": "string",
+            "required": true
+          },
+          {
+            "id": "email_id",
+            "name": "Input ID",
+            "description": "This input get the email",
+            "type": "string",
+            "required": true
+          },
+          {
+            "id": "input_email_type",
+            "name": "Input type",
+            "description": "Type of the input",
+            "type": "enum",
+            "values": ["text", "password", "email", "tel", "num"],
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "textArea",
+        "name": "Comments" ,
+        "attribute_definitions": [
+          {
+            "id": "label_textArea",
+            "name": "Text Area Label",
+            "description": "Name of the label",
+            "type": "string",
+            "required": true
+          },
+          {
+            "id": "textArea_id",
+            "name": "Text Area ID",
+            "description": "This input get the comment",
+            "type": "string",
+            "required": true
+          }
+        ]
+      },
+      {
+        "id": "selectTeme",
+        "name": "Select Teme" ,
+        "attribute_definitions": [
+          {
+            "id": "label_selectTeme",
+            "name": "Select Label",
+            "description": "Name of the label",
+            "type": "string",
+            "required": true
+          },
+          {
+            "id": "select_teme_id",
+            "name": "Select Tema ID",
+            "description": "This input get the teme",
+            "type": "string",
+            "required": true
+          },
+          {
+            "id": "select_child_id",
+            "name": "Select Tema Child ID",
+            "description": "This input get the childs",
+            "type": "string",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "region_definitions": []
+  }
+  
