@@ -1,3 +1,5 @@
+const base = module.superModule;
+
 const calDistance = (lat1, lon1, lat2, lon2) => {
   const rad = (x) => {
     return (x * Math.PI) / 180;
@@ -18,7 +20,7 @@ const calDistance = (lat1, lon1, lat2, lon2) => {
   return d;
 };
 
-const closestStore = (stores, clientLocation) => {
+base.closestStore = (stores, clientLocation) => {
   let store = undefined;
   let minDistance = undefined;
 
@@ -61,13 +63,10 @@ const addDistanceToStores = (stores, clientLocation) => {
   return finalStores;
 };
 
-const sortStoresByDistance = (stores, clientLocation) => {
+base.sortStoresByDistance = (stores, clientLocation) => {
   let storesWDistance = addDistanceToStores(stores, clientLocation);
   let sortedStores = storesWDistance.sort((a, b) => a.distance - b.distance);
   return sortedStores;
 };
 
-module.exports = {
-  closestStore: closestStore,
-  sortStoresByDistance: sortStoresByDistance,
-};
+module.exports = base;

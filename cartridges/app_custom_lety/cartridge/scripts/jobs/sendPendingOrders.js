@@ -20,7 +20,11 @@ const execute = (args) => {
   while (orders.hasNext()) {
     order = orders.next();
     try {
-      status = HO.sendPickupOrderToERP(order.orderNo);
+      if (order.defaultShipment.shippingMethodID == "pickup") {
+        status = HO.sendPickupOrderToERP(order.orderNo);
+      } else {
+        status = HO.sendShippingOrderToERP(order.orderNo);
+      }
     } catch (error) {
       status.error = true;
       status.message = JSON.stringify(error);

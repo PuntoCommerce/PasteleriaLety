@@ -252,7 +252,11 @@ server.replace(
 
     let status = {};
     try {
-      status = HO.sendPickupOrderToERP(order.orderNo);
+      if(order.defaultShipment.shippingMethodID == "pickup"){
+        status = HO.sendPickupOrderToERP(order.orderNo);
+      } else {
+        status = HO.sendShippingOrderToERP(order.orderNo);
+      }
     } catch (error) {
       status.error = true;
       status.message = JSON.stringify(error);
@@ -294,7 +298,7 @@ server.get("Prueba", (req, res, next) => {
 
   res.json({order: order})
     
-    next();
+  next();
 });
 
 module.exports = server.exports();

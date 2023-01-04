@@ -117,16 +117,35 @@ const handleLetyPuntos = (order) => {
   };
 };
 
+const handleErrorOrder = (type, payload) => {
+  const logger = Logger.getLogger("ERP_Orders", "ERP_Orders");
+  const bodyXML = functionsSoap.body(
+    payload,
+    { user: "hidden", password: "hidden" },
+    type
+  );
+  logger.error("Pickup error. payload: {0}", bodyXML);
+};
+
 const sendShippingOrderToERP = (orderId) => {
+  let status = {};
   let order = OrderMgr.getOrder(orderId);
-  let today = new Date();
   let paymentInstruments = order.getPaymentInstruments();
   let pi = paymentInstruments[0];
 
+  let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(
+    "hoursDifferenceFromGMT"
+  );
+
+  let today = new Date();
+  today.setHours(today.getHours() + hoursDifferenceFromGMT);
+
   let letyPuntos = handleLetyPuntos(order);
 
+  let store = StoreMgr.getStore(order.custom.storeId);
+
   let payload = {
-    IdEmpresa: 1,
+    IdEmpresa: store.custom.empresaId,
     iIdCentroAlta: 0,
     iIdServDom: 0,
     iIdCentroAfecta: order.custom.storeId,
@@ -137,7 +156,7 @@ const sendShippingOrderToERP = (orderId) => {
     iIdUsuarioAlta: 1,
     bIndFactura: false,
     sObservaciones: orderId,
-    items: handleItemsServDom(order.productLineItems, order.dexfaultShipment),
+    items: handleItemsServDom(order.productLineItems, order.defaultShipment),
     iIdFormaDePago: 3,
     dMonto: order.totalNetPrice.value,
     TipoDeCambio: 1,
@@ -153,7 +172,12 @@ const sendShippingOrderToERP = (orderId) => {
   const response = ApiLety("RegistraServDom", payload);
   if (!response.error) {
     handleLetyPuntosAfterInsert(letyPuntos, orderId);
+  } else {
+    handleLogOrderError("RegistraServDom", payload);
+    status.message = response.message;
+    status.error = true;
   }
+  return status;
 };
 
 const sendPickupOrderToERP = (orderId) => {
@@ -194,13 +218,7 @@ const sendPickupOrderToERP = (orderId) => {
   if (!response.error) {
     handleLetyPuntosAfterInsert(letyPuntos, orderId);
   } else {
-    const logger = Logger.getLogger("ERP_Orders", "ERP_Orders");
-    const bodyXML = functionsSoap.body(
-      payload,
-      { user: "hidden", password: "hidden" },
-      "InsertaDatosVentaWeb"
-    );
-    logger.error("Pickup error. payload: {0}", bodyXML);
+    handleLogOrderError("InsertaDatosVentaWeb", payload);
     status.message = response.message;
     status.error = true;
   }
