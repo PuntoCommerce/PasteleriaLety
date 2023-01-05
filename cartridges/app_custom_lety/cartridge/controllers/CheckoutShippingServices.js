@@ -142,7 +142,7 @@ server.append("SubmitShipping", (req, res, next) => {
     splitedAddress = CAHelpers.splitAddress(viewData.address.address1);
 
     body = {
-      IdEmpresa: 1,
+      IdEmpresa: store.custom.empresaId,
       iIdFolioPersona: 90000,
       iIdCentro: parseInt(store.ID),
       iIdDireccion: 0,
@@ -176,7 +176,7 @@ server.append("SubmitShipping", (req, res, next) => {
         InsertaPersonaDireccion.sMensaje,
         currentBasket
       );
-      COHelpers.recalculateBasket(currentBasket);
+      
     } else {
       res.json({
         form: shipping,
@@ -188,13 +188,21 @@ server.append("SubmitShipping", (req, res, next) => {
     }
   }
 
+  res.setViewData(viewData);
+
   Transaction.wrap(() => {
     currentBasket.setCustomerEmail(shipping.customPickUp.email.value);
-    currentBasket.custom.storeId = store.ID;
+    currentBasket.custom.storeId = store ? store.ID : req.session.raw.privacy.storeId;
     currentBasket.custom.deliveryDateTime =
       shipping.datetime.date.value + " : " + shipping.datetime.time.value;
   });
 
+  next();
+});
+
+server.append("SelectShippingMethod", (req, res, next) => {
+  const currentBasket = BasketMgr.getCurrentBasket();
+  SCHelpers.removeDinamycCost(currentBasket);
   next();
 });
 

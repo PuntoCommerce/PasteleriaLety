@@ -117,14 +117,14 @@ const handleLetyPuntos = (order) => {
   };
 };
 
-const handleErrorOrder = (type, payload) => {
+const handleLogOrderError = (type, payload) => {
   const logger = Logger.getLogger("ERP_Orders", "ERP_Orders");
   const bodyXML = functionsSoap.body(
     payload,
     { user: "hidden", password: "hidden" },
     type
   );
-  logger.error("Pickup error. payload: {0}", bodyXML);
+  logger.error("Type: {0} payload: {1}", type, bodyXML);
 };
 
 const sendShippingOrderToERP = (orderId) => {
@@ -174,7 +174,7 @@ const sendShippingOrderToERP = (orderId) => {
     handleLetyPuntosAfterInsert(letyPuntos, orderId);
   } else {
     handleLogOrderError("RegistraServDom", payload);
-    status.message = response.message;
+    status.message = response.errorMessage;
     status.error = true;
   }
   return status;
@@ -219,7 +219,7 @@ const sendPickupOrderToERP = (orderId) => {
     handleLetyPuntosAfterInsert(letyPuntos, orderId);
   } else {
     handleLogOrderError("InsertaDatosVentaWeb", payload);
-    status.message = response.message;
+    status.message = response.errorMessage;
     status.error = true;
   }
   return status;

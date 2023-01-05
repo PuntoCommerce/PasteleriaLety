@@ -94,7 +94,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\n\r\n$(document).ready(function () {\r\n    if (window.resetCampaignBannerSessionToken) {\r\n        window.sessionStorage.removeItem('hide_campaign_banner');\r\n    }\r\n\r\n    var campaignBannerStatus = window.sessionStorage.getItem('hide_campaign_banner');\r\n    $('.campaign-banner .close').on('click', function () {\r\n        $('.campaign-banner').addClass('d-none');\r\n        window.sessionStorage.setItem('hide_campaign_banner', '1');\r\n    });\r\n\r\n    if (!campaignBannerStatus || campaignBannerStatus < 0) {\r\n        $('.campaign-banner').removeClass('d-none');\r\n    }\r\n});\r\n\n\n//# sourceURL=webpack:///./cartridges/app_storefront_base/cartridge/client/default/js/campaignBanner.js?");
+eval("\n\n$(document).ready(function () {\n    if (window.resetCampaignBannerSessionToken) {\n        window.sessionStorage.removeItem('hide_campaign_banner');\n    }\n\n    var campaignBannerStatus = window.sessionStorage.getItem('hide_campaign_banner');\n    $('.campaign-banner .close').on('click', function () {\n        $('.campaign-banner').addClass('d-none');\n        window.sessionStorage.setItem('hide_campaign_banner', '1');\n    });\n\n    if (!campaignBannerStatus || campaignBannerStatus < 0) {\n        $('.campaign-banner').removeClass('d-none');\n    }\n});\n\n\n//# sourceURL=webpack:///./cartridges/app_storefront_base/cartridge/client/default/js/campaignBanner.js?");
 
 /***/ })
 
