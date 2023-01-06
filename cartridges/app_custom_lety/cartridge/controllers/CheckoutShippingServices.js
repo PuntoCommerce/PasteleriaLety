@@ -167,6 +167,17 @@ server.append("SubmitShipping", (req, res, next) => {
 
     InsertaPersonaDireccion = ApiLety("InsertaPersonaDireccion", body);
     if (!InsertaPersonaDireccion.error) {
+
+      if(InsertaPersonaDireccion.iCode == 0){
+        res.json({
+          form: shipping,
+          fieldErrors: [],
+          serverErrors: [Resource.msg("shipping.no.coverage", "checkout", null)],
+          error: true,
+        });
+        return next();
+      }
+
       SCHelpers.createDinamycCost(
         parseFloat(InsertaPersonaDireccion.dCost) * -1,
         currentBasket
