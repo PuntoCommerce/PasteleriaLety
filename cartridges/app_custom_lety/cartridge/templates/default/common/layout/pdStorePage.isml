@@ -59,7 +59,7 @@
     <div class="error-messaging"></div>
     <div class="modal-background"></div>
     <div class="add-wishlist-alert"></div>
-    <div class="send-contact-alert"></div>
+    <div class="send-contact-alert d-none"></div>
     <iscontentasset aid="cookie_hint" />
     <!--[if lt IE 10]>
             <isinclude sf-toolkit="off" template="/common/scripts" />

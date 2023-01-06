@@ -6,7 +6,7 @@
 
 <div class="contact-form-container">
     <div class="card contact-form-container__card">
-        <form class="contact-form-container__card__form">
+        <div class="contact-form-container__card__form">
             <div class="form-row">
                 <isloop items="${pdict.input_name}" var="input">
                     <div class="col-md-6">
@@ -72,11 +72,11 @@
                     <a href="">Volver a mi cuenta</a>
                 </div>
                 <div class="col-md-6 p-0">
-                    <label id="contact-link" data-href="${URLUtils.url('ContactUs-Create')}"></label>
+                    <label class="d-none" id="contact-link" data-href="${URLUtils.url('Account-Show')}"></label>
                     <button class="contact-form-container__card__form__buttons__submit" type="submit"
                         onclick="contactUs(this)" data-href="${URLUtils.url('ContactUs-Create')}">Enviar</button> 
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
