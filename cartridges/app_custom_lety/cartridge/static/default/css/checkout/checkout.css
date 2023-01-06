@@ -1231,6 +1231,10 @@ span.ship-to-phone {
   display: inline-flex;
 }
 
+#checkout-main .shipping-item {
+  display: none;
+}
+
 @media (max-width: 992px) {
   .checkout__stepper--divider {
     height: 1px;
