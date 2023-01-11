@@ -94,7 +94,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\n\r\nvar processInclude = __webpack_require__(/*! ./util */ \"./cartridges/app_storefront_base/cartridge/client/default/js/util.js\");\r\n\r\n$(document).ready(function () {\r\n    processInclude(__webpack_require__(/*! ./orderHistory/orderHistory */ \"./cartridges/app_storefront_base/cartridge/client/default/js/orderHistory/orderHistory.js\"));\r\n});\r\n\n\n//# sourceURL=webpack:///./cartridges/app_storefront_base/cartridge/client/default/js/orderHistory.js?");
+eval("\n\nvar processInclude = __webpack_require__(/*! ./util */ \"./cartridges/app_storefront_base/cartridge/client/default/js/util.js\");\n\n$(document).ready(function () {\n    processInclude(__webpack_require__(/*! ./orderHistory/orderHistory */ \"./cartridges/app_storefront_base/cartridge/client/default/js/orderHistory/orderHistory.js\"));\n});\n\n\n//# sourceURL=webpack:///./cartridges/app_storefront_base/cartridge/client/default/js/orderHistory.js?");
 
 /***/ }),
 
@@ -106,7 +106,7 @@ eval("\r\n\r\nvar processInclude = __webpack_require__(/*! ./util */ \"./cartrid
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\n\r\nmodule.exports = function () {\r\n    $('body').on('change', '.order-history-select', function (e) {\r\n        var $ordersContainer = $('.order-list-container');\r\n        $ordersContainer.empty();\r\n        $.spinner().start();\r\n        $('.order-history-select').trigger('orderHistory:sort', e);\r\n        $.ajax({\r\n            url: e.currentTarget.value,\r\n            method: 'GET',\r\n            success: function (data) {\r\n                $ordersContainer.html(data);\r\n                $.spinner().stop();\r\n            },\r\n            error: function (err) {\r\n                if (err.responseJSON.redirectUrl) {\r\n                    window.location.href = err.responseJSON.redirectUrl;\r\n                }\r\n                $.spinner().stop();\r\n            }\r\n        });\r\n    });\r\n};\r\n\n\n//# sourceURL=webpack:///./cartridges/app_storefront_base/cartridge/client/default/js/orderHistory/orderHistory.js?");
+eval("\n\nmodule.exports = function () {\n    $('body').on('change', '.order-history-select', function (e) {\n        var $ordersContainer = $('.order-list-container');\n        $ordersContainer.empty();\n        $.spinner().start();\n        $('.order-history-select').trigger('orderHistory:sort', e);\n        $.ajax({\n            url: e.currentTarget.value,\n            method: 'GET',\n            success: function (data) {\n                $ordersContainer.html(data);\n                $.spinner().stop();\n            },\n            error: function (err) {\n                if (err.responseJSON.redirectUrl) {\n                    window.location.href = err.responseJSON.redirectUrl;\n                }\n                $.spinner().stop();\n            }\n        });\n    });\n};\n\n\n//# sourceURL=webpack:///./cartridges/app_storefront_base/cartridge/client/default/js/orderHistory/orderHistory.js?");
 
 /***/ }),
 
@@ -118,7 +118,7 @@ eval("\r\n\r\nmodule.exports = function () {\r\n    $('body').on('change', '.ord
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\n\r\nmodule.exports = function (include) {\r\n    if (typeof include === 'function') {\r\n        include();\r\n    } else if (typeof include === 'object') {\r\n        Object.keys(include).forEach(function (key) {\r\n            if (typeof include[key] === 'function') {\r\n                include[key]();\r\n            }\r\n        });\r\n    }\r\n};\r\n\n\n//# sourceURL=webpack:///./cartridges/app_storefront_base/cartridge/client/default/js/util.js?");
+eval("\n\nmodule.exports = function (include) {\n    if (typeof include === 'function') {\n        include();\n    } else if (typeof include === 'object') {\n        Object.keys(include).forEach(function (key) {\n            if (typeof include[key] === 'function') {\n                include[key]();\n            }\n        });\n    }\n};\n\n\n//# sourceURL=webpack:///./cartridges/app_storefront_base/cartridge/client/default/js/util.js?");
 
 /***/ })
 

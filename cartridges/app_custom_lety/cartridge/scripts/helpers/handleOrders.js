@@ -3,6 +3,7 @@ const { ApiLety } = require("~/cartridge/scripts/jobs/api");
 const functionsSoap = require("~/cartridge/scripts/jobs/functionsSoap");
 const Logger = require("dw/system/Logger");
 const Site = require("dw/system/Site");
+const StoreMgr = require("dw/catalog/StoreMgr");
 
 const parseDeliveryDateTime = (deliveryDateTime) => {
   let [date, time] = deliveryDateTime.split(" : ");
@@ -116,16 +117,35 @@ const handleLetyPuntos = (order) => {
   };
 };
 
+const handleLogOrderError = (type, payload) => {
+  const logger = Logger.getLogger("ERP_Orders", "ERP_Orders");
+  const bodyXML = functionsSoap.body(
+    payload,
+    { user: "hidden", password: "hidden" },
+    type
+  );
+  logger.error("Type: {0} payload: {1}", type, bodyXML);
+};
+
 const sendShippingOrderToERP = (orderId) => {
+  let status = {};
   let order = OrderMgr.getOrder(orderId);
-  let today = new Date();
   let paymentInstruments = order.getPaymentInstruments();
   let pi = paymentInstruments[0];
 
+  let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(
+    "hoursDifferenceFromGMT"
+  );
+
+  let today = new Date();
+  today.setHours(today.getHours() + hoursDifferenceFromGMT);
+
   let letyPuntos = handleLetyPuntos(order);
 
+  let store = StoreMgr.getStore(order.custom.storeId);
+
   let payload = {
-    IdEmpresa: 1,
+    IdEmpresa: store.custom.empresaId,
     iIdCentroAlta: 0,
     iIdServDom: 0,
     iIdCentroAfecta: order.custom.storeId,
@@ -136,7 +156,7 @@ const sendShippingOrderToERP = (orderId) => {
     iIdUsuarioAlta: 1,
     bIndFactura: false,
     sObservaciones: orderId,
-    items: handleItemsServDom(order.productLineItems, order.dexfaultShipment),
+    items: handleItemsServDom(order.productLineItems, order.defaultShipment),
     iIdFormaDePago: 3,
     dMonto: order.totalNetPrice.value,
     TipoDeCambio: 1,
@@ -152,7 +172,12 @@ const sendShippingOrderToERP = (orderId) => {
   const response = ApiLety("RegistraServDom", payload);
   if (!response.error) {
     handleLetyPuntosAfterInsert(letyPuntos, orderId);
+  } else {
+    handleLogOrderError("RegistraServDom", payload);
+    status.message = response.errorMessage;
+    status.error = true;
   }
+  return status;
 };
 
 const sendPickupOrderToERP = (orderId) => {
@@ -168,8 +193,10 @@ const sendPickupOrderToERP = (orderId) => {
 
   let letyPuntos = handleLetyPuntos(order);
 
+  let store = StoreMgr.getStore(order.custom.storeId);
+
   let payload = {
-    Empresa: "1",
+    Empresa: store.custom.empresaId,
     sFolio: orderId,
     sFolioBanco: pi.paymentTransaction.transactionID,
     sFolioTarjeta:
@@ -191,14 +218,8 @@ const sendPickupOrderToERP = (orderId) => {
   if (!response.error) {
     handleLetyPuntosAfterInsert(letyPuntos, orderId);
   } else {
-    const logger = Logger.getLogger("ERP_Orders", "ERP_Orders");
-    const bodyXML = functionsSoap.body(
-      payload,
-      { user: "hidden", password: "hidden" },
-      "InsertaDatosVentaWeb"
-    );
-    logger.error("Pickup error. payload: {0}", bodyXML);
-    status.message = response.message;
+    handleLogOrderError("InsertaDatosVentaWeb", payload);
+    status.message = response.errorMessage;
     status.error = true;
   }
   return status;

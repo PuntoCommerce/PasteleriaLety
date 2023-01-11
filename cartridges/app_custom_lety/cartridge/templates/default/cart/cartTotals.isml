@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row d-none">
     <div class="col-7 col-lg-8 col-xl-8">
         <p>${Resource.msg('label.shipping.cost','cart',null)}</p>
     </div>

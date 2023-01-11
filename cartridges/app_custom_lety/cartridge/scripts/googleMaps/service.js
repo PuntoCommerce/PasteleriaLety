@@ -36,13 +36,15 @@ function createRequest(service, data) {
 
   let mapAPI = Site.getCurrent().getCustomPreferenceValue("mapAPI");
 
-  service.setURL(getUrlPath(credential, path));
+  let url = getUrlPath(credential, path);
+
+  service.setURL(url);
   service.addHeader("Content-Type", "application/json");
   service.setRequestMethod("GET");
   service.addParam("key", credential.password);
   service.setAuthentication("NONE");
 
-  //params.forEach(({ key, value }) => service.addParam(key, value));
+  Object.keys(params).forEach((key) => service.addParam(key, params[key]));
 
   return "";
 }
