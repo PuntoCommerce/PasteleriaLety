@@ -8,7 +8,7 @@ const handleEnviroment = () => {
   const tipoAmbiente = isProduction ? '1' : '0';
   return '<tipoAmbiente>'+ tipoAmbiente + '</tipoAmbiente>'
 }
-p
+
 function body(data,credential,path) {
     if(path==="ExistenciaPorCentroFecha"){
         return '<?xml version="1.0" encoding="utf-8"?>'+
