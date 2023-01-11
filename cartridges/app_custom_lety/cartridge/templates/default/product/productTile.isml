@@ -30,6 +30,7 @@
                 <isinclude template="product/components/pricing/main" />
         </isif>
         <isinclude template="product/components/highlight" />
+        <p>${JSON.stringify(product.attributes)}</p> 
        <div class="justify-content-center d-flex">
        
          <isinclude url="${URLUtils.url('RnR-Average', 'product_id', product.id)}" />
