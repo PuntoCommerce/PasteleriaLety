@@ -22,13 +22,14 @@ server.get("Start", (req, res, next) => {
   let store;
   if (storeId) {
     store = StoreMgr.getStore(storeId);
-    req.session.privacyCache.set("empresaId", store.custom.empresaId);
     empresaId = store.custom.empresaId;
-
+    req.session.privacyCache.set("empresaId", empresaId);
+    req.session.privacyCache.set("storeId", storeId);
+      
     const customPricebookToggle = Site.getCurrent().getCustomPreferenceValue(
       "customPricebookToggle"
     );
-    let result = handleToggglePriceBook(empresaId, customPricebookToggle);
+    handleToggglePriceBook(empresaId, customPricebookToggle);
   }
 
   res.render(render, {
@@ -51,7 +52,6 @@ const handleToggglePriceBook = (empresaId, customPriceBookToggle) => {
   } catch (error) {
     error = error;
   }
-  return error;
 };
 
 server.get("MapsScript", (req, res, next) => {

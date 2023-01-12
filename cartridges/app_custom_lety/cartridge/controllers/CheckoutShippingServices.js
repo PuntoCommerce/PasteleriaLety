@@ -85,6 +85,18 @@ server.append("SubmitShipping", (req, res, next) => {
     return next();
   }
 
+  if(!req.session.raw.privacy.storeId) {
+    let message = Resource.msg("error.no.storeid.session", "checkout", null);
+    res.json({
+      error: true,
+      cartError: true,
+      fieldErrors: [],
+      serverErrors: [],
+      redirectUrl: URLUtils.url("Cart-Show", "error", message).toString(),
+    });
+    return next();
+  }
+
   let geocode;
   let splitedAddress;
   let InsertaPersonaDireccion;
