@@ -43,8 +43,8 @@
       .toLowerCase();
     let inner = ``;
     let { openHours, closeHours } = weekSchedule[day];
-    if (openHours < date.getHours() && todayWeekDay == day) {
-      openHours = date.getHours() + 1;
+    if (openHours < today.getHours() && todayWeekDay == day) {
+      openHours = today.getHours() + 1;
     }
     for (let i = openHours; i < closeHours; i++) {
       let { label, id } = formatHours(i);
