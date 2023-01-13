@@ -67,6 +67,7 @@ server.append("SubmitShipping", (req, res, next) => {
       serverErrors: [],
       error: true,
     });
+    return next();
   }
 
   let existencia = inventory.checkOnlineInventoryMulti(
