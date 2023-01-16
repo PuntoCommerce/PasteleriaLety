@@ -12,6 +12,10 @@
     value="${customPickup.time ||''}" <isprint value=${datetime.time.attributes} encoding="off"/>
     autocomplete="shipping given-name" >
 
+<div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}shippingTime">
+    <isprint value="${customPickup.time.error}">
+</div>
+
 <div class="row">
     <div class="col-sm-12">
         <div class="form-group required Date">
