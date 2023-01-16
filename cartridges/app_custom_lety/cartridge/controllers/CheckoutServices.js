@@ -248,6 +248,8 @@ server.replace(
     if (order.getCustomerEmail()) {
       COHelpers.sendConfirmationEmail(order, req.locale.id);
       COHelpers.sendConfirmationEmailClient(order, req.locale.id, req.session.raw.privacy.storeId);
+      COHelpers.sendConfirmationEmailClientSecund(order, req.locale.id);
+      COHelpers.sendConfirmationEmailClientThird(order, req.locale.id);
     }
 
     let status = {};
