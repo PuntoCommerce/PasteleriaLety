@@ -1,4 +1,4 @@
-const rest = require("*/cartridge/scripts/jobs/service");
+const rest = require("~/cartridge/scripts/jobs/service");
 
 const requestSoap = (path,method,body) => {
   return rest.call({

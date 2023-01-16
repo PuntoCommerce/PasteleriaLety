@@ -4,11 +4,10 @@ const AmountDiscount = require("dw/campaign/AmountDiscount");
 const SHIPMENT_COST_PROMOTION = "dinamycShipmentCost";
 
 function createDinamycCost(shippingCost, currentBasket) {
-  var shipPriceAdjustment =
+  let shipPriceAdjustment =
     currentBasket.getShippingPriceAdjustmentByPromotionID(
       SHIPMENT_COST_PROMOTION
     );
-  var selectedShippingMethod = currentBasket.defaultShipment.shippingMethodID;
 
   Transaction.wrap(function () {
     // to remove the shipping adjustment created when product is removed from cart
@@ -21,8 +20,20 @@ function createDinamycCost(shippingCost, currentBasket) {
           SHIPMENT_COST_PROMOTION,
           AmountDiscount(shippingCost)
         );
-      // shipPriceAdjustment.setPriceValue(shippingCost);
       shipPriceAdjustment.setManual(true);
+    }
+  });
+}
+
+function removeDinamycCost(currentBasket) {
+  let shipPriceAdjustment =
+    currentBasket.getShippingPriceAdjustmentByPromotionID(
+      SHIPMENT_COST_PROMOTION
+    );
+  Transaction.wrap(function () {
+    // to remove the shipping adjustment created when product is removed from cart
+    if (shipPriceAdjustment !== null) {
+      currentBasket.removeShippingPriceAdjustment(shipPriceAdjustment);
     }
   });
 }
@@ -36,5 +47,6 @@ function saveRequestInfo(folioDireccion, shippingCostId, currentBasket) {
 
 module.exports = {
   createDinamycCost: createDinamycCost,
+  removeDinamycCost: removeDinamycCost,
   saveRequestInfo: saveRequestInfo,
 };

@@ -6,10 +6,12 @@ const Transaction = require("dw/system/Transaction");
 const CAHelpers = require("*/cartridge/scripts/helpers/customAddressHelpers");
 const SCHelpers = require("*/cartridge/scripts/helpers/shippingCostHelpers");
 const { ApiLety } = require("*/cartridge/scripts/jobs/api");
-//const gMaps = require("*/cartridge/scripts/googleMaps/api");
+const gMaps = require("*/cartridge/scripts/googleMaps/api");
 const OrderModel = require("*/cartridge/models/order");
 const Locale = require("dw/util/Locale");
 const inventory = require("*/cartridge/scripts/middlewares/inventory");
+const URLUtils = require("dw/web/URLUtils");
+const Resource = require("dw/web/Resource");
 
 const validateEmail = (email) => {
   if (!email) {
@@ -17,6 +19,32 @@ const validateEmail = (email) => {
   }
   return true;
 };
+
+server.prepend("SubmitShipping", (req, res, next) => {
+  let storeId = req.form.store;
+  const currentBasket = BasketMgr.getCurrentBasket();
+  if (currentBasket) {
+    let existencia = inventory.checkOnlineInventoryMulti(
+      currentBasket.productLineItems,
+      storeId
+    );
+    if (existencia.error) {
+      let message = existencia.errors.join("");
+      let viewData = res.getViewData();
+      viewData.error = true;
+      viewData = {
+        error: true,
+        cartError: true,
+        fieldErrors: [],
+        serverErrors: [],
+        redirectUrl: URLUtils.url("Cart-Show", "error", message).toString(),
+      };
+      res.setViewData(viewData);
+      return next();
+    }
+  }
+  next();
+});
 
 server.append("SubmitShipping", (req, res, next) => {
   const shipping = server.forms.getForm("shipping");
@@ -39,6 +67,35 @@ server.append("SubmitShipping", (req, res, next) => {
       serverErrors: [],
       error: true,
     });
+    return next();
+  }
+
+  let existencia = inventory.checkOnlineInventoryMulti(
+    currentBasket.productLineItems,
+    req.form.store
+  );
+  if (existencia.error) {
+    let message = existencia.errors.join("");
+    res.json({
+      error: true,
+      cartError: true,
+      fieldErrors: [],
+      serverErrors: [],
+      redirectUrl: URLUtils.url("Cart-Show", "error", message).toString(),
+    });
+    return next();
+  }
+
+  if(!req.session.raw.privacy.storeId) {
+    let message = Resource.msg("error.no.storeid.session", "checkout", null);
+    res.json({
+      error: true,
+      cartError: true,
+      fieldErrors: [],
+      serverErrors: [],
+      redirectUrl: URLUtils.url("Cart-Show", "error", message).toString(),
+    });
+    return next();
   }
 
   let geocode;
@@ -46,6 +103,7 @@ server.append("SubmitShipping", (req, res, next) => {
   let InsertaPersonaDireccion;
   let body;
   let a;
+  let store;
   if (viewData.shippingMethod != "pickup" && viewData.address) {
     let totalAddress =
       viewData.address.address1 +
@@ -56,21 +114,50 @@ server.append("SubmitShipping", (req, res, next) => {
       ", " +
       viewData.address.stateCode;
 
-    //geocode = gMaps.getGeocode([{ key: "address", value: totalAddress }]);
-    let lat = 0;
-    let lng = 0;
-    // if (geocode.status == "OK") {
-    //   lat = geocode.results[0].geometry.location.lat;
-    //   lng = geocode.results[0].geometry.location.lng;
-    // }
+    geocode = gMaps.getGeocode({ address: totalAddress });
+    if(geocode.error || geocode.status != "OK"){
 
-    // inventory.handleStoreShipping(req, currentBasket, { lat: lat, lng: lng });
+      res.json({
+        form: shipping,
+        fieldErrors: [],
+        serverErrors: [Resource.msgf("error.google.maps.address", "checkout", null, totalAddress)],
+        error: true,
+      });
+      return next();
+    }
+    let lat = geocode.results[0].geometry.location.lat;
+    let lng = geocode.results[0].geometry.location.lng;
+
+    store = inventory.handleStoreShipping(
+      req.session.raw.privacy.storeId,
+      currentBasket,
+      { lat: lat, lng: lng }
+    );
+
+    if (!store) {
+      res.json({
+        error: true,
+        cartError: true,
+        fieldErrors: [],
+        serverErrors: [],
+        redirectUrl: URLUtils.url(
+          "Cart-Show",
+          "error",
+          Resource.msg("error.shipping.store.stock", "checkout", null)
+        ).toString(),
+      });
+      return next();
+    }
+
+    req.session.privacyCache.set("storeId", store.ID);
+    req.session.privacyCache.set("empresaId", store.custom.empresaId);
+
     splitedAddress = CAHelpers.splitAddress(viewData.address.address1);
 
     body = {
-      IdEmpresa: 1,
+      IdEmpresa: store.custom.empresaId,
       iIdFolioPersona: 90000,
-      iIdCentro: parseInt(req.session.raw.privacy.storeId),
+      iIdCentro: parseInt(store.ID),
       iIdDireccion: 0,
       iIdFolioDireccion: 0,
       sDireccion: splitedAddress.street,
@@ -93,6 +180,17 @@ server.append("SubmitShipping", (req, res, next) => {
 
     InsertaPersonaDireccion = ApiLety("InsertaPersonaDireccion", body);
     if (!InsertaPersonaDireccion.error) {
+
+      if(InsertaPersonaDireccion.iCode == 0){
+        res.json({
+          form: shipping,
+          fieldErrors: [],
+          serverErrors: [Resource.msg("shipping.no.coverage", "checkout", null)],
+          error: true,
+        });
+        return next();
+      }
+
       SCHelpers.createDinamycCost(
         parseFloat(InsertaPersonaDireccion.dCost) * -1,
         currentBasket
@@ -102,17 +200,33 @@ server.append("SubmitShipping", (req, res, next) => {
         InsertaPersonaDireccion.sMensaje,
         currentBasket
       );
-      COHelpers.recalculateBasket(currentBasket);
+      
+    } else {
+      res.json({
+        form: shipping,
+        fieldErrors: [],
+        serverErrors: [Resource.msg("error.server.conection", "checkout", null)],
+        error: true,
+      });
+      return next();
     }
   }
 
+  res.setViewData(viewData);
+
   Transaction.wrap(() => {
     currentBasket.setCustomerEmail(shipping.customPickUp.email.value);
-    currentBasket.custom.storeId = req.session.raw.privacy.storeId;
+    currentBasket.custom.storeId = store ? store.ID : req.session.raw.privacy.storeId;
     currentBasket.custom.deliveryDateTime =
       shipping.datetime.date.value + " : " + shipping.datetime.time.value;
   });
 
+  next();
+});
+
+server.append("SelectShippingMethod", (req, res, next) => {
+  const currentBasket = BasketMgr.getCurrentBasket();
+  SCHelpers.removeDinamycCost(currentBasket);
   next();
 });
 

@@ -248,10 +248,30 @@ server.replace(
     if (order.getCustomerEmail()) {
       COHelpers.sendConfirmationEmail(order, req.locale.id);
       COHelpers.sendConfirmationEmailClient(order, req.locale.id, req.session.raw.privacy.storeId);
+      COHelpers.sendConfirmationEmailClientSecund(order, req.locale.id);
+      COHelpers.sendConfirmationEmailClientThird(order, req.locale.id);
+      COHelpers.sendConfirmationEmailClientFourth(order, req.locale.id);
     }
 
-    HO.sendPickupOrderToERP(order.orderNo);
-
+    let status = {};
+    try {
+      if(order.defaultShipment.shippingMethodID == "pickup"){
+        status = HO.sendPickupOrderToERP(order.orderNo);
+      } else {
+        status = HO.sendShippingOrderToERP(order.orderNo);
+      }
+    } catch (error) {
+      status.error = true;
+      status.message = JSON.stringify(error);
+    }
+    
+    if(status.error) {
+      Transaction.wrap(() => {
+        order.custom.isError = true;
+        order.custom.errorDetail = status.message;
+      })
+    }
+    
     // Reset usingMultiShip after successful Order placement
     req.session.privacyCache.set("usingMultiShipping", false);
 
@@ -281,7 +301,7 @@ server.get("Prueba", (req, res, next) => {
 
   res.json({order: order})
     
-    next();
+  next();
 });
 
 module.exports = server.exports();

@@ -3,6 +3,16 @@ server.extend(module.superModule);
 // const letyCartHelper = require("*/cartridge/scripts/cart/letyCartHelpers");
 const inventory = require("*/cartridge/scripts/middlewares/inventory");
 
+server.append("Show", (req, res, next) => {
+  if(req.querystring.error) {
+    let viewData = res.getViewData();
+    viewData.valid.error = true;
+    viewData.valid.message = req.querystring.error;
+    res.setViewData(viewData);
+  }
+  next();
+})
+
 server.replace('AddProduct', inventory.checkOnlineInventory, function (req, res, next) {
   var BasketMgr = require('dw/order/BasketMgr');
   var Resource = require('dw/web/Resource');
@@ -240,13 +250,21 @@ server.replace('UpdateQuantity', inventory.checkOnlineInventory, function (req, 
 
 server.get("OnlineInventory", (req, res, next) => {
     const { ApiLety } = require("*/cartridge/scripts/jobs/api");
+    const StoreMgr = require('dw/catalog/StoreMgr');
 
     let pid = req.querystring.pid;
     let storeId = req.session.raw.privacy.storeId;
+
+    if(req.querystring.storeId) {
+        storeId = req.querystring.storeId;
+    }
+
+    let store = StoreMgr.getStore(storeId);
+
     let today = new Date();
     today.setMinutes(today.getMinutes() + 1);
     let existencia = ApiLety("ExistenciaPorCentroFecha", {
-        Empresa: "1",
+        Empresa: store.custom.empresaId,
         iIdMaterial: parseInt(pid),
         iIdCentro: parseInt(storeId),
         dtFecha: today.toISOString(),

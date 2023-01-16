@@ -18,8 +18,8 @@
 		<action formid="save" valid-form="true" />
 	</group>
 	<group formid="datetime" form-error="address.invalid">
-		<field formid="date" type="string" mandatory="true" />
-		<field formid="time" type="string" mandatory="true" />
+		<field formid="date" type="string" mandatory="true" missing-error="address.date.missing" />
+		<field formid="time" type="string" mandatory="true" missing-error="address.date.missing" />
 	</group>
 	<group formid="customPickUp" form-error="address.invalid">
 		<field formid="firstName" label="label.input.firstname.profile" type="string" mandatory="true" binding="firstName" max-length="50" missing-error="address.firstname.missing" range-error="error.message.50orless" />

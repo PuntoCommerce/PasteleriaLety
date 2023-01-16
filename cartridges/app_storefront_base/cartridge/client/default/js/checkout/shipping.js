@@ -396,6 +396,30 @@ function updateProductLineItemShipmentUUIDs(productLineItem, shipping) {
     });
 }
 
+// CUSTOM
+
+function updateShippingMethodsCustom(shipping){
+    var uuidEl = $('input[value=' + shipping.UUID + ']');
+    if (uuidEl && uuidEl.length > 0) {
+        $.each(uuidEl, function (shipmentIndex, el) {
+            var form = el.form;
+            if (!form) return;
+            var $shippingMethodList = $('.shipping-method-list', form);
+            if ($shippingMethodList && $shippingMethodList.length > 0) {
+                var shippingMethods = shipping.applicableShippingMethods;
+                var selected = shipping.selectedShippingMethod || {};
+                $.each(shippingMethods, function (methodIndex, shippingMethod) {
+                    console.log(shippingMethod);
+                    console.log($("input[value="+ shippingMethod.ID +"]"));
+
+                    $("input[value="+ shippingMethod.ID +"]").attr('checked', shippingMethod.ID === selected.ID);
+                })
+            }
+        });
+
+    }
+}
+
 /**
  * Update the shipping UI for a single shipping info (shipment model)
  * @param {Object} shipping - the shipping (shipment model) model
@@ -413,7 +437,7 @@ function updateShippingInformation(shipping, order, customer, options) {
     });
 
     // Now update shipping information, based on those associations
-    updateShippingMethods(shipping);
+    updateShippingMethodsCustom(shipping);
     updateShippingAddressFormValues(shipping);
     updateShippingSummaryInformation(shipping, order);
 

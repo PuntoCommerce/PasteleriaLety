@@ -1,4 +1,13 @@
  "use strict";
+const Site = require('dw/system/Site');
+
+const handleEnviroment = () => {
+  const isProduction = Site.getCurrent().getCustomPreferenceValue(
+    "isProduction"
+  );
+  const tipoAmbiente = isProduction ? '1' : '0';
+  return '<tipoAmbiente>'+ tipoAmbiente + '</tipoAmbiente>'
+}
 
 function body(data,credential,path) {
     if(path==="ExistenciaPorCentroFecha"){
@@ -7,7 +16,7 @@ function body(data,credential,path) {
           '<soap:Body><'+path+' xmlns="http://localhost/">'+  
           '<IdEmpresa>'+data.Empresa+'</IdEmpresa>'+  
           '<vUsr>'+credential.user+'</vUsr>'+     
-          '<vPwd>'+credential.password+'</vPwd>'+  
+          '<vPwd>'+credential.password+'</vPwd>'+ handleEnviroment() +
           '<iIdCentro>'+data.iIdCentro+'</iIdCentro>'+  
           '<iIdMaterial>'+data.iIdMaterial+'</iIdMaterial>'+  
           '<dtFecha>'+data.dtFecha+'</dtFecha>'+
@@ -21,7 +30,7 @@ function body(data,credential,path) {
         '<soap:Body><'+path+' xmlns="http://localhost/">'+
         '<IdEmpresa>'+data.Empresa+'</IdEmpresa>'+
         '<vUsr>'+credential.user+'</vUsr>'+
-        '<vPwd>'+credential.password+'</vPwd>'+
+        '<vPwd>'+credential.password+'</vPwd>'+ handleEnviroment() +
         '<IdEstado>'+data.IdEstado+'</IdEstado>'+
         '</'+path+'>'+
         '</soap:Body></soap:Envelope>';
@@ -32,7 +41,7 @@ function body(data,credential,path) {
         '<soap:Body><'+path+' xmlns="http://localhost/">'+
         '<IdEmpresa>'+data.Empresa+'</IdEmpresa>'+
         '<vUsr>'+credential.user+'</vUsr>'+
-        '<vPwd>'+credential.password+'</vPwd>'+
+        '<vPwd>'+credential.password+'</vPwd>'+ handleEnviroment() +
         '</'+path+'>'+
         '</soap:Body></soap:Envelope>';
     }
@@ -42,7 +51,7 @@ function body(data,credential,path) {
           '<soap:Body>+<'+path+' xmlns="http://localhost/">'+
           '<IdEmpresa>'+data.Empresa+'</IdEmpresa>'+
           '<vUsr>'+credential.user+'</vUsr>'+
-          '<vPwd>'+credential.password+'</vPwd>'+
+          '<vPwd>'+credential.password+'</vPwd>'+ handleEnviroment() +
           '<oResumen>'+
           '<Posicion>'+data.Posicion+'</Posicion>'+
           '<IdCentroAlta>'+data.IdCentroAlta+'</IdCentroAlta>'+
@@ -68,7 +77,7 @@ function body(data,credential,path) {
         '<soap:Body><'+path+' xmlns="http://localhost/">'+
         '<IdEmpresa>'+data.Empresa+'</IdEmpresa>'+  
         '<vUsr>'+credential.user+'</vUsr>'+     
-        '<vPwd>'+credential.password+'</vPwd>'+  
+        '<vPwd>'+credential.password+'</vPwd>'+ handleEnviroment() +  
         '<s_IdMembresia>'+data.s_IdMembresia+'</s_IdMembresia>'+  
         '</'+path+'>'+ 
         '</soap:Body>'+ 
@@ -80,7 +89,7 @@ function body(data,credential,path) {
         '<soap:Body><'+path+' xmlns="http://localhost/">'+
         '<IdEmpresa>'+data.Empresa+'</IdEmpresa>'+  
         '<vUsr>'+credential.user+'</vUsr>'+     
-        '<vPwd>'+credential.password+'</vPwd>'+  
+        '<vPwd>'+credential.password+'</vPwd>'+ handleEnviroment() +  
         '<s_IdMembresia>'+data.s_IdMembresia+'</s_IdMembresia>'+  
         '</'+path+'>'+ 
         '</soap:Body>'+
@@ -92,7 +101,7 @@ function body(data,credential,path) {
         '<soap:Body><'+path+' xmlns="http://localhost/">'+
         '<IdEmpresa>'+data.Empresa+'</IdEmpresa>'+  
         '<vUsr>'+credential.user+'</vUsr>'+     
-        '<vPwd>'+credential.password+'</vPwd>'+
+        '<vPwd>'+credential.password+'</vPwd>'+ handleEnviroment() +
         '<s_IdMembresia>'+data.s_IdMembresia+'</s_IdMembresia>'+
         '<i_IdFolioPersona>'+data.i_IdFolioPersona+'</i_IdFolioPersona>'+
         '<s_Nombre>'+data.s_Nombre+'</s_Nombre>'+
@@ -117,7 +126,7 @@ function body(data,credential,path) {
         '<soap:Body><'+path+' xmlns="http://localhost/">'+
         '<IdEmpresa>'+data.Empresa+'</IdEmpresa>'+  
         '<vUsr>'+credential.user+'</vUsr>'+     
-        '<vPwd>'+credential.password+'</vPwd>'+  
+        '<vPwd>'+credential.password+'</vPwd>'+ handleEnviroment() +  
         '<s_IdMembresia>'+data.s_IdMembresia+'</s_IdMembresia>'+  
         '</'+path+'>'+ 
         '</soap:Body>'+ 
@@ -129,7 +138,7 @@ function body(data,credential,path) {
         '<soap:Body><'+path+' xmlns="http://localhost/">'+
         '<IdEmpresa>'+data.Empresa+'</IdEmpresa>'+
         '<vUsr>'+credential.user+'</vUsr>'+
-        '<vPwd>'+credential.password+'</vPwd>'+
+        '<vPwd>'+credential.password+'</vPwd>'+ handleEnviroment() +
         '<s_IdMembresia>'+data.s_IdMembresia+'</s_IdMembresia>'+
         '<dMonto>'+data.dMonto+'</dMonto>'+
         '<sFolioWeb>'+data.sFolioWeb+'</sFolioWeb>'+
@@ -143,7 +152,7 @@ function body(data,credential,path) {
         '<s_IdMembresia>'+data.s_IdMembresia+'</s_IdMembresia>'+
         '<IdEmpresa>'+data.Empresa+'</IdEmpresa>'+
         '<vUsr>'+credential.user+'</vUsr>'+
-        '<vPwd>'+credential.password+'</vPwd>'+
+        '<vPwd>'+credential.password+'</vPwd>'+ handleEnviroment() +
         '</'+path+'>'+
         '</soap:Body></soap:Envelope>';
     }
@@ -153,7 +162,7 @@ function body(data,credential,path) {
         '<soap:Body><'+path+' xmlns="http://localhost/">'+
         '<IdEmpresa>'+data.Empresa+'</IdEmpresa>'+
         '<vUsr>'+credential.user+'</vUsr>'+
-        '<vPwd>'+credential.password+'</vPwd>'+
+        '<vPwd>'+credential.password+'</vPwd>'+ handleEnviroment() +
         '<s_Nombre>'+data.s_Nombre+'</s_Nombre>'+
         '<s_Appaterno>'+data.s_Appaterno+'</s_Appaterno>'+
         '<s_Apmaterno>'+data.s_Apmaterno+'</s_Apmaterno>'+
@@ -175,7 +184,7 @@ function body(data,credential,path) {
         '<soap:Body><'+path+' xmlns="http://localhost/">'+
         '<IdEmpresa>'+data.IdEmpresa+'</IdEmpresa>'+
         '<vUsr>'+credential.user+'</vUsr>'+
-        '<vPwd>'+credential.password+'</vPwd>'+
+        '<vPwd>'+credential.password+'</vPwd>'+ handleEnviroment() +
         '<pPersonaDireccion>'+
         '<iIdFolioPersona>'+data.iIdFolioPersona+'</iIdFolioPersona>'+
         '<iIdCentro>'+data.iIdCentro+'</iIdCentro>'+
@@ -209,7 +218,7 @@ function body(data,credential,path) {
         '<soap:Body><'+path+' xmlns="http://localhost/">'+
         '<IdEmpresa>'+data.IdEmpresa+'</IdEmpresa>'+
         '<vUsr>'+credential.user+'</vUsr>'+
-        '<vPwd>'+credential.password+'</vPwd>'+
+        '<vPwd>'+credential.password+'</vPwd>'+ handleEnviroment() +
         '<pServicioDomicilioH>'+
         '<iIdCentroAlta>'+data.iIdCentroAlta+'</iIdCentroAlta>'+
         '<iIdServDom>'+data.iIdServDom+'</iIdServDom>'+
@@ -248,7 +257,7 @@ function body(data,credential,path) {
       '<soap:Body><'+path+' xmlns="http://localhost/">'+
         '<IdEmpresa>'+data.Empresa+'</IdEmpresa>'+
         '<vUsr>'+credential.user+'</vUsr>'+
-        '<vPwd>'+credential.password+'</vPwd>'+
+        '<vPwd>'+credential.password+'</vPwd>'+ handleEnviroment() +
           '<pEncabezado>'+
             '<sFolio>'+data.sFolio+'</sFolio>'+
             '<sFolioBanco>'+data.sFolioBanco+'</sFolioBanco>'+

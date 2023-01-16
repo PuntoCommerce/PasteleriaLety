@@ -26,7 +26,10 @@
                     <p>${Resource.msg('label.orderhistory.ordernumber','account',null)} <isprint value="${order.orderNumber}"/></p>
                 </isif>
                 <p>${Resource.msg('label.orderhistory.dateordered','account',null)} <isprint value="${order.creationDate}"/></p>
-                <p>${Resource.msg('label.orderhistory.orderstatus','account',null)} <span class="dashboard-order-card-status">${order.orderStatus}</span></p>
+                <p>${Resource.msg('label.orderhistory.orderstatus','account',null)} 
+                    <iscomment> <span class="dashboard-order-card-status">${order.orderStatus}</span> </iscomment>
+                    <span class="dashboard-order-card-status">${Resource.msg('order.statuts.complete', 'order', null)}</span>
+                </p>
                 <isinclude template="account/order/shippingTitle"/>
                 </div>
             </div>

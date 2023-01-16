@@ -12,6 +12,7 @@
             <!---product cards--->
             <isloop items="${pdict.account.wishlist}" var="item">
                 <isinclude template="account/wishlist/listCard" />
+                
             </isloop>
             <iselse>
                 <div class="text-center empty-wishlist-msg">

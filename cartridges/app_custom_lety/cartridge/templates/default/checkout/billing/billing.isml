@@ -66,7 +66,7 @@
                             </span>
                         </button>
 
-                        <input type="tel" class="form-control phone" id="phoneNumber"
+                        <input onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" min="1" maxlength="10" type="tel" class="form-control phone" id="phoneNumber"
                             value="${pdict.order.billing.billingAddress.address ? pdict.order.billing.billingAddress.address.phone || '' : ''}"
                             <isprint value=${pdict.forms.billingForm.contactInfoFields.phone.attributes}
                             encoding="off" />

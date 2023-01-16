@@ -1,10 +1,13 @@
 <isif condition="${product.promotions.length > 0}">
   <div class="highlight">
     <isloop items="${product.promotions}" var="promotion" status="loopstatus">
-      <isprint value="${promotion.calloutMsg}" encoding="off" />
+      <div class="highlight-promotion">
+          <span id="highlight-price">${promotion.calloutMsg}</span>
+      </div>
     </isloop>
   </div>
 </isif>
+
 <isif condition="${product.attributes}">
   <isif condition="${product.attributes.numerodepersonas}">
     <div class="highlight highlight--black d-flex justify-content-center align-items-center p-1">
@@ -12,6 +15,7 @@
       <span>${product.attributes.numerodepersonas}</span>
     </div>
     </div>
+    
     
   </isif>
 </isif>

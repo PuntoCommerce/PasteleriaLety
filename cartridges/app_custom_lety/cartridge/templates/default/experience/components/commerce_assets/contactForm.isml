@@ -1,0 +1,82 @@
+<isscript>
+    let assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss("/css/experience/components/commerceAssets/text_align.css");
+    assets.addCss('/css/custom.css');
+</isscript>
+
+<div class="contact-form-container">
+    <div class="card contact-form-container__card">
+        <div class="contact-form-container__card__form">
+            <div class="form-row">
+                <isloop items="${pdict.input_name}" var="input">
+                    <div class="col-md-6">
+                        <label class="contact-form-container__card__form__label">
+                            ${input.label}
+                            <span class="contact-form-container__card__form__label--normal">
+                                ${Resource.msg('label.required', 'storeLocator', null)}
+                            </span>
+                        </label>
+                        <input required class="form-control contact-form-container__card__form__input"
+                            type="${input.type}" name="contact_${input.id}">
+                    </div>
+                </isloop>
+                <isloop items="${pdict.input_email}" var="input">
+                    <div class="col-md-12 mt-4">
+                        <label class="contact-form-container__card__form__label">
+                            ${input.label}
+                            <span class="contact-form-container__card__form__label--normal">
+                                ${Resource.msg('label.required', 'storeLocator', null)}
+                            </span>
+                        </label>
+                        <input required class="form-control contact-form-container__card__form__input"
+                            type="${input.type}" name="contact_${input.id}">
+                    </div>
+                </isloop>
+
+                <div class="col-md-12 mt-4">
+                    <label class="contact-form-container__card__form__label">
+                        ${pdict.label_selectTeme}
+                        <span class="contact-form-container__card__form__label--normal">
+                            ${Resource.msg('label.required', 'storeLocator', null)}
+                        </span>
+                    </label>
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <select required class="form-control" id="contact_${pdict.select_teme_id}"
+                                name="contact_${pdict.select_teme_id}">
+                                <option value="tema" disabled selected>Selecciona un tema</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <select required class="form-control" id="contact_${pdict.select_child_id}"
+                                name="contact_${pdict.select_child_id}">
+                                <option value="tema" disabled selected>Selecciona un sub tema</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 mt-4">
+                    <label class="contact-form-container__card__form__label">
+                        ${pdict.label_textArea}
+                        <span class="contact-form-container__card__form__label--normal">
+                            ${Resource.msg('label.required', 'storeLocator', null)}
+                        </span>
+                    </label>
+                    <textarea required class="form-control" rows="3" name="contact_${pdict.textArea_id}"></textarea>
+                </div>
+            </div>
+
+            <div class="contact-form-container__card__form__buttons">
+                <div class="col-md-6 p-0">
+                    <a href="">Volver a mi cuenta</a>
+                </div>
+                <div class="col-md-6 p-0">
+                    <label class="d-none" id="contact-link" data-href="${URLUtils.url('Account-Show')}"></label>
+                    <button class="contact-form-container__card__form__buttons__submit" type="submit"
+                        onclick="contactUs(this)" data-href="${URLUtils.url('ContactUs-Create')}">Enviar</button> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

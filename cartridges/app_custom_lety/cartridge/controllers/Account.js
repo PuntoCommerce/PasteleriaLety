@@ -378,49 +378,6 @@ server.post("AddLetyCardMember",  function (req, res, next) {
   next();
 });
 
-/* if (registrationForm.validForm) {
-  var login = registrationForm.email;
-  var password = registrationForm.password;
-
-  // attempt to create a new user and log that user in.
-  try {
-      Transaction.wrap(function () {
-          var error = {};
-          var newCustomer = CustomerMgr.createCustomer(login, password);
-
-          var authenticateCustomerResult = CustomerMgr.authenticateCustomer(login, password);
-          if (authenticateCustomerResult.status !== 'AUTH_OK') {
-              error = { authError: true, status: authenticateCustomerResult.status };
-              throw error;
-          }
-
-          authenticatedCustomer = CustomerMgr.loginCustomer(authenticateCustomerResult, false);
-
-          if (!authenticatedCustomer) {
-              error = { authError: true, status: authenticateCustomerResult.status };
-              throw error;
-          } else {
-              // assign values to the profile
-              var newCustomerProfile = newCustomer.getProfile();
-
-              newCustomerProfile.firstName = registrationForm.firstName;
-              newCustomerProfile.lastName = registrationForm.lastName;
-              newCustomerProfile.phoneHome = registrationForm.phone;
-              newCustomerProfile.email = registrationForm.email;
-          }
-      });
-  } catch (e) {
-      if (e.authError) {
-          serverError = true;
-      } else {
-          registrationForm.validForm = false;
-          registrationForm.form.customer.email.valid = false;
-          registrationForm.form.customer.emailconfirm.valid = false;
-          registrationForm.form.customer.email.error =
-              Resource.msg('error.message.username.invalid.regist', 'forms', null);
-      }
-  }
-} */
 /* working create card... */
 
 /**

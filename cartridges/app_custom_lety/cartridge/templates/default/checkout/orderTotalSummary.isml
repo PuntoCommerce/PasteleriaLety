@@ -5,7 +5,7 @@
             <p class="order-receipt-label"><span>${Resource.msg('label.order.subtotal','confirmation', null)}</span></p>
         </div>
         <div class="col-6">
-            <p class="text-right"><span class="sub-total" id="checkoutSubTotal">${pdict.order.totals.subTotal}</span></p>
+            <p class="text-right"><span class="sub-total" id="checkoutSubTotal" total-avaiable-letypuntos="${pdict.totalAvailableLetyPuntos}">${pdict.order.totals.subTotal}</span></p>
         </div>
     </div>
 

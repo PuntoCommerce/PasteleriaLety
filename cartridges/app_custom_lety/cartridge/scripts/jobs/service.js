@@ -4,8 +4,8 @@ const serviceName = "ERP_PasteleriaLety";
 const ServiceCredential = require("dw/svc/ServiceCredential");
 const LocalServiceRegistry = require("dw/svc/LocalServiceRegistry");
 const Resource = require("dw/web/Resource");
-const functionsSoap = require("*/cartridge/scripts/jobs/functionsSoap");
-const xmlSoap = require("*/cartridge/scripts/jobs/xmlSoap");
+const functionsSoap = require("~/cartridge/scripts/jobs/functionsSoap");
+const xmlSoap = require("~/cartridge/scripts/jobs/xmlSoap");
 let pathJson;
 
 /** createRequest callback for a service

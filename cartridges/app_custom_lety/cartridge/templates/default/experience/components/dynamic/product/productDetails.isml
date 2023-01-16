@@ -10,6 +10,8 @@
 <isset name="product" value="${pdict.product}" scope="page" />
 <isset name="isQuickView" value="${false}" scope="page" />
 <isset name="isProductSet" value="${pdict.product.productType === 'set'}" scope="page" />
+<isset name="isPurchasesEnable" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('isPurchasesEnable')}" scope="page" />
+
 <!-- Object declaration -->
 <isobject object="${product.raw}" view="detail" />
 
@@ -157,21 +159,28 @@
                 </isif>
 
                 <iscomment> Quitar el d-none cuando este habilitado el checkout </iscomment>
-                <div class="prices-add-to-cart-actions mb-2">
-                    <!-- Cart and Checkout -->
-                    <isscript>
-                        var assets = require('*/cartridge/scripts/assets.js');
-                        assets.addJs('/js/pdpBuyNow.js');
-                    </isscript>
-                    <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/buyNowProduct', 'addToCartUrl', pdict.addToCartUrl, "readyToOrder", product.readyToOrder, "available", product.available)}" />
-                    
-                    <iscomment> <isinclude template="product/components/buyNowProduct" /> </iscomment>
+
+                <div class="no purchases available ${ !isPurchasesEnable ? '' : 'd-none' }">
+                    <span class="message">${Resource.msg("msg.no.purchases.available", "checkout", null)}</span>
                 </div>
-                <iscomment> Quitar el d-none cuando este habilitado el checkout </iscomment>
-                <div class="prices-add-to-cart-actions">
-                    <!-- Cart and [Optionally] Apple Pay -->
-                    <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/addToCartProduct', 'addToCartUrl', pdict.addToCartUrl, "readyToOrder", product.readyToOrder, "available", product.available)}" />
-                    <iscomment> <isinclude template="product/components/addToCartProduct" /> </iscomment>
+
+                <div class="actions ${ !isPurchasesEnable ? 'd-none' : '' }">
+                    <div class="prices-add-to-cart-actions mb-2">
+                        <!-- Cart and Checkout -->
+                        <isscript>
+                            var assets = require('*/cartridge/scripts/assets.js');
+                            assets.addJs('/js/pdpBuyNow.js');
+                        </isscript>
+                        <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/buyNowProduct', 'addToCartUrl', pdict.addToCartUrl, "readyToOrder", product.readyToOrder, "available", product.available)}" />
+                        
+                        <iscomment> <isinclude template="product/components/buyNowProduct" /> </iscomment>
+                    </div>
+                    <iscomment> Quitar el d-none cuando este habilitado el checkout </iscomment>
+                    <div class="prices-add-to-cart-actions">
+                        <!-- Cart and [Optionally] Apple Pay -->
+                        <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/addToCartProduct', 'addToCartUrl', pdict.addToCartUrl, "readyToOrder", product.readyToOrder, "available", product.available)}" />
+                        <iscomment> <isinclude template="product/components/addToCartProduct" /> </iscomment>
+                    </div>
                 </div>
                 <div class="row row-desc row-rating-mobile mt-3">
                     <div class="col-12 row-rating">
@@ -179,7 +188,6 @@
                             <isinclude url="${URLUtils.url('RnR-AverageV2', 'product_id', pdict.product.id)}" />
                         </div>
                     </div>
-
                 </div>
                 <!-- Social Sharing Icons -->
                 <div class="row row-desc row-social-icons">

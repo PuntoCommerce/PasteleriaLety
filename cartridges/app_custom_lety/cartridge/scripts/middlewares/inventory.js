@@ -3,14 +3,18 @@ const collections = require("*/cartridge/scripts/util/collections");
 const { ApiLety } = require("*/cartridge/scripts/jobs/api");
 const Resource = require("dw/web/Resource");
 const StoreMgr = require("dw/catalog/StoreMgr");
-const distance = require("*/cartridge/scripts/helpers/distance");
-var SystemObjectMgr = require("dw/object/SystemObjectMgr");
+const SystemObjectMgr = require("dw/object/SystemObjectMgr");
+const Site = require("dw/system/Site");
 
-const handleExistenciaCall = (pid, quantity, storeId) => {
+const handleExistenciaCall = (pid, quantity, storeId, empresaId) => {
+  let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(
+    "hoursDifferenceFromGMT"
+  );
   let today = new Date();
+  today.setHours(today.getHours() + hoursDifferenceFromGMT);
   today.setMinutes(today.getMinutes() + 1);
   let existencia = ApiLety("ExistenciaPorCentroFecha", {
-    Empresa: "1",
+    Empresa: empresaId,
     iIdMaterial: parseInt(pid),
     iIdCentro: parseInt(storeId),
     dtFecha: today.toISOString(),
@@ -18,6 +22,7 @@ const handleExistenciaCall = (pid, quantity, storeId) => {
 
   let error = false;
   let message = "";
+  let letyQuantity = 0;
 
   if (typeof existencia == "string") {
     try {
@@ -26,7 +31,7 @@ const handleExistenciaCall = (pid, quantity, storeId) => {
         json.ExistenciaPorCentroFecha[0].Existencia < quantity ||
         json.ExistenciaPorCentroFecha[0].error
       ) {
-        let letyQuantity = json.ExistenciaPorCentroFecha[0].error
+        letyQuantity = json.ExistenciaPorCentroFecha[0].error
           ? 0
           : Math.ceil(json.ExistenciaPorCentroFecha[0].Existencia);
         error = true;
@@ -45,13 +50,14 @@ const handleExistenciaCall = (pid, quantity, storeId) => {
     error = true;
     message = Resource.msg("response.error", "stockCustom", null);
   }
-  return { error: error, message: message };
+  return { error: error, message: message, quantity: letyQuantity };
 };
 
 const checkOnlineInventory = (req, res, next) => {
   let pid = req.form.pid;
   let quantity;
   let storeId = req.session.raw.privacy.storeId;
+  let store = StoreMgr.getStore(storeId);
   let currentBasket = BasketMgr.getCurrentBasket();
   let isUpdate = false;
 
@@ -74,7 +80,12 @@ const checkOnlineInventory = (req, res, next) => {
     }
   }
 
-  let existencia = handleExistenciaCall(pid, quantity, storeId);
+  let existencia = handleExistenciaCall(
+    pid,
+    quantity,
+    storeId,
+    store.custom.empresaId
+  );
 
   let viewData = res.getViewData();
   viewData.error = existencia.error;
@@ -86,18 +97,27 @@ const checkOnlineInventory = (req, res, next) => {
 const checkOnlineInventoryMulti = (collection, storeId) => {
   let error = false;
   let message = "";
-  let store = parseInt(storeId);
-  let errors = [];
+  let store = StoreMgr.getStore(storeId);
+  let errors = [Resource.msg("no.stock.available.multi", "stockCustom", null)];
   let err;
   let products = collections.forEach(collection, (p) => {
     let existencia = handleExistenciaCall(
       p.productID,
       p.quantityValue,
-      storeId
+      storeId,
+      store.custom.empresaId
     );
     if (existencia.error) {
       error = true;
-      errors.push(existencia.message + " (" + p.productName + "). ");
+      errors.push(
+        Resource.msgf(
+          "no.stock.available.product",
+          "stockCustom",
+          null,
+          p.productName,
+          existencia.quantity
+        )
+      );
     }
   });
 
@@ -105,24 +125,43 @@ const checkOnlineInventoryMulti = (collection, storeId) => {
 };
 
 const handleNearestWithService = (collection, clientLocation) => {
+  const distance = require("*/cartridge/scripts/helpers/distance");
+
   const stores = SystemObjectMgr.querySystemObjects(
     "Store",
-    "isShippingAvailable = {0}",
+    "custom.isShippingAvailable = {0}",
     "creationDate desc",
     true
   );
   let sortedStores = distance.sortStoresByDistance(stores, clientLocation);
-  return store[1];
+
+  let aplicableStore;
+  let result;
+  let error = true;
+  let ss;
+
+  // Find the nearest store to find one who complete the order items to sell
+  for (let i = 0; i < sortedStores.length; i++) {
+    ss = sortedStores[i];
+    result = checkOnlineInventoryMulti(collection, ss.store.ID);
+    if (!result.error) {
+      aplicableStore = ss.store;
+      break;
+    }
+  }
+
+  return aplicableStore;
 };
 
-const handleStoreShipping = (req, currentBasket, clientLocation) => {
-  let store = StoreMgr.getStore(req.session.raw.privacy.storeId);
+const handleStoreShipping = (storeId, currentBasket, clientLocation) => {
+  let store = StoreMgr.getStore(storeId);
   if (!store.custom.isShippingAvailable) {
-    let result = handleNearestWithService(
+    store = handleNearestWithService(
       currentBasket.productLineItems,
       clientLocation
     );
   }
+  return store;
 };
 
 module.exports = {

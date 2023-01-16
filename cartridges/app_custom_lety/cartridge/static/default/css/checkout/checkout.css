@@ -1231,6 +1231,57 @@ span.ship-to-phone {
   display: inline-flex;
 }
 
+#checkout-main .shipping-item {
+  display: none;
+}
+
+.shipping-item-container:has(input[checked]) .postelement {
+  content: url("../../images/checkout/checkbox-checked.svg");
+}
+
+.shipping-item-container:has(input) .postelement {
+  content: url("../../images/checkout/checkbox.svg");
+}
+
+#checkout-main .shipping-item-container {
+  position: relative;
+}
+
+#checkout-main .shipping-item-container .form-check-input {
+  position: absolute;
+  left: 40px;
+  top: 20px;
+}
+
+#checkout-main .shipping-method-list {
+  justify-content: space-evenly;
+}
+
+#checkout-main .shipping-item-checkbox {
+  width: 282px;
+  height: 216px;
+  background: #F3F3F3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+#checkout-main .shipping-item-checkbox {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+#checkout-main .shipping-method-list .display-name {
+  font-weight: 700;
+  font-size: 20px;
+}
+#checkout-main .shipping-method-list .description {
+  font-size: 16px;
+}
+
 @media (max-width: 992px) {
   .checkout__stepper--divider {
     height: 1px;

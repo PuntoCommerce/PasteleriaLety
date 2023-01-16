@@ -276,6 +276,23 @@ if (navigator.appVersion.includes("Mac OS") || navigator.appVersion.includes("iP
   document.head.appendChild(styleSheet)
 }
 
+let password = document.getElementById('login-form-password');
+let viewPassword = document.getElementById('viewPassword');
+let click = false;
+
+if(viewPassword) {
+
+  viewPassword.addEventListener('click', (e)=>{
+    if(!click){
+      password.type = 'text'
+      click = true
+    }else if(click){
+      password.type = 'password'
+      click = false
+    }
+  });
+}
+
 // Seleccionamos el botón con id 'btn-compartir' 
 //const shareButton = document.getElementById("btn-compartir");
  

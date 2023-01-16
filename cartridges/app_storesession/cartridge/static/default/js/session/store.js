@@ -6,7 +6,15 @@ const handleChange = ({ lat, lng }, urlSet) => {
     fetch(urlSet, {
       method: "POST",
       body: formData,
-    }).then((_) => location.reload());
+    }).then((response) =>
+      response.json().then((json) => {
+        if (json.redirectUrl) {
+          location.href = json.redirectUrl;
+        } else {
+          location.reload();
+        }
+      })
+    );
   } else {
     alert("Hay un problema");
   }
@@ -78,7 +86,15 @@ const handleChangeM = ({ lat, lng }, urlSet) => {
     fetch(urlSet, {
       method: "POST",
       body: formData,
-    }).then((_) => location.reload());
+    }).then((response) =>
+      response.json().then((json) => {
+        if (json.redirectUrl) {
+          location.href = json.redirectUrl;
+        } else {
+          location.reload();
+        }
+      })
+    );
   } else {
     alert("Hay un problema");
   }

@@ -8,8 +8,7 @@ const Session = require("dw/system/Session");
 const { closestStore } = require("~/cartridge/scripts/helpers/distance");
 
 //Administraction side develoment sistem object types : crear la variable
-// 
-
+//
 
 server.get("Start", (req, res, next) => {
   let render = "storesession/session";
@@ -23,13 +22,14 @@ server.get("Start", (req, res, next) => {
   let store;
   if (storeId) {
     store = StoreMgr.getStore(storeId);
-    req.session.privacyCache.set("empresaId", store.custom.empresaId);
     empresaId = store.custom.empresaId;
-    
+    req.session.privacyCache.set("empresaId", empresaId);
+    req.session.privacyCache.set("storeId", storeId);
+      
     const customPricebookToggle = Site.getCurrent().getCustomPreferenceValue(
       "customPricebookToggle"
     );
-    let result = handleToggglePriceBook(empresaId, customPricebookToggle);
+    handleToggglePriceBook(empresaId, customPricebookToggle);
   }
 
   res.render(render, {
@@ -44,16 +44,15 @@ const handleToggglePriceBook = (empresaId, customPriceBookToggle) => {
   let error;
   try {
     jsonCPT = JSON.parse(customPriceBookToggle);
-    let priceBook = jsonCPT.values.find(v => v.value == empresaId);
-    let list  = PriceBookMgr.getPriceBook(priceBook.pricebookList);
-    let sales  = PriceBookMgr.getPriceBook(priceBook.pricebookSales);
+    let priceBook = jsonCPT.values.find((v) => v.value == empresaId);
+    let list = PriceBookMgr.getPriceBook(priceBook.pricebookList);
+    let sales = PriceBookMgr.getPriceBook(priceBook.pricebookSales);
     PriceBookMgr.setApplicablePriceBooks(list, sales);
-    error="working...";
+    error = "working...";
   } catch (error) {
-    error=error;
+    error = error;
   }
-  return error;
-}
+};
 
 server.get("MapsScript", (req, res, next) => {
   const apikey = Site.getCurrent().getCustomPreferenceValue("mapAPI");
@@ -86,6 +85,8 @@ server.post("SetStore", (req, res, next) => {
 
   req.session.privacyCache.set("storeId", storeId);
   req.session.privacyCache.set("empresaId", store.custom.empresaId);
+
+  res.json({});
 
   next();
 });

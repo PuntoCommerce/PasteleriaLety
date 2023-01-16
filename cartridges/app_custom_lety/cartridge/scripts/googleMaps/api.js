@@ -9,5 +9,5 @@ const call = (path, method, params) => {
 };
 
 module.exports = {
-  getGeocode: (params) => call("maps/api/geocode/json", "GET", params),
+  getGeocode: (address) => call("maps/api/geocode/json", "GET", address),
 };
