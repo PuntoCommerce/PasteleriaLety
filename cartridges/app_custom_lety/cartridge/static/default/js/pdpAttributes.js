@@ -31,7 +31,6 @@ if (sizeSelect) {
 
 // ================================ Add Product To Wishlist ================================
 
-
 $('.add-to-wish-list').on('click', (e) => {
     var url = e.target.dataset.href;
     var pid = e.target.id;
@@ -47,9 +46,15 @@ $('.add-to-wish-list').on('click', (e) => {
         }
     });
 
+    const userName = document.getElementById('userName');
+    
     setTimeout(() => {
         $.spinner().stop();
-        $('.add-wishlist-alert').append('<div class="alert alert-success" role="alert">' + 'Se añadio a tu lista de desos correctamente' + '</div>');
+        if (userName == null) {
+            $('.add-wishlist-alert').append('<div class="alert alert-success" role="alert">' + 'Se añadió a tu lista de desos correctamente, inicia sesión para poder visualizarla' + '</div>');   
+        } else {
+        $('.add-wishlist-alert').append('<div class="alert alert-success" role="alert">' + 'Se añadió a tu lista de desos correctamente' + '</div>');
+        }
     }, 1500);
 
     setTimeout(() => {

@@ -15,7 +15,7 @@
             aria-label="${Resource.msg('link.header.myaccount', 'account', null)}" role="button">
             <img src="${URLUtils.staticURL('/images/icons/user.svg')}"
                 alt="${Resource.msg('global.storename', 'common', null)}" />
-            <span class="user-message btn dropdown-toggle">${pdict.name}</span>
+            <span class="user-message btn dropdown-toggle" id="userName">${pdict.name}</span>
         </a>
         <div class="popover popover-bottom">
             <ul class="nav" role="menu" aria-label="${Resource.msg('label.profile.myaccountlink', 'account', null)}"
