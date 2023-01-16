@@ -250,6 +250,7 @@ server.replace(
       COHelpers.sendConfirmationEmailClient(order, req.locale.id, req.session.raw.privacy.storeId);
       COHelpers.sendConfirmationEmailClientSecund(order, req.locale.id);
       COHelpers.sendConfirmationEmailClientThird(order, req.locale.id);
+      COHelpers.sendConfirmationEmailClientFourth(order, req.locale.id);
     }
 
     let status = {};
