@@ -181,23 +181,23 @@
       return json;
     }
     if(path==="InsertaDatosVentaWeb"){
-      let json = '{"'+path+'":[';
+      // let json = '{"'+path+'":[';
       const Co = XMLList(xml).descendants("iCode");
       const sM = XMLList(xml).descendants("sMensaje");
 
-      if(Co.length()===0){
-        json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
-        json = json.slice(0,-1)+']}';
-      }else{
-        for(let i =0; i<Co.length();i++){
-          json+='{"iCode":"'+Co[i]+'","sMensaje":"'+sM[i]+'"},';
-        }
-        json = json.slice(0,-1)+']}';
-      }
+      // if(Co.length()===0){
+      //   json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
+      //   json = json.slice(0,-1)+']}';
+      // }else{
+      //   for(let i =0; i<Co.length();i++){
+      //     json+='{"iCode":"'+Co[i]+'","sMensaje":"'+sM[i]+'"},';
+      //   }
+      //   json = json.slice(0,-1)+']}';
+      // }
 
-      json = json.slice(0,-1)+']}';
+      // json = json.slice(0,-1)+']}';
  
-      return json;
+      return {iCode: Co.toString(), sMensaje: sM.toString()};
     }
 
     if(path==="InsertaPersonaDireccion"){
