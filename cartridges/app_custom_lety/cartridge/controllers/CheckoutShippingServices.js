@@ -70,12 +70,13 @@ server.append("SubmitShipping", (req, res, next) => {
     return next();
   }
 
-  let existencia = inventory.checkOnlineInventoryMulti(
-    currentBasket.productLineItems,
-    req.form.store
-  );
-  if (existencia.error) {
-    let message = existencia.errors.join("");
+  let prueba1 = req.form.store;
+  let prueba2 = req.session.raw.privacy.storeId;
+
+  let selectedStoreId = req.form.store || req.session.raw.privacy.storeId;
+
+  if(!selectedStoreId) {
+    let message = Resource.msg("error.no.storeid.session", "checkout", null);
     res.json({
       error: true,
       cartError: true,
@@ -86,8 +87,12 @@ server.append("SubmitShipping", (req, res, next) => {
     return next();
   }
 
-  if(!req.session.raw.privacy.storeId) {
-    let message = Resource.msg("error.no.storeid.session", "checkout", null);
+  let existencia = inventory.checkOnlineInventoryMulti(
+    currentBasket.productLineItems,
+    selectedStoreId
+  );
+  if (existencia.error) {
+    let message = existencia.errors.join("");
     res.json({
       error: true,
       cartError: true,
@@ -129,7 +134,7 @@ server.append("SubmitShipping", (req, res, next) => {
     let lng = geocode.results[0].geometry.location.lng;
 
     store = inventory.handleStoreShipping(
-      req.session.raw.privacy.storeId,
+      selectedStoreId,
       currentBasket,
       { lat: lat, lng: lng }
     );
@@ -149,7 +154,9 @@ server.append("SubmitShipping", (req, res, next) => {
       return next();
     }
 
-    req.session.privacyCache.set("storeId", store.ID);
+    selectedStoreId = store.ID;
+
+    req.session.privacyCache.set("storeId", selectedStoreId);
     req.session.privacyCache.set("empresaId", store.custom.empresaId);
 
     splitedAddress = CAHelpers.splitAddress(viewData.address.address1);
@@ -157,7 +164,7 @@ server.append("SubmitShipping", (req, res, next) => {
     body = {
       IdEmpresa: store.custom.empresaId,
       iIdFolioPersona: 90000,
-      iIdCentro: parseInt(store.ID),
+      iIdCentro: selectedStoreId,
       iIdDireccion: 0,
       iIdFolioDireccion: 0,
       sDireccion: splitedAddress.street,
@@ -216,7 +223,7 @@ server.append("SubmitShipping", (req, res, next) => {
 
   Transaction.wrap(() => {
     currentBasket.setCustomerEmail(shipping.customPickUp.email.value);
-    currentBasket.custom.storeId = store ? store.ID : req.session.raw.privacy.storeId;
+    currentBasket.custom.storeId = selectedStoreId;
     currentBasket.custom.deliveryDateTime =
       shipping.datetime.date.value + " : " + shipping.datetime.time.value;
   });

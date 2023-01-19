@@ -246,7 +246,7 @@
       const sMensaje2 = oRequest2.descendants("sMensaje");
       const bAplica2 = oRequest2.descendants("bAplica");
       const dCosto2 = oRequest2.descendants("dCosto");
-      const iCode = oRequest.descendants("iCode");
+      const iCode = oRequest2.descendants("iCode");
 
       return {
         iIdFolioDireccion: iIdFolioDireccion.toString(),
