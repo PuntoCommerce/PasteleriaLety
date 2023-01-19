@@ -70,9 +70,6 @@ server.append("SubmitShipping", (req, res, next) => {
     return next();
   }
 
-  let prueba1 = req.form.store;
-  let prueba2 = req.session.raw.privacy.storeId;
-
   let selectedStoreId = req.form.store || req.session.raw.privacy.storeId;
 
   if(!selectedStoreId) {
