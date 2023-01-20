@@ -21,7 +21,7 @@ const validateEmail = (email) => {
 };
 
 server.prepend("SubmitShipping", (req, res, next) => {
-  let storeId = req.form.store;
+  let storeId = req.form.store || req.session.raw.privacy.storeId;
   const currentBasket = BasketMgr.getCurrentBasket();
   if (currentBasket) {
     let existencia = inventory.checkOnlineInventoryMulti(
@@ -184,7 +184,16 @@ server.append("SubmitShipping", (req, res, next) => {
 
     InsertaPersonaDireccion = ApiLety("InsertaPersonaDireccion", body);
     if (!InsertaPersonaDireccion.error) {
-
+      if(InsertaPersonaDireccion.firstICode == 0){
+        res.json({
+          form: shipping,
+          fieldErrors: [],
+          serverErrors: [Resource.msg("error.server.conection", "checkout", null), InsertaPersonaDireccion.firstMessage],
+          error: true,
+        });
+        return next();
+      }
+      
       if(InsertaPersonaDireccion.iCode == 0){
         res.json({
           form: shipping,
