@@ -155,12 +155,12 @@ const handleNearestWithService = (collection, clientLocation) => {
 
 const handleStoreShipping = (storeId, currentBasket, clientLocation) => {
   let store = StoreMgr.getStore(storeId);
-  if (!store.custom.isShippingAvailable) {
-    store = handleNearestWithService(
-      currentBasket.productLineItems,
-      clientLocation
-    );
-  }
+  // if (!store.custom.isShippingAvailable) {
+  store = handleNearestWithService(
+    currentBasket.productLineItems,
+    clientLocation
+  );
+  // }
   return store;
 };
 
