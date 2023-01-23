@@ -230,7 +230,12 @@
       let firstMessage = tableResponse.descendants("sMensaje")[0];
       let secondICode = tableResponse.descendants("iCode")[1];
       let secondMessage = tableResponse.descendants("sMensaje")[1];
-      return { firstICode: firstICode, firstMessage: firstMessage, secondICode: secondICode, secondMessage: secondMessage };
+      return { 
+        firstICode: firstICode.toString(), 
+        firstMessage: firstMessage.toString(), 
+        secondICode: secondICode.toString(), 
+        secondMessage: secondMessage.toString() 
+      };
     }
 
     if(path==="Func_MovimientosMembresia"){
