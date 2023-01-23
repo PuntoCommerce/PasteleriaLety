@@ -2,6 +2,8 @@ const server = require("server");
 server.extend(module.superModule);
 const HO = require("*/cartridge/scripts/helpers/handleOrders.js");
 const inventory = require("*/cartridge/scripts/middlewares/inventory");
+const { isAbleToSD } = require("*/cartridge/scripts/helpers/logisiticHelpers");
+
 
 server.replace(
   "PlaceOrder",
@@ -27,6 +29,14 @@ server.replace(
         fieldErrors: [],
         serverErrors: [],
         redirectUrl: URLUtils.url("Cart-Show").toString(),
+      });
+      return next();
+    }
+
+    if(!isAbleToSD(currentBasket.productLineItems)){
+      res.json({
+        errorMessage: Resource.msg("error.no.able.to.sd", "checkout", null),
+        error: true,
       });
       return next();
     }

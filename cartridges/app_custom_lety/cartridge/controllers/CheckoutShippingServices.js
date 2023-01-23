@@ -12,6 +12,7 @@ const Locale = require("dw/util/Locale");
 const inventory = require("*/cartridge/scripts/middlewares/inventory");
 const URLUtils = require("dw/web/URLUtils");
 const Resource = require("dw/web/Resource");
+const { isAbleToSD } = require("*/cartridge/scripts/helpers/logisiticHelpers");
 
 const validateEmail = (email) => {
   if (!email) {
@@ -107,6 +108,18 @@ server.append("SubmitShipping", (req, res, next) => {
   let a;
   let store;
   if (viewData.shippingMethod != "pickup" && viewData.address) {
+
+    if(!isAbleToSD(currentBasket.productLineItems)){
+      res.json({
+        form: shipping,
+        fieldErrors: [],
+        serverErrors: [Resource.msgf("error.no.able.to.sd", "checkout", null)],
+        error: true,
+      });
+      return next();
+    }
+
+
     let totalAddress =
       viewData.address.address1 +
       ", " +
