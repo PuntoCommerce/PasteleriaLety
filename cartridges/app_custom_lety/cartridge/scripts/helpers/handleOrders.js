@@ -174,7 +174,7 @@ const sendShippingOrderToERP = (orderId) => {
     if (response.firstICode == 1 && response.secondICode == 1) {
       handleLetyPuntosAfterInsert(letyPuntos, orderId);
     } else {
-      status.message = response.firstMessage + " " + response.secondMessage;
+      status.message = response.firstMessage + " | " + response.secondMessage;
       status.error = true;
     }
   } else {
