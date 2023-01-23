@@ -4,7 +4,7 @@
     if(path==="ExistenciaPorCentroFecha"){
       let json = '{"'+path+'":[';
 
-      const Existencia = XMLList(xml).descendants("Existencia");
+      let Existencia = XMLList(xml).descendants("Existencia");
 
       if(Existencia.length()===0){
         json+='{"error":"Error en la respuesta"},';
@@ -22,14 +22,14 @@
     if(path==="CatalogoCiudades"){
       let json = '{"'+path+'":[';
 
-      const iIdCi = XMLList(xml).descendants("iIdCiudad");
-      const iIdEs = XMLList(xml).descendants("iIdEstado");
-      const sAbr = XMLList(xml).descendants("sAbreviacion");
-      const sNom = XMLList(xml).descendants("sNombre");
-      const dtA = XMLList(xml).descendants("dtAlta");
-      const iIdUs = XMLList(xml).descendants("iIdUsrAlta");
-      const dtMod = XMLList(xml).descendants("dtModifica");
-      const iIdUsrMod = XMLList(xml).descendants("iIdUsrModifica");
+      let iIdCi = XMLList(xml).descendants("iIdCiudad");
+      let iIdEs = XMLList(xml).descendants("iIdEstado");
+      let sAbr = XMLList(xml).descendants("sAbreviacion");
+      let sNom = XMLList(xml).descendants("sNombre");
+      let dtA = XMLList(xml).descendants("dtAlta");
+      let iIdUs = XMLList(xml).descendants("iIdUsrAlta");
+      let dtMod = XMLList(xml).descendants("dtModifica");
+      let iIdUsrMod = XMLList(xml).descendants("iIdUsrModifica");
 
       if(iIdCi.length()===0){
         json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
@@ -48,14 +48,14 @@
     if(path==="CatalogoEstados"){
       let json = '{"'+path+'":[';
 
-      const iId = XMLList(xml).descendants("iIdPais");
-      const iIdE = XMLList(xml).descendants("iIdEstado");
-      const sAb = XMLList(xml).descendants("sAbreviacion");
-      const sNo = XMLList(xml).descendants("sNombre");
-      const dt = XMLList(xml).descendants("dtAlta");
-      const iIdU = XMLList(xml).descendants("iIdUsrAlta");
-      const dtMo = XMLList(xml).descendants("dtModifica");
-      const iIdUsrMo = XMLList(xml).descendants("iIdUsrModifica");
+      let iId = XMLList(xml).descendants("iIdPais");
+      let iIdE = XMLList(xml).descendants("iIdEstado");
+      let sAb = XMLList(xml).descendants("sAbreviacion");
+      let sNo = XMLList(xml).descendants("sNombre");
+      let dt = XMLList(xml).descendants("dtAlta");
+      let iIdU = XMLList(xml).descendants("iIdUsrAlta");
+      let dtMo = XMLList(xml).descendants("dtModifica");
+      let iIdUsrMo = XMLList(xml).descendants("iIdUsrModifica");
 
       if(iId.length()===0){
         json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
@@ -73,8 +73,8 @@
     }
     if(path==="NewCalculoSD"){
       let json = '{"'+path+'":[';
-      const bAplica = XMLList(xml).descendants("bAplica");
-      const dCosto = XMLList(xml).descendants("dCosto");
+      let bAplica = XMLList(xml).descendants("bAplica");
+      let dCosto = XMLList(xml).descendants("dCosto");
 
       if(bAplica.length() === 0 || dCosto.length() === 0){
         json+='{"error":"Error en la respuesta"},';
@@ -91,11 +91,11 @@
 
     if(path==="getLetyClub"){
       let json = '{"'+path+'":[';
-      const dtFechaUltMov = XMLList(xml).descendants("dtFechaUltMov");
-      const iIdMembresia = XMLList(xml).descendants("iIdMembresia");
-      const bExiste = XMLList(xml).descendants("bExiste");
-      const bVigente = XMLList(xml).descendants("bVigente");
-      const dSaldo = XMLList(xml).descendants("dSaldo");
+      let dtFechaUltMov = XMLList(xml).descendants("dtFechaUltMov");
+      let iIdMembresia = XMLList(xml).descendants("iIdMembresia");
+      let bExiste = XMLList(xml).descendants("bExiste");
+      let bVigente = XMLList(xml).descendants("bVigente");
+      let dSaldo = XMLList(xml).descendants("dSaldo");
       if(bExiste.length() === 0 || bVigente.length() === 0 || dtFechaUltMov.length() === 0 || dSaldo.length() === 0 || iIdMembresia.length() === 0 ){
         json+='{"error":"Error en la respuesta"},';
         json = json.slice(0,-1)+']}';
@@ -111,25 +111,25 @@
 
     if(path==="Func_DatosMembresia"){
       let json = '{"'+path+'":[';
-      const iIdFolioPersona = XMLList(xml).descendants("iIdFolioPersona");
-      const s_Nombre = XMLList(xml).descendants("s_Nombre");
-      const s_ApellidoPat = XMLList(xml).descendants("s_ApellidoPat");
-      const s_ApellidoMat = XMLList(xml).descendants("s_ApellidoMat");
-      const s_Direccion = XMLList(xml).descendants("s_Direccion");
-      const s_Telefono1 = XMLList(xml).descendants("s_Telefono1");
-      const s_Mail = XMLList(xml).descendants("s_Mail");
-      const d_SaldoMembresia = XMLList(xml).descendants("d_SaldoMembresia");
-      const sdtm_FechaAlta = XMLList(xml).descendants("sdtm_FechaAlta");
-      const s_Colonia = XMLList(xml).descendants("s_Colonia");
-      const iIdC = XMLList(xml).descendants("iIdCiudad");
-      const Ciudad = XMLList(xml).descendants("Ciudad");
-      const iIdEstado = XMLList(xml).descendants("iIdEstado");
-      const Estado = XMLList(xml).descendants("Estado");
-      const s_Sexo = XMLList(xml).descendants("s_Sexo");
-      const s_EstadoCivil = XMLList(xml).descendants("s_EstadoCivil");
-      const PreferenciaProducto = XMLList(xml).descendants("PreferenciaProducto");
-      const dtFechaNacimiento = XMLList(xml).descendants("dtFechaNacimiento");
-      const sc_Status = XMLList(xml).descendants("sc_Status");
+      let iIdFolioPersona = XMLList(xml).descendants("iIdFolioPersona");
+      let s_Nombre = XMLList(xml).descendants("s_Nombre");
+      let s_ApellidoPat = XMLList(xml).descendants("s_ApellidoPat");
+      let s_ApellidoMat = XMLList(xml).descendants("s_ApellidoMat");
+      let s_Direccion = XMLList(xml).descendants("s_Direccion");
+      let s_Telefono1 = XMLList(xml).descendants("s_Telefono1");
+      let s_Mail = XMLList(xml).descendants("s_Mail");
+      let d_SaldoMembresia = XMLList(xml).descendants("d_SaldoMembresia");
+      let sdtm_FechaAlta = XMLList(xml).descendants("sdtm_FechaAlta");
+      let s_Colonia = XMLList(xml).descendants("s_Colonia");
+      let iIdC = XMLList(xml).descendants("iIdCiudad");
+      let Ciudad = XMLList(xml).descendants("Ciudad");
+      let iIdEstado = XMLList(xml).descendants("iIdEstado");
+      let Estado = XMLList(xml).descendants("Estado");
+      let s_Sexo = XMLList(xml).descendants("s_Sexo");
+      let s_EstadoCivil = XMLList(xml).descendants("s_EstadoCivil");
+      let PreferenciaProducto = XMLList(xml).descendants("PreferenciaProducto");
+      let dtFechaNacimiento = XMLList(xml).descendants("dtFechaNacimiento");
+      let sc_Status = XMLList(xml).descendants("sc_Status");
 
       if(d_SaldoMembresia.length() ===0 || sdtm_FechaAlta.length() === 0 || sc_Status.length() === 0 || s_Nombre.length() === 0 || s_ApellidoPat.length() === 0 || s_ApellidoMat.length() === 0 || s_Mail.length() === 0 || s_Telefono1.length() === 0 || s_Colonia.length() === 0 || Ciudad.length() === 0 || Estado.length() === 0){
         json+='{"error":"Error en la respuesta"},';
@@ -163,8 +163,8 @@
     }
     if(path==="Func_ActualizaDatosMembresia"){
       let json = '{"'+path+'":[';
-      const Cod = XMLList(xml).descendants("iCode");
-      const sMe = XMLList(xml).descendants("sMensaje");
+      let Cod = XMLList(xml).descendants("iCode");
+      let sMe = XMLList(xml).descendants("sMensaje");
 
       if(Cod.length()===0){
         json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
@@ -182,8 +182,8 @@
     }
     if(path==="InsertaDatosVentaWeb"){
       // let json = '{"'+path+'":[';
-      const Co = XMLList(xml).descendants("iCode");
-      const sM = XMLList(xml).descendants("sMensaje");
+      let Co = XMLList(xml).descendants("iCode");
+      let sM = XMLList(xml).descendants("sMensaje");
 
       // if(Co.length()===0){
       //   json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
@@ -201,17 +201,17 @@
     }
 
     if(path==="InsertaPersonaDireccion"){
-      const oRequest = XMLList(xml).descendants("oRequest");
-      const iIdFolioDireccion = oRequest.descendants("iIdFolioDireccion");
-      const tableResponse = XMLList(xml).descendants("TableResponse");
-      const firstICode = tableResponse.descendants("iCode")[0];
-      const firstMessage = tableResponse.descendants("sMensaje")[0];
+      let oRequest = XMLList(xml).descendants("oRequest");
+      let iIdFolioDireccion = oRequest.descendants("iIdFolioDireccion");
+      let tableResponse = XMLList(xml).descendants("TableResponse");
+      let firstICode = tableResponse.descendants("iCode")[0];
+      let firstMessage = tableResponse.descendants("sMensaje")[0];
 
-      const oRequest2 = XMLList(xml).descendants("oRequest2");
-      const sMensaje2 = oRequest2.descendants("sMensaje");
-      const bAplica2 = oRequest2.descendants("bAplica");
-      const dCosto2 = oRequest2.descendants("dCosto");
-      const iCode = oRequest2.descendants("iCode");
+      let oRequest2 = XMLList(xml).descendants("oRequest2");
+      let sMensaje2 = oRequest2.descendants("sMensaje");
+      let bAplica2 = oRequest2.descendants("bAplica");
+      let dCosto2 = oRequest2.descendants("dCosto");
+      let iCode = oRequest2.descendants("iCode");
 
       return {
         iIdFolioDireccion: iIdFolioDireccion.toString(),
@@ -225,34 +225,23 @@
     }
 
     if(path==="RegistraServDom"){
-      let json = '{"'+path+'":[';
-      const Codeee = XMLList(xml).descendants("iCode");
-      const sMeee = XMLList(xml).descendants("sMensaje");
-
-      if(Codeee.length()===0){
-        json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
-        json = json.slice(0,-1)+']}';
-      }else{
-        for(let i =0; i<Codeee.length();i++){
-          json+='{"iCode":"'+Codeee[i]+'","sMensaje":"'+sMeee[i]+'"},';
-        }
-        json = json.slice(0,-1)+']}';
-      }
-
-      json = json.slice(0,-1)+']}';
- 
-      return json;
+      let tableResponse = XMLList(xml).descendants("TableResponse");
+      let firstICode = tableResponse.descendants("iCode")[0];
+      let firstMessage = tableResponse.descendants("sMensaje")[0];
+      let secondICode = tableResponse.descendants("iCode")[1];
+      let secondMessage = tableResponse.descendants("sMensaje")[1];
+      return { firstICode: firstICode, firstMessage: firstMessage, secondICode: secondICode, secondMessage: secondMessage };
     }
 
     if(path==="Func_MovimientosMembresia"){
       let json = '{"'+path+'":[';
 
-      const dtFechaAplica = XMLList(xml).descendants("dtFechaAplica");
-      const Centro = XMLList(xml).descendants("Centro");
-      const TipoMovimiento = XMLList(xml).descendants("TipoMovimiento");
-      const Cargo = XMLList(xml).descendants("Cargo");
-      const Abono = XMLList(xml).descendants("Abono");
-      const dSaldoAnterior = XMLList(xml).descendants("dSaldoAnterior");
+      let dtFechaAplica = XMLList(xml).descendants("dtFechaAplica");
+      let Centro = XMLList(xml).descendants("Centro");
+      let TipoMovimiento = XMLList(xml).descendants("TipoMovimiento");
+      let Cargo = XMLList(xml).descendants("Cargo");
+      let Abono = XMLList(xml).descendants("Abono");
+      let dSaldoAnterior = XMLList(xml).descendants("dSaldoAnterior");
 
       if(dtFechaAplica.length()===0){
         json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
@@ -270,8 +259,8 @@
     if(path==="getLetyClubQuitarPuntos"){
       let json = '{"'+path+'":[';
 
-      const Code = XMLList(xml).descendants("iCode");
-      const Mens = XMLList(xml).descendants("sMensaje");
+      let Code = XMLList(xml).descendants("iCode");
+      let Mens = XMLList(xml).descendants("sMensaje");
 
 
       if(Code.length()===0){
@@ -292,7 +281,7 @@
     if(path==="Func_ExisteMembrecia"){
       let json = '{"'+path+'":[';
 
-      const Column1 = XMLList(xml).descendants("Column1");
+      let Column1 = XMLList(xml).descendants("Column1");
 
       if(Column1.length() === 0){
         json+='{"error":"Error de la respuesta o Fue Eliminado correctamente"},';
@@ -310,9 +299,9 @@
     if(path==="Func_AsignaNuevaMembresia"){
       let json = '{"'+path+'":[';
 
-      const iIdMem = XMLList(xml).descendants("iIdMembresia");
-      const iIdFol = XMLList(xml).descendants("iIdFolioPersona");
-      const sIdFol = XMLList(xml).descendants("sIdFolioTarjeta");
+      let iIdMem = XMLList(xml).descendants("iIdMembresia");
+      let iIdFol = XMLList(xml).descendants("iIdFolioPersona");
+      let sIdFol = XMLList(xml).descendants("sIdFolioTarjeta");
 
       if(iIdMem.length() === 0){
         json+='{"error":"Error de la respuesta"},';

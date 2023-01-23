@@ -171,7 +171,12 @@ const sendShippingOrderToERP = (orderId) => {
 
   const response = ApiLety("RegistraServDom", payload);
   if (!response.error) {
-    handleLetyPuntosAfterInsert(letyPuntos, orderId);
+    if (response.firstICode == 1 && response.secondICode == 1) {
+      handleLetyPuntosAfterInsert(letyPuntos, orderId);
+    } else {
+      status.message = response.firstMessage + " " + response.secondMessage;
+      status.error = true;
+    }
   } else {
     handleLogOrderError("RegistraServDom", payload);
     status.message = response.errorMessage;
