@@ -1251,6 +1251,7 @@ span.ship-to-phone {
   position: absolute;
   left: 40px;
   top: 20px;
+  z-index: 1;
 }
 
 #checkout-main .shipping-method-list {
@@ -1272,6 +1273,9 @@ span.ship-to-phone {
   text-align: center;
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
+  background-color: transparent;
+  z-index: 2;
 }
 
 #checkout-main .shipping-method-list .display-name {
