@@ -191,7 +191,7 @@ server.append("SubmitShipping", (req, res, next) => {
       sNoExterior: splitedAddress.noExt || "",
       iIdUsuario: 10500,
       dtFecha: new Date().toISOString(),
-      iTipoDireccion: 0,
+      iTipoDireccion: 3,
       address: totalAddress,
     };
 
