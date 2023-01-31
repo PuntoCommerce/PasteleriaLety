@@ -2,38 +2,66 @@
   const QS = (query) => document.querySelector(query);
   const QSA = (query) => document.querySelectorAll(query);
 
-  window.addEventListener("load", () => {
-    handleForm();
-  });
+  const handleStoreHours = (shippingMethodId = undefined) => {
+    let timeForm = QS("#custom-store-hours");
+    let allSM = JSON.parse(timeForm.getAttribute("data-store-hours"));
+    let activeSM;
+    if (shippingMethodId) {
+      activeSM = { value: shippingMethodId };
+    } else {
+      activeSM = QS(".shipping-item-container input[type='radio'][checked]");
+    }
+    return allSM[activeSM.value] || allSM.default;
+  };
 
   const handleForm = () => {
     let dateForm = QS("#custom-checkout-date");
     let dateFormFW = QS(".form-control.shippingDate");
-    let timeForm = QS("#custom-store-hours");
+    let shippingMethods = QSA(".shipping-item-container input[type='radio']");
 
     let currentDate = new Date();
 
     let formatedCurrentDate = formatDate(currentDate);
-    let dataStoreHours = JSON.parse(timeForm.getAttribute("data-store-hours"));
+    let { days, daysToOrderAfterCurrentDay } = handleStoreHours();
 
     dateForm.value = formatedCurrentDate;
     dateForm.min = formatedCurrentDate;
     dateFormFW.value = formatedCurrentDate;
-    updateStoreDay(currentDate, dataStoreHours, timeForm);
-    currentDate.setDate(currentDate.getDate() + 1);
+    updateStoreDay(currentDate, days);
 
+    currentDate.setDate(currentDate.getDate() + daysToOrderAfterCurrentDay);
     dateForm.max = formatDate(currentDate);
+
+    shippingMethods.forEach((sm) =>
+      sm.addEventListener("change", (e) => {
+        e.preventDefault();
+        let newValues = handleStoreHours(e.target.value);
+        days = newValues.days;
+
+        let currentDate = new Date();
+        let formatedCurrentDate = formatDate(currentDate);
+        dateForm.value = formatedCurrentDate;
+        dateForm.min = formatedCurrentDate;
+        dateFormFW.value = formatedCurrentDate;
+        updateStoreDay(currentDate, days);
+        currentDate.setDate(
+          currentDate.getDate() + newValues.daysToOrderAfterCurrentDay
+        );
+        dateForm.max = formatDate(currentDate);
+      })
+    );
 
     dateForm.addEventListener("change", (e) => {
       e.preventDefault();
       let date = new Date(e.target.value);
       date.setDate(date.getDate() + 1);
       dateFormFW.value = formatDate(date);
-      updateStoreDay(date, dataStoreHours, timeForm);
+      updateStoreDay(date, days);
     });
   };
 
-  const updateStoreDay = (date, weekSchedule, container) => {
+  const updateStoreDay = (date, weekSchedule) => {
+    let container = QS("#custom-store-hours");
     let today = new Date();
     let todayWeekDay = today
       .toLocaleDateString("en-US", { weekday: "short" })
@@ -41,6 +69,11 @@
     let day = date
       .toLocaleDateString("en-US", { weekday: "short" })
       .toLowerCase();
+    if (!weekSchedule[day]) {
+      // null = No service.
+      container.innerHTML = container.getAttribute("error-no-hours");
+      return;
+    }
     let inner = ``;
     let { openHours, closeHours } = weekSchedule[day];
     if (openHours < today.getHours() && todayWeekDay == day) {
@@ -49,22 +82,19 @@
     for (let i = openHours; i < closeHours; i++) {
       let { label, id } = formatHours(i);
       if (i === openHours) setStoreHour({ target: { value: i } });
-      inner += `
-    <div>
-      <input type="radio" class="radio-schedule-custom" id="${id}" name="time" ${
+      inner += `<div>
+        <input type="radio" class="radio-schedule-custom" id="${id}" name="time" ${
         i === openHours ? "checked" : ""
       } value="${i}" />
-      <label for="${id}">${label}</label>
-    </div>
-    `;
+        <label for="${id}">${label}</label>
+      </div>`;
     }
-    container.innerHTML = inner;
+    container.innerHTML = inner || container.getAttribute("error-no-hours");
     let radioSchedules = QSA(".radio-schedule-custom");
     radioSchedules.forEach((rs) => rs.addEventListener("change", setStoreHour));
   };
 
   const setStoreHour = (event) => {
-    // console.log(event.target.value);
     let timeFormFW = QS(".form-control.shippingTime");
     timeFormFW.value = event.target.value;
   };
@@ -86,4 +116,6 @@
 
     return `${year}-${month}-${day}`;
   };
+
+  window.addEventListener("load", handleForm);
 })(window);

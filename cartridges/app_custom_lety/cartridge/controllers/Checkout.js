@@ -49,9 +49,10 @@ server.append("Begin", (req, res, next) => {
   viewData.currentEmail = currentEmail;
   /* end */
 
-  let jsonStoreSchedule =
-    Site.getCurrent().getCustomPreferenceValue("jsonStoreSchedule");
-  viewData.jsonStoreSchedule = jsonStoreSchedule;
+  let deliveryMethodsSchedule = Site.getCurrent().getCustomPreferenceValue(
+    "deliveryMethodsSchedule"
+  );
+  viewData.deliveryMethodsSchedule = deliveryMethodsSchedule;
 
   let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia", {
     Empresa: 1,
