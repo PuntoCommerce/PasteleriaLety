@@ -2,7 +2,7 @@
 <isscript>
     var assets = require('*/cartridge/scripts/assets.js');
     assets.addJs("/js/datetime.js");
-    assets.addCss('/css/custom.css')
+    assets.addCss('/css/customCheckout.css')
 </isscript>
 <isset name="datetime" value="${pdict.forms.shippingForm.datetime}" scope="page"/>
 
