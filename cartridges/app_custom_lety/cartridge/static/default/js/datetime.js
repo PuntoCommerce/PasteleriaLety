@@ -82,7 +82,7 @@
     console.log(weekSchedule);
 
     if (openHours < today.getHours() && todayWeekDay == day) {
-      openHours = today.getHours() + 1;
+      openHours = today.getHours();
     }
     for (let i = openHours; i < closeHours; i++) {
       let { label, id } = formatHours(i);
