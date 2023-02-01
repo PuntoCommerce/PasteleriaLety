@@ -62,6 +62,7 @@
 
   const updateStoreDay = (date, weekSchedule) => {
     let container = QS("#custom-store-hours");
+    let text = QS('#custom-store-text')
     let today = new Date();
     let todayWeekDay = today
       .toLocaleDateString("en-US", { weekday: "short" })
@@ -75,21 +76,36 @@
       return;
     }
     let inner = ``;
-    let { openHours, closeHours } = weekSchedule[day];
+    let innerText = ``
+    let { openHours, closeHours, after } = weekSchedule[day];
+
+    console.log(weekSchedule);
+
     if (openHours < today.getHours() && todayWeekDay == day) {
       openHours = today.getHours() + 1;
     }
     for (let i = openHours; i < closeHours; i++) {
       let { label, id } = formatHours(i);
       if (i === openHours) setStoreHour({ target: { value: i } });
-      inner += `<div>
+      inner += `
+      <div>
         <input type="radio" class="radio-schedule-custom" id="${id}" name="time" ${
         i === openHours ? "checked" : ""
       } value="${i}" />
         <label for="${id}">${label}</label>
       </div>`;
     }
+
+    if (after === true) {
+      innerText = `
+        <span class='store-hour-notice'>
+          Su pedido sera entregado dentro de las 2 horas posteriores a la confirmacion de su compra
+        </span>
+      `  
+    }
+
     container.innerHTML = inner || container.getAttribute("error-no-hours");
+    text.innerHTML = innerText;
     let radioSchedules = QSA(".radio-schedule-custom");
     radioSchedules.forEach((rs) => rs.addEventListener("change", setStoreHour));
   };
