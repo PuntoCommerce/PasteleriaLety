@@ -96,7 +96,7 @@
       </div>`;
     }
 
-    if (after === true) {
+    if (after === true && openHours < today.getHours() && todayWeekDay == day) {
       innerText = `
         <span class='store-hour-notice'>
           Su pedido sera entregado dentro de las 2 horas posteriores a la confirmacion de su compra
