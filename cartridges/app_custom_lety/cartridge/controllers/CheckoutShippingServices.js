@@ -201,7 +201,7 @@ server.append("SubmitShipping", (req, res, next) => {
         res.json({
           form: shipping,
           fieldErrors: [],
-          serverErrors: [Resource.msg("error.server.conection", "checkout", null), InsertaPersonaDireccion.firstMessage],
+          serverErrors: [InsertaPersonaDireccion.firstMessage],
           error: true,
         });
         return next();
