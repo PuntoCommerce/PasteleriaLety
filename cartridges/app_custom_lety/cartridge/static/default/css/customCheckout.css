@@ -1,0 +1,6 @@
+.store-hour-notice{
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: var(--font-family-gotham-bold);
+}
