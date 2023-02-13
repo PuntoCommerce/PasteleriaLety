@@ -21,6 +21,7 @@ server.replace(
     var addressHelpers = require("*/cartridge/scripts/helpers/addressHelpers");
 
     var currentBasket = BasketMgr.getCurrentBasket();
+    let storeId = req.form.store || req.session.raw.privacy.storeId;
 
     if (!currentBasket) {
       res.json({
@@ -257,12 +258,14 @@ server.replace(
 
     if (order.getCustomerEmail()) {
       try {
-        COHelpers.sendConfirmationEmail(order, req.locale.id);
-        COHelpers.sendConfirmationEmailClient(order, req.locale.id, req.session.raw.privacy.storeId);
-        COHelpers.sendConfirmationEmailClientSecund(order, req.locale.id);
-        COHelpers.sendConfirmationEmailClientThird(order, req.locale.id);
-        COHelpers.sendConfirmationEmailClientFourth(order, req.locale.id);
-      } catch (error) {}
+        COHelpers.sendConfirmationEmail(order, req.locale.id, storeId);
+        COHelpers.sendConfirmationEmailClient(order, req.locale.id, storeId);
+        COHelpers.sendConfirmationEmailClientSecund(order, req.locale.id, storeId);
+        COHelpers.sendConfirmationEmailClientThird(order, req.locale.id, storeId);
+        COHelpers.sendConfirmationEmailClientFourth(order, req.locale.id, storeId);
+      } catch (error) {
+        var err = error;
+      }
     }
 
     let status = {};
