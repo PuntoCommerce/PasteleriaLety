@@ -81,14 +81,6 @@
 
     if (openHours < today.getHours() && todayWeekDay == day) {
       openHours = today.getHours();
-      
-      if (after === true) {
-        innerText = `
-          <span class='store-hour-notice'>
-            Su pedido sera entregado dentro de las 2 horas posteriores a la confirmacion de su compra
-          </span>
-        `  
-      }
     }
 
     for (let i = openHours; i < closeHours; i++) {
@@ -101,6 +93,15 @@
       } value="${i}" />
         <label for="${id}">${label}</label>
       </div>`;
+    }
+
+
+    if (after === true && today.getHours() < closeHours && today.getHours() >= openHours) {
+      innerText = `
+        <span class='store-hour-notice'>
+          Su pedido sera entregado dentro de las 2 horas posteriores a la confirmacion de su compra
+        </span>
+      `  
     }
 
     container.innerHTML = inner || container.getAttribute("error-no-hours");
