@@ -401,7 +401,7 @@
 
         }
     </style>
-   
+
 </head>
 
 <body>
@@ -438,13 +438,18 @@
 
 
                                 </p>
-                                <span><p style="font-size: 18px; padding-top: 30px; color: inherit;">
+                                <span>
+                                    <p style="font-size: 18px; padding-top: 30px; color: inherit;">
 
-                                    ${Resource.msg('email.order.confirm.del.msg2', 'confirmation', null)} 
-                                </p><p style="font-size: 18px; padding-top: 30px; color: inherit;"><a href="">clientes@pastelerialety.com</a></p><p style="font-size: 18px; padding-top: 30px; color: inherit;">
+                                        ${Resource.msg('email.order.confirm.del.msg2', 'confirmation', null)}
+                                    </p>
+                                    <p style="font-size: 18px; padding-top: 30px; color: inherit;"><a
+                                            href="">clientes@pastelerialety.com</a></p>
+                                    <p style="font-size: 18px; padding-top: 30px; color: inherit;">
 
-                                    ${Resource.msg('email.order.confirm.msg2.2', 'confirmation', null)} 
-                                </p></span>
+                                        ${Resource.msg('email.order.confirm.msg2.2', 'confirmation', null)}
+                                    </p>
+                                </span>
                                 <p style=" padding-top: 30px;"><a href="http://factura.pastelerialety.com/"
                                         style="font-size: 18px;">
                                         ${Resource.msg('email.order.confirm.del.msg3', 'confirmation', null)}
@@ -461,14 +466,17 @@
                                         style="min-width: 411px; min-height: 279px; background-color: #F3F3F3; margin: 0 8rem;">
                                         <table class="order-sumary" style="margin-bottom:40px;">
                                             <div class="content-order-details">
-                                                
+
                                                 <span class="span-detail-order">
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.number', 'confirmation', null)}&nbsp;&nbsp;</p>
                                                     <p>${pdict.order.orderNumber}</p>
                                                 </span>
                                                 <span class="span-detail-order">
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.day', 'confirmation', null)}&nbsp;&nbsp;</p>
-                                                    <p><isprint value="${pdict.order.creationDate}" style="DATE_SHORT" timezone="utc" /></p>
+                                                    <p>
+                                                        <isprint value="${pdict.order.creationDate}" style="DATE_SHORT"
+                                                            timezone="utc" />
+                                                    </p>
                                                 </span>
                                                 <span class="span-detail-order">
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.email', 'confirmation', null)}&nbsp;&nbsp;</p>
@@ -476,12 +484,21 @@
                                                 </span>
                                                 <span class="span-detail-order">
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.name', 'confirmation', null)}&nbsp;&nbsp;</p>
-                                                    <p>${pdict.order.billing.billingAddress.address.firstName}&nbsp;${pdict.order.billing.billingAddress.address.lastName}</p>
+                                                    <p>${pdict.order.billing.billingAddress.address.firstName}&nbsp;${pdict.order.billing.billingAddress.address.lastName}
+                                                    </p>
                                                 </span>
                                                 <span>
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.store', 'confirmation', null)}&nbsp;&nbsp;</p>
                                                     <p>${pdict.store.name}</p>
                                                 </span>
+                                                <isif condition="${pdict.order.totals.discounts[0].price}">
+                                                    <span>
+                                                        <p style="font-weight: bold;">
+                                                            ${Resource.msg('label.order.delivery', 'confirmation', null)}&nbsp;&nbsp;</p>
+                                                        <p>${pdict.order.totals.discounts[0].price}</p>
+                                                    </span>
+                                                <iselse/>
+                                                </isif>
                                                 <span class="span-detail-order">
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.address', 'confirmation', null)}&nbsp;&nbsp;</p>
                                                     <p>${pdict.order.shipping[0].shippingAddress.address1}</p>
@@ -497,7 +514,8 @@
                                                     <tr>
                                                         <td>
 
-                                                            <p style="min-width: 285px;text-align:left;font-size: 16px;font-weight: bold;color: #4D4D4D; padding-left: 15px;">
+                                                            <p
+                                                                style="min-width: 285px;text-align:left;font-size: 16px;font-weight: bold;color: #4D4D4D; padding-left: 15px;">
 
                                                                 ${lineItem.productName}
                                                             </p>
@@ -533,14 +551,38 @@
                                                     </tr>
                                                 </isloop>
                                             </isif>
+                                            <tr>
+
+                                                <td style="width:50%;padding:20px 0;">
+                                                    <!--- quantity --->
+                                                    <p style="font-size: 16px;font-weight: bold;color: #4D4D4D;">
+                                                        ${Resource.msg('field.numberTotal', 'cart', null)}
+                                                    </p>
+                                                </td>
+                                                <td style="width:50%;padding:20px 0;">
+                                                    <!--- line item total price --->
+                                                    <p
+                                                        style="text-align:right;font-size: 16px;font-weight: bold;color: #4D4D4D; padding: 0 20px;">
+                                                        ${pdict.order.priceTotal}
+                                                    </p>
+                                                </td>
+                                            </tr>
                                         </table>
                                     </div>
                                     <div>
-                                        <h3 style="color: rgb(215, 97, 43);">Cancelación Pastelerialety.com para servicio de Pick & Go</h3>
+                                        <h3 style="color: rgb(215, 97, 43);">Cancelación Pastelerialety.com para
+                                            servicio de Pick & Go</h3>
                                         <ul>
                                             <li>Una vez confirmado el pedido, no habrá cambios ni cancelaciones.</li>
-                                            <li>Es responsabilidad del cliente recoger el producto el mismo día que realizó la compra y solo tendrá como máximo 24 horas para recogerlo en la sucursal solicitada, en caso de no presentarse en este lapso, el pedido quedará cancelado sin derecho a reembolso.</li>
-                                            <li>Para recoger su pedido en sucursal, es indispensable presentar la identificación oficial de la persona que realizó la compra o la persona asignada en la página al momento de generar su pedido, así como su correo de confirmación de compra impreso. Nota: Para fines administrativos se le sacara una copia a su identificación oficial.</li>
+                                            <li>Es responsabilidad del cliente recoger el producto el mismo día que
+                                                realizó la compra y solo tendrá como máximo 24 horas para recogerlo en
+                                                la sucursal solicitada, en caso de no presentarse en este lapso, el
+                                                pedido quedará cancelado sin derecho a reembolso.</li>
+                                            <li>Para recoger su pedido en sucursal, es indispensable presentar la
+                                                identificación oficial de la persona que realizó la compra o la persona
+                                                asignada en la página al momento de generar su pedido, así como su
+                                                correo de confirmación de compra impreso. Nota: Para fines
+                                                administrativos se le sacara una copia a su identificación oficial.</li>
                                         </ul>
                                     </div>
                                 </div>
