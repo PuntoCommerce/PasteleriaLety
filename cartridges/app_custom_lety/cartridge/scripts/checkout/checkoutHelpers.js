@@ -28,12 +28,12 @@ function sendConfirmationEmailClient(order, locale, storeId) {
     var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
     var Locale = require('dw/util/Locale');
     var StoreMgr = require('dw/catalog/StoreMgr');
-    var email;
 
     var store = StoreMgr.getStore(storeId);
     var currentLocale = Locale.getLocale(locale);
     var orderModel = new OrderModel(order, { countryCode: currentLocale.country, containerView: 'order' });
     var orderObject = { order: orderModel, store: store };
+    var email = store.email;
 
     var emailObj = {
         to: email,
@@ -63,7 +63,7 @@ function sendConfirmationEmailClientSecund(order, locale, storeId) {
     var orderObject = { order: orderModel, store: store };
 
     var emailObj = {
-        to: "ejecutivo.pedidos@pastelerialety.com",
+        to: "admon.tiendaonline@pastelerialety.com",
         subject: Resource.msg('subject.order.confirmation.email', 'order', null),
         from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
         type: emailHelpers.emailTypes.orderConfirmation
