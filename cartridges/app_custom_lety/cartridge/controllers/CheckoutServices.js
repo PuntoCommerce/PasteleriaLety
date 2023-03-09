@@ -257,15 +257,11 @@ server.replace(
     }
 
     if (order.getCustomerEmail()) {
-      try {
         COHelpers.sendConfirmationEmail(order, req.locale.id, storeId);
         COHelpers.sendConfirmationEmailClient(order, req.locale.id, storeId);
         COHelpers.sendConfirmationEmailClientSecund(order, req.locale.id, storeId);
-        COHelpers.sendConfirmationEmailClientThird(order, req.locale.id, storeId);
-        COHelpers.sendConfirmationEmailClientFourth(order, req.locale.id, storeId);
-      } catch (error) {
-        var err = error;
-      }
+        // COHelpers.sendConfirmationEmailClientThird(order, req.locale.id, storeId);
+        // COHelpers.sendConfirmationEmailClientFourth(order, req.locale.id, storeId);
     }
 
     let status = {};
