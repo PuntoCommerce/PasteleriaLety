@@ -83,16 +83,17 @@
       openHours = today.getHours();
     }
 
-    for (let i = openHours; i < closeHours; i++) {
-      let { label, id } = formatHours(i);
-      if (i === openHours) setStoreHour({ target: { value: i } });
-      inner += `
-      <div>
-        <input type="radio" class="radio-schedule-custom" id="${id}" name="time" ${
-        i === openHours ? "checked" : ""
-      } value="${i}" />
-        <label for="${id}">${label}</label>
-      </div>`;
+    if (today.getHours() >= openHours) {
+      for (let i = openHours; i < closeHours; i++) {
+        let { label, id } = formatHours(i);
+        if (i === openHours) setStoreHour({ target: { value: i } });
+        inner += `
+        <div>
+          <input type="radio" class="radio-schedule-custom" id="${id}" name="time" ${i === openHours ? "checked" : ""
+          } value="${i}" />
+          <label for="${id}">${label}</label>
+        </div>`;
+      }
     }
 
 
@@ -101,7 +102,7 @@
         <span class='store-hour-notice'>
           Su pedido sera entregado dentro de las 2 horas posteriores a la confirmacion de su compra
         </span>
-      `  
+      `
     }
 
     container.innerHTML = inner || container.getAttribute("error-no-hours");
@@ -118,9 +119,8 @@
   const formatHours = (i) => {
     let open = i;
     let close = i + 1;
-    let label = `De ${open > 12 ? open - 12 : open}:00 ${
-      open < 12 ? "AM" : "PM"
-    } a ${close > 12 ? close - 12 : close}:00 ${close < 12 ? "AM" : "PM"}`;
+    let label = `De ${open > 12 ? open - 12 : open}:00 ${open < 12 ? "AM" : "PM"
+      } a ${close > 12 ? close - 12 : close}:00 ${close < 12 ? "AM" : "PM"}`;
 
     return { label, id: `choice${i}` };
   };
