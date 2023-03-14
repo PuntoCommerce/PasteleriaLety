@@ -96,6 +96,19 @@
         <span>${Resource.msg('label.input.newpassword.profile2', 'forms', null)}</span>
     </div>
 
+    <div class="form-group
+        <isif condition=" ${!!pdict.profileForm.customer.membershipId.mandatory === true}">required</isif>">
+        <label class="form-control-label" for="registration-form-password-confirm">
+            <isprint value="${pdict.profileForm.customer.membershipId.label}" encoding="htmlcontent" />
+        </label>
+        <input type="text" class="form-control" id="registration-form-password-confirm"
+            data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
+            data-range-error="${Resource.msg('error.message.8_255characters', 'forms', null)}"
+            aria-describedby="form-password-confirm-error" autocomplete="off" <isprint
+            value=${pdict.profileForm.customer.membershipId.attributes} encoding="off" />>
+        <div class="invalid-feedback" id="form-membershipId-confirm-error"></div>
+    </div>
+
     <div class="form-group custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="add-to-email-list" <isprint
             value=${pdict.profileForm.customer.addtoemaillist.attributes} encoding="off" />

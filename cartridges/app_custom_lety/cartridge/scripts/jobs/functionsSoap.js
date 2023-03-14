@@ -83,6 +83,18 @@ function body(data,credential,path) {
         '</soap:Body>'+ 
         '</soap:Envelope>';
     }
+    if(path==="checkLetyClub"){
+      return '<?xml version="1.0" encoding="utf-8"?>'+ 
+        '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">'+
+        '<soap:Body><'+path+' xmlns="http://localhost/">'+
+        '<IdEmpresa>'+data.Empresa+'</IdEmpresa>'+  
+        '<vUsr>'+credential.user+'</vUsr>'+     
+        '<vPwd>'+credential.password+'</vPwd>'+ handleEnviroment() +  
+        '<sFolioMembresia>'+data.s_IdMembresia.htmlValue+'</sFolioMembresia>'+ 
+        '</'+path+'>'+ 
+        '</soap:Body>'+ 
+        '</soap:Envelope>';
+    }
     if(path==="Func_DatosMembresia"){
       return '<?xml version="1.0" encoding="utf-8"?>'+ 
         '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">'+

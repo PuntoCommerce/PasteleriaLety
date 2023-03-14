@@ -103,6 +103,53 @@ function getTotalAvailableLetyPuntos(collection) {
   }
 };
 
+function checkLetyCard(membershipID, data){
+
+  const customer = CustomerMgr.getProfile(customerNo);
+  let LetyC = "";
+  let LetyCardNew = "";
+  let newMembresia = ApiServiceLety.ApiLety(
+    "Func_AsignaNuevaMembresia",
+    { 
+      Empresa: 1,
+      s_Nombre:data.s_Nombre,
+      s_Appaterno:data.s_ApellidoPat,
+      s_Apmaterno:data.s_Apmaterno,
+      s_FechaNacimiento:data.dtFechaNacimiento,
+      s_Sexo:data.s_Sexo,
+      i_IdCiudad:data.cCiudad,
+      s_EdoCivil:data.s_EstadoCivil,
+      s_PastelFavorito:data.PreferenciaProducto,
+      s_Direccion:data.f_Adreess,
+      s_Colonia:data.s_Colonia,
+      s_Telefono:data.s_Telefono1,
+      s_Mail:data.s_Mail
+    }
+  );
+  if (newMembresia.ERROR) {
+    LetyC = "";
+  } else {
+    let membresiaN = JSON.parse(newMembresia);
+    LetyCardNew = membresiaN.Func_AsignaNuevaMembresia[0].iIdMembresia;
+    //letyC = LetyCardNew[0].iIdMembresia;
+    var userObject = {
+      membresia: LetyCardNew,
+      url: URLUtils.https('Account-Show')
+    };
+
+    this.addLetyCardToCustomer(customerNo, LetyCardNew);
+
+    var emailObj = {
+      to: customer.email,
+      subject: Resource.msg('email.subject.new.letyClub', 'registration', null),
+      from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
+      type: emailHelpers.emailTypes.clubLetyCard
+    };
+
+    emailHelpers.sendEmail(emailObj, 'account/components/clubLetyEmail', userObject);  
+  }
+};
+
 function removeLetyPuntos(localeId, promotionID) {
   const currentBasket = BasketMgr.getCurrentBasket();
     let result;

@@ -9,7 +9,7 @@ const {
   crearLetyCard,
 } = require("*/cartridge/scripts/helpers/letyCardHelpers");
 const ApiServiceLety = require("*/cartridge/scripts/jobs/api");
-
+const { ApiLety } = require("~/cartridge/scripts/jobs/api");
 
 var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
@@ -442,6 +442,24 @@ server.replace(
           registrationForm.valid = false;
       }
 
+      var Func_ExisteMembrecia = ApiLety("checkLetyClub",
+      {
+        Empresa: 1,
+        s_IdMembresia: registrationForm.customer.membershipId
+      });
+
+      if (Func_ExisteMembrecia.ERROR) {
+        ExistenciaLetyCart = []
+      } else {
+        let JsonFunc_ExisteMembrecia = JSON.parse(Func_ExisteMembrecia);
+        ExistenciaLetyCart =JsonFunc_ExisteMembrecia.Func_ExisteMembrecia;
+        Exis = ExistenciaLetyCart[0].Column1;
+        if (Exis=='1') {
+        } else {
+          Exis=='0';
+        }
+      }
+
       // setting variables for the BeforeComplete function
       var registrationFormObj = {
           firstName: registrationForm.customer.firstname.value,
@@ -451,6 +469,7 @@ server.replace(
           emailConfirm: registrationForm.customer.emailconfirm.value,
           password: registrationForm.login.password.value,
           passwordConfirm: registrationForm.login.passwordconfirm.value,
+          membershipId: registrationForm.customer.membershipId.value,
           validForm: registrationForm.valid,
           form: registrationForm
       };
