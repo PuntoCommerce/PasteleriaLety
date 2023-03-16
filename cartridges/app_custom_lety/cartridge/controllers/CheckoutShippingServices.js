@@ -13,6 +13,7 @@ const inventory = require("*/cartridge/scripts/middlewares/inventory");
 const URLUtils = require("dw/web/URLUtils");
 const Resource = require("dw/web/Resource");
 const { isAbleToSD } = require("*/cartridge/scripts/helpers/logisiticHelpers");
+var csrfProtection = require("*/cartridge/scripts/middleware/csrf");
 
 const validateEmail = (email) => {
   if (!email) {
@@ -73,7 +74,7 @@ server.append("SubmitShipping", (req, res, next) => {
 
   let selectedStoreId = req.form.store || req.session.raw.privacy.storeId;
 
-  if(!selectedStoreId) {
+  if (!selectedStoreId) {
     let message = Resource.msg("error.no.storeid.session", "checkout", null);
     res.json({
       error: true,
@@ -103,13 +104,15 @@ server.append("SubmitShipping", (req, res, next) => {
 
   let geocode;
   let splitedAddress;
+  let concatAddress;
   let InsertaPersonaDireccion;
   let body;
   let a;
   let store;
+
   if (viewData.shippingMethod != "pickup" && viewData.address) {
 
-    if(!isAbleToSD(currentBasket.productLineItems)){
+    if (!isAbleToSD(currentBasket.productLineItems)) {
       res.json({
         form: shipping,
         fieldErrors: [],
@@ -121,7 +124,11 @@ server.append("SubmitShipping", (req, res, next) => {
 
 
     let totalAddress =
+      viewData.address.postBox +
+      ", " +
       viewData.address.address1 +
+      ' ' +
+      viewData.address.numeroExterior +
       ", " +
       viewData.address.postalCode +
       " " +
@@ -130,7 +137,7 @@ server.append("SubmitShipping", (req, res, next) => {
       viewData.address.stateCode;
 
     geocode = gMaps.getGeocode({ address: totalAddress });
-    if(geocode.error || geocode.status != "OK"){
+    if (geocode.error || geocode.status != "OK") {
 
       res.json({
         form: shipping,
@@ -169,7 +176,7 @@ server.append("SubmitShipping", (req, res, next) => {
     req.session.privacyCache.set("storeId", selectedStoreId);
     req.session.privacyCache.set("empresaId", store.custom.empresaId);
 
-    splitedAddress = CAHelpers.splitAddress(viewData.address.address1);
+    splitedAddress = CAHelpers.splitAddress(viewData.address);
 
     body = {
       IdEmpresa: store.custom.empresaId,
@@ -178,7 +185,7 @@ server.append("SubmitShipping", (req, res, next) => {
       iIdDireccion: 0,
       iIdFolioDireccion: 0,
       sDireccion: splitedAddress.street,
-      sColonia: "",
+      sColonia: viewData.address.postBox,
       sCP: viewData.address.postalCode,
       sTelefono1: viewData.address.phone,
       sTelefono2: "",
@@ -197,7 +204,7 @@ server.append("SubmitShipping", (req, res, next) => {
 
     InsertaPersonaDireccion = ApiLety("InsertaPersonaDireccion", body);
     if (!InsertaPersonaDireccion.error) {
-      if(InsertaPersonaDireccion.firstICode == 0){
+      if (InsertaPersonaDireccion.firstICode == 0) {
         res.json({
           form: shipping,
           fieldErrors: [],
@@ -206,8 +213,8 @@ server.append("SubmitShipping", (req, res, next) => {
         });
         return next();
       }
-      
-      if(InsertaPersonaDireccion.iCode == 0){
+
+      if (InsertaPersonaDireccion.iCode == 0) {
         res.json({
           form: shipping,
           fieldErrors: [],
@@ -226,7 +233,7 @@ server.append("SubmitShipping", (req, res, next) => {
         InsertaPersonaDireccion.sMensaje,
         currentBasket
       );
-      
+
     } else {
       res.json({
         form: shipping,
