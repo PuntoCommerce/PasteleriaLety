@@ -11,11 +11,17 @@ const concatenateAddress = (shipment) => {
 };
 
 const splitAddress = (address1) => {
+  let address = address1.address1
+  let numExt = address1.numeroExterior
+  
+  let concat = address + ' No. ' + numExt;
+
   let street = "";
   let noExt = "";
   let noInt = "";
+
   try {
-    let lowerAddress = address1.toLowerCase();
+    let lowerAddress = concat.toLowerCase();
     let splitedAddress = lowerAddress.split(" no. ");
     if (splitedAddress.length == 2) {
       street = splitedAddress[0];
@@ -28,7 +34,7 @@ const splitAddress = (address1) => {
       }
     }
   } catch (error) {
-    street = address1;
+    street = concat;
     noExt = "N/A";
     noInt = "N/A";
   }
