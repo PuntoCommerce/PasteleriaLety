@@ -501,7 +501,7 @@
                                                 </isif>
                                                 <span class="span-detail-order">
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.address', 'confirmation', null)}&nbsp;&nbsp;</p>
-                                                    <p>${pdict.order.shipping[0].shippingAddress.address1}</p>
+                                                    <p>${pdict.order.shipping[0].shippingAddress.address1} ${pdict.order.shipping[0].shippingAddress.suite}</p>
                                                 </span>
                                                 <span class="span-detail-order">
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.phone', 'confirmation', null)}&nbsp;&nbsp;</p>
