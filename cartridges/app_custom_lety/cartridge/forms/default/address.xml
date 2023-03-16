@@ -40,6 +40,24 @@
            range-error="error.message.between10and20"
            parse-error="error.message.parse.phone"/>
 
+       <field 
+       formid='suite' 
+       label='label.input.extNum' 
+       type='string' 
+       mandatory='true'
+       binding='extNum'
+       missing-error="address.extNum.missing" 
+       range-error="error.message.50orless"/>
+
+       <field 
+       formid='postBox'
+       label='label.input.col'
+       type='string'
+       mandatory= 'true'
+       missing-error="address.col.missing" 
+       range-error="error.message.50orless"
+       />
+
     <!-- actions provided by the edit shipping address dialog -->
     <action formid="apply" valid-form="true"/>
     <action formid="remove" valid-form="false"/>
