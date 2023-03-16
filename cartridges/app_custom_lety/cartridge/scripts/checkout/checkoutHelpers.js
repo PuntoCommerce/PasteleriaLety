@@ -75,7 +75,6 @@ function copyShippingAddressToShipment(shippingData, shipmentOrNull) {
 }
 
 function copyCustomerAddressToShipment(address, shipmentOrNull) {
-    try {
         var currentBasket = BasketMgr.getCurrentBasket();
         var shipment = shipmentOrNull || currentBasket.defaultShipment;
         var shippingAddress = shipment.shippingAddress;
@@ -98,13 +97,9 @@ function copyCustomerAddressToShipment(address, shipmentOrNull) {
             shippingAddress.setSuite(address.suite)
             shippingAddress.setPostBox(address.postBox)
         });
-    } catch (error) {
-        let err = error
-    }
 }
 
 function copyCustomerAddressToBilling(address) {
-    try {
         var currentBasket = BasketMgr.getCurrentBasket();
         var billingAddress = currentBasket.billingAddress;
 
@@ -125,14 +120,10 @@ function copyCustomerAddressToBilling(address) {
             billingAddress.setSuite(address.suite)
             billingAddress.setPostBox(address.postBox)
 
-
             if (!billingAddress.phone) {
                 billingAddress.setPhone(address.phone);
             }
         });
-    } catch (error) {
-        let err = err;
-    }
 }
 
 //=================================

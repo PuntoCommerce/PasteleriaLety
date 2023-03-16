@@ -124,7 +124,7 @@ server.append("SubmitShipping", (req, res, next) => {
 
 
     let totalAddress =
-      viewData.address.postBox +
+      viewData.address.address2 +
       ", " +
       viewData.address.address1 +
       ' ' +
@@ -185,12 +185,12 @@ server.append("SubmitShipping", (req, res, next) => {
       iIdDireccion: 0,
       iIdFolioDireccion: 0,
       sDireccion: splitedAddress.street,
-      sColonia: viewData.address.postBox,
+      sColonia: viewData.address.address2,
       sCP: viewData.address.postalCode,
       sTelefono1: viewData.address.phone,
       sTelefono2: "",
       sEntreCalles: "",
-      sObservaciones: viewData.address.address2,
+      sObservaciones: viewData.address.postBox,
       iIdCiudad: 100,
       dLatitud: lat,
       dLongitud: lng,

@@ -95,31 +95,11 @@
 <div class="row autofill-custompickup row-check">
     <div class="col-sm-12 col-lg-9">
         <div class="form-group
-            ${addressFields.postBox.mandatory === true ? 'required' : ''}
-            ${addressFields.postBox.htmlName}
-        ">
-            <label class="form-control-label" for="shippingPostBox${lineItem ? lineItem.UUID : 'default'}">
-                ${Resource.msg('field.shipping.address.col', 'address', null)}
-            </label>
-            <input type="text" class="form-control shippingPostBox"
-                id="shippingPostBox${lineItem ? lineItem.UUID : 'default'}"
-                aria-describedby="${lineItem ? lineItem.UUID : 'default'}shippingPostBox"
-                value="${shippingAddress.postBox || ''}" <isprint value="${addressFields.postBox.attributes}"
-                encoding="off" />>
-            <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}shippingSuite">
-                <isprint value="${addressFields.postBox.error}">
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row autofill-custompickup row-check">
-    <div class="col-sm-12 col-lg-9">
-        <div class="form-group
             ${addressFields.address2.mandatory === true ? 'required' : ''}
             ${addressFields.address2.htmlName}">
-            <label class="form-control-label" for="shippingAddressTwo${lineItem ? lineItem.UUID : 'default'}">
-                ${Resource.msg('field.shipping.address.two', 'address', null)}
+
+            <label class="form-control-label" for="shippingPostBox${lineItem ? lineItem.UUID : 'default'}">
+                ${Resource.msg('field.shipping.address.col', 'address', null)}
             </label>
             <input type="text" class="form-control shippingAddressTwo"
                 id="shippingAddressTwo${lineItem ? lineItem.UUID : 'default'}"
@@ -129,6 +109,27 @@
             autocomplete="shipping address-line2">
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}AddressLine2">
                 <isprint value="${addressFields.address2.error}">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row autofill-custompickup row-check">
+    <div class="col-sm-12 col-lg-9">
+        <div class="form-group
+            ${addressFields.postBox.mandatory === true ? 'required' : ''}
+            ${addressFields.postBox.htmlName}
+        ">
+            <label class="form-control-label" for="shippingAddressTwo${lineItem ? lineItem.UUID : 'default'}">
+                ${Resource.msg('field.shipping.address.two', 'address', null)}
+            </label>
+            <input type="text" class="form-control shippingPostBox"
+                id="shippingPostBox${lineItem ? lineItem.UUID : 'default'}"
+                aria-describedby="${lineItem ? lineItem.UUID : 'default'}shippingPostBox"
+                value="${shippingAddress.postBox || ''}" <isprint value="${addressFields.postBox.attributes}"
+                encoding="off" />>
+            <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}shippingSuite">
+                <isprint value="${addressFields.postBox.error}">
             </div>
         </div>
     </div>
@@ -191,12 +192,12 @@
                 <isprint value="${addressFields.city.attributes}" encoding="off" />
             autocomplete="shipping address-level2">
             <iscomment> <select class="form-control shippingAddressCity custom-select"
-                id="shippingAddressCity${lineItem ? lineItem.UUID : 'default'}" <isprint
-                value=${addressFields.city.attributes} encoding="off" />
-            autocomplete="shipping address-level2"
-            aria-describedby="${lineItem ? lineItem.UUID : 'default'}City">
+                    id="shippingAddressCity${lineItem ? lineItem.UUID : 'default'}" <isprint
+                    value=${addressFields.city.attributes} encoding="off" />
+                autocomplete="shipping address-level2"
+                aria-describedby="${lineItem ? lineItem.UUID : 'default'}City">
                 <option label=" "></option>
-            </select> </iscomment>
+                </select> </iscomment>
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}City">
                 <isprint value="${addressFields.city.error}">
             </div>
