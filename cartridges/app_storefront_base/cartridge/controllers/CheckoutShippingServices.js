@@ -462,6 +462,9 @@ server.post(
         postalCode: form.shippingAddress.addressFields.postalCode.value,
         countryCode: form.shippingAddress.addressFields.country.value,
         phone: form.shippingAddress.addressFields.phone.value,
+        numeroExterior: form.shippingAddress.addressFields.suite.value,
+        suite: form.shippingAddress.addressFields.suite.value,
+        postBox: form.shippingAddress.addressFields.postBox.value
       };
       if (
         Object.prototype.hasOwnProperty.call(
@@ -493,7 +496,7 @@ server.post(
         var AccountModel = require("*/cartridge/models/account");
         var OrderModel = require("*/cartridge/models/order");
         var Locale = require("dw/util/Locale");
-
+        
         var shippingData = res.getViewData();
 
         COHelpers.copyShippingAddressToShipment(

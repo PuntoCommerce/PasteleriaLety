@@ -48,6 +48,19 @@
             <div class="invalid-feedback"></div>
         </div>
     </div>
+    <div class="col-sm-12">
+        <div class="form-group
+        ${billingFields.suite.mandator === true ? 'required' : ''}
+        ${billingFields.suite.htmlName}">
+            <label for="">${Resource.msg('field.shipping.address.number', 'address', null)}</label>
+            <input type="text" value="${pdict.order.billing.billingAddress.address
+                    && pdict.order.billing.billingAddress.address.suite
+                    ? pdict.order.billing.billingAddress.address.suite
+                    : ''}"
+                    <isprint value=${billingFields.suite.attributes} encoding="off"/>>
+            <div class="invalid-feedback"></div>
+        </div>
+    </div>
 </div>
 
 <div class="row">
