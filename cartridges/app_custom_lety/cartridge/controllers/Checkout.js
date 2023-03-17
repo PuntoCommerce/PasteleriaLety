@@ -48,11 +48,13 @@ server.append("Begin", (req, res, next) => {
   viewData.customer.adjustmentApplied = adjustmentApplied;
   viewData.currentEmail = currentEmail;
   /* end */
+  let cityStoresStates = Site.getCurrent().getCustomPreferenceValue("cityStoresStates");
 
   let deliveryMethodsSchedule = Site.getCurrent().getCustomPreferenceValue(
     "deliveryMethodsSchedule"
   );
   viewData.deliveryMethodsSchedule = deliveryMethodsSchedule;
+  viewData.cityStoresStates = cityStoresStates;
 
   let Func_DatosMembresia = ApiServiceLety.ApiLety("Func_DatosMembresia", {
     Empresa: 1,

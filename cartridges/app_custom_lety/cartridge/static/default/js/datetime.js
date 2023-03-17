@@ -14,6 +14,44 @@
     return allSM[activeSM.value] || allSM.default;
   };
 
+  const handleStoreCities = () => {
+    const citiesOptions = document.querySelector(".shippingAddressCity");
+    const statesOptions = document.querySelector("#shippingStatedefault");
+    const jsonCities = document.querySelector('#custom-store-cities');
+    const parseInfo = JSON.parse(jsonCities.getAttribute("data-city-stores"));
+    const storedState = localStorage.getItem("selectedState");
+      
+    // Comprueba si existe un codigo de estado
+    if (storedState) {
+      statesOptions.value = storedState;
+      const cities = parseInfo[storedState] || [];
+      citiesOptions.innerHTML = "";
+      cities.forEach((city, idx) => {
+        const option = document.createElement("option");
+        option.value = city;
+        option.textContent = city;
+        citiesOptions.appendChild(option);
+      });
+    }
+
+    statesOptions.addEventListener('change', (e) => {
+      const codeState = e.target.value;
+      const cities = parseInfo[codeState] || [];
+      localStorage.setItem("selectedState", codeState);
+
+      // Limpia opciones actuales
+      citiesOptions.innerHTML = "";
+
+      // Crea nuevas opciones
+      cities.forEach((city, idx) => {
+        const option = document.createElement("option");
+        option.value = city;
+        option.textContent = city;
+        citiesOptions.appendChild(option);
+      });
+    });
+  }
+
   const handleForm = () => {
     let dateForm = QS("#custom-checkout-date");
     let dateFormFW = QS(".form-control.shippingDate");
@@ -23,6 +61,8 @@
 
     let formatedCurrentDate = formatDate(currentDate);
     let { days, daysToOrderAfterCurrentDay } = handleStoreHours();
+    handleStoreCities();
+
 
     dateForm.value = formatedCurrentDate;
     dateForm.min = formatedCurrentDate;
@@ -44,6 +84,7 @@
         dateForm.min = formatedCurrentDate;
         dateFormFW.value = formatedCurrentDate;
         updateStoreDay(currentDate, days);
+
         currentDate.setDate(
           currentDate.getDate() + newValues.daysToOrderAfterCurrentDay
         );

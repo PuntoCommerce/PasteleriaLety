@@ -32,6 +32,7 @@
     <div class="col-sm-12">
         <div class="form-group required Date">
             <div id="custom-store-text"></div>
+            <div id="custom-store-cities" data-city-stores='${pdict.cityStoresStates}'></div>
             <div class="d-flex flex-column" id="custom-store-hours" error-no-hours='${Resource.msg("address.date.no.available.hours", "forms", null)}' data-store-hours='${pdict.deliveryMethodsSchedule}'></div>
         </div>
     </div>
