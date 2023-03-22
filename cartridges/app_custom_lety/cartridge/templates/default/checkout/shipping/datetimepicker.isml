@@ -23,7 +23,7 @@
             <label class="form-control-label" for="shippingFirstName${lineItem ? lineItem.UUID : 'default'}"  >
                 ${Resource.msg('field.shipping.delivery.date','address',null)}
             </label>
-            <input type="date" id="custom-checkout-date" min="" max="" />
+            <input type="date" onkeydown="return false" id="custom-checkout-date" min="" max="" />
         </div>
     </div>
 </div>

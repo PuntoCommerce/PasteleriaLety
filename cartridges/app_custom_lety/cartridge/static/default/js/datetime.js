@@ -15,41 +15,60 @@
   };
 
   const handleStoreCities = () => {
-    const citiesOptions = document.querySelector(".shippingAddressCity");
-    const statesOptions = document.querySelector("#shippingStatedefault");
-    const jsonCities = document.querySelector('#custom-store-cities');
-    const parseInfo = JSON.parse(jsonCities.getAttribute("data-city-stores"));
-    const storedState = localStorage.getItem("selectedState");
-      
-    // Comprueba si existe un codigo de estado
-    if (storedState) {
-      statesOptions.value = storedState;
-      const cities = parseInfo[storedState] || [];
+    const jsonCities = QS('#custom-store-cities');
+    const citiesOptions = QS('.shippingAddressCity');
+    const statesOptions = QS('#shippingStatedefault');
+    const parseInfo = JSON.parse(jsonCities.getAttribute('data-city-stores'));
+    const storeState = localStorage.getItem('selectedState')
+    const storeCity = sessionStorage.getItem('selectedCity')
+
+    if (storeState) {
+      statesOptions.value = storeState;
+      const cities = parseInfo[storeState] || []
+
       citiesOptions.innerHTML = "";
+
+      if(cities.length === 0){
+        const option = document.createElement('option');
+        option.innerText = 'No hay sucursales para este estado';
+        citiesOptions.appendChild(option)
+      }
+      
       cities.forEach((city, idx) => {
-        const option = document.createElement("option");
+        const option = document.createElement('option');
         option.value = city;
-        option.textContent = city;
+        option.innerText = city;
         citiesOptions.appendChild(option);
-      });
+      })
     }
 
-    statesOptions.addEventListener('change', (e) => {
-      const codeState = e.target.value;
-      const cities = parseInfo[codeState] || [];
-      localStorage.setItem("selectedState", codeState);
+    if(storeCity) {citiesOptions.value = storeCity};
 
-      // Limpia opciones actuales
+    statesOptions.addEventListener('change', (e) => {
+      const stateCode = e.target.value
+      const cities = parseInfo[stateCode] || []
+      localStorage.setItem('selectedState', stateCode)
+
       citiesOptions.innerHTML = "";
 
-      // Crea nuevas opciones
+      if(cities.length === 0){
+        const option = document.createElement('option');
+        option.innerText = 'No hay sucursales para este estado';
+        citiesOptions.appendChild(option)
+      }
+
       cities.forEach((city, idx) => {
-        const option = document.createElement("option");
+        const option = document.createElement('option');
         option.value = city;
-        option.textContent = city;
+        option.innerText = city;
         citiesOptions.appendChild(option);
-      });
-    });
+      })
+    })
+
+    citiesOptions.addEventListener('change', (e) =>{
+      const cityCode = e.target.value
+      sessionStorage.setItem('selectedCity', cityCode)
+    })
   }
 
   const handleForm = () => {
