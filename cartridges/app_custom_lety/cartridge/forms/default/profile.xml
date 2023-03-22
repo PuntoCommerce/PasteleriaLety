@@ -53,16 +53,16 @@
 			missing-error="error.message.required"
 			parse-error="error.message.parse.phone.profile.form"
 			type="string"/>
-	</group>
-
-	<field
+			
+			<field
 			formid="membershipId"
 			label="label.input.membershipId.profile"
-			mandatory="true"
+			mandatory="false"
 			max-length="50"
 			missing-error="error.message.required"
 			range-error="error.message.50orless"
 			type="string" />
+	</group>
 
 	<group formid="login">
 		<field
