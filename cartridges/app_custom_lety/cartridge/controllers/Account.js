@@ -490,7 +490,7 @@ server.replace(
               registrationForm.customer.membershipId.valid = false;
               registrationForm.customer.membershipId.error =
               Resource.msg('label.input.membershipID.error', 'forms', null);
-              registrationForm.valid = true;
+              registrationForm.valid = false;
             }
           }
         }
