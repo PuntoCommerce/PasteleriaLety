@@ -128,7 +128,7 @@ server.append("SubmitShipping", (req, res, next) => {
       ", " +
       viewData.address.address1 +
       ' ' +
-      viewData.address.numeroExterior +
+      viewData.address.suite +
       ", " +
       viewData.address.postalCode +
       " " +
@@ -195,7 +195,7 @@ server.append("SubmitShipping", (req, res, next) => {
       dLatitud: lat,
       dLongitud: lng,
       sNoInterior: splitedAddress.noInt,
-      sNoExterior: splitedAddress.noExt || "",
+      sNoExterior: viewData.address.suite || "",
       iIdUsuario: 10500,
       dtFecha: new Date().toISOString(),
       iTipoDireccion: 3,
