@@ -20,7 +20,7 @@ const handleItemsServDom = (pli, shipment) => {
     item = iterator.next();
     items.push({
       iIdMaterial: item.productID,
-      dPrecio: item.priceValue,
+      dPrecio: item.basePrice.value,
       dPrecioBase: item.basePrice.value,
       dCantidad: item.quantityValue,
       dCantidadBase: item.quantityValue,
