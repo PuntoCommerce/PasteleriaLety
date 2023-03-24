@@ -58,6 +58,7 @@ module.exports = (function () {
             try {
                 result = restService.setThrowOnError().call(data);
             } catch (error) {
+                let err = error;
                 return error;
             }
            if (result.isOk()) {
