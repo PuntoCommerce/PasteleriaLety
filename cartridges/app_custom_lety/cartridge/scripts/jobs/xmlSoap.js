@@ -363,6 +363,17 @@
  
       return {iCode: Co.toString(), sMensaje: sM.toString()};
     }
+    if(path === 'GetFolioPersona'){
+      let Co = XMLList(xml).descendants("iCode");
+      let sM = XMLList(xml).descendants("sMensaje");
+      let iIdFolioPersona = XMLList(xml).descendants("iIdFolioPersona");
+
+      return {
+        iIdFolioPersona: iIdFolioPersona,
+        iCode: Co,
+        sMessaje: sM 
+      }
+    }
   }
 
   module.exports = {
