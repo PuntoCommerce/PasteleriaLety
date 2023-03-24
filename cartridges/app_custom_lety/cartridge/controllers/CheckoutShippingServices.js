@@ -14,6 +14,7 @@ const URLUtils = require("dw/web/URLUtils");
 const Resource = require("dw/web/Resource");
 const { isAbleToSD } = require("*/cartridge/scripts/helpers/logisiticHelpers");
 var csrfProtection = require("*/cartridge/scripts/middleware/csrf");
+var CustomerMgr = require('dw/customer/CustomerMgr');
 
 const validateEmail = (email) => {
   if (!email) {
@@ -49,10 +50,22 @@ server.prepend("SubmitShipping", (req, res, next) => {
 });
 
 server.append("SubmitShipping", (req, res, next) => {
+  var accountHelpers = require('*/cartridge/scripts/helpers/accountHelpers');
   const shipping = server.forms.getForm("shipping");
   const currentBasket = BasketMgr.getCurrentBasket();
+  let customer;
+  const currentUser = req.currentCustomer.profile;
 
   let viewData = res.getViewData();
+
+  if (currentUser) {
+    customer = CustomerMgr.getProfile(req.currentCustomer.profile.customerNo);
+  }
+
+  if (currentUser && !customer.custom.folPerson) {
+    const getCustomer = req.currentCustomer.profile;
+    accountHelpers.insertFolPerson(getCustomer)
+  }
 
   const formFields = COHelpers.validateFields({
     email: shipping.customPickUp.email,
@@ -180,7 +193,7 @@ server.append("SubmitShipping", (req, res, next) => {
 
     body = {
       IdEmpresa: store.custom.empresaId,
-      iIdFolioPersona: 90000,
+      iIdFolioPersona: currentUser ? customer.custom.folPerson : 90000,
       iIdCentro: selectedStoreId,
       iIdDireccion: 0,
       iIdFolioDireccion: 0,

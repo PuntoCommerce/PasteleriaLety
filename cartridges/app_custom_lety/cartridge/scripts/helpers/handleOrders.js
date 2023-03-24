@@ -4,6 +4,7 @@ const functionsSoap = require("~/cartridge/scripts/jobs/functionsSoap");
 const Logger = require("dw/system/Logger");
 const Site = require("dw/system/Site");
 const StoreMgr = require("dw/catalog/StoreMgr");
+var CustomerMgr = require('dw/customer/CustomerMgr');
 
 const parseDeliveryDateTime = (deliveryDateTime) => {
   let [date, time] = deliveryDateTime.split(" : ");
@@ -127,11 +128,17 @@ const handleLogOrderError = (type, payload) => {
   logger.error("Type: {0} payload: {1}", type, bodyXML);
 };
 
-const sendShippingOrderToERP = (orderId) => {
+const sendShippingOrderToERP = (orderId, req) => {
   let status = {};
   let order = OrderMgr.getOrder(orderId);
   let paymentInstruments = order.getPaymentInstruments();
   let pi = paymentInstruments[0];
+  const currentUser = req.currentCustomer.profile;
+  let customer;
+  
+  if (currentUser) {
+    customer = CustomerMgr.getProfile(req.currentCustomer.profile.customerNo);
+  }
 
   let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(
     "hoursDifferenceFromGMT"
@@ -149,7 +156,7 @@ const sendShippingOrderToERP = (orderId) => {
     iIdCentroAlta: 0,
     iIdServDom: 0,
     iIdCentroAfecta: order.custom.storeId,
-    iIdFolioPersona: 90000,
+    iIdFolioPersona: currentUser ? customer.custom.folPerson : 90000,
     iIdFolioDireccion: order.custom.folioDireccion,
     dtFechaAlta: today.toISOString(),
     dtFechaEntrega: parseDeliveryDateTime(order.custom.deliveryDateTime),
@@ -205,7 +212,7 @@ const sendPickupOrderToERP = (orderId) => {
     sFolio: orderId,
     sFolioBanco: pi.paymentTransaction.transactionID,
     sFolioTarjeta:
-      pi.creditCardNumberLastDigits || pi.paymentTransaction.transactionID,
+    pi.creditCardNumberLastDigits || pi.paymentTransaction.transactionID,
     iIdCentro: order.custom.storeId,
     dtFechaColocacion: today.toISOString(),
     dtFechaAsignacion: parseDeliveryDateTime(order.custom.deliveryDateTime),
