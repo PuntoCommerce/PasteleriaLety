@@ -49,9 +49,9 @@ server.get("Saldo", server.middleware.https, function (req, res, next) {
 
   let CatalogoCiudades = ApiServiceLety.ApiLety(
     "CatalogoCiudades", {
-      Empresa: 1,
-      IdEstado: "0"
-    }
+    Empresa: 1,
+    IdEstado: "0"
+  }
   );
 
   let JsonDatosCiudades;
@@ -65,8 +65,8 @@ server.get("Saldo", server.middleware.https, function (req, res, next) {
   // delete
   let CatalogoEstados = ApiServiceLety.ApiLety(
     "CatalogoEstados", {
-      Empresa: 1
-    }
+    Empresa: 1
+  }
   );
 
   let JsonDatosEstados;
@@ -109,9 +109,9 @@ server.get("Movimientos", server.middleware.https, function (req, res, next) {
 
   let Func_MovimientosMembresia = ApiServiceLety.ApiLety(
     "Func_MovimientosMembresia", {
-      Empresa: 1,
-      s_IdMembresia: req.querystring.letyCard
-    }
+    Empresa: 1,
+    s_IdMembresia: req.querystring.letyCard
+  }
   );
 
 
@@ -133,19 +133,19 @@ server.post("AddLetyCard", (req, res, next) => {
   const data = JSON.parse(JSON.stringify(req.form));
   const Custom = req.currentCustomer.profile.customerNo;
   const addedCard = addLetyCardToCustomer(Custom, data.letyCard);// null error servidor 0 no existe
-  if(addedCard == "1") {
+  if (addedCard == "1") {
     res.json({
       code: 0,
-      redirectURL: URLUtils.url("Account-Show"), 
+      redirectURL: URLUtils.url("Account-Show"),
     });
   } else {
-    let error="";
+    let error = "";
     switch (addedCard) {
       case "0":
-          error="No se encontró esta tarjeta. intenta con otra por favor.";
+        error = "No se encontró esta tarjeta. intenta con otra por favor.";
         break;
       default:
-        error="Ocurrió un error con el servidor intentalo mas tarde."
+        error = "Ocurrió un error con el servidor intentalo mas tarde."
         break;
     }
     res.json({
@@ -153,8 +153,8 @@ server.post("AddLetyCard", (req, res, next) => {
       error: error
     });
   }
-    next();
-}); 
+  next();
+});
 
 server.post("GenerateLetyCard", (req, res, next) => {
 
@@ -163,7 +163,7 @@ server.post("GenerateLetyCard", (req, res, next) => {
     const Custom = req.currentCustomer.profile.customerNo;
     const data = JSON.parse(JSON.stringify(req.form));
     const letyCardNew = crearLetyCard(Custom, data);
-    if(letyCardNew === undefined || letyCardNew === "undefined" || letyCardNew === null || letyCardNew === "") {
+    if (letyCardNew === undefined || letyCardNew === "undefined" || letyCardNew === null || letyCardNew === "") {
       code = 1;
     } else {
       code = 0;
@@ -218,25 +218,25 @@ server.post("SaveSaldoForm", (req, res, next) => {
       }
       if (f_Adreess == undefined || f_Adreess == null) {
         f_Adreess = "";
-      } 
+      }
       let Func_ActualizaDatosMembresia = ApiServiceLety.ApiLety(
         "Func_ActualizaDatosMembresia", {
-          Empresa: 1,
-          s_IdMembresia: data.lLetyCard,
-          i_IdFolioPersona: iIdFolioPersona,
-          s_Nombre: data.s_Nombre,
-          s_Appaterno: data.s_ApellidoPat,
-          s_Apmaterno: data.s_Apmaterno,
-          s_FechaNacimiento: dtFechaNacimiento,
-          s_Sexo: s_Sexo,
-          i_IdCiudad: data.cCiudad,
-          s_EdoCivil: s_EstadoCivil,
-          s_PastelFavorito: PreferenciaProducto,
-          s_Direccion: f_Adreess,
-          s_Colonia: data.s_Colonia,
-          s_Telefono: data.s_Telefono1,
-          s_Mail: data.s_Mail
-        }
+        Empresa: 1,
+        s_IdMembresia: data.lLetyCard,
+        i_IdFolioPersona: iIdFolioPersona,
+        s_Nombre: data.s_Nombre,
+        s_Appaterno: data.s_ApellidoPat,
+        s_Apmaterno: data.s_Apmaterno,
+        s_FechaNacimiento: dtFechaNacimiento,
+        s_Sexo: s_Sexo,
+        i_IdCiudad: data.cCiudad,
+        s_EdoCivil: s_EstadoCivil,
+        s_PastelFavorito: PreferenciaProducto,
+        s_Direccion: f_Adreess,
+        s_Colonia: data.s_Colonia,
+        s_Telefono: data.s_Telefono1,
+        s_Mail: data.s_Mail
+      }
       );
       let JsonDatosActualizar;
       JsonDatosActualizar = Func_ActualizaDatosMembresia;
@@ -267,70 +267,70 @@ server.post("getState", (req, res, next) => {
    const {
      idEstado
    } = JSON.parse(req.body);*/
-   
-   let CatalogoEstados = ApiServiceLety.ApiLety(
-     "CatalogoEstados", {
-       Empresa: 1
-     }
-   );
-   let JsonDatosEstados;
-   let error="";
-   let code="";
-   if (CatalogoEstados.ERROR) {
-     JsonDatosEstados = {};
-     error="Ocurrió un error con el servidor, intente más tarde por favor."
-     code=1;
-   } else {
-     let estados = JSON.parse(CatalogoEstados);
-     JsonDatosEstados = estados.CatalogoEstados;
-     code=0;
-     error="";
-   }
-   res.json({
-     JsonDatosEstados: JsonDatosEstados,
-     code:code,
-     error:error
-   });
-   
-   next();
+
+  let CatalogoEstados = ApiServiceLety.ApiLety(
+    "CatalogoEstados", {
+    Empresa: 1
+  }
+  );
+  let JsonDatosEstados;
+  let error = "";
+  let code = "";
+  if (CatalogoEstados.ERROR) {
+    JsonDatosEstados = {};
+    error = "Ocurrió un error con el servidor, intente más tarde por favor."
+    code = 1;
+  } else {
+    let estados = JSON.parse(CatalogoEstados);
+    JsonDatosEstados = estados.CatalogoEstados;
+    code = 0;
+    error = "";
+  }
+  res.json({
+    JsonDatosEstados: JsonDatosEstados,
+    code: code,
+    error: error
   });
-   
+
+  next();
+});
+
 server.post("getCities", (req, res, next) => {
   let CatalogoCiudades = ApiServiceLety.ApiLety(
     "CatalogoCiudades", {
-      Empresa: 1,
-      IdEstado: "0"
-    }
+    Empresa: 1,
+    IdEstado: "0"
+  }
   );
-  
+
   let JsonDatosCiudades;
-  let error="";
-  let code="";
-  
+  let error = "";
+  let code = "";
+
   if (CatalogoCiudades.ERROR) {
     JsonDatosCiudades = {};
-    error="Ocurrió un error con el servidor, intente más tarde por favor."
-    code=1;
+    error = "Ocurrió un error con el servidor, intente más tarde por favor."
+    code = 1;
   } else {
     let catalogo = JSON.parse(CatalogoCiudades);
     JsonDatosCiudades = catalogo.CatalogoCiudades;
-    code=0;
-    error="";
+    code = 0;
+    error = "";
   }
-  
+
   res.json({
     JsonDatosCiudades: JsonDatosCiudades,
-    code:code,
+    code: code,
     error: error
   });
-  
+
   next();
 });
-  
+
 
 
 /* working create card... server.middleware.https,*/
-server.post("AddLetyCardMember",  function (req, res, next) {
+server.post("AddLetyCardMember", function (req, res, next) {
 
   const Custom = req.currentCustomer;
   let letyCard = req.querystring.letyCard;
@@ -339,9 +339,9 @@ server.post("AddLetyCardMember",  function (req, res, next) {
 
   let CatalogoCiudades = ApiServiceLety.ApiLety(
     "CatalogoCiudades", {
-      Empresa: 1,
-      IdEstado: "0"
-    }
+    Empresa: 1,
+    IdEstado: "0"
+  }
   );
 
   let JsonDatosCiudades;
@@ -355,8 +355,8 @@ server.post("AddLetyCardMember",  function (req, res, next) {
   // delete
   let CatalogoEstados = ApiServiceLety.ApiLety(
     "CatalogoEstados", {
-      Empresa: 1
-    }
+    Empresa: 1
+  }
   );
 
   let JsonDatosEstados;
@@ -378,6 +378,51 @@ server.post("AddLetyCardMember",  function (req, res, next) {
   });
   next();
 });
+
+server.post('GetDataFromEvo',
+  (req, res, next) => {
+    let membershipId = req.form;
+    var Resource = require('dw/web/Resource');
+
+    var registrationForm = server.forms.getForm('profile');
+    var membershipForm = server.forms.getForm('customerEvo');
+
+    try {
+      var FuncExisteMembresía = ApiLety("ListaClientesFromMembresia", {
+        Empresa: 1,
+        s_IdMembresia: membershipId.membership
+      });
+  
+      if (FuncExisteMembresía.ERROR) {
+        registrationForm.customer.membershipId.valid = false;
+        registrationForm.customer.membershipId.error =
+          Resource.msg('label.input.membershipID.error', 'forms', null);
+        registrationForm.valid = false;
+      } else {
+        let JsonFunc_ExisteMembrecia = JSON.parse(FuncExisteMembresía);
+        JsonFunc_ExisteMembrecia = JsonFunc_ExisteMembrecia.ListaClientesFromMembresia;
+        var sIdFolioCard = JsonFunc_ExisteMembrecia[0].sIdFolioCard;
+        if (!empty(sIdFolioCard)) {
+          registrationForm.customer.firstname.value = JsonFunc_ExisteMembrecia[0].Name;
+          registrationForm.customer.lastname.value = JsonFunc_ExisteMembrecia[0].sPaternalLastName;
+          registrationForm.customer.email.value = JsonFunc_ExisteMembrecia[0].sEmail;
+          registrationForm.customer.emailconfirm.value = JsonFunc_ExisteMembrecia[0].sEmail;
+          registrationForm.customer.phone.value = JsonFunc_ExisteMembrecia[0].sPhone1;
+          session.custom.JsonFunc_ExisteMembrecia = JSON.stringify(JsonFunc_ExisteMembrecia);
+          res.json({
+            success: true,
+            registrationForm: registrationForm,
+            successMessage: Resource.msg('label.input.membershipID.verify', 'forms', null)
+          });
+          return next();
+        }
+      }
+    } catch (error) {
+      let err = error;
+    }
+
+    next();
+  })
 
 /* working create card... */
 
@@ -407,194 +452,195 @@ server.replace(
   server.middleware.https,
   csrfProtection.validateAjaxRequest,
   function (req, res, next) {
-      var CustomerMgr = require('dw/customer/CustomerMgr');
-      var Resource = require('dw/web/Resource');
+    var CustomerMgr = require('dw/customer/CustomerMgr');
+    var Resource = require('dw/web/Resource');
 
-      var formErrors = require('*/cartridge/scripts/formErrors');
+    var formErrors = require('*/cartridge/scripts/formErrors');
 
-      var registrationForm = server.forms.getForm('profile');
+    var registrationForm = server.forms.getForm('profile');
 
-      // form validation
-      if (registrationForm.customer.email.value.toLowerCase()
-          !== registrationForm.customer.emailconfirm.value.toLowerCase()
-      ) {
-          registrationForm.customer.email.valid = false;
-          registrationForm.customer.emailconfirm.valid = false;
-          registrationForm.customer.emailconfirm.error =
-              Resource.msg('error.message.mismatch.email', 'forms', null);
-          registrationForm.valid = false;
-      }
+    // form validation
+    if (registrationForm.customer.email.value.toLowerCase()
+      !== registrationForm.customer.emailconfirm.value.toLowerCase()
+    ) {
+      registrationForm.customer.email.valid = false;
+      registrationForm.customer.emailconfirm.valid = false;
+      registrationForm.customer.emailconfirm.error =
+        Resource.msg('error.message.mismatch.email', 'forms', null);
+      registrationForm.valid = false;
+    }
 
-      if (registrationForm.login.password.value
-          !== registrationForm.login.passwordconfirm.value
-      ) {
-          registrationForm.login.password.valid = false;
-          registrationForm.login.passwordconfirm.valid = false;
-          registrationForm.login.passwordconfirm.error =
-              Resource.msg('error.message.mismatch.password', 'forms', null);
-          registrationForm.valid = false;
-      }
+    if (registrationForm.login.password.value
+      !== registrationForm.login.passwordconfirm.value
+    ) {
+      registrationForm.login.password.valid = false;
+      registrationForm.login.passwordconfirm.valid = false;
+      registrationForm.login.passwordconfirm.error =
+        Resource.msg('error.message.mismatch.password', 'forms', null);
+      registrationForm.valid = false;
+    }
 
-      if (!CustomerMgr.isAcceptablePassword(registrationForm.login.password.value)) {
-          registrationForm.login.password.valid = false;
-          registrationForm.login.passwordconfirm.valid = false;
-          registrationForm.login.passwordconfirm.error =
-              Resource.msg('error.message.password.constraints.not.matched', 'forms', null);
-          registrationForm.valid = false;
-      }
+    if (!CustomerMgr.isAcceptablePassword(registrationForm.login.password.value)) {
+      registrationForm.login.password.valid = false;
+      registrationForm.login.passwordconfirm.valid = false;
+      registrationForm.login.passwordconfirm.error =
+        Resource.msg('error.message.password.constraints.not.matched', 'forms', null);
+      registrationForm.valid = false;
+    }
+    // setting variables for the BeforeComplete function
+    var registrationFormObj = {
+      firstName: registrationForm.customer.firstname.value,
+      lastName: registrationForm.customer.lastname.value,
+      sLastName: ',',
+      phone: registrationForm.customer.phone.value,
+      email: registrationForm.customer.email.value,
+      emailConfirm: registrationForm.customer.emailconfirm.value,
+      password: registrationForm.login.password.value,
+      passwordConfirm: registrationForm.login.passwordconfirm.value,
+      membershipId: registrationForm.customer.membershipId.value,
+      validForm: registrationForm.valid,
+      birthDay: '2023-03-09T15:20:40.437Z',
+      form: registrationForm
+    };
 
-      // setting variables for the BeforeComplete function
-      var registrationFormObj = {
-        firstName: registrationForm.customer.firstname.value,
-        lastName: registrationForm.customer.lastname.value,
-        phone: registrationForm.customer.phone.value,
-        email: registrationForm.customer.email.value,
-        emailConfirm: registrationForm.customer.emailconfirm.value,
-        password: registrationForm.login.password.value,
-        passwordConfirm: registrationForm.login.passwordconfirm.value,
-        membershipId: registrationForm.customer.membershipId.value,
-        validForm: registrationForm.valid,
-        form: registrationForm
-      };
+    // try {
+    //   if (empty(session.custom.JsonFunc_ExisteMembrecia)) {
+    //     var FuncExisteMembresía = ApiLety("ListaClientesFromMembresia", {
+    //       Empresa: 1,
+    //       s_IdMembresia: registrationForm.customer.membershipId
+    //     });
 
-      try {
-        if (empty(session.custom.JsonFunc_ExisteMembrecia)) {
-          var FuncExisteMembresía = ApiLety("ListaClientesFromMembresia", {
-            Empresa: 1,
-            s_IdMembresia: registrationForm.customer.membershipId
-          });
-    
-          if (FuncExisteMembresía.ERROR) {
-            registrationForm.customer.membershipId.valid = false;
-              registrationForm.customer.membershipId.error =
-              Resource.msg('label.input.membershipID.error', 'forms', null);
-              registrationForm.valid = false;
-          } else {
-            let JsonFunc_ExisteMembrecia = JSON.parse(FuncExisteMembresía);
-            JsonFunc_ExisteMembrecia =JsonFunc_ExisteMembrecia.ListaClientesFromMembresia;
-            var sIdFolioCard = JsonFunc_ExisteMembrecia[0].sIdFolioCard;
-            if (!empty(sIdFolioCard)) {
-              registrationForm.customer.firstname.value = JsonFunc_ExisteMembrecia[0].Name;
-              registrationForm.customer.lastname.value = JsonFunc_ExisteMembrecia[0].sPaternalLastName;
-              registrationForm.customer.email.value = JsonFunc_ExisteMembrecia[0].sEmail;
-              registrationForm.customer.emailconfirm.value = JsonFunc_ExisteMembrecia[0].sEmail;
-              registrationForm.customer.phone.value = JsonFunc_ExisteMembrecia[0].sPhone1;
-              session.custom.JsonFunc_ExisteMembrecia = JSON.stringify(JsonFunc_ExisteMembrecia);
-              res.json({
-                success: true,
-                registrationForm: registrationForm,
-                successMessage: Resource.msg('label.input.membershipID.verify', 'forms', null)
+    //     if (FuncExisteMembresía.ERROR) {
+    //       registrationForm.customer.membershipId.valid = false;
+    //       registrationForm.customer.membershipId.error =
+    //         Resource.msg('label.input.membershipID.error', 'forms', null);
+    //       registrationForm.valid = false;
+    //     } else {
+    //       let JsonFunc_ExisteMembrecia = JSON.parse(FuncExisteMembresía);
+    //       JsonFunc_ExisteMembrecia = JsonFunc_ExisteMembrecia.ListaClientesFromMembresia;
+    //       var sIdFolioCard = JsonFunc_ExisteMembrecia[0].sIdFolioCard;
+    //       if (!empty(sIdFolioCard)) {
+    //         registrationForm.customer.firstname.value = JsonFunc_ExisteMembrecia[0].Name;
+    //         registrationForm.customer.lastname.value = JsonFunc_ExisteMembrecia[0].sPaternalLastName;
+    //         registrationForm.customer.email.value = JsonFunc_ExisteMembrecia[0].sEmail;
+    //         registrationForm.customer.emailconfirm.value = JsonFunc_ExisteMembrecia[0].sEmail;
+    //         registrationForm.customer.phone.value = JsonFunc_ExisteMembrecia[0].sPhone1;
+    //         session.custom.JsonFunc_ExisteMembrecia = JSON.stringify(JsonFunc_ExisteMembrecia);
+    //         res.json({
+    //           success: true,
+    //           registrationForm: registrationForm,
+    //           successMessage: Resource.msg('label.input.membershipID.verify', 'forms', null)
+    //         });
+    //         return next();
+    //       } else {
+    //         registrationForm.customer.membershipId.valid = false;
+    //         registrationForm.customer.membershipId.error =
+    //           Resource.msg('label.input.membershipID.error', 'forms', null);
+    //         registrationForm.valid = true;
+    //       }
+    //     }
+    //   }
+    // } catch (error) {
+    //   registrationForm.customer.membershipId.valid = false;
+    //   registrationForm.customer.membershipId.error = Resource.msg('label.input.membershipID.error', 'forms', null);
+    //   registrationForm.valid = false;
+    // }
+
+    if (registrationForm.valid) {
+      res.setViewData(registrationFormObj);
+
+      this.on('route:BeforeComplete', function (req, res) { // eslint-disable-line no-shadow
+        var Transaction = require('dw/system/Transaction');
+        var accountHelpers = require('*/cartridge/scripts/helpers/accountHelpers');
+        var authenticatedCustomer;
+        var serverError;
+
+        // getting variables for the BeforeComplete function
+        var registrationForm = res.getViewData(); // eslint-disable-line
+
+        if (registrationForm.validForm) {
+          var login = registrationForm.email;
+          var password = registrationForm.password;
+
+          // attempt to create a new user and log that user in.
+          try {
+            Transaction.wrap(function () {
+              var error = {};
+              var newCustomer = CustomerMgr.createCustomer(login, password);
+
+              var authenticateCustomerResult = CustomerMgr.authenticateCustomer(login, password);
+              if (authenticateCustomerResult.status !== 'AUTH_OK') {
+                error = { authError: true, status: authenticateCustomerResult.status };
+                throw error;
+              }
+
+              authenticatedCustomer = CustomerMgr.loginCustomer(authenticateCustomerResult, false);
+
+              if (!authenticatedCustomer) {
+                error = { authError: true, status: authenticateCustomerResult.status };
+                throw error;
+              } else {
+                // assign values to the profile
+                var newCustomerProfile = newCustomer.getProfile();
+
+                newCustomerProfile.firstName = registrationForm.firstName;
+                newCustomerProfile.lastName = registrationForm.lastName;
+                newCustomerProfile.phoneHome = registrationForm.phone;
+                newCustomerProfile.email = registrationForm.email;
+              }
             });
-            return next();
+          } catch (e) {
+            if (e.authError) {
+              serverError = true;
             } else {
-              registrationForm.customer.membershipId.valid = false;
-              registrationForm.customer.membershipId.error =
-              Resource.msg('label.input.membershipID.error', 'forms', null);
-              registrationForm.valid = false;
+              registrationForm.validForm = false;
+              registrationForm.form.customer.email.valid = false;
+              registrationForm.form.customer.emailconfirm.valid = false;
+              registrationForm.form.customer.email.error =
+                Resource.msg('error.message.username.invalid.regist', 'forms', null);
             }
           }
         }
-      } catch (error) {
-        registrationForm.customer.membershipId.valid = false;
-        registrationForm.customer.membershipId.error =Resource.msg('label.input.membershipID.error', 'forms', null);
-        registrationForm.valid = false;
-      }
 
-      if (registrationForm.valid) {
-          res.setViewData(registrationFormObj);
+        delete registrationForm.password;
+        delete registrationForm.passwordConfirm;
+        formErrors.removeFormValues(registrationForm.form);
 
-          this.on('route:BeforeComplete', function (req, res) { // eslint-disable-line no-shadow
-              var Transaction = require('dw/system/Transaction');
-              var accountHelpers = require('*/cartridge/scripts/helpers/accountHelpers');
-              var authenticatedCustomer;
-              var serverError;
-
-              // getting variables for the BeforeComplete function
-              var registrationForm = res.getViewData(); // eslint-disable-line
-
-              if (registrationForm.validForm) {
-                  var login = registrationForm.email;
-                  var password = registrationForm.password;
-
-                  // attempt to create a new user and log that user in.
-                  try {
-                      Transaction.wrap(function () {
-                          var error = {};
-                          var newCustomer = CustomerMgr.createCustomer(login, password);
-
-                          var authenticateCustomerResult = CustomerMgr.authenticateCustomer(login, password);
-                          if (authenticateCustomerResult.status !== 'AUTH_OK') {
-                              error = { authError: true, status: authenticateCustomerResult.status };
-                              throw error;
-                          }
-
-                          authenticatedCustomer = CustomerMgr.loginCustomer(authenticateCustomerResult, false);
-
-                          if (!authenticatedCustomer) {
-                              error = { authError: true, status: authenticateCustomerResult.status };
-                              throw error;
-                          } else {
-                              // assign values to the profile
-                              var newCustomerProfile = newCustomer.getProfile();
-
-                              newCustomerProfile.firstName = registrationForm.firstName;
-                              newCustomerProfile.lastName = registrationForm.lastName;
-                              newCustomerProfile.phoneHome = registrationForm.phone;
-                              newCustomerProfile.email = registrationForm.email;
-                          }
-                      });
-                  } catch (e) {
-                      if (e.authError) {
-                          serverError = true;
-                      } else {
-                          registrationForm.validForm = false;
-                          registrationForm.form.customer.email.valid = false;
-                          registrationForm.form.customer.emailconfirm.valid = false;
-                          registrationForm.form.customer.email.error =
-                              Resource.msg('error.message.username.invalid.regist', 'forms', null);
-                      }
-                  }
-              }
-
-              delete registrationForm.password;
-              delete registrationForm.passwordConfirm;
-              formErrors.removeFormValues(registrationForm.form);
-
-              if (serverError) {
-                  res.setStatusCode(500);
-                  res.json({
-                      success: false,
-                      errorMessage: Resource.msg('error.message.unable.to.create.account', 'login', null)
-                  });
-
-                  return;
-              }
-
-              if (registrationForm.validForm) {
-                  // send a registration email
-                  accountHelpers.sendCreateAccountEmail(authenticatedCustomer.profile);
-                  accountHelpers.addUpdateExternalAccount(registrationFormObj);
-
-                  res.setViewData({ authenticatedCustomer: authenticatedCustomer });
-                  res.json({
-                      success: true,
-                      redirectUrl: accountHelpers.getLoginRedirectURL(req.querystring.rurl, req.session.privacyCache, true)
-                  });
-
-                  req.session.privacyCache.set('args', null);
-              } else {
-                  res.json({
-                      fields: formErrors.getFormErrors(registrationForm)
-                  });
-              }
-          });
-      } else {
+        if (serverError) {
+          res.setStatusCode(500);
           res.json({
-              fields: formErrors.getFormErrors(registrationForm)
+            success: false,
+            errorMessage: Resource.msg('error.message.unable.to.create.account', 'login', null)
           });
-      }
 
-      return next();
+          return;
+        }
+
+        if (registrationForm.validForm) {
+          // send a registration email
+          // accountHelpers.sendCreateAccountEmail(authenticatedCustomer.profile);
+          accountHelpers.addUpdateExternalAccount(registrationFormObj);
+
+          res.setViewData({ authenticatedCustomer: authenticatedCustomer });
+          res.json({
+            success: true,
+            redirectUrl: accountHelpers.getLoginRedirectURL(req.querystring.rurl, req.session.privacyCache, true)
+          });
+
+          req.session.privacyCache.set('args', null);
+        } else {
+          res.json({
+            fields: formErrors.getFormErrors(registrationForm)
+          });
+        }
+      });
+    } else {
+      res.json({
+        fields: formErrors.getFormErrors(registrationForm)
+      });
+    }
+
+    return next();
   }
 );
 
