@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19" secure="false">
+
+  <field
+    formid="membershipId"
+    label="label.input.membershipId.profile"
+    mandatory="true"
+    max-length="50"
+    missing-error="error.message.required"
+    range-error="error.message.50orless"
+    type="string" />
+</form>
