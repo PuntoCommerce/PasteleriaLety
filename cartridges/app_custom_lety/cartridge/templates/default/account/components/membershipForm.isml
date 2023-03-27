@@ -1,0 +1,19 @@
+<form action="${URLUtils.url('Account-GetDataFromEvo')}" class="getMembership" name="${pdict.membershipForm.htmlName}">
+  <div class="form-group
+        <isif condition=" ${!!pdict.membershipForm.membershipId.mandatory === true}">required</isif>">
+    <label class="form-control-label" for="registration-form-password-confirm">
+      <isprint value="${pdict.membershipForm.membershipId.label}" encoding="htmlcontent" />
+    </label>
+    <input type="text" class="form-control" id="membershipId"
+      data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
+      data-range-error="${Resource.msg('error.message.8_255characters', 'forms', null)}"
+      aria-describedby="form-membershipId-error" autocomplete="off" <isprint
+      value=${pdict.membershipForm.membershipId.attributes} encoding="off" />>
+    <div class="invalid-feedback" id="form-membershipId-confirm-error"></div>
+    <span>${Resource.msg('label.input.membershipId.profile2', 'forms', null)}</span>
+  </div>
+
+  <label id="URLMembership" data-action="${URLUtils.url('Account-GetDataFromEvo')}" />
+
+  <button type="submit">Enviar</button>
+</form>
