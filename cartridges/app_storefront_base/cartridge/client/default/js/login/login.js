@@ -2,7 +2,6 @@
 
 var formValidation = require('../components/formValidation');
 var createErrorNotification = require('../components/errorNotification');
-var updatedCustomerFormBasedOnMembership = require('../components/updatedCustomerFormBasedOnMembership');
 
 module.exports = {
     login: function () {
@@ -59,11 +58,7 @@ module.exports = {
                         formValidation(form, data);
                     } else {
                         $('form.registration').trigger('login:register:success', data);
-                        if ('registrationForm' in  data) {
-                            updatedCustomerFormBasedOnMembership.updateForm(data.registrationForm, data.successMessage);
-                        } else {
-                            location.href = data.redirectUrl;
-                        }
+                        location.href = data.redirectUrl;
                     }
                 },
                 error: function (err) {
