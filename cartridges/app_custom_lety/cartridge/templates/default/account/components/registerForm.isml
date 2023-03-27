@@ -126,8 +126,12 @@
     </button>
     <div class="privacy-policy">
         ${Resource.msg('description.privacypolicy.registration', 'registration', null)} <br>
-        <a href="${'https://www.pastelerialety.com/on/demandware.store/Sites-PasteleriaLety-Site/es/PDrender-Show?page=aviso'}">
+        <a href="${URLUtils.url('PDrender-Show', 'page', 'aviso')}">
             ${Resource.msg('link.privacypolicy.registration', 'registration', null)}
         </a>
     </div>
 </form>
+
+<div class="getMembershipData">
+    <isinclude template="account/components/membershipForm" />
+</div>
