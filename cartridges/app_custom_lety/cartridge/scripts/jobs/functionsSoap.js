@@ -90,7 +90,7 @@ function body(data, credential, path) {
       '<IdEmpresa>' + data.Empresa + '</IdEmpresa>' +
       '<vUsr>' + credential.user + '</vUsr>' +
       '<vPwd>' + credential.password + '</vPwd>' + handleEnviroment() +
-      '<sFolioMembresia>' + data.s_IdMembresia.htmlValue + '</sFolioMembresia>' +
+      '<sFolioMembresia>' + data.s_IdMembresia + '</sFolioMembresia>' +
       '</' + path + '>' +
       '</soap:Body>' +
       '</soap:Envelope>';
