@@ -258,8 +258,8 @@ server.replace(
 
     if (order.getCustomerEmail()) {
         COHelpers.sendConfirmationEmail(order, req.locale.id, storeId);
-        COHelpers.sendConfirmationEmailClient(order, req.locale.id, storeId);
-        COHelpers.sendConfirmationEmailClientSecund(order, req.locale.id, storeId);
+        // COHelpers.sendConfirmationEmailClient(order, req.locale.id, storeId);
+        // COHelpers.sendConfirmationEmailClientSecund(order, req.locale.id, storeId);
         // COHelpers.sendConfirmationEmailClientThird(order, req.locale.id, storeId);
         // COHelpers.sendConfirmationEmailClientFourth(order, req.locale.id, storeId);
     }
@@ -269,7 +269,7 @@ server.replace(
       if(order.defaultShipment.shippingMethodID == "pickup"){
         status = HO.sendPickupOrderToERP(order.orderNo);
       } else {
-        status = HO.sendShippingOrderToERP(order.orderNo);
+        status = HO.sendShippingOrderToERP(order.orderNo, req);
       }
     } catch (error) {
       status.error = true;
