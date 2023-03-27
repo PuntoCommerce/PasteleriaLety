@@ -94,7 +94,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\n\r\n$(document).ready(function () {\r\n    $('body').on('click', '.show-more-button', function (e) {\r\n        e.preventDefault();\r\n\r\n        var $set2Element = $(this).closest('.look-book-layout').find('.look-book-set2');\r\n        $set2Element.removeClass('hide-set');\r\n\r\n        var $showMoreElement = $(this).closest('.look-book-layout').find('.show-more');\r\n        $showMoreElement.addClass('d-none');\r\n    });\r\n});\r\n\n\n//# sourceURL=webpack:///./cartridges/app_storefront_base/cartridge/client/default/js/mobileGridLookBook.js?");
+eval("\n\n$(document).ready(function () {\n    $('body').on('click', '.show-more-button', function (e) {\n        e.preventDefault();\n\n        var $set2Element = $(this).closest('.look-book-layout').find('.look-book-set2');\n        $set2Element.removeClass('hide-set');\n\n        var $showMoreElement = $(this).closest('.look-book-layout').find('.show-more');\n        $showMoreElement.addClass('d-none');\n    });\n});\n\n\n//# sourceURL=webpack:///./cartridges/app_storefront_base/cartridge/client/default/js/mobileGridLookBook.js?");
 
 /***/ })
 
