@@ -26,11 +26,18 @@ const validateEmail = (email) => {
 server.prepend("SubmitShipping", (req, res, next) => {
   let storeId = req.form.store || req.session.raw.privacy.storeId;
   const currentBasket = BasketMgr.getCurrentBasket();
-  if (currentBasket) {
+    const storeForm = server.forms.getForm('shipping');
+    const {firstName, lastName} = storeForm.shippingAddress.addressFields
+    req.session.privacyCache.set("customerFirstName", firstName.htmlValue)
+    req.session.privacyCache.set("customerLastName", lastName.htmlValue)
+
+    if (currentBasket) {
     let existencia = inventory.checkOnlineInventoryMulti(
       currentBasket.productLineItems,
       storeId
     );
+
+
     if (existencia.error) {
       let message = existencia.errors.join("");
       let viewData = res.getViewData();
@@ -186,8 +193,11 @@ server.append("SubmitShipping", (req, res, next) => {
 
     selectedStoreId = store.ID;
 
+
     req.session.privacyCache.set("storeId", selectedStoreId);
     req.session.privacyCache.set("empresaId", store.custom.empresaId);
+    req.session.privacyCache.set("customerFirstName", viewData.address.firstName)
+    req.session.privacyCache.set("customerLastName", viewData.address.lastName)
 
     splitedAddress = CAHelpers.splitAddress(viewData.address);
 
