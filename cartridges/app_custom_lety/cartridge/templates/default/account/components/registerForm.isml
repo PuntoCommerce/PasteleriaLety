@@ -131,7 +131,3 @@
         </a>
     </div>
 </form>
-
-<div class="getMembershipData">
-    <isinclude template="account/components/membershipForm" />
-</div>
