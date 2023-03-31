@@ -1,0 +1,60 @@
+.getMembershipData {
+  position: fixed;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.6);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  animation: opacity ease-in 0.2s;
+}
+
+.getMembershipData__container {
+  background: #fff;
+  max-width: 400px;
+  width: 100%;
+  place-self: center;
+  border: 1px solid rgb(182, 182, 182);
+  border-radius: 5px;
+  padding: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.membership-button {
+  width: 100%;
+  background: #ED7014;
+  border: none;
+  height: 40px;
+  border-radius: 20px;
+  color: white;
+  font-family: var(--font-family-gotham-black-regular);
+}
+
+.closeModal {
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  background: none;
+  border: none;
+  border: 1px solid #cacaca;
+  border-radius: 20px;
+  margin-top: 10px;
+  font-family: var(--font-family-gotham-black-regular);
+}
+
+.closeModal:focus {
+  outline: 0;
+}
+
+@keyframes opacity {
+  0% {
+    background: rgba(255, 255, 255, 0);
+  }
+  100%{
+    background: rgba(255, 255, 255, 0.6);
+  }
+}

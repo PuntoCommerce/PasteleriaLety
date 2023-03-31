@@ -2,16 +2,19 @@
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addCss('/css/login.css');
+        assets.addCss('/css/membershipModal.css');
         assets.addJs('/js/login.js');
         assets.addJs('/js/getMembershipData.js');
     </isscript>
 
     <div class="container login-page">
-    <div class="title-login row">
-        <h2>${Resource.msg('hader.form.login', 'login', null)}</h2>
-    </div>
+        <div class="title-login row">
+            <h2>${Resource.msg('hader.form.login', 'login', null)}</h2>
+        </div>
         <!---Breadcrumbs--->
-        <iscomment> <isinclude template="components/breadcrumbs/pageBreadcrumbs" /> </iscomment>
+        <iscomment>
+            <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+        </iscomment>
         <div class="row justify-content-center equal-height">
             <div class="col-sm-8 col-md-6 form-login">
                 <div class="card">
@@ -31,6 +34,15 @@
                             <div class="tab-pane ${pdict.navTabValue === " register" ? 'active' : ''}" id="register"
                                 role="tabpanel" aria-labelledby="register-tab">
                                 <isinclude template="account/components/registerForm" />
+
+                                <div class="getMembershipData">
+                                    <div class="getMembershipData__container">
+                                        <isinclude template="account/components/membershipForm" />
+                                        <button onclick="closeModalMembership()" class="closeModal">
+                                        ${Resource.msg('label.input.membershipId.profile.error', 'forms', null)}
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
