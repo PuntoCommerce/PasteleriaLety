@@ -9,11 +9,14 @@
       data-range-error="${Resource.msg('error.message.8_255characters', 'forms', null)}"
       aria-describedby="form-membershipId-error" autocomplete="off" <isprint
       value=${pdict.membershipForm.membershipId.attributes} encoding="off" />>
-    <div class="invalid-feedback" id="form-membershipId-confirm-error"></div>
-    <span>${Resource.msg('label.input.membershipId.profile2', 'forms', null)}</span>
+    <div class="invalid-feedback" id="form-membershipId-confirm-success"
+      data-message="${Resource.msg('label.input.membershipID.verify', 'forms', null)}"></div>
+    <div class="invalid-feedback" id="form-membershipId-confirm-alert"
+      data-message="${Resource.msg('label.input.membershipID.error', 'forms', null)}"></div>
+
+    <span id="form-membershipId-confirm-error">
+    </span>
   </div>
 
-  <label id="URLMembership" data-action="${URLUtils.url('Account-GetDataFromEvo')}" />
-
-  <button type="submit">Enviar</button>
+  <button class="membership-button" type="submit">Aceptar</button>
 </form>
