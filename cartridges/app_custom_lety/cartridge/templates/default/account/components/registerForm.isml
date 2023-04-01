@@ -41,6 +41,19 @@
     </div>
 
     <div class="form-group
+    <isif condition=" ${!!pdict.profileForm.customer.birthDay.mandatory === true}">required</isif>">
+        <label class="form-control-label" for="registration-form-birtDay">
+            <isprint value="${pdict.profileForm.customer.birthDay.label}" encoding="htmlcontent" />
+        </label>
+
+        <input type="date" class="form-control" id="registration-form-birtDay"
+            data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
+            data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
+            aria-describedby="form-phone-error" <isprint value=${pdict.profileForm.customer.birthDay.attributes}
+            encoding="off" />>
+    </div>
+
+    <div class="form-group
         <isif condition=" ${!!pdict.profileForm.customer.email.mandatory === true}">required</isif>">
         <label class="form-control-label" for="registration-form-email">
             <isprint value="${pdict.profileForm.customer.email.label}" encoding="htmlcontent" />
@@ -95,20 +108,6 @@
         <div class="invalid-feedback" id="form-password-confirm-error"></div>
         <span>${Resource.msg('label.input.newpassword.profile2', 'forms', null)}</span>
     </div>
-
-    <iscomment> <div class="form-group
-        <isif condition=" ${!!pdict.profileForm.customer.membershipId.mandatory === true}">required</isif>">
-        <label class="form-control-label" for="registration-form-password-confirm">
-            <isprint value="${pdict.profileForm.customer.membershipId.label}" encoding="htmlcontent" />
-        </label>
-        <input type="text" class="form-control" id="registration-form-membershipId"
-            data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
-            data-range-error="${Resource.msg('error.message.8_255characters', 'forms', null)}"
-            aria-describedby="form-membershipId-error" autocomplete="off" <isprint
-            value=${pdict.profileForm.customer.membershipId.attributes} encoding="off" />>
-        <div class="invalid-feedback" id="form-membershipId-confirm-error"></div>
-        <span>${Resource.msg('label.input.membershipId.profile2', 'forms', null)}</span>
-    </div> </iscomment>
 
     <div class="form-group custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="add-to-email-list" <isprint

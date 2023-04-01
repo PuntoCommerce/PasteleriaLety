@@ -29,8 +29,8 @@
 			range-error="error.message.50orless"
 			regexp="^[\w.%+-]+@[\w.-]+\.[\w]{2,6}$"
 			value-error="ValueErrorText"
-			type="string"/>
-			<!-- TODO value-error not comming back from the platform -->
+			type="string" />
+		<!-- TODO value-error not comming back from the platform -->
 
 		<field
 			formid="emailconfirm"
@@ -42,8 +42,8 @@
 			range-error="error.message.50orless"
 			regexp="^[\w.%+-]+@[\w.-]+\.[\w]{2,6}$"
 			value-error="ValueErrorText"
-			type="string"/>
-			<!-- TODO value-error not comming back from the platform -->
+			type="string" />
+		<!-- TODO value-error not comming back from the platform -->
 
 		<field
 			formid="phone"
@@ -52,13 +52,12 @@
 			regexp="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$"
 			missing-error="error.message.required"
 			parse-error="error.message.parse.phone.profile.form"
-			type="string"/>
-			
-			<field
-			formid="membershipId"
-			label="label.input.membershipId.profile"
-			mandatory="false"
-			max-length="50"
+			type="string" />
+
+		<field
+			formid="birthDay"
+			label="label.input.birthDay.profile"
+			mandatory="true"
 			missing-error="error.message.required"
 			range-error="error.message.50orless"
 			type="string" />
@@ -74,7 +73,7 @@
 			range-error="error.message.8_255characters"
 			value-error="error.message.currentpasswordnomatch"
 			type="string" />
-			<!-- TODO value-error -->
+		<!-- TODO value-error -->
 
 		<field
 			formid="passwordconfirm"
@@ -84,8 +83,8 @@
 			min-length="8"
 			max-length="255"
 			range-error="error.message.8_255characters"
-			value-error="error.message.currentpasswordnomatch"/>
-			<!-- TODO value-error -->
+			value-error="error.message.currentpasswordnomatch" />
+		<!-- TODO value-error -->
 
 		<field
 			formid="currentpassword"
@@ -97,6 +96,6 @@
 			value-error="error.message.currentpasswordnomatch"
 			type="string" />
 
-		<include formid="newpasswords" name="newPasswords"/>
+		<include formid="newpasswords" name="newPasswords" />
 	</group>
 </form>

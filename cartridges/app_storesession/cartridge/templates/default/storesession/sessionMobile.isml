@@ -34,7 +34,7 @@
 
           <div class="buttonSession">
               <button type="button" class="d-none d-md-block" id="session_search-confirm">Confirmar</button>
-              <button type="button" class="d-sm-block d-md-none" id="session_search-confirmMobile">Confirmar 2</button>
+              <button type="button" class="d-sm-block d-md-none" id="session_search-confirmMobile">Confirmar</button>
           </div>
           <div class="row p-3">
             <img class="" src="${URLUtils.staticURL('/images/icons/ubicacion-desactivada.svg')}" alt="" />
