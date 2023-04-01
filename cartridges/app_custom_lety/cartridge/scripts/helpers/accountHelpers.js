@@ -12,27 +12,32 @@ var Transaction = require('dw/system/Transaction');
  * @return {Object} - content search instance
  */
 baseAccountHelpers.addUpdateExternalAccount = function (params) {
+    const date = new Date(params.birthDay);
+    const birthDay = date.toISOString();
     try {
         if (!empty(session.custom.JsonFunc_ExisteMembrecia)) {
             var JsonFunc_ExisteMembrecia = JSON.parse(session.custom.JsonFunc_ExisteMembrecia);
-            var añadirPerfilCliente = ApiLety("ActualizaPersona", {
+
+            var actualizarperfildecliente = ApiLety("ActualizaPersona", {
                 Empresa: 1,
                 params: params,
+                birthDay: birthDay,
                 iIdFolioPersona: JsonFunc_ExisteMembrecia[0].iIdFolioPersona,
                 iIdPersona: JsonFunc_ExisteMembrecia[0].iIdPersona,
                 dtDateHigh: JsonFunc_ExisteMembrecia[0].dtDateHigh,
                 JsonFunc_ExisteMembrecia: JsonFunc_ExisteMembrecia
             });
         } else {
-            var actualizarperfildecliente = ApiLety("InsertaPersona", {
+            var añadirPerfilCliente = ApiLety("InsertaPersona", {
                 Empresa: 1,
-                params: params
+                params: params,
+                birthDay: birthDay
             });
         }
     } catch (error) { }
 }
 
-baseAccountHelpers.insertFolPerson = (customer) =>{
+baseAccountHelpers.insertFolPerson = (customer) => {
     const getCustomer = CustomerMgr.getProfile(customer.customerNo);
 
     var getFolioPerson = ApiLety("GetFolioPersona", {
@@ -40,7 +45,7 @@ baseAccountHelpers.insertFolPerson = (customer) =>{
         params: customer
     })
 
-    Transaction.wrap(() =>{
+    Transaction.wrap(() => {
         getCustomer.custom.folPerson = getFolioPerson.iIdFolioPersona
     })
 }
