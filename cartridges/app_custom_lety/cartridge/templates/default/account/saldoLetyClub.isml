@@ -26,6 +26,8 @@
                         </isif>
                     </div>
                     <div class="card-body">
+                        <isset name="datosMembresia" value="${pdict.Account.JsonDatosMembresia.Func_DatosMembresia[0]}" scope="page" />
+                        <isset name="birthDay" value="${pdict.Account.birthDay}" scope="page" />
                         <isinclude template="account/saldoForm" />
                     </div>
                 </div>
