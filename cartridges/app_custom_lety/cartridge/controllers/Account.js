@@ -80,6 +80,11 @@ server.get("Saldo", server.middleware.https, function (req, res, next) {
 
   }
 
+  const { dtFechaNacimiento } = JsonDatosMembresia.Func_DatosMembresia[0];
+  const splitDate = dtFechaNacimiento.split('/')
+  const data = new Date(`${splitDate[2]}/${splitDate[1]}/${splitDate[0]}`).toISOString();
+  const birthDay = data.split('T');
+
   if (CatalogoEstados.ERROR) {
     JsonDatosEstados = {};
   } else {
@@ -91,7 +96,8 @@ server.get("Saldo", server.middleware.https, function (req, res, next) {
       LetyCard: letyCard,
       JsonDatosMembresia: JsonDatosMembresia,
       JsonDatosCiudades: JsonDatosCiudades,
-      JsonDatosEstados: JsonDatosEstados
+      JsonDatosEstados: JsonDatosEstados,
+      birthDay: birthDay[0]
     },
   });
   next();
@@ -392,15 +398,20 @@ server.post('GetDataFromEvo',
         Empresa: 1,
         s_IdMembresia: membershipId.membership
       });
-  
+
       if (FuncExisteMembresía.ERROR) {
         registrationForm.customer.membershipId.valid = false;
         registrationForm.customer.membershipId.error =
-          Resource.msg('label.input.membershipID.error', 'forms', null);
-        registrationForm.valid = false;
+          registrationForm.valid = false;
+        res.json({
+          errorMessage: Resource.msg('label.input.membershipID.error', 'forms', null),
+          success: false
+        })
       } else {
         let JsonFunc_ExisteMembrecia = JSON.parse(FuncExisteMembresía);
         JsonFunc_ExisteMembrecia = JsonFunc_ExisteMembrecia.ListaClientesFromMembresia;
+        const birthDay = JsonFunc_ExisteMembrecia[0].dtFechaNacimiento.split('T', 2);
+
         var sIdFolioCard = JsonFunc_ExisteMembrecia[0].sIdFolioCard;
         if (!empty(sIdFolioCard)) {
           registrationForm.customer.firstname.value = JsonFunc_ExisteMembrecia[0].Name;
@@ -408,6 +419,7 @@ server.post('GetDataFromEvo',
           registrationForm.customer.email.value = JsonFunc_ExisteMembrecia[0].sEmail;
           registrationForm.customer.emailconfirm.value = JsonFunc_ExisteMembrecia[0].sEmail;
           registrationForm.customer.phone.value = JsonFunc_ExisteMembrecia[0].sPhone1;
+          registrationForm.customer.birthDay.value = birthDay[0];
           session.custom.JsonFunc_ExisteMembrecia = JSON.stringify(JsonFunc_ExisteMembrecia);
           res.json({
             success: true,
@@ -497,54 +509,10 @@ server.replace(
       emailConfirm: registrationForm.customer.emailconfirm.value,
       password: registrationForm.login.password.value,
       passwordConfirm: registrationForm.login.passwordconfirm.value,
-      membershipId: registrationForm.customer.membershipId.value,
+      birthDay: registrationForm.customer.birthDay.value,
       validForm: registrationForm.valid,
-      birthDay: '2023-03-09T15:20:40.437Z',
       form: registrationForm
     };
-
-    // try {
-    //   if (empty(session.custom.JsonFunc_ExisteMembrecia)) {
-    //     var FuncExisteMembresía = ApiLety("ListaClientesFromMembresia", {
-    //       Empresa: 1,
-    //       s_IdMembresia: registrationForm.customer.membershipId
-    //     });
-
-    //     if (FuncExisteMembresía.ERROR) {
-    //       registrationForm.customer.membershipId.valid = false;
-    //       registrationForm.customer.membershipId.error =
-    //         Resource.msg('label.input.membershipID.error', 'forms', null);
-    //       registrationForm.valid = false;
-    //     } else {
-    //       let JsonFunc_ExisteMembrecia = JSON.parse(FuncExisteMembresía);
-    //       JsonFunc_ExisteMembrecia = JsonFunc_ExisteMembrecia.ListaClientesFromMembresia;
-    //       var sIdFolioCard = JsonFunc_ExisteMembrecia[0].sIdFolioCard;
-    //       if (!empty(sIdFolioCard)) {
-    //         registrationForm.customer.firstname.value = JsonFunc_ExisteMembrecia[0].Name;
-    //         registrationForm.customer.lastname.value = JsonFunc_ExisteMembrecia[0].sPaternalLastName;
-    //         registrationForm.customer.email.value = JsonFunc_ExisteMembrecia[0].sEmail;
-    //         registrationForm.customer.emailconfirm.value = JsonFunc_ExisteMembrecia[0].sEmail;
-    //         registrationForm.customer.phone.value = JsonFunc_ExisteMembrecia[0].sPhone1;
-    //         session.custom.JsonFunc_ExisteMembrecia = JSON.stringify(JsonFunc_ExisteMembrecia);
-    //         res.json({
-    //           success: true,
-    //           registrationForm: registrationForm,
-    //           successMessage: Resource.msg('label.input.membershipID.verify', 'forms', null)
-    //         });
-    //         return next();
-    //       } else {
-    //         registrationForm.customer.membershipId.valid = false;
-    //         registrationForm.customer.membershipId.error =
-    //           Resource.msg('label.input.membershipID.error', 'forms', null);
-    //         registrationForm.valid = true;
-    //       }
-    //     }
-    //   }
-    // } catch (error) {
-    //   registrationForm.customer.membershipId.valid = false;
-    //   registrationForm.customer.membershipId.error = Resource.msg('label.input.membershipID.error', 'forms', null);
-    //   registrationForm.valid = false;
-    // }
 
     if (registrationForm.valid) {
       res.setViewData(registrationFormObj);
@@ -582,6 +550,12 @@ server.replace(
               } else {
                 // assign values to the profile
                 var newCustomerProfile = newCustomer.getProfile();
+
+                if (!empty(session.custom.JsonFunc_ExisteMembrecia)) {
+                  const exist = session.custom.JsonFunc_ExisteMembrecia;
+                  const parseInfo = JSON.parse(exist)
+                  newCustomerProfile.custom.letyPuntosCard = parseInfo[0].sIdFolioCard;
+                }
 
                 newCustomerProfile.firstName = registrationForm.firstName;
                 newCustomerProfile.lastName = registrationForm.lastName;
