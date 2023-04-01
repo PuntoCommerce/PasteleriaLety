@@ -311,7 +311,7 @@ function body(data, credential, path) {
       '<sTelefono1>' + data.params.phone + '</sTelefono1>' +
       '<sCorreoElectronico>' + data.params.email + '</sCorreoElectronico>' +
       '<dtFechaAlta>' + data.dtDateHigh + '</dtFechaAlta>' +
-      '<dtFechaNacimiento>' + data.JsonFunc_ExisteMembrecia[0].dtFechaNacimiento + '</dtFechaNacimiento>' +
+      '<dtFechaNacimiento>' + data.birthDay + '</dtFechaNacimiento>' +
       '<sApellidoMaterno>' + data.JsonFunc_ExisteMembrecia[0].sMaternalLastName + '</sApellidoMaterno>' +
       // date of birth
       // city
@@ -354,7 +354,7 @@ function body(data, credential, path) {
       '<sCorreoElectronico>' + data.params.email + '</sCorreoElectronico>' +
       '<sApellidoMaterno>' + data.params.sLastName + '</sApellidoMaterno>' +
       // date of birth
-      '<dtFechaNacimiento>' + data.params.birthDay + '</dtFechaNacimiento>' +
+      '<dtFechaNacimiento>' + data.birthDay + '</dtFechaNacimiento>' +
       // city
       // '<iIdCiudad>'+''+'</iIdCiudad>'+
       // '<sDireccion>'+''+'</sDireccion>'+

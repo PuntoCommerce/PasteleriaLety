@@ -184,18 +184,6 @@
       // let json = '{"'+path+'":[';
       let Co = XMLList(xml).descendants("iCode");
       let sM = XMLList(xml).descendants("sMensaje");
-
-      // if(Co.length()===0){
-      //   json+='{"error":"Error en la respuesta o No hay datos de membresia"},';
-      //   json = json.slice(0,-1)+']}';
-      // }else{
-      //   for(let i =0; i<Co.length();i++){
-      //     json+='{"iCode":"'+Co[i]+'","sMensaje":"'+sM[i]+'"},';
-      //   }
-      //   json = json.slice(0,-1)+']}';
-      // }
-
-      // json = json.slice(0,-1)+']}';
  
       return {iCode: Co.toString(), sMensaje: sM.toString()};
     }
