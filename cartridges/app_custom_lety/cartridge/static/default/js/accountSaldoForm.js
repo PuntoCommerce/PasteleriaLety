@@ -171,16 +171,8 @@ msgError.textContent = "";
      $("#modalError").modal("show");
      return false;
  }
- let date = dtFechaNacimiento.value.trim().split("-");
- let newDate = date[2]+"/"+date[1]+"/"+date[0];
-  if(!isEmptyField(newDate)) {
-    if(dateRegex.test(newDate)) {
-    } else {
-        $("#modalError").modal("show");
-        msgError.textContent = "La fecha debe de coincidir con este formato dd/mm/yyyy ej: 01/05/1995.";
-        return false;
-    }
- }
+ let splitDate = dtFechaNacimiento.value;
+ let birthDay = new Date(splitDate).toISOString()
  
  formData.append("lLetyCard", lLetyCard.value.trim());
  formData.append("s_Nombre", s_Nombre.value.trim());
@@ -191,10 +183,11 @@ msgError.textContent = "";
  formData.append("s_EstadoCivil", s_EstadoCivil.value.trim());
  formData.append("s_Telefono1", s_Telefono1.value.trim());
  formData.append("s_Colonia", s_Colonia.value.trim());
- formData.append("cCiudad", dataIdCity);
- formData.append("dtFechaNacimiento", newDate);
+ formData.append("cCiudad", cCiudad.value);
+ formData.append("dtFechaNacimiento", birthDay);
  formData.append("PreferenciaProducto", PreferenciaProducto.value.trim());
  formData.append("f_Adreess", f_Adreess.value.trim());
+
  const response = await fetch(getDataAccountForm.getAttribute("data-action"), {
      method: "POST",
      body: formData

@@ -81,9 +81,7 @@ server.get("Saldo", server.middleware.https, function (req, res, next) {
   }
 
   const { dtFechaNacimiento } = JsonDatosMembresia.Func_DatosMembresia[0];
-  const splitDate = dtFechaNacimiento.split('/')
-  const data = new Date(`${splitDate[2]}/${splitDate[1]}/${splitDate[0]}`).toISOString();
-  const birthDay = data.split('T');
+  const birthDay = dtFechaNacimiento.split('/')
 
   if (CatalogoEstados.ERROR) {
     JsonDatosEstados = {};
@@ -97,7 +95,7 @@ server.get("Saldo", server.middleware.https, function (req, res, next) {
       JsonDatosMembresia: JsonDatosMembresia,
       JsonDatosCiudades: JsonDatosCiudades,
       JsonDatosEstados: JsonDatosEstados,
-      birthDay: birthDay[0]
+      birthDay: birthDay
     },
   });
   next();
@@ -209,7 +207,7 @@ server.post("SaveSaldoForm", (req, res, next) => {
       let PreferenciaProducto = data.PreferenciaProducto;
       let s_Sexo = data.s_Sexo;
       let s_EstadoCivil = data.s_EstadoCivil;
-      let f_Adreess = data.s_EstadoCivil;
+      let f_Adreess = data.f_Adreess;
       if (dtFechaNacimiento == undefined || dtFechaNacimiento == null) {
         dtFechaNacimiento = "";
       }
@@ -592,7 +590,7 @@ server.replace(
 
         if (registrationForm.validForm) {
           // send a registration email
-          // accountHelpers.sendCreateAccountEmail(authenticatedCustomer.profile);
+          accountHelpers.sendCreateAccountEmail(authenticatedCustomer.profile);
           accountHelpers.addUpdateExternalAccount(registrationFormObj);
 
           res.setViewData({ authenticatedCustomer: authenticatedCustomer });
