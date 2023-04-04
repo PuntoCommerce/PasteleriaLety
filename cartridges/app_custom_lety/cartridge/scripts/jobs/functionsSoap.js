@@ -6,7 +6,7 @@ const handleEnviroment = () => {
     "isProduction"
   );
   const tipoAmbiente = isProduction ? '1' : '0';
-  return '<tipoAmbiente>' + tipoAmbiente + '</tipoAmbiente>'
+  return '<TipoAmbiente>' + tipoAmbiente + '</TipoAmbiente>'
 }
 
 function body(data, credential, path) {
@@ -302,7 +302,6 @@ function body(data, credential, path) {
       '<vUsr>' + credential.user + '</vUsr>' +
       '<vPwd>' + credential.password + '</vPwd>' + handleEnviroment() +
       '<oPersona>' +
-      // iidPerson
       '<iIdPersona>' + data.iIdPersona + '</iIdPersona>' +
       '<iIdCentro>' + data.JsonFunc_ExisteMembrecia[0].iIdCentro + '</iIdCentro>' +
       '<iIdFolioPersona>' + data.iIdFolioPersona + '</iIdFolioPersona>' +
@@ -313,25 +312,11 @@ function body(data, credential, path) {
       '<dtFechaAlta>' + data.dtDateHigh + '</dtFechaAlta>' +
       '<dtFechaNacimiento>' + data.birthDay + '</dtFechaNacimiento>' +
       '<sApellidoMaterno>' + data.JsonFunc_ExisteMembrecia[0].sMaternalLastName + '</sApellidoMaterno>' +
-      // date of birth
-      // city
       '<iIdCiudad>' + data.JsonFunc_ExisteMembrecia[0].iIdCiudad + '</iIdCiudad>' +
-      // '<sDireccion>'+''+'</sDireccion>'+
       '<sColonia>' + data.JsonFunc_ExisteMembrecia[0].sCologne + '</sColonia>' +
-      // '<sCP>'+''+'</sCP>'+
-      // '<sRFC>'+''+'</sRFC>'+
-      // '<sCURP>'+''+'</sCURP>'+
-      // '<sTelefono2>'+''+'</sTelefono2>'+
-      // person type
       '<iTipoPersona>' + data.JsonFunc_ExisteMembrecia[0].iTipoPersona + '</iTipoPersona>' +
       '<sEstatus>' + data.JsonFunc_ExisteMembrecia[0].sEstatus + '</sEstatus>' +
       '<dtFechaModificacion>' + data.JsonFunc_ExisteMembrecia[0].dtFechaModificacion + '</dtFechaModificacion>' +
-      // '<sNoInterior>'+''+'</sNoInterior>'+
-      // '<sNoExterior>'+''+'</sNoExterior>'+
-      // '<dLatitud>'+''+'</dLatitud>'+
-      // '<dLongitud>'+''+'</dLongitud>'+
-      // '<sDireccionFiscal>'+''+'</sDireccionFiscal>'+
-      // '<iIdEmpresa>'+''+'</iIdEmpresa>'+
       '</oPersona>' +
       '</' + path + '>' +
       '</soap:Body></soap:Envelope>';
@@ -344,7 +329,6 @@ function body(data, credential, path) {
       '<vUsr>' + credential.user + '</vUsr>' +
       '<vPwd>' + credential.password + '</vPwd>' + handleEnviroment() +
       '<oPersona>' +
-      // iidPerson
       '<iIdPersona>' + 0 + '</iIdPersona>' +
       '<iIdCentro>' + 0 + '</iIdCentro>' +
       '<iIdFolioPersona>' + 0 + '</iIdFolioPersona>' +
@@ -353,27 +337,8 @@ function body(data, credential, path) {
       '<sTelefono1>' + data.params.phone + '</sTelefono1>' +
       '<sCorreoElectronico>' + data.params.email + '</sCorreoElectronico>' +
       '<sApellidoMaterno>' + data.params.sLastName + '</sApellidoMaterno>' +
-      // date of birth
       '<dtFechaNacimiento>' + data.birthDay + '</dtFechaNacimiento>' +
-      // city
-      // '<iIdCiudad>'+''+'</iIdCiudad>'+
-      // '<sDireccion>'+''+'</sDireccion>'+
-      // '<sColonia>'+''+'</sColonia>'+
-      // '<sCP>'+''+'</sCP>'+
-      // '<sRFC>'+''+'</sRFC>'+
-      // '<sCURP>'+''+'</sCURP>'+
-      // '<sTelefono2>'+''+'</sTelefono2>'+
-      // person type
-      // '<iTipoPersona>'+''+'</iTipoPersona>'+
-      // '<sEstatus>'+''+'</sEstatus>'+
-      // '<dtFechaAlta>'+data.params.dtDateHigh+'</dtFechaAlta>'+
-      // '<dtFechaModificacion>'+'2023-03-10T17:51:48.437Z'+'</dtFechaModificacion>'+
-      // '<sNoInterior>'+''+'</sNoInterior>'+
-      // '<sNoExterior>'+''+'</sNoExterior>'+
-      // '<dLatitud>'+0+'</dLatitud>'+
-      // '<dLongitud>'+0+'</dLongitud>'+
-      // '<sDireccionFiscal>'+''+'</sDireccionFiscal>'+
-      // '<iIdEmpresa>'+0+'</iIdEmpresa>'+
+      
       '</oPersona>' +
       '</' + path + '>' +
       '</soap:Body></soap:Envelope>';
