@@ -156,7 +156,7 @@ const sendShippingOrderToERP = (orderId, req) => {
     iIdCentroAlta: 0,
     iIdServDom: 0,
     iIdCentroAfecta: order.custom.storeId,
-    iIdFolioPersona: currentUser ? customer.custom.folPerson : 90000,
+    iIdFolioPersona: currentUser && customer.custom.folPerson ? customer.custom.folPerson : 90000,
     iIdFolioDireccion: order.custom.folioDireccion,
     dtFechaAlta: today.toISOString(),
     dtFechaEntrega: parseDeliveryDateTime(order.custom.deliveryDateTime),
