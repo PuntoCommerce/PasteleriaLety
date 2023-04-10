@@ -47,3 +47,63 @@
   //   }
   // });
 })();
+
+(() => {
+  const QS = (query) => document.querySelector(query);
+  const QSA = (query) => document.querySelectorAll(query);
+
+  const jsonCities = QS('#custom-store-cities');
+  const citiesOptions = QS('.shippingAddressCity');
+  const statesOptions = QS('#state');
+  const parseInfo = JSON.parse(jsonCities.getAttribute('data-city-stores'));
+  const storeState = localStorage.getItem('selectedState')
+  const storeCity = sessionStorage.getItem('selectedCity')
+
+  if (storeState) {
+    statesOptions.value = storeState;
+    const cities = parseInfo[storeState] || []
+
+    citiesOptions.innerHTML = "";
+
+    if (cities.length === 0) {
+      const option = document.createElement('option');
+      option.innerText = 'No hay sucursales para este estado';
+      citiesOptions.appendChild(option)
+    }
+
+    cities.forEach((city, idx) => {
+      const option = document.createElement('option');
+      option.value = city;
+      option.innerText = city;
+      citiesOptions.appendChild(option);
+    })
+  }
+
+  if (storeCity) { citiesOptions.value = storeCity };
+
+  statesOptions.addEventListener('change', (e) => {
+    const stateCode = e.target.value
+    const cities = parseInfo[stateCode] || []
+    localStorage.setItem('selectedState', stateCode)
+
+    citiesOptions.innerHTML = "";
+
+    if (cities.length === 0) {
+      const option = document.createElement('option');
+      option.innerText = 'No hay sucursales para este estado';
+      citiesOptions.appendChild(option)
+    }
+
+    cities.forEach((city, idx) => {
+      const option = document.createElement('option');
+      option.value = city;
+      option.innerText = city;
+      citiesOptions.appendChild(option);
+    })
+  })
+
+  citiesOptions.addEventListener('change', (e) => {
+    const cityCode = e.target.value
+    sessionStorage.setItem('selectedCity', cityCode)
+  })
+})()
