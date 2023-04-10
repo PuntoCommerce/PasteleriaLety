@@ -7,6 +7,7 @@ const Resource = require("dw/web/Resource");
 const functionsSoap = require("~/cartridge/scripts/jobs/functionsSoap");
 const xmlSoap = require("~/cartridge/scripts/jobs/xmlSoap");
 let pathJson;
+var Logger = require('dw/system/Logger');
 
 /** createRequest callback for a service
  * @param  {dw.svc.Service} service service instance
@@ -15,6 +16,7 @@ let pathJson;
  */
 function createRequest(service, data) {
     const credential = service.configuration.credential;
+    let logger = Logger.getLogger("INFO_Member", "INFO_Member")
     const { path, method, body, token } = data;
     pathJson=path
     service.setURL(credential.URL);
@@ -22,6 +24,7 @@ function createRequest(service, data) {
     service.addHeader("SOAPAction", "http://localhost/"+path);
     service.setRequestMethod(method);
     const bodyXML = functionsSoap.body(body,credential,path);
+    logger.warn("Type: {0} payload {1}", 'INFO', bodyXML);
     return bodyXML;
 }
 
