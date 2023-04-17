@@ -23,7 +23,9 @@
             <label class="form-control-label" for="shippingFirstName${lineItem ? lineItem.UUID : 'default'}"  >
                 ${Resource.msg('field.shipping.delivery.date','address',null)}
             </label>
-            <input type="date" onkeydown="return false" id="custom-checkout-date" min="" max="" />
+            <input type="date" class="d-none" onkeydown="return false" id="custom-checkout-date" min="" max="" />
+            <iscomment> <input type="text" id="datepicker" /> </iscomment>
+            <div id="buttonDates"></div>
         </div>
     </div>
 </div>
@@ -36,5 +38,26 @@
             <div class="d-flex flex-column" id="custom-store-hours" error-no-hours='${Resource.msg("address.date.no.available.hours", "forms", null)}' data-store-hours='${pdict.deliveryMethodsSchedule}'></div>
         </div>
     </div>
+    
 </div>
 
+<iscomment> <script>
+    const QS = query => document.querySelector(query)
+    const date = new Date();
+    const datePicker = QS('#datepicker')
+    const dates = QS('#custom-checkout-date')
+    const minD = dates.getAttribute('min')
+    const maxD = dates.getAttribute('max')
+    var formatDate = date.toISOString().split('T')
+    var today = formatDate[0]
+    
+    console.log(minD);
+    datePicker.value = today
+
+    $.datepicker.setDefaults({
+        minDate: date,
+        maxDate: "1"
+    });
+
+    $("#datepicker").datepicker();
+</script> </iscomment>

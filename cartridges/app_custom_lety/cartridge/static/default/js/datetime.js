@@ -28,12 +28,12 @@
 
       citiesOptions.innerHTML = "";
 
-      if(cities.length === 0){
+      if (cities.length === 0) {
         const option = document.createElement('option');
         option.innerText = 'No hay sucursales para este estado';
         citiesOptions.appendChild(option)
       }
-      
+
       cities.forEach((city, idx) => {
         const option = document.createElement('option');
         option.value = city;
@@ -42,7 +42,7 @@
       })
     }
 
-    if(storeCity) {citiesOptions.value = storeCity};
+    if (storeCity) { citiesOptions.value = storeCity };
 
     statesOptions.addEventListener('change', (e) => {
       const stateCode = e.target.value
@@ -51,7 +51,7 @@
 
       citiesOptions.innerHTML = "";
 
-      if(cities.length === 0){
+      if (cities.length === 0) {
         const option = document.createElement('option');
         option.innerText = 'No hay sucursales para este estado';
         citiesOptions.appendChild(option)
@@ -65,7 +65,7 @@
       })
     })
 
-    citiesOptions.addEventListener('change', (e) =>{
+    citiesOptions.addEventListener('change', (e) => {
       const cityCode = e.target.value
       sessionStorage.setItem('selectedCity', cityCode)
     })
@@ -91,6 +91,13 @@
     currentDate.setDate(currentDate.getDate() + daysToOrderAfterCurrentDay);
     dateForm.max = formatDate(currentDate);
 
+    //Buttons Dates
+    var minDate = dateForm.getAttribute('min').split('-');
+    var maxDate = dateForm.getAttribute('max').split('-');
+    var totalDys = (maxDate[2] - minDate[2]) + 1;
+
+    updateButtonsDate(totalDys, dateForm.min, dateForm.max)
+
     shippingMethods.forEach((sm) =>
       sm.addEventListener("change", (e) => {
         e.preventDefault();
@@ -108,8 +115,38 @@
           currentDate.getDate() + newValues.daysToOrderAfterCurrentDay
         );
         dateForm.max = formatDate(currentDate);
+
+        var minDate = dateForm.getAttribute('min').split('-');
+        var maxDate = dateForm.getAttribute('max').split('-');
+        var totalDys = (maxDate[2] - minDate[2]) + 1
+
+        updateButtonsDate(totalDys, dateForm.min, dateForm.max)
+
+        let changeButtonsDate = QSA('#changeDateValue')
+
+        changeButtonsDate.forEach((item, idx) => {
+          item.addEventListener('click', (e) => {
+            const dateValue = e.target.getAttribute('data-value')
+            let date = new Date(dateValue)
+            date.setDate(date.getDate() + 1);
+            dateForm.value = formatDate(date);
+            updateStoreDay(date, days)
+          })
+        })
       })
     );
+
+    let changeButtonsDate = QSA('#changeDateValue')
+
+    changeButtonsDate.forEach((item, idx) => {
+      item.addEventListener('click', (e) => {
+        const dateValue = e.target.getAttribute('data-value')
+        let date = new Date(dateValue)
+        date.setDate(date.getDate() + 1);
+        dateForm.value = formatDate(date);
+        updateStoreDay(date, days)
+      })
+    })
 
     dateForm.addEventListener("change", (e) => {
       e.preventDefault();
@@ -119,6 +156,21 @@
       updateStoreDay(date, days);
     });
   };
+
+  const updateButtonsDate = (idx, min, max) => {
+    //Buttons Dates
+
+    var buttonsDate = QS('#buttonDates')
+    var dates = [min, max]
+    let buttons = ``;
+
+    for (let i = 0; i < idx; i++) {
+      buttons += `<button type='button' data-value='${dates[i]}' id='changeDateValue'>${dates[i]}</button>`
+    }
+
+    buttonsDate.innerHTML = buttons
+    ////////////////////////////////
+  }
 
   const updateStoreDay = (date, weekSchedule) => {
     let container = QS("#custom-store-hours");
