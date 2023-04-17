@@ -4,3 +4,19 @@
   font-size: 16px;
   font-family: var(--font-family-gotham-bold);
 }
+
+#changeDateValue{
+  background: orange;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 2px 8px 2px 8px;
+}
+
+#changeDateValue:nth-child(2){
+  margin-left: 10px;
+}
+
+#changeDateValue:focus{
+  outline: 0;
+}
