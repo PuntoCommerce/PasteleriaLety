@@ -131,6 +131,10 @@
             date.setDate(date.getDate() + 1);
             dateForm.value = formatDate(date);
             updateStoreDay(date, days)
+
+            changeButtonsDate.forEach((btn, index) => { if (index !== idx) { btn.classList.remove('active') } })
+
+            e.target.classList.add('active')
           })
         })
       })
@@ -141,10 +145,15 @@
     changeButtonsDate.forEach((item, idx) => {
       item.addEventListener('click', (e) => {
         const dateValue = e.target.getAttribute('data-value')
+        const idxButton = e.target.getAttribute('data-idx')
         let date = new Date(dateValue)
         date.setDate(date.getDate() + 1);
         dateForm.value = formatDate(date);
         updateStoreDay(date, days)
+
+        changeButtonsDate.forEach((btn, index) => { if (index !== idx) { btn.classList.remove('active') } })
+
+        e.target.classList.add('active')
       })
     })
 
@@ -165,7 +174,11 @@
     let buttons = ``;
 
     for (let i = 0; i < idx; i++) {
-      buttons += `<button type='button' data-value='${dates[i]}' id='changeDateValue'>${dates[i]}</button>`
+      buttons += `<button type='button' 
+      class='${i === 0 && 'active'}'
+      data-idx='${i}' 
+      data-value='${dates[i]}' 
+      id='changeDateValue'>${dates[i]}</button>`
     }
 
     buttonsDate.innerHTML = buttons
