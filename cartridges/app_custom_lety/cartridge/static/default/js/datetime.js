@@ -131,6 +131,7 @@
             date.setDate(date.getDate() + 1);
             dateForm.value = formatDate(date);
             updateStoreDay(date, days)
+            dateFormFW.value = dateValue;
 
             changeButtonsDate.forEach((btn, index) => { if (index !== idx) { btn.classList.remove('active') } })
 
@@ -145,11 +146,11 @@
     changeButtonsDate.forEach((item, idx) => {
       item.addEventListener('click', (e) => {
         const dateValue = e.target.getAttribute('data-value')
-        const idxButton = e.target.getAttribute('data-idx')
         let date = new Date(dateValue)
         date.setDate(date.getDate() + 1);
         dateForm.value = formatDate(date);
         updateStoreDay(date, days)
+        dateFormFW.value = dateValue;
 
         changeButtonsDate.forEach((btn, index) => { if (index !== idx) { btn.classList.remove('active') } })
 

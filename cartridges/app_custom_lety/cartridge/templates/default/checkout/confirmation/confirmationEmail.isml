@@ -405,6 +405,8 @@
 </head>
 
 <body>
+    <isset name="orderEmail" value="${pdict.order.shipping[0]}" scope="page" />
+    
     <div class="email-container">
         <div class="email-main">
             <table>
@@ -501,7 +503,7 @@
                                                 </isif>
                                                 <span class="span-detail-order">
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.address', 'confirmation', null)}&nbsp;&nbsp;</p>
-                                                    <p>${pdict.order.shipping[0].shippingAddress.address1} ${pdict.order.shipping[0].shippingAddress.suite}</p>
+                                                    <p>${orderEmail.shippingAddress.address1} ${orderEmail.shippingAddress.suite !== 'undefined' ? orderEmail.shippingAddress.suite : ''}</p>
                                                 </span>
                                                 <span class="span-detail-order">
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.phone', 'confirmation', null)}&nbsp;&nbsp;</p>
