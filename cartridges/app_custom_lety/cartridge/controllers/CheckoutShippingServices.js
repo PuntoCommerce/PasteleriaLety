@@ -61,16 +61,16 @@ server.append("SubmitShipping", (req, res, next) => {
   const shipping = server.forms.getForm("shipping");
   const currentBasket = BasketMgr.getCurrentBasket();
   var customer;
-  const currentUser = req.currentCustomer.profile;
+  // const currentUser = req.currentCustomer.profile;
 
   let viewData = res.getViewData();
 
-  if (currentUser) {
+  if (req.currentCustomer.profile) {
     customer = CustomerMgr.getProfile(req.currentCustomer.profile.customerNo);
   }
 
-  if (currentUser && !customer.custom.folPerson) {
-    accountHelpers.insertFolPerson(currentUser);
+  if (req.currentCustomer.profile && !customer.custom.folPerson) {
+    accountHelpers.insertFolPerson(req.currentCustomer.profile);
   }
 
   const formFields = COHelpers.validateFields({
@@ -202,7 +202,7 @@ server.append("SubmitShipping", (req, res, next) => {
 
     body = {
       IdEmpresa: store.custom.empresaId,
-      iIdFolioPersona: currentUser && customer.custom.folPerson ? customer.custom.folPerson : 90000,
+      iIdFolioPersona: req.currentCustomer.profile && customer.custom.folPerson ? customer.custom.folPerson : 90000,
       iIdCentro: selectedStoreId,
       iIdDireccion: 0,
       iIdFolioDireccion: 0,
