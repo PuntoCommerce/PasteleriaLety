@@ -6,11 +6,20 @@
 }
 
 #changeDateValue{
-  background: orange;
+  background: #d7612b;
   border: none;
   color: white;
   border-radius: 5px;
   padding: 2px 8px 2px 8px;
+}
+
+#changeDateValue.active{
+  background: #ffd5b5;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 2px 8px 2px 8px;
+  border: 1px solid #f6a738;
 }
 
 #changeDateValue:nth-child(2){
@@ -19,4 +28,8 @@
 
 #changeDateValue:focus{
   outline: 0;
+}
+
+.dateTimeButtonPicker{
+
 }
