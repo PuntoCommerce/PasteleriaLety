@@ -20,7 +20,7 @@ const handleChange = ({ lat, lng }, urlSet) => {
   }
 };
 
-const handleClickUserLocation = (urlSet) => {
+const handleClickUserLocationD = (urlSet) => {
   const success = ({ coords }) => {
     handleChange({ lat: coords.latitude, lng: coords.longitude }, urlSet);
   };
@@ -97,7 +97,7 @@ function initAutocomplete() {
     const buttonLocation = document.getElementById("session_search-location");
     buttonLocation.addEventListener("click", (e) => {
       e.preventDefault();
-      handleClickUserLocation(urlSet);
+      handleClickUserLocationD(urlSet);
     });
   }
 
