@@ -143,17 +143,19 @@ server.append("SubmitShipping", (req, res, next) => {
 
 
     let totalAddress =
-      viewData.address.address2 +
-      ", " +
       viewData.address.address1 +
       ' ' +
       viewData.address.suite +
+      ", " +
+      viewData.address.address2 +
       ", " +
       viewData.address.postalCode +
       " " +
       viewData.address.city +
       ", " +
       viewData.address.stateCode;
+
+    const addressFinal = totalAddress;
 
     geocode = gMaps.getGeocode({ address: totalAddress });
     if (geocode.error || geocode.status != "OK") {

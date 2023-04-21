@@ -261,12 +261,11 @@ server.replace(
     }
 
     if (order.getCustomerEmail()) {
-      COHelpers.sendConfirmationEmail(order, req.locale.id, storeId)
       isProduction ? (
-        COHelpers.sendConfirmationEmail(order, req.locale.id, storeId)
-        // COHelpers.sendConfirmationEmailClient(order, req.locale.id, storeId),
-        // COHelpers.sendConfirmationEmailClientSecund(order, req.locale.id, storeId)
-      ) : null
+        COHelpers.sendConfirmationEmail(order, req.locale.id, storeId),
+        COHelpers.sendConfirmationEmailClient(order, req.locale.id, storeId),
+        COHelpers.sendConfirmationEmailClientSecund(order, req.locale.id, storeId)
+      ) : COHelpers.sendConfirmationEmail(order, req.locale.id, storeId)
     }
 
 let status = {};
