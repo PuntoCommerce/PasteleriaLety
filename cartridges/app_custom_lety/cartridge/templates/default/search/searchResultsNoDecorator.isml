@@ -91,7 +91,7 @@
 
                         <!--Filter Button-->
                         <div class="col-6 col-lg-6 col-sm-6 order-sm-1 filter-button">
-                            <button type="button" class="btn" id="filter-button">
+                            <button type="button" class="btn" id="filter-button" onclick="showFilterMenu()">
                                 ${Resource.msg('label.filters.pdp', 'search', null)}
                                 <img id="openFilters" class="btn-default-img-filters" style="padding-left: 10px;"
                                     src="${URLUtils.staticURL('/images/icons/filtro.svg')}" alt="" />
