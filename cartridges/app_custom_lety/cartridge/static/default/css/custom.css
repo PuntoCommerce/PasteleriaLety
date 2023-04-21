@@ -303,6 +303,11 @@ ul {
   height: 180vh;
 }
 
+.actions {
+  position: relative;
+  z-index: 1;
+}
+
 @media (max-width: 1300px) {
   .carousel-cart {
     overflow-y: hidden;
