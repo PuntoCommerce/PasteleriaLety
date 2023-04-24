@@ -133,10 +133,9 @@ const sendShippingOrderToERP = (orderId, req) => {
   let order = OrderMgr.getOrder(orderId);
   let paymentInstruments = order.getPaymentInstruments();
   let pi = paymentInstruments[0];
-  const currentUser = req.currentCustomer.profile;
   let customer;
   
-  if (currentUser) {
+  if (req.currentCustomer.profile) {
     customer = CustomerMgr.getProfile(req.currentCustomer.profile.customerNo);
   }
 
@@ -156,7 +155,7 @@ const sendShippingOrderToERP = (orderId, req) => {
     iIdCentroAlta: 0,
     iIdServDom: 0,
     iIdCentroAfecta: order.custom.storeId,
-    iIdFolioPersona: currentUser && customer.custom.folPerson ? customer.custom.folPerson : 90000,
+    iIdFolioPersona: req.currentCustomer.profile && customer.custom.folPerson ? customer.custom.folPerson : 90000,
     iIdFolioDireccion: order.custom.folioDireccion,
     dtFechaAlta: today.toISOString(),
     dtFechaEntrega: parseDeliveryDateTime(order.custom.deliveryDateTime),
