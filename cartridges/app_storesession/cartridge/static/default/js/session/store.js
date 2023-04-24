@@ -20,7 +20,7 @@ const handleChange = ({ lat, lng }, urlSet) => {
   }
 };
 
-const handleClickUserLocationD = (urlSet) => {
+const handleClickUserLocationDesk = (urlSet) => {
   const success = ({ coords }) => {
     handleChange({ lat: coords.latitude, lng: coords.longitude }, urlSet);
   };
@@ -30,7 +30,7 @@ const handleClickUserLocationD = (urlSet) => {
   navigator.geolocation.getCurrentPosition(success, error);
 };
 
-function initAutocomplete() {
+function initAutocompleteDesk() {
   const input = document.getElementById("session_search");
   const inputModal = document.getElementById("session_search-modal");
   const cleanStore = document.getElementById("cleanStore");
@@ -43,41 +43,8 @@ function initAutocomplete() {
 
   const urlSet = input.getAttribute("action-url");
 
-  // const autocomplete = new google.maps.places.Autocomplete(input, options);
-
-  // autocomplete.addListener("place_changed", () => {
-  //   const place = autocompleteModal.getPlace();
-  //   const lat = place.geometry.location.lat();
-  //   const lng = place.geometry.location.lng();
-  //   handleChange({ lat, lng }, urlSet);
-  // });
-
-  // if (confirmButton) {
-  //   confirmButton.addEventListener('click', () => {
-  //     const geocoder = new google.maps.Geocoder();
-  //     const address = input.value;
-
-  //     geocoder.geocode({ address: address }, (results, status) => {
-  //       const place = results[0].geometry.location;
-  //       const lat = place.lat()
-  //       const lng = place.lng()
-  //       handleChange({ lat, lng }, urlSet);
-  //     })
-  //   })
-  // }
 
   if (inputModal) {
-    // const autocompleteModal = new google.maps.places.Autocomplete(
-    //   inputModal,
-    //   options
-    // );
-
-    // autocompleteModal.addListener("place_changed", () => {
-    //   const place = autocompleteModal.getPlace();
-    //   const lat = place.geometry.location.lat();
-    //   const lng = place.geometry.location.lng();
-    //   handleChange({ lat, lng }, urlSet);
-    // });
 
     confirmButton.addEventListener('click', () => {
       const geocoder = new google.maps.Geocoder();
@@ -90,14 +57,13 @@ function initAutocomplete() {
           const lng = place.lng()
           handleChange({ lat, lng }, urlSet);
         }
-        console.log(status);
       })
     })
 
     const buttonLocation = document.getElementById("session_search-location");
     buttonLocation.addEventListener("click", (e) => {
       e.preventDefault();
-      handleClickUserLocationD(urlSet);
+      handleClickUserLocationDesk(urlSet);
     });
   }
 
@@ -154,40 +120,7 @@ function initAutocompleteM() {
 
   const urlSet = input.getAttribute("action-url");
 
-  // const autocomplete = new google.maps.places.Autocomplete(input, options);
-
-  // autocomplete.addListener("place_changed", () => {
-  //   const place = autocompleteModal.getPlace();
-  //   const lat = place.geometry.location.lat();
-  //   const lng = place.geometry.location.lng();
-  //   handleChangeM({ lat, lng }, urlSet);
-  // });
-
-  // if (confirmButton) {
-  //   confirmButton.addEventListener('click', () => {
-  //     const geocoder = new google.maps.Geocoder();
-  //     const address = input.value;
-
-  //     geocoder.geocode({ address: address }, (results, status) => {
-  //       const place = results[0].geometry.location;
-  //       const lat = place.lat()
-  //       const lng = place.lng()
-  //       handleChangeM({ lat, lng }, urlSet);
-  //     })
-  //   })
-  // }
-
   if (inputModal) {
-    // const autocompleteModal = new google.maps.places.Autocomplete(
-    //   inputModal,
-    //   options
-    // );
-    // autocompleteModal.addListener("place_changed", () => {
-    //   const place = autocompleteModal.getPlace();
-    //   const lat = place.geometry.location.lat();
-    //   const lng = place.geometry.location.lng();
-    //   handleChangeM({ lat, lng }, urlSet);
-    // });
 
     confirmButton.addEventListener('click', () => {
       const geocoder = new google.maps.Geocoder();
@@ -224,6 +157,6 @@ function initAutocompleteM() {
 }
 
 function initBothAutocomplete() {
-  initAutocomplete();
+  initAutocompleteDesk();
   initAutocompleteM();
 }
