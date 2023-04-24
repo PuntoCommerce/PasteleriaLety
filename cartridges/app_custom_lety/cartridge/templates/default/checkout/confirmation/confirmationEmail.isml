@@ -406,7 +406,9 @@
 
 <body>
     <isset name="orderEmail" value="${pdict.order.shipping[0]}" scope="page" />
-    
+    <isset name="totals" value="${pdict.order.totals}" scope="page" />
+
+
     <div class="email-container">
         <div class="email-main">
             <table>
@@ -503,7 +505,8 @@
                                                 </isif>
                                                 <span class="span-detail-order">
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.address', 'confirmation', null)}&nbsp;&nbsp;</p>
-                                                    <p>${orderEmail.shippingAddress.address1} ${orderEmail.shippingAddress.suite !== 'undefined' ? orderEmail.shippingAddress.suite : ''}</p>
+                                                    <p>${orderEmail.shippingAddress.address1}
+                                                        ${orderEmail.shippingAddress.suite !== 'undefined' ? orderEmail.shippingAddress.suite : ''}</p>
                                                 </span>
                                                 <span class="span-detail-order">
                                                     <p style="font-weight: bold;">${Resource.msg('label.order.phone', 'confirmation', null)}&nbsp;&nbsp;</p>
@@ -553,8 +556,43 @@
                                                     </tr>
                                                 </isloop>
                                             </isif>
+                                            <iscomment> Delivery Cost </iscomment>
+                                            <isif condition="${totals.shippingLevelDiscountTotal.value !== 0}">
+                                                <tr>
+                                                    <td style="width:50%;padding:20px 0;">
+                                                        <!--- quantity --->
+                                                        <p style="font-size: 16px;font-weight: bold;color: #4D4D4D;">
+                                                            ${Resource.msg('field.delivery.cost', 'cart', null)}
+                                                        </p>
+                                                    </td>
+                                                    <td style="width:50%;padding:20px 0;">
+                                                        <!--- line item total price --->
+                                                        <p
+                                                            style="text-align:right;font-size: 16px;font-weight: bold;color: #4D4D4D; padding: 0 20px;">
+                                                            ${totals.discounts[0].price}
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            <iselse/></isif>
+                                            <iscomment> Discount </iscomment>
+                                            <isif condition="${totals.orderLevelDiscountTotal.value !== 0}">
+                                                <tr>
+                                                    <td style="width:50%;padding:20px 0;">
+                                                        <!--- quantity --->
+                                                        <p style="font-size: 16px;font-weight: bold;color: #4D4D4D;">
+                                                            ${Resource.msg('field.discount', 'cart', null)}
+                                                        </p>
+                                                    </td>
+                                                    <td style="width:50%;padding:20px 0;">
+                                                        <!--- line item total price --->
+                                                        <p
+                                                            style="text-align:right;font-size: 16px;font-weight: bold;color: #4D4D4D; padding: 0 20px;">
+                                                            ${totals.orderLevelDiscountTotal.formatted}
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            <iselse/></isif>
                                             <tr>
-
                                                 <td style="width:50%;padding:20px 0;">
                                                     <!--- quantity --->
                                                     <p style="font-size: 16px;font-weight: bold;color: #4D4D4D;">
@@ -565,7 +603,7 @@
                                                     <!--- line item total price --->
                                                     <p
                                                         style="text-align:right;font-size: 16px;font-weight: bold;color: #4D4D4D; padding: 0 20px;">
-                                                        ${pdict.order.priceTotal}
+                                                        ${totals.grandTotal}
                                                     </p>
                                                 </td>
                                             </tr>
