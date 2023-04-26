@@ -23,7 +23,9 @@
         <div class="row d-flex justify-content-center col-12 contain-invitado">
           <div class="checkout__bottomBorder d-flex justify-content-center flex-column">
             <a href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}"
-              class="mb-3 btn btn-product">${Resource.msg('button.continue.guess', 'checkout', null)}</a>
+              >
+              <button class="mb-3 btn btn-product" type="">${Resource.msg('button.continue.guess', 'checkout', null)}</button>  
+            </a>
             <p>${Resource.msg('msg.pay.without.auth', 'checkout', null)}</p>
           </div>
         </div>
