@@ -868,6 +868,7 @@ span.ship-to-phone {
   margin: 15px;
   padding: 15px;
 }
+
 @media (min-width: 1200px) {
   .results.striped {
     display: grid;

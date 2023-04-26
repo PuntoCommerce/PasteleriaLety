@@ -39,25 +39,17 @@
 .single-input{
   width: 270px;
   border:1px solid black;
-  display: flex;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding: 4px 10px;
   border-radius: 30px;
-  width: 100%;
+  text-align: center;
 }
+
+.single-input:focus{
+  outline: 0;
+}
+
 .single-input image{
   margin: 8px 16px; 
-}
-.single-input input{
-  border:0px solid white;
-  width: 100%;
-  outline: none;
-  height: 20px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 15px;
 }
 
 .buttonSession{
@@ -163,7 +155,7 @@ option{
 }
 
 .content-session-modal{
-  min-width: 300px;
+  align-items: center;
 }
 
 @media (max-width: 1024px){
