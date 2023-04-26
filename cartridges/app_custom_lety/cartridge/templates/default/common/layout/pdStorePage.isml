@@ -23,6 +23,7 @@
     assets.addJs("/js/session/store.js");
     assets.addCss("/css/storesession.css");
     assets.addCss("/css/calendar.css");
+    assets.addJs("/js/scrollUp.js");
 </isscript>
 
 <!DOCTYPE html>
