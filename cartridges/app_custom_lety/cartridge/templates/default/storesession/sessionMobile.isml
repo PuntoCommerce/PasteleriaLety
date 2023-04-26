@@ -27,8 +27,8 @@
           <div class="d-flex justify-content-center flex-column content-session-modal-mobile">
           <p class="txtSession">Ingrese Dirección</p>
 
-          <div class="single-input" id="div_session_search-modalMobile">
-              <input type="text" id="session_search-modalMobile" placeholder="Ingresar direccion" name="location" value="" action-url="${URLUtils.url("StoreSession-SetStore")}"/>
+          <div id="div_session_search-modalMobile">
+              <input type="text" class="single-input" id="session_search-modalMobile" placeholder="Ingresar direccion" name="location" value="" action-url="${URLUtils.url("StoreSession-SetStore")}"/>
               <span><img src="${URLUtils.staticURL('/images/icons/ubicacionNaranja.png')}" alt="" /></span>
           </div>
 
