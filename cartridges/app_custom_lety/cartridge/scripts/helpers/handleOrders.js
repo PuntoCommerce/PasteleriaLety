@@ -21,7 +21,7 @@ const handleItemsServDom = (pli, shipment) => {
     item = iterator.next();
     items.push({
       iIdMaterial: item.productID,
-      dPrecio: item.basePrice.value,
+      dPrecio: item.proratedPrice.value,
       dPrecioBase: item.basePrice.value,
       dCantidad: item.quantityValue,
       dCantidadBase: item.quantityValue,
@@ -64,7 +64,7 @@ const handleItemsPickup = (pli) => {
     item = iterator.next();
     items.push({
       iIdMaterial: item.productID,
-      dPrecio: item.basePrice.value,
+      dPrecio: item.proratedPrice.value,
       iCantidad: item.quantityValue,
     });
   }
