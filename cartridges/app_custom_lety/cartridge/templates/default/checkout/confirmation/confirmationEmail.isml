@@ -521,7 +521,7 @@
                                                         <td>
                                                             <img class="productImage"
                                                                 src="${lineItem.images.small[0].absURL.replace(/[\ +]+/g, '%20')}"
-                                                                alt="item">
+                                                                alt="item" style="height: 250px;">
                                                             <p
                                                                 style="min-width: 285px;text-align:left;font-size: 16px;font-weight: bold;color: #4D4D4D; padding-left: 15px;">
 
