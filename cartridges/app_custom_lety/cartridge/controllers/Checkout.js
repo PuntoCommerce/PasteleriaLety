@@ -25,6 +25,8 @@ server.append("Begin", (req, res, next) => {
   let adjustmentApplied = false;
   let currentEmail = null;
 
+  req.session.privacyCache.set("userExist", res.viewData.customer.customerNo)
+
   /*
     Find price adjustmetn.
     If the browser refreshes, it looks to see if an adjustment already exists.

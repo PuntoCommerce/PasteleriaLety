@@ -134,9 +134,11 @@ const sendShippingOrderToERP = (orderId, req) => {
   let paymentInstruments = order.getPaymentInstruments();
   let pi = paymentInstruments[0];
   let customer;
-  
-  if (req.currentCustomer.profile) {
-    customer = CustomerMgr.getProfile(req.currentCustomer.profile.customerNo);
+
+  const userExist = req.session.privacyCache.get("userExist");
+
+  if (userExist !== null || userExist !== undefined) {
+    customer = CustomerMgr.getProfile(userExist);
   }
 
   let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(
@@ -155,7 +157,7 @@ const sendShippingOrderToERP = (orderId, req) => {
     iIdCentroAlta: 0,
     iIdServDom: 0,
     iIdCentroAfecta: order.custom.storeId,
-    iIdFolioPersona: req.currentCustomer.profile && customer.custom.folPerson ? customer.custom.folPerson : 90000,
+    iIdFolioPersona: userExist && customer.custom.folPerson ? customer.custom.folPerson : 90000,
     iIdFolioDireccion: order.custom.folioDireccion,
     dtFechaAlta: today.toISOString(),
     dtFechaEntrega: parseDeliveryDateTime(order.custom.deliveryDateTime),
