@@ -37,7 +37,7 @@
               <button type="button" class="d-sm-block d-md-none" id="session_search-confirmMobile">Confirmar</button>
           </div>
           <div class="row p-3">
-            <img class="" src="${URLUtils.staticURL('/images/icons/ubicacion-desactivada.svg')}" alt="" />
+            <iscomment> <img class="" src="${URLUtils.staticURL('/images/icons/ubicacion-desactivada.svg')}" alt="" /> </iscomment>
             <button type="button" class="session-btn-mobile" id="session_search-locationMobile" >Utilizar tu ubicación</button>
           </div>
             
