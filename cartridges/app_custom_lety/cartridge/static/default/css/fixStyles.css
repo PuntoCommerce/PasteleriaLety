@@ -1,0 +1,17 @@
+.delete-coupon-confirmation-btn,
+.delete-coupon-confirmation-btn:hover,
+.delete-coupon-confirmation-btn:active{
+  background: #f6a738;
+  border: none;
+  color: white;
+}
+
+.delete-coupon-confirmation-btn:focus{
+  outline: 0;
+}
+
+.btn-cupon-cancel{
+  background: none;
+  border: 1px solid #000;
+  color: #000;
+}
