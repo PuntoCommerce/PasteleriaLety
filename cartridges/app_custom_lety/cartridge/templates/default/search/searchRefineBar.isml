@@ -24,7 +24,7 @@
 
 <div class="filter-container">
     <div class="refinements">
-        <button class="close-modal-button" onclick="showFilterMenu()">x</button>
+        <button class="close-modal-button d-md-flex d-lg-none" onclick="showFilterMenu()">x</button>
         <isloop items="${pdict.productSearch.refinements}" var="refinement">
             <div class="card refinements__card refinement refinement-${refinement.displayName.toLowerCase().replace(/ /g, '-')}">
                 <div class="card-header refinements__card-header col-sm-12">
