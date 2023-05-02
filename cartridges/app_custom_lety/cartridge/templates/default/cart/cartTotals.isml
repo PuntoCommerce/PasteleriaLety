@@ -1,6 +1,6 @@
 <div class="row d-none">
     <div class="col-7 col-lg-8 col-xl-8">
-        <p>${Resource.msg('label.shipping.cost','cart',null)}</p>
+        <p>${Resource.msg('label.shipping.cost', 'cart', null)}</p>
     </div>
     <div class="col-5 col-lg-4 col-xl-4">
         <p class="text-right shipping-cost">${pdict.totals.totalShippingCost}</p>
@@ -8,27 +8,33 @@
 </div>
 
 <!--- Shipping Discount --->
-<div class="row shipping-discount <isif condition="${pdict.totals.shippingLevelDiscountTotal.value === 0}">hide-shipping-discount</isif>">
+<div class="row shipping-discount <isif condition=" ${pdict.totals.shippingLevelDiscountTotal.value === 0}">
+    hide-shipping-discount</isif>">
     <div class="col-8">
         <p>${Resource.msg('label.shipping.discount', 'common', null)}</p>
     </div>
     <div class="col-4">
-        <p class="text-right shipping-discount-total">- ${pdict.totals.shippingLevelDiscountTotal.formatted}</p>
+        <p class="text-right shipping-discount-total">
+            ${pdict.totals.shippingLevelDiscountTotal.formatted.replace(/[\-]+/g, '')}
+        </p>
     </div>
 </div>
 
 <!-- Sales Tax -->
-<iscomment> <div class="row">
-    <div class="col-8">
-        <p>${Resource.msg('label.sales.tax','cart',null)}</p>
+<iscomment>
+    <div class="row">
+        <div class="col-8">
+            <p>${Resource.msg('label.sales.tax', 'cart', null)}</p>
+        </div>
+        <div class="col-4">
+            <p class="text-right tax-total">${pdict.totals.totalTax}</p>
+        </div>
     </div>
-    <div class="col-4">
-        <p class="text-right tax-total">${pdict.totals.totalTax}</p>
-    </div>
-</div> </iscomment>
+</iscomment>
 
 <!--- Order Discount --->
-<div class="row order-discount <isif condition="${pdict.totals.orderLevelDiscountTotal.value === 0}">hide-order-discount</isif>">
+<div class="row order-discount <isif condition=" ${pdict.totals.orderLevelDiscountTotal.value === 0}">hide-order-discount
+    </isif>">
     <div class="col-8">
         <p>${Resource.msg('label.order.discount', 'common', null)}</p>
     </div>
@@ -39,7 +45,7 @@
 
 <div class="row">
     <div class="col-7">
-        <strong>${Resource.msg('label.estimatedtotal','cart',null)}</strong>
+        <strong>${Resource.msg('label.estimatedtotal', 'cart', null)}</strong>
     </div>
     <div class="col-5">
         <p class="text-right grand-total">${pdict.totals.grandTotal}</p>

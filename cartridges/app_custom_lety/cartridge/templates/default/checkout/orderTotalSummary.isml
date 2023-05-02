@@ -30,12 +30,16 @@
     </div>
 
     <!--- Shipping Discount --->
-    <div class="row leading-lines shipping-discount <isif condition="${pdict.order.totals.shippingLevelDiscountTotal.value === 0}">hide-shipping-discount</isif>" id="orderDiscount">
+    <div class="row leading-lines shipping-discount <isif condition="${pdict.order.totals.shippingLevelDiscountTotal.value === 0}">hide-shipping-discount</isif>" 
+    id="orderDiscount"
+    data-total='${pdict.order.totals.shippingLevelDiscountTotal.value}'>
         <div class="col-6">
             <p class="order-receipt-label"><span>${Resource.msg('label.shipping.discount', 'common', null)}</span></p>
         </div>
         <div class="col-6">
-            <p class="text-right"><span class="shipping-discount-total">- ${pdict.order.totals.shippingLevelDiscountTotal.formatted}</span></p>
+            <p class="text-right"><span class="shipping-discount-total">
+            ${pdict.order.totals.shippingLevelDiscountTotal.formatted.replace(/[\-]+/g, '')}
+            </span></p>
         </div>
     </div>
 
