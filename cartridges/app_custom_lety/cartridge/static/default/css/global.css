@@ -826,11 +826,24 @@ header {
 
 .user-conten .user {
   display: flex;
-  justify-content: end;
+  width: 130px;
+  white-space: nowrap;
 }
 
 #myaccount {
   position: relative;
+  text-decoration: none !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: white !important;
+}
+
+#myaccount > span{
+  display: contents;
+}
+
+#myaccount:hover {
+  text-decoration: none;
 }
 
 #cleanStore,
