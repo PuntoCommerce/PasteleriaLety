@@ -5963,6 +5963,15 @@ input[type="submit"].btn-block {
   display: flex !important;
 }
 
+.delete-coupon-confirmation-header h2{
+  font-family: var(--font-family-gotham) !important;
+  font-size: 1em;
+}
+
+.delete-coupon-confirmation-body > p{
+  font-family: var(--font-family-gotham) !important;
+}
+
 @media (max-width: 543.98px) {
 
   .navbar-expand-sm>.container,
@@ -18504,6 +18513,12 @@ footer .social-links a:hover {
 footer .content {
   font-size: 18px;
   font-family: "gotham-book";
+}
+
+@-moz-document url-prefix(){
+  footer .content {
+    font-family: inherit;
+  }
 }
 
 footer .li-contact {
