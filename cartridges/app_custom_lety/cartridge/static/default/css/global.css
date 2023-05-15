@@ -826,7 +826,7 @@ header {
 
 .user-conten .user {
   display: flex;
-  width: 130px;
+  max-width: 130px;
   white-space: nowrap;
 }
 
