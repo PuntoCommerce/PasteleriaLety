@@ -273,7 +273,8 @@ try {
   if (order.defaultShipment.shippingMethodID == "pickup") {
     status = HO.sendPickupOrderToERP(order.orderNo);
   } else {
-    status = HO.sendShippingOrderToERP(order.orderNo, req);
+    const userExist = req.session.privacyCache.get("userExist");
+    status = HO.sendShippingOrderToERP(order.orderNo, req, userExist);
   }
 } catch (error) {
   status.error = true;
