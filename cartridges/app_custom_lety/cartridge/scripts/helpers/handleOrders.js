@@ -21,7 +21,7 @@ const handleItemsServDom = (pli, shipment) => {
     item = iterator.next();
     items.push({
       iIdMaterial: item.productID,
-      dPrecio: item.proratedPrice.value,
+      dPrecio: item.proratedPrice.value / item.quantityValue,
       dPrecioBase: item.basePrice.value,
       dCantidad: item.quantityValue,
       dCantidadBase: item.quantityValue,
@@ -133,11 +133,12 @@ const sendShippingOrderToERP = (orderId, req) => {
   let order = OrderMgr.getOrder(orderId);
   let paymentInstruments = order.getPaymentInstruments();
   let pi = paymentInstruments[0];
-  let customer;
+  var customer;
 
   const userExist = req.session.privacyCache.get("userExist");
+  var isUser = userExist !== 'undefined' ? true : false;
 
-  if (userExist !== null || userExist !== undefined) {
+  if (isUser) {
     customer = CustomerMgr.getProfile(userExist);
   }
 
@@ -157,7 +158,7 @@ const sendShippingOrderToERP = (orderId, req) => {
     iIdCentroAlta: 0,
     iIdServDom: 0,
     iIdCentroAfecta: order.custom.storeId,
-    iIdFolioPersona: userExist && customer.custom.folPerson ? customer.custom.folPerson : 90000,
+    iIdFolioPersona: isUser && customer.custom.folPerson  ? customer.custom.folPerson : 90000,
     iIdFolioDireccion: order.custom.folioDireccion,
     dtFechaAlta: today.toISOString(),
     dtFechaEntrega: parseDeliveryDateTime(order.custom.deliveryDateTime),
