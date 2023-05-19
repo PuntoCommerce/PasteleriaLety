@@ -204,6 +204,7 @@
     let inner = ``;
     let innerText = ``
     let { openHours, closeHours, after } = weekSchedule[day];
+    let timeFormFW = QS(".form-control.shippingTime");
 
     if (openHours < today.getHours() && todayWeekDay == day) {
       openHours = today.getHours();
@@ -231,7 +232,7 @@
       `
     }
 
-    container.innerHTML = inner || container.getAttribute("error-no-hours");
+    container.innerHTML = inner || [container.getAttribute("error-no-hours"), timeFormFW.value = ''];
     text.innerHTML = innerText;
     let radioSchedules = QSA(".radio-schedule-custom");
     radioSchedules.forEach((rs) => rs.addEventListener("change", setStoreHour));
