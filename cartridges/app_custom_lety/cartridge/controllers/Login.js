@@ -177,8 +177,8 @@ server.replace('OAuthReentry', server.middleware.https, consentTracking.consent,
         });
 
         const birthDay = new Date().toLocaleDateString("en-US");
-        const lastName = externalProfile.family_name.split(' ', 2)
-        const secondLastName = lastName[1] ? lastName[1] :  ''
+        const lastName = externalProfile.family_name.split(' ', 2);
+        const secondLastName = lastName[1] ? lastName[1] :  '';
 
         var resultForm = {
             firstName: externalProfile.given_name,
