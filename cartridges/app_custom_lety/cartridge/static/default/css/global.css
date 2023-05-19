@@ -830,6 +830,11 @@ header {
   white-space: nowrap;
 }
 
+.grand-total,
+.shipping-discount-total {
+  white-space: nowrap;
+}
+
 #myaccount {
   position: relative;
   text-decoration: none !important;
@@ -838,7 +843,7 @@ header {
   color: white !important;
 }
 
-#myaccount > span{
+#myaccount>span {
   display: contents;
 }
 
@@ -1205,16 +1210,18 @@ textarea {
   font-family: var(--font-family-gotham-bold) !important;
 }
 
+.campo{
+  position: relative;
+}
+
 #viewPassword {
   position: absolute;
   right: 5px;
-  top: 11.4rem;
-  right: 30px;
+  top: 50%;
   text-transform: uppercase;
   cursor: pointer;
   padding: 2px 10px;
   background-color: transparent;
-
 }
 
 #password {
@@ -5962,26 +5969,26 @@ input[type="submit"].btn-block {
   background-size: 100% 100%;
 }
 
-.remove-coupon{
+.remove-coupon {
   position: absolute;
   right: 5px;
   top: 9px;
 }
 
-.coupon-price-adjustment{
+.coupon-price-adjustment {
   position: relative;
 }
 
-.show-deliveryCost{
+.show-deliveryCost {
   display: flex !important;
 }
 
-.delete-coupon-confirmation-header h2{
+.delete-coupon-confirmation-header h2 {
   font-family: var(--font-family-gotham) !important;
   font-size: 1em;
 }
 
-.delete-coupon-confirmation-body > p{
+.delete-coupon-confirmation-body>p {
   font-family: var(--font-family-gotham) !important;
 }
 
@@ -18528,7 +18535,7 @@ footer .content {
   font-family: "gotham-book";
 }
 
-@-moz-document url-prefix(){
+@-moz-document url-prefix() {
   footer .content {
     font-family: inherit;
   }
@@ -19722,7 +19729,7 @@ a .moreless .less {
 
 .minicart {
   position: relative;
-  margin-left: 30px;
+  margin-left: 20px;
 }
 
 .minicart h1 {
@@ -20504,6 +20511,12 @@ a .moreless .less {
   position: absolute;
   top: 0.4em;
   width: 0.8em;
+}
+
+#orderDiscount .col-6 > p > span,
+.shipping-discount .col-7 > p,
+.shipping-discount .col-5 > p{
+  color: #000;
 }
 
 /*Medias querys*/
