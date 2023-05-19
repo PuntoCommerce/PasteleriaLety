@@ -10,10 +10,10 @@
 <!--- Shipping Discount --->
 <div class="row shipping-discount <isif condition=" ${pdict.totals.shippingLevelDiscountTotal.value === 0}">
     hide-shipping-discount</isif>">
-    <div class="col-8">
+    <div class="col-7">
         <p>${Resource.msg('label.shipping.discount', 'common', null)}</p>
     </div>
-    <div class="col-4">
+    <div class="col-5">
         <p class="text-right shipping-discount-total">
             ${pdict.totals.shippingLevelDiscountTotal.formatted.replace(/[\-]+/g, '')}
         </p>
