@@ -134,12 +134,14 @@ const sendShippingOrderToERP = (orderId, req) => {
   let paymentInstruments = order.getPaymentInstruments();
   let pi = paymentInstruments[0];
   var customer;
+  var idUserEvo = false;
 
   const userExist = req.session.privacyCache.get("userExist");
   var isUser = userExist !== 'undefined' ? true : false;
 
   if (isUser) {
     customer = CustomerMgr.getProfile(userExist);
+    idUserEvo = customer.custom.folPerson ? customer.custom.folPerson : false;
   }
 
   let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(
@@ -158,7 +160,7 @@ const sendShippingOrderToERP = (orderId, req) => {
     iIdCentroAlta: 0,
     iIdServDom: 0,
     iIdCentroAfecta: order.custom.storeId,
-    iIdFolioPersona: isUser && customer.custom.folPerson  ? customer.custom.folPerson : 90000,
+    iIdFolioPersona: isUser && idUserEvo ? idUserEvo : 90000,
     iIdFolioDireccion: order.custom.folioDireccion,
     dtFechaAlta: today.toISOString(),
     dtFechaEntrega: parseDeliveryDateTime(order.custom.deliveryDateTime),
@@ -214,7 +216,7 @@ const sendPickupOrderToERP = (orderId) => {
     sFolio: orderId,
     sFolioBanco: pi.paymentTransaction.transactionID,
     sFolioTarjeta:
-    pi.creditCardNumberLastDigits || pi.paymentTransaction.transactionID,
+      pi.creditCardNumberLastDigits || pi.paymentTransaction.transactionID,
     iIdCentro: order.custom.storeId,
     dtFechaColocacion: today.toISOString(),
     dtFechaAsignacion: parseDeliveryDateTime(order.custom.deliveryDateTime),
