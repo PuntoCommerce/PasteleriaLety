@@ -268,40 +268,40 @@ server.replace(
       ) : COHelpers.sendConfirmationEmail(order, req.locale.id, storeId)
     }
 
-let status = {};
-try {
-  if (order.defaultShipment.shippingMethodID == "pickup") {
-    status = HO.sendPickupOrderToERP(order.orderNo);
-  } else {
-    const userExist = req.session.privacyCache.get("userExist");
-    status = HO.sendShippingOrderToERP(order.orderNo, req, userExist);
-  }
-} catch (error) {
-  status.error = true;
-  status.message = JSON.stringify(error);
-}
+    let status = {};
+    try {
+      if (order.defaultShipment.shippingMethodID == "pickup") {
+        status = HO.sendPickupOrderToERP(order.orderNo);
+      } else {
+        const userExist = req.session.privacyCache.get("userExist");
+        status = HO.sendShippingOrderToERP(order.orderNo, req, userExist);
+      }
+    } catch (error) {
+      status.error = true;
+      status.message = JSON.stringify(error);
+    }
 
-if (status.error) {
-  Transaction.wrap(() => {
-    order.custom.isError = true;
-    order.custom.errorDetail = status.message;
-  })
-}
+    if (status.error) {
+      Transaction.wrap(() => {
+        order.custom.isError = true;
+        order.custom.errorDetail = status.message;
+      })
+    }
 
-// Reset usingMultiShip after successful Order placement
-req.session.privacyCache.set("usingMultiShipping", false);
+    // Reset usingMultiShip after successful Order placement
+    req.session.privacyCache.set("usingMultiShipping", false);
 
-// TODO: Exposing a direct route to an Order, without at least encoding the orderID
-//  is a serious PII violation.  It enables looking up every customers orders, one at a
-//  time.
-res.json({
-  error: false,
-  orderID: order.orderNo,
-  orderToken: order.orderToken,
-  continueUrl: URLUtils.url("Order-Confirm").toString(),
-});
+    // TODO: Exposing a direct route to an Order, without at least encoding the orderID
+    //  is a serious PII violation.  It enables looking up every customers orders, one at a
+    //  time.
+    res.json({
+      error: false,
+      orderID: order.orderNo,
+      orderToken: order.orderToken,
+      continueUrl: URLUtils.url("Order-Confirm").toString(),
+    });
 
-return next();
+    return next();
   }
 );
 

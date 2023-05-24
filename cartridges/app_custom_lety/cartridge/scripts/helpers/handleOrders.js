@@ -128,7 +128,7 @@ const handleLogOrderError = (type, payload) => {
   logger.error("Type: {0} payload: {1}", type, bodyXML);
 };
 
-const sendShippingOrderToERP = (orderId, req) => {
+const sendShippingOrderToERP = (orderId, req, userExist) => {
   let status = {};
   let order = OrderMgr.getOrder(orderId);
   let paymentInstruments = order.getPaymentInstruments();
@@ -136,7 +136,6 @@ const sendShippingOrderToERP = (orderId, req) => {
   var customer;
   var idUserEvo = false;
 
-  const userExist = req.session.privacyCache.get("userExist");
   var isUser = userExist !== 'undefined' ? true : false;
 
   if (isUser) {
