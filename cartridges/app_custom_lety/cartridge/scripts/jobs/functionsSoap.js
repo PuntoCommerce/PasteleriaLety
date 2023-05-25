@@ -351,6 +351,7 @@ function body(data, credential, path) {
       '<vUsr>' + credential.user + '</vUsr>' +
       '<vPwd>' + credential.password + '</vPwd>' + handleEnviroment() +
       '<sCorreo>' + data.params.email + '</sCorreo>' +
+      '<dtFechaNacimiento>' + data.birthDay + '</dtFechaNacimiento>' +
       '</' + path + '>' +
       '</soap:Body></soap:Envelope>';
   }

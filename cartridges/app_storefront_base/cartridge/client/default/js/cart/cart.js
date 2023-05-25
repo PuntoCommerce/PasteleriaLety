@@ -79,10 +79,9 @@ function updateCartTotals(data) {
         $('.order-discount').addClass('hide-order-discount');
     }
 
-    if (data.totals.shippingLevelDiscountTotal.value > 0) {
+    if (Math.abs(data.totals.shippingLevelDiscountTotal.value) > 0) {
         $('.shipping-discount').removeClass('hide-shipping-discount');
-        $('.shipping-discount-total').empty().append('- ' +
-            data.totals.shippingLevelDiscountTotal.formatted);
+        $('.shipping-discount-total').empty().append(data.totals.shippingLevelDiscountTotal.formatted.replace(/[\-]+/g, ''));
     } else {
         $('.shipping-discount').addClass('hide-shipping-discount');
     }

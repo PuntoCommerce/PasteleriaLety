@@ -359,11 +359,13 @@ function responseEndPoint(xml, path) {
     let Co = XMLList(xml).descendants("iCode");
     let sM = XMLList(xml).descendants("sMensaje");
     let iIdFolioPersona = XMLList(xml).descendants("iIdFolioPersona");
+    let dtFechaNacimiento = XMLList(xml).descendants("dtFechaNacimiento");
 
     return {
       iIdFolioPersona: iIdFolioPersona,
       iCode: Co,
-      sMessaje: sM
+      sMessaje: sM,
+      dtFechaNacimiento: dtFechaNacimiento
     }
   }
 }
