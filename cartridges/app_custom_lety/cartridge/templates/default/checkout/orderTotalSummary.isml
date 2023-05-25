@@ -54,12 +54,12 @@
     </div>
 
     <!--- Grand Total --->
-    <div class="row grand-total leading-lines">
+    <div class="row grand-total leading-lines grand-total-sum">
         <div class="col-lg-7 col-6">
             <p class="order-receipt-label checkout__text"><span>${Resource.msg('label.order.grand.total','confirmation', null)}</span></p>
         </div>
         <div class="col-lg-5 col-6">
-            <p class="text-right checkout__text"><span class="grand-total-sum">${pdict.order.totals.grandTotal}</span></p>
+            <p class="text-right checkout__text"><span>${pdict.order.totals.grandTotal}</span></p>
         </div>
     </div>
 </div>

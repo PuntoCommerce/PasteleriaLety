@@ -1106,8 +1106,6 @@ textarea {
 .title.callout.btn.text-left {
   background-color: var(--color-lety6);
   color: var(--color-lety-white);
-  width: 80px;
-  height: 38px;
 }
 
 .availability-mobile {

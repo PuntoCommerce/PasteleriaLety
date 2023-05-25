@@ -19,8 +19,7 @@ function updateTotals(totals) {
 
     if (totals.shippingLevelDiscountTotal.value != 0) {
         $('.shipping-discount').removeClass('hide-shipping-discount');
-        $('.shipping-discount-total').text(
-            totals.shippingLevelDiscountTotal.formatted.replace(/[\-]+/g, ''));
+        $('.shipping-discount-total').text(totals.shippingLevelDiscountTotal.formatted.replace(/[\-]+/g, ''));
     } else {
         $('.shipping-discount').addClass('hide-shipping-discount');
     }
