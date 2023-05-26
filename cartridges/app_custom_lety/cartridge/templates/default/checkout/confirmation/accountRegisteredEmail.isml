@@ -54,7 +54,7 @@
             padding-top: 7px;
         }
 
-        .div-logo-img{
+        .div-logo-img {
             width: 100%
         }
 
@@ -233,7 +233,7 @@
             color: #000000;
         }
 
-       .col-3 {
+        .col-3 {
             width: 25%
         }
 
@@ -352,7 +352,7 @@
                 max-width: 100%;
             }
 
-            .btn-sale{
+            .btn-sale {
                 width: 60%
             }
 
@@ -409,8 +409,8 @@
                 <tr>
                     <td>
                         <div class="logo-body">
-                            <a href="${URLUtils.https('Home-Show')}"><img class="logo-email-body" src="${URLUtils.httpsStatic('/images/lety-logo.png')}"
-                                alt="logo lety" /></a>
+                            <a href="${URLUtils.https('Home-Show')}"><img class="logo-email-body"
+                                    src="${URLUtils.httpsStatic('/images/lety-logo.png')}" alt="logo lety" /></a>
                         </div>
                     </td>
                 </tr>
@@ -432,7 +432,10 @@
                     <td>
                         <div class="text-container">
                             <div class="text-congrat">
-                                <p>${Resource.msg('msg.welcome.register', 'registration', null)}&nbsp;${pdict.firstName}&nbsp;${pdict.lastName},</p>
+                                <p>
+                                    ${Resource.msg('msg.welcome.register', 'registration', null)}
+                                    <span>${pdict.firstName} ${pdict.lastName}</span>
+                                </p>
 
                                 <p>${Resource.msg('msg.welcome.span', 'registration', null)}
                                 </p>
@@ -441,12 +444,16 @@
                                 </p>
                             </div>
                             <div class="button-sales">
-                                <a href="${URLUtils.https('Home-Show')}" target="_blank"><button class="btn-sale" type="">${Resource.msg('msg.button.sales.email', 'confirmation', null)}</button></a>
+                                <a href="${URLUtils.https('Home-Show')}" target="_blank"><button class="btn-sale"
+                                        type="">${Resource.msg('msg.button.sales.email', 'confirmation', null)}</button></a>
                             </div>
                             <div class="icons-links">
-                                <a aria-label="Facebook" href="https://www.facebook.com/pastelerialetymty" target="_blank"><img class="icon-fb" alt=""
+                                <a aria-label="Facebook" href="https://www.facebook.com/pastelerialetymty"
+                                    target="_blank"><img class="icon-fb" alt=""
                                         src="${URLUtils.httpsStatic('/images/icons-emails/facebook.png')}" /></a>
-                                <a aria-label="Instagram" href="https://www.instagram.com/pastelerialety/?hl=es&__coig_restricted=1" target="_blank"><img class="icon-ig" alt=""
+                                <a aria-label="Instagram"
+                                    href="https://www.instagram.com/pastelerialety/?hl=es&__coig_restricted=1"
+                                    target="_blank"><img class="icon-ig" alt=""
                                         src="${URLUtils.httpsStatic('/images/icons-emails/instagram.png')}" /></a>
                             </div>
                         </div>
@@ -455,7 +462,7 @@
                 </tr>
             </table>
         </div>
-         <footer>
+        <footer>
             <table class="table-trusty" style="text-align: center;padding-right: 20px;padding-left: 20px;">
                 <tr>
                     <td>
@@ -572,14 +579,16 @@
                 <span>${Resource.msg('title.sweet.email.footer', 'confirmation', null)}</span>
             </div>
             <div class="social-links">
-                <a href="https://www.facebook.com/pastelerialetymty"><img class="fb" src="${URLUtils.httpsStatic('/images/icons-emails/fb.png')}" alt="FB" /></a>
-                <a href="https://www.instagram.com/pastelerialety/?hl=es&__coig_restricted=1"><img class="ig" src="${URLUtils.httpsStatic('/images/icons-emails/ig.png')}" alt="Ig" /></a>
-                <a href="https://www.linkedin.com/company/pastelerialetymty/"><img class="linkedin" src="${URLUtils.httpsStatic('/images/icons-emails/linkedin.png')}"
-                        alt="LinkedIn" /></a>
-                <a href="https://www.tiktok.com/@pastelerialety"><img class="tiktok" src="${URLUtils.httpsStatic('/images/icons-emails/tiktok.png')}"
-                        alt="Tiktok" /></a>
-                <a href="https://www.youtube.com/@PasteleriaLetymty"><img class="youtube" src="${URLUtils.httpsStatic('/images/icons-emails/yt.png')}"
-                        alt="Yt" /></a>
+                <a href="https://www.facebook.com/pastelerialetymty"><img class="fb"
+                        src="${URLUtils.httpsStatic('/images/icons-emails/fb.png')}" alt="FB" /></a>
+                <a href="https://www.instagram.com/pastelerialety/?hl=es&__coig_restricted=1"><img class="ig"
+                        src="${URLUtils.httpsStatic('/images/icons-emails/ig.png')}" alt="Ig" /></a>
+                <a href="https://www.linkedin.com/company/pastelerialetymty/"><img class="linkedin"
+                        src="${URLUtils.httpsStatic('/images/icons-emails/linkedin.png')}" alt="LinkedIn" /></a>
+                <a href="https://www.tiktok.com/@pastelerialety"><img class="tiktok"
+                        src="${URLUtils.httpsStatic('/images/icons-emails/tiktok.png')}" alt="Tiktok" /></a>
+                <a href="https://www.youtube.com/@PasteleriaLetymty"><img class="youtube"
+                        src="${URLUtils.httpsStatic('/images/icons-emails/yt.png')}" alt="Yt" /></a>
             </div>
 
         </footer>

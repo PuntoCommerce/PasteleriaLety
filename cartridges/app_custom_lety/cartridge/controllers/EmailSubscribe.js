@@ -6,6 +6,7 @@
 
 var server = require('server');
 server.extend(module.superModule)
+var accountHelpers = require('*/cartridge/scripts/helpers/accountHelpers');
 
 /**
  * Checks if the email value entered is correct format
@@ -33,6 +34,7 @@ server.replace('Subscribe', function (req, res, next) {
     var Transaction = require('dw/system/Transaction');
     var CustomObjectMgr = require('dw/object/CustomObjectMgr');
     var rr;
+    var err;
 
     var email = req.form.emailId;
     var isValidEmailid;
@@ -40,7 +42,6 @@ server.replace('Subscribe', function (req, res, next) {
         isValidEmailid = validateEmail(email);
 
         if (isValidEmailid) {
-            
             try {
                 Transaction.wrap(function () {
                     CustomObjectMgr.createCustomObject('newsletterSubscriptions', email);
@@ -64,6 +65,12 @@ server.replace('Subscribe', function (req, res, next) {
             error: true,
             msg: Resource.msg('subscribe.email.invalid', 'homePage', null)
         });
+    }
+
+    try {
+        accountHelpers.sendNewsletterEmail(email)
+    } catch (error) {
+        err = error
     }
 
     next();
