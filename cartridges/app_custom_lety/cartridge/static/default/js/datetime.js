@@ -20,7 +20,7 @@
     const statesOptions = QS('#shippingStatedefault');
     const parseInfo = JSON.parse(jsonCities.getAttribute('data-city-stores'));
     const storeState = localStorage.getItem('selectedState')
-    const storeCity = sessionStorage.getItem('selectedCity')
+    const storeCity = localStorage.getItem('selectedCity')
 
     if (storeState) {
       statesOptions.value = storeState;
@@ -67,7 +67,7 @@
 
     citiesOptions.addEventListener('change', (e) => {
       const cityCode = e.target.value
-      sessionStorage.setItem('selectedCity', cityCode)
+      localStorage.setItem('selectedCity', cityCode)
     })
   }
 
