@@ -38,12 +38,14 @@ server.replace(
       return next();
     }
 
-    if (!isAbleToSD(currentBasket.productLineItems)) {
-      res.json({
-        errorMessage: Resource.msg("error.no.able.to.sd", "checkout", null),
-        error: true,
-      });
-      return next();
+    if (currentBasket.defaultShipment.shippingMethodID != "pickup") {
+      if (!isAbleToSD(currentBasket.productLineItems)) {
+        res.json({
+          errorMessage: Resource.msg("error.no.able.to.sd", "checkout", null),
+          error: true,
+        });
+        return next();
+      }
     }
 
     let checkInventory = inventory.checkOnlineInventoryMulti(
