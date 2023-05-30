@@ -164,25 +164,18 @@ function getPaymentInstruments(rawPaymentInstruments) {
     return paymentInstruments;
 }
 
-function leftPad(value, length, padChar) {
-    value = value.toString();
-    while (value.length < length) {
-        value = padChar + value;
-    }
-    return value;
-}
 /**
  * Formats the string date according to locale formatting
  * @param {string} date : date in string
  * @returns {string} formatted date
  */
 function formatStringDate(date) {
-    var date = new Date(date);
-    var month = leftPad((date.getMonth() + 1), 2, '0');
-    var day = leftPad(date.getDate(), 2, '0');
-    var year = date.getFullYear().toString();
-    var formattedDate = month + '/' + day + '/' + year;
-
+    var inputDate = new Date(date);
+    var day = ("0" + inputDate.getDate()).slice(-2);
+    var month = ("0" + (inputDate.getMonth() + 1)).slice(-2);
+    var year = inputDate.getFullYear();
+    var formattedDate = year + "/" + month + "/" + day;
+  
     return formattedDate;
 }
 
@@ -205,7 +198,7 @@ function getCustomerObject(customer) {
             }
         };
     }
-
+  
     var birthdayDate = customer.profile.getBirthday();
     var birthDay = formatStringDate(birthdayDate);
     var preferredAddress = customer.addressBook.preferredAddress;

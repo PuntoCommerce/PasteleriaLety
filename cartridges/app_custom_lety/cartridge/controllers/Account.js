@@ -559,6 +559,7 @@ server.replace(
                 newCustomerProfile.lastName = registrationForm.lastName;
                 newCustomerProfile.phoneHome = registrationForm.phone;
                 newCustomerProfile.email = registrationForm.email;
+                newCustomerProfile.setBirthday(new Date(registrationForm.birthDay));
               }
             });
           } catch (e) {
@@ -616,6 +617,16 @@ server.replace(
   }
 );
 
+function formatStringDate(date) {
+  var inputDate = new Date(date);
+  var day = ("0" + inputDate.getDate()).slice(-2);
+  var month = ("0" + (inputDate.getMonth() + 1)).slice(-2);
+  var year = inputDate.getFullYear();
+  var formattedDate = year + "/" + month + "/" + day;
+
+  return formattedDate;
+}
+
 /**
  * Account-EditProfile : The Account-EditProfile endpoint renders the page that allows a shopper to edit their profile. The edit profile form is prefilled with the shopper's first name, last name, phone number and email
  * @name Base/Account-EditProfile
@@ -644,12 +655,13 @@ server.replace(
       var accountModel = accountHelpers.getAccountModel(req);
       var content = ContentMgr.getContent('tracking_hint');
       var profileForm = server.forms.getForm('profile');
+      var birthDay = formatStringDate(accountModel.profile.birthDay);
       profileForm.clear();
       profileForm.customer.firstname.value = accountModel.profile.firstName;
       profileForm.customer.lastname.value = accountModel.profile.lastName;
       profileForm.customer.phone.value = accountModel.profile.phone;
       profileForm.customer.email.value = accountModel.profile.email;
-      profileForm.customer.birthDay.value = accountModel.profile.birthDay;
+      profileForm.customer.birthDay.value = birthDay;
       res.render('account/profile', {
           consentApi: Object.prototype.hasOwnProperty.call(req.session.raw, 'setTrackingAllowed'),
           caOnline: content ? content.online : false,
@@ -697,9 +709,7 @@ server.replace(
       var Resource = require('dw/web/Resource');
       var URLUtils = require('dw/web/URLUtils');
       var accountHelpers = require('*/cartridge/scripts/helpers/accountHelpers');
-
       var formErrors = require('*/cartridge/scripts/formErrors');
-
       var profileForm = server.forms.getForm('profile');
 
       // form validation
@@ -715,14 +725,14 @@ server.replace(
       if (req.currentCustomer.profile) {
         var customerNo = req.currentCustomer.profile.customerNo;
       }
-      
+      var birthDay = formatStringDate(profileForm.customer.birthDay.value);
       var result = {
           firstName: profileForm.customer.firstname.value,
           lastName: profileForm.customer.lastname.value,
           phone: profileForm.customer.phone.value,
           email: profileForm.customer.email.value,
           confirmEmail: profileForm.customer.emailconfirm.value,
-          birthDay: profileForm.customer.birthDay.value,
+          birthDay: birthDay,
           password: profileForm.login.password.value,
           profileForm: profileForm,
           customerNo: customerNo
@@ -756,7 +766,6 @@ server.replace(
                       );
                   }
               });
-              // var xx = new Date(formInfo.birthDay);
               delete formInfo.password;
               delete formInfo.confirmEmail;
               if (customerLogin) {
