@@ -1458,6 +1458,10 @@ textarea {
   display: none !important;
 }
 
+.check-icon{
+  padding-bottom: 0 !important;
+}
+
 /*responsive 992*/
 @media (max-width: 993px) {
   .container {
