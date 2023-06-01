@@ -622,7 +622,7 @@ function formatStringDate(date) {
   var day = ("0" + inputDate.getDate()).slice(-2);
   var month = ("0" + (inputDate.getMonth() + 1)).slice(-2);
   var year = inputDate.getFullYear();
-  var formattedDate = year + "/" + month + "/" + day;
+  var formattedDate = year + "-" + month + "-" + day;
 
   return formattedDate;
 }
