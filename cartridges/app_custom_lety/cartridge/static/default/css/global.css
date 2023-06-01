@@ -1458,6 +1458,10 @@ textarea {
   display: none !important;
 }
 
+.check-icon{
+  padding-bottom: 0 !important;
+}
+
 /*responsive 992*/
 @media (max-width: 993px) {
   .container {
@@ -1720,7 +1724,7 @@ textarea {
     font-size: 19px !important;
   }
 
-  .promotions {
+  .promotions-wish-row {
     display: none !important;
   }
 

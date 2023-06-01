@@ -134,6 +134,7 @@ server.replace('OAuthReentry', server.middleware.https, consentTracking.consent,
     );
 
     if (!authenticatedCustomerProfile) {
+        const birthDay = new Date().toLocaleDateString("en-US");
         // Create new profile
         Transaction.wrap(function () {
             var newCustomer = CustomerMgr.createExternallyAuthenticatedCustomer(
@@ -174,9 +175,9 @@ server.replace('OAuthReentry', server.middleware.https, consentTracking.consent,
             authenticatedCustomerProfile.setFirstName(firstName);
             authenticatedCustomerProfile.setLastName(lastName);
             authenticatedCustomerProfile.setEmail(email);
+            authenticatedCustomerProfile.setBirthday(new Date(birthDay));
         });
 
-        const birthDay = new Date().toLocaleDateString("en-US");
         const lastName = externalProfile.family_name.split(' ', 2);
         const secondLastName = lastName[1] ? lastName[1] :  '';
 

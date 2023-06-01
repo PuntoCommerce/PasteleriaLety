@@ -1,33 +1,33 @@
 <div class="card">
     <div class="card-header clearfix">
         <h2 class="pull-left profile-header">${Resource.msg('label.profile','account',null)}</h2>
-        <isif condition="${!pdict.account.isExternallyAuthenticated}">
             <a href="${URLUtils.url('Account-EditProfile')}" class="pull-right" aria-label="${Resource.msg('label.profile.edit','account',null)}"><img src="${URLUtils.staticURL('/images/icons/edit.svg')}" alt="${Resource.msg('global.storename', 'common', null)}" /></a>
-        </isif>
     </div>
     <div class="card-body">
         <dl>
-            <dt>${Resource.msg('label.profile.firstname','account',null)}</dt>
+            <dt>${Resource.msg('label.profile.firstname', 'account', null)}</dt>
             <dd>${pdict.account.profile.firstName}</dd>
         </dl>
         <dl>
-            <dt>${Resource.msg('label.profile.lastname','account',null)}</dt>
+            <dt>${Resource.msg('label.profile.lastname', 'account', null)}</dt>
             <dd>${pdict.account.profile.lastName}</dd>
         </dl>
         <isif condition="${!pdict.account.isExternallyAuthenticated}">
             <dl>
-                <dt>${Resource.msg('label.profile.phone','account',null)}</dt>
+                <dt>${Resource.msg('label.profile.phone', 'account', null)}</dt>
                 <dd>${pdict.account.profile.phone}</dd>
             </dl>
         </isif>
+        <isif condition="${pdict.account && pdict.account.profile}">
+            <dl>
+                <dt>${Resource.msg('label.profile.birthday', 'account', null)}</dt>
+                <dd>${pdict.account.profile.birthDay}</dd>
+            </dl>
+        </isif>
         <dl>
-            <dt>${Resource.msg('label.profile.birthday','account',null)}</dt>
-            <dd>${pdict.account.profile.birthDay}</dd>
-        </dl>         
-        <dl>
-            <dt>${Resource.msg('label.profile.email','account',null)}</dt>
+            <dt>${Resource.msg('label.profile.email', 'account', null)}</dt>
             <dd>${pdict.account.profile.email}</dd>
-        </dl>       
+        </dl>
 
     </div>
 </div>

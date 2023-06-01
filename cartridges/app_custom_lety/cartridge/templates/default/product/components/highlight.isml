@@ -1,4 +1,4 @@
-<isif condition="${product.promotions.length > 0}">
+<iscomment> <isif condition="${product.promotions.length > 0}">
   <div class="highlight">
     <isloop items="${product.promotions}" var="promotion" status="loopstatus">
       <div class="highlight-promotion">
@@ -6,7 +6,7 @@
       </div>
     </isloop>
   </div>
-</isif>
+</isif> </iscomment>
 
 <isif condition="${product.attributes}">
   <isif condition="${product.attributes.numerodepersonas}">
@@ -15,7 +15,5 @@
       <span>${product.attributes.numerodepersonas}</span>
     </div>
     </div>
-    
-    
   </isif>
 </isif>

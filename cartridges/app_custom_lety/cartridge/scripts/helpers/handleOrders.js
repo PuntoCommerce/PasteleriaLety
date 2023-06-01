@@ -64,7 +64,7 @@ const handleItemsPickup = (pli) => {
     item = iterator.next();
     items.push({
       iIdMaterial: item.productID,
-      dPrecio: item.proratedPrice.value,
+      dPrecio: item.proratedPrice.value / item.quantityValue,
       iCantidad: item.quantityValue,
     });
   }
@@ -133,14 +133,14 @@ const sendShippingOrderToERP = (orderId, req, userExist) => {
   let order = OrderMgr.getOrder(orderId);
   let paymentInstruments = order.getPaymentInstruments();
   let pi = paymentInstruments[0];
-  var customer;
-  var idUserEvo = false;
+  var customer = false;
+  var idUserEvo = 90000;
 
   var isUser = userExist !== 'undefined' ? true : false;
 
-  if (isUser) {
+  if (isUser === true) {
     customer = CustomerMgr.getProfile(userExist);
-    idUserEvo = customer.custom.folPerson ? customer.custom.folPerson : false;
+    idUserEvo = customer && customer.custom && customer.custom.folPerson ? customer.custom.folPerson : 90000;
   }
 
   let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(

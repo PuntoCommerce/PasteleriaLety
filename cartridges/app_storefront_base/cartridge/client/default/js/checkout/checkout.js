@@ -345,6 +345,8 @@ var scrollAnimate = require('../components/scrollAnimate');
                 } else if (stage === 'placeOrder') {
                     // disable the placeOrder button here
                     $('body').trigger('checkout:disableButton', '.next-step-button button');
+                    $('.customer-section').addClass('d-none');
+                    $('.shipping-section').addClass('d-none');
                     $.ajax({
                         url: $('.place-order').data('action'),
                         method: 'POST',

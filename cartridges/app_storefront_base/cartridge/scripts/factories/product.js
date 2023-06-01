@@ -29,7 +29,13 @@ module.exports = {
 
         switch (params.pview) {
             case 'tile':
-                product = productTile(product, apiProduct, productType);
+                options = {};
+                var variationsBundle = productHelper.getVariationModel(apiProduct, params.variables);
+                if (variationsBundle) {
+                    apiProduct = variationsBundle.getSelectedVariant() || apiProduct; // eslint-disable-line
+                }
+                options.promotions = PromotionMgr.activeCustomerPromotions.getProductPromotions(apiProduct);
+                product = productTile(product, apiProduct, productType, options);
                 break;
             case 'bonusProductLineItem':
                 promotions = PromotionMgr.activeCustomerPromotions.getProductPromotions(apiProduct);
