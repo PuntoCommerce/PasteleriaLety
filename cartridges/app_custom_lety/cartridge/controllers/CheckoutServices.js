@@ -287,6 +287,11 @@ server.replace(
       Transaction.wrap(() => {
         order.custom.isError = true;
         order.custom.errorDetail = status.message;
+        order.custom.orderDetailJson = JSON.stringify(status.payload)
+      })
+    }else{
+      Transaction.wrap(() => {
+        order.custom.orderDetailJson = JSON.stringify(status.payload)
       })
     }
 
