@@ -1462,6 +1462,10 @@ textarea {
   padding-bottom: 0 !important;
 }
 
+.custom-pickup-summary.mt-2.mb-2.justify-content-between{
+  display: flex;
+}
+
 /*responsive 992*/
 @media (max-width: 993px) {
   .container {
