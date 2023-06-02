@@ -258,8 +258,8 @@
 
 <isinclude template="checkout/shipping/datetimepicker" />
 
-<div class="row">
-    <div class="col-sm-12">
+<div class="row justify-content-start">
+    <div class="col-lg-9">
         <div class="form-group
             ${customPickup.email.mandatory === true ? 'required' : ''}
             ${customPickup.email.htmlName}">
