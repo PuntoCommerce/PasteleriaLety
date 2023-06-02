@@ -648,9 +648,12 @@ server.replace(
   consentTracking.consent,
   function (req, res, next) {
       var ContentMgr = require('dw/content/ContentMgr');
+      var CustomerMgr = require('dw/customer/CustomerMgr');
       var Resource = require('dw/web/Resource');
       var URLUtils = require('dw/web/URLUtils');
       var accountHelpers = require('*/cartridge/scripts/account/accountHelpers');
+      var customer = CustomerMgr.getCustomerByCustomerNumber(req.currentCustomer.profile.customerNo);
+      var isExternallyAuthenticated = customer && customer.externallyAuthenticated;
 
       var accountModel = accountHelpers.getAccountModel(req);
       var content = ContentMgr.getContent('tracking_hint');
@@ -666,6 +669,7 @@ server.replace(
           consentApi: Object.prototype.hasOwnProperty.call(req.session.raw, 'setTrackingAllowed'),
           caOnline: content ? content.online : false,
           profileForm: profileForm,
+          isExternallyAuthenticated: isExternallyAuthenticated,
           breadcrumbs: [
               {
                   htmlValue: Resource.msg('global.home', 'common', null),
@@ -711,17 +715,21 @@ server.replace(
       var accountHelpers = require('*/cartridge/scripts/helpers/accountHelpers');
       var formErrors = require('*/cartridge/scripts/formErrors');
       var profileForm = server.forms.getForm('profile');
-
-      // form validation
-      if (profileForm.customer.email.value.toLowerCase()
-          !== profileForm.customer.emailconfirm.value.toLowerCase()) {
-          profileForm.valid = false;
-          profileForm.customer.email.valid = false;
-          profileForm.customer.emailconfirm.valid = false;
-          profileForm.customer.emailconfirm.error =
-              Resource.msg('error.message.mismatch.email', 'forms', null);
-      }
+      var customer = CustomerMgr.getCustomerByCustomerNumber(req.currentCustomer.profile.customerNo);
+      var isExternallyAuthenticated = customer && customer.externallyAuthenticated;
       
+      // form validation
+      if (!isExternallyAuthenticated) {
+          if (profileForm.customer.email.value.toLowerCase()
+              !== profileForm.customer.emailconfirm.value.toLowerCase()) {
+              profileForm.valid = false;
+              profileForm.customer.email.valid = false;
+              profileForm.customer.emailconfirm.valid = false;
+              profileForm.customer.emailconfirm.error =
+                  Resource.msg('error.message.mismatch.email', 'forms', null);
+          }
+      }
+
       if (req.currentCustomer.profile) {
         var customerNo = req.currentCustomer.profile.customerNo;
       }
@@ -741,34 +749,33 @@ server.replace(
           res.setViewData(result);
           this.on('route:BeforeComplete', function (req, res) { // eslint-disable-line no-shadow
               var formInfo = res.getViewData();
-              var customer = CustomerMgr.getCustomerByCustomerNumber(
-                  req.currentCustomer.profile.customerNo
-              );
               var profile = customer.getProfile();
               var customerLogin;
               var status;
 
               Transaction.wrap(function () {
-                  status = profile.credentials.setPassword(
-                      formInfo.password,
-                      formInfo.password,
-                      true
-                  );
+                if (!isExternallyAuthenticated) {
+                      status = profile.credentials.setPassword(
+                        formInfo.password,
+                        formInfo.password,
+                        true
+                    );
 
-                  if (status.error) {
-                      formInfo.profileForm.login.password.valid = false;
-                      formInfo.profileForm.login.password.error =
-                          Resource.msg('error.message.currentpasswordnomatch', 'forms', null);
-                  } else {
-                      customerLogin = profile.credentials.setLogin(
-                          formInfo.email,
-                          formInfo.password
-                      );
-                  }
+                    if (status.error) {
+                        formInfo.profileForm.login.password.valid = false;
+                        formInfo.profileForm.login.password.error =
+                            Resource.msg('error.message.currentpasswordnomatch', 'forms', null);
+                    } else {
+                        customerLogin = profile.credentials.setLogin(
+                            formInfo.email,
+                            formInfo.password
+                        );
+                    }
+              }
               });
               delete formInfo.password;
               delete formInfo.confirmEmail;
-              if (customerLogin) {
+              if (customerLogin || isExternallyAuthenticated) {
                   Transaction.wrap(function () {
                       profile.setFirstName(formInfo.firstName);
                       profile.setLastName(formInfo.lastName);

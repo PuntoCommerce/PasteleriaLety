@@ -43,7 +43,7 @@
             <isprint value="${pdict.profileForm.customer.birthDay.attributes}"
             encoding="off" />>
     </div>
-
+<isif condition="${!pdict.isExternallyAuthenticated}">
     <div class="form-group
         <isif condition="${pdict.profileForm.customer.email.mandatory === true}">required</isif>">
         <label class="form-control-label" for="email">
@@ -71,6 +71,7 @@
         <input type="password" class="form-control" id="password" <isprint value="${pdict.profileForm.login.password.attributes}" encoding="off" />>
         <div class="invalid-feedback"></div>
     </div>
+</isif>
 
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
     <div class="row">
