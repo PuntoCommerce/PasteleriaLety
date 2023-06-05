@@ -56,19 +56,10 @@ function initAutocomplete() {
 
   autocomplete.addListener("place_changed", () => {
     const place = autocomplete.getPlace();
-    // console.log(place);
     const lat = place.geometry.location.lat();
     const lng = place.geometry.location.lng();
-    // currentPositionClient = { lat, lng };
     setStores(lat, lng, search);
   });
-}
-
-function toggle() {
-  const form = document.getElementById("custom-pickup-form");
-  const summary = document.getElementById("custom-pickup-summary");
-  form.classList.toggle("d-none");
-  summary.classList.toggle("d-none");
 }
 
 function getSummary(store) {
@@ -81,30 +72,40 @@ function getSummary(store) {
 }
 
 function setSummaryStore(storeJson) {
+  $(".custom-pickup-form").addClass("d-none");
+  $(".custom-pickup-summary").addClass("d-flex");
+  $(".custom-pickup-summary").removeClass("d-none");
   let store = JSON.parse(storeJson);
   const summaryStore = document.getElementById("custom-pickup-summary-store");
   summaryStore.innerHTML = getSummary(store);
-  $(".pickup-clear-store-btn").removeClass("d-none");
-  toggle();
+}
+
+function onLoadsetSummaryStore(storeJson) {
+  let store = JSON.parse(storeJson);
+  const summaryStore = document.getElementById("custom-pickup-summary-store");
+  if (store) {
+    summaryStore.innerHTML = getSummary(store);
+    $('#custom-pickup-clear-store').removeClass('d-none')
+  }
 }
 
 function clearStore() {
   const search = document.getElementById("search-store-custom");
   const summaryStore = document.getElementById("custom-pickup-summary-store");
-  $(".pickup-clear-store-btn").addClass("d-none");
+  $(".custom-pickup-form").removeClass("d-none");
+  $(".custom-pickup-summary").removeClass("d-flex");
+  $(".custom-pickup-summary").addClass("d-none");
   summaryStore.innerHTML = "";
   search.value = "";
-  toggle();
 }
 
+const clearButton = document.getElementById("custom-pickup-clear-store");
+clearButton.addEventListener("click", clearStore);
+
 window.addEventListener("load", () => {
-  const clearButton = document.getElementById("custom-pickup-clear-store");
-  clearButton.addEventListener("click", clearStore);
   const summary = document.getElementById("custom-pickup-summary");
   let defaultStore = summary.getAttribute("default-store");
   if (defaultStore != "null") {
-    setSummaryStore(defaultStore);
+    onLoadsetSummaryStore(defaultStore);
   }
-
-  // console.log(defaultStoreSelected);
 });

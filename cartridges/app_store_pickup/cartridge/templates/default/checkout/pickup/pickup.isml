@@ -1,5 +1,5 @@
 
-<div class="custom-pickup-form" id="custom-pickup-form">
+<div class="custom-pickup-form d-none" id="custom-pickup-form">
     <label for="search-store-custom" class="form-control-label">${Resource.msg('label.find.store', 'storeLocator', null)}<span>${Resource.msg('label.required', 'storeLocator', null)}</span></label>
     <input class="form-control mb-3" type="text" name="search-store" value="" id="search-store-custom"
         data-url="${URLUtils.url('Stores-CustomFindStores')}">
@@ -19,6 +19,6 @@
     <div id="custom-pickup-summary-store">
         
     </div>
-    <button type="button" class="pickup-clear-store-btn" id="custom-pickup-clear-store">&times;</button>
+    <button type="button" id="custom-pickup-clear-store" class="d-none">&times;</button>
 </div>
 
