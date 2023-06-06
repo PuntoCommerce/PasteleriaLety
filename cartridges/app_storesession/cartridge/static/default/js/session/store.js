@@ -16,7 +16,7 @@ const handleChange = ({ lat, lng }, urlSet) => {
       })
     );
   } else {
-    alert("Hay un problema");
+    alert("Acceso a ubicación denegado. Verifica los permisos de ubicación en tu navegador y vuelve a intentar.");
   }
 };
 
@@ -25,7 +25,7 @@ const handleClickUserLocationDesk = (urlSet) => {
     handleChange({ lat: coords.latitude, lng: coords.longitude }, urlSet);
   };
   const error = (e) => {
-    alert("Hay un problema");
+    alert("Acceso a ubicación denegado. Verifica los permisos de ubicación en tu navegador y vuelve a intentar.");
   };
   navigator.geolocation.getCurrentPosition(success, error);
 };
@@ -93,7 +93,7 @@ const handleChangeM = ({ lat, lng }, urlSet) => {
       })
     );
   } else {
-    alert("Hay un problema");
+    alert("Acceso a ubicación denegado. Verifica los permisos de ubicación en tu navegador y vuelve a intentar.a");
   }
 };
 
@@ -102,7 +102,7 @@ const handleClickUserLocationM = (urlSet) => {
     handleChangeM({ lat: coords.latitude, lng: coords.longitude }, urlSet);
   };
   const error = (e) => {
-    alert("Hay un problema");
+    alert("Acceso a ubicación denegado. Verifica los permisos de ubicación en tu navegador y vuelve a intentar.");
   };
   navigator.geolocation.getCurrentPosition(success, error);
 };
