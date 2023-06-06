@@ -15,61 +15,72 @@
   };
 
   const handleStoreCities = () => {
-    const jsonCities = QS('#custom-store-cities');
-    const citiesOptions = QS('.shippingAddressCity');
-    const statesOptions = QS('#shippingStatedefault');
-    const parseInfo = JSON.parse(jsonCities.getAttribute('data-city-stores'));
-    const storeState = localStorage.getItem('selectedState')
-    const storeCity = localStorage.getItem('selectedCity')
+    const jsonCities = QS("#custom-store-cities");
+    const citiesOptions = QS(".shippingAddressCity");
+    const statesOptions = QS("#shippingStatedefault");
+    const parseInfo = JSON.parse(jsonCities.getAttribute("data-city-stores"));
+    const fragment = document.createDocumentFragment();
+    const currentState = $(".shippingState").val();
 
-    if (storeState) {
-      statesOptions.value = storeState;
-      const cities = parseInfo[storeState] || []
+    if (currentState) {
+        statesOptions.value = currentState;
+        const cities = parseInfo[currentState] || [];
+        citiesOptions.innerHTML = "";
 
-      citiesOptions.innerHTML = "";
+        $(document).ready(function () {
+          const citiesOptions = $(".shippingAddressCity");
+          if (cities.length === 0) {
+            const option = $("<option>", {
+              text: "No hay sucursales para este estado",
+              selected: true,
+            });
+            citiesOptions.append(option);
+          }
+        });
 
-      if (cities.length === 0) {
-        const option = document.createElement('option');
-        option.innerText = 'No hay sucursales para este estado';
-        citiesOptions.appendChild(option)
-      }
+        cities.forEach((city) => {
+          const option = document.createElement("option");
+          option.value = city;
+          option.innerText = city;
+          fragment.appendChild(option);
+        });
 
-      cities.forEach((city, idx) => {
-        const option = document.createElement('option');
-        option.value = city;
-        option.innerText = city;
-        citiesOptions.appendChild(option);
-      })
+        citiesOptions.append(fragment);
     }
 
-    if (storeCity) { citiesOptions.value = storeCity };
+    const currentCity = $(".shippingAddressCity").val();
+    if (currentCity) {
+      citiesOptions.value = currentCity;
+    }
 
-    statesOptions.addEventListener('change', (e) => {
-      const stateCode = e.target.value
-      const cities = parseInfo[stateCode] || []
-      localStorage.setItem('selectedState', stateCode)
+    statesOptions.addEventListener("change", (e) => {
+      const stateCode = e.target.value;
+      const cities = parseInfo[stateCode] || [];
+      localStorage.setItem("selectedState", stateCode);
 
       citiesOptions.innerHTML = "";
 
       if (cities.length === 0) {
-        const option = document.createElement('option');
-        option.innerText = 'No hay sucursales para este estado';
-        citiesOptions.appendChild(option)
+        const option = document.createElement("option");
+        option.innerText = "No hay sucursales para este estado";
+        citiesOptions.appendChild(option);
       }
 
-      cities.forEach((city, idx) => {
-        const option = document.createElement('option');
+      cities.forEach((city) => {
+        const option = document.createElement("option");
         option.value = city;
         option.innerText = city;
-        citiesOptions.appendChild(option);
-      })
-    })
+        fragment.appendChild(option);
+      });
 
-    citiesOptions.addEventListener('change', (e) => {
-      const cityCode = e.target.value
-      localStorage.setItem('selectedCity', cityCode)
-    })
-  }
+      citiesOptions.append(fragment);
+    });
+
+    citiesOptions.addEventListener("change", (e) => {
+      const cityCode = e.target.value;
+      localStorage.setItem("selectedCity", cityCode);
+    });
+  };
 
   const handleForm = () => {
     let dateForm = QS("#custom-checkout-date");

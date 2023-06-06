@@ -409,8 +409,6 @@ function updateShippingMethodsCustom(shipping){
                 var shippingMethods = shipping.applicableShippingMethods;
                 var selected = shipping.selectedShippingMethod || {};
                 $.each(shippingMethods, function (methodIndex, shippingMethod) {
-                    console.log(shippingMethod);
-                    console.log($("input[value="+ shippingMethod.ID +"]"));
 
                     $("input[value="+ shippingMethod.ID +"]").attr('checked', shippingMethod.ID === selected.ID);
                 })
