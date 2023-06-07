@@ -200,6 +200,7 @@
   const updateStoreDay = (date, weekSchedule) => {
     let container = QS("#custom-store-hours");
     let text = QS('#custom-store-text')
+    let confirmButton = QS('button[value="submit-shipping"]')
     let today = new Date();
     let todayWeekDay = today
       .toLocaleDateString("en-US", { weekday: "short" })
@@ -243,8 +244,9 @@
       `
     }
 
-    container.innerHTML = inner || [container.getAttribute("error-no-hours"), timeFormFW.value = ''];
+    container.innerHTML = inner || [container.getAttribute("error-no-hours"), timeFormFW.value = '', confirmButton.classList.add('disabled-button')];
     text.innerHTML = innerText;
+    inner ? confirmButton.classList.remove('disabled-button') : false;
     let radioSchedules = QSA(".radio-schedule-custom");
     radioSchedules.forEach((rs) => rs.addEventListener("change", setStoreHour));
   };
