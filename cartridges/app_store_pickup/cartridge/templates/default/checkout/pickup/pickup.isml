@@ -15,7 +15,7 @@
     <div id="custom-pickup-results">
     </div>
 </div>
-<div class="custom-pickup-summary mt-2 mb-2 justify-content-between d-flex" id="custom-pickup-summary" default-store="${JSON.stringify(pdict.pickup.selectedStore)}">
+<div class="custom-pickup-summary mt-2 mb-2 justify-content-between d-none" id="custom-pickup-summary" default-store="${JSON.stringify(pdict.pickup.selectedStore)}">
     <div id="custom-pickup-summary-store">
         
     </div>

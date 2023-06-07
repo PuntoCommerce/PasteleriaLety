@@ -19,10 +19,11 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <div class="form-group required Date">
-            <label class="form-control-label" for="shippingFirstName${lineItem ? lineItem.UUID : 'default'}"  >
+        <div class="form-group required Date date-container">
+            <label class="form-control-label m-0" for="shippingFirstName${lineItem ? lineItem.UUID : 'default'}"  >
                 ${Resource.msg('field.shipping.delivery.date','address',null)}
             </label>
+            <span class="date-text">${Resource.msg('field.shipping.delivery.date.message','address',null)}</span>
             <input type="date" class="d-none" onkeydown="return false" id="custom-checkout-date" min="" max="" />
             <iscomment> <input type="text" id="datepicker" /> </iscomment>
             <div id="buttonDates"></div>

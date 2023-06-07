@@ -154,7 +154,7 @@ const sendShippingOrderToERP = (orderId, req, userExist) => {
 
   let store = StoreMgr.getStore(order.custom.storeId);
 
-  let payload = {
+  var payload = {
     IdEmpresa: store.custom.empresaId,
     iIdCentroAlta: 0,
     iIdServDom: 0,
@@ -183,14 +183,17 @@ const sendShippingOrderToERP = (orderId, req, userExist) => {
   if (!response.error) {
     if (response.firstICode == 1) {
       handleLetyPuntosAfterInsert(letyPuntos, orderId);
+      status.payload = payload
     } else {
       status.message = response.firstMessage + " | " + response.secondMessage;
       status.error = true;
+      status.payload = payload
     }
   } else {
     handleLogOrderError("RegistraServDom", payload);
     status.message = response.errorMessage;
     status.error = true;
+    status.payload = payload;
   }
   return status;
 };
@@ -233,13 +236,16 @@ const sendPickupOrderToERP = (orderId) => {
   if (!response.error) {
     if (response.iCode == 1) {
       handleLetyPuntosAfterInsert(letyPuntos, orderId);
+      status.payload = payload
     } else {
       status.message = response.sMensaje;
       status.error = true;
+      status.payload = payload
     }
   } else {
     status.message = response.errorMessage;
     status.error = true;
+    status.payload = payload
   }
   if (status.error) {
     handleLogOrderError("InsertaDatosVentaWeb", payload);

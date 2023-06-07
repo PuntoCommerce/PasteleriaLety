@@ -1238,7 +1238,11 @@ span.ship-to-phone {
 }
 
 /*DESIGN CHECKOUT CUSTOM*/
-.chackout-address-left {}
+.chackout-address-left {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
 
 .checkout-address-right {
   padding-top: 4%;

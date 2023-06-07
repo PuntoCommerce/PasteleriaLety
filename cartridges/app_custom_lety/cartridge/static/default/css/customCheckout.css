@@ -5,7 +5,7 @@
   font-family: var(--font-family-gotham-bold);
 }
 
-#changeDateValue{
+#changeDateValue.active{
   background: #d7612b;
   border: none;
   color: white;
@@ -13,13 +13,22 @@
   padding: 2px 8px 2px 8px;
 }
 
-#changeDateValue.active{
-  background: #ffd5b5;
+#changeDateValue{
+  background: #c4c4c46d;
   border: none;
   color: white;
   border-radius: 5px;
   padding: 2px 8px 2px 8px;
-  border: 1px solid #f6a738;
+  border: 1px solid rgba(128, 128, 128, 0.635);
+}
+
+.date-container{
+  display: grid;
+}
+
+.date-text{
+  font-size: 12px;
+  margin-bottom: 5px;
 }
 
 #changeDateValue:nth-child(2){
