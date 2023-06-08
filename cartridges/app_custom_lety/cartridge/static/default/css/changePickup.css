@@ -11,3 +11,9 @@
     content: url(../../images/checkout/checkbox.svg);
   }
 }
+
+.disabled-button{
+  pointer-events: none;
+  background: rgba(183, 183, 183, 0.568);
+  color: white !important;
+}
