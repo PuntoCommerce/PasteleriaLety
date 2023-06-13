@@ -40,14 +40,9 @@ baseAccountHelpers.addUpdateExternalAccount = function (params) {
 baseAccountHelpers.insertFolPerson = (customer) => {
     const getCustomer = CustomerMgr.getProfile(customer.customerNo);
 
-    if (customer.birthDay) {
-        const date = new Date(customer.birthDay);
-        const birthDay = date.toISOString();
-    }
     var getFolioPerson = ApiLety("GetFolioPersona", {
         Empresa: 1,
-        params: customer,
-        birthDay: birthDay
+        params: customer
     })
 
     Transaction.wrap(() => {

@@ -786,7 +786,7 @@ server.replace(
 
                   // Send account edited email
                   accountHelpers.sendAccountEditedEmail(customer.profile);
-                  accountHelpers.insertFolPerson(formInfo);
+                  accountHelpers.addUpdateExternalAccount(formInfo);
 
                   delete formInfo.profileForm;
                   delete formInfo.email;
