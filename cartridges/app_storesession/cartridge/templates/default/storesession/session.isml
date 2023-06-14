@@ -28,6 +28,7 @@
     <div class="blockSession">
       <div class="popup-modal-session" >
           <div class="d-flex justify-content-center flex-column content-session-modal">
+          <p class="act_location_msg">${Resource.msg('heading.location.message','storeLocator',null)}</p>
           <p class="txtSession">Ingrese Dirección</p>
 
           <div id="div_session_search-modal">
