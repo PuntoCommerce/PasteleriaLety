@@ -659,3 +659,9 @@ label.availability {
 .detail-left .whishlist-secound{
   padding-left: 0 !important;
 }
+
+#btn-compartir{
+  background: none;
+  border: none;
+  padding: 0;
+}
