@@ -368,7 +368,9 @@
                                 <div class="col-5 promo-code-submit">
                                     <iscomment>Validatr en el backend...</iscomment>
                                     <button class="btn btn-product btn-block promo-code-btn"
-                                        id="letyPuntosAddpriceAdjustment" data-action="${URLUtils.url(" PriceAdjustment - LetyPuntos ")}" type="button" <isif condition="${pdict.customer.saldo}">
+                                        id="letyPuntosAddpriceAdjustment"
+                                        data-action="${URLUtils.url('PriceAdjustment-LetyPuntos')}" type="button" <isif
+                                        condition="${pdict.customer.saldo}">
                                         <iselse>
                                             disabled
                                             </isif>
