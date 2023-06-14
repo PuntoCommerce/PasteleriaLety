@@ -211,6 +211,25 @@ function showFilterMenu() {
   }
 }
 
+const copyLink = () => {
+  var currentUrl = window.location.href;
+  
+  // Crea un elemento temporal para realizar la copia al portapapeles
+  var tempInput = document.createElement("input");
+  tempInput.value = currentUrl;
+  document.body.appendChild(tempInput);
+  
+  // Selecciona el contenido del elemento temporal
+  tempInput.select();
+  tempInput.setSelectionRange(0, 99999); // Para dispositivos móviles
+  
+  // Copia el contenido al portapapeles
+  document.execCommand("copy");
+  
+  // Remueve el elemento temporal
+  document.body.removeChild(tempInput);  
+}
+
 if (navigator.appVersion.includes("Mac OS") || navigator.appVersion.includes("iPhone")) {
   //estilo css para mac os 
   var styles = `
