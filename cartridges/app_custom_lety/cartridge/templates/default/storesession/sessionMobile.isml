@@ -25,9 +25,10 @@
     <div class="blockSession">
       <div class="popup-modal-session" >
           <div class="d-flex justify-content-center flex-column content-session-modal-mobile">
+          <p class="act_location_msg">${Resource.msg('heading.location.message','storeLocator',null)}</p>
           <p class="txtSession">Ingrese Dirección</p>
 
-          <div id="div_session_search-modalMobile">
+          <div id="div_session_search-modalMobile" class="text-center">
               <input type="text" class="single-input" id="session_search-modalMobile" placeholder="Ingresar direccion" name="location" value="" action-url="${URLUtils.url("StoreSession-SetStore")}"/>
               <span><img src="${URLUtils.staticURL('/images/icons/ubicacionNaranja.png')}" alt="" /></span>
           </div>
