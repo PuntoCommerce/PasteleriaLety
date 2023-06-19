@@ -234,12 +234,12 @@ const sendPickupOrderToERP = (orderId) => {
 
   const response = ApiLety("InsertaDatosVentaWeb", payload);
   if (!response.error) {
-    if (response.iCode == 1) {
-      handleLetyPuntosAfterInsert(letyPuntos, orderId);
-      status.payload = payload
-    } else {
+    if (response.iCode !== 1) {
       status.message = response.sMensaje;
       status.error = true;
+      status.payload = payload
+    } else {
+      handleLetyPuntosAfterInsert(letyPuntos, orderId);
       status.payload = payload
     }
   } else {
