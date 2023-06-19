@@ -1,13 +1,13 @@
 <div>
 
-    <div class="alert alert-success alert-dismissible fade d-none" id="rnr-comment-sucess" role="alert">
+    <div class="alert alert-success alert-dismissible fade rnr-alert" id="rnr-comment-sucess" role="alert">
         ${Resource.msg('comment.success', 'rnr', null)}
         <button type="button" class="close" data-bs-dismiss="alert" id="rnr-close-sucess" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
 
-    <div class="alert alert-danger alert-dismissible fade d-none" id="rnr-comment-danger" role="alert">
+    <div class="alert alert-danger alert-dismissible fade rnr-alert" id="rnr-comment-danger" role="alert">
         ${Resource.msg('comment.danger', 'rnr', null)}
         <button type="button" class="close" data-bs-dismiss="alert" id="rnr-close-danger" aria-label="Close">
             <span aria-hidden="true">&times;</span>
