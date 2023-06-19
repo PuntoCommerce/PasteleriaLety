@@ -19,6 +19,6 @@
     <div id="custom-pickup-summary-store">
         
     </div>
-    <button type="button" id="custom-pickup-clear-store" class="d-none">&times;</button>
+    <button type="button" class="pickup-clear-store-btn" id="custom-pickup-clear-store">&times;</button>
 </div>
 

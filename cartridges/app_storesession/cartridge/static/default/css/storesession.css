@@ -5,7 +5,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 20px;
-  height: 250px;
+  height: auto;
   width: 500px;
   background-color: #fff;
   border: 1px solid #000;
@@ -160,6 +160,10 @@ option{
 
 .content-session-modal{
   align-items: center;
+}
+
+#div_session_search-modal, #div_session_search-modal > input{
+  width: 100%;
 }
 
 @media (max-width: 1024px){
