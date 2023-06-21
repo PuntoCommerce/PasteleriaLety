@@ -19358,6 +19358,10 @@ a .moreless .less {
     display: block;
     padding-top: 8px;
   }
+
+  .container-editProfile .btn-product{
+    width: 100%;
+  }
 }
 
 .product-tile .tile-body {
