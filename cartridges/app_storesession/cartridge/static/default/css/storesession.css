@@ -60,22 +60,26 @@
   width: 270px;
   border:1px solid #ED7014;
   background-color: #ED7014;
-  display: flex;
   margin-top: 10px;
   padding: 7px;
   border-radius: 30px;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.buttonSession button{
-  border:0px solid transparent;
-  background-color: transparent;
-  width: 100%;
-  outline: none;
-  height: 20px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 15px;
+.buttonSession > button{
+  background: none;
+  border: none;
+  color: white;
+}
+
+.buttonSession > button:focus{
+  outline: 0;
 }
 
 .session-btn-mobile{
@@ -163,7 +167,7 @@ option{
 }
 
 #div_session_search-modal, #div_session_search-modal > input{
-  width: 100%;
+  width: 257px;
 }
 
 @media (max-width: 1024px){
