@@ -18,7 +18,7 @@
 </div>
 
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12 p-0">
         <div class="form-group required Date date-container">
             <label class="form-control-label m-0" for="shippingFirstName${lineItem ? lineItem.UUID : 'default'}"  >
                 ${Resource.msg('field.shipping.delivery.date','address',null)}
@@ -32,7 +32,7 @@
 </div>
 
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12 p-0">
         <div class="form-group required Date">
             <div id="custom-store-text"></div>
             <div id="custom-store-cities" data-city-stores='${pdict.cityStoresStates}'></div>

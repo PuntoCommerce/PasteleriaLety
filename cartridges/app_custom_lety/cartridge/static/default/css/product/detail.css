@@ -645,8 +645,8 @@ label.availability {
   }
 }
 .promotions-wish-row {
-  display: grid;
-  grid-template-columns: 15% 85%;
+  display: block;
+  /* grid-template-columns: 15% 85%; */
   margin: 0;
 }
 

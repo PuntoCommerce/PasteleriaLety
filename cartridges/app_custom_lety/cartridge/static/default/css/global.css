@@ -930,7 +930,7 @@ header {
 }
 
 .detail-left .wishlist {
-  padding-left: 15px !important;
+  padding-left: 0;
 }
 
 .row-desc {
