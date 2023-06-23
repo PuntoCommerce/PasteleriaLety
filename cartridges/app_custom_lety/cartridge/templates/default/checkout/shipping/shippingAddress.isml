@@ -1,3 +1,7 @@
+<isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/shipping.js');
+    </isscript>
 <isset name="addressFields" value="${pdict.forms.shippingForm.shippingAddress.addressFields}" scope="page" />
 <isset name="customPickup" value="${pdict.forms.shippingForm.customPickUp}" scope="page" />
 <isif condition="${shippingModel.shippingAddress}">
@@ -182,7 +186,8 @@
     <div class="col-sm-6 col-lg-4">
         <div class="form-group
             ${addressFields.city.mandatory === true ? 'required' : ''}
-            ${addressFields.city.htmlName}">
+            ${addressFields.city.htmlName}"
+            >
             <label class="form-control-label" for="shippingAddressCity${lineItem ? lineItem.UUID : 'default'}">
                 ${Resource.msg('field.shipping.address.city', 'address', null)}<span>${Resource.msg('field.shipping.address.required', 'address', null)}</span>
             </label>
@@ -191,9 +196,11 @@
                     aria-describedby="${lineItem ? lineItem.UUID : 'default'}City" value="${shippingAddress.city || ''}"
                     <isprint value="${addressFields.city.attributes}" encoding="off" />
                 autocomplete="shipping address-level2"> </iscomment>
-            <select class="form-control shippingAddressCity custom-select"
-                id="shippingAddressCity${lineItem ? lineItem.UUID : 'default'}" <isprint
-                value=${addressFields.city.attributes} encoding="off" />
+            <select  class="form-control shippingAddressCity custom-select" 
+            data-url="${URLUtils.url("CheckoutShippingServices-GoogelMapAddress")}"
+                id="shippingAddressCity${lineItem ? lineItem.UUID : 'default'}"  <isprint
+                value=${addressFields.city.attributes} 
+                 encoding="off" />
             autocomplete="shipping address-level2"
             aria-describedby="${lineItem ? lineItem.UUID : 'default'}City">
             <option label=" "></option>
@@ -254,6 +261,9 @@
             </iscomment>
         </div>
     </div>
+</div>
+<div class="shippingGooglemap">
+<isinclude template="checkout/shipping/googlemap" />
 </div>
 
 <isinclude template="checkout/shipping/datetimepicker" />
