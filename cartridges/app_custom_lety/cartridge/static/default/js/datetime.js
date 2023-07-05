@@ -21,7 +21,6 @@
     const parseInfo = JSON.parse(jsonCities.getAttribute("data-city-stores"));
     const fragment = document.createDocumentFragment();
     const currentState = $(".shippingState").val();
-
     if (currentState) {
         statesOptions.value = currentState;
         const cities = parseInfo[currentState] || [];
