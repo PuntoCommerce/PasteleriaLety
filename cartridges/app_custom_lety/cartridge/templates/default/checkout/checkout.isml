@@ -328,6 +328,7 @@
                                                         <div class="col-12">
                                                             <input class="form-control coupon-code-field"
                                                                 id="checkoutSaldoLetyClcub" type="text" name=""
+                                                                data-saldo="${URLUtils.url('PriceAdjustment-GetSaldo')}"
                                                                 value="${pdict.customer.saldo ? pdict.customer.saldo : ""}"
                                                                 ${pdict.customer.saldo !== undefined ? 'disabled' : ''}
                                                                 <isif condition="${pdict.customer.saldo}">
