@@ -277,8 +277,6 @@
 
                                 <isif condition="${pdict.customer.profile}">
                                     <div class="row">
-                                        <iscomment> Lety card </iscomment>
-                                        <iscomment> Membresia </iscomment>
                                         <div class="col-12">
                                             <form action="${}" class="promo-code-form lety-card-form" method="GET"
                                                 name="lety-card-form">
@@ -348,7 +346,8 @@
                     </form>
                 </div>
                 <iscomment> Cange lety puntos </iscomment>
-                <div class="col-12">
+                <isif condition="${pdict.customer.LetyCard}">
+                    <div class="col-12">
                     <form action="${}" class="promo-code-form lety-card-form" method="GET" name="lety-card-form">
                         <div class="form-group">
                             <label for="">${Resource.msg('label.code.puntos', 'checkout', null)}</label>
@@ -382,6 +381,8 @@
                         </div>
                     </form>
                 </div>
+                <iselse/>
+                </isif>
 
 
                 <iscomment> Show price adjustment apply </iscomment>
@@ -445,7 +446,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="">
-                        <form class="mb-3" action="${URLUtils.url(" Checkout-AddLetyCard")}" method="POST">
+                        <form class="mb-3" action="${URLUtils.url('Checkout-AddLetyCard')}" method="POST">
                             <input type="hidden" name="customerNo" value="${pdict.customer.customerNo}">
                             <input class="form-control coupon-code-field" type="text" name="letyCard" value="" required>
                             <button class="btn btn-product btn-block promo-code-btn mt-3" type="submit">
@@ -453,7 +454,7 @@
                             </button>
                         </form>
 
-                        <form action="${URLUtils.url(" Checkout-GenerateLetyCard")}" method="POST">
+                        <form action="${URLUtils.url('Checkout-GenerateLetyCard')}" method="POST">
                             <input type="hidden" name="customerNo" value="${pdict.customer.customerNo}">
                             <button class="btn btn-product btn-block promo-code-btn" type="submit">
                                 ${Resource.msg('button.submit.promo.code.generar', 'cart', null)}
@@ -469,8 +470,6 @@
             </div>
         </div>
     </div>
-
-    <iscomment> </iscomment>
 
     <div class="modal fade" id="modalLoading" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
