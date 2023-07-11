@@ -501,7 +501,7 @@ server.replace(
     var registrationFormObj = {
       firstName: registrationForm.customer.firstname.value,
       lastName: registrationForm.customer.lastname.value,
-      sLastName: ',',
+      sLastName: '',
       phone: registrationForm.customer.phone.value,
       email: registrationForm.customer.email.value,
       emailConfirm: registrationForm.customer.emailconfirm.value,
@@ -733,6 +733,7 @@ server.replace(
       if (req.currentCustomer.profile) {
         var customerNo = req.currentCustomer.profile.customerNo;
       }
+
       var birthDay = formatStringDate(profileForm.customer.birthDay.value);
       var result = {
           firstName: profileForm.customer.firstname.value,
@@ -786,7 +787,7 @@ server.replace(
 
                   // Send account edited email
                   accountHelpers.sendAccountEditedEmail(customer.profile);
-                  accountHelpers.addUpdateExternalAccount(formInfo);
+                  accountHelpers.updateUserInformation(formInfo);
 
                   delete formInfo.profileForm;
                   delete formInfo.email;

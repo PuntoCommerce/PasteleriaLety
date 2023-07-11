@@ -338,7 +338,7 @@ function body(data, credential, path) {
       '<sCorreoElectronico>' + data.params.email + '</sCorreoElectronico>' +
       '<sApellidoMaterno>' + data.params.sLastName + '</sApellidoMaterno>' +
       '<dtFechaNacimiento>' + data.birthDay + '</dtFechaNacimiento>' +
-      
+
       '</oPersona>' +
       '</' + path + '>' +
       '</soap:Body></soap:Envelope>';
@@ -351,6 +351,23 @@ function body(data, credential, path) {
       '<vUsr>' + credential.user + '</vUsr>' +
       '<vPwd>' + credential.password + '</vPwd>' + handleEnviroment() +
       '<sCorreo>' + data.params.email + '</sCorreo>' +
+      '</' + path + '>' +
+      '</soap:Body></soap:Envelope>';
+  }
+  if (path === 'ActualizaPerfilPersona') {
+    return '<?xml version="1.0" encoding="utf-8"?>' +
+      '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">' +
+      '<soap:Body><' + path + ' xmlns="http://localhost/">' +
+      '<IdEmpresa>' + data.Empresa + '</IdEmpresa>' +
+      '<vUsr>' + credential.user + '</vUsr>' +
+      '<vPwd>' + credential.password + '</vPwd>' + handleEnviroment() +
+      '<iIdFolioPersona>' + data.iIdFolioPersona + '</iIdFolioPersona>' +
+      '<sNombre>' + data.params.firstName + '</sNombre>' +
+      '<sApellidoPaterno>' + data.lastName + '</sApellidoPaterno>' +
+      '<sApellidoMaterno>' + data.secondLastName + '</sApellidoMaterno>' +
+      '<dtFechaNacimiento>' + data.params.birthDay + '</dtFechaNacimiento>' +
+      '<sTelefono1>' + data.params.phone + '</sTelefono1>' +
+      '<sCorreoElectronico>' + data.params.email + '</sCorreoElectronico>' +
       '</' + path + '>' +
       '</soap:Body></soap:Envelope>';
   }
