@@ -5,6 +5,23 @@ const BasketMgr = require("dw/order/BasketMgr");
 
 const renderTemplateHelper = require("*/cartridge/scripts/renderTemplateHelper");
 
+function removeDup(stores) {
+  const seenIds = {};
+  const uniqueData = [];
+
+  for (let i = 0; i < stores.length; i++) {
+    var item = stores[i];
+    var id = item.ID;
+
+    if (!seenIds[id]) {
+      seenIds[id] = true;
+      uniqueData.push(item);
+    }
+  }
+
+  return uniqueData;
+}
+
 server.post("CustomFindStores", (req, res, next) => {
   let lat = req.form.lat;
   let long = req.form.long;
@@ -29,8 +46,10 @@ server.post("CustomFindStores", (req, res, next) => {
 
   const storeId = req.session.raw.privacy.storeId;
 
+  const storesDup = removeDup(stores)
+
   let renderedStores = renderTemplateHelper.getRenderedHtml(
-    { stores: { stores: stores }, defaultStoreId: storeId },
+    { stores: { stores: storesDup }, defaultStoreId: storeId },
     "storeLocator/storeLocatorResults"
   );
 
