@@ -1,4 +1,5 @@
 const base = module.superModule;
+
 function account(currentCustomer, addressModel, orderModel) {
   base.call(this, currentCustomer, addressModel, orderModel);
   if(currentCustomer.raw.authenticated===true){

@@ -31,7 +31,7 @@
     </div>
 
     <div class="form-group
-    <isif condition=" ${!!pdict.profileForm.customer.birthDay.mandatory === true}">required</isif>">
+    <isif condition=" ${pdict.profileForm.customer.birthDay.mandatory === true}">required</isif>">
         <label class="form-control-label" for="edit-profile-form-birtDay">
             <isprint value="${pdict.profileForm.customer.birthDay.label}" encoding="htmlcontent" />
         </label>
@@ -39,7 +39,6 @@
         <input type="date" class="form-control" id="edit-profile-form-birtDay"
             data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
             data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
-            aria-describedby="form-phone-error"
             <isprint value="${pdict.profileForm.customer.birthDay.attributes}"
             encoding="off" />>
     </div>

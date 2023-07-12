@@ -50,6 +50,30 @@ baseAccountHelpers.insertFolPerson = (customer) => {
     })
 }
 
+baseAccountHelpers.updateUserInformation = (customer) => {
+    const userInfo = customer;
+
+    var getFolioPerson = ApiLety("GetFolioPersona", {
+        Empresa: 1,
+        params: customer
+    })
+
+    if (getFolioPerson.iCode == 1 || getFolioPerson.iCode == '1') {
+        const lastName = customer.lastName.split(' ')
+        const secondLastName = lastName[1] ? lastName[1] : ''
+        const iIdFolioPersona = getFolioPerson.iIdFolioPersona
+        
+        var getFolioPerson = ApiLety("ActualizaPerfilPersona", {
+            Empresa: 1,
+            params: customer,
+            lastName: lastName[0],
+            secondLastName: secondLastName,
+            iIdFolioPersona: iIdFolioPersona
+        })
+    }
+    return ''
+}
+
 /**
  * Send an email that would notify the user that account was created
  * @param {obj} registeredUser - object that contains user's email address and name information.

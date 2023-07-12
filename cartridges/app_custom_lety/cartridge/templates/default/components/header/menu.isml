@@ -32,8 +32,8 @@
                     </isif>
                 </isloop>
             </isif>
-        </ul>
-    </div>
+            </ul>
+        </div>
 </nav>
 
 <nav id="customMenuResponsive" class="navbar hidden">
@@ -70,26 +70,10 @@
             </div>
             <div id="actions-icons" class="d-flex justify-content-start">
                 <ul class="items">
-                   <li>
+                    <li>
                         <isinclude url="${URLUtils.url('Account-Header', 'mobile', true)}" />
                     </li>
-                        <li class="nav-item d-lg-none">
-                            <a 
-                            href="${URLUtils.url("StoreLocator-Start")}" class="d-flex justify-content-start align-items-center">
-                                <img style="width:16px; height: 19px;"
-                                    src="${URLUtils.staticURL('/images/icons/location-marker.svg')}"
-                                    alt="Localizar sucursal" />
-                                <span> ${Resource.msg('location.label.mobile.menu', 'menu', null)}</span>
-                            </a>
-                        </li>
-
-                        <iscomment> <li class="nav-item d-lg-none">
-                            <a href="" class="d-flex justify-content-start align-items-center">
-                                <img style="width:18px; height: 16px;" class="chat-boot"
-                                    src="${URLUtils.staticURL('/images/icons/help.svg')}" alt="" />
-                                <span> ${Resource.msg('needhelp.label.mobile.menu', 'menu', null)} </span>
-                            </a>
-                        </li> </iscomment>
+                   
                 </ul>
             </div>
         </div>

@@ -181,7 +181,7 @@ const sendShippingOrderToERP = (orderId, req, userExist) => {
 
   const response = ApiLety("RegistraServDom", payload);
   if (!response.error) {
-    if (response.firstICode == 1) {
+    if (response.iCode === '1' || response.firstICode == 1) {
       handleLetyPuntosAfterInsert(letyPuntos, orderId);
       status.payload = payload
     } else {
@@ -234,12 +234,13 @@ const sendPickupOrderToERP = (orderId) => {
 
   const response = ApiLety("InsertaDatosVentaWeb", payload);
   if (!response.error) {
-    if (response.iCode !== 1) {
+    if (response.iCode === '1' || response.iCode === 1) {
+      handleLetyPuntosAfterInsert(letyPuntos, orderId);
+      status.payload = payload
+      status.error = false;
+    } else {
       status.message = response.sMensaje;
       status.error = true;
-      status.payload = payload
-    } else {
-      handleLetyPuntosAfterInsert(letyPuntos, orderId);
       status.payload = payload
     }
   } else {
