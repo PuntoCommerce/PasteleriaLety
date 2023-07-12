@@ -276,7 +276,7 @@
                                 </div>
 
                                 <isif condition="${pdict.customer.profile}">
-                                    <div class="row">
+                                    <div class="row d-none">
                                         <iscomment> Lety card </iscomment>
                                         <iscomment> Membresia </iscomment>
                                         <div class="col-12">
