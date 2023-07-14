@@ -34,7 +34,6 @@
   }, function(responses) {
 
     if (responses && responses.length > 0) {
-		 console.log(responses[0].formatted_address);
       var cityName = responses[0].formatted_address.split(",")[2];
 		var number = responses[0].formatted_address.split(",")[0];
 		var postalCode = responses[0].formatted_address.split(",")[2];
@@ -43,9 +42,8 @@
       $(".shippingAddressTwo").val(responses[0].formatted_address.split(",")[1]?responses[0].formatted_address.split(",")[1]:"");
       $(".shippingState").val(responses[0].formatted_address.split(",")[3]?responses[0].formatted_address.split(",")[3]:"");
       $(".shippingZipCode").val(postalCode ? postalCode.split(" ")[1] : "");
-      $(".shippingAddressCity").val(cityName?"NL":"");
+      $(".shippingAddressCity").val(cityName? cityName.split(" ").pop():"");
       $(".shippingCountry").val("MX");
-
     } 
   });
 });
