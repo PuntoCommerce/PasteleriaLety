@@ -16,22 +16,21 @@
          function initMap() {
                 var googlelat = $('.googlemapinput').val();
                 var myLatLong = JSON.parse(googlelat);
-                var myLatLng = { lat: Number(myLatLong.lat) || 25.747869, lng: Number(myLatLong.lng) || -100.185860};
-               
+                var myLatLng = { lat: Number(myLatLong.lat) || 25.747869, lng: Number(myLatLong.lng) || -100.185860};               
                 // The map
                 var map = new google.maps.Map(
                     document.getElementById('map'), {zoom: 12, center: myLatLng});
                 // The marker
                 var marker = new google.maps.Marker({ 
-     draggable:true,
-     animation: google.maps.Animation.DROP,
-    position: myLatLng, map: map});
-    google.maps.event.addListener(marker, 'dragend', function() 
-{
-    var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({
-    latLng: marker.getPosition()
-  }, function(responses) {
+					draggable:true,
+					animation: google.maps.Animation.DROP,
+					position: myLatLng, map: map});
+					google.maps.event.addListener(marker, 'dragend', function() 
+					{
+						var geocoder = new google.maps.Geocoder();
+						geocoder.geocode({
+						latLng: marker.getPosition()
+					}, function(responses) {
 
     if (responses && responses.length > 0) {
       var cityName = responses[0].formatted_address.split(",")[2];
@@ -40,7 +39,7 @@
       $(".shippingAddressOne").val(responses[0].formatted_address.split(",")[0]?responses[0].formatted_address.split(",")[0]:"");
       $(".shippingSuite").val(number?number.split(" ").pop():"");
       $(".shippingAddressTwo").val(responses[0].formatted_address.split(",")[1]?responses[0].formatted_address.split(",")[1]:"");
-      $(".shippingState").val(responses[0].formatted_address.split(",")[3]?responses[0].formatted_address.split(",")[3]:"");
+      $(".shippingState").val(responses[0].formatted_address.split(",")[3]?responses[0].formatted_address.split(",")[3].replace(/[.\s]/g, '').toUpperCase():"");
       $(".shippingZipCode").val(postalCode ? postalCode.split(" ")[1] : "");
       $(".shippingAddressCity").val(cityName? cityName.split(" ").pop():"");
       $(".shippingCountry").val("MX");
@@ -48,7 +47,7 @@
   });
 });
                
-         }
+}
        </script>
             <script async defer
                 src="https://maps.googleapis.com/maps/api/js?key=${dw.system.Site.getCurrent().getCustomPreferenceValue('mapAPI')}&callback=initMap">
