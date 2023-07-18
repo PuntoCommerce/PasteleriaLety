@@ -208,9 +208,16 @@ option{
   .btmSession{
     display: none;
   }
+  .popup-modal-session {
+    width: 400px;
+  }
+  
 }
 @media (max-width: 380px){
   .sessionStoreAddress{
     font-size: 11px;
+  }
+  .popup-modal-session {
+    width: 300px;
   }
 }

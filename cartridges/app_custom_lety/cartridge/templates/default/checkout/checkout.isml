@@ -276,7 +276,13 @@
                                 </div>
 
                                 <isif condition="${pdict.customer.profile}">
+
+                                    <div class="row d-none">
+                                        <iscomment> Lety card </iscomment>
+                                        <iscomment> Membresia </iscomment>
+
                                     <div class="row">
+
                                         <div class="col-12">
                                             <form action="${}" class="promo-code-form lety-card-form" method="GET"
                                                 name="lety-card-form">
