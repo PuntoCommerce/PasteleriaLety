@@ -143,6 +143,7 @@ server.append("SubmitShipping", (req, res, next) => {
       return next();
     }
 
+    const coords = JSON.parse(req.session.privacyCache.get('coords'))
 
     let totalAddress =
       viewData.address.address1 +
@@ -170,8 +171,8 @@ server.append("SubmitShipping", (req, res, next) => {
       });
       return next();
     }
-    let lat = geocode.results[0].geometry.location.lat;
-    let lng = geocode.results[0].geometry.location.lng;
+    let lat = coords.lat ? coords.lat : geocode.results[0].geometry.location.lat;
+    let lng = coords.lng ? coords.lng : geocode.results[0].geometry.location.lng;
 
     store = inventory.handleStoreShipping(
       selectedStoreId,
@@ -397,11 +398,28 @@ server.post("GoogelMapAddress", function (req, res, next) {
   var templateHelper = require("*/cartridge/scripts/renderTemplateHelper");
   var latitude = req.form.lat;
   var longitude = req.form.lng;
-  var myLatLng = { lat: latitude , lng: longitude};
+  var myLatLng = { lat: latitude, lng: longitude };
+  var getCoordsUrl = URLUtils.url('CheckoutShippingServices-GetCoords')
+  req.session.privacyCache.set('coords', JSON.stringify(myLatLng))
   res.render('checkout/shipping/googlemap', {
-    googleMapTemplate: myLatLng
+    googleMapTemplate: myLatLng,
+    url: getCoordsUrl
   })
   next();
 });
+
+server.post('GetCoords', function (req, res, next) {
+  const coords = JSON.parse(req.body);
+  const viewData = res.getViewData()
+
+  viewData.coords = coords
+
+  req.session.privacyCache.set('coords', req.body)
+
+
+  res.json({ message: 'success' })
+
+  next();
+})
 
 module.exports = server.exports();
