@@ -6,7 +6,6 @@
 <div class="row autofill-custompickup row-check">
 
     <input type="hidden" value="${JSON.stringify(pdict.googleMapTemplate)}" class="googlemapinput" />
-    <input type="hidden" value="" class="dragend" />
     <div class="col-sm-12">
         <p class="gmap-label">${Resource.msg('map.label.text', 'checkout_es', null)}</p>
         <div class="gmap-wrapper">
