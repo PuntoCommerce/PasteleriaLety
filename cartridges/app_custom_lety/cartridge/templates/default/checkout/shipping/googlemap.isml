@@ -25,29 +25,7 @@
 					draggable:true,
 					animation: google.maps.Animation.DROP,
 					position: myLatLng, map: map});
-					google.maps.event.addListener(marker, 'dragend', function() 
-					{
-						var geocoder = new google.maps.Geocoder();
-						geocoder.geocode({
-						latLng: marker.getPosition()
-					}, function(responses) {
-
-    if (responses && responses.length > 0) {
-      var cityName = responses[0].formatted_address.split(",")[2];
-		var number = responses[0].formatted_address.split(",")[0];
-		var postalCode = responses[0].formatted_address.split(",")[2];
-      $(".shippingAddressOne").val(responses[0].formatted_address.split(",")[0]?responses[0].formatted_address.split(",")[0]:"");
-      $(".shippingSuite").val(number?number.split(" ").pop():"");
-      $(".shippingAddressTwo").val(responses[0].formatted_address.split(",")[1]?responses[0].formatted_address.split(",")[1]:"");
-      $(".shippingState").val(responses[0].formatted_address.split(",")[3]?responses[0].formatted_address.split(",")[3].replace(/[.\s]/g, '').toUpperCase():"");
-      $(".shippingZipCode").val(postalCode ? postalCode.split(" ")[1] : "");
-      $(".shippingAddressCity").val(cityName? cityName.split(" ").pop():"");
-      $(".shippingCountry").val("MX");
-    } 
-  });
-});
-               
-}
+			}
        </script>
             <script async defer
                 src="https://maps.googleapis.com/maps/api/js?key=${dw.system.Site.getCurrent().getCustomPreferenceValue('mapAPI')}&callback=initMap">
