@@ -39,9 +39,6 @@
                     const lat = marker.getPosition().lat();
                     const lng = marker.getPosition().lng();
                     sendCoords(lat, lng);
-
-                    console.log("Latitud al mover:", lat);
-                    console.log("Longitud al mover:", lng);
                 });
       
 			}
