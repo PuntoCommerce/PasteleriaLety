@@ -128,7 +128,7 @@ const handleLogOrderError = (type, payload) => {
   logger.error("Type: {0} payload: {1}", type, bodyXML);
 };
 
-const sendShippingOrderToERP = (orderId, req, userExist) => {
+const sendShippingOrderToERP = (orderId, req, userExist, res) => {
   let status = {};
   let order = OrderMgr.getOrder(orderId);
   let paymentInstruments = order.getPaymentInstruments();
@@ -136,11 +136,14 @@ const sendShippingOrderToERP = (orderId, req, userExist) => {
   var customer = false;
   var idUserEvo = 90000;
 
-  var isUser = userExist !== 'undefined' ? true : false;
-
-  if (isUser === true) {
-    customer = CustomerMgr.getProfile(userExist);
-    idUserEvo = customer && customer.custom && customer.custom.folPerson ? customer.custom.folPerson : 90000;
+  try {
+    var isUser = userExist !== 'undefined' ? true : false;
+    if (res.viewData.customer?.customerNo) {
+      const custNO = res.viewData.customer.customerNo
+      customer = CustomerMgr.getProfile(res.viewData.customer.customerNo);
+      idUserEvo = customer && customer.custom && customer.custom.folPerson ? customer.custom.folPerson : 90000;
+    }
+  } catch (error) {
   }
 
   let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(

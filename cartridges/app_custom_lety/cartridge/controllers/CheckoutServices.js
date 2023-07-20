@@ -276,7 +276,7 @@ server.replace(
         status = HO.sendPickupOrderToERP(order.orderNo);
       } else {
         const userExist = req.session.privacyCache.get("userExist");
-        status = HO.sendShippingOrderToERP(order.orderNo, req, userExist);
+        status = HO.sendShippingOrderToERP(order.orderNo, req, userExist, res);
       }
     } catch (error) {
       status.error = true;
