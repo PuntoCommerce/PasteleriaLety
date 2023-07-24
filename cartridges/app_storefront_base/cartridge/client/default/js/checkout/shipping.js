@@ -418,6 +418,45 @@ function updateShippingMethodsCustom(shipping) {
     }
 }
 
+function updateGoogleMapMarker() {
+    var currentState = $(".shippingState").val();
+    var address1 = $(".shippingAddressOne").val();
+    var number = $(".shippingSuite").val();
+    var address2 = $(".shippingAddressTwo").val();
+    var city = $(".shippingAddressCity").val();
+    var country = $(".shippingCountry").val();
+    var postalCode = $(".shippingZipCode").val();
+    var geocoder = new google.maps.Geocoder();
+    var address = address1 + " " + number + "," + address2 + "," + city + "," + currentState + "," + country + "," + postalCode;
+    geocoder.geocode({ 'address': address }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            var latitude = results[0].geometry.location.lat();
+            var longitude = results[0].geometry.location.lng();
+            
+       
+            var myLatLng = { lat: latitude, lng: longitude };
+            var $shippingStateInput = $('.shippingAddressCity');
+            var url = $shippingStateInput.attr('data-url');
+            $.ajax({
+                url: url,
+                type: 'post',
+                // dataType: 'json',
+                data: myLatLng,
+                success: function (data) {
+                    if (data) {
+                        $('.shippingGooglemap').empty().html(data);
+                    }
+                },
+                error: function (err) {
+                    console.error(err);
+                }
+            })
+
+        
+        }
+    });
+}
+
 /**
  * Update the shipping UI for a single shipping info (shipment model)
  * @param {Object} shipping - the shipping (shipment model) model
@@ -719,55 +758,28 @@ module.exports = {
         viewMultishipAddress: viewMultishipAddress,
     },
     selectShippingCountry: function () {
+        $(document).on('change', '.shippingState', function () {
+            updateGoogleMapMarker();
+        })
+        $(document).on('change', '.shippingAddressOne', function () {
+            updateGoogleMapMarker();
+        })
+        $(document).on('change', '.shippingSuite', function () {
+            updateGoogleMapMarker();
+        })
+        $(document).on('change', '.shippingAddressTwo', function () {
+            updateGoogleMapMarker();
+        })
+        $(document).on('change', '.shippingZipCode', function () {
+            updateGoogleMapMarker();
+        })
         $(document).on('change', '.shippingCountry', function () {
+            updateGoogleMapMarker();
         })
         $(document).on('change', '.shippingAddressCity', function () {
-            var currentState = $(".shippingState").val();
-            var address1 = $(".shippingAddressOne").val();
-            var number = $(".shippingSuite").val();
-            var address2 = $(".shippingAddressTwo").val();
-            var city = $(".shippingAddressCity").val();
-            var country = $(".shippingCountry").val();
-            var postalCode = $(".shippingZipCode").val();
-            var queryString = {
-                address1: address1,
-                number: number,
-                address2: address2,
-                city: city,
-                state: currentState,
-                country: country ? country : "MX",
-                postalCode: postalCode
-            };
-            var geocoder = new google.maps.Geocoder();          
-            var address =address1 + " " + number + "," + address2 + "," + city + "," + currentState + "," + country + "," + postalCode;
-            geocoder.geocode( { 'address': address}, function(results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                   var latitude = results[0].geometry.location.lat();
-                   var longitude = results[0].geometry.location.lng();
-               
-            var myLatLng = { lat: latitude , lng: longitude};
-            var $shippingStateInput = $('.shippingAddressCity');
-            var url = $shippingStateInput.attr('data-url');
-                $.ajax({
-                    url: url,
-                    type: 'post',
-                    // dataType: 'json',
-                    data:myLatLng,
-                    success: function (data) {
-                        if (data) {
-                            $('.shippingGooglemap').empty().html(data);                            
-                        }
-                    },
-                    error: function (err) {
-                        console.error(err);
-                    }
-                })
-        
-                
-            }
-        });
+            updateGoogleMapMarker();
             
-        })
+        });
     },
 
     selectShippingMethod: function () {
