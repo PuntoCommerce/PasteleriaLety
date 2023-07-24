@@ -5,20 +5,37 @@ const Resource = require("dw/web/Resource");
 const StoreMgr = require("dw/catalog/StoreMgr");
 const SystemObjectMgr = require("dw/object/SystemObjectMgr");
 const Site = require("dw/system/Site");
+var ProductMgr = require('dw/catalog/ProductMgr');
 
 const handleExistenciaCall = (pid, quantity, storeId, empresaId) => {
   let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(
     "hoursDifferenceFromGMT"
   );
+  let productType = ProductMgr.getProduct(pid).custom.tipoproducto
+  var existencia;
+
   let today = new Date();
   today.setHours(today.getHours() + hoursDifferenceFromGMT);
   today.setMinutes(today.getMinutes() + 1);
-  let existencia = ApiLety("ExistenciaPorCentroFecha", {
-    Empresa: empresaId,
-    iIdMaterial: parseInt(pid),
-    iIdCentro: parseInt(storeId),
-    dtFecha: today.toISOString(),
-  });
+
+  if (productType === 'linea') {
+    existencia = ApiLety("ExistenciaPorCentroFecha", {
+      Empresa: empresaId,
+      iIdMaterial: parseInt(pid),
+      iIdCentro: parseInt(storeId),
+      dtFecha: today.toISOString(),
+      productType: productType
+    });
+  }else{
+    existencia = ApiLety("ExistenciaPorCentroFechaEsp", {
+      Empresa: empresaId,
+      iIdMaterial: pid,
+      iIdCentro: parseInt(storeId),
+      dtFecha: today.toISOString(),
+      productType: productType
+    });
+  }
+
 
   let error = false;
   let message = "";
