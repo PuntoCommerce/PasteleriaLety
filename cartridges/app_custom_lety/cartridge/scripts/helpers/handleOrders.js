@@ -136,14 +136,18 @@ const sendShippingOrderToERP = (orderId, req, userExist, res) => {
   var customer = false;
   var idUserEvo = 90000;
 
-  try {
-    var isUser = userExist !== 'undefined' ? true : false;
-    if (res.viewData.customer?.customerNo) {
-      const custNO = res.viewData.customer.customerNo
-      customer = CustomerMgr.getProfile(res.viewData.customer.customerNo);
-      idUserEvo = customer && customer.custom && customer.custom.folPerson ? customer.custom.folPerson : 90000;
-    }
-  } catch (error) {
+  let stringValue = userExist;
+
+  stringValue = stringValue.trim();
+
+  if (stringValue === 'undefined') {
+    stringValue = undefined;
+  }
+
+  var isUser = stringValue ? true : false;
+  if (stringValue) {
+    customer = CustomerMgr.getProfile(userExist);
+    idUserEvo = customer && customer.custom && customer.custom.folPerson ? customer.custom.folPerson : 90000;
   }
 
   let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(

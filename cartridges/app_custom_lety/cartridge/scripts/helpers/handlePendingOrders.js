@@ -6,13 +6,6 @@ const sendShippingOrderToERP = (payload) => {
   return response;
 }
 
-const sendPickupOrderToERP = (payload) => {
-  const response = ApiLety("InsertaDatosVentaWeb", payload);
-  
-  return response;
-}
-
 module.exports = {
   sendShippingOrderToERP: sendShippingOrderToERP,
-  sendPickupOrderToERP: sendPickupOrderToERP
 }
