@@ -942,6 +942,7 @@ header {
 .promotions {
   text-align: center;
   display: flex !important;
+  height: 40px;
 }
 
 .product-number-rating {
