@@ -1239,7 +1239,7 @@ span.ship-to-phone {
 
 /*DESIGN CHECKOUT CUSTOM*/
 .chackout-address-left {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
 }
