@@ -136,9 +136,16 @@ const sendShippingOrderToERP = (orderId, req, userExist) => {
   var customer = false;
   var idUserEvo = 90000;
 
-  var isUser = userExist !== 'undefined' ? true : false;
+  let stringValue = userExist;
 
-  if (isUser === true) {
+  stringValue = stringValue.trim();
+
+  if (stringValue === 'undefined') {
+    stringValue = undefined;
+  }
+
+  var isUser = stringValue ? true : false;
+  if (stringValue) {
     customer = CustomerMgr.getProfile(userExist);
     idUserEvo = customer && customer.custom && customer.custom.folPerson ? customer.custom.folPerson : 90000;
   }
