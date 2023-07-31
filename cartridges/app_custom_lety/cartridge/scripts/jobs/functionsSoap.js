@@ -371,6 +371,16 @@ function body(data, credential, path) {
       '</' + path + '>' +
       '</soap:Body></soap:Envelope>';
   }
+  if (path === 'GetDateFromServer') {
+    return '<?xml version="1.0" encoding="utf-8"?>' +
+      '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">' +
+      '<soap:Body><' + path + ' xmlns="http://localhost/">' +
+      '<IdEmpresa>' + data.Empresa + '</IdEmpresa>' +
+      '<vUsr>' + credential.user + '</vUsr>' +
+      '<vPwd>' + credential.password + '</vPwd>' + handleEnviroment() +
+      '</' + path + '>' +
+      '</soap:Body></soap:Envelope>';
+  }
 }
 
 const handleItemsServDom = (items, folio) => {

@@ -70,8 +70,10 @@ server.append("SubmitShipping", (req, res, next) => {
 
   var customer;
 
-  const getActualTime = getTime.call()
-  const [date, time] = getActualTime.formatted.split(' ');
+  const getDate = ApiLety('GetDateFromServer', {
+    Empresa: 1
+  });
+  const [date, time] = getDate.sMensaje.split(' ');
   const [hour, minute, second] = time.split(':')
   const dayOfWeekNumber = new Date(shipping.datetime.date.value).getDay();
   const dayOfWeek = getDayOfWeek[dayOfWeekNumber]
@@ -101,7 +103,7 @@ server.append("SubmitShipping", (req, res, next) => {
 
   if (
     (deliveryMethodHour === null) ||
-    (hour <= deliveryMethodHour.openHours && hour >= deliveryMethodHour.closeHours)
+    (Number(hour) <= deliveryMethodHour.openHours && Number(hour) >= deliveryMethodHour.closeHours)
   ) {
 
     res.json({
