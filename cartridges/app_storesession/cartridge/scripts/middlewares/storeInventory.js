@@ -16,6 +16,7 @@ const checkInventory = (req, res, next) => {
     const store = StoreMgr.getStore(storeId);
     const inventoryListId = store.custom.inventoryListId || store.inventoryListID;
     if (inventoryListId) {
+      session.custom.inventoryListID = inventoryListId;
       viewData.hasStoreAssigned = true;
       const inventory = ProductInventoryMgr.getInventoryList(inventoryListId);
       const inventoryRecord = inventory.getRecord(productId);

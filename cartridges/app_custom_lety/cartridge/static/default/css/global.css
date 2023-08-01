@@ -19327,6 +19327,18 @@ a .moreless .less {
   font-weight: 700;
 }
 
+.btn-disabled {
+  width: 100%;
+  min-height: 37px;
+  background-color: #cccccc;
+  border: none;
+  color: #fff !important;
+  font-size: 18px;
+  font-family: var(--font-family-gotham);
+  border-radius: 20px;
+  font-weight: 700;
+}
+
 .btn-product:hover,
 .buy-now.btn:hover,
 .text2:hover {

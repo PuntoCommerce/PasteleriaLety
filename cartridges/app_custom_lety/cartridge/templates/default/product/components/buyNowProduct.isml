@@ -1,10 +1,10 @@
-
 <isif condition="${pdict.hasInventoryOn}">
     <div class="row cart-and-ipay">
         <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}" />
-        <input type="hidden" id="buy-now-url" class="buy-now-url" value="${URLUtils.url('Checkout-oAuth').toString()}" />
+        <input type="hidden" id="buy-now-url" class="buy-now-url"
+            value="${URLUtils.url('Checkout-oAuth').toString()}" />
         <button id="buy-now-btn" class="add-to-cart buy-now btn btn-primary tooltipAddToCart" data-toggle="modal"
-            data-target="#chooseBonusProductModal" data-pid="${pdict.pid}" ${!pdict.readyToOrder || !pdict.available ? "disabled" : ""} >
+            data-target="#chooseBonusProductModal" data-pid="${pdict.pid}" ${!pdict.readyToOrder || !pdict.available ? "disabled" : ""}>
             ${Resource.msg('button.buynow', 'pdp', null)}
             <iscomment>
                 <span class="tooltiptext">${Resource.msg('tooltip.addtocart.disabled.button', 'pdp', null)}</span>
@@ -12,4 +12,10 @@
         </button>
     </div>
 <iselse/>
+    <div class="row cart-and-ipay">
+        <div class="col-sm-12" style="padding-bottom: 20px;padding: 0;">
+            <button
+                class="btn-disabled btn-detail btn btn--gray btn__small disabled">${Resource.msg('productTile.button.buy', 'pdComponents_es', null)}</button>
+        </div>
+    </div>
 </isif>

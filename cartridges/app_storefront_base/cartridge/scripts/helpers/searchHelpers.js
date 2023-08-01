@@ -124,6 +124,7 @@ function search(req, res) {
     var CatalogMgr = require('dw/catalog/CatalogMgr');
     var URLUtils = require('dw/web/URLUtils');
     var ProductSearchModel = require('dw/catalog/ProductSearchModel');
+    var storeID = req.session.raw.privacy.storeId;
 
     var pageMetaHelper = require('*/cartridge/scripts/helpers/pageMetaHelper');
     var ProductSearch = require('*/cartridge/models/search/productSearch');
@@ -154,7 +155,8 @@ function search(req, res) {
         req.querystring,
         req.querystring.srule,
         CatalogMgr.getSortingOptions(),
-        CatalogMgr.getSiteCatalog().getRoot()
+        CatalogMgr.getSiteCatalog().getRoot(),
+        storeID
     );
 
     pageMetaHelper.setPageMetaTags(req.pageMetaData, productSearch);
