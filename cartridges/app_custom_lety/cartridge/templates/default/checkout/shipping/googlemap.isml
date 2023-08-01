@@ -40,6 +40,8 @@
                     const lng = marker.getPosition().lng();
                     sendCoords(lat, lng);
                 });
+					map.panTo(marker.position);
+               map.setZoom(18);
       
 			}
        </script>
