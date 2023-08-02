@@ -1,7 +1,7 @@
 <isset name="product" value="${pdict.product}" scope="page" />
 <div class="product-tile summary">
     <!-- dwMarker="product" dwContentID="${product.uuid}" -->
-   <div class="row">
+   <div class="row promotions-row">
          <!--Promo-->
              <div class="promotions col-6">
                     <isinclude template="product/components/promotions" />
