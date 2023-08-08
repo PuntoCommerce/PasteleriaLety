@@ -200,7 +200,6 @@
 
     <!-- All good -->
     <hr class="hr-pdp" style="width: 92%; border-top: .5px solid var(--color-lety-black)">
-
     <div>
         <isslot id="cts-recommendations-m" description="Complete the set products" context="global"
             context-object="${pdict.product.raw}" />

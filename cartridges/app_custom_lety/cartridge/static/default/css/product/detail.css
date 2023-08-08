@@ -631,10 +631,10 @@ label.availability {
   padding: 10px 20px;
   width: fit-content;
   height: fit-content;
-  font-family: "Gotham";
   font-size: 18px;
   line-height: 17px;
   text-align: center;
+  font-family: "gotham-light";
 }
 @media (max-width: 1200px) {
   .prices.prices-pdp span {
