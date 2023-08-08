@@ -1,7 +1,7 @@
 "use strict";
 
 function responseEndPoint(xml, path) {
-  if (path === "ExistenciaPorCentroFecha" || path === "ExistenciaPorCentroFechaEsp") {
+  if (path === "ExistenciaPorCentroFecha") {
     let json = '{"' + path + '":[';
 
     let Existencia = XMLList(xml).descendants("Existencia");
@@ -18,6 +18,7 @@ function responseEndPoint(xml, path) {
 
     return json;
   }
+
   if (path === "CatalogoCiudades") {
     let json = '{"' + path + '":[';
 
