@@ -41,7 +41,12 @@
                 <isif condition="${pdict.hasInventoryOn}">
                     <isinclude template="product/components/btnProduct" sf-toolkit="on" />
                 <iselse/>
-                    <span>No disponible en esta sucursal</span>
+                    <div class="row cart-and-ipay">
+                        <div class="col-sm-12" style="padding-bottom: 20px;padding: 0;">
+                            <a href="${pdict.urls.product}"><button class="btn-disabled btn-detail btn btn--gray btn__small disabled"
+                                >${Resource.msg('productTile.button.buy', 'pdComponents_es', null)}</button></a>
+                        </div>
+                    </div>
                 </isif>
             <iselse/>
                 <isinclude template="product/components/btnProduct" sf-toolkit="on" />

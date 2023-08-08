@@ -31,6 +31,7 @@ server.get('UpdateGrid', function (req, res, next) {
     var ProductSearchModel = require('dw/catalog/ProductSearchModel');
     var searchHelper = require('*/cartridge/scripts/helpers/searchHelpers');
     var ProductSearch = require('*/cartridge/models/search/productSearch');
+    var storeID = req.session.raw.privacy.storeId;
 
     var apiProductSearch = new ProductSearchModel();
     apiProductSearch = searchHelper.setupSearch(apiProductSearch, req.querystring, req.httpParameterMap);
@@ -44,7 +45,8 @@ server.get('UpdateGrid', function (req, res, next) {
         req.querystring,
         req.querystring.srule,
         CatalogMgr.getSortingOptions(),
-        CatalogMgr.getSiteCatalog().getRoot()
+        CatalogMgr.getSiteCatalog().getRoot(),
+        storeID
     );
 
     res.render('/search/productGrid', {
@@ -178,7 +180,7 @@ server.get('Show', cache.applyShortPromotionSensitiveCache, consentTracking.cons
     if (redirectGridUrl) {
         res.redirect(redirectGridUrl);
     }
-
+ var test = result.productSearch;
     res.render(template, {
         productSearch: result.productSearch,
         maxSlots: result.maxSlots,
