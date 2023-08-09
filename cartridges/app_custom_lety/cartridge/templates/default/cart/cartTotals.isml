@@ -15,7 +15,7 @@
     </div>
     <div class="col-5">
         <p class="text-right shipping-discount-total">
-            ${pdict.totals.shippingLevelDiscountTotal.formatted.replace(/[\-]+/g, '')}
+            ${pdict.totals.shippingLevelDiscountTotal..replace(/[\-]+/g, '')}
         </p>
     </div>
 </div>
