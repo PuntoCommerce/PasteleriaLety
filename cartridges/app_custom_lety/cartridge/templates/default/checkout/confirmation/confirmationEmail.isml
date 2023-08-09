@@ -527,6 +527,9 @@
 
                                                                 ${lineItem.productName}
                                                             </p>
+                                                            <iscomment> <p>${lineItem.priceTotal.nonAdjustedPrice}</p>
+                                                            <p>${lineItem.priceTotal.price}</p>
+                                                            <p>${parseInt(lineItem.priceTotal.nonAdjustedPrice.replace("$ ", "")) -  parseInt(lineItem.priceTotal.price.replace("$ ", ""))}</p> </iscomment>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -550,22 +553,46 @@
                                                             </isif>
                                                         </td>
 
-                                                         <td style="width:50%;padding:20px 0;">
-                                                            <!--- line item total price --->
-
-                                                            <div class="strike-through
-                                                                <isif condition=${!lineItem.priceTotal.nonAdjustedPrice}>non-adjusted-price</isif>"
-                                                                >
-                                                                   <p> ${lineItem.priceTotal.nonAdjustedPrice}</p>
-                                                            </div>
-                                                            <div>
-                                                                <p
-                                                                    style="text-align:right;font-size: 16px;font-weight: bold;color: #4D4D4D; padding: 0 20px;">
-                                                                    ${lineItem.priceTotal.price}
-                                                                </p>
-                                                            </div>
+                                                        <td style="width:50%;padding:20px 0;">
+                                                            
+                                                            <p style="text-align:right;font-size: 16px;font-weight: bold;color: #4D4D4D; padding: 0 20px;">
+                                                                ${pdict.order.priceTotal}
+                                                            </p>
+                                                    
+                                                        </td>
+                                                    </tr>        
+                                                    <isif condition="${lineItem.appliedPromotions[0].callOutMsg != ""}">                                                     
+                                                    <tr>
+                                                        <td style="width:50%;padding:20px 0;">
+                                                
+                                                            <p style="font-size: 16px;font-weight: bold;color: #4D4D4D;">
+                                                                ${Resource.msg('field.discount', 'cart', null)}
+                                                            </p>
+                                                        </td>
+                                                        <td style="width:50%;padding:20px 0;">
+                                                        
+                                                            <p style="text-align:right;font-size: 16px;font-weight: bold;color: #4D4D4D; padding: 0 20px;">
+                                                               -$ ${parseInt(lineItem.priceTotal.nonAdjustedPrice.replace("$ ", "")) -  parseInt(lineItem.priceTotal.price.replace("$ ", ""))}
+                                                            </p>
                                                         </td>
                                                     </tr>
+                                                    <tr>
+                                                        <td style="width:50%;padding:20px 0;">
+                                                
+                                                            <p style="font-size: 16px;font-weight: bold;color: #4D4D4D;">
+                                                                ${Resource.msg('field.subtotal', 'cart', null)}
+                                                            </p>
+                                                        </td>
+                                                        <td style="width:50%;padding:20px 0;">
+                                                        
+                                                            <p style="text-align:right;font-size: 16px;font-weight: bold;color: #4D4D4D; padding: 0 20px;">
+                                                                ${lineItem.priceTotal.price}
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <iselse/>
+                                                    </isif>
+                                              
                                                 </isloop>
                                             </isif>
                                             <iscomment> Delivery Cost </iscomment>
