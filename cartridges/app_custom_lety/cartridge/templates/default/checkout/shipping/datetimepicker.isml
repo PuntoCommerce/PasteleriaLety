@@ -2,7 +2,9 @@
 <isscript>
     var assets = require('*/cartridge/scripts/assets.js');
     assets.addJs("/js/datetime.js");
-    assets.addCss('/css/customCheckout.css')
+    assets.addCss('/css/customCheckout.css');
+    assets.addJs("https://code.jquery.com/jquery-3.6.0.min.js");
+    assets.addJs("https://code.jquery.com/ui/1.12.1/jquery-ui.js");
 </isscript>
 <isset name="datetime" value="${pdict.forms.shippingForm.datetime}" scope="page"/>
 
@@ -12,6 +14,7 @@
 <input autofocus type="hidden" class="form-control shippingTime" id="shippingTime${lineItem ? lineItem.UUID : 'default'}" aria-describedby="${lineItem ? lineItem.UUID : 'default'}Time"
     value="${customPickup.time ||''}" <isprint value=${datetime.time.attributes} encoding="off"/>
     autocomplete="shipping given-name" >
+<input type="hidden" class="product-type" value="${pdict.productType}">    
 
 <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}shippingTime">
     <isprint value="${customPickup.time.error}">
@@ -19,14 +22,20 @@
 
 <div class="row">
     <div class="col-sm-12 p-0">
-        <div class="form-group required Date date-container">
+        <div class="form-group required Date date-container justify-content-start">
             <label class="form-control-label m-0" for="shippingFirstName${lineItem ? lineItem.UUID : 'default'}"  >
                 ${Resource.msg('field.shipping.delivery.date','address',null)}
             </label>
             <span class="date-text">${Resource.msg('field.shipping.delivery.date.message','address',null)}</span>
             <input type="date" class="d-none" onkeydown="return false" id="custom-checkout-date" min="" max="" />
             <iscomment> <input type="text" id="datepicker" /> </iscomment>
-            <div id="buttonDates"></div>
+            <isif condition="${pdict.productType === "pedido especial"}">
+            <div class="containerCalendar">
+                <div id="calendar"></div>
+            </div>                
+            <iselse/>
+                <div id="buttonDates"></div>
+            </isif>
         </div>
     </div>
 </div>

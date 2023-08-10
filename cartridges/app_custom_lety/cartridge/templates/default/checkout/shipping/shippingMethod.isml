@@ -2,7 +2,8 @@
 <div class="row leading-lines shipping-method-list" data-select-shipping-method-url="${URLUtils.https('CheckoutShippingServices-SelectShippingMethod')}" data-action-url="${URLUtils.https('CheckoutShippingServices-UpdateShippingMethodsList')}">
     <input name="shipmentUUID" type="hidden" value="${shippingModel.UUID}" />
     <isloop items="${shippingModel.applicableShippingMethods}" var="shippingMethod">
-        
+
+        <isif condition="${pdict.productType !== 'pedido especial'}">
         <div class="shipping-item-container">
             <isinclude template="checkout/shipping/selectedShippingMethod"/>
             <label class="shipping-item-checkbox" for="shippingMethod-${shippingMethod.ID}-${shippingModel.UUID}${lineItem ? '-' + lineItem.UUID : ''}">
@@ -19,6 +20,24 @@
                 </div>
             </label>
         </div>
+        <iselseif condition="${pdict.productType === 'pedido especial' && shippingMethod.ID === "pickup"}" />
+            <div class="shipping-item-container">
+                <isinclude template="checkout/shipping/selectedShippingMethod"/>
+                <label class="shipping-item-checkbox" for="shippingMethod-${shippingMethod.ID}-${shippingModel.UUID}${lineItem ? '-' + lineItem.UUID : ''}">
+                    <div class="shipping-item-checkbox">
+                        <div class="image-container">
+                            <isif condition="${shippingMethod.ID === 'pickup'}">
+                                <img src="${URLUtils.staticURL('/images/checkout/pickupIcon.svg')}" alt="shipping">
+                            <iselse/>
+                                <img src="${URLUtils.staticURL('/images/checkout/shippingIcon.svg')}" alt="shipping">
+                            </isif>
+                        </div>
+                        <h5 class="display-name">${shippingMethod.displayName}</h5>
+                        <span class="description">${shippingMethod.description}</span>
+                    </div>
+                </label>
+            </div>
+        </isif>
     </isloop>
 </div>
 

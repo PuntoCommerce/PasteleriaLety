@@ -82,9 +82,36 @@
   };
 
   const handleForm = () => {
+    var jq = jQuery.noConflict();
+    jq("#calendar").datepicker({
+      minDate: 5,
+      dayNamesMin:['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat','Sun'],
+      showOtherMonths: true,
+      beforeShowDay: function (date) {
+        var currentDate = new Date();
+        var futureDate = new Date();
+        futureDate.setMonth(currentDate.getMonth() + 5);
+    
+        // Disable dates beyond 5 months from today
+        if (date > futureDate) {
+          return [false, "ui-state-disabled", "Unavailable"];
+        } else {
+          return [true, "", "Available"];
+        }
+      },
+      onSelect: function (dateText) {
+        let selectedDate = new Date(dateText);
+        selectedDate.setDate(selectedDate.getDate());
+        let formattedDate = formatDate(selectedDate);
+        let dateFormFW = QS(".form-control.shippingDate");
+        dateFormFW.value = formattedDate;
+      },
+    });
+
     let dateForm = QS("#custom-checkout-date");
     let dateFormFW = QS(".form-control.shippingDate");
     let shippingMethods = QSA(".shipping-item-container input[type='radio']");
+    let productType = $(".product-type").val();
 
     let currentDate = new Date();
 
@@ -105,9 +132,11 @@
     var minDate = dateForm.getAttribute('min').split('-');
     var maxDate = dateForm.getAttribute('max').split('-');
     var totalDys = (maxDate[2] - minDate[2]) + 1;
-
-    updateButtonsDate(totalDys, dateForm.min, dateForm.max)
-
+    
+    if (productType !== "pedido especial") {
+      updateButtonsDate(totalDys, dateForm.min, dateForm.max)
+    }
+    
     shippingMethods.forEach((sm) =>
       sm.addEventListener("change", (e) => {
         e.preventDefault();
@@ -130,7 +159,9 @@
         var maxDate = dateForm.getAttribute('max').split('-');
         var totalDys = (maxDate[2] - minDate[2]) + 1
 
-        updateButtonsDate(totalDys, dateForm.min, dateForm.max)
+        if (productType !== "pedido especial") {
+          updateButtonsDate(totalDys, dateForm.min, dateForm.max)
+        }
 
         let changeButtonsDate = QSA('#changeDateValue')
 

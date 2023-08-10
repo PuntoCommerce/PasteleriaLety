@@ -42,3 +42,121 @@
 .dateTimeButtonPicker{
 
 }
+
+/* Common styles for both desktop and mobile */
+.containerCalendar {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  font-family: 'Roboto';
+  border-radius: 8px;
+  line-height: 2.2;
+  background-color: white;
+  margin: 0 auto;
+}
+
+/* Responsive styles for desktop view */
+@media screen and (min-width: 768px) {
+  .containerCalendar {
+    max-width: 600px;
+    height: auto;
+  }
+}
+
+/* Mobile styles */
+@media screen and (max-width: 767px) {
+  .containerCalendar {
+    height: auto;
+  }
+
+  .ui-datepicker-prev:after,
+  .ui-datepicker-next:after {
+    font-size: 1.1rem;
+  }
+
+  .ui-datepicker-calendar th,
+  .ui-datepicker-calendar td {
+    padding: 5px;
+  }
+
+  .ui-datepicker-title {
+    padding: 3px;
+  }
+}
+
+
+.ui-datepicker-header{
+  background-color: #d7612b;
+  color:white;
+  text-align:center;
+  font-family:'Roboto';
+  height:40px;
+  border-radius:8px 8px 0px 0px;
+}
+
+.ui-datepicker-prev span, 
+.ui-datepicker-next span{
+  display:none;
+}
+
+.ui-datepicker-prev:after{
+  content:"<";
+  font-size:1.2rem;
+  float:left;
+  margin-left:10px;
+  cursor:pointer;
+  color: #fff;
+}
+
+
+.ui-datepicker-next:after{
+  content:">";
+  float:right;
+  font-size:1.2rem;
+  margin-right:10px;
+  cursor:pointer;
+  color: #fff;
+}
+.ui-datepicker-calendar th{
+  padding:10px;
+  color: #ccc;
+}
+
+.ui-datepicker-calendar {
+    text-align:center;
+    margin:0 auto;
+    padding:8px;
+}
+
+.ui-datepicker-title {
+  padding: 3px;
+}
+
+.ui-datepicker-calendar td {
+  padding:4px 0px;
+}
+
+.ui-datepicker-calendar .ui-state-default {
+  text-decoration:none;
+  color:black;
+}
+
+.ui-datepicker-calendar .ui-state-active {
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin: 0 auto;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #d7612b;
+}
+
+/* Change the text color of disabled dates */
+.ui-datepicker-calendar .ui-datepicker-unselectable .ui-state-default {
+  color: #999;
+}
+
+.ui-datepicker-year {
+  display: block;
+}
