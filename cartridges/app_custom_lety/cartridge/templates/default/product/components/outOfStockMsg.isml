@@ -1,0 +1,7 @@
+<isif condition="${!pdict.hasInventoryOn}">
+    <div class="row row-desc mt-3">
+        <div class="col-12">
+        ${Resource.msg('product.outof.stock.pdp', 'pdComponents_es', null)}
+        </div>
+    </div>
+</isif>

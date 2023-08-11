@@ -87,6 +87,9 @@
                     <isinclude template="wishlist/components/addToWishListButton" />
                 </div>
             </div>
+
+            <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/outOfStockMsg', 'addToCartUrl', pdict.addToCartUrl, "readyToOrder", product.readyToOrder, "available", product.available)}" />
+            
             <div class="row row-desc price-row">
                 <div class="col-12 d-flex align-items-center">
                     <!-- Prices -->
