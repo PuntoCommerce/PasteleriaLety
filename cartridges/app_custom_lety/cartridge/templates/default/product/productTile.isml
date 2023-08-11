@@ -34,6 +34,15 @@
        
          <isinclude url="${URLUtils.url('RnR-Average', 'product_id', product.id)}" />
        </div> 
+
+        <isif condition="${pdict.hasStoreAssigned}">
+            <isif condition="${pdict.hasInventoryOn}">  
+            <iselse/>    
+                <div class="col-sm-12 pb-2">
+                   ${Resource.msg('product.outof.stock', 'pdComponents_es', null)}
+                </div>
+            </isif>
+        </isif>
         
         <div class="summary__footer">
 
