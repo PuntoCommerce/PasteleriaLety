@@ -16,6 +16,7 @@ const Resource = require("dw/web/Resource");
 const { isAbleToSD } = require("*/cartridge/scripts/helpers/logisiticHelpers");
 var csrfProtection = require("*/cartridge/scripts/middleware/csrf");
 var CustomerMgr = require('dw/customer/CustomerMgr');
+var Site = require('dw/system/Site');
 const mapsApi = require("*/cartridge/scripts/googleMaps/api");
 
 const validateEmail = (email) => {
@@ -60,12 +61,29 @@ server.append("SubmitShipping", (req, res, next) => {
 
 server.append("SubmitShipping", (req, res, next) => {
   var accountHelpers = require('*/cartridge/scripts/helpers/accountHelpers');
+  var getTime = require('*/cartridge/scripts/date/date');
   const shipping = server.forms.getForm("shipping");
   const currentBasket = BasketMgr.getCurrentBasket();
+
+  const getStoreHours = JSON.parse(Site.getCurrent().getCustomPreferenceValue("deliveryMethodsSchedule"))
+  const getDayOfWeek = JSON.parse(Site.getCurrent().getCustomPreferenceValue("daysOfWeek"))
+
   var customer;
-  // const currentUser = req.currentCustomer.profile;
+
+  const getDate = ApiLety('GetDateFromServer', {
+    Empresa: 1
+  });
+  const [date, time] = getDate.sMensaje.split(' ');
+  const [hour, minute, second] = time.split(':')
+  const dayOfWeekNumber = new Date(shipping.datetime.date.value).getDay();
+  const dayOfWeek = getDayOfWeek[dayOfWeekNumber]
+
+  var customer;
 
   let viewData = res.getViewData();
+
+  const deliveryMethodHour = getStoreHours[viewData.shippingMethod].days[dayOfWeek]
+
 
   if (req.currentCustomer.profile) {
     customer = CustomerMgr.getProfile(req.currentCustomer.profile.customerNo);
@@ -80,6 +98,23 @@ server.append("SubmitShipping", (req, res, next) => {
     date: shipping.datetime.date,
     time: shipping.datetime.time,
   });
+
+  //closeHours - openHours
+
+  if (
+    (deliveryMethodHour === null) ||
+    (Number(hour) <= deliveryMethodHour.openHours && Number(hour) >= deliveryMethodHour.closeHours)
+  ) {
+
+    res.json({
+      form: shipping,
+      fieldErrors: [{dwfrm_shipping_datetime_time: Resource.msg('address.date.missing', 'forms', null)}],
+      serverErrors: [],
+      error: true,
+    });
+
+    return next()
+  }
 
   if (Object.keys(formFields).length > 0) {
     req.session.privacyCache.set(currentBasket.defaultShipment.UUID, "invalid");
