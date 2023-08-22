@@ -346,10 +346,6 @@ function responseEndPoint(xml, path) {
     return json;
   }
   if (path === "ActualizaPersona" || path === "InsertaPersona") {
-    var Logger = require('dw/system/Logger');
-    let logger = Logger.getLogger("ERP_Member", "ERP_Member")
-    logger.warn("Type: {0} payload {1}", 'INFO', xml);
-
     let Co = XMLList(xml).descendants("iCode");
     let sM = XMLList(xml).descendants("sMensaje");
 
@@ -363,8 +359,19 @@ function responseEndPoint(xml, path) {
     return {
       iIdFolioPersona: iIdFolioPersona,
       iCode: Co,
-      sMessaje: sM
+      sMessaje: sM,
     }
+  }
+  if (path === "ActualizaPerfilPersona") {
+    var Logger = require('dw/system/Logger');
+    let logger = Logger.getLogger("ERP_Member", "ERP_Member")
+
+    logger.warn("Type: {0} payload {1}", 'INFO', xml);
+
+    let Co = XMLList(xml).descendants("iCode");
+    let sM = XMLList(xml).descendants("sMensaje");
+
+    return { iCode: Co.toString(), sMensaje: sM.toString() };
   }
 }
 

@@ -1,6 +1,7 @@
 const OrderMgr = require("dw/order/OrderMgr");
 const Transaction = require("dw/system/Transaction");
 const HO = require("~/cartridge/scripts/helpers/handleOrders.js");
+const HOP = require("~/cartridge/scripts/helpers/handlePendingOrders.js");
 
 const execute = (args) => {
   let daysBefore = parseInt(args.daysBefore);
@@ -19,11 +20,12 @@ const execute = (args) => {
 
   while (orders.hasNext()) {
     order = orders.next();
+    var payload = JSON.parse(order.custom.orderDetailJson)
     try {
       if (order.defaultShipment.shippingMethodID == "pickup") {
         status = HO.sendPickupOrderToERP(order.orderNo);
       } else {
-        status = HO.sendShippingOrderToERP(order.orderNo);
+        status = HOP.sendShippingOrderToERP(payload);
       }
     } catch (error) {
       status.error = true;

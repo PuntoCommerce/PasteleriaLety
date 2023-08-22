@@ -1,26 +1,26 @@
 <isif condition="${pdict.name === null}">
     <li class="nav-item nav-item-mobile d-lg-none" role="menuitem">
         <a href="${URLUtils.https('Login-Show')}" class="nav-link">
-           <img style="width:16px; height: 19px;" src="${URLUtils.staticURL('/images/icons/user-black.svg')}" alt="Login"/>
+            <img style="width:16px; height: 19px;" src="${URLUtils.staticURL('/images/icons/user-black.svg')}"
+                alt="Login" />
             <span class="user-message">${Resource.msg('link.header.login', 'menu', null)}</span>
         </a>
     </li>
 <iselse/>
     <li class="nav-item d-lg-none dropdown" role="menuitem">
-        <a href="${URLUtils.https('Account-Show')}" >
+        <a href="${URLUtils.https('Account-Show')}">
             <i class="fa fa-sign-in" aria-hidden="true"></i>
             <span class="user-message">${pdict.name}</span>
         </a>
-        <ul class="dropdown-menu" role="menu" aria-hidden="true">
-            <li class="dropdown-item f" role="menuitem">
-                <a href="${URLUtils.https('Account-Show')}" class="dropdown-link" role="button">${Resource.msg('link.header.myaccount', 'account', null)}</a>
-            </li>
-            <li class="dropdown-item" role="menuitem">
-                <a href="${URLUtils.url('Order-History')}" class="dropdown-link" role="button">${Resource.msg('label.myorders', 'account', null)}</a>
-            </li>
-            <li class="dropdown-item" role="menuitem">
-                <a href="${URLUtils.url('Login-Logout')}" class="dropdown-link" role="button">${Resource.msg('link.header.logout', 'account', null)}</a>
-            </li>
-        </ul>
+    </li>
+    <li class="nav-item d-lg-none">
+        <a href="${URLUtils.url('StoreLocator-Start')}" class="d-flex justify-content-start align-items-center">
+            <img style="width:16px; height: 19px;" src="${URLUtils.staticURL('/images/icons/location-marker.svg')}"
+                alt="Localizar sucursal" />
+            <span> ${Resource.msg('location.label.mobile.menu', 'menu', null)}</span>
+        </a>
+    </li>
+    <li>
+        <a href="${URLUtils.url('Login-Logout')}">${Resource.msg('session.logout', 'menu', null)}</a>
     </li>
 </isif>

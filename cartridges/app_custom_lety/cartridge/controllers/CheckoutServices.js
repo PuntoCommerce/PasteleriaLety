@@ -3,6 +3,7 @@ server.extend(module.superModule);
 const HO = require("*/cartridge/scripts/helpers/handleOrders.js");
 const inventory = require("*/cartridge/scripts/middlewares/inventory");
 const { isAbleToSD } = require("*/cartridge/scripts/helpers/logisiticHelpers");
+var COHelpers = require("*/cartridge/scripts/checkout/checkoutHelpers");
 
 
 server.replace(
@@ -19,6 +20,9 @@ server.replace(
     var COHelpers = require("*/cartridge/scripts/checkout/checkoutHelpers");
     var validationHelpers = require("*/cartridge/scripts/helpers/basketValidationHelpers");
     var addressHelpers = require("*/cartridge/scripts/helpers/addressHelpers");
+    var Site = require('dw/system/Site');
+
+    const isProduction = Site.getCurrent().getCustomPreferenceValue("isProduction")
 
     var currentBasket = BasketMgr.getCurrentBasket();
     let storeId = req.form.store || req.session.raw.privacy.storeId;
@@ -34,12 +38,14 @@ server.replace(
       return next();
     }
 
-    if(!isAbleToSD(currentBasket.productLineItems)){
-      res.json({
-        errorMessage: Resource.msg("error.no.able.to.sd", "checkout", null),
-        error: true,
-      });
-      return next();
+    if (currentBasket.defaultShipment.shippingMethodID != "pickup") {
+      if (!isAbleToSD(currentBasket.productLineItems)) {
+        res.json({
+          errorMessage: Resource.msg("error.no.able.to.sd", "checkout", null),
+          error: true,
+        });
+        return next();
+      }
     }
 
     let checkInventory = inventory.checkOnlineInventoryMulti(
@@ -257,30 +263,38 @@ server.replace(
     }
 
     if (order.getCustomerEmail()) {
-        COHelpers.sendConfirmationEmail(order, req.locale.id, storeId);
-        COHelpers.sendConfirmationEmailClient(order, req.locale.id, storeId);
-        COHelpers.sendConfirmationEmailClientSecund(order, req.locale.id, storeId);
+      isProduction ? (
+        COHelpers.sendConfirmationEmail(order, req.locale.id, storeId),
+        COHelpers.sendConfirmationEmailClient(order, req.locale.id, storeId),
+        COHelpers.sendConfirmationEmailClientSecund(order, req.locale.id, storeId)
+      ) : COHelpers.sendConfirmationEmail(order, req.locale.id, storeId)
     }
 
     let status = {};
     try {
-      if(order.defaultShipment.shippingMethodID == "pickup"){
+      if (order.defaultShipment.shippingMethodID == "pickup") {
         status = HO.sendPickupOrderToERP(order.orderNo);
       } else {
-        status = HO.sendShippingOrderToERP(order.orderNo, req);
+        const userExist = req.session.privacyCache.get("userExist");
+        status = HO.sendShippingOrderToERP(order.orderNo, req, userExist);
       }
     } catch (error) {
       status.error = true;
       status.message = JSON.stringify(error);
     }
-    
-    if(status.error) {
+
+    if (status.error) {
       Transaction.wrap(() => {
         order.custom.isError = true;
         order.custom.errorDetail = status.message;
+        order.custom.orderDetailJson = JSON.stringify(status.payload)
+      })
+    }else{
+      Transaction.wrap(() => {
+        order.custom.orderDetailJson = JSON.stringify(status.payload)
       })
     }
-    
+
     // Reset usingMultiShip after successful Order placement
     req.session.privacyCache.set("usingMultiShipping", false);
 
@@ -297,20 +311,5 @@ server.replace(
     return next();
   }
 );
-
-server.get("Prueba", (req, res, next) => {
-    
-  var OrderMgr = require('dw/order/OrderMgr');
-  let order = OrderMgr.getOrder(req.querystring.oid);
-  var Calendar = require('dw/util/Calendar');
-
-
-  let today = new Date();
-  today.setHours(today.getHours() - 6);
-
-  res.json({order: order})
-    
-  next();
-});
 
 module.exports = server.exports();

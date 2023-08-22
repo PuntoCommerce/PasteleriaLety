@@ -21,7 +21,7 @@ const handleItemsServDom = (pli, shipment) => {
     item = iterator.next();
     items.push({
       iIdMaterial: item.productID,
-      dPrecio: item.basePrice.value,
+      dPrecio: item.proratedPrice.value / item.quantityValue,
       dPrecioBase: item.basePrice.value,
       dCantidad: item.quantityValue,
       dCantidadBase: item.quantityValue,
@@ -64,7 +64,7 @@ const handleItemsPickup = (pli) => {
     item = iterator.next();
     items.push({
       iIdMaterial: item.productID,
-      dPrecio: item.basePrice.value,
+      dPrecio: item.proratedPrice.value / item.quantityValue,
       iCantidad: item.quantityValue,
     });
   }
@@ -128,16 +128,26 @@ const handleLogOrderError = (type, payload) => {
   logger.error("Type: {0} payload: {1}", type, bodyXML);
 };
 
-const sendShippingOrderToERP = (orderId, req) => {
+const sendShippingOrderToERP = (orderId, req, userExist) => {
   let status = {};
   let order = OrderMgr.getOrder(orderId);
   let paymentInstruments = order.getPaymentInstruments();
   let pi = paymentInstruments[0];
-  const currentUser = req.currentCustomer.profile;
-  let customer;
-  
-  if (currentUser) {
-    customer = CustomerMgr.getProfile(req.currentCustomer.profile.customerNo);
+  var customer = false;
+  var idUserEvo = 90000;
+
+  let stringValue = userExist;
+
+  stringValue = stringValue.trim();
+
+  if (stringValue === 'undefined') {
+    stringValue = undefined;
+  }
+
+  var isUser = stringValue ? true : false;
+  if (stringValue) {
+    customer = CustomerMgr.getProfile(userExist);
+    idUserEvo = customer && customer.custom && customer.custom.folPerson ? customer.custom.folPerson : 90000;
   }
 
   let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(
@@ -151,12 +161,12 @@ const sendShippingOrderToERP = (orderId, req) => {
 
   let store = StoreMgr.getStore(order.custom.storeId);
 
-  let payload = {
+  var payload = {
     IdEmpresa: store.custom.empresaId,
     iIdCentroAlta: 0,
     iIdServDom: 0,
     iIdCentroAfecta: order.custom.storeId,
-    iIdFolioPersona: currentUser && customer.custom.folPerson ? customer.custom.folPerson : 90000,
+    iIdFolioPersona: isUser && idUserEvo ? idUserEvo : 90000,
     iIdFolioDireccion: order.custom.folioDireccion,
     dtFechaAlta: today.toISOString(),
     dtFechaEntrega: parseDeliveryDateTime(order.custom.deliveryDateTime),
@@ -178,16 +188,19 @@ const sendShippingOrderToERP = (orderId, req) => {
 
   const response = ApiLety("RegistraServDom", payload);
   if (!response.error) {
-    if (response.firstICode == 1) {
+    if (response.iCode === '1' || response.firstICode == 1) {
       handleLetyPuntosAfterInsert(letyPuntos, orderId);
+      status.payload = payload
     } else {
       status.message = response.firstMessage + " | " + response.secondMessage;
       status.error = true;
+      status.payload = payload
     }
   } else {
     handleLogOrderError("RegistraServDom", payload);
     status.message = response.errorMessage;
     status.error = true;
+    status.payload = payload;
   }
   return status;
 };
@@ -212,7 +225,7 @@ const sendPickupOrderToERP = (orderId) => {
     sFolio: orderId,
     sFolioBanco: pi.paymentTransaction.transactionID,
     sFolioTarjeta:
-    pi.creditCardNumberLastDigits || pi.paymentTransaction.transactionID,
+      pi.creditCardNumberLastDigits || pi.paymentTransaction.transactionID,
     iIdCentro: order.custom.storeId,
     dtFechaColocacion: today.toISOString(),
     dtFechaAsignacion: parseDeliveryDateTime(order.custom.deliveryDateTime),
@@ -228,15 +241,19 @@ const sendPickupOrderToERP = (orderId) => {
 
   const response = ApiLety("InsertaDatosVentaWeb", payload);
   if (!response.error) {
-    if (response.iCode == 1) {
+    if (response.iCode === '1' || response.iCode === 1) {
       handleLetyPuntosAfterInsert(letyPuntos, orderId);
+      status.payload = payload
+      status.error = false;
     } else {
       status.message = response.sMensaje;
       status.error = true;
+      status.payload = payload
     }
   } else {
     status.message = response.errorMessage;
     status.error = true;
+    status.payload = payload
   }
   if (status.error) {
     handleLogOrderError("InsertaDatosVentaWeb", payload);

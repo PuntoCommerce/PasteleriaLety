@@ -12,6 +12,9 @@ const { removeLetyPuntos } = require("*/cartridge/scripts/helpers/letyCardHelper
 
 var COHelpers = require("*/cartridge/scripts/checkout/checkoutHelpers");
 var Site = require('dw/system/Site');
+
+const { ApiLety } = require("*/cartridge/scripts/jobs/api");
+
 server.post("LetyPuntos", (req, res, next) => {
 
     const currentBasket = BasketMgr.getCurrentBasket();
@@ -21,11 +24,14 @@ server.post("LetyPuntos", (req, res, next) => {
         toAjustment,
         member
     } = req.form;
+
     let result;
     let code;
     let err;
+
     try {
         let letyPuntosAmount = Number(toAjustment);
+
         Transaction.wrap(function (params) {
             currentBasket.createPriceAdjustment(letyPuntosPromotionId, AmountDiscount(letyPuntosAmount));
             currentBasket.custom.letyPuntosAmount = letyPuntosAmount;
@@ -46,15 +52,16 @@ server.post("LetyPuntos", (req, res, next) => {
 
     var orderModel = new OrderModel(
         currentBasket, {
-            usingMultiShipping: false,
-            shippable: true,
-            countryCode: currentLocale.country,
-            containerView: 'basket'
-        }
+        usingMultiShipping: false,
+        shippable: true,
+        countryCode: currentLocale.country,
+        containerView: 'basket'
+    }
     );
+
     let renderedTotas = renderTemplateHelper.getRenderedHtml({
-            order: orderModel
-        },
+        order: orderModel
+    },
         "checkout/orderTotalSummary"
     );
 
@@ -68,6 +75,37 @@ server.post("LetyPuntos", (req, res, next) => {
 
     next();
 });
+
+server.post('GetSaldo', (req, res, next) => {
+    const membership = req.body
+
+    const response = ApiLety('Func_DatosMembresia', {
+        Empresa: 1,
+        s_IdMembresia: membership
+    })
+
+    const parseResponse = JSON.parse(response).Func_DatosMembresia[0];
+
+    if (parseResponse.error) {
+
+        res.json({
+            error: true,
+            message: parseResponse.error
+        })
+    
+        next();
+    }
+
+    const saldo = parseResponse.d_SaldoMembresia
+
+    res.json({
+        success: true,
+        saldo: saldo,
+    })
+
+    next();
+})
+
 server.post("RemoveLetyPuntos", (req, res, next) => {
     /*
         Si se intenta remover el ajuste de precio si haber agregado antes, lanzara una excepcion.
@@ -77,10 +115,10 @@ server.post("RemoveLetyPuntos", (req, res, next) => {
 
 
     let removed = removeLetyPuntos(req.locale.id, letyPuntosPromotionId)
-    
+
     let renderedTotas = renderTemplateHelper.getRenderedHtml({
-            order: removed.orderModel
-        },
+        order: removed.orderModel
+    },
         "checkout/orderTotalSummary"
     );
 

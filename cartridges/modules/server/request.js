@@ -165,6 +165,21 @@ function getPaymentInstruments(rawPaymentInstruments) {
 }
 
 /**
+ * Formats the string date according to locale formatting
+ * @param {string} date : date in string
+ * @returns {string} formatted date
+ */
+function formatStringDate(date) {
+    var inputDate = new Date(date);
+    var day = ("0" + inputDate.getDate()).slice(-2);
+    var month = ("0" + (inputDate.getMonth() + 1)).slice(-2);
+    var year = inputDate.getFullYear();
+    var formattedDate = month + "/" + day + "/" + year;
+  
+    return formattedDate;
+}
+
+/**
  * Translates global customer object into local object
  * @param {dw.customer.Customer} customer - Global customer object
  * @returns {Object} local instance of customer object
@@ -183,6 +198,9 @@ function getCustomerObject(customer) {
             }
         };
     }
+  
+    var birthdayDate = customer.profile.getBirthday();
+    var birthDay = formatStringDate(birthdayDate);
     var preferredAddress = customer.addressBook.preferredAddress;
     var result;
     result = {
@@ -191,6 +209,7 @@ function getCustomerObject(customer) {
             lastName: customer.profile.lastName,
             firstName: customer.profile.firstName,
             email: customer.profile.email,
+            birthDay: birthDay,
             phone: customer.profile.phoneHome,
             customerNo: customer.profile.customerNo
         },

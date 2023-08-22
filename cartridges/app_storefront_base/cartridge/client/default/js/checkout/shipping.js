@@ -398,7 +398,7 @@ function updateProductLineItemShipmentUUIDs(productLineItem, shipping) {
 
 // CUSTOM
 
-function updateShippingMethodsCustom(shipping){
+function updateShippingMethodsCustom(shipping) {
     var uuidEl = $('input[value=' + shipping.UUID + ']');
     if (uuidEl && uuidEl.length > 0) {
         $.each(uuidEl, function (shipmentIndex, el) {
@@ -409,15 +409,52 @@ function updateShippingMethodsCustom(shipping){
                 var shippingMethods = shipping.applicableShippingMethods;
                 var selected = shipping.selectedShippingMethod || {};
                 $.each(shippingMethods, function (methodIndex, shippingMethod) {
-                    console.log(shippingMethod);
-                    console.log($("input[value="+ shippingMethod.ID +"]"));
 
-                    $("input[value="+ shippingMethod.ID +"]").attr('checked', shippingMethod.ID === selected.ID);
+                    $("input[value=" + shippingMethod.ID + "]").attr('checked', shippingMethod.ID === selected.ID);
                 })
             }
         });
 
     }
+}
+
+function updateGoogleMapMarker() {
+    var currentState = $(".shippingState").val();
+    var address1 = $(".shippingAddressOne").val();
+    var number = $(".shippingSuite").val();
+    var address2 = $(".shippingAddressTwo").val();
+    var city = $(".shippingAddressCity").val();
+    var country = $(".shippingCountry").val();
+    var postalCode = $(".shippingZipCode").val();
+    var geocoder = new google.maps.Geocoder();
+    var address = address1 + " " + number + "," + address2 + "," + city + "," + currentState + "," + country + "," + postalCode;
+    geocoder.geocode({ 'address': address }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            var latitude = results[0].geometry.location.lat();
+            var longitude = results[0].geometry.location.lng();
+            
+       
+            var myLatLng = { lat: latitude, lng: longitude };
+            var $shippingStateInput = $('.shippingAddressCity');
+            var url = $shippingStateInput.attr('data-url');
+            $.ajax({
+                url: url,
+                type: 'post',
+                // dataType: 'json',
+                data: myLatLng,
+                success: function (data) {
+                    if (data) {
+                        $('.shippingGooglemap').empty().html(data);
+                    }
+                },
+                error: function (err) {
+                    console.error(err);
+                }
+            })
+
+        
+        }
+    });
 }
 
 /**
@@ -483,10 +520,10 @@ function updateMultiShipInformation(order) {
   */
 function createErrorNotification(message) {
     var errorHtml = '<div class="alert alert-danger alert-dismissible valid-cart-error ' +
-    'fade show" role="alert">' +
-    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
-    '<span aria-hidden="true">&times;</span>' +
-    '</button>' + message + '</div>';
+        'fade show" role="alert">' +
+        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+        '<span aria-hidden="true">&times;</span>' +
+        '</button>' + message + '</div>';
 
     $('.shipping-error').append(errorHtml);
     scrollAnimate($('.shipping-error'));
@@ -698,6 +735,8 @@ function editOrEnterMultiShipInfo(element, mode) {
     root.data('saved-state', JSON.stringify(savedState));
 }
 
+
+
 module.exports = {
     methods: {
         updateShippingAddressSelector: updateShippingAddressSelector,
@@ -716,7 +755,31 @@ module.exports = {
         editMultiShipAddress: editMultiShipAddress,
         editOrEnterMultiShipInfo: editOrEnterMultiShipInfo,
         createErrorNotification: createErrorNotification,
-        viewMultishipAddress: viewMultishipAddress
+        viewMultishipAddress: viewMultishipAddress,
+    },
+    selectShippingCountry: function () {
+        $(document).on('change', '.shippingState', function () {
+            updateGoogleMapMarker();
+        })
+        $(document).on('change', '.shippingAddressOne', function () {
+            updateGoogleMapMarker();
+        })
+        $(document).on('change', '.shippingSuite', function () {
+            updateGoogleMapMarker();
+        })
+        $(document).on('change', '.shippingAddressTwo', function () {
+            updateGoogleMapMarker();
+        })
+        $(document).on('change', '.shippingZipCode', function () {
+            updateGoogleMapMarker();
+        })
+        $(document).on('change', '.shippingCountry', function () {
+            updateGoogleMapMarker();
+        })
+        $(document).on('change', '.shippingAddressCity', function () {
+            updateGoogleMapMarker();
+            
+        });
     },
 
     selectShippingMethod: function () {
@@ -731,7 +794,6 @@ module.exports = {
             urlParams.methodID = methodID;
             urlParams.isGift = $shippingForm.find('.gift').prop('checked');
             urlParams.giftMessage = $shippingForm.find('textarea[name$=_giftMessage]').val();
-
             var url = $(this).data('select-shipping-method-url');
 
             if (baseObj.methods && baseObj.methods.selectShippingMethodAjax) {
@@ -1137,4 +1199,5 @@ module.exports = {
             }
         });
     }
+
 };

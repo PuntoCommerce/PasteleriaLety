@@ -1,0 +1,19 @@
+@-moz-document url-prefix() {
+  .row.autofill-custompickup.row-check.hideFirefox {
+    display: none;
+  }
+
+  .shipping-item-container>input[checked]~.postelement {
+    content: url(../../images/checkout/checkbox-checked.svg);
+  }
+
+  .shipping-item-container>input~.postelement {
+    content: url(../../images/checkout/checkbox.svg);
+  }
+}
+
+.disabled-button{
+  pointer-events: none;
+  background: rgba(183, 183, 183, 0.568);
+  color: white !important;
+}

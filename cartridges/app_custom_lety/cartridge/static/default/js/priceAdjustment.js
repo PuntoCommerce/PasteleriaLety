@@ -4,6 +4,8 @@ const checkoutSubTotal = document.querySelector("#checkoutSubTotal");
 const checkoutSaldoLetyClcub = document.querySelector("#checkoutSaldoLetyClcub");
 const checkaoutLetyPuntos = document.querySelector("#checkaoutLetyPuntos");
 const msgError = document.querySelector("#msgError");
+const member = document.getElementById("letyPuntocCard-form");
+
 // Tags <button>
 const letyPuntosAddpriceAdjustment = document.querySelector("#letyPuntosAddpriceAdjustment");
 const letyPuntosRemovePriceAdjustment = document.querySelector("#letyPuntosRemovePriceAdjustment");
@@ -53,15 +55,17 @@ if(letyPuntosAddpriceAdjustment){
     }
     
     let saldo = converToNumber(checkoutSaldoLetyClcub.value);
-    
+    let urlSaldo = checkoutSaldoLetyClcub.dataset.saldo;
+    var getSaldo = await getSaldoLetyClub(urlSaldo, member.value)
+
     /* para probar esto manipular el dom y mandarlo vacio o con valor no numerico. */
-    if (isEmptyField(saldo) && isNaN(saldo)) {
+    if (isEmptyField(saldo) && isNaN(saldo) && isEmptyField(getSaldo) && isNaN(getSaldo)) {
         msgError.textContent = "Actualmente hay un conflicto para proceder con el descuento, por favor revisa tus lety puntos.";
         $("#modalError").modal("show");
         return false;
     }
     /* Validar que cange o (lety puntos) no sea mayor al saldo */
-    if (letyPuntos > saldo) {
+    if (letyPuntos > getSaldo) {
         msgError.textContent = "Los lety puntos para el canje no puede ser mayor al saldo.";
         $("#modalError").modal("show");
         return false;
@@ -92,7 +96,6 @@ if(letyPuntosAddpriceAdjustment){
         return false;
     }
 
-    let member = document.getElementById("letyPuntocCard-form");
 
     $("#modalLoading").modal("show");
     const formData = new FormData();
@@ -166,4 +169,18 @@ const converToNumber = (string) => {
    number = parseFloat(number);
    return number;
    // pendinete dividir a dos decimales.
+}
+
+const getSaldoLetyClub = async (url, membership) => {
+    var response; 
+
+    await fetch(url, {
+        method: 'POST',
+        body: membership
+    }).then(res => res.json()).then(data => {
+        response = data.saldo
+    })
+    .catch(err => console.log(err))
+
+    return response;
 }

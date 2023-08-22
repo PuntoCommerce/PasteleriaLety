@@ -169,7 +169,7 @@ server.get(
             expirationYears: creditCardExpirationYears,
             currentStage: currentStage,
             reportingURLs: reportingURLs,
-            oAuthReentryEndpoint: 2
+            oAuthReentryEndpoint: 2,
         });
 
         return next();

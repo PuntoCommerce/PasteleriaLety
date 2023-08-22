@@ -82,20 +82,20 @@
             </div>
             <!-- Applicable Promotions -->
             <div class="row row-desc promotions-wish-row">
-                <div class="promotions mr-3">
-                    <isinclude template="product/components/promotions" />
-                </div>
 
                 <div class="wishlist w-100">
                     <isinclude template="wishlist/components/addToWishListButton" />
                 </div>
             </div>
             <div class="row row-desc price-row">
-                <div class="col-12">
+                <div class="col-12 d-flex align-items-center">
                     <!-- Prices -->
                     <div class="prices prices-pdp">
                         <isset name="price" value="${product.price}" scope="page" />
                         <isinclude template="product/components/pricing/main" />
+                    </div>
+                    <div class="promotions ml-3 mt-3">
+                        <isinclude template="product/components/promotions" />
                     </div>
                 </div>
             </div>

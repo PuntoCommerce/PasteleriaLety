@@ -51,7 +51,6 @@
        label='label.input.extNum' 
        type='string' 
        mandatory='true'
-       binding='extNum'
        missing-error="address.extNum.missing" 
        range-error="error.message.50orless"/>
 
@@ -60,7 +59,7 @@
        label='label.input.col'
        type='string'
        mandatory= 'true'
-       missing-error="address.col.missing" 
+       missing-error="address.indications" 
        range-error="error.message.50orless"
        />
 

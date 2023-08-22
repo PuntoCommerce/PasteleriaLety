@@ -645,8 +645,8 @@ label.availability {
   }
 }
 .promotions-wish-row {
-  display: grid;
-  grid-template-columns: 15% 85%;
+  display: block;
+  /* grid-template-columns: 15% 85%; */
   margin: 0;
 }
 
@@ -658,4 +658,10 @@ label.availability {
 
 .detail-left .whishlist-secound{
   padding-left: 0 !important;
+}
+
+#btn-compartir{
+  background: none;
+  border: none;
+  padding: 0;
 }

@@ -1,31 +1,45 @@
-<isset name="escapedProductName" value="${encodeURIComponent(product.productName)}" scope="page"/>
-<isset name="productImageLarge" value="${encodeURIComponent(product.images['large'][0].absURL)}" scope="page"/>
-<isset name="productUrlencode" value="${encodeURIComponent(URLUtils.https('Product-Show', 'pid', product.id))}" scope="page"/>
+<isset name="escapedProductName" value="${encodeURIComponent(product.productName)}" scope="page" />
+<isset name="productImageLarge" value="${encodeURIComponent(product.images['large'][0].absURL)}" scope="page" />
+<isset name="productUrlencode" value="${encodeURIComponent(URLUtils.https('Product-Show', 'pid', product.id))}"
+    scope="page" />
 <div class="col-12 social-container">
     <ul class="social-icons social-icons-detail d-flex justify-content-left">
-    <li>
-    <span class="text-icons-details">Comparte en redes</span>
-    </li>
         <li>
-            <a href="https://www.facebook.com/share.php?u=${productUrlencode}" title="${Resource.msgf('label.social.facebook', 'product', null, product.productName)}" data-share="facebook" aria-label="${Resource.msgf('label.social.facebook', 'product', null, product.productName)}" class="share-icons" target="_blank">
-                <img class="icon-detail" src="${URLUtils.staticURL('/images/icons/facebook-detail.svg')}"/>
+            <span class="text-icons-details">Comparte en redes</span>
+        </li>
+        <li>
+            <a href="https://www.facebook.com/share.php?u=${productUrlencode}"
+                title="${Resource.msgf('label.social.facebook', 'product', null, product.productName)}"
+                data-share="facebook"
+                aria-label="${Resource.msgf('label.social.facebook', 'product', null, product.productName)}"
+                class="share-icons" target="_blank">
+                <img class="icon-detail" src="${URLUtils.staticURL('/images/icons/facebook.png')}" />
             </a>
         </li>
         <li>
-            <a href="http://twitter.com/home?status=${productUrlencode}&text=${product.productName}" data-share="instagram" title="${Resource.msgf('label.social.instagram', 'product', null, product.productName)}" aria-label="${Resource.msgf('label.social.twitter', 'product', null, product.productName)}" class="share-icons" target="_blank">
-                <img alt="" class="icon-detail" src="${URLUtils.staticURL('/images/icons/twitter.svg')}"/>
+            <a href="http://twitter.com/home?status=${productUrlencode}&text=${product.productName}"
+                data-share="instagram"
+                title="${Resource.msgf('label.social.instagram', 'product', null, product.productName)}"
+                aria-label="${Resource.msgf('label.social.twitter', 'product', null, product.productName)}"
+                class="share-icons" target="_blank">
+                <img alt="" class="icon-detail" src="${URLUtils.staticURL('/images/icons/twitter.png')}" />
             </a>
         </li>
         <li>
-        <a href="" class="share-icons" id="btn-compartir" role="button" title="${Resource.msgf('label.social.link', 'product', null, product.productName)}" aria-label="${Resource.msgf('label.social.link', 'product', null, product.productName)}">
-            <img alt="sicon-hare" class="icon-detail" src="${URLUtils.staticURL('/images/icons/compartir.svg')}"/>
-        </a>
-        <iscomment> <input type="hidden" id="shareUrl" value="${URLUtils.https('Product-Show', 'pid', product.id)}"/> </iscomment>
+            <button onclick="copyLink(this)" class="share-icons" id="btn-compartir" role="button"
+                title="${Resource.msgf('label.social.link', 'product', null, product.productName)}"
+                aria-label="${Resource.msgf('label.social.link', 'product', null, product.productName)}">
+                <img alt="sicon-hare" class="icon-detail" src="${URLUtils.staticURL('/images/icons/compartir.svg')}" />
+            </button>
+            <iscomment> <input type="hidden" id="shareUrl"
+                    value="${URLUtils.https('Product-Show', 'pid', product.id)}" /> </iscomment>
         </li>
     </ul>
 </div>
-<iscomment> <div class="copy-link-message d-none">
-    <div class="alert alert-success text-center">
-        ${Resource.msgf('text.alert.social.linkcopysuccess', 'product', null, product.productName)}
+<iscomment>
+    <div class="copy-link-message d-none">
+        <div class="alert alert-success text-center">
+            ${Resource.msgf('text.alert.social.linkcopysuccess', 'product', null, product.productName)}
+        </div>
     </div>
-</div> </iscomment>
+</iscomment>

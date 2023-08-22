@@ -31,6 +31,19 @@
     </div>
 
     <div class="form-group
+    <isif condition=" ${pdict.profileForm.customer.birthDay.mandatory === true}">required</isif>">
+        <label class="form-control-label" for="edit-profile-form-birtDay">
+            <isprint value="${pdict.profileForm.customer.birthDay.label}" encoding="htmlcontent" />
+        </label>
+
+        <input type="date" class="form-control" id="edit-profile-form-birtDay"
+            data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
+            data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
+            <isprint value="${pdict.profileForm.customer.birthDay.attributes}"
+            encoding="off" />>
+    </div>
+<isif condition="${!pdict.isExternallyAuthenticated}">
+    <div class="form-group
         <isif condition="${pdict.profileForm.customer.email.mandatory === true}">required</isif>">
         <label class="form-control-label" for="email">
             <isprint value="${pdict.profileForm.customer.email.label}" encoding="htmlcontent" />
@@ -57,6 +70,7 @@
         <input type="password" class="form-control" id="password" <isprint value="${pdict.profileForm.login.password.attributes}" encoding="off" />>
         <div class="invalid-feedback"></div>
     </div>
+</isif>
 
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
     <div class="row">

@@ -29,12 +29,13 @@ closeSearch = () => {
 //Minicart
 closeMinicart = () => {
   const minicartContainer = document.getElementById("minicartPopover");
+  const miniCart = document.querySelectorAll('.popover.popover-bottom')
 
-  if (minicartContainer.style.display == "block") {
-    minicartContainer.style.display = "none";
-  } else {
-    minicartContainer.style.display = "none"
-  }
+  miniCart.forEach((item) => {
+    if (item.classList.contains('show')) {
+      item.classList.remove('show')
+    }
+  })
 }
 //Minicart
 
@@ -153,81 +154,80 @@ setTimeout(function () {
 
 /* ########################################## ⬆️ Show Filter Categories ⬆️ ####################################################### */
 
-let filter_container = document.querySelector("#filter-categories");
-let button_filter = document.querySelector("#filter-button");
-let checkbox = document.querySelectorAll(".values.content li button");
-let openIcon = document.getElementById("openFilters");
-let closeIcon = document.getElementById("closeFilters");
+// let filter_container = document.querySelector("#filter-categories");
+// let button_filter = document.querySelector("#filter-button");
+// let checkbox = document.querySelectorAll(".values.content li button");
+// let openIcon = document.getElementById("openFilters");
+// let closeIcon = document.getElementById("closeFilters");
 
 
-if (checkbox) {
-  checkbox.forEach((item) => {
-    item.addEventListener("click", (e) => {
+// if (checkbox) {
+//   checkbox.forEach((item) => {
+//     item.addEventListener("click", (e) => {
   
-      setTimeout(() => {
-        filter_container = document.querySelector("#filter-categories");
-        button_filter = document.querySelector("#filter-button");
+//       setTimeout(() => {
+//         filter_container = document.querySelector("#filter-categories");
+//         button_filter = document.querySelector("#filter-button");
   
-        button_filter.addEventListener("click", () => {
-          filter_container.classList.toggle('filtershow')
+//         button_filter.addEventListener("click", () => {
+//           filter_container.classList.toggle('filtershow')
   
-          if (filter_container.style.display === "none") {
-            filter_container.style.display = "block";
-            closeIcon.style.visibility = "visible";
-            openIcon.style.display = "none";
-          } else {
-            filter_container.style.display = "none";
-            openIcon.style.display = "initial";
-            closeIcon.style.visibility = "hidden";
-          }
-        });
-      }, 1000);
-    });
-  });
-}
+//           if (filter_container.style.display === "none") {
+//             filter_container.style.display = "block";
+//             closeIcon.style.visibility = "visible";
+//             openIcon.style.display = "none";
+//           } else {
+//             filter_container.style.display = "none";
+//             openIcon.style.display = "initial";
+//             closeIcon.style.visibility = "hidden";
+//           }
+//         });
+//       }, 1000);
+//     });
+//   });
+// }
 
-if (filter_container) {
-  try {
-    filter_container.addEventListener('click', () => {
-      setTimeout(() => {
-        filter_container = document.querySelector("#filter-categories");
-        button_filter = document.querySelector("#filter-button");
-  
-        button_filter.addEventListener("click", () => {
-          if (filter_container.style.display === "none") {
-            filter_container.style.display = "block";
-            closeIcon.style.visibility = "visible";
-            openIcon.style.display = "none";
-          } else {
-            filter_container.style.display = "none";
-            openIcon.style.display = "initial";
-            closeIcon.style.visibility = "hidden";
-          }
-        });
-      }, 1000);
-    })
-  } catch (error) {
-    console.log(error)
+function showFilterMenu() {
+  filter_container = document.querySelector("#filter-categories");
+  filter_container.classList.toggle('filtershow')
+  const openIcon = document.getElementById("openFilters");
+  const closeIcon = document.getElementById("closeFilters");
+
+  const body = document.body;
+  const html = document.documentElement;
+
+  if (filter_container.style.display === "none") {
+    filter_container.style.display = "block";
+    closeIcon.style.visibility = "visible";
+    openIcon.style.display = "none";
+    body.classList.add('removeScroll')
+    html.classList.add('removeScroll')
+  } else {
+    filter_container.style.display = "none";
+    openIcon.style.display = "initial";
+    closeIcon.style.visibility = "hidden";
+    body.classList.remove('removeScroll')
+    html.classList.remove('removeScroll')
   }
 }
 
-if (button_filter) {
-  try {
-    button_filter.addEventListener("click", () => {
-
-      if (filter_container.style.display === "none") {
-        filter_container.style.display = "block";
-        closeIcon.style.visibility = "visible";
-        openIcon.style.display = "none";
-      } else {
-        filter_container.style.display = "none";
-        openIcon.style.display = "initial";
-        closeIcon.style.visibility = "hidden";
-      }
-    });
-  } catch (error) {
-    console.log(error)
-  }
+const copyLink = () => {
+  var currentUrl = window.location.href;
+  
+  // Crea un elemento temporal para realizar la copia al portapapeles
+  var tempInput = document.createElement("input");
+  tempInput.value = currentUrl;
+  document.body.appendChild(tempInput);
+  
+  // Selecciona el contenido del elemento temporal
+  tempInput.select();
+  tempInput.setSelectionRange(0, 99999); // Para dispositivos móviles
+  
+  // Copia el contenido al portapapeles
+  document.execCommand("copy");
+  
+  // Remueve el elemento temporal
+  document.body.removeChild(tempInput);  
 }
 
 if (navigator.appVersion.includes("Mac OS") || navigator.appVersion.includes("iPhone")) {

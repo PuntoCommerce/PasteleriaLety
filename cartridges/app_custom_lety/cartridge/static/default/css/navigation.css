@@ -72,7 +72,7 @@
   padding-top: 5px;
 }
 
-#menuDesk .dropdown-menu .category-item.item a{
+#menuDesk .dropdown-menu .category-item.item a {
   color: var(--color-lety-black);
   font-family: var(--font-family-gotham);
   font-size: 18px;
@@ -302,7 +302,7 @@ ul {
     position: fixed;
     right: 0;
     top: 0;
-    z-index: 2;
+    z-index: 5;
     flex-direction: column;
     background-color: #ffffff !important;
     width: 80vw;
@@ -360,6 +360,7 @@ ul {
     z-index: 2;
     background: #fff;
   }
+
   #customMenuResponsive .toggle-category-button {
     background-color: transparent;
     border: none;
@@ -367,9 +368,11 @@ ul {
     justify-content: center;
     align-items: center;
   }
+
   #customMenuResponsive .toggle-category-button img {
     transform: rotate(-90deg);
   }
+
   #customMenuResponsive .toggle-category-button.back img {
     transform: rotate(90deg);
     margin-right: 10px;
@@ -378,14 +381,18 @@ ul {
   #customMenuResponsive .toggle-category-button.back {
     margin-bottom: 20px;
   }
+
   #customMenuResponsive .nav-link.parent {
     font-weight: 800;
     font-size: 14px;
   }
+
   #customMenuResponsive #actions-icons {
     margin-top: 30px;
   }
-  #customMenuResponsive #actions-icons img, #customMenuResponsive #actions-icons i {
+
+  #customMenuResponsive #actions-icons img,
+  #customMenuResponsive #actions-icons i {
     margin-right: 10px;
   }
 
@@ -399,37 +406,47 @@ ul {
 }
 
 @media (max-width: 1350px) {
-  #menuDesk .nav-item a{
+  #menuDesk .nav-item a {
     font-size: 13px;
   }
 
 }
 
 @media (max-width: 1220px) {
-  #menuDesk .nav-item a{
+  #menuDesk .nav-item a {
     font-size: 11px;
   }
 
 }
-/***** View menu responsive with animation  *****/
+
 .viewMenu {
-  transform: translateX(0);
-  animation-name: moveInRight;
-  animation-duration: 0.2s;
-  animation-timing-function: ease-out;
+  display: none;
 }
 
-/***** View menu responsive with animation  *****/
-.viewMenuOut {
-  transform: translateX(0);
-  animation-name: moveInLeft;
-  animation-duration: 0.2s;
-  animation-timing-function: ease-out;
-}
+@media (max-width: 991px) {
+  .viewMenu{
+    display: block;
+  }
+  /***** View menu responsive with animation  *****/
+  .viewMenu {
+    transform: translateX(0);
+    animation-name: moveInRight;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-out;
+  }
 
-/***** View menu responsive with animation  *****/
-.closeMenu {
-  animation-name: moveInLeftOut;
-  animation-duration: 0.2s;
-  animation-timing-function: ease-out;
+  /***** View menu responsive with animation  *****/
+  .viewMenuOut {
+    transform: translateX(0);
+    animation-name: moveInLeft;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-out;
+  }
+
+  /***** View menu responsive with animation  *****/
+  .closeMenu {
+    animation-name: moveInLeftOut;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-out;
+  }
 }

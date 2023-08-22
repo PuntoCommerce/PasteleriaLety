@@ -23,11 +23,12 @@
 </isif> </iscomment>
 
 <div class="filter-container">
-    <div class="refinements"> 
+    <div class="refinements">
+        <button class="close-modal-button d-md-flex d-lg-none" onclick="showFilterMenu()">x</button>
         <isloop items="${pdict.productSearch.refinements}" var="refinement">
             <div class="card refinements__card refinement refinement-${refinement.displayName.toLowerCase().replace(/ /g, '-')}">
                 <div class="card-header refinements__card-header col-sm-12">
-                    <h2 aria-label="${refinement.displayName}" class="d-none d-md-block">${refinement.displayName}</h2>
+                    <h2 aria-label="${refinement.displayName}">${refinement.displayName}</h2>
                 </div>
                 <div class="card-body content value" id="refinement-${refinement.displayName.toLowerCase().replace(/ /g, '-')}">
                     <!--- CATEGORY REFINEMENTS --->

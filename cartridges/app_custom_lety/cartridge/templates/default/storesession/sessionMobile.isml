@@ -25,11 +25,11 @@
     <div class="blockSession">
       <div class="popup-modal-session" >
           <div class="d-flex justify-content-center flex-column content-session-modal-mobile">
+          <p class="act_location_msg">${Resource.msg('heading.location.message','storeLocator',null)}</p>
           <p class="txtSession">Ingrese Dirección</p>
 
-          <div class="single-input" id="div_session_search-modalMobile">
-              <input type="text" id="session_search-modalMobile" placeholder="Ingresar direccion" name="location" value="" action-url="${URLUtils.url("StoreSession-SetStore")}"/>
-              <span><img src="${URLUtils.staticURL('/images/icons/ubicacionNaranja.png')}" alt="" /></span>
+          <div id="div_session_search-modalMobile" class="text-center">
+              <input type="text" class="single-input" id="session_search-modalMobile" placeholder="Ingresar direccion" name="location" value="" action-url="${URLUtils.url("StoreSession-SetStore")}"/>
           </div>
 
           <div class="buttonSession">
@@ -37,7 +37,7 @@
               <button type="button" class="d-sm-block d-md-none" id="session_search-confirmMobile">Confirmar</button>
           </div>
           <div class="row p-3">
-            <img class="" src="${URLUtils.staticURL('/images/icons/ubicacion-desactivada.svg')}" alt="" />
+            <iscomment> <img class="" src="${URLUtils.staticURL('/images/icons/ubicacion-desactivada.svg')}" alt="" /> </iscomment>
             <button type="button" class="session-btn-mobile" id="session_search-locationMobile" >Utilizar tu ubicación</button>
           </div>
             
