@@ -300,6 +300,7 @@ window.onload=function(){
   window.onunload=function(){
   window.name=self.pageYOffset || (document.documentElement.scrollTop+document.body.scrollTop);
   }
+  
 
 // Seleccionamos el botón con id 'btn-compartir' 
 //const shareButton = document.getElementById("btn-compartir");

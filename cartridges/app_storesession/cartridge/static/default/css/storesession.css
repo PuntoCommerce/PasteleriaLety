@@ -13,6 +13,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .blockSession{
   z-index: 200;
   position: fixed;
@@ -205,6 +206,7 @@ option{
     display: none;
   }
 }
+
 @media (max-width: 380px){
   .sessionStoreAddress{
     font-size: 11px;

@@ -14930,7 +14930,7 @@ a.skip:hover {
 .brand {
   text-align: center;
 }
-@media (max-width: 991.98px) {
+@media (max-width: 769px) {
   .brand {
     width: 4em;
     text-align: left !important;

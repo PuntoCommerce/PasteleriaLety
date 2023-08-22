@@ -99,7 +99,7 @@ assets.addJs("/js/createCardMember.js");
             id="CiudadSpan">*&nbsp;</span>${Resource.msg('field.shipping.address.city', 'address', null)}
     </label>
     <select class="form-control custom-select order-history-select" id="cCiudad" onchange="getCity(this.value)" aria-label="${Resource.msg('label.filter.order.history','account',null)}"></select>
-</div>
+</div> 
  <div class="col-sm-12 col-md-12 col-lg-4 form-group">
     <label class="label-card" for="address">
         <span class="text-danger d-none"
