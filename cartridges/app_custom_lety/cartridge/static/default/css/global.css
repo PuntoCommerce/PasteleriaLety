@@ -18055,8 +18055,12 @@ a.skip:hover {
 .brand {
   text-align: center;
 }
+<<<<<<< HEAD
+@media (max-width: 769px) {
+=======
 
 @media (max-width: 991.98px) {
+>>>>>>> 9a6385482e5a8d0bb2b3905a5ff837fe07a672eb
   .brand {
     width: 4em;
     text-align: left !important;
