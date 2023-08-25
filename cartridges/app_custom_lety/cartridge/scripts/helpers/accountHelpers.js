@@ -44,6 +44,7 @@ baseAccountHelpers.insertFolPerson = (customer) => {
         Empresa: 1,
         params: customer
     })
+    session.custom.iIdFolioPersona = JSON.stringify(getFolioPerson.iIdFolioPersona);
 
     Transaction.wrap(() => {
         getCustomer.custom.folPerson = getFolioPerson.iIdFolioPersona

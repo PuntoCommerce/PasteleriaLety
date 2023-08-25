@@ -147,7 +147,13 @@ const sendShippingOrderToERP = (orderId, req, userExist) => {
   var isUser = stringValue ? true : false;
   if (stringValue) {
     customer = CustomerMgr.getProfile(userExist);
-    idUserEvo = customer && customer.custom && customer.custom.folPerson ? customer.custom.folPerson : 90000;
+
+    if (customer && customer.custom && customer.custom.folPerson) {
+      idUserEvo = customer.custom.folPerson ? customer.custom.folPerson : 90000;
+    } else {
+      idUserEvo = session.custom.iIdFolioPersona ? JSON.parse(session.custom.iIdFolioPersona) : 90000;
+    }
+    
   }
 
   let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(
