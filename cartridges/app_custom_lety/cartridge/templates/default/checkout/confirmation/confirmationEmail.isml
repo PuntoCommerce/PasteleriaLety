@@ -527,10 +527,18 @@
 
                                                                 ${lineItem.productName}
                                                             </p>
+                                                            <iscomment> 
+                                                            <p>${parseFloat(lineItem.priceTotal.nonAdjustedPrice.replace("$ ", ""))}</p>
+                                                            <p>${parseFloat(lineItem.priceTotal.price.replace("$ ", ""))}</p>
+                                                            <p>${parseFloat(lineItem.priceTotal.nonAdjustedPrice.replace("$ ", "")) -  parseFloat(lineItem.priceTotal.price.replace("$ ", ""))}</p>  
+                                                            </iscomment>
+            
                                                         </td>
                                                     </tr>
-                                                    <tr>
 
+
+                                                    <isif condition="${lineItem.appliedPromotions[0].callOutMsg != ""}"> 
+                                                    <tr>
                                                         <td style="width:50%;padding:20px 0;">
                                                             <!--- quantity --->
                                                             <isif condition="${lineItem.quantity > 1}">
@@ -549,22 +557,76 @@
                                                                 </p>
                                                             </isif>
                                                         </td>
-                                                         <td style="width:50%;padding:20px 0;">
-                                                            <!--- line item total price --->
 
-                                                            <div class="strike-through
-                                                                <isif condition=${!lineItem.priceTotal.nonAdjustedPrice}>non-adjusted-price</isif>"
-                                                                >
-                                                                   <p> ${lineItem.priceTotal.nonAdjustedPrice}</p>
-                                                            </div>
-                                                            <div>
-                                                                <p
-                                                                    style="text-align:right;font-size: 16px;font-weight: bold;color: #4D4D4D; padding: 0 20px;">
-                                                                    ${lineItem.priceTotal.price}
-                                                                </p>
-                                                            </div>
+                                                        <td style="width:50%;padding:20px 0;">
+                                                            
+                                                            <p style="text-align:right;font-size: 16px;font-weight: bold;color: #4D4D4D; padding: 0 20px;">
+                                                                ${lineItem.priceTotal.nonAdjustedPrice}
+                                                            </p>
+                                                    
+                                                        </td>
+                                                    </tr>        
+                                                                                                    
+                                                    <tr>
+                                                        <td style="width:50%;padding:20px 0;">
+                                                
+                                                            <p style="font-size: 16px;font-weight: bold;color: #4D4D4D;">
+                                                                ${Resource.msg('field.discount', 'cart', null)}
+                                                            </p>
+                                                        </td>
+                                                        <td style="width:50%;padding:20px 0;">
+                                                        
+                                                            <p style="text-align:right;font-size: 16px;font-weight: bold;color: #4D4D4D; padding: 0 20px;">
+                                                               -$<isprint value="${ parseFloat(lineItem.priceTotal.nonAdjustedPrice.replace("$ ", "")) - parseFloat(lineItem.priceTotal.price.replace("$ ", "")) }" encoding="off" style="DECIMAL" />
+                                                            </p>
                                                         </td>
                                                     </tr>
+                                                    <tr>
+                                                        <td style="width:50%;padding:20px 0;">
+                                                
+                                                            <p style="font-size: 16px;font-weight: bold;color: #4D4D4D;">
+                                                                ${Resource.msg('field.subtotal', 'cart', null)}
+                                                            </p>
+                                                        </td>
+                                                        <td style="width:50%;padding:20px 0;">
+                                                        
+                                                            <p style="text-align:right;font-size: 16px;font-weight: bold;color: #4D4D4D; padding: 0 20px;">
+                                                                ${lineItem.priceTotal.price}
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <iselse/>
+
+                                                   <tr>
+                                                        <td style="width:50%;padding:20px 0;">
+                                                            <!--- quantity --->
+                                                            <isif condition="${lineItem.quantity > 1}">
+                                                                <p
+                                                                    style="font-size: 16px;font-weight: bold;color: #4D4D4D;">
+                                                                    <isprint value="${lineItem.quantity}"
+                                                                        formatter="##" />
+                                                                    ${Resource.msg('field.numberquantities', 'cart', null)}
+                                                                </p>
+                                                            <iselse/>
+                                                                <p
+                                                                    style="font-size: 16px;font-weight: bold;color: #4D4D4D;">
+                                                                    <isprint value=" ${lineItem.quantity}"
+                                                                        formatter="##" />
+                                                                    ${Resource.msg('field.numberquantity', 'cart', null)}
+                                                                </p>
+                                                            </isif>
+                                                        </td>
+
+                                                        <td style="width:50%;padding:20px 0;">
+                                                            
+                                                            <p style="text-align:right;font-size: 16px;font-weight: bold;color: #4D4D4D; padding: 0 20px;">
+                                                                ${pdict.order.priceTotal}
+                                                            </p>
+                                                    
+                                                        </td>
+                                                    </tr>  
+                                                    </isif>
+                                              
                                                 </isloop>
                                             </isif>
                                             <iscomment> Delivery Cost </iscomment>

@@ -169,6 +169,49 @@ function getPhrases(suggestedPhrases) {
     return phrases;
 }
 
+/**
+ * @param {dw.catalog.Product} product the product
+ * @param {string} inventoryListID - optionally specify the inventory list to use
+ * @returns {dw.catalog.ProductInventoryRecord} inventory record
+ */
+function getInventoryRecord(productID, inventoryListID) {
+    var ProductInventoryMgr = require('dw/catalog/ProductInventoryMgr');
+    var productID = productID || 'undefined';
+
+    var inventoryListID = inventoryListID || session.custom.inventoryListID;
+    var inventoryList = ProductInventoryMgr.getInventoryList(inventoryListID);
+
+    if (!inventoryList) {
+        inventoryList = ProductInventoryMgr.getInventoryList();
+    }
+
+    var productInventoryRecord;
+    var retry = false;
+    var retryCount = 0;
+    do {
+        try {
+            retry = false;
+            productInventoryRecord = inventoryList.getRecord(productID);
+        } catch (e) {
+            if (e.javaName && e.javaName === 'ORMOptimisticLockingException') {
+                retry = true;
+                retryCount++;
+            } else {
+                LoggerWrapper.error('Error in getInventoryRecord: ' + JSON.stringify(e));
+            }
+        }
+    } while (retry);
+
+    if (retryCount > 0) {
+        LoggerWrapper.warn('Error in getInventoryRecord. Retry count: {0}', retryCount);
+    }
+
+    var inventoryRecord = productInventoryRecord || {
+        perpetual: inventoryList.defaultInStockFlag
+    };
+
+    return inventoryRecord;
+}
 
 /**
  * @constructor
@@ -181,16 +224,31 @@ function getPhrases(suggestedPhrases) {
  *     results
  * @param {dw.catalog.Category} rootCategory - Search result's root category if applicable
  */
-function ProductSearch(productSearch, httpParams, sortingRule, sortingOptions, rootCategory) {
+function ProductSearch(productSearch, httpParams, sortingRule, sortingOptions, rootCategory, storeID) {
     var searchHelper = require('*/cartridge/scripts/helpers/searchHelpers');
+    var Site = require('dw/system/Site');
+    var StoreMgr = require('dw/catalog/StoreMgr');
+
+    var storeId = storeID;
+    var store = StoreMgr.getStore(storeId);
+    var inventoryListID = store ? store.inventoryListID : session.custom.inventoryListID;
 
     this.pageSize = parseInt(httpParams.sz, 10) || DEFAULT_PAGE_SIZE;
+    this.productCount = productSearch.count;
+
     this.productSearch = productSearch;
-    var startIdx = httpParams.start || 0;
+    var startIdx = httpParams.start;
+
     var paging = getPagingModel(
         productSearch.productSearchHits,
         productSearch.count,
         this.pageSize,
+        startIdx
+    );
+    var pagingCount = getPagingModel(
+        productSearch.productSearchHits,
+        productSearch.count,
+        this.productCount,
         startIdx
     );
 
@@ -209,12 +267,36 @@ function ProductSearch(productSearch, httpParams, sortingRule, sortingOptions, r
 
     this.resetLink = getResetLink(productSearch, httpParams);
     this.bannerImageUrl = productSearch.category ? searchHelper.getBannerImageUrl(productSearch.category) : null;
-    this.productIds = collections.map(paging.pageElements, function (item) {
+
+    this.productIds = collections.map(pagingCount.pageElements, function (item) {
         return {
-            productID: item.productID,
-            productSearchHit: item
+            InventoryRecord: getInventoryRecord(item.productID, inventoryListID),
+            productSearchHit: item,
+            productID: item.productID
         };
     });
+
+    // Separate the products based on the productAvailablity condition
+    var availableProductIds = [];
+    var unavailableProductIds = [];
+    this.productIds.forEach(function (product) {
+        if (product.InventoryRecord.ATS > 0 || product.InventoryRecord.perpetual === true) {
+            availableProductIds.push({productID: product.productID, productSearchHit: product.productSearchHit});
+        } else {
+            unavailableProductIds.push({productID: product.productID, productSearchHit: product.productSearchHit});
+        }
+    });
+
+    // Concatenate the available and unavailable product IDs
+    var formatedProductIds = availableProductIds.concat(unavailableProductIds);
+    this.productIds = collections.map(paging.pageElements, function (item, index) {
+        var formattedItem = formatedProductIds[index];
+        return {
+            productID: formattedItem.productID,
+            productSearchHit: formattedItem.productSearchHit
+        };
+    });
+
     this.productSort = new ProductSortOptions(
         productSearch,
         sortingRule,

@@ -1,11 +1,7 @@
-
-<isif condition="${pdict.hasInventoryOn}">
-    <isset name="showQuickView" value="${true}" scope="page" />
-    <div class="col-6 col-sm-4">
-        <div class="product" data-pid="${pdict.product.id}" data-gtmdata="${JSON.stringify(product.gtmData)}"
-            data-gtmga4data="${JSON.stringify(product.gtmGA4Data)}">
-            <isinclude template="product/productTile" />
-        </div>
+<isset name="showQuickView" value="${true}" scope="page" />
+<div class="col-6 col-sm-4">
+    <div class="product" data-pid="${pdict.product.id}" data-gtmdata="${JSON.stringify(product.gtmData)}"
+        data-gtmga4data="${JSON.stringify(product.gtmGA4Data)}">
+        <isinclude template="product/productTile" />
     </div>
-<iselse/>
-</isif>
+</div>
