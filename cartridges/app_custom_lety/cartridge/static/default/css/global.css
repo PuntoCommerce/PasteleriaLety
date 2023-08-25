@@ -18083,10 +18083,6 @@ a.skip:hover {
     height: 5em;
   }
 
-  .location {
-    display: none;
-  }
-
   .input-location {
     width: 160%;
     background-color: var(--color-lety1);

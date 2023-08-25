@@ -64,7 +64,7 @@ window.onload = async function () {
    setTimeout(() => {
        $("#modalLoading").modal('hide');
    }, 1000);
-   /* end */
+   /* end */ 
    const dS_Sexo = document.querySelector("#dS_Sexo").getAttribute("data-tipo");
    if (!isEmptyField(dS_Sexo)) {
        if (dS_Sexo === "Masculino") {
