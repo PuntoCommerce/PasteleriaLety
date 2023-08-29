@@ -672,10 +672,15 @@ module.exports = {
                     method: 'POST',
                     data: form,
                     success: function (data) {
-                        handlePostCartAdd(data);
-                        $('body').trigger('product:afterAddToCart', data);
-                        $.spinner().stop();
-                        miniCartReportingUrl(data.reportingURL);
+                        if (data.error) {
+                            handlePostCartAdd(data);
+                            $.spinner().stop();
+                        } else {
+                            handlePostCartAdd(data);
+                            $('body').trigger('product:afterAddToCart', data);
+                            $.spinner().stop();
+                            miniCartReportingUrl(data.reportingURL);
+                        }
                     },
                     error: function () {
                         $.spinner().stop();

@@ -18,6 +18,7 @@ server.replace('AddProduct', inventory.checkOnlineInventory, function (req, res,
   var Resource = require('dw/web/Resource');
   var URLUtils = require('dw/web/URLUtils');
   var Transaction = require('dw/system/Transaction');
+  var ProductMgr = require("dw/catalog/ProductMgr");
   var CartModel = require('*/cartridge/models/cart');
   var ProductLineItemsModel = require('*/cartridge/models/productLineItems');
   var cartHelper = require('*/cartridge/scripts/cart/cartHelpers');
@@ -42,6 +43,25 @@ server.replace('AddProduct', inventory.checkOnlineInventory, function (req, res,
   var quantity;
   var result;
   var pidsObj;
+	
+  let productType = ProductMgr.getProduct(productId).custom.tipoproducto;
+
+  if (currentBasket.allProductLineItems.length > 0) {
+      var productIds = [];
+      var allLineItems = currentBasket.allProductLineItems;
+      var collections = require("*/cartridge/scripts/util/collections");
+      collections.forEach(allLineItems, function (pli) {
+          productIds.push(pli.productID);
+      });
+      var CartProductType = ProductMgr.getProduct(productIds[0]).custom.tipoproducto;
+      if (productType !== CartProductType) {
+          res.json({
+            error: true,
+            message: Resource.msg("text.alert.split.order", "product", null)
+          });
+          return next();
+      }
+  }
 
   if (currentBasket) {
       Transaction.wrap(function () {

@@ -18,6 +18,7 @@ const {
 } = require("*/cartridge/scripts/helpers/letyCardHelpers");
 const Site = require("dw/system/Site");
 var BasketMgr = require("dw/order/BasketMgr");
+var ProductMgr = require("dw/catalog/ProductMgr");
 
 server.append("Begin", (req, res, next) => {
   const viewData = res.getViewData();
@@ -36,6 +37,18 @@ server.append("Begin", (req, res, next) => {
     viewData.totalAvailableLetyPuntos = getTotalAvailableLetyPuntos(
       currentBasket.productLineItems
     );
+
+    if (currentBasket.allProductLineItems.length > 0) {
+      var productIds = [];
+      var allLineItems = currentBasket.allProductLineItems;
+      var collections = require("*/cartridge/scripts/util/collections");
+      collections.forEach(allLineItems, function (pli) {
+          productIds.push(pli.productID);
+      });
+      var productType = ProductMgr.getProduct(productIds[0]).custom.tipoproducto;
+      viewData.productType = productType;
+    }
+
     if (currentBasket.customer.profile) {
       currentEmail = currentBasket.customer.profile.email;
     } else {

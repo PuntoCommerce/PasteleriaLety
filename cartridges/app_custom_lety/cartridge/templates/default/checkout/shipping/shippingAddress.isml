@@ -287,3 +287,18 @@
         </div>
     </div>
 </div>
+
+<iscomment> <isif condition="${pdict.productType === "pedido especial"}">
+<div class="row justify-content-start">
+    <div class="form-group form-coments2 p-0 mb-0">
+        <label>${Resource.msg('label.shipping.comment', 'address', null)}</label>
+    </div>
+</div>
+<div class="row justify-content-start">
+    <div class="form-group col-lg-9 p-0">
+        <label class="form-control-label" for="review_rnr">${Resource.msg('label.shipping.message', 'address', null)}</label>
+        <textarea type="text" class="form-control form-resena text-size" id="review_rnr"
+            placeholder="${Resource.msg('placeholder.review', 'rnr', null)}" rows="4" cols="50"></textarea>
+    </div>
+</div>
+</isif> </iscomment>
