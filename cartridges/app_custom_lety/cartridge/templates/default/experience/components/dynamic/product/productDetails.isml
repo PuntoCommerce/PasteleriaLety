@@ -114,22 +114,26 @@
 
             <div class="attributes row-desc">
                   <!-- Attributes and Quantity -->
+                  
                     <isinclude template="product/components/mainAttributes" />
 
                     <isset name="isBundle" value="${false}" scope="page" />
                     <isset name="loopState" value="{count: 1}" scope="page" />
+                    
                     <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
-                        <div class="row" data-attr="${attr.id}">
-                            <div class="col-8">
-                                <isinclude template="product/components/variationAttribute" />
-                            </div>
-
-                            <isif condition="${attributeStatus.last && !isBundle}">
-                                <!-- Quantity Drop Down Menu -->
-                                <div class="attribute quantity col-4">
-                                    <isinclude template="product/components/quantity" />
+                        <isif condition="${attributeStatus.first && !isBundle}">
+                                    <!-- Quantity Drop Down Menu -->
+                                    <div class="attribute quantity col-4">
+                                        <isinclude template="product/components/quantity" />
+                                    </div>
+                        </isif>
+                        <div class="row" data-attr="${attr.id}" id="${attr.id}">
+                        
+                         
+                                <div class="col-12">
+                                    <isinclude template="product/components/variationAttribute" />
                                 </div>
-                            </isif>
+                        
                         </div>
                     </isloop>
 
