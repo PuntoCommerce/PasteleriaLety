@@ -196,6 +196,8 @@ server.replace(
         order.custom.isError = true;
         order.custom.errorDetail = status.message;
         order.custom.orderDetailJson = null
+
+        OrderMgr.failOrder(order, true);
       })
 
       res.json({

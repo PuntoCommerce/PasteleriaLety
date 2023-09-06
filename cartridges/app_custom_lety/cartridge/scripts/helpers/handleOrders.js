@@ -203,6 +203,8 @@ const sendPickupOrderToERP = (orderId) => {
   let today = new Date();
   today.setHours(today.getHours() + hoursDifferenceFromGMT);
 
+  var clientID = order.custom.clientID;
+
   let letyPuntos = handleLetyPuntos(order);
 
   let store = StoreMgr.getStore(order.custom.storeId);
@@ -232,6 +234,7 @@ const sendPickupOrderToERP = (orderId) => {
       handleLetyPuntosAfterInsert(letyPuntos, orderId);
       status.payload = payload
       status.error = false;
+      status.clientID = clientID;
     } else {
       status.message = response.sMensaje;
       status.error = true;
