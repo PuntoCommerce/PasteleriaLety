@@ -4,6 +4,9 @@
     </isscript>
 <isset name="addressFields" value="${pdict.forms.shippingForm.shippingAddress.addressFields}" scope="page" />
 <isset name="customPickup" value="${pdict.forms.shippingForm.customPickUp}" scope="page" />
+<isset name="specialOrder" value="${pdict.forms.shippingForm.specialOrder}" scope="page" />
+
+
 <isif condition="${shippingModel.shippingAddress}">
     <isset name="shippingAddress" value="${shippingModel.shippingAddress}" scope="page" />
 <iselse/>
@@ -186,21 +189,14 @@
     <div class="col-sm-6 col-lg-4">
         <div class="form-group
             ${addressFields.city.mandatory === true ? 'required' : ''}
-            ${addressFields.city.htmlName}"
-            >
+            ${addressFields.city.htmlName}">
             <label class="form-control-label" for="shippingAddressCity${lineItem ? lineItem.UUID : 'default'}">
                 ${Resource.msg('field.shipping.address.city', 'address', null)}<span>${Resource.msg('field.shipping.address.required', 'address', null)}</span>
             </label>
-            <iscomment> <input type="text" class="form-control shippingAddressCity"
-                    id="shippingAddressCity${lineItem ? lineItem.UUID : 'default'}"
-                    aria-describedby="${lineItem ? lineItem.UUID : 'default'}City" value="${shippingAddress.city || ''}"
-                    <isprint value="${addressFields.city.attributes}" encoding="off" />
-                autocomplete="shipping address-level2"> </iscomment>
-            <select  class="form-control shippingAddressCity custom-select" 
-            data-url="${URLUtils.url("CheckoutShippingServices-GoogelMapAddress")}"
-                id="shippingAddressCity${lineItem ? lineItem.UUID : 'default'}"  <isprint
-                value=${addressFields.city.attributes} 
-                 encoding="off" />
+            <select class="form-control shippingAddressCity custom-select" data-url="${URLUtils.url("
+                                                                                         CheckoutShippingServices - GoogelMapAddress ")}"
+                id="shippingAddressCity${lineItem ? lineItem.UUID : 'default'}" <isprint
+                value=${addressFields.city.attributes} encoding="off" />
             autocomplete="shipping address-level2"
             aria-describedby="${lineItem ? lineItem.UUID : 'default'}City">
             <option label=" "></option>
@@ -253,17 +249,11 @@
                 <isprint value="${addressFields.phone.error}">
             </div>
             <span>${Resource.msg('example.phone', 'forms', null)}</span>
-            <iscomment>
-                <div class="tel-description-container d-flex flex-column">
-                    <span class="checkout-summary-title-1 mb-3 mt-5">${Resource.msg('check.shipping.tel.heading', 'checkout', null)}</span>
-                    <span class="tel-description">${Resource.msg('check.shipping.tel.text', 'checkout', null)}</span>
-                </div>
-            </iscomment>
         </div>
     </div>
 </div>
 <div class="shippingGooglemap">
-<isinclude template="checkout/shipping/googlemap" />
+    <isinclude template="checkout/shipping/googlemap" />
 </div>
 
 <isinclude template="checkout/shipping/datetimepicker" />
@@ -279,26 +269,25 @@
             <input type="email" class="form-control customShippingEmail"
                 id="customShippingEmail${lineItem ? lineItem.UUID : 'default'}"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}Email" value="${pdict.currentEmail || ''}"
-                <isprint value=${customPickup.email.attributes} encoding="off" />>
+                <isprint value="${customPickup.email.attributes}" encoding="off" />>
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}Email">
                 <isprint value="${customPickup.email.error}">
             </div>
-            <iscomment> <span>${Resource.msg('example.phone', 'forms', null)}</span> </iscomment>
         </div>
     </div>
 </div>
 
-<iscomment> <isif condition="${pdict.productType === "pedido especial"}">
-<div class="row justify-content-start">
-    <div class="form-group form-coments2 p-0 mb-0">
-        <label>${Resource.msg('label.shipping.comment', 'address', null)}</label>
+<iscomment> <isif condition="${pdict.customText}">
+    <div class="row justify-content-start">
+        <div class="col-lg-9 p-0">
+            <div class="form-group ${specialOrder.specialText.mandatory === true ? 'required' : ''}
+            ${specialOrder.specialText.htmlName}">
+                <label for="customSpecialText"></label>
+                <textarea class="form-control customSpecialText" id="customSpecialText" rows="4"
+                <isprint value="${specialOrder.specialText.attributes}" encoding="off" />></textarea>
+            </div>
+        </div>
     </div>
-</div>
-<div class="row justify-content-start">
-    <div class="form-group col-lg-9 p-0">
-        <label class="form-control-label" for="review_rnr">${Resource.msg('label.shipping.message', 'address', null)}</label>
-        <textarea type="text" class="form-control form-resena text-size" id="review_rnr"
-            placeholder="${Resource.msg('placeholder.review', 'rnr', null)}" rows="4" cols="50"></textarea>
-    </div>
-</div>
+<iselse/>
+
 </isif> </iscomment>
