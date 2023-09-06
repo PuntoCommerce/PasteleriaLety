@@ -172,6 +172,45 @@ server.replace(
       return next();
     }
 
+    // Insert Information on evolution
+
+    var status = {};
+    try {
+      if (order.defaultShipment.shippingMethodID == "pickup") {
+        status = HO.sendPickupOrderToERP(order.orderNo);
+      } else {
+        status = HO.sendShippingOrderToERP(order.orderNo);
+      }
+    } catch (error) {
+      status.error = true;
+      status.message = JSON.stringify(error);
+
+      Transaction.wrap(function () {
+        order.custom.isError = true;
+        order.custom.orderDetailJson = null
+      });
+    }
+
+    if (status.error) {
+      Transaction.wrap(() => {
+        order.custom.isError = true;
+        order.custom.errorDetail = status.message;
+        order.custom.orderDetailJson = null
+      })
+
+      res.json({
+        error: true,
+        errorMessage: Resource.msg("error.order.try.again", "checkout", null),
+      });
+      return next();
+
+    } else {
+      Transaction.wrap(() => {
+        order.custom.orderDetailJson = JSON.stringify(status.payload)
+        order.custom.clientID = status.clientID;
+      })
+    }
+
     // Handles payment authorization
     var handlePaymentResult = COHelpers.handlePayments(order, order.orderNo);
 
@@ -268,31 +307,6 @@ server.replace(
         COHelpers.sendConfirmationEmailClient(order, req.locale.id, storeId),
         COHelpers.sendConfirmationEmailClientSecund(order, req.locale.id, storeId)
       ) : COHelpers.sendConfirmationEmail(order, req.locale.id, storeId)
-    }
-
-    let status = {};
-    try {
-      if (order.defaultShipment.shippingMethodID == "pickup") {
-        status = HO.sendPickupOrderToERP(order.orderNo);
-      } else {
-        const userExist = req.session.privacyCache.get("userExist");
-        status = HO.sendShippingOrderToERP(order.orderNo, req, userExist);
-      }
-    } catch (error) {
-      status.error = true;
-      status.message = JSON.stringify(error);
-    }
-
-    if (status.error) {
-      Transaction.wrap(() => {
-        order.custom.isError = true;
-        order.custom.errorDetail = status.message;
-        order.custom.orderDetailJson = JSON.stringify(status.payload)
-      })
-    }else{
-      Transaction.wrap(() => {
-        order.custom.orderDetailJson = JSON.stringify(status.payload)
-      })
     }
 
     // Reset usingMultiShip after successful Order placement
