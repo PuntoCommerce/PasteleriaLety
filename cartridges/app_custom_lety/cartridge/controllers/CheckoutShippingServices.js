@@ -78,8 +78,6 @@ server.append("SubmitShipping", (req, res, next) => {
   const dayOfWeekNumber = new Date(shipping.datetime.date.value).getDay();
   const dayOfWeek = getDayOfWeek[dayOfWeekNumber]
 
-  var customer;
-
   let viewData = res.getViewData();
 
   const deliveryMethodHour = getStoreHours[viewData.shippingMethod].days[dayOfWeek]
@@ -108,7 +106,7 @@ server.append("SubmitShipping", (req, res, next) => {
 
     res.json({
       form: shipping,
-      fieldErrors: [{dwfrm_shipping_datetime_time: Resource.msg('address.date.missing', 'forms', null)}],
+      fieldErrors: [{ dwfrm_shipping_datetime_time: Resource.msg('address.date.missing', 'forms', null) }],
       serverErrors: [],
       error: true,
     });
@@ -240,9 +238,28 @@ server.append("SubmitShipping", (req, res, next) => {
 
     splitedAddress = CAHelpers.splitAddress(viewData.address);
 
+    var clientID = 90000;
+
+    if (req.currentCustomer.profile) {
+      var clientEmail = shipping.customPickUp.email.value;
+      var getClientID = ApiLety("GetFolioPersona", {
+        Empresa: 1,
+        params: {
+          email: clientEmail
+        }
+      })
+
+      var iCode = Number(getClientID.iCode)
+
+      if(iCode === 1){
+        clientID = Number(getClientID.iIdFolioPersona)
+      }
+    }
+
+
     body = {
       IdEmpresa: store.custom.empresaId,
-      iIdFolioPersona: req.currentCustomer.profile && customer.custom.folPerson ? customer.custom.folPerson : 90000,
+      iIdFolioPersona: clientID,
       iIdCentro: selectedStoreId,
       iIdDireccion: 0,
       iIdFolioDireccion: 0,
@@ -314,6 +331,7 @@ server.append("SubmitShipping", (req, res, next) => {
     currentBasket.custom.storeId = selectedStoreId;
     currentBasket.custom.deliveryDateTime =
       shipping.datetime.date.value + " : " + shipping.datetime.time.value;
+    currentBasket.custom.clientID = clientID;
   });
 
   next();

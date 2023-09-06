@@ -25,9 +25,6 @@ server.append("Begin", (req, res, next) => {
 
   let adjustmentApplied = false;
   let currentEmail = null;
-
-  req.session.privacyCache.set("userExist", res.viewData.customer.customerNo)
-
   /*
     Find price adjustmetn.
     If the browser refreshes, it looks to see if an adjustment already exists.
@@ -46,7 +43,9 @@ server.append("Begin", (req, res, next) => {
           productIds.push(pli.productID);
       });
       var productType = ProductMgr.getProduct(productIds[0]).custom.tipoproducto;
+      var hasCustomText = ProductMgr.getProduct(productIds[0]).custom.permiteleyenda;
       viewData.productType = productType;
+      viewData.customText = hasCustomText;
     }
 
     if (currentBasket.customer.profile) {
