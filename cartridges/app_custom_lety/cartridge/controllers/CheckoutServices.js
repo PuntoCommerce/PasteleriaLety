@@ -179,42 +179,23 @@ server.replace(
       if (order.defaultShipment.shippingMethodID == "pickup") {
         status = HO.sendPickupOrderToERP(order.orderNo);
       } else {
-        const userExist = req.session.privacyCache.get("userExist");
-        status = HO.sendShippingOrderToERP(order.orderNo, req, userExist);
+        status = HO.sendShippingOrderToERP(order.orderNo);
       }
-
     } catch (error) {
-
       status.error = true;
       status.message = JSON.stringify(error);
 
       Transaction.wrap(function () {
         order.custom.isError = true;
-        OrderMgr.failOrder(order, true);
+        order.custom.orderDetailJson = null
       });
-
-      res.json({
-        error: true,
-        errorMessage: Resource.msg("error.order.try.again", "checkout", null),
-      });
-      return next();
     }
 
     if (status.error) {
       Transaction.wrap(() => {
         order.custom.isError = true;
         order.custom.errorDetail = status.message;
-      })
-    } else {
-      Transaction.wrap(() => {
-        order.custom.orderDetailJson = JSON.stringify(status.payload)
-      })
-    }
-
-    if(!order.custom.orderDetailJson){
-      Transaction.wrap(() => {
-        order.custom.isError = true;
-        OrderMgr.failOrder(order, true);
+        order.custom.orderDetailJson = null
       })
 
       res.json({
@@ -222,6 +203,12 @@ server.replace(
         errorMessage: Resource.msg("error.order.try.again", "checkout", null),
       });
       return next();
+
+    } else {
+      Transaction.wrap(() => {
+        order.custom.orderDetailJson = JSON.stringify(status.payload)
+        order.custom.clientID = status.clientID;
+      })
     }
 
     // Handles payment authorization

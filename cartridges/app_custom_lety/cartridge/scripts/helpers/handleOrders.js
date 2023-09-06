@@ -128,33 +128,13 @@ const handleLogOrderError = (type, payload) => {
   logger.error("Type: {0} payload: {1}", type, bodyXML);
 };
 
-const sendShippingOrderToERP = (orderId, req, userExist) => {
+const sendShippingOrderToERP = (orderId) => {
   let status = {};
   let order = OrderMgr.getOrder(orderId);
   let paymentInstruments = order.getPaymentInstruments();
   let pi = paymentInstruments[0];
-  var customer = false;
-  var idUserEvo = 90000;
-
-  let stringValue = userExist;
-
-  stringValue = stringValue.trim();
-
-  if (stringValue === 'undefined') {
-    stringValue = undefined;
-  }
-
-  var isUser = stringValue ? true : false;
-  if (stringValue) {
-    customer = CustomerMgr.getProfile(userExist);
-
-    if (customer && customer.custom && customer.custom.folPerson) {
-      idUserEvo = customer.custom.folPerson ? customer.custom.folPerson : 90000;
-    } else {
-      idUserEvo = session.custom.iIdFolioPersona ? JSON.parse(session.custom.iIdFolioPersona) : 90000;
-    }
-    
-  }
+  
+  var clientID = order.custom.clientID;
 
   let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(
     "hoursDifferenceFromGMT"
@@ -172,7 +152,7 @@ const sendShippingOrderToERP = (orderId, req, userExist) => {
     iIdCentroAlta: 0,
     iIdServDom: 0,
     iIdCentroAfecta: order.custom.storeId,
-    iIdFolioPersona: isUser && idUserEvo ? idUserEvo : 90000,
+    iIdFolioPersona: clientID,
     iIdFolioDireccion: order.custom.folioDireccion,
     dtFechaAlta: today.toISOString(),
     dtFechaEntrega: parseDeliveryDateTime(order.custom.deliveryDateTime),
@@ -197,16 +177,17 @@ const sendShippingOrderToERP = (orderId, req, userExist) => {
     if (response.iCode === '1' || response.firstICode == 1) {
       handleLetyPuntosAfterInsert(letyPuntos, orderId);
       status.payload = payload
+      status.clientID = clientID;
     } else {
       status.message = response.firstMessage + " | " + response.secondMessage;
       status.error = true;
-      status.payload = payload
+      status.payload = null
     }
   } else {
     handleLogOrderError("RegistraServDom", payload);
     status.message = response.errorMessage;
     status.error = true;
-    status.payload = payload;
+    status.payload = null;
   }
   return status;
 };
@@ -254,12 +235,12 @@ const sendPickupOrderToERP = (orderId) => {
     } else {
       status.message = response.sMensaje;
       status.error = true;
-      status.payload = payload
+      status.payload = null
     }
   } else {
     status.message = response.errorMessage;
     status.error = true;
-    status.payload = payload
+    status.payload = null
   }
   if (status.error) {
     handleLogOrderError("InsertaDatosVentaWeb", payload);
