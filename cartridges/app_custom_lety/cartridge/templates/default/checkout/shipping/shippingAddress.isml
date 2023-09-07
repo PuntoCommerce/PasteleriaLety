@@ -193,10 +193,11 @@
             <label class="form-control-label" for="shippingAddressCity${lineItem ? lineItem.UUID : 'default'}">
                 ${Resource.msg('field.shipping.address.city', 'address', null)}<span>${Resource.msg('field.shipping.address.required', 'address', null)}</span>
             </label>
-            <select class="form-control shippingAddressCity custom-select" data-url="${URLUtils.url("
-                                                                                         CheckoutShippingServices - GoogelMapAddress ")}"
-                id="shippingAddressCity${lineItem ? lineItem.UUID : 'default'}" <isprint
-                value=${addressFields.city.attributes} encoding="off" />
+            <select  class="form-control shippingAddressCity custom-select" 
+            data-url="${URLUtils.url('CheckoutShippingServices-GoogelMapAddress')}"
+                id="shippingAddressCity${lineItem ? lineItem.UUID : 'default'}"  <isprint
+                value=${addressFields.city.attributes} 
+                 encoding="off" />
             autocomplete="shipping address-level2"
             aria-describedby="${lineItem ? lineItem.UUID : 'default'}City">
             <option label=" "></option>

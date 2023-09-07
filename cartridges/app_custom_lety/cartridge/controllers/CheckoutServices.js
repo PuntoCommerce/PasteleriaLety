@@ -172,45 +172,6 @@ server.replace(
       return next();
     }
 
-    // Insert Information on evolution
-
-    var status = {};
-    try {
-      if (order.defaultShipment.shippingMethodID == "pickup") {
-        status = HO.sendPickupOrderToERP(order.orderNo);
-      } else {
-        status = HO.sendShippingOrderToERP(order.orderNo);
-      }
-    } catch (error) {
-      status.error = true;
-      status.message = JSON.stringify(error);
-
-      Transaction.wrap(function () {
-        order.custom.isError = true;
-        order.custom.orderDetailJson = null
-      });
-    }
-
-    if (status.error) {
-      Transaction.wrap(() => {
-        order.custom.isError = true;
-        order.custom.errorDetail = status.message;
-        order.custom.orderDetailJson = null
-      })
-
-      res.json({
-        error: true,
-        errorMessage: Resource.msg("error.order.try.again", "checkout", null),
-      });
-      return next();
-
-    } else {
-      Transaction.wrap(() => {
-        order.custom.orderDetailJson = JSON.stringify(status.payload)
-        order.custom.clientID = status.clientID;
-      })
-    }
-
     // Handles payment authorization
     var handlePaymentResult = COHelpers.handlePayments(order, order.orderNo);
 
@@ -239,7 +200,7 @@ server.replace(
     if (handlePaymentResult.error) {
       res.json({
         error: true,
-        errorMessage: Resource.msg("error.technical", "checkout", null),
+        errorMessage: Resource.msg("error.payment", "checkout", null),
       });
       return next();
     }
@@ -266,10 +227,51 @@ server.replace(
           "err",
           fraudDetectionStatus.errorCode
         ).toString(),
-        errorMessage: Resource.msg("error.technical", "checkout", null),
+        errorMessage: Resource.msg("error.payment", "checkout", null),
       });
 
       return next();
+    }
+
+    // Insert Information on evolution
+
+    var status = {};
+    try {
+      if (order.defaultShipment.shippingMethodID == "pickup") {
+        status = HO.sendPickupOrderToERP(order.orderNo);
+      } else {
+        status = HO.sendShippingOrderToERP(order.orderNo);
+      }
+    } catch (error) {
+      status.error = true;
+      status.message = JSON.stringify(error);
+
+      Transaction.wrap(function () {
+        order.custom.isError = true;
+        order.custom.orderDetailJson = null
+      });
+    }
+
+    if (status.error) {
+      Transaction.wrap(() => {
+        order.custom.isError = false;
+        order.custom.errorDetail = status.message;
+        order.custom.orderDetailJson = null
+
+        OrderMgr.failOrder(order, true);
+      })
+
+      res.json({
+        error: true,
+        errorMessage: Resource.msg("error.order.try.again", "checkout", null),
+      });
+      return next();
+
+    } else {
+      Transaction.wrap(() => {
+        order.custom.orderDetailJson = JSON.stringify(status.payload)
+        order.custom.clientID = status.clientID;
+      })
     }
 
     // Places the order
