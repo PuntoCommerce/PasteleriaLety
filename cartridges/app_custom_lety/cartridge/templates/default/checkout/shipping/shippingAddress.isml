@@ -277,12 +277,13 @@
     </div>
 </div>
 
-<iscomment> <isif condition="${pdict.customText}">
+<isif condition="${pdict.customText}">
     <div class="row justify-content-start">
         <div class="col-lg-9 p-0">
             <div class="form-group ${specialOrder.specialText.mandatory === true ? 'required' : ''}
             ${specialOrder.specialText.htmlName}">
-                <label for="customSpecialText"></label>
+                <label class="form-control-label" for="customSpecialText">${specialOrder.specialText.label}</label>
+
                 <textarea class="form-control customSpecialText" id="customSpecialText" rows="4"
                 <isprint value="${specialOrder.specialText.attributes}" encoding="off" />></textarea>
             </div>
@@ -290,4 +291,4 @@
     </div>
 <iselse/>
 
-</isif> </iscomment>
+</isif>
