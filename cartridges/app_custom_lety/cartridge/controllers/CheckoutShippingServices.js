@@ -164,6 +164,24 @@ server.append("SubmitShipping", (req, res, next) => {
   let a;
   let store;
 
+  var clientID = 90000;
+
+  if (req.currentCustomer.profile) {
+    var clientEmail = shipping.customPickUp.email.value;
+    var getClientID = ApiLety("GetFolioPersona", {
+      Empresa: 1,
+      params: {
+        email: clientEmail
+      }
+    })
+
+    var iCode = Number(getClientID.iCode)
+
+    if (iCode === 1) {
+      clientID = Number(getClientID.iIdFolioPersona)
+    }
+  }
+
   if (viewData.shippingMethod != "pickup" && viewData.address) {
 
     if (!isAbleToSD(currentBasket.productLineItems)) {
@@ -237,25 +255,6 @@ server.append("SubmitShipping", (req, res, next) => {
     req.session.privacyCache.set("customerLastName", viewData.address.lastName)
 
     splitedAddress = CAHelpers.splitAddress(viewData.address);
-
-    var clientID = 90000;
-
-    if (req.currentCustomer.profile) {
-      var clientEmail = shipping.customPickUp.email.value;
-      var getClientID = ApiLety("GetFolioPersona", {
-        Empresa: 1,
-        params: {
-          email: clientEmail
-        }
-      })
-
-      var iCode = Number(getClientID.iCode)
-
-      if(iCode === 1){
-        clientID = Number(getClientID.iIdFolioPersona)
-      }
-    }
-
 
     body = {
       IdEmpresa: store.custom.empresaId,
