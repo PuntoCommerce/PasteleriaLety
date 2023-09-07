@@ -165,30 +165,36 @@
                     </div>
                 </isif>
 
-                <iscomment> Quitar el d-none cuando este habilitado el checkout </iscomment>
 
-                <div class="no purchases available ${ !isPurchasesEnable ? '' : 'd-none' }">
-                    <span class="message">${Resource.msg("msg.no.purchases.available", "checkout", null)}</span>
-                </div>
+                <isif condition="${pdict.productCategory === 'pedido especial' && pdict.user === null}">
+                    <iscomment> Show message to the special order with unregistered users </iscomment>
+                    <span class="message">${Resource.msg("special.order.registered.user", "checkout", null)}</span>
 
-                <div class="actions ${ !isPurchasesEnable ? 'd-none' : '' }">
-                    <div class="prices-add-to-cart-actions mb-2">
-                        <!-- Cart and Checkout -->
-                        <isscript>
-                            var assets = require('*/cartridge/scripts/assets.js');
-                            assets.addJs('/js/pdpBuyNow.js');
-                        </isscript>
-                        <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/buyNowProduct', 'addToCartUrl', pdict.addToCartUrl, "readyToOrder", product.readyToOrder, "available", product.available)}" />
-                        
-                        <iscomment> <isinclude template="product/components/buyNowProduct" /> </iscomment>
+                <iselseif condition="${isPurchasesEnable}" />
+                    <iscomment> Show buttons if we have an stock </iscomment>
+                    <div class="actions">
+                        <div class="prices-add-to-cart-actions mb-2">
+                            <!-- Cart and Checkout -->
+                            <isscript>
+                                var assets = require('*/cartridge/scripts/assets.js');
+                                assets.addJs('/js/pdpBuyNow.js');
+                            </isscript>
+                            <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/buyNowProduct', 'addToCartUrl', pdict.addToCartUrl, "readyToOrder", product.readyToOrder, "available", product.available)}" />
+                        </div>
+
+                        <iscomment> Show un-available message if the product don't has stock </iscomment>
+                        <div class="prices-add-to-cart-actions">
+                            <!-- Cart and [Optionally] Apple Pay -->
+                            <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/addToCartProduct', 'addToCartUrl', pdict.addToCartUrl, "readyToOrder", product.readyToOrder, "available", product.available)}" />
+                        </div>
                     </div>
-                    <iscomment> Quitar el d-none cuando este habilitado el checkout </iscomment>
-                    <div class="prices-add-to-cart-actions">
-                        <!-- Cart and [Optionally] Apple Pay -->
-                        <isinclude url="${URLUtils.url('Product-HasInventoryOn', 'pid', pdict.product.id, 'rurl', 'product/components/addToCartProduct', 'addToCartUrl', pdict.addToCartUrl, "readyToOrder", product.readyToOrder, "available", product.available)}" />
-                        <iscomment> <isinclude template="product/components/addToCartProduct" /> </iscomment>
+
+                <iselse/>
+                    <div class="no purchases available">
+                        <span class="message">${Resource.msg("msg.no.purchases.available", "checkout", null)}</span>
                     </div>
-                </div>
+                </isif>
+
                 <div class="row row-desc row-rating-mobile mt-3">
                     <div class="col-12 row-rating">
                         <div class="row justify-content-center row-rating-2">
@@ -221,77 +227,3 @@
     </div>
 </section>
 </isobject>
-
-
-  <!--Product type condition-->
-                <iscomment> <isif condition="${product.price.type === 'range'}">
-                    <div>
-                        <span style="color: #D7612B;">${Resource.msg('msg.time', 'pdp', null)}</span>
-                    </div>
-                    <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
-                    
-                        <div class="row" data-attr="${attr.id}">
-                       
-                            <isif condition="${attr.id === "tamano"}">
-                             <div class="col-8">
-                                <isinclude template="product/components/variationAttribute" />
-                            </div>
-
-                            <isif condition="${attributeStatus.last && !isBundle}">
-                                <!-- Quantity Drop Down Menu -->
-                                <div class="attribute quantity col-4">
-                                    <isinclude template="product/components/quantity" />
-                                </div>
-                            </isif>
-                               <iscomment>  <div class="col-12">
-                                    <isinclude template="product/components/variationAttribute" />
-                                </div> 
-                            <iselse/>
-
-                                ${JSON.stringify(attr.id)}
-                                <isif condition="${attr.id === "diseno"}">
-                                    <div class="col-8">
-                                        <isinclude template="product/components/variationAttribute" />
-                                        
-                                    </div>
-                                    <!-- Quantity Drop Down Menu -->
-                                    <div class="attribute quantity col-4" style="text-align:right;">
-                                        <isinclude template="product/components/quantity" />
-                                    </div>
-                                <iselse/>
-                                    <div class="col-12">
-                                        <isinclude template="product/components/variationAttribute" />
-                                    </div>
-                                </isif>
-                            </isif>
-                            
-                            
-                        </div>
-                    </isloop>
-                <iselse/>
-                    <!--Product with variations selector-->
-                    <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
-                        <div class="row" data-attr="${attr.id}">
-                            <div class="col-8">
-                                <isinclude template="product/components/variationAttribute" />
-                            </div>
-
-                            <isif condition="${attributeStatus.last && !isBundle}">
-                                <!-- Quantity Drop Down Menu -->
-                                <div class="attribute quantity col-4">
-                                    <isinclude template="product/components/quantity" />
-                                </div>
-                            </isif>
-                        </div>
-                    </isloop>
-                    <!--Product no variations selector-->
-                    <isif condition="${!product.variationAttributes}">
-                        <div class="row quantity-mobile-conent">
-                            <div class="col-12">
-                                <div class="simple-quantity">
-                                    <isinclude template="product/components/quantity" />
-                                </div>
-                            </div>
-                        </div>
-                    </isif>
-                </isif> </iscomment>
