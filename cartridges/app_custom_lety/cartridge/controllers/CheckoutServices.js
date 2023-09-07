@@ -236,10 +236,14 @@ server.replace(
     // Insert Information on evolution
 
     var status = {};
+    var especial = currentBasket.productLineItems[0].product.custom.tipoproducto;
     try {
-      if (order.defaultShipment.shippingMethodID == "pickup") {
+      if (order.defaultShipment.shippingMethodID == "pickup" && especial !== 'pedido especial') {
         status = HO.sendPickupOrderToERP(order.orderNo);
-      } else {
+      } else if (order.defaultShipment.shippingMethodID == "pickup" && especial === 'pedido especial') {
+        status = HO.sendEspecialOrderToERP(order.orderNo);
+      }
+      else {
         status = HO.sendShippingOrderToERP(order.orderNo);
       }
     } catch (error) {

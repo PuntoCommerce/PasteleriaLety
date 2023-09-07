@@ -378,6 +378,12 @@ function responseEndPoint(xml, path) {
 
     return { iCode: Co.toString(), sMensaje: sM.toString() };
   }
+  if (path === "RegistraPedidoEspecial") {
+    let Co = XMLList(xml).descendants("iCode");
+    let sM = XMLList(xml).descendants("sMensaje");
+
+    return { iCode: Co.toString(), sMensaje: sM.toString() };
+  }
 }
 
 module.exports = {
