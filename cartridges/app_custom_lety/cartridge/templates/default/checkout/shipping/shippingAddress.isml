@@ -197,7 +197,7 @@
                     <isprint value="${addressFields.city.attributes}" encoding="off" />
                 autocomplete="shipping address-level2"> </iscomment>
             <select  class="form-control shippingAddressCity custom-select" 
-            data-url="${URLUtils.url("CheckoutShippingServices-GoogelMapAddress")}"
+            data-url="${URLUtils.url('CheckoutShippingServices-GoogelMapAddress')}"
                 id="shippingAddressCity${lineItem ? lineItem.UUID : 'default'}"  <isprint
                 value=${addressFields.city.attributes} 
                  encoding="off" />
