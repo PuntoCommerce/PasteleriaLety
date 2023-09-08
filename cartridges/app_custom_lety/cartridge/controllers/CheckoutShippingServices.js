@@ -42,17 +42,11 @@ server.append("SubmitShipping", (req, res, next) => {
 
 
     if (existencia.error) {
-      let message = existencia.errors.join("");
-      let viewData = res.getViewData();
-      viewData.error = true;
-      viewData = {
+      res.setStatusCode(500);
+      res.json({
         error: true,
-        cartError: true,
-        fieldErrors: [],
-        serverErrors: [],
-        redirectUrl: URLUtils.url("Cart-Show", "error", message).toString(),
-      };
-      res.setViewData(viewData);
+        errorMessage: existencia.errors.join(", ")
+      });
       return next();
     }
   }
@@ -145,14 +139,12 @@ server.append("SubmitShipping", (req, res, next) => {
     selectedStoreId
   );
   if (existencia.error) {
-    let message = existencia.errors.join("");
+    res.setStatusCode(500);
     res.json({
       error: true,
-      cartError: true,
-      fieldErrors: [],
-      serverErrors: [],
-      redirectUrl: URLUtils.url("Cart-Show", "error", message).toString(),
+      errorMessage: existencia.errors.join(", ")
     });
+    
     return next();
   }
 
