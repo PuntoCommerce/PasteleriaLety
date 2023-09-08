@@ -167,6 +167,12 @@
 
             </div>
         </div>
+
+        <div class="chatWP">
+            <a href="https://wa.me/+5218119083563?text=¡Hola!" target="_blank"> 
+                <img src="${URLUtils.staticURL('/images/chat-alt.png')}" />
+             </a>
+    </div>
     </div>
     <iscomment>
         <hr class="hidden-xs-down" />

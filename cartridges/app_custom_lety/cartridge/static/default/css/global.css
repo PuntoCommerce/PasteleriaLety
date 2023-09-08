@@ -21830,3 +21830,18 @@ a .moreless .less {
 .refinements__card .card-body {
   padding: 0 1rem;
 }
+
+.chatWP{
+  position: fixed;
+  bottom: 2%;
+  right: 5%;
+  background: #D7612B;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.chatWP img{
+  display: flex;
+  margin: 8px auto;
+}
