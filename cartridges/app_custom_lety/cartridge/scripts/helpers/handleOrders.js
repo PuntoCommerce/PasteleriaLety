@@ -240,7 +240,7 @@ const sendPickupOrderToERP = (orderId) => {
     iIdMembresia: letyPuntos.card,
     sReferencia: order.UUID,
     dMontoLetyPesos: letyPuntos.amount,
-    items: handleItemsPickup(order.productLineItems),
+    items: handleItemsSpecial(order.productLineItems),
   };
 
   const response = ApiLety("InsertaDatosVentaWeb", payload);
