@@ -55,7 +55,7 @@ server.replace(
     if (checkInventory.error) {
       res.json({
         error: true,
-        errorMessage: checkInventory.errors.join(", "),
+        errorMessage: checkInventory.errors.join(", ")
       });
 
       return next();
