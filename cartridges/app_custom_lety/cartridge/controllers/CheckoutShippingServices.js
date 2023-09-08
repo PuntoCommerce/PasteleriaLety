@@ -42,17 +42,11 @@ server.append("SubmitShipping", (req, res, next) => {
 
 
     if (existencia.error) {
-      let message = existencia.errors.join("");
-      let viewData = res.getViewData();
-      viewData.error = true;
-      viewData = {
+      res.setStatusCode(500);
+      res.json({
         error: true,
-        cartError: true,
-        fieldErrors: [],
-        serverErrors: [],
-        redirectUrl: URLUtils.url("Cart-Show", "error", message).toString(),
-      };
-      res.setViewData(viewData);
+        errorMessage: existencia.errors.join(", ")
+      });
       return next();
     }
   }
@@ -145,14 +139,12 @@ server.append("SubmitShipping", (req, res, next) => {
     selectedStoreId
   );
   if (existencia.error) {
-    let message = existencia.errors.join("");
+    res.setStatusCode(500);
     res.json({
       error: true,
-      cartError: true,
-      fieldErrors: [],
-      serverErrors: [],
-      redirectUrl: URLUtils.url("Cart-Show", "error", message).toString(),
+      errorMessage: existencia.errors.join(", ")
     });
+    
     return next();
   }
 
@@ -163,6 +155,24 @@ server.append("SubmitShipping", (req, res, next) => {
   let body;
   let a;
   let store;
+
+  var clientID = 90000;
+
+  if (req.currentCustomer.profile) {
+    var clientEmail = shipping.customPickUp.email.value;
+    var getClientID = ApiLety("GetFolioPersona", {
+      Empresa: 1,
+      params: {
+        email: clientEmail
+      }
+    })
+
+    var iCode = Number(getClientID.iCode)
+
+    if (iCode === 1) {
+      clientID = Number(getClientID.iIdFolioPersona)
+    }
+  }
 
   if (viewData.shippingMethod != "pickup" && viewData.address) {
 
@@ -237,25 +247,6 @@ server.append("SubmitShipping", (req, res, next) => {
     req.session.privacyCache.set("customerLastName", viewData.address.lastName)
 
     splitedAddress = CAHelpers.splitAddress(viewData.address);
-
-    var clientID = 90000;
-
-    if (req.currentCustomer.profile) {
-      var clientEmail = shipping.customPickUp.email.value;
-      var getClientID = ApiLety("GetFolioPersona", {
-        Empresa: 1,
-        params: {
-          email: clientEmail
-        }
-      })
-
-      var iCode = Number(getClientID.iCode)
-
-      if(iCode === 1){
-        clientID = Number(getClientID.iIdFolioPersona)
-      }
-    }
-
 
     body = {
       IdEmpresa: store.custom.empresaId,
