@@ -270,6 +270,7 @@ const sendEspecialOrderToERP = (orderId) => {
   let status = {};
   let order = OrderMgr.getOrder(orderId);
   let clientID = order.custom.clientID;
+  let sTexto = order.custom.specialText;
   let paymentInstruments = order.getPaymentInstruments();
   let pi = paymentInstruments[0];
   let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(
@@ -301,6 +302,7 @@ const sendEspecialOrderToERP = (orderId) => {
     sReferencia: order.UUID,
     dMontoLetyPesos: letyPuntos.amount,
     items: handleItemsPickup(order.productLineItems),
+    sTexto: sTexto,
   };
 
   const response = ApiLety("RegistraPedidoEspecial", payload);

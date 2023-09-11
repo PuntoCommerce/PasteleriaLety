@@ -446,6 +446,7 @@ const handleItemsServDom = (items, folio) => {
 const handleItemsSpecial = (items, folio, clientID, data) => {
   let itemsString = '';
   let item;
+  var sTexto = data.sTexto || ''
 
   for (let i = 0; i < items.length; i++) {
     item = items[i];
@@ -455,7 +456,7 @@ const handleItemsSpecial = (items, folio, clientID, data) => {
       '<dtFechaEntrega>' + data.dtFechaAsignacion + '</dtFechaEntrega>' +
       '<iIdCentroEntrega>' + data.iIdCentro + '</iIdCentroEntrega>' +
       '<dMonto>' + data.bdMonto + '</dMonto>' +
-      '<sTexto>' + '' + '</sTexto>' +
+      '<sTexto>' + sTexto + '</sTexto>' +
       '<sReferenciaPago>' + '' + '</sReferenciaPago>' +
       '</cPedidoEspecial>';
   }
