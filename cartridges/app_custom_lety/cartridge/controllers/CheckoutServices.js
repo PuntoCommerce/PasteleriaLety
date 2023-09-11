@@ -198,6 +198,10 @@ server.replace(
     }
 
     if (handlePaymentResult.error) {
+      Transaction.wrap(function () {
+        order.custom.errorDetail = Resource.msg("error.payment", "checkout", null);
+      });
+
       res.json({
         error: true,
         errorMessage: Resource.msg("error.payment", "checkout", null),
@@ -213,6 +217,7 @@ server.replace(
     );
     if (fraudDetectionStatus.status === "fail") {
       Transaction.wrap(function () {
+        order.custom.errorDetail = Resource.msg("error.payment", "checkout", null);
         OrderMgr.failOrder(order, true);
       });
 
