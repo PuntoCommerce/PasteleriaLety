@@ -1736,10 +1736,6 @@ textarea {
     padding-top: 1rem;
   }
 
-  .product-detail .promotions{
-    display: none !important;
-  }
-
   .promotions-mobile {
     display: flex;
     justify-content: center;
@@ -18155,6 +18151,10 @@ a.skip:hover {
 @media (max-width: 992px) {
   .navbar-header .minicart {
     padding-top: 0.5em;
+  }
+
+  .promotions-desk{
+    display: none !important;
   }
 }
 
