@@ -409,6 +409,7 @@ function body(data, credential, path) {
       '<vUsr>' + credential.user + '</vUsr>' +
       '<vPwd>' + credential.password + '</vPwd>' + handleEnviroment() +
       handleItemsSpecial(data.items, data.sFolio, data.clientID, data) +
+      '<FolioExterno>' + data.sFolio + '</FolioExterno>' +
       '</' + path + '>' +
       '</soap:Body></soap:Envelope>';
   }
@@ -457,7 +458,7 @@ const handleItemsSpecial = (items, folio, clientID, data) => {
       '<iIdCentroEntrega>' + data.iIdCentro + '</iIdCentroEntrega>' +
       '<dMonto>' + data.bdMonto + '</dMonto>' +
       '<sTexto>' + sTexto + '</sTexto>' +
-      '<sReferenciaPago>' + '' + '</sReferenciaPago>' +
+      '<sReferenciaPago>' + data.sFolioBanco + '</sReferenciaPago>' +
       '</cPedidoEspecial>';
   }
 

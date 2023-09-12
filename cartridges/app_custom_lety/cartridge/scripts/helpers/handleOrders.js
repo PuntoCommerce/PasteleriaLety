@@ -71,7 +71,7 @@ const handleItemsPickup = (pli) => {
   return items;
 };
 
-const handleItemsSpecial = () => {
+const handleItemsSpecial = (pli) => {
   let iterator = pli.iterator();
   let items = [];
   let item;
@@ -240,7 +240,7 @@ const sendPickupOrderToERP = (orderId) => {
     iIdMembresia: letyPuntos.card,
     sReferencia: order.UUID,
     dMontoLetyPesos: letyPuntos.amount,
-    items: handleItemsSpecial(order.productLineItems),
+    items: handleItemsPickup(order.productLineItems),
   };
 
   const response = ApiLety("InsertaDatosVentaWeb", payload);
@@ -301,7 +301,7 @@ const sendEspecialOrderToERP = (orderId) => {
     iIdMembresia: letyPuntos.card,
     sReferencia: order.UUID,
     dMontoLetyPesos: letyPuntos.amount,
-    items: handleItemsPickup(order.productLineItems),
+    items: handleItemsSpecial(order.productLineItems),
     sTexto: sTexto,
   };
 
