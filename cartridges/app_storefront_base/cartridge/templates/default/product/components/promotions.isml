@@ -2,6 +2,7 @@
 <isif condition="${product.promotions}">
     <isloop items="${product.promotions}" var="promotion" status="promdet">
         <div class="row collapsible-xl">
+
             <div class="col-12">
                 <button class="title callout btn text-left btn-block"
                         aria-expanded="false" aria-controls="collapsible-promotion-details-${promdet.index}">
