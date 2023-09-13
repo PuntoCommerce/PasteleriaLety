@@ -21843,6 +21843,7 @@ a .moreless .less {
   border-bottom-left-radius: 50px;
   text-align: center;
   background:#00CB49;
+  z-index: 1;
 }
 
 .chatWP a {
