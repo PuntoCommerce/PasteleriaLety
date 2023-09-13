@@ -174,10 +174,6 @@
                 <span>Iniciar Whatsapp</span>
              </a>
     </div>
-    </div>
-    <iscomment>
-        <hr class="hidden-xs-down" />
-    </iscomment>
     <div class="copyright-notice">
         <iscontentasset aid="footer-copy" />
     </div>

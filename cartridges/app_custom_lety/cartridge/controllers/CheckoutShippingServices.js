@@ -42,17 +42,11 @@ server.append("SubmitShipping", (req, res, next) => {
 
 
     if (existencia.error) {
-      let message = existencia.errors.join("");
-      let viewData = res.getViewData();
-      viewData.error = true;
-      viewData = {
+      res.setStatusCode(500);
+      res.json({
         error: true,
-        cartError: true,
-        fieldErrors: [],
-        serverErrors: [],
-        redirectUrl: URLUtils.url("Cart-Show", "error", message).toString(),
-      };
-      res.setViewData(viewData);
+        errorMessage: existencia.errors.join(", ")
+      });
       return next();
     }
   }
@@ -77,8 +71,6 @@ server.append("SubmitShipping", (req, res, next) => {
   const [hour, minute, second] = time.split(':')
   const dayOfWeekNumber = new Date(shipping.datetime.date.value).getDay();
   const dayOfWeek = getDayOfWeek[dayOfWeekNumber]
-
-  var customer;
 
   let viewData = res.getViewData();
 
@@ -108,7 +100,7 @@ server.append("SubmitShipping", (req, res, next) => {
 
     res.json({
       form: shipping,
-      fieldErrors: [{dwfrm_shipping_datetime_time: Resource.msg('address.date.missing', 'forms', null)}],
+      fieldErrors: [{ dwfrm_shipping_datetime_time: Resource.msg('address.date.missing', 'forms', null) }],
       serverErrors: [],
       error: true,
     });
@@ -147,14 +139,12 @@ server.append("SubmitShipping", (req, res, next) => {
     selectedStoreId
   );
   if (existencia.error) {
-    let message = existencia.errors.join("");
+    res.setStatusCode(500);
     res.json({
       error: true,
-      cartError: true,
-      fieldErrors: [],
-      serverErrors: [],
-      redirectUrl: URLUtils.url("Cart-Show", "error", message).toString(),
+      errorMessage: existencia.errors.join(", ")
     });
+    
     return next();
   }
 
@@ -165,6 +155,24 @@ server.append("SubmitShipping", (req, res, next) => {
   let body;
   let a;
   let store;
+
+  var clientID = 90000;
+
+  if (req.currentCustomer.profile) {
+    var clientEmail = shipping.customPickUp.email.value;
+    var getClientID = ApiLety("GetFolioPersona", {
+      Empresa: 1,
+      params: {
+        email: clientEmail
+      }
+    })
+
+    var iCode = Number(getClientID.iCode)
+
+    if (iCode === 1) {
+      clientID = Number(getClientID.iIdFolioPersona)
+    }
+  }
 
   if (viewData.shippingMethod != "pickup" && viewData.address) {
 
@@ -242,7 +250,7 @@ server.append("SubmitShipping", (req, res, next) => {
 
     body = {
       IdEmpresa: store.custom.empresaId,
-      iIdFolioPersona: req.currentCustomer.profile && customer.custom.folPerson ? customer.custom.folPerson : 90000,
+      iIdFolioPersona: clientID,
       iIdCentro: selectedStoreId,
       iIdDireccion: 0,
       iIdFolioDireccion: 0,
@@ -314,6 +322,8 @@ server.append("SubmitShipping", (req, res, next) => {
     currentBasket.custom.storeId = selectedStoreId;
     currentBasket.custom.deliveryDateTime =
       shipping.datetime.date.value + " : " + shipping.datetime.time.value;
+    currentBasket.custom.clientID = clientID;
+    currentBasket.custom.specialText = shipping.specialOrder.specialText.value
   });
 
   next();

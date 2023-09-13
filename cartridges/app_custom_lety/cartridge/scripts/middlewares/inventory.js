@@ -6,6 +6,7 @@ const StoreMgr = require("dw/catalog/StoreMgr");
 const SystemObjectMgr = require("dw/object/SystemObjectMgr");
 const Site = require("dw/system/Site");
 var ProductMgr = require('dw/catalog/ProductMgr');
+var Logger = require('dw/system/Logger');
 
 const handleExistenciaCall = (pid, quantity, storeId, empresaId) => {
   let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(
@@ -18,15 +19,7 @@ const handleExistenciaCall = (pid, quantity, storeId, empresaId) => {
   today.setHours(today.getHours() + hoursDifferenceFromGMT);
   today.setMinutes(today.getMinutes() + 1);
 
-  if (productType === 'linea') {
-    existencia = ApiLety("ExistenciaPorCentroFecha", {
-      Empresa: empresaId,
-      iIdMaterial: parseInt(pid),
-      iIdCentro: parseInt(storeId),
-      dtFecha: today.toISOString(),
-      productType: productType
-    });
-  }else{
+  if (productType === 'pedido especial') {
     existencia = ApiLety("ExistenciaPorCentroFechaEsp", {
       Empresa: empresaId,
       iIdMaterial: pid,
@@ -34,23 +27,40 @@ const handleExistenciaCall = (pid, quantity, storeId, empresaId) => {
       dtFecha: today.toISOString(),
       productType: productType
     });
+  } else {
+    existencia = ApiLety("ExistenciaPorCentroFecha", {
+      Empresa: empresaId,
+      iIdMaterial: parseInt(pid),
+      iIdCentro: parseInt(storeId),
+      dtFecha: today.toISOString(),
+      productType: productType
+    });
   }
 
 
-  let error = false;
-  let message = "";
-  let letyQuantity = 0;
+  var error = false;
+  var message = "";
+  var letyQuantity = 0;
+  var err;
 
   if (typeof existencia == "string") {
     try {
-      let json = JSON.parse(existencia);
-      if (
-        json.ExistenciaPorCentroFecha[0].Existencia < quantity ||
-        json.ExistenciaPorCentroFecha[0].error
-      ) {
-        letyQuantity = json.ExistenciaPorCentroFecha[0].error
-          ? 0
-          : Math.ceil(json.ExistenciaPorCentroFecha[0].Existencia);
+      var json = JSON.parse(existencia);
+      var existProduct;
+      var existError;
+
+      if(json.ExistenciaPorCentroFecha){
+        existProduct = json.ExistenciaPorCentroFecha[0].Existencia
+      }else{
+        existProduct = json.ExistenciaPorCentroFechaEsp[0].Existencia
+      }
+
+      var productExist = Number(existProduct);
+
+      if (productExist < quantity) {
+        // letyQuantity = json.ExistenciaPorCentroFecha[0].error || json.ExistenciaPorCentroFechaEsp[0].error
+        //   ? 0
+        //   : Math.ceil(productExist);
         error = true;
         message = Resource.msgf(
           "no.stock.available",
@@ -58,9 +68,12 @@ const handleExistenciaCall = (pid, quantity, storeId, empresaId) => {
           null,
           letyQuantity
         );
+      }else{
+        letyQuantity = productExist;
       }
-    } catch (error) {
+    } catch (err) {
       error = true;
+      err = err;
       message = Resource.msg("response.error", "stockCustom", null);
     }
   } else {
@@ -103,6 +116,14 @@ const checkOnlineInventory = (req, res, next) => {
     storeId,
     store.custom.empresaId
   );
+
+  if(existencia.quantity === 0){
+    existencia.error = true
+  }
+
+  let logger = Logger.getLogger("ERP_Member", "ERP_Member")
+
+  logger.warn("Type: {0} payload {1}", 'INFO', JSON.stringify(existencia));
 
   let viewData = res.getViewData();
   viewData.error = existencia.error;

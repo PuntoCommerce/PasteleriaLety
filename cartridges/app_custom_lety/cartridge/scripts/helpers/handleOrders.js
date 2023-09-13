@@ -71,6 +71,21 @@ const handleItemsPickup = (pli) => {
   return items;
 };
 
+const handleItemsSpecial = (pli) => {
+  let iterator = pli.iterator();
+  let items = [];
+  let item;
+  while (iterator.hasNext()) {
+    item = iterator.next();
+    items.push({
+      iIdMaterial: item.productID,
+      dPrecio: item.proratedPrice.value / item.quantityValue,
+      iCantidad: item.quantityValue,
+    });
+  }
+  return items;
+}
+
 const handleLetyPuntosAfterInsert = (letyPuntos, folio) => {
   if (letyPuntos.hasCard && letyPuntos.hasAmount) {
     let payload = {
@@ -128,27 +143,13 @@ const handleLogOrderError = (type, payload) => {
   logger.error("Type: {0} payload: {1}", type, bodyXML);
 };
 
-const sendShippingOrderToERP = (orderId, req, userExist) => {
+const sendShippingOrderToERP = (orderId) => {
   let status = {};
   let order = OrderMgr.getOrder(orderId);
   let paymentInstruments = order.getPaymentInstruments();
   let pi = paymentInstruments[0];
-  var customer = false;
-  var idUserEvo = 90000;
 
-  let stringValue = userExist;
-
-  stringValue = stringValue.trim();
-
-  if (stringValue === 'undefined') {
-    stringValue = undefined;
-  }
-
-  var isUser = stringValue ? true : false;
-  if (stringValue) {
-    customer = CustomerMgr.getProfile(userExist);
-    idUserEvo = customer && customer.custom && customer.custom.folPerson ? customer.custom.folPerson : 90000;
-  }
+  var clientID = order.custom.clientID;
 
   let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(
     "hoursDifferenceFromGMT"
@@ -166,7 +167,7 @@ const sendShippingOrderToERP = (orderId, req, userExist) => {
     iIdCentroAlta: 0,
     iIdServDom: 0,
     iIdCentroAfecta: order.custom.storeId,
-    iIdFolioPersona: isUser && idUserEvo ? idUserEvo : 90000,
+    iIdFolioPersona: clientID,
     iIdFolioDireccion: order.custom.folioDireccion,
     dtFechaAlta: today.toISOString(),
     dtFechaEntrega: parseDeliveryDateTime(order.custom.deliveryDateTime),
@@ -191,16 +192,17 @@ const sendShippingOrderToERP = (orderId, req, userExist) => {
     if (response.iCode === '1' || response.firstICode == 1) {
       handleLetyPuntosAfterInsert(letyPuntos, orderId);
       status.payload = payload
+      status.clientID = clientID;
     } else {
       status.message = response.firstMessage + " | " + response.secondMessage;
       status.error = true;
-      status.payload = payload
+      status.payload = null
     }
   } else {
     handleLogOrderError("RegistraServDom", payload);
     status.message = response.errorMessage;
     status.error = true;
-    status.payload = payload;
+    status.payload = null;
   }
   return status;
 };
@@ -215,6 +217,8 @@ const sendPickupOrderToERP = (orderId) => {
   );
   let today = new Date();
   today.setHours(today.getHours() + hoursDifferenceFromGMT);
+
+  var clientID = order.custom.clientID;
 
   let letyPuntos = handleLetyPuntos(order);
 
@@ -245,15 +249,16 @@ const sendPickupOrderToERP = (orderId) => {
       handleLetyPuntosAfterInsert(letyPuntos, orderId);
       status.payload = payload
       status.error = false;
+      status.clientID = clientID;
     } else {
       status.message = response.sMensaje;
       status.error = true;
-      status.payload = payload
+      status.payload = null
     }
   } else {
     status.message = response.errorMessage;
     status.error = true;
-    status.payload = payload
+    status.payload = null
   }
   if (status.error) {
     handleLogOrderError("InsertaDatosVentaWeb", payload);
@@ -261,7 +266,70 @@ const sendPickupOrderToERP = (orderId) => {
   return status;
 };
 
+const sendEspecialOrderToERP = (orderId) => {
+  let status = {};
+  let order = OrderMgr.getOrder(orderId);
+  let clientID = order.custom.clientID;
+  let sTexto = order.custom.specialText;
+  let paymentInstruments = order.getPaymentInstruments();
+  let pi = paymentInstruments[0];
+  let hoursDifferenceFromGMT = Site.getCurrent().getCustomPreferenceValue(
+    "hoursDifferenceFromGMT"
+  );
+  let today = new Date();
+  today.setHours(today.getHours() + hoursDifferenceFromGMT);
+
+
+  let letyPuntos = handleLetyPuntos(order);
+
+  let store = StoreMgr.getStore(order.custom.storeId);
+
+  let payload = {
+    Empresa: store.custom.empresaId,
+    sFolio: orderId,
+    clientID: clientID,
+    sFolioBanco: pi.paymentTransaction.transactionID,
+    sFolioTarjeta:
+      pi.creditCardNumberLastDigits || pi.paymentTransaction.transactionID,
+    iIdCentro: order.custom.storeId,
+    dtFechaColocacion: today.toISOString(),
+    dtFechaAsignacion: parseDeliveryDateTime(order.custom.deliveryDateTime),
+    bindImpreso: false,
+    iIdFormaDePago: 3,
+    bdMonto: order.totalNetPrice.value,
+    dMontoExtranjero: 0,
+    iIdMembresia: letyPuntos.card,
+    sReferencia: order.UUID,
+    dMontoLetyPesos: letyPuntos.amount,
+    items: handleItemsSpecial(order.productLineItems),
+    sTexto: sTexto,
+  };
+
+  const response = ApiLety("RegistraPedidoEspecial", payload);
+  if (!response.error) {
+    if (response.iCode === '1' || response.iCode === 1) {
+      handleLetyPuntosAfterInsert(letyPuntos, orderId);
+      status.payload = payload
+      status.error = false;
+      status.clientID = clientID;
+    } else {
+      status.message = response.sMensaje;
+      status.error = true;
+      status.payload = null
+    }
+  } else {
+    status.message = response.errorMessage;
+    status.error = true;
+    status.payload = null
+  }
+  if (status.error) {
+    handleLogOrderError("RegistraPedidoEspecial", payload);
+  }
+  return status;
+}
+
 module.exports = {
   sendPickupOrderToERP: sendPickupOrderToERP,
   sendShippingOrderToERP: sendShippingOrderToERP,
+  sendEspecialOrderToERP: sendEspecialOrderToERP,
 };
