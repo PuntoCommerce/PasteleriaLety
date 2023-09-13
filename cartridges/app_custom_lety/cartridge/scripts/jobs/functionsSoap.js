@@ -471,7 +471,7 @@ const handleItemsPickup = (items, folio) => {
   for (let i = 0; i < items.length; i++) {
     item = items[i];
     itemsString += '<cVentaWebD>' +
-      '<iIdFolioPersona>' + folio + '</iIdFolioPersona>' +
+      '<sFolio>' + folio + '</sFolio>' +
       '<iIdMaterial>' + item.iIdMaterial + '</iIdMaterial>' +
       '<dPrecio>' + item.dPrecio + '</dPrecio>' +
       '<iCantidad>' + item.iCantidad + '</iCantidad>' +

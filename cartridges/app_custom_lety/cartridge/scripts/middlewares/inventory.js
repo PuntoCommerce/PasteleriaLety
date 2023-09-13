@@ -58,9 +58,9 @@ const handleExistenciaCall = (pid, quantity, storeId, empresaId) => {
       var productExist = Number(existProduct);
 
       if (productExist < quantity) {
-        letyQuantity = json.ExistenciaPorCentroFecha[0].error || json.ExistenciaPorCentroFechaEsp[0].error
-          ? 0
-          : Math.ceil(productExist);
+        // letyQuantity = json.ExistenciaPorCentroFecha[0].error || json.ExistenciaPorCentroFechaEsp[0].error
+        //   ? 0
+        //   : Math.ceil(productExist);
         error = true;
         message = Resource.msgf(
           "no.stock.available",
