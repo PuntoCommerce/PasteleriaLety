@@ -85,7 +85,7 @@
     var jq = jQuery.noConflict();
     jq("#calendar").datepicker({
       minDate: 5,
-      dayNamesMin: ['Lun', 'Mar', 'Mier', 'Jue', 'Vie', 'Sab', 'Dom'],
+      dayNamesMin: ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'],
       monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
       showOtherMonths: true,
       beforeShowDay: function (date) {
@@ -125,8 +125,17 @@
 
     dateForm.value = formatedCurrentDate;
     dateForm.min = formatedCurrentDate;
-    dateFormFW.value = formatedCurrentDate;
-    updateStoreDay(currentDate, days);
+
+    if(jq("#calendar")[0]){
+      var dataPickerDate = jq("#calendar").datepicker("getDate");
+      var pickerDate = formatDate(dataPickerDate)
+      dateFormFW.value = pickerDate;
+
+      updateStoreDay(dataPickerDate, days);
+    }else{
+      dateFormFW.value = formatedCurrentDate;
+      updateStoreDay(currentDate, days);
+    }
 
     currentDate.setDate(currentDate.getDate() + daysToOrderAfterCurrentDay);
     dateForm.max = formatDate(currentDate);

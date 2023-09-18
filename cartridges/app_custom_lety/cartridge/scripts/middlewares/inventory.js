@@ -43,43 +43,28 @@ const handleExistenciaCall = (pid, quantity, storeId, empresaId) => {
   var letyQuantity = 0;
   var err;
 
-  if (typeof existencia == "string") {
-    try {
-      var json = JSON.parse(existencia);
-      var existProduct;
-      var existError;
+  try {
+    var productExist = Number(existencia.Existencia);
 
-      if(json.ExistenciaPorCentroFecha){
-        existProduct = json.ExistenciaPorCentroFecha[0].Existencia
-      }else{
-        existProduct = json.ExistenciaPorCentroFechaEsp[0].Existencia
-      }
-
-      var productExist = Number(existProduct);
-
-      if (productExist < quantity) {
-        // letyQuantity = json.ExistenciaPorCentroFecha[0].error || json.ExistenciaPorCentroFechaEsp[0].error
-        //   ? 0
-        //   : Math.ceil(productExist);
-        error = true;
-        message = Resource.msgf(
-          "no.stock.available",
-          "stockCustom",
-          null,
-          letyQuantity
-        );
-      }else{
-        letyQuantity = productExist;
-      }
-    } catch (err) {
+    if (
+      productExist < quantity
+    ) {
       error = true;
-      err = err;
-      message = Resource.msg("response.error", "stockCustom", null);
+      message = Resource.msgf(
+        "no.stock.available",
+        "stockCustom",
+        null,
+        letyQuantity
+      );
+    } else {
+      letyQuantity = productExist;
     }
-  } else {
+  } catch (error) {
     error = true;
+    err = error;
     message = Resource.msg("response.error", "stockCustom", null);
   }
+
   return { error: error, message: message, quantity: letyQuantity };
 };
 
@@ -117,7 +102,7 @@ const checkOnlineInventory = (req, res, next) => {
     store.custom.empresaId
   );
 
-  if(existencia.quantity === 0){
+  if (existencia.quantity === 0) {
     existencia.error = true
   }
 
