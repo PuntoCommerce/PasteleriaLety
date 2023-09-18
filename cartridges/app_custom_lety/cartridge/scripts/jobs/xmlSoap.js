@@ -5,18 +5,8 @@ function responseEndPoint(xml, path) {
     let json = '{"' + path + '":[';
 
     let Existencia = XMLList(xml).descendants("Existencia");
-
-    if (Existencia.length() === 0) {
-      json += '{"error":"Error en la respuesta"},';
-      json = json.slice(0, -1) + ']}';
-    } else {
-      for (let i = 0; i < Existencia.length(); i++) {
-        json += '{"Existencia":"' + Existencia[i] + '"},';
-      }
-      json = json.slice(0, -1) + ']}';
-    }
-
-    return json;
+    
+    return {"Existencia": Number(Existencia)}
   }
   if (path === "CatalogoCiudades") {
     let json = '{"' + path + '":[';
