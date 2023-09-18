@@ -43,16 +43,17 @@
         </div>
         <div class="row mobile-promo-heart">
             <!--Promo mobile-->
-            <div class="col-6 promotions-mobile">
+            <iscomment> <div class="col-6 promotions-mobile">
                 <isinclude template="product/components/pdpHighlight" />
-            </div>
+            </div> </iscomment>
             <!--Wishlist heart mobile-->
+            <div class=" col-6 promotions">
+                <isinclude template="product/components/promotions" />
+            </div>
             <div class="col-6 wishlist-mobile">
                 <isinclude template="wishlist/components/addToWishListButtonHeart" />
             </div>
         </div>
-
-
 
         <!-- Product Images Carousel -->
         <div class="col-12 col-lg-7">
@@ -97,7 +98,7 @@
                         <isset name="price" value="${product.price}" scope="page" />
                         <isinclude template="product/components/pricing/main" />
                     </div>
-                    <div class="promotions ml-3 mt-3">
+                    <div class="promotions ml-3 mt-3 promotions-desk">
                         <isinclude template="product/components/promotions" />
                     </div>
                 </div>
