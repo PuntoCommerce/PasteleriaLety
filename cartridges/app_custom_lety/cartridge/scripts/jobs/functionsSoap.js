@@ -401,6 +401,18 @@ function body(data, credential, path) {
       '</' + path + '>' +
       '</soap:Body></soap:Envelope>';
   }
+  if (path === 'RegistraPedidoEspecial') {
+    return '<?xml version="1.0" encoding="utf-8"?>' +
+      '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">' +
+      '<soap:Body><' + path + ' xmlns="http://localhost/">' +
+      '<IdEmpresa>' + data.Empresa + '</IdEmpresa>' +
+      '<vUsr>' + credential.user + '</vUsr>' +
+      '<vPwd>' + credential.password + '</vPwd>' + handleEnviroment() +
+      handleItemsSpecial(data.items, data.sFolio, data.clientID, data) +
+      '<FolioExterno>' + data.sFolio + '</FolioExterno>' +
+      '</' + path + '>' +
+      '</soap:Body></soap:Envelope>';
+  }
 }
 
 const handleItemsServDom = (items, folio) => {
@@ -430,6 +442,27 @@ const handleItemsServDom = (items, folio) => {
 
   return itemsString
 
+}
+
+const handleItemsSpecial = (items, folio, clientID, data) => {
+  let itemsString = '';
+  let item;
+  var sTexto = data.sTexto || ''
+
+  for (let i = 0; i < items.length; i++) {
+    item = items[i];
+    itemsString += '<cPedidoEspecial>' +
+      '<iIdMaterialEspecial>' + item.iIdMaterial + '</iIdMaterialEspecial>' +
+      '<iIdFolioPersona>' + clientID + '</iIdFolioPersona>' +
+      '<dtFechaEntrega>' + data.dtFechaAsignacion + '</dtFechaEntrega>' +
+      '<iIdCentroEntrega>' + data.iIdCentro + '</iIdCentroEntrega>' +
+      '<dMonto>' + data.bdMonto + '</dMonto>' +
+      '<sTexto>' + sTexto + '</sTexto>' +
+      '<sReferenciaPago>' + data.sFolioBanco + '</sReferenciaPago>' +
+      '</cPedidoEspecial>';
+  }
+
+  return itemsString
 }
 
 const handleItemsPickup = (items, folio) => {
