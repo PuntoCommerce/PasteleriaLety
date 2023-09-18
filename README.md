@@ -78,7 +78,7 @@ npm run build
 If you are having an issue compiling scss files, try running 'npm rebuild node-sass' from within your local repo.
 ## Connector Documentation ##
 
-1. [Endpoints](#endpoints)
+1. [Endpoints](docs/endpoints.md)
 
     1.1 [Function Soap](docs/endpoints.md#function-soap)
     
