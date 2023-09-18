@@ -21832,16 +21832,55 @@ a .moreless .less {
 }
 
 .chatWP{
-  position: fixed;
-  bottom: 2%;
-  right: 5%;
-  background: #D7612B;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
+  width: 141px;
+  height: 64px;
+  position: fixed !important;
+  top: 80%;
+  right: 0;
+  background-color: #8599ab;
+  color: #ffffff;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  text-align: center;
+  background:#00CB49;
+  z-index: 1;
+}
+
+.chatWP a {
+    color: #ffffff;
+    display: inline-flex;
+    width: 130px;
+    font-size: 12px;
+    padding: 3px 5px 5px 10px;
 }
 
 .chatWP img{
   display: flex;
-  margin: 8px auto;
+  margin: 12px auto;
+}
+
+.chatWP span{
+  font-size: 14px;
+  font-family: "gotham-light";
+  text-align: left;
+  margin: 8px 6px;
+}
+
+@media (max-width: 914px) {
+  .chatWP{
+    width: 111px;
+    height: 40px;
+  }
+
+  .chatWP span{
+    font-size: 12px;
+    line-height: initial;
+    margin: 5px 10px;
+  }
+
+  .chatWP img{
+    margin: 8px auto;
+    height: 20px;
+    width: 20px;
+  }
 }
