@@ -78,7 +78,7 @@ npm run build
 If you are having an issue compiling scss files, try running 'npm rebuild node-sass' from within your local repo.
 ## Connector Documentation ##
 
-1. [Endpoints](docs/endpoints.md)
+1. [Endpoints](#endpoints)
 
     1.1 [Function Soap](docs/endpoints.md#function-soap)
     
@@ -95,5 +95,15 @@ If you are having an issue compiling scss files, try running 'npm rebuild node-s
     2.2 [Data Picker](docs/date_time_picker.md#data-picker)
 
     2.3 [Controllers](docs/date_time_picker.md#controllers)
+
+3. [special_orders](docs/special_orders.md)
+
+    2.1 [Cart Controller](docs/special_orders.md#cart-controller)
+
+    2.2 [Inventory](docs/special_orders.md#inventory)
+
+    2.3 [Check Inventory](docs/special_orders.md#check-inventory)
+
+    2.4 [Handle Exist](docs/special_orders.md#handle-exist)
 
 [Back to the top](#Top)
