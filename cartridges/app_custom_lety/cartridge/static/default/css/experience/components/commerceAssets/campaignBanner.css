@@ -9,8 +9,8 @@
   overflow-y: hidden;
 }
 .campaign-banner .campaign-banner-message {
-  margin-left: 2em;
-  margin-right: 1em;
+  /* margin-left: 2em;
+  margin-right: 1em; */
   padding-top: 0.6em !important;
   padding-bottom: 1em;
   font-family: var(--font-family-gotham);
@@ -37,6 +37,11 @@
 .campaign-banner .campaign-banner-message p {
   margin-bottom: 0;
 }
+
+.campaign-banner .campaign-banner-message p strong {
+  font-family: var(--font-family-gotham-bold);
+}
+
 .campaign-banner .close-button {
   
   margin-right: 1em;
