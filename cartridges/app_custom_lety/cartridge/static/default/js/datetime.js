@@ -22,29 +22,29 @@
     const fragment = document.createDocumentFragment();
     const currentState = $(".shippingState").val();
     if (currentState) {
-        statesOptions.value = currentState;
-        const cities = parseInfo[currentState] || [];
-        citiesOptions.innerHTML = "";
+      statesOptions.value = currentState;
+      const cities = parseInfo[currentState] || [];
+      citiesOptions.innerHTML = "";
 
-        $(document).ready(function () {
-          const citiesOptions = $(".shippingAddressCity");
-          if (cities.length === 0) {
-            const option = $("<option>", {
-              text: "No hay sucursales para este estado",
-              selected: true,
-            });
-            citiesOptions.append(option);
-          }
-        });
+      $(document).ready(function () {
+        const citiesOptions = $(".shippingAddressCity");
+        if (cities.length === 0) {
+          const option = $("<option>", {
+            text: "No hay sucursales para este estado",
+            selected: true,
+          });
+          citiesOptions.append(option);
+        }
+      });
 
-        cities.forEach((city) => {
-          const option = document.createElement("option");
-          option.value = city;
-          option.innerText = city;
-          fragment.appendChild(option);
-        });
+      cities.forEach((city) => {
+        const option = document.createElement("option");
+        option.value = city;
+        option.innerText = city;
+        fragment.appendChild(option);
+      });
 
-        citiesOptions.append(fragment);
+      citiesOptions.append(fragment);
     }
 
     const currentCity = $(".shippingAddressCity").val();
@@ -85,13 +85,14 @@
     var jq = jQuery.noConflict();
     jq("#calendar").datepicker({
       minDate: 5,
-      dayNamesMin:['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat','Sun'],
+      dayNamesMin: ['Lun', 'Mar', 'Mier', 'Jue', 'Vie', 'Sab', 'Dom'],
+      monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
       showOtherMonths: true,
       beforeShowDay: function (date) {
         var currentDate = new Date();
         var futureDate = new Date();
         futureDate.setMonth(currentDate.getMonth() + 5);
-    
+
         // Disable dates beyond 5 months from today
         if (date > futureDate) {
           return [false, "ui-state-disabled", "Unavailable"];
@@ -105,6 +106,8 @@
         let formattedDate = formatDate(selectedDate);
         let dateFormFW = QS(".form-control.shippingDate");
         dateFormFW.value = formattedDate;
+        let { days } = handleStoreHours();
+        updateStoreDay(selectedDate, days)
       },
     });
 
@@ -132,11 +135,11 @@
     var minDate = dateForm.getAttribute('min').split('-');
     var maxDate = dateForm.getAttribute('max').split('-');
     var totalDys = (maxDate[2] - minDate[2]) + 1;
-    
+
     if (productType !== "pedido especial") {
       updateButtonsDate(totalDys, dateForm.min, dateForm.max)
     }
-    
+
     shippingMethods.forEach((sm) =>
       sm.addEventListener("change", (e) => {
         e.preventDefault();
