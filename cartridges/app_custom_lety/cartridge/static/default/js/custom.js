@@ -334,14 +334,12 @@ window.onload=function(){
 function hideBlockSession() {
   const blockSession = document.querySelector(".blockSession");
 
-  console.log(blockSession);
   blockSession.style.display = 'none';
 }
 
 function hideBlockSessionMob() {
   const blockSessionMob = document.querySelector(".blockSessionMob");
 
-  console.log(blockSessionMob);
   blockSessionMob.style.display = 'none';
 }
 
