@@ -123,6 +123,10 @@
   height: 37px;
 }
 
+.buttonSession:hover{
+  background-color: #D7612B;
+}
+
 .buttonSession > button{
   background: none;
   border: none;
