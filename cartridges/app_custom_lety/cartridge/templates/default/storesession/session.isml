@@ -25,24 +25,40 @@
   </div>
 
   <isif condition="${!pdict.store}">
+
+    <div class="row">
+      <div class="row p-3">
+        <div class="col-12 d-flex align-items-center">
+          <button action-url="${URLUtils.url("StoreSession-CleanStore")}" id="cleanStore" class="cleanStore" type="button">
+            <img src="${URLUtils.staticURL('/images/location-marker.png')}" alt="close-modal" />
+            <div>
+              <p class="storeSession_cp">Ingresa tu</p>
+              <p class="storeSession_cp">Código Postal</p>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+
     <div class="blockSession">
-      <div class="popup-modal-session" >
-          <div class="d-flex justify-content-center flex-column content-session-modal">
-          <p class="act_location_msg">${Resource.msg('heading.location.message','storeLocator',null)}</p>
-          <p class="txtSession">Ingrese Dirección</p>
+      <div class="popup-modal-session" id="popup-session-desk">
+          <div class="modal-header">
+            <h5 class="modal-title">Elige tu ubicación</h5>
+            <button onclick="hideBlockSession()" type="button" class="modal-btn-close" id="closeModal" data-dismiss="modal" aria-label="Close">
+              <img src="${URLUtils.staticURL('/images/close-icon.png')}" alt="close-modal" />
+            </button>
+          </div>
+          <div class="content-session-modal">
+            <p class="txtSession">Ingresa el código postal o</p>
+            <button class="txtSession2" type="button" id="session_search-location">utiliza tu ubicación.</button>
 
-          <div id="div_session_search-modal">
-              <input type="text" class="single-input" placeholder="Ingresar direccion" id="session_search-modal" name="location" action-url="${URLUtils.url("StoreSession-SetStore")}"/>
-          </div>
+            <div id="div_session_search-modal">
+                <input type="text" class="single-input" placeholder="Ingresa tu Código Postal" id="session_search-modal" name="location" action-url="${URLUtils.url("StoreSession-SetStore")}"/>
+            </div>
 
-          <div class="buttonSession">
-              <button type="button" id="session_search-confirm">Confirmar</button>
-          </div>
-          <div class="row p-3">
-            <img class="" src="${URLUtils.staticURL('/images/icons/ubicacion-desactivada.svg')}" alt="" />
-            <button type="button" id="session_search-location" >Utilizar tu ubicación</button>
-            
-          </div>
+            <div class="buttonSession">
+                <button type="button" id="session_search-confirm">Aceptar</button>
+            </div>
             
           </div>
         </div>

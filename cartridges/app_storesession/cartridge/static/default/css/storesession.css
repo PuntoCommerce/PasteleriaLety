@@ -4,14 +4,30 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 20px;
-  height: auto;
-  width: 500px;
-  background-color: #fff;
-  border: 1px solid #000;
-  display: flex;
-  justify-content: center;
+  height: 240px;
+  width: 296px;
   align-items: center;
+}
+
+.modal-title{
+  font-size: 16px;
+  color: #fff;
+  font-family: 'gotham-book';
+}
+
+.modal-btn-close{
+  color: #fff;
+  background-color: transparent;
+  border: none;
+}
+
+.modal-btn-close:active, .modal-btn-close:focus {
+  border: none;
+}
+
+.modal-header{
+  background-color: #D7612B;
+  padding: 10px;
 }
 
 .blockSession{
@@ -22,12 +38,39 @@
   background-color: rgba(255,255,255,0.5);
   width: 100%;
   height: 100%;
+  display: block;
+}
+
+.blockSessionMob{
+  z-index: 200;
+  position: fixed;
+  top:0;
+  left:0;
+  background-color: rgba(255,255,255,0.5);
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .txtSession{
-  font-weight: 600;
-  text-align: center;
+  font-weight: 700;
+  font-family: 'gotham-book';
+  font-size: 14px;
+  margin: 0;
+  line-height: 5px;
 }
+
+.txtSession2{
+  font-weight: 500;
+  font-family: 'gotham-book';
+  font-size: 14px;
+  margin: 0;
+  color: #D7612B;
+  margin-bottom: 20px;
+  padding: 0;
+  text-decoration: none !important;
+}
+
 .act_location_msg{
   font-weight: 500;
   text-align: center;
@@ -40,13 +83,21 @@
   text-decoration: underline;
 }
 
+#session_search-locationMobile {
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+}
+
 
 .single-input{
-  width: 270px;
-  border:1px solid black;
+  border:1px solid #D7612B;
   padding: 4px 10px;
-  border-radius: 30px;
+  border-radius: 8px;
   text-align: center;
+  width: 100%;
+  font-size: 14px;
+  color: #000;
 }
 
 .single-input:focus{
@@ -58,25 +109,27 @@
 }
 
 .buttonSession{
-  width: 270px;
-  border:1px solid #ED7014;
-  background-color: #ED7014;
+  background-color: #BFBFBF;
   margin-top: 10px;
   padding: 7px;
-  border-radius: 30px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 15px;
-  color: white;
+  color: #fff;
   margin-left: auto;
   margin-right: auto;
+  height: 37px;
 }
 
 .buttonSession > button{
   background: none;
   border: none;
-  color: white;
+  color: #fff;
+  font-family: 'gotham-book';
+  font-size: 18px;
+  padding-top: 15px;
 }
 
 .buttonSession > button:focus{
@@ -165,10 +218,38 @@ option{
 
 .content-session-modal{
   align-items: center;
+  width: 100%;
+  background-color: #fff;
+  padding: 30px 20px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
-#div_session_search-modal, #div_session_search-modal > input{
-  width: 257px;
+.content-session-modal-mobile{
+  align-items: center;
+  width: 100%;
+  background-color: #fff;
+  padding: 30px 20px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+#div_session_search-modal{
+  display: flex;
+  position: relative;
+  height: 37px;
+}
+
+.session_input_icon{
+  position: absolute;
+  right: 8px;
+  top: 7px;
+}
+
+.storeSession_cp{
+  color: #fff;
+  font-size: 12px;
+  margin: 0 0 0 10px;
 }
 
 @media (max-width: 1024px){
@@ -199,6 +280,7 @@ option{
   .sessionStoreAddress{
     font-size: 14px;
     padding: 0 15px;
+    color: #1C1C1C;
   }
   .dropdown-container{
     width: 100%;
@@ -209,17 +291,30 @@ option{
   .btmSession{
     display: none;
   }
-  .popup-modal-session {
-    width: 350px;
+  .storeSession_cp{
+    color:#1C1C1C;
+    margin: 3px 0 0 10px;
+  }
+  .locationPin{
+    height: 24px;
+    padding-left: 25px;
   }
   
+}
+
+@media (max-width: 769px){
+  #popup-session-desk{
+    display: none;
+  }
+
+  .blockSession{
+    display: none;
+  }
 }
 
 @media (max-width: 380px){
   .sessionStoreAddress{
     font-size: 11px;
   }
-  .popup-modal-session {
-    width: 300px;
-  }
+
 }
