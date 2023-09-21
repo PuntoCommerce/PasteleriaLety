@@ -54,7 +54,7 @@
             </div>
 
             <div class="buttonSession">
-                <button type="button" class="d-sm-block d-md-none" id="session_search-confirmMobile">Confirmar</button>
+                <button type="button" class="d-sm-block d-md-none" id="session_search-confirmMobile">Aceptar</button>
             </div>
             
           </div>
