@@ -851,14 +851,13 @@ header {
   text-decoration: none;
 }
 
-#cleanStore,
-#cleanStoreMobile {
+#cleanStore {
   border: none;
   background: none;
   color: #fff;
-  position: absolute;
-  right: -8px;
-  top: -0.4em;
+  display: flex;
+  align-items: center;
+  text-align: left;
 }
 
 .pac-target-input {
@@ -1566,17 +1565,16 @@ textarea {
 
   .location {
     margin-left: 0 !important;
-    background-color: var(--color-lety12-footer);
+    background-color: #fff;
   }
 
   .cleanStoreMobile {
     background-color: transparent;
     border: none;
-    color: white;
+    color: #1c1c1c;
     font-size: 25px;
-    position: absolute;
-    right: 10px;
-    top: 100px;
+    display: flex;
+    padding-left: 25px;
   }
 
   .input-location {
