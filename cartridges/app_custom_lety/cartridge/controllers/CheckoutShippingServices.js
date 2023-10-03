@@ -323,6 +323,7 @@ server.append("SubmitShipping", (req, res, next) => {
     currentBasket.custom.deliveryDateTime =
       shipping.datetime.date.value + " : " + shipping.datetime.time.value;
     currentBasket.custom.clientID = clientID;
+    currentBasket.custom.specialText = shipping.specialOrder.specialText.value
   });
 
   next();

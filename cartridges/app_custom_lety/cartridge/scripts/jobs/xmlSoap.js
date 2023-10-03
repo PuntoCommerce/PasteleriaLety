@@ -6,6 +6,11 @@ function responseEndPoint(xml, path) {
 
     let Existencia = XMLList(xml).descendants("Existencia");
 
+    var Logger = require('dw/system/Logger');
+    let logger = Logger.getLogger("ERP_Member", "ERP_Member")
+
+    logger.warn("Type: {0} payload {1}", 'INFO', xml);
+
     if (Existencia.length() === 0) {
       json += '{"error":"Error en la respuesta"},';
       json = json.slice(0, -1) + ']}';
@@ -373,6 +378,12 @@ function responseEndPoint(xml, path) {
     return { iCode: Co.toString(), sMensaje: sM.toString() };
   }
   if (path === "GetDateFromServer") {
+    let Co = XMLList(xml).descendants("iCode");
+    let sM = XMLList(xml).descendants("sMensaje");
+
+    return { iCode: Co.toString(), sMensaje: sM.toString() };
+  }
+  if (path === "RegistraPedidoEspecial") {
     let Co = XMLList(xml).descendants("iCode");
     let sM = XMLList(xml).descendants("sMensaje");
 
