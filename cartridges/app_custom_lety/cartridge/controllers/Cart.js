@@ -65,7 +65,7 @@ server.replace('AddProduct', inventory.checkOnlineInventory, function (req, res,
         });
         var CartProductType = ProductMgr.getProduct(productIds[0].productID).custom.tipoproducto;
 
-        if (CartProductType === 'pedido especial' && productType !== CartProductType) {
+        if (CartProductType === 'pedido especial' && productType !== CartProductType || CartProductType === 'linea' && productType === 'pedido especial') {
             res.json({
                 error: true,
                 message: Resource.msg("text.alert.split.order", "product", null)

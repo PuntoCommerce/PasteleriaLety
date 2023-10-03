@@ -43,37 +43,28 @@ const handleExistenciaCall = (pid, quantity, storeId, empresaId) => {
   var letyQuantity = 0;
   var err;
 
-  if (typeof existencia == "string") {
-    try {
-      var json = JSON.parse(existencia);
-      var productExist = Number(json.ExistenciaPorCentroFecha[0].Existencia);
+  try {
+    var productExist = Number(existencia.Existencia);
 
-      if (
-        productExist < quantity ||
-        json.ExistenciaPorCentroFecha[0].error
-      ) {
-        letyQuantity = json.ExistenciaPorCentroFecha[0].error
-          ? 0
-          : Math.ceil(productExist);
-        error = true;
-        message = Resource.msgf(
-          "no.stock.available",
-          "stockCustom",
-          null,
-          letyQuantity
-        );
-      }else{
-        letyQuantity = productExist;
-      }
-    } catch (error) {
+    if (
+      productExist < quantity
+    ) {
       error = true;
-      err = error;
-      message = Resource.msg("response.error", "stockCustom", null);
+      message = Resource.msgf(
+        "no.stock.available",
+        "stockCustom",
+        null,
+        letyQuantity
+      );
+    } else {
+      letyQuantity = productExist;
     }
-  } else {
+  } catch (error) {
     error = true;
+    err = error;
     message = Resource.msg("response.error", "stockCustom", null);
   }
+
   return { error: error, message: message, quantity: letyQuantity };
 };
 
@@ -111,7 +102,7 @@ const checkOnlineInventory = (req, res, next) => {
     store.custom.empresaId
   );
 
-  if(existencia.quantity === 0){
+  if (existencia.quantity === 0) {
     existencia.error = true
   }
 
